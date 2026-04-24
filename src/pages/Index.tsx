@@ -812,6 +812,29 @@ function Resume() {
 }
 
 function Contact() {
+  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+    const form = e.currentTarget;
+    try {
+      const response = await fetch("https://formspree.io/f/xyklopnb", {
+        method: "POST",
+        body: new FormData(form),
+        headers: { Accept: "application/json" },
+      });
+      if (response.ok) {
+        setSubmitted(true);
+        form.reset();
+      }
+    } catch (error) {
+      console.error("Form error:", error);
+    }
+    setLoading(false);
+  };
+
   return (
     <div className="max-w-md mx-auto px-6 py-16">
       <FadeIn>
@@ -822,35 +845,60 @@ function Contact() {
           Open to conversations about AI safety, human factors, and accessibility
           leadership
         </p>
-        <form
-          onSubmit={(e) => e.preventDefault()}
-          className="bg-white border border-gray-200 rounded-xl p-6 space-y-4"
-        >
-          {["Name", "Email", "Subject"].map((f) => (
-            <div key={f}>
+        {submitted ? (
+          <div className="bg-white border border-gray-200 rounded-xl p-8 text-center">
+            <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl font-bold">
+              ✓
+            </div>
+            <h2 className="text-lg font-bold text-gray-900 mb-1">Message Sent!</h2>
+            <p className="text-sm text-gray-500">
+              Thank you! I'll get back to you soon.
+            </p>
+            <button
+              onClick={() => setSubmitted(false)}
+              className="mt-4 text-sm text-[#1B3A5C] font-semibold hover:text-[#E8913A] transition-colors"
+            >
+              Send another message
+            </button>
+          </div>
+        ) : (
+          <form
+            onSubmit={handleSubmit}
+            className="bg-white border border-gray-200 rounded-xl p-6 space-y-4"
+          >
+            {["Name", "Email", "Subject"].map((f) => (
+              <div key={f}>
+                <label className="text-xs font-semibold text-gray-700 block mb-1">
+                  {f}
+                </label>
+                <input
+                  type={f === "Email" ? "email" : "text"}
+                  name={f.toLowerCase()}
+                  required
+                  className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm text-gray-900 focus:outline-none focus:border-[#1B3A5C] transition-colors"
+                  placeholder={f === "Email" ? "your@email.com" : ""}
+                />
+              </div>
+            ))}
+            <div>
               <label className="text-xs font-semibold text-gray-700 block mb-1">
-                {f}
+                Message
               </label>
-              <input
-                type={f === "Email" ? "email" : "text"}
-                className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm text-gray-900 focus:outline-none focus:border-[#1B3A5C] transition-colors"
-                placeholder={f === "Email" ? "your@email.com" : ""}
+              <textarea
+                name="message"
+                required
+                className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm text-gray-900 h-28 focus:outline-none focus:border-[#1B3A5C] transition-colors resize-none"
               />
             </div>
-          ))}
-          <div>
-            <label className="text-xs font-semibold text-gray-700 block mb-1">
-              Message
-            </label>
-            <textarea className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm text-gray-900 h-28 focus:outline-none focus:border-[#1B3A5C] transition-colors resize-none" />
-          </div>
-          <button
-            type="submit"
-            className="w-full bg-[#1B3A5C] text-white py-2.5 rounded-lg font-semibold text-sm hover:bg-[#E8913A] transition-colors"
-          >
-            Send Message
-          </button>
-        </form>
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full bg-[#1B3A5C] text-white py-2.5 rounded-lg font-semibold text-sm hover:bg-[#E8913A] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {loading ? "Sending..." : "Send Message"}
+            </button>
+          </form>
+        )}
         <div className="text-center mt-6 space-y-1">
           <p className="text-xs text-gray-400">arnsk3@gmail.com · 571-403-0835</p>
           <p className="text-xs text-gray-400">linkedin.com/in/senthil-nagappan</p>
