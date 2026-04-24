@@ -263,9 +263,11 @@ function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) 
     <nav className="sticky top-0 z-50 backdrop-blur-xl bg-white/90 border-b border-gray-100">
       <div className="max-w-5xl mx-auto flex items-center justify-between px-6 py-3">
         <button onClick={() => setPage("home")} className="flex items-center gap-2 group">
-          <div className="w-8 h-8 rounded-full bg-[#1B3A5C] flex items-center justify-center text-white text-xs font-bold group-hover:bg-[#E8913A] transition-colors">
-            SN
-          </div>
+          <img
+            src="/headshot.jpg"
+            alt="Senthil Kumar Nagappan"
+            className="w-8 h-8 rounded-full object-cover"
+          />
           <span className="font-semibold text-gray-900 text-sm tracking-tight hidden sm:block">
             Senthil Nagappan
           </span>
@@ -417,9 +419,11 @@ function Home({
       <section className="max-w-3xl mx-auto px-6 pb-16">
         <FadeIn>
           <div className="flex gap-5 items-start bg-white border border-gray-200 rounded-xl p-6">
-            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#1B3A5C] to-[#2E75B6] flex items-center justify-center text-white text-lg font-bold flex-shrink-0">
-              SN
-            </div>
+            <img
+              src="/headshot.jpg"
+              alt="Senthil Kumar Nagappan"
+              className="w-16 h-16 rounded-full object-cover flex-shrink-0"
+            />
             <div>
               <h3 className="font-bold text-gray-900 mb-1">Senthil Kumar Nagappan</h3>
               <p className="text-gray-500 text-sm leading-relaxed mb-2">
@@ -588,9 +592,11 @@ function About() {
     <div className="max-w-3xl mx-auto px-6 py-16">
       <FadeIn>
         <div className="flex flex-col sm:flex-row gap-6 items-start mb-12">
-          <div className="w-28 h-28 rounded-2xl bg-gradient-to-br from-[#1B3A5C] to-[#2E75B6] flex items-center justify-center text-white text-3xl font-bold flex-shrink-0">
-            SN
-          </div>
+          <img
+            src="/headshot.jpg"
+            alt="Senthil Kumar Nagappan"
+            className="w-28 h-28 rounded-2xl object-cover flex-shrink-0"
+          />
           <div>
             <h1 className="text-3xl font-extrabold text-gray-900 tracking-tight mb-1">
               Senthil Kumar Nagappan
