@@ -1042,24 +1042,27 @@ function Footer({ setPage }: { setPage: (p: PageId) => void }) {
       <div className="max-w-5xl mx-auto px-6 py-10 flex flex-col sm:flex-row justify-between items-start gap-6">
         <div>
           <p className="font-bold text-white text-sm">Senthil Kumar Nagappan</p>
-          <p className="text-white/40 text-xs mt-1">
-            AI Safety & Human Systems Integration Leader
+          <p className="text-white/85 text-xs mt-1">
+            AI Safety &amp; Human Systems Integration Leader
           </p>
-          <p className="text-white/25 text-xs mt-3">
-            © 2026 · Designed & built with accessibility in mind
+          <p className="text-white/75 text-xs mt-3">
+            © 2026 · Designed &amp; built with accessibility in mind
           </p>
         </div>
-        <div className="flex gap-5 flex-wrap">
-          {(["home", "about", "approach", "resume", "contact"] as PageId[]).map((p) => (
-            <button
-              key={p}
-              onClick={() => setPage(p)}
-              className="text-white/40 text-xs hover:text-white transition-colors capitalize"
-            >
-              {p}
-            </button>
-          ))}
-        </div>
+        <nav aria-label="Footer">
+          <ul className="flex gap-5 flex-wrap list-none p-0 m-0">
+            {(["home", "about", "approach", "resume", "contact"] as PageId[]).map((p) => (
+              <li key={p}>
+                <button
+                  onClick={() => setPage(p)}
+                  className="text-white/90 text-xs hover:text-white underline-offset-4 hover:underline transition-colors capitalize rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#111827]"
+                >
+                  {p}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </div>
     </footer>
   );
