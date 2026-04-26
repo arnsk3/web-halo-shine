@@ -432,21 +432,22 @@ function Home({
           <div className="flex gap-5 items-start bg-white border border-gray-200 rounded-xl p-6">
             <img
               src="/headshot.jpg"
-              alt="Senthil Kumar Nagappan"
+              alt=""
+              aria-hidden="true"
               className="w-16 h-16 rounded-full object-cover flex-shrink-0"
             />
             <div>
               <h3 className="font-bold text-gray-900 mb-1">Senthil Kumar Nagappan</h3>
-              <p className="text-gray-500 text-sm leading-relaxed mb-2">
+              <p className="text-gray-700 text-sm leading-relaxed mb-2">
                 Senior AI and Human Systems Integration leader with 18+ years building
                 enterprise functions that deliver safe, compliant, AI-driven products in
                 regulated environments.
               </p>
               <button
                 onClick={() => setPage("about")}
-                className="text-[#1B3A5C] text-sm font-semibold hover:text-[#E8913A] transition-colors"
+                className="text-[#1B3A5C] text-sm font-semibold hover:text-[#E8913A] transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2"
               >
-                Read full story →
+                Read full story <span aria-hidden="true">→</span>
               </button>
             </div>
           </div>
