@@ -610,17 +610,17 @@ function About() {
         <div className="flex flex-col sm:flex-row gap-6 items-start mb-12">
           <img
             src="/headshot.jpg"
-            alt="Senthil Kumar Nagappan"
+            alt="Portrait of Senthil Kumar Nagappan"
             className="w-28 h-28 rounded-2xl object-cover flex-shrink-0"
           />
           <div>
             <h1 className="text-3xl font-extrabold text-gray-900 tracking-tight mb-1">
               Senthil Kumar Nagappan
             </h1>
-            <p className="text-[#E8913A] font-semibold text-sm mb-3">
-              AI Safety & Human Systems Integration Leader
+            <p className="text-[#B85D1A] font-semibold text-sm mb-3">
+              AI Safety &amp; Human Systems Integration Leader
             </p>
-            <p className="text-gray-500 text-sm leading-relaxed">
+            <p className="text-gray-700 text-sm leading-relaxed">
               18+ years building enterprise functions that deliver safe, compliant,
               AI-driven products in regulated environments across healthcare, federal,
               retail, and defense sectors.
