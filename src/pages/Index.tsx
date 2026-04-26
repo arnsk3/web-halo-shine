@@ -869,10 +869,12 @@ function Resume() {
 function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
+    setError(null);
     const form = e.currentTarget;
     try {
       const response = await fetch("https://formspree.io/f/xyklopnb", {
@@ -883,12 +885,21 @@ function Contact() {
       if (response.ok) {
         setSubmitted(true);
         form.reset();
+      } else {
+        setError("Something went wrong sending your message. Please try again.");
       }
-    } catch (error) {
-      console.error("Form error:", error);
+    } catch (err) {
+      console.error("Form error:", err);
+      setError("Network error. Please check your connection and try again.");
     }
     setLoading(false);
   };
+
+  const fields: { id: string; label: string; type: string; autoComplete: string; placeholder?: string }[] = [
+    { id: "name", label: "Name", type: "text", autoComplete: "name" },
+    { id: "email", label: "Email", type: "email", autoComplete: "email", placeholder: "your@email.com" },
+    { id: "subject", label: "Subject", type: "text", autoComplete: "off" },
+  ];
 
   return (
     <div className="max-w-md mx-auto px-6 py-16">
@@ -896,22 +907,29 @@ function Contact() {
         <h1 className="text-3xl font-extrabold text-gray-900 tracking-tight mb-2 text-center">
           Get in Touch
         </h1>
-        <p className="text-gray-500 text-sm mb-8 text-center">
+        <p className="text-gray-700 text-sm mb-8 text-center">
           Open to conversations about AI safety, human factors, and accessibility
           leadership
         </p>
         {submitted ? (
-          <div className="bg-white border border-gray-200 rounded-xl p-8 text-center">
-            <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl font-bold">
+          <div
+            role="status"
+            aria-live="polite"
+            className="bg-white border border-gray-200 rounded-xl p-8 text-center"
+          >
+            <div
+              aria-hidden="true"
+              className="w-12 h-12 mx-auto mb-4 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-2xl font-bold"
+            >
               ✓
             </div>
             <h2 className="text-lg font-bold text-gray-900 mb-1">Message Sent!</h2>
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-gray-700">
               Thank you! I'll get back to you soon.
             </p>
             <button
               onClick={() => setSubmitted(false)}
-              className="mt-4 text-sm text-[#1B3A5C] font-semibold hover:text-[#E8913A] transition-colors"
+              className="mt-4 text-sm text-[#1B3A5C] font-semibold hover:text-[#B85D1A] transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2"
             >
               Send another message
             </button>
@@ -919,46 +937,100 @@ function Contact() {
         ) : (
           <form
             onSubmit={handleSubmit}
+            noValidate={false}
+            aria-label="Contact form"
             className="bg-white border border-gray-200 rounded-xl p-6 space-y-4"
           >
-            {["Name", "Email", "Subject"].map((f) => (
-              <div key={f}>
-                <label className="text-xs font-semibold text-gray-700 block mb-1">
-                  {f}
+            {error && (
+              <div
+                role="alert"
+                className="rounded-lg border border-red-300 bg-red-50 px-3 py-2 text-sm text-red-800"
+              >
+                {error}
+              </div>
+            )}
+            {fields.map((f) => (
+              <div key={f.id}>
+                <label
+                  htmlFor={`contact-${f.id}`}
+                  className="text-xs font-semibold text-gray-800 block mb-1"
+                >
+                  {f.label}
+                  <span aria-hidden="true" className="text-red-700"> *</span>
                 </label>
                 <input
-                  type={f === "Email" ? "email" : "text"}
-                  name={f.toLowerCase()}
+                  id={`contact-${f.id}`}
+                  type={f.type}
+                  name={f.id}
                   required
-                  className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm text-gray-900 focus:outline-none focus:border-[#1B3A5C] transition-colors"
-                  placeholder={f === "Email" ? "your@email.com" : ""}
+                  aria-required="true"
+                  autoComplete={f.autoComplete}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 transition-colors focus:outline-none focus:border-[#1B3A5C] focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-1"
+                  placeholder={f.placeholder}
                 />
               </div>
             ))}
             <div>
-              <label className="text-xs font-semibold text-gray-700 block mb-1">
+              <label
+                htmlFor="contact-message"
+                className="text-xs font-semibold text-gray-800 block mb-1"
+              >
                 Message
+                <span aria-hidden="true" className="text-red-700"> *</span>
               </label>
               <textarea
+                id="contact-message"
                 name="message"
                 required
-                className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm text-gray-900 h-28 focus:outline-none focus:border-[#1B3A5C] transition-colors resize-none"
+                aria-required="true"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 h-28 transition-colors focus:outline-none focus:border-[#1B3A5C] focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-1 resize-y"
               />
             </div>
+            <p className="text-xs text-gray-700">
+              <span aria-hidden="true" className="text-red-700">*</span> Required field
+            </p>
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-[#1B3A5C] text-white py-2.5 rounded-lg font-semibold text-sm hover:bg-[#E8913A] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              aria-busy={loading}
+              className="w-full bg-[#1B3A5C] text-white py-2.5 rounded-lg font-semibold text-sm hover:bg-[#B85D1A] transition-colors disabled:opacity-60 disabled:cursor-not-allowed focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2"
             >
               {loading ? "Sending..." : "Send Message"}
             </button>
+            <p role="status" aria-live="polite" className="sr-only">
+              {loading ? "Sending your message" : ""}
+            </p>
           </form>
         )}
-        <div className="text-center mt-6 space-y-1">
-          <p className="text-xs text-gray-400">arnsk3@gmail.com · 571-403-0835</p>
-          <p className="text-xs text-gray-400">linkedin.com/in/senthil-nagappan</p>
-          <p className="text-xs text-gray-300">Vienna, VA (DMV) | Frisco, TX (DFW)</p>
-        </div>
+        <address className="not-italic text-center mt-6 space-y-1">
+          <p className="text-sm text-gray-700">
+            <a
+              href="mailto:arnsk3@gmail.com"
+              className="text-[#1B3A5C] hover:text-[#B85D1A] underline rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2"
+            >
+              arnsk3@gmail.com
+            </a>{" "}
+            ·{" "}
+            <a
+              href="tel:+15714030835"
+              className="text-[#1B3A5C] hover:text-[#B85D1A] underline rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2"
+            >
+              571-403-0835
+            </a>
+          </p>
+          <p className="text-sm text-gray-700">
+            <a
+              href="https://www.linkedin.com/in/senthil-nagappan"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#1B3A5C] hover:text-[#B85D1A] underline rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2"
+            >
+              linkedin.com/in/senthil-nagappan
+              <span className="sr-only"> (opens in a new tab)</span>
+            </a>
+          </p>
+          <p className="text-sm text-gray-700">Vienna, VA (DMV) | Frisco, TX (DFW)</p>
+        </address>
       </FadeIn>
     </div>
   );
