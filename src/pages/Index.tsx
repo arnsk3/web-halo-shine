@@ -591,19 +591,93 @@ function CaseStudy({
           </FadeIn>
         ))}
 
-        {/* Visual placeholder */}
-        <FadeIn>
-          <div
-            role="img"
-            aria-label="Placeholder for an NDA-safe recreated process diagram or framework visual"
-            className="my-8 h-48 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl border-2 border-dashed border-gray-300 flex items-center justify-center flex-col gap-2"
-          >
-            <span className="text-gray-700 text-xs font-medium">
-              PROCESS DIAGRAM / FRAMEWORK VISUAL
-            </span>
-            <span className="text-gray-600 text-[10px]">NDA-safe recreated artifact</span>
-          </div>
-        </FadeIn>
+        {/* Visual: case-study specific */}
+        {study.id === "bestbuy" ? (
+          <FadeIn>
+            <figure
+              className="my-8"
+              aria-labelledby="mil-civ-parallel-title"
+            >
+              <figcaption
+                id="mil-civ-parallel-title"
+                className="text-xs font-semibold tracking-wide uppercase text-gray-700 mb-3 text-center"
+              >
+                Military Operator → Elderly User: a direct human factors parallel
+              </figcaption>
+              <div className="grid grid-cols-1 md:grid-cols-2 rounded-xl overflow-hidden border border-gray-200 shadow-sm">
+                {/* Military column */}
+                <div className="bg-[#3b4a2a] text-white p-5">
+                  <div className="flex items-center gap-2 mb-4">
+                    <span
+                      aria-hidden="true"
+                      className="w-2 h-2 rounded-full bg-[#c7d49a]"
+                    />
+                    <h4 className="text-sm font-bold tracking-wide uppercase">
+                      Military Operator
+                    </h4>
+                  </div>
+                  <ul className="space-y-3 text-sm leading-snug list-none p-0 m-0">
+                    <li>Reduced dexterity (gloves)</li>
+                    <li>Degraded vision (helmet)</li>
+                    <li>High stress (combat)</li>
+                    <li>Cognitive load (multitasking)</li>
+                    <li>Must act quickly and correctly</li>
+                  </ul>
+                </div>
+                {/* Civilian column */}
+                <div className="bg-[#eaf3fb] text-[#0f2a44] p-5 relative">
+                  <div className="flex items-center gap-2 mb-4">
+                    <span
+                      aria-hidden="true"
+                      className="w-2 h-2 rounded-full bg-[#2E75B6]"
+                    />
+                    <h4 className="text-sm font-bold tracking-wide uppercase text-[#1B3A5C]">
+                      Elderly User
+                    </h4>
+                  </div>
+                  <ul className="space-y-3 text-sm leading-snug list-none p-0 m-0">
+                    <li>
+                      <span aria-hidden="true" className="text-[#1B3A5C] mr-1">→</span>
+                      Reduced dexterity (arthritis)
+                    </li>
+                    <li>
+                      <span aria-hidden="true" className="text-[#1B3A5C] mr-1">→</span>
+                      Degraded vision (cataracts)
+                    </li>
+                    <li>
+                      <span aria-hidden="true" className="text-[#1B3A5C] mr-1">→</span>
+                      High stress (medical emergency)
+                    </li>
+                    <li>
+                      <span aria-hidden="true" className="text-[#1B3A5C] mr-1">→</span>
+                      Cognitive decline (age-related)
+                    </li>
+                    <li>
+                      <span aria-hidden="true" className="text-[#1B3A5C] mr-1">→</span>
+                      Must activate help quickly
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <p className="text-[11px] text-gray-600 mt-2 text-center">
+                MIL-STD-1472H design criteria mapped from defense systems to consumer health products.
+              </p>
+            </figure>
+          </FadeIn>
+        ) : (
+          <FadeIn>
+            <div
+              role="img"
+              aria-label="Placeholder for an NDA-safe recreated process diagram or framework visual"
+              className="my-8 h-48 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl border-2 border-dashed border-gray-300 flex items-center justify-center flex-col gap-2"
+            >
+              <span className="text-gray-700 text-xs font-medium">
+                PROCESS DIAGRAM / FRAMEWORK VISUAL
+              </span>
+              <span className="text-gray-600 text-[10px]">NDA-safe recreated artifact</span>
+            </div>
+          </FadeIn>
+        )}
 
         {/* Outcomes */}
         <FadeIn>
