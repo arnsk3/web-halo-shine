@@ -538,11 +538,15 @@ function CaseStudy({
 
         {/* Visual placeholder */}
         <FadeIn>
-          <div className="my-8 h-48 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl border-2 border-dashed border-gray-200 flex items-center justify-center flex-col gap-2">
-            <span className="text-gray-400 text-xs font-medium">
+          <div
+            role="img"
+            aria-label="Placeholder for an NDA-safe recreated process diagram or framework visual"
+            className="my-8 h-48 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl border-2 border-dashed border-gray-300 flex items-center justify-center flex-col gap-2"
+          >
+            <span className="text-gray-700 text-xs font-medium">
               PROCESS DIAGRAM / FRAMEWORK VISUAL
             </span>
-            <span className="text-gray-300 text-[10px]">NDA-safe recreated artifact</span>
+            <span className="text-gray-600 text-[10px]">NDA-safe recreated artifact</span>
           </div>
         </FadeIn>
 
