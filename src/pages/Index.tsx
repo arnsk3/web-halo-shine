@@ -771,17 +771,17 @@ function Approach() {
               style={{ borderLeftWidth: 4, borderLeftColor: f.color }}
             >
               <h3 className="font-bold text-gray-900 text-base mb-0.5">{f.title}</h3>
-              <p className="text-gray-400 text-xs mb-3">{f.sub}</p>
-              <div className="flex gap-2 flex-wrap">
+              <p className="text-gray-700 text-xs mb-3">{f.sub}</p>
+              <ul className="flex gap-2 flex-wrap list-none p-0 m-0">
                 {f.items.map((item) => (
-                  <span
+                  <li
                     key={item}
-                    className="text-[10px] px-2.5 py-1 rounded-full bg-gray-50 text-gray-600 border border-gray-100"
+                    className="text-[10px] px-2.5 py-1 rounded-full bg-gray-100 text-gray-800 border border-gray-200"
                   >
                     {item}
-                  </span>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
           </FadeIn>
         ))}
