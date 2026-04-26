@@ -554,14 +554,14 @@ function CaseStudy({
         <FadeIn>
           <div className="bg-[#1B3A5C] rounded-xl p-6 mb-8">
             <h3 className="text-white font-bold mb-4">Impact & Outcomes</h3>
-            <div className="space-y-2.5">
+            <ul className="space-y-2.5 list-none p-0 m-0">
               {study.outcomes.map((o, i) => (
-                <div key={i} className="flex gap-3 items-start">
-                  <span className="text-[#E8913A] text-base mt-0.5">✓</span>
-                  <span className="text-white/85 text-sm leading-relaxed">{o}</span>
-                </div>
+                <li key={i} className="flex gap-3 items-start">
+                  <span aria-hidden="true" className="text-[#E8913A] text-base mt-0.5">✓</span>
+                  <span className="text-white text-sm leading-relaxed">{o}</span>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         </FadeIn>
 
