@@ -631,18 +631,18 @@ function About() {
 
       <FadeIn delay={0.1}>
         <div className="prose prose-sm max-w-none mb-12">
-          <p className="text-gray-600 leading-[1.9] mb-4">
+          <p className="text-gray-700 leading-[1.9] mb-4">
             I've spent my career at the intersection of technology and human safety —
             building the systems, standards, and teams that ensure AI-driven products work
             correctly for the people who depend on them.
           </p>
-          <p className="text-gray-600 leading-[1.9] mb-4">
+          <p className="text-gray-700 leading-[1.9] mb-4">
             My methodology is grounded in structured engineering standards: MIL-STD-1472H
             for human engineering design criteria, ISO 14971 and IEC 62366 for medical
             device usability engineering, and MBSE/SysML for tracing human performance
             requirements through system architecture.
           </p>
-          <p className="text-gray-600 leading-[1.9]">
+          <p className="text-gray-700 leading-[1.9]">
             Whether the system is a clinical diagnostic tool or a government case
             processing platform, I apply the same disciplined approach: analyze the human
             in the system, design to validated criteria, test with representative
