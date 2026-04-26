@@ -757,7 +757,7 @@ function Approach() {
         <h1 className="text-3xl font-extrabold text-gray-900 tracking-tight mb-2">
           My Approach
         </h1>
-        <p className="text-gray-500 text-sm mb-12 max-w-lg">
+        <p className="text-gray-700 text-sm mb-12 max-w-lg">
           How I ensure AI-driven systems are safe, accessible, and compliant — from
           requirements through deployment
         </p>
