@@ -260,33 +260,43 @@ function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) 
     { id: "contact", label: "Contact" },
   ];
   return (
-    <nav className="sticky top-0 z-50 backdrop-blur-xl bg-white/90 border-b border-gray-100">
+    <nav
+      aria-label="Primary"
+      className="sticky top-0 z-50 backdrop-blur-xl bg-white/95 border-b border-gray-200"
+    >
       <div className="max-w-5xl mx-auto flex items-center justify-between px-6 py-3">
-        <button onClick={() => setPage("home")} className="flex items-center gap-2 group">
+        <button
+          onClick={() => setPage("home")}
+          aria-label="Senthil Nagappan — go to home"
+          className="flex items-center gap-2 group rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2"
+        >
           <img
             src="/headshot.jpg"
-            alt="Senthil Kumar Nagappan"
+            alt=""
+            aria-hidden="true"
             className="w-8 h-8 rounded-full object-cover"
           />
           <span className="font-semibold text-gray-900 text-sm tracking-tight hidden sm:block">
             Senthil Nagappan
           </span>
         </button>
-        <div className="flex gap-1">
+        <ul className="flex gap-1 list-none m-0 p-0">
           {links.map((l) => (
-            <button
-              key={l.id}
-              onClick={() => setPage(l.id)}
-              className={`px-3 py-1.5 rounded-md text-sm transition-all ${
-                page === l.id
-                  ? "bg-[#1B3A5C]/10 text-[#1B3A5C] font-semibold"
-                  : "text-gray-500 hover:text-gray-900 hover:bg-gray-50"
-              }`}
-            >
-              {l.label}
-            </button>
+            <li key={l.id}>
+              <button
+                onClick={() => setPage(l.id)}
+                aria-current={page === l.id ? "page" : undefined}
+                className={`px-3 py-1.5 rounded-md text-sm transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2 ${
+                  page === l.id
+                    ? "bg-[#1B3A5C]/10 text-[#1B3A5C] font-semibold"
+                    : "text-gray-700 hover:text-gray-900 hover:bg-gray-100"
+                }`}
+              >
+                {l.label}
+              </button>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </nav>
   );
