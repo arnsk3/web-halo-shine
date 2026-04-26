@@ -790,21 +790,21 @@ function Approach() {
       <FadeIn>
         <div className="bg-[#1B3A5C] rounded-xl p-6 text-center">
           <h3 className="text-white font-bold mb-2">Where My Domains Converge</h3>
-          <p className="text-white/60 text-xs mb-5 max-w-md mx-auto">
+          <p className="text-white text-xs mb-5 max-w-md mx-auto opacity-95">
             Every project I lead integrates these four disciplines — AI safety isn't just
             governance, it's systems engineering, human factors, and accessibility working
             together.
           </p>
-          <div className="flex justify-center gap-4 flex-wrap">
+          <ul className="flex justify-center gap-4 flex-wrap list-none p-0 m-0">
             {["HSI", "HFE", "A11y", "AI Safety"].map((d) => (
-              <div
+              <li
                 key={d}
-                className="w-16 h-16 rounded-full border-2 border-white/20 bg-white/5 flex items-center justify-center text-white text-xs font-bold"
+                className="w-16 h-16 rounded-full border-2 border-white/70 bg-white/10 flex items-center justify-center text-white text-xs font-bold"
               >
                 {d}
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </FadeIn>
     </div>
