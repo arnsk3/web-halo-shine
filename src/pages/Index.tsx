@@ -531,7 +531,7 @@ function CaseStudy({
                 </span>
                 {s.heading}
               </h2>
-              <p className="text-gray-600 text-sm leading-[1.8] pl-8">{s.content}</p>
+              <p className="text-gray-700 text-sm leading-[1.8] pl-8">{s.content}</p>
             </div>
           </FadeIn>
         ))}
