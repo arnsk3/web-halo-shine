@@ -471,9 +471,9 @@ function CaseStudy({
         <div className="max-w-3xl mx-auto px-6 py-16">
           <button
             onClick={() => setPage("home")}
-            className="text-white/60 text-sm hover:text-white mb-6 inline-block transition-colors"
+            className="text-white/85 text-sm hover:text-white mb-6 inline-block transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E8913A] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1B3A5C]"
           >
-            ← Back to Case Studies
+            <span aria-hidden="true">←</span> Back to Case Studies
           </button>
           <p className="text-[#E8913A] text-xs font-semibold tracking-[2px] uppercase mb-3">
             {study.tag}
@@ -481,23 +481,23 @@ function CaseStudy({
           <h1 className="text-3xl sm:text-4xl font-extrabold leading-tight mb-4 tracking-tight">
             {study.title}
           </h1>
-          <p className="text-white/70 text-base mb-8 max-w-xl leading-relaxed">
+          <p className="text-white/90 text-base mb-8 max-w-xl leading-relaxed">
             {study.subtitle}
           </p>
-          <div className="flex gap-6 text-sm flex-wrap">
+          <dl className="flex gap-6 text-sm flex-wrap">
             <div>
-              <span className="text-white/50">Role</span>
-              <span className="block font-semibold mt-0.5">{study.role}</span>
+              <dt className="text-white/85">Role</dt>
+              <dd className="block font-semibold mt-0.5">{study.role}</dd>
             </div>
             <div>
-              <span className="text-white/50">Timeline</span>
-              <span className="block font-semibold mt-0.5">{study.timeline}</span>
+              <dt className="text-white/85">Timeline</dt>
+              <dd className="block font-semibold mt-0.5">{study.timeline}</dd>
             </div>
             <div>
-              <span className="text-white/50">Organization</span>
-              <span className="block font-semibold mt-0.5">{study.org}</span>
+              <dt className="text-white/85">Organization</dt>
+              <dd className="block font-semibold mt-0.5">{study.org}</dd>
             </div>
-          </div>
+          </dl>
         </div>
       </div>
 
