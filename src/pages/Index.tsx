@@ -28,12 +28,12 @@ const CASE_STUDIES: CaseStudyType[] = [
     tag: "AI Safety · FDA · Clinical Systems",
     title: "AI Safety Framework for Clinical Decision-Support",
     subtitle:
-      "Established AI safety as the enterprise standard operating model at GE HealthCare — zero AI-enabled features now ship without passing this framework.",
+      "Built the AI safety function from the ground up at GE HealthCare — zero AI-enabled features now ship without passing this framework.",
     hero: "from-[#0f2027] via-[#1B3A5C] to-[#2E75B6]",
     role: "AI + Human Systems Integration Lead",
     timeline: "2025 – Present",
     org: "GE HealthCare",
-    standards: ["FDA", "IEC 62366", "ISO 14971", "MIL-STD-1472H"],
+    standards: ["FDA", "IEC 62366", "ISO 14971", "MIL-STD-1472H", "MBSE/SysML", "DoDI 5000.95"],
     metrics: [
       { value: "10+", label: "Product Teams" },
       { value: "15+", label: "Leaders" },
@@ -41,34 +41,47 @@ const CASE_STUDIES: CaseStudyType[] = [
     ],
     sections: [
       {
-        heading: "The Challenge",
+        heading: "The Problem",
         content:
-          "GE HealthCare had no structured approach to AI safety for clinical decision-support systems. No evaluation criteria. No deployment thresholds. No governance framework. AI-enabled features were being designed and released without a standardized process for validating safety, managing risk, or ensuring regulatory compliance.",
+          "GE HealthCare was developing AI-enabled clinical decision-support systems for prenatal diagnostics — tools where a wrong output doesn't mean a bad user experience, it means a missed diagnosis. When I joined, the organization had no AI safety framework: no evaluation criteria, no deployment thresholds, no human-in-the-loop governance, no standardized method for identifying automation bias or overreliance risks. Each product team was making ad-hoc safety decisions independently. In a regulated environment governed by FDA, IEC 62366, and ISO 14971, this was a patient safety liability.",
       },
       {
-        heading: "My Approach",
+        heading: "What I Was Hired To Do",
         content:
-          "I established the AI safety function from the ground up — defining model evaluation criteria, deployment thresholds, and human-in-the-loop decision frameworks that balance clinical safety, model accuracy, and clinician trust. I identified critical use errors (automation bias, overreliance, override failure) through FMEA, URRA, and cognitive task analysis prior to FDA submission.",
+          "I was brought in to build the AI safety function from the ground up — not to consult or advise, but to own it. My mandate: define how AI-driven clinical systems are designed, evaluated, and approved. Establish governance that ensures patient safety without killing innovation velocity. Align engineering, clinical, regulatory, and QA teams around shared safety standards. Make the organization FDA-ready for AI-enabled product submissions.",
       },
       {
-        heading: "What I Built",
+        heading: "The Governance Framework",
         content:
-          "A comprehensive AI safety governance framework covering the full lifecycle: how AI-driven systems are designed, evaluated, approved, and monitored. This included decision accountability structures, cross-functional review processes, and deployment readiness criteria. I led the cross-functional organization of 10+ teams across engineering, product, clinical, regulatory, and QA — partnering with senior leadership to shape the AI product strategy and roadmap.",
+          "I established a comprehensive framework covering the full AI lifecycle: Design Phase — human-in-the-loop decision models defining when clinicians confirm, override, or defer to AI. Evaluation Phase — model evaluation criteria, deployment thresholds, FMEA and URRA for AI-specific failure scenarios, and cognitive task analysis of real clinical workflows. Approval Phase — deployment readiness criteria, go/no-go decision authority with cross-functional sign-off, and regulatory evidence documentation. Monitoring Phase — ongoing performance tracking, drift detection, and incident response protocols.",
+      },
+      {
+        heading: "Human-in-the-Loop Decision Models",
+        content:
+          "The most critical piece. For every AI feature, I defined three models. Model A (AI Recommends, Human Decides): for high-risk diagnostic decisions — AI provides confidence scores, clinician accepts or overrides. Model B (AI Acts, Human Monitors): for routine measurements — AI operates within parameters, clinician monitors and intervenes. Model C (AI Alerts, Human Investigates): for screening workflows — AI flags anomalies, clinician investigates. Each model has specific design requirements preventing automation bias and alert fatigue.",
+      },
+      {
+        heading: "The Hardest Decisions",
+        content:
+          "Sensitivity vs. Specificity: a screening algorithm flagged too many false positives. Engineering wanted lower sensitivity, clinical wanted it high. My framework: in clinical AI, the cost of missing something always exceeds the cost of extra investigation. Sensitivity stays, but the interface helps clinicians triage faster. Speed vs. Explainability: leadership wanted sub-second AI responses, but faster models sacrificed explainability. My decision: speed without trust is useless clinically. Implemented layered explainability — immediate recommendation with on-demand rationale. Automation vs. Autonomy: some stakeholders wanted fully automated workflows. I pushed back — in prenatal diagnostics, every automated decision must have a meaningful human checkpoint. This principle was codified into the enterprise standard.",
       },
     ],
     outcomes: [
       "Zero AI-enabled features now ship without passing this framework",
       "Institutionalized across 10+ product teams, 15+ leaders, 50+ stakeholders",
-      "Accelerated regulatory approval cycles — reducing late-stage design rework",
-      "Shortened FDA submission readiness across enterprise programs",
-      "Established as the enterprise standard operating model",
+      "Established as the enterprise standard operating model for clinical product development",
+      "Accelerated regulatory approval cycles — catching safety issues in design, not at the finish line",
+      "Reduced late-stage design rework by embedding safety validation early",
+      "Framework maps directly to FDA Human Factors, IEC 62366, and ISO 14971",
+      "AI Safety Review Board established with cross-functional governance",
     ],
     hsi: [
-      "Human-in-the-loop frameworks",
-      "Model evaluation criteria",
-      "Deployment thresholds",
-      "Decision accountability",
-      "FMEA / URRA risk analysis",
+      "Human Performance Requirements — defined clinician interaction models for AI outputs",
+      "MIL-STD-1472H — applied human engineering design criteria to clinical AI interfaces",
+      "MBSE/SysML — traced human performance requirements through system architecture",
+      "Safety & Health — core mission: preventing patient harm from automation bias and overreliance",
+      "DoDI 5000.95 — HSI lifecycle principles applied to AI system development",
+      "Same structured HSI methodology previously applied to SSA11y and federal systems",
     ],
   },
   {
