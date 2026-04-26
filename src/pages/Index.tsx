@@ -691,10 +691,10 @@ function About() {
               </span>
             ))}
           </div>
-          <p className="text-xs text-gray-400">
+          <p className="text-xs text-gray-700">
             Recognized Practitioner: W3C WAI · IAAP · HFES
           </p>
-          <p className="text-xs text-gray-400 mt-1">
+          <p className="text-xs text-gray-700 mt-1">
             Affiliations: IAAP · HFES · UXPA · W3C WAI (Volunteer)
           </p>
         </div>
