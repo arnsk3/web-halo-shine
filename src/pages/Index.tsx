@@ -207,7 +207,7 @@ const CASE_STUDIES: CaseStudyType[] = [
     tag: "Federal · $130M Portfolio · 7 Years",
     title: "$130M Federal Behavioral Health Program",
     subtitle:
-      "Directed a national-scale portfolio end-to-end for 7 years — shaping technology strategy and influencing executive funding decisions.",
+      "Directed a national-scale portfolio end-to-end for 7 years — building teams, defining governance, and influencing executive funding decisions that shaped behavioral health systems nationwide.",
     hero: "from-[#1B3A5C] via-[#4a6fa5] to-[#E8913A]",
     role: "Sr. UX & Accessibility Program Manager",
     timeline: "2014 – 2021",
@@ -220,31 +220,47 @@ const CASE_STUDIES: CaseStudyType[] = [
     ],
     sections: [
       {
-        heading: "The Challenge",
+        heading: "The Program",
         content:
-          "SAMHSA needed unified UX strategy and design governance across a sprawling federal behavioral health program — 6+ platforms, 50+ stakeholders, and competing priorities that required constant investment prioritization.",
+          "SAMHSA operates the nation's behavioral health information systems — platforms that help Americans find treatment facilities for addiction and mental health, submit behavioral health data to the federal government, and access evidence-based resources. The portfolio included the Treatment Locator (millions of searches annually by people in crisis), data submission systems, data visualization platforms, public information portals, and internal administrative tools. 6+ platforms. 2M+ monthly visitors. Serving some of the most vulnerable people in the country.",
       },
       {
         heading: "My Role",
         content:
-          "I owned the full portfolio end-to-end with budget, staffing, and vendor accountability. I defined investment prioritization and funding strategy, influencing executive decisions and budget allocation across competing programs impacting national behavioral health systems.",
+          "This was program leadership with full accountability — not a UX design role. Full budget authority across the portfolio: staffing, technology, vendor contracts, infrastructure. Recruited, managed, and grew a cross-functional team of 15+ designers, developers, content specialists, and QA. Managed vendor ecosystems including selection, performance, and contract negotiations. Trusted advisor to SAMHSA executive stakeholders on product direction, technology strategy, and investment prioritization. Accountable for on-time, on-budget, compliant delivery across all platforms. I held this role for 7 years — the longest-tenured and highest-scale program leadership in my career.",
+      },
+      {
+        heading: "The Challenge",
+        content:
+          "Four systemic problems: No UX governance — each platform built by different teams with different design approaches, no unified architecture or shared components. Accessibility was an afterthought — Section 508 compliance treated as post-launch audit, violations found after deployment and reintroduced next release. Excessive development rework — without UX governance and accessibility standards, teams discovered problems late, consuming 30-40% of development capacity fixing what should have been right the first time. Competing priorities with no framework — 50+ stakeholders with competing demands and no structured process for deciding what gets built first.",
       },
       {
         heading: "What I Transformed",
         content:
-          "Institutionalized HSI-driven design practices across the engineering lifecycle, reducing rework 30–40% and saving $2M+ annually. Defined Section 508 governance as organizational policy. Recruited, managed, and grew cross-functional teams of 15+ and vendor ecosystems supporting national-scale systems.",
+          "UX Strategy & Design Governance: defined consistent navigation, labeling, and content structure across all platforms. Created shared pattern library so common interactions work the same way everywhere. Section 508 as Organizational Policy: defined compliance as organizational mandate, not project checklist. Embedded accessibility into every lifecycle phase. Created automated testing in CI/CD. This was my most significant governance contribution. HSI-Driven Design: institutionalized user-centered design as standard practice — research, prototyping, usability testing built into every project. Conducted inclusive research with users with disabilities, limited English proficiency, and users in crisis. Investment Prioritization: built impact scoring framework, quarterly roadmap reviews, trade-off transparency, and budget allocation tied to outcomes instead of politics.",
+      },
+      {
+        heading: "Seven Years of Leadership",
+        content:
+          "Short engagements let you design solutions. Multi-year ownership teaches you whether those solutions survive: new leadership, changing requirements, team turnover, technology shifts. The governance frameworks I built in year 2 were still operating in year 7. The team I recruited in year 1 grew to 15+ by year 4. The Section 508 policy I defined became the organizational standard that outlasted my tenure. Seven years taught me that the real test of leadership isn't what you build — it's what still works after you leave.",
       },
     ],
     outcomes: [
-      "Reduced rework 30–40%, saving $2M+ annually",
-      "Defined Section 508 governance as organizational policy",
-      "Served 2M+ monthly visitors across 6+ platforms",
+      "Reduced development rework 30-40%, saving $2M+ annually in remediation costs",
+      "Defined Section 508 governance as organizational policy — not a project deliverable",
+      "Served 2M+ monthly visitors across 6+ enterprise platforms",
       "Influenced executive funding and technology strategy for 7 years",
+      "Grew cross-functional team from initial staff to 15+ under my leadership",
+      "People in crisis finding treatment facilities faster through improved Treatment Locator",
+      "Investment prioritization framework replaced political decision-making with strategic allocation",
     ],
     hsi: [
-      "HSI-driven UCD integration",
-      "Section 508 enterprise governance",
-      "Investment prioritization",
+      "Portfolio management at scale — $130M across 6+ platforms with full budget and delivery accountability",
+      "HSI lifecycle integration — UCD and accessibility embedded as standard engineering practice",
+      "Stakeholder management — aligned 50+ stakeholders through structured governance",
+      "Section 508 enterprise governance — defined and enforced as organizational policy",
+      "Inclusive design for vulnerable populations — users in crisis with diverse abilities",
+      "7-year continuity — sustained leadership through changing administrations",
     ],
   },
 ];
@@ -662,6 +678,39 @@ function CaseStudy({
               <p className="text-[11px] text-gray-600 mt-2 text-center">
                 MIL-STD-1472H design criteria mapped from defense systems to consumer health products.
               </p>
+            </figure>
+          </FadeIn>
+        ) : study.id === "samhsa" ? (
+          <FadeIn>
+            <figure
+              className="my-8"
+              aria-labelledby="samhsa-scale-title"
+            >
+              <figcaption
+                id="samhsa-scale-title"
+                className="text-xs font-semibold tracking-wide uppercase text-gray-700 mb-3 text-center"
+              >
+                Portfolio scale at a glance
+              </figcaption>
+              <div className="bg-[#1B3A5C] rounded-xl shadow-sm overflow-hidden">
+                <ul className="grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-white/15 list-none p-0 m-0">
+                  {[
+                    { value: "$130M", label: "Portfolio Value" },
+                    { value: "7 Years", label: "Tenure" },
+                    { value: "15+", label: "Team Built" },
+                    { value: "50+", label: "Stakeholders Aligned" },
+                  ].map((stat) => (
+                    <li key={stat.label} className="px-5 py-6 text-center">
+                      <div className="text-3xl md:text-4xl font-extrabold text-white leading-none tracking-tight">
+                        {stat.value}
+                      </div>
+                      <div className="mt-2 text-[11px] uppercase tracking-wide text-white/80 font-medium">
+                        {stat.label}
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </figure>
           </FadeIn>
         ) : (
