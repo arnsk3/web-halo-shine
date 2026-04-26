@@ -680,6 +680,39 @@ function CaseStudy({
               </p>
             </figure>
           </FadeIn>
+        ) : study.id === "samhsa" ? (
+          <FadeIn>
+            <figure
+              className="my-8"
+              aria-labelledby="samhsa-scale-title"
+            >
+              <figcaption
+                id="samhsa-scale-title"
+                className="text-xs font-semibold tracking-wide uppercase text-gray-700 mb-3 text-center"
+              >
+                Portfolio scale at a glance
+              </figcaption>
+              <div className="bg-[#1B3A5C] rounded-xl shadow-sm overflow-hidden">
+                <ul className="grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-white/15 list-none p-0 m-0">
+                  {[
+                    { value: "$130M", label: "Portfolio Value" },
+                    { value: "7 Years", label: "Tenure" },
+                    { value: "15+", label: "Team Built" },
+                    { value: "50+", label: "Stakeholders Aligned" },
+                  ].map((stat) => (
+                    <li key={stat.label} className="px-5 py-6 text-center">
+                      <div className="text-3xl md:text-4xl font-extrabold text-white leading-none tracking-tight">
+                        {stat.value}
+                      </div>
+                      <div className="mt-2 text-[11px] uppercase tracking-wide text-white/80 font-medium">
+                        {stat.label}
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </figure>
+          </FadeIn>
         ) : (
           <FadeIn>
             <div
