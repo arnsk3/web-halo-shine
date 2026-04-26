@@ -223,8 +223,20 @@ const CREDS = [
 type FadeInProps = { children: ReactNode; delay?: number; className?: string };
 function FadeIn({ children, delay = 0, className = "" }: FadeInProps) {
   const [vis, setVis] = useState(false);
+  const [reduced, setReduced] = useState(false);
   const ref = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReduced(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setReduced(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
+  useEffect(() => {
+    if (reduced) {
+      setVis(true);
+      return;
+    }
     const obs = new IntersectionObserver(
       ([e]) => {
         if (e.isIntersecting) setVis(true);
@@ -233,16 +245,20 @@ function FadeIn({ children, delay = 0, className = "" }: FadeInProps) {
     );
     if (ref.current) obs.observe(ref.current);
     return () => obs.disconnect();
-  }, []);
+  }, [reduced]);
   return (
     <div
       ref={ref}
       className={className}
-      style={{
-        opacity: vis ? 1 : 0,
-        transform: vis ? "translateY(0)" : "translateY(24px)",
-        transition: `all 0.6s cubic-bezier(0.16, 1, 0.3, 1) ${delay}s`,
-      }}
+      style={
+        reduced
+          ? undefined
+          : {
+              opacity: vis ? 1 : 0,
+              transform: vis ? "translateY(0)" : "translateY(24px)",
+              transition: `all 0.6s cubic-bezier(0.16, 1, 0.3, 1) ${delay}s`,
+            }
+      }
     >
       {children}
     </div>
@@ -260,33 +276,43 @@ function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) 
     { id: "contact", label: "Contact" },
   ];
   return (
-    <nav className="sticky top-0 z-50 backdrop-blur-xl bg-white/90 border-b border-gray-100">
+    <nav
+      aria-label="Primary"
+      className="sticky top-0 z-50 backdrop-blur-xl bg-white/95 border-b border-gray-200"
+    >
       <div className="max-w-5xl mx-auto flex items-center justify-between px-6 py-3">
-        <button onClick={() => setPage("home")} className="flex items-center gap-2 group">
+        <button
+          onClick={() => setPage("home")}
+          aria-label="Senthil Nagappan — go to home"
+          className="flex items-center gap-2 group rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2"
+        >
           <img
             src="/headshot.jpg"
-            alt="Senthil Kumar Nagappan"
+            alt=""
+            aria-hidden="true"
             className="w-8 h-8 rounded-full object-cover"
           />
           <span className="font-semibold text-gray-900 text-sm tracking-tight hidden sm:block">
             Senthil Nagappan
           </span>
         </button>
-        <div className="flex gap-1">
+        <ul className="flex gap-1 list-none m-0 p-0">
           {links.map((l) => (
-            <button
-              key={l.id}
-              onClick={() => setPage(l.id)}
-              className={`px-3 py-1.5 rounded-md text-sm transition-all ${
-                page === l.id
-                  ? "bg-[#1B3A5C]/10 text-[#1B3A5C] font-semibold"
-                  : "text-gray-500 hover:text-gray-900 hover:bg-gray-50"
-              }`}
-            >
-              {l.label}
-            </button>
+            <li key={l.id}>
+              <button
+                onClick={() => setPage(l.id)}
+                aria-current={page === l.id ? "page" : undefined}
+                className={`px-3 py-1.5 rounded-md text-sm transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2 ${
+                  page === l.id
+                    ? "bg-[#1B3A5C]/10 text-[#1B3A5C] font-semibold"
+                    : "text-gray-700 hover:text-gray-900 hover:bg-gray-100"
+                }`}
+              >
+                {l.label}
+              </button>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </nav>
   );
@@ -335,13 +361,13 @@ function Home({
                 onClick={() =>
                   document.getElementById("cases")?.scrollIntoView({ behavior: "smooth" })
                 }
-                className="bg-white text-[#1B3A5C] px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-[#E8913A] hover:text-white transition-all"
+                className="bg-white text-[#1B3A5C] px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-[#E8913A] hover:text-white transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E8913A] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1B3A5C]"
               >
-                View Case Studies ↓
+                View Case Studies <span aria-hidden="true">↓</span>
               </button>
               <button
                 onClick={() => setPage("about")}
-                className="border border-white/30 text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-white/10 transition-all"
+                className="border border-white/60 text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-white/10 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E8913A] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1B3A5C]"
               >
                 About Me
               </button>
@@ -382,12 +408,13 @@ function Home({
                   setCase(s);
                   setPage("case");
                 }}
-                className="text-left w-full group"
+                aria-label={`View case study: ${s.title}`}
+                className="text-left w-full group rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2"
               >
                 <div
                   className={`h-36 bg-gradient-to-br ${s.hero} rounded-t-xl flex items-end p-5`}
                 >
-                  <span className="text-white/60 text-[10px] font-semibold tracking-widest uppercase">
+                  <span className="text-white text-[10px] font-semibold tracking-widest uppercase">
                     {s.tag}
                   </span>
                 </div>
@@ -421,21 +448,22 @@ function Home({
           <div className="flex gap-5 items-start bg-white border border-gray-200 rounded-xl p-6">
             <img
               src="/headshot.jpg"
-              alt="Senthil Kumar Nagappan"
+              alt=""
+              aria-hidden="true"
               className="w-16 h-16 rounded-full object-cover flex-shrink-0"
             />
             <div>
               <h3 className="font-bold text-gray-900 mb-1">Senthil Kumar Nagappan</h3>
-              <p className="text-gray-500 text-sm leading-relaxed mb-2">
+              <p className="text-gray-700 text-sm leading-relaxed mb-2">
                 Senior AI and Human Systems Integration leader with 18+ years building
                 enterprise functions that deliver safe, compliant, AI-driven products in
                 regulated environments.
               </p>
               <button
                 onClick={() => setPage("about")}
-                className="text-[#1B3A5C] text-sm font-semibold hover:text-[#E8913A] transition-colors"
+                className="text-[#1B3A5C] text-sm font-semibold hover:text-[#E8913A] transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2"
               >
-                Read full story →
+                Read full story <span aria-hidden="true">→</span>
               </button>
             </div>
           </div>
@@ -459,9 +487,9 @@ function CaseStudy({
         <div className="max-w-3xl mx-auto px-6 py-16">
           <button
             onClick={() => setPage("home")}
-            className="text-white/60 text-sm hover:text-white mb-6 inline-block transition-colors"
+            className="text-white/85 text-sm hover:text-white mb-6 inline-block transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E8913A] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1B3A5C]"
           >
-            ← Back to Case Studies
+            <span aria-hidden="true">←</span> Back to Case Studies
           </button>
           <p className="text-[#E8913A] text-xs font-semibold tracking-[2px] uppercase mb-3">
             {study.tag}
@@ -469,23 +497,23 @@ function CaseStudy({
           <h1 className="text-3xl sm:text-4xl font-extrabold leading-tight mb-4 tracking-tight">
             {study.title}
           </h1>
-          <p className="text-white/70 text-base mb-8 max-w-xl leading-relaxed">
+          <p className="text-white/90 text-base mb-8 max-w-xl leading-relaxed">
             {study.subtitle}
           </p>
-          <div className="flex gap-6 text-sm flex-wrap">
+          <dl className="flex gap-6 text-sm flex-wrap">
             <div>
-              <span className="text-white/50">Role</span>
-              <span className="block font-semibold mt-0.5">{study.role}</span>
+              <dt className="text-white/85">Role</dt>
+              <dd className="block font-semibold mt-0.5">{study.role}</dd>
             </div>
             <div>
-              <span className="text-white/50">Timeline</span>
-              <span className="block font-semibold mt-0.5">{study.timeline}</span>
+              <dt className="text-white/85">Timeline</dt>
+              <dd className="block font-semibold mt-0.5">{study.timeline}</dd>
             </div>
             <div>
-              <span className="text-white/50">Organization</span>
-              <span className="block font-semibold mt-0.5">{study.org}</span>
+              <dt className="text-white/85">Organization</dt>
+              <dd className="block font-semibold mt-0.5">{study.org}</dd>
             </div>
-          </div>
+          </dl>
         </div>
       </div>
 
@@ -499,7 +527,7 @@ function CaseStudy({
                 className="text-center py-3 bg-emerald-50/60 rounded-lg border border-emerald-100"
               >
                 <div className="text-2xl font-extrabold text-emerald-700">{m.value}</div>
-                <div className="text-xs text-emerald-600/70 font-medium mt-0.5">
+                <div className="text-xs text-emerald-700 font-medium mt-0.5">
                   {m.label}
                 </div>
               </div>
@@ -519,18 +547,22 @@ function CaseStudy({
                 </span>
                 {s.heading}
               </h2>
-              <p className="text-gray-600 text-sm leading-[1.8] pl-8">{s.content}</p>
+              <p className="text-gray-700 text-sm leading-[1.8] pl-8">{s.content}</p>
             </div>
           </FadeIn>
         ))}
 
         {/* Visual placeholder */}
         <FadeIn>
-          <div className="my-8 h-48 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl border-2 border-dashed border-gray-200 flex items-center justify-center flex-col gap-2">
-            <span className="text-gray-400 text-xs font-medium">
+          <div
+            role="img"
+            aria-label="Placeholder for an NDA-safe recreated process diagram or framework visual"
+            className="my-8 h-48 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl border-2 border-dashed border-gray-300 flex items-center justify-center flex-col gap-2"
+          >
+            <span className="text-gray-700 text-xs font-medium">
               PROCESS DIAGRAM / FRAMEWORK VISUAL
             </span>
-            <span className="text-gray-300 text-[10px]">NDA-safe recreated artifact</span>
+            <span className="text-gray-600 text-[10px]">NDA-safe recreated artifact</span>
           </div>
         </FadeIn>
 
@@ -538,25 +570,25 @@ function CaseStudy({
         <FadeIn>
           <div className="bg-[#1B3A5C] rounded-xl p-6 mb-8">
             <h3 className="text-white font-bold mb-4">Impact & Outcomes</h3>
-            <div className="space-y-2.5">
+            <ul className="space-y-2.5 list-none p-0 m-0">
               {study.outcomes.map((o, i) => (
-                <div key={i} className="flex gap-3 items-start">
-                  <span className="text-[#E8913A] text-base mt-0.5">✓</span>
-                  <span className="text-white/85 text-sm leading-relaxed">{o}</span>
-                </div>
+                <li key={i} className="flex gap-3 items-start">
+                  <span aria-hidden="true" className="text-[#E8913A] text-base mt-0.5">✓</span>
+                  <span className="text-white text-sm leading-relaxed">{o}</span>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         </FadeIn>
 
         {/* HSI Sidebar */}
         <FadeIn>
           <details className="group border border-[#1B3A5C]/15 rounded-xl overflow-hidden">
-            <summary className="px-5 py-3 cursor-pointer flex items-center justify-between bg-[#1B3A5C]/5 hover:bg-[#1B3A5C]/10 transition-colors">
+            <summary className="px-5 py-3 cursor-pointer flex items-center justify-between bg-[#1B3A5C]/5 hover:bg-[#1B3A5C]/10 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-inset">
               <span className="text-sm font-semibold text-[#1B3A5C]">
                 How this maps to HSI methodology
               </span>
-              <span className="text-[#1B3A5C]/50 text-xs group-open:rotate-180 transition-transform">
+              <span aria-hidden="true" className="text-[#1B3A5C] text-xs group-open:rotate-180 transition-transform">
                 ▼
               </span>
             </summary>
@@ -573,8 +605,8 @@ function CaseStudy({
               </div>
               <ul className="space-y-1.5">
                 {study.hsi.map((h, i) => (
-                  <li key={i} className="text-xs text-gray-600 flex gap-2">
-                    <span className="text-[#1B3A5C]">→</span>
+                  <li key={i} className="text-xs text-gray-700 flex gap-2">
+                    <span aria-hidden="true" className="text-[#1B3A5C]">→</span>
                     {h}
                   </li>
                 ))}
@@ -594,17 +626,17 @@ function About() {
         <div className="flex flex-col sm:flex-row gap-6 items-start mb-12">
           <img
             src="/headshot.jpg"
-            alt="Senthil Kumar Nagappan"
+            alt="Portrait of Senthil Kumar Nagappan"
             className="w-28 h-28 rounded-2xl object-cover flex-shrink-0"
           />
           <div>
             <h1 className="text-3xl font-extrabold text-gray-900 tracking-tight mb-1">
               Senthil Kumar Nagappan
             </h1>
-            <p className="text-[#E8913A] font-semibold text-sm mb-3">
-              AI Safety & Human Systems Integration Leader
+            <p className="text-[#B85D1A] font-semibold text-sm mb-3">
+              AI Safety &amp; Human Systems Integration Leader
             </p>
-            <p className="text-gray-500 text-sm leading-relaxed">
+            <p className="text-gray-700 text-sm leading-relaxed">
               18+ years building enterprise functions that deliver safe, compliant,
               AI-driven products in regulated environments across healthcare, federal,
               retail, and defense sectors.
@@ -615,18 +647,18 @@ function About() {
 
       <FadeIn delay={0.1}>
         <div className="prose prose-sm max-w-none mb-12">
-          <p className="text-gray-600 leading-[1.9] mb-4">
+          <p className="text-gray-700 leading-[1.9] mb-4">
             I've spent my career at the intersection of technology and human safety —
             building the systems, standards, and teams that ensure AI-driven products work
             correctly for the people who depend on them.
           </p>
-          <p className="text-gray-600 leading-[1.9] mb-4">
+          <p className="text-gray-700 leading-[1.9] mb-4">
             My methodology is grounded in structured engineering standards: MIL-STD-1472H
             for human engineering design criteria, ISO 14971 and IEC 62366 for medical
             device usability engineering, and MBSE/SysML for tracing human performance
             requirements through system architecture.
           </p>
-          <p className="text-gray-600 leading-[1.9]">
+          <p className="text-gray-700 leading-[1.9]">
             Whether the system is a clinical diagnostic tool or a government case
             processing platform, I apply the same disciplined approach: analyze the human
             in the system, design to validated criteria, test with representative
@@ -646,9 +678,9 @@ function About() {
               key={c.num}
               className="p-5 rounded-xl bg-white border border-gray-200 hover:border-[#1B3A5C]/20 hover:shadow-sm transition-all"
             >
-              <div className="text-3xl font-extrabold text-[#1B3A5C]/15 mb-2">{c.num}</div>
+              <div aria-hidden="true" className="text-3xl font-extrabold text-[#1B3A5C]/30 mb-2">{c.num}</div>
               <div className="font-bold text-gray-900 text-sm mb-1">{c.t}</div>
-              <div className="text-gray-500 text-xs leading-relaxed">{c.d}</div>
+              <div className="text-gray-700 text-xs leading-relaxed">{c.d}</div>
             </div>
           ))}
         </div>
@@ -675,10 +707,10 @@ function About() {
               </span>
             ))}
           </div>
-          <p className="text-xs text-gray-400">
+          <p className="text-xs text-gray-700">
             Recognized Practitioner: W3C WAI · IAAP · HFES
           </p>
-          <p className="text-xs text-gray-400 mt-1">
+          <p className="text-xs text-gray-700 mt-1">
             Affiliations: IAAP · HFES · UXPA · W3C WAI (Volunteer)
           </p>
         </div>
@@ -741,7 +773,7 @@ function Approach() {
         <h1 className="text-3xl font-extrabold text-gray-900 tracking-tight mb-2">
           My Approach
         </h1>
-        <p className="text-gray-500 text-sm mb-12 max-w-lg">
+        <p className="text-gray-700 text-sm mb-12 max-w-lg">
           How I ensure AI-driven systems are safe, accessible, and compliant — from
           requirements through deployment
         </p>
@@ -755,17 +787,17 @@ function Approach() {
               style={{ borderLeftWidth: 4, borderLeftColor: f.color }}
             >
               <h3 className="font-bold text-gray-900 text-base mb-0.5">{f.title}</h3>
-              <p className="text-gray-400 text-xs mb-3">{f.sub}</p>
-              <div className="flex gap-2 flex-wrap">
+              <p className="text-gray-700 text-xs mb-3">{f.sub}</p>
+              <ul className="flex gap-2 flex-wrap list-none p-0 m-0">
                 {f.items.map((item) => (
-                  <span
+                  <li
                     key={item}
-                    className="text-[10px] px-2.5 py-1 rounded-full bg-gray-50 text-gray-600 border border-gray-100"
+                    className="text-[10px] px-2.5 py-1 rounded-full bg-gray-100 text-gray-800 border border-gray-200"
                   >
                     {item}
-                  </span>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
           </FadeIn>
         ))}
@@ -774,21 +806,21 @@ function Approach() {
       <FadeIn>
         <div className="bg-[#1B3A5C] rounded-xl p-6 text-center">
           <h3 className="text-white font-bold mb-2">Where My Domains Converge</h3>
-          <p className="text-white/60 text-xs mb-5 max-w-md mx-auto">
+          <p className="text-white text-xs mb-5 max-w-md mx-auto opacity-95">
             Every project I lead integrates these four disciplines — AI safety isn't just
             governance, it's systems engineering, human factors, and accessibility working
             together.
           </p>
-          <div className="flex justify-center gap-4 flex-wrap">
+          <ul className="flex justify-center gap-4 flex-wrap list-none p-0 m-0">
             {["HSI", "HFE", "A11y", "AI Safety"].map((d) => (
-              <div
+              <li
                 key={d}
-                className="w-16 h-16 rounded-full border-2 border-white/20 bg-white/5 flex items-center justify-center text-white text-xs font-bold"
+                className="w-16 h-16 rounded-full border-2 border-white/70 bg-white/10 flex items-center justify-center text-white text-xs font-bold"
               >
                 {d}
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </FadeIn>
     </div>
@@ -802,29 +834,31 @@ function Resume() {
         <h1 className="text-3xl font-extrabold text-gray-900 tracking-tight mb-2">
           Resume
         </h1>
-        <p className="text-gray-500 text-sm mb-8">Download or view inline</p>
+        <p className="text-gray-700 text-sm mb-8">Download or view inline</p>
         <a
           href="/Senthil_Nagappan_Resume.pdf"
           download
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block bg-[#1B3A5C] text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-[#E8913A] transition-colors"
+          aria-label="Download Senthil Nagappan resume PDF (opens in new tab)"
+          className="inline-block bg-[#1B3A5C] text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-[#E8913A] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2"
         >
-          Download PDF ↓
+          Download PDF <span aria-hidden="true">↓</span>
         </a>
         <div className="mt-10 w-full bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
           <iframe
             src="/Senthil_Nagappan_Resume.pdf"
-            title="Senthil Nagappan Resume"
+            title="Senthil Nagappan Resume preview"
+            aria-label="Senthil Nagappan resume PDF preview"
             className="w-full"
             style={{ height: "700px" }}
           >
-            <p className="p-6 text-sm text-gray-500">
+            <p className="p-6 text-sm text-gray-700">
               Your browser can't display the PDF inline.{" "}
               <a
                 href="/Senthil_Nagappan_Resume.pdf"
                 download
-                className="text-[#1B3A5C] underline hover:text-[#E8913A]"
+                className="text-[#1B3A5C] underline hover:text-[#B85D1A] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2 rounded"
               >
                 Download the resume
               </a>{" "}
@@ -832,12 +866,12 @@ function Resume() {
             </p>
           </iframe>
         </div>
-        <p className="mt-4 text-xs text-gray-400 sm:hidden">
+        <p className="mt-4 text-sm text-gray-700 sm:hidden">
           Can't see the preview?{" "}
           <a
             href="/Senthil_Nagappan_Resume.pdf"
             download
-            className="text-[#1B3A5C] underline hover:text-[#E8913A]"
+            className="text-[#1B3A5C] underline hover:text-[#B85D1A] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2 rounded"
           >
             Download the PDF
           </a>
@@ -851,10 +885,12 @@ function Resume() {
 function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
+    setError(null);
     const form = e.currentTarget;
     try {
       const response = await fetch("https://formspree.io/f/xyklopnb", {
@@ -865,12 +901,21 @@ function Contact() {
       if (response.ok) {
         setSubmitted(true);
         form.reset();
+      } else {
+        setError("Something went wrong sending your message. Please try again.");
       }
-    } catch (error) {
-      console.error("Form error:", error);
+    } catch (err) {
+      console.error("Form error:", err);
+      setError("Network error. Please check your connection and try again.");
     }
     setLoading(false);
   };
+
+  const fields: { id: string; label: string; type: string; autoComplete: string; placeholder?: string }[] = [
+    { id: "name", label: "Name", type: "text", autoComplete: "name" },
+    { id: "email", label: "Email", type: "email", autoComplete: "email", placeholder: "your@email.com" },
+    { id: "subject", label: "Subject", type: "text", autoComplete: "off" },
+  ];
 
   return (
     <div className="max-w-md mx-auto px-6 py-16">
@@ -878,22 +923,29 @@ function Contact() {
         <h1 className="text-3xl font-extrabold text-gray-900 tracking-tight mb-2 text-center">
           Get in Touch
         </h1>
-        <p className="text-gray-500 text-sm mb-8 text-center">
+        <p className="text-gray-700 text-sm mb-8 text-center">
           Open to conversations about AI safety, human factors, and accessibility
           leadership
         </p>
         {submitted ? (
-          <div className="bg-white border border-gray-200 rounded-xl p-8 text-center">
-            <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl font-bold">
+          <div
+            role="status"
+            aria-live="polite"
+            className="bg-white border border-gray-200 rounded-xl p-8 text-center"
+          >
+            <div
+              aria-hidden="true"
+              className="w-12 h-12 mx-auto mb-4 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-2xl font-bold"
+            >
               ✓
             </div>
             <h2 className="text-lg font-bold text-gray-900 mb-1">Message Sent!</h2>
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-gray-700">
               Thank you! I'll get back to you soon.
             </p>
             <button
               onClick={() => setSubmitted(false)}
-              className="mt-4 text-sm text-[#1B3A5C] font-semibold hover:text-[#E8913A] transition-colors"
+              className="mt-4 text-sm text-[#1B3A5C] font-semibold hover:text-[#B85D1A] transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2"
             >
               Send another message
             </button>
@@ -901,46 +953,100 @@ function Contact() {
         ) : (
           <form
             onSubmit={handleSubmit}
+            noValidate={false}
+            aria-label="Contact form"
             className="bg-white border border-gray-200 rounded-xl p-6 space-y-4"
           >
-            {["Name", "Email", "Subject"].map((f) => (
-              <div key={f}>
-                <label className="text-xs font-semibold text-gray-700 block mb-1">
-                  {f}
+            {error && (
+              <div
+                role="alert"
+                className="rounded-lg border border-red-300 bg-red-50 px-3 py-2 text-sm text-red-800"
+              >
+                {error}
+              </div>
+            )}
+            {fields.map((f) => (
+              <div key={f.id}>
+                <label
+                  htmlFor={`contact-${f.id}`}
+                  className="text-xs font-semibold text-gray-800 block mb-1"
+                >
+                  {f.label}
+                  <span aria-hidden="true" className="text-red-700"> *</span>
                 </label>
                 <input
-                  type={f === "Email" ? "email" : "text"}
-                  name={f.toLowerCase()}
+                  id={`contact-${f.id}`}
+                  type={f.type}
+                  name={f.id}
                   required
-                  className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm text-gray-900 focus:outline-none focus:border-[#1B3A5C] transition-colors"
-                  placeholder={f === "Email" ? "your@email.com" : ""}
+                  aria-required="true"
+                  autoComplete={f.autoComplete}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 transition-colors focus:outline-none focus:border-[#1B3A5C] focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-1"
+                  placeholder={f.placeholder}
                 />
               </div>
             ))}
             <div>
-              <label className="text-xs font-semibold text-gray-700 block mb-1">
+              <label
+                htmlFor="contact-message"
+                className="text-xs font-semibold text-gray-800 block mb-1"
+              >
                 Message
+                <span aria-hidden="true" className="text-red-700"> *</span>
               </label>
               <textarea
+                id="contact-message"
                 name="message"
                 required
-                className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm text-gray-900 h-28 focus:outline-none focus:border-[#1B3A5C] transition-colors resize-none"
+                aria-required="true"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 h-28 transition-colors focus:outline-none focus:border-[#1B3A5C] focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-1 resize-y"
               />
             </div>
+            <p className="text-xs text-gray-700">
+              <span aria-hidden="true" className="text-red-700">*</span> Required field
+            </p>
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-[#1B3A5C] text-white py-2.5 rounded-lg font-semibold text-sm hover:bg-[#E8913A] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              aria-busy={loading}
+              className="w-full bg-[#1B3A5C] text-white py-2.5 rounded-lg font-semibold text-sm hover:bg-[#B85D1A] transition-colors disabled:opacity-60 disabled:cursor-not-allowed focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2"
             >
               {loading ? "Sending..." : "Send Message"}
             </button>
+            <p role="status" aria-live="polite" className="sr-only">
+              {loading ? "Sending your message" : ""}
+            </p>
           </form>
         )}
-        <div className="text-center mt-6 space-y-1">
-          <p className="text-xs text-gray-400">arnsk3@gmail.com · 571-403-0835</p>
-          <p className="text-xs text-gray-400">linkedin.com/in/senthil-nagappan</p>
-          <p className="text-xs text-gray-300">Vienna, VA (DMV) | Frisco, TX (DFW)</p>
-        </div>
+        <address className="not-italic text-center mt-6 space-y-1">
+          <p className="text-sm text-gray-700">
+            <a
+              href="mailto:arnsk3@gmail.com"
+              className="text-[#1B3A5C] hover:text-[#B85D1A] underline rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2"
+            >
+              arnsk3@gmail.com
+            </a>{" "}
+            ·{" "}
+            <a
+              href="tel:+15714030835"
+              className="text-[#1B3A5C] hover:text-[#B85D1A] underline rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2"
+            >
+              571-403-0835
+            </a>
+          </p>
+          <p className="text-sm text-gray-700">
+            <a
+              href="https://www.linkedin.com/in/senthil-nagappan"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#1B3A5C] hover:text-[#B85D1A] underline rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2"
+            >
+              linkedin.com/in/senthil-nagappan
+              <span className="sr-only"> (opens in a new tab)</span>
+            </a>
+          </p>
+          <p className="text-sm text-gray-700">Vienna, VA (DMV) | Frisco, TX (DFW)</p>
+        </address>
       </FadeIn>
     </div>
   );
@@ -952,24 +1058,27 @@ function Footer({ setPage }: { setPage: (p: PageId) => void }) {
       <div className="max-w-5xl mx-auto px-6 py-10 flex flex-col sm:flex-row justify-between items-start gap-6">
         <div>
           <p className="font-bold text-white text-sm">Senthil Kumar Nagappan</p>
-          <p className="text-white/40 text-xs mt-1">
-            AI Safety & Human Systems Integration Leader
+          <p className="text-white/85 text-xs mt-1">
+            AI Safety &amp; Human Systems Integration Leader
           </p>
-          <p className="text-white/25 text-xs mt-3">
-            © 2026 · Designed & built with accessibility in mind
+          <p className="text-white/75 text-xs mt-3">
+            © 2026 · Designed &amp; built with accessibility in mind
           </p>
         </div>
-        <div className="flex gap-5 flex-wrap">
-          {(["home", "about", "approach", "resume", "contact"] as PageId[]).map((p) => (
-            <button
-              key={p}
-              onClick={() => setPage(p)}
-              className="text-white/40 text-xs hover:text-white transition-colors capitalize"
-            >
-              {p}
-            </button>
-          ))}
-        </div>
+        <nav aria-label="Footer">
+          <ul className="flex gap-5 flex-wrap list-none p-0 m-0">
+            {(["home", "about", "approach", "resume", "contact"] as PageId[]).map((p) => (
+              <li key={p}>
+                <button
+                  onClick={() => setPage(p)}
+                  className="text-white/90 text-xs hover:text-white underline-offset-4 hover:underline transition-colors capitalize rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#111827]"
+                >
+                  {p}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </div>
     </footer>
   );
@@ -987,22 +1096,30 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-[#fafbfc]">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:bg-[#1B3A5C] focus:text-white focus:px-4 focus:py-2 focus:rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E8913A]"
+      >
+        Skip to main content
+      </a>
       <Nav page={page} setPage={navigate} />
-      {page === "home" && (
-        <Home
-          setPage={navigate}
-          setCase={(c) => {
-            setActiveCase(c);
-          }}
-        />
-      )}
-      {page === "case" && activeCase && (
-        <CaseStudy study={activeCase} setPage={navigate} />
-      )}
-      {page === "about" && <About />}
-      {page === "approach" && <Approach />}
-      {page === "resume" && <Resume />}
-      {page === "contact" && <Contact />}
+      <main id="main-content" tabIndex={-1}>
+        {page === "home" && (
+          <Home
+            setPage={navigate}
+            setCase={(c) => {
+              setActiveCase(c);
+            }}
+          />
+        )}
+        {page === "case" && activeCase && (
+          <CaseStudy study={activeCase} setPage={navigate} />
+        )}
+        {page === "about" && <About />}
+        {page === "approach" && <Approach />}
+        {page === "resume" && <Resume />}
+        {page === "contact" && <Contact />}
+      </main>
       <Footer setPage={navigate} />
     </div>
   );
