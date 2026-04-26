@@ -568,11 +568,11 @@ function CaseStudy({
         {/* HSI Sidebar */}
         <FadeIn>
           <details className="group border border-[#1B3A5C]/15 rounded-xl overflow-hidden">
-            <summary className="px-5 py-3 cursor-pointer flex items-center justify-between bg-[#1B3A5C]/5 hover:bg-[#1B3A5C]/10 transition-colors">
+            <summary className="px-5 py-3 cursor-pointer flex items-center justify-between bg-[#1B3A5C]/5 hover:bg-[#1B3A5C]/10 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-inset">
               <span className="text-sm font-semibold text-[#1B3A5C]">
                 How this maps to HSI methodology
               </span>
-              <span className="text-[#1B3A5C]/50 text-xs group-open:rotate-180 transition-transform">
+              <span aria-hidden="true" className="text-[#1B3A5C] text-xs group-open:rotate-180 transition-transform">
                 ▼
               </span>
             </summary>
@@ -589,8 +589,8 @@ function CaseStudy({
               </div>
               <ul className="space-y-1.5">
                 {study.hsi.map((h, i) => (
-                  <li key={i} className="text-xs text-gray-600 flex gap-2">
-                    <span className="text-[#1B3A5C]">→</span>
+                  <li key={i} className="text-xs text-gray-700 flex gap-2">
+                    <span aria-hidden="true" className="text-[#1B3A5C]">→</span>
                     {h}
                   </li>
                 ))}
