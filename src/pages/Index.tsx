@@ -223,8 +223,20 @@ const CREDS = [
 type FadeInProps = { children: ReactNode; delay?: number; className?: string };
 function FadeIn({ children, delay = 0, className = "" }: FadeInProps) {
   const [vis, setVis] = useState(false);
+  const [reduced, setReduced] = useState(false);
   const ref = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReduced(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setReduced(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
+  useEffect(() => {
+    if (reduced) {
+      setVis(true);
+      return;
+    }
     const obs = new IntersectionObserver(
       ([e]) => {
         if (e.isIntersecting) setVis(true);
@@ -233,16 +245,20 @@ function FadeIn({ children, delay = 0, className = "" }: FadeInProps) {
     );
     if (ref.current) obs.observe(ref.current);
     return () => obs.disconnect();
-  }, []);
+  }, [reduced]);
   return (
     <div
       ref={ref}
       className={className}
-      style={{
-        opacity: vis ? 1 : 0,
-        transform: vis ? "translateY(0)" : "translateY(24px)",
-        transition: `all 0.6s cubic-bezier(0.16, 1, 0.3, 1) ${delay}s`,
-      }}
+      style={
+        reduced
+          ? undefined
+          : {
+              opacity: vis ? 1 : 0,
+              transform: vis ? "translateY(0)" : "translateY(24px)",
+              transition: `all 0.6s cubic-bezier(0.16, 1, 0.3, 1) ${delay}s`,
+            }
+      }
     >
       {children}
     </div>
