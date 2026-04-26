@@ -345,13 +345,13 @@ function Home({
                 onClick={() =>
                   document.getElementById("cases")?.scrollIntoView({ behavior: "smooth" })
                 }
-                className="bg-white text-[#1B3A5C] px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-[#E8913A] hover:text-white transition-all"
+                className="bg-white text-[#1B3A5C] px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-[#E8913A] hover:text-white transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E8913A] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1B3A5C]"
               >
-                View Case Studies ↓
+                View Case Studies <span aria-hidden="true">↓</span>
               </button>
               <button
                 onClick={() => setPage("about")}
-                className="border border-white/30 text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-white/10 transition-all"
+                className="border border-white/60 text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-white/10 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E8913A] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1B3A5C]"
               >
                 About Me
               </button>
