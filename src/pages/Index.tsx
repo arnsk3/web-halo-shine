@@ -76,12 +76,12 @@ const CASE_STUDIES: CaseStudyType[] = [
     tag: "Federal · AI · Accessibility",
     title: "SSA11y: AI-Powered Federal Compliance Platform",
     subtitle:
-      "Conceived, built, and deployed an AI-driven compliance platform that replaced manual audits with continuous validation — saving $1.5M+ annually.",
+      "Conceived, built, and deployed an AI-driven compliance platform that replaced manual audits with continuous validation — saving $1.5M+ annually and becoming the federal standard.",
     hero: "from-[#1a1a2e] via-[#16213e] to-[#0f3460]",
     role: "Sr. UX & Accessibility Lead",
     timeline: "2022 – 2025",
     org: "Leidos / Social Security Administration",
-    standards: ["WCAG 2.2 AA", "Section 508", "Llama2"],
+    standards: ["WCAG 2.2 AA", "Section 508", "Llama2", "USWDS", "ADA Title II"],
     metrics: [
       { value: "50M+", label: "Citizens Impacted" },
       { value: "30%", label: "Audit Reduction" },
@@ -89,33 +89,46 @@ const CASE_STUDIES: CaseStudyType[] = [
     ],
     sections: [
       {
-        heading: "The Challenge",
+        heading: "The Problem",
         content:
-          "SSA's Disability Case Processing System was slow, inaccessible, and error-prone across all 50 states. Manual accessibility audits delayed every release cycle. With 15+ modules and 40+ monthly releases, the audit bottleneck was costing millions annually and preventing compliant, timely delivery to 50M+ citizens.",
+          "SSA's Disability Case Processing System serves 50 million citizens across all 50 states — determining whether Americans with disabilities receive the benefits they're entitled to. When I joined, the platform had 15+ modules with inconsistent accessibility, 40+ monthly releases gated by manual WCAG audits, and 200+ violations across the system. Every failed audit delayed a release. Every delayed release meant citizens waited longer. The system built to serve people with disabilities was itself inaccessible.",
+      },
+      {
+        heading: "The Discovery",
+        content:
+          "My first 60 days were spent auditing the entire platform — not just automated scans, but manual keyboard testing, screen reader testing (JAWS, NVDA), and cognitive walkthroughs across all 15+ modules. The critical insight: out of 200+ WCAG violations, 65% originated from just 8 shared UI components. Data tables, navigation, form controls, modals, date pickers — each team implemented them differently. Some added ARIA labels, some didn't. The same component was accessible in one module and broken in another. Fixing individual pages would be endless. The components themselves were the problem.",
       },
       {
         heading: "The Strategic Decision",
         content:
-          "After auditing the system, I discovered that 65% of critical violations originated from just 8 shared UI components. Fixing individual pages would be endless whack-a-mole. Instead, I proposed building SSA11y — an AI-powered accessibility testing tool integrated into CI/CD pipelines — and migrating the UI to USWDS-aligned components with accessibility built in.",
+          "I presented two options to leadership. Option A: continue manual audits — perpetual whack-a-mole at ~$1.5M+ annually. Option B: fix the system, not the symptoms — rebuild the 8 core components with accessibility built in, build an AI tool to catch violations in CI/CD before production, and migrate all modules to the new library. Leadership approved Option B. I named the AI tool SSA11y — a portmanteau of SSA and a11y (the numeronym for accessibility).",
       },
       {
         heading: "What I Built",
         content:
-          "SSA11y — built on Llama2 — scans code commits for WCAG violations, integrates into the CI/CD pipeline as a quality gate, and generates remediation recommendations ranked by severity. Simultaneously, I redesigned the core component library, migrating to USWDS-aligned patterns with embedded ARIA roles, keyboard navigation, and screen reader support.",
+          "SSA11y is an AI-driven accessibility testing platform built on Meta's Llama2. It integrates into the CI/CD pipeline as a quality gate, scanning every code commit for WCAG violations before code reaches staging. Unlike existing tools that scan rendered pages post-deployment, SSA11y scans code at commit time, recommends specific fixes ranked by severity, and uses AI pattern detection to identify anti-patterns that rule-based scanners miss. Simultaneously, I redesigned the 8 core UI components to USWDS alignment with embedded ARIA roles, full keyboard navigation, and screen reader compatibility — each with automated accessibility tests included.",
+      },
+      {
+        heading: "The Migration",
+        content:
+          "Phase 1 (Months 1–3): Built SSA11y prototype, designed and tested 8 core components with assistive technology users, created developer documentation. Phase 2 (Months 4–6): Deployed on 3 pilot modules, measured violation reduction and adoption, trained development teams. Phase 3 (Months 7–12): Expanded to all 15+ modules across 40+ monthly releases, completed component migration, SSA11y integrated as mandatory CI/CD gate. Phase 4 (Ongoing): Continuous compliance — every commit, every module, monthly automated reports.",
       },
     ],
     outcomes: [
       "Reduced audit effort 30% and saved $1.5M+ annually",
-      "Eliminated 200+ WCAG violations across 15+ product modules",
-      "Reduced usability defects 30–40%",
-      "Adopted as compliance standard across federal systems",
-      "Deployed across 40+ monthly releases",
+      "Eliminated 200+ WCAG violations at the source — not page by page, but component by component",
+      "Reduced usability defects 30–40% across the platform",
+      "Adopted across 40+ monthly releases as mandatory CI/CD gate",
+      "Became the compliance standard across federal systems",
+      "50+ designers and engineers trained on the new component library",
+      "Near-zero release delays due to accessibility — previously frequent",
     ],
     hsi: [
-      "CI/CD automated compliance",
-      "Llama2 AI model integration",
-      "USWDS design system migration",
-      "Enterprise governance framework",
+      "Requirements analysis — traced accessibility requirements to system design decisions",
+      "Risk-based prioritization — the 65%/8-component insight drove the entire strategy",
+      "Lifecycle integration — compliance embedded in CI/CD, not post-hoc auditing",
+      "Evidence-based design — every decision backed by test data from users with assistive technologies",
+      "Same structured methodology now applied to AI safety at GE HealthCare",
     ],
   },
   {
