@@ -804,14 +804,45 @@ function Resume() {
         </h1>
         <p className="text-gray-500 text-sm mb-8">Download or view inline</p>
         <a
-          href="#"
+          href="/Senthil_Nagappan_Resume.pdf"
+          download
+          target="_blank"
+          rel="noopener noreferrer"
           className="inline-block bg-[#1B3A5C] text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-[#E8913A] transition-colors"
         >
           Download PDF ↓
         </a>
-        <div className="mt-10 h-[600px] bg-white border border-gray-200 rounded-xl flex items-center justify-center">
-          <span className="text-gray-300 text-sm">Embedded resume preview</span>
+        <div className="mt-10 w-full bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+          <iframe
+            src="/Senthil_Nagappan_Resume.pdf"
+            title="Senthil Nagappan Resume"
+            className="w-full"
+            style={{ height: "700px" }}
+          >
+            <p className="p-6 text-sm text-gray-500">
+              Your browser can't display the PDF inline.{" "}
+              <a
+                href="/Senthil_Nagappan_Resume.pdf"
+                download
+                className="text-[#1B3A5C] underline hover:text-[#E8913A]"
+              >
+                Download the resume
+              </a>{" "}
+              instead.
+            </p>
+          </iframe>
         </div>
+        <p className="mt-4 text-xs text-gray-400 sm:hidden">
+          Can't see the preview?{" "}
+          <a
+            href="/Senthil_Nagappan_Resume.pdf"
+            download
+            className="text-[#1B3A5C] underline hover:text-[#E8913A]"
+          >
+            Download the PDF
+          </a>
+          .
+        </p>
       </FadeIn>
     </div>
   );
