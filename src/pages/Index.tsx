@@ -662,9 +662,9 @@ function About() {
               key={c.num}
               className="p-5 rounded-xl bg-white border border-gray-200 hover:border-[#1B3A5C]/20 hover:shadow-sm transition-all"
             >
-              <div className="text-3xl font-extrabold text-[#1B3A5C]/15 mb-2">{c.num}</div>
+              <div aria-hidden="true" className="text-3xl font-extrabold text-[#1B3A5C]/30 mb-2">{c.num}</div>
               <div className="font-bold text-gray-900 text-sm mb-1">{c.t}</div>
-              <div className="text-gray-500 text-xs leading-relaxed">{c.d}</div>
+              <div className="text-gray-700 text-xs leading-relaxed">{c.d}</div>
             </div>
           ))}
         </div>
