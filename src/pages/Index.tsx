@@ -511,7 +511,7 @@ function CaseStudy({
                 className="text-center py-3 bg-emerald-50/60 rounded-lg border border-emerald-100"
               >
                 <div className="text-2xl font-extrabold text-emerald-700">{m.value}</div>
-                <div className="text-xs text-emerald-600/70 font-medium mt-0.5">
+                <div className="text-xs text-emerald-700 font-medium mt-0.5">
                   {m.label}
                 </div>
               </div>
