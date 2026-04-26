@@ -997,22 +997,30 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-[#fafbfc]">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:bg-[#1B3A5C] focus:text-white focus:px-4 focus:py-2 focus:rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E8913A]"
+      >
+        Skip to main content
+      </a>
       <Nav page={page} setPage={navigate} />
-      {page === "home" && (
-        <Home
-          setPage={navigate}
-          setCase={(c) => {
-            setActiveCase(c);
-          }}
-        />
-      )}
-      {page === "case" && activeCase && (
-        <CaseStudy study={activeCase} setPage={navigate} />
-      )}
-      {page === "about" && <About />}
-      {page === "approach" && <Approach />}
-      {page === "resume" && <Resume />}
-      {page === "contact" && <Contact />}
+      <main id="main-content" tabIndex={-1}>
+        {page === "home" && (
+          <Home
+            setPage={navigate}
+            setCase={(c) => {
+              setActiveCase(c);
+            }}
+          />
+        )}
+        {page === "case" && activeCase && (
+          <CaseStudy study={activeCase} setPage={navigate} />
+        )}
+        {page === "about" && <About />}
+        {page === "approach" && <Approach />}
+        {page === "resume" && <Resume />}
+        {page === "contact" && <Contact />}
+      </main>
       <Footer setPage={navigate} />
     </div>
   );
