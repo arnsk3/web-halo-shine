@@ -397,7 +397,7 @@ function Home({
                 <div
                   className={`h-36 bg-gradient-to-br ${s.hero} rounded-t-xl flex items-end p-5`}
                 >
-                  <span className="text-white/60 text-[10px] font-semibold tracking-widest uppercase">
+                  <span className="text-white text-[10px] font-semibold tracking-widest uppercase">
                     {s.tag}
                   </span>
                 </div>
