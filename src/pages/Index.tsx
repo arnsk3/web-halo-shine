@@ -149,12 +149,12 @@ const CASE_STUDIES: CaseStudyType[] = [
     tag: "Healthcare · Inclusive Design · MIL-STD-1472H",
     title: "Inclusive Design for 1M+ Elderly Users",
     subtitle:
-      "Applied military human factors standards to eliminate missed emergency activations in consumer health products.",
+      "Applied military human factors standards to eliminate missed emergency activations in consumer health products — saving lives through engineering discipline.",
     hero: "from-[#2d1b69] via-[#11998e] to-[#38ef7d]",
     role: "Inclusive Design & Accessibility Lead",
     timeline: "2021 – 2022",
     org: "Best Buy Health",
-    standards: ["MIL-STD-1472H", "FDA", "IEC 62366", "WCAG 2.2 AA"],
+    standards: ["MIL-STD-1472H", "FDA", "IEC 62366", "WCAG 2.2 AA", "Section 508"],
     metrics: [
       { value: "1M+", label: "Elderly Users" },
       { value: "5", label: "Product Lines" },
@@ -162,31 +162,44 @@ const CASE_STUDIES: CaseStudyType[] = [
     ],
     sections: [
       {
-        heading: "The Challenge",
+        heading: "The Problem",
         content:
-          "Elderly users were missing emergency activations on Lively and Jitterbug health monitoring devices. Touch targets were too small, alerts relied on single modalities, and no enterprise accessibility governance existed across 5 product lines.",
+          "Best Buy Health manufactures personal emergency response systems — Lively and Jitterbug devices that elderly people depend on daily. Users were missing emergency activations. Touch targets were too small for arthritic hands. Alerts relied on single modalities. Under stress — which is exactly when emergency activation happens — elderly users with reduced dexterity, low vision, or cognitive decline couldn't reliably trigger help. A missed activation for a 78-year-old who has fallen means they lie on the floor until someone finds them. No enterprise accessibility governance existed across 5 product lines.",
       },
       {
-        heading: "My Approach",
+        heading: "Military Standards for Civilian Safety",
         content:
-          "I applied MIL-STD-1472H human engineering design criteria — originally developed for military systems — to redesign critical interactions. Enlarged touch targets, engineered redundant alerts (visual + auditory + haptic), and validated all changes through usability testing with elderly and disabled users using JAWS, NVDA, VoiceOver, and TalkBack.",
+          "I applied MIL-STD-1472H — the Department of Defense's Human Engineering Design Criteria — to consumer health products. The parallel is direct: military operators in gloves have reduced dexterity, like elderly users with arthritis. Operators in helmets have degraded vision, like users with cataracts. Combat creates high stress, like a medical emergency. The standard provides specific, measurable design criteria validated across decades of defense research — minimum touch target sizes, control force requirements, multi-modal feedback requirements, cognitive load thresholds. I wasn't guessing what would work. I was applying engineering standards.",
       },
       {
-        heading: "What Changed",
+        heading: "What I Redesigned",
         content:
-          "Established accessibility governance across all 5 product lines, institutionalizing compliance as an executive-approved design standard. This wasn't just fixing buttons — it was building the organizational infrastructure so these failures could never recur.",
+          "Emergency activation controls: enlarged touch targets to MIL-STD-1472H minimums, added multi-modal confirmation (visual + auditory + haptic simultaneously), designed progressive activation (press → hold → confirm) preventing accidental triggers while remaining accessible under stress. Alert system: redundant modalities for every critical alert, audio frequencies scaled to age-related hearing loss, display contrast beyond WCAG minimums for cataracts and low vision. Navigation: reduced cognitive load per screen, consistent patterns across all 5 product lines, large high-contrast typography.",
+      },
+      {
+        heading: "Validation",
+        content:
+          "Every redesign was validated through structured usability testing with the actual user population — participants aged 65-90+ with arthritis, low vision, hearing loss, and mild cognitive impairment. Testing used JAWS, NVDA, VoiceOver, and TalkBack. Emergency activation was tested under simulated stress conditions (time pressure, distraction, physical limitation) because standard usability testing in calm lab conditions doesn't reflect real emergencies. All testing protocols met FDA/IEC 62366 requirements.",
+      },
+      {
+        heading: "Enterprise Governance",
+        content:
+          "Beyond product fixes, I built organizational infrastructure: accessibility governance framework adopted across all 5 product lines, approved at executive level. Shifted accessibility from 'audit and fix' to 'design and verify.' Created design checklists mapped to WCAG 2.2 AA, Section 508, and MIL-STD-1472H. Integrated accessibility review into the design approval process. Trained product teams on inclusive design for aging populations.",
       },
     ],
     outcomes: [
       "Eliminated missed emergency activations for 1M+ elderly users",
-      "Reduced remediation cycles 30–40%",
-      "Delivered FDA/IEC 62366-compliant solutions",
-      "Governance adopted across all 5 product lines",
+      "Reduced remediation cycles 30-40% — compliance built in, not fixed after",
+      "Delivered FDA/IEC 62366-compliant solutions through structured usability engineering",
+      "Governance adopted across all 5 product lines as executive-approved standard",
+      "Multi-modal alerts ensure no critical notification missed regardless of sensory impairment",
     ],
     hsi: [
-      "MIL-STD-1472H control design",
-      "Multi-modal alert engineering",
-      "Usability validation with aging populations",
+      "MIL-STD-1472H — direct application of DoD human engineering design criteria",
+      "Human error mitigation — designed controls preventing critical failures under stress",
+      "Degraded performance design — arthritis, low vision, hearing loss, cognitive decline",
+      "IEC 62366 compliant usability engineering with representative populations",
+      "Enterprise governance — organizational standard sustaining safety outcomes",
     ],
   },
   {
@@ -578,19 +591,93 @@ function CaseStudy({
           </FadeIn>
         ))}
 
-        {/* Visual placeholder */}
-        <FadeIn>
-          <div
-            role="img"
-            aria-label="Placeholder for an NDA-safe recreated process diagram or framework visual"
-            className="my-8 h-48 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl border-2 border-dashed border-gray-300 flex items-center justify-center flex-col gap-2"
-          >
-            <span className="text-gray-700 text-xs font-medium">
-              PROCESS DIAGRAM / FRAMEWORK VISUAL
-            </span>
-            <span className="text-gray-600 text-[10px]">NDA-safe recreated artifact</span>
-          </div>
-        </FadeIn>
+        {/* Visual: case-study specific */}
+        {study.id === "bestbuy" ? (
+          <FadeIn>
+            <figure
+              className="my-8"
+              aria-labelledby="mil-civ-parallel-title"
+            >
+              <figcaption
+                id="mil-civ-parallel-title"
+                className="text-xs font-semibold tracking-wide uppercase text-gray-700 mb-3 text-center"
+              >
+                Military Operator → Elderly User: a direct human factors parallel
+              </figcaption>
+              <div className="grid grid-cols-1 md:grid-cols-2 rounded-xl overflow-hidden border border-gray-200 shadow-sm">
+                {/* Military column */}
+                <div className="bg-[#3b4a2a] text-white p-5">
+                  <div className="flex items-center gap-2 mb-4">
+                    <span
+                      aria-hidden="true"
+                      className="w-2 h-2 rounded-full bg-[#c7d49a]"
+                    />
+                    <h4 className="text-sm font-bold tracking-wide uppercase">
+                      Military Operator
+                    </h4>
+                  </div>
+                  <ul className="space-y-3 text-sm leading-snug list-none p-0 m-0">
+                    <li>Reduced dexterity (gloves)</li>
+                    <li>Degraded vision (helmet)</li>
+                    <li>High stress (combat)</li>
+                    <li>Cognitive load (multitasking)</li>
+                    <li>Must act quickly and correctly</li>
+                  </ul>
+                </div>
+                {/* Civilian column */}
+                <div className="bg-[#eaf3fb] text-[#0f2a44] p-5 relative">
+                  <div className="flex items-center gap-2 mb-4">
+                    <span
+                      aria-hidden="true"
+                      className="w-2 h-2 rounded-full bg-[#2E75B6]"
+                    />
+                    <h4 className="text-sm font-bold tracking-wide uppercase text-[#1B3A5C]">
+                      Elderly User
+                    </h4>
+                  </div>
+                  <ul className="space-y-3 text-sm leading-snug list-none p-0 m-0">
+                    <li>
+                      <span aria-hidden="true" className="text-[#1B3A5C] mr-1">→</span>
+                      Reduced dexterity (arthritis)
+                    </li>
+                    <li>
+                      <span aria-hidden="true" className="text-[#1B3A5C] mr-1">→</span>
+                      Degraded vision (cataracts)
+                    </li>
+                    <li>
+                      <span aria-hidden="true" className="text-[#1B3A5C] mr-1">→</span>
+                      High stress (medical emergency)
+                    </li>
+                    <li>
+                      <span aria-hidden="true" className="text-[#1B3A5C] mr-1">→</span>
+                      Cognitive decline (age-related)
+                    </li>
+                    <li>
+                      <span aria-hidden="true" className="text-[#1B3A5C] mr-1">→</span>
+                      Must activate help quickly
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <p className="text-[11px] text-gray-600 mt-2 text-center">
+                MIL-STD-1472H design criteria mapped from defense systems to consumer health products.
+              </p>
+            </figure>
+          </FadeIn>
+        ) : (
+          <FadeIn>
+            <div
+              role="img"
+              aria-label="Placeholder for an NDA-safe recreated process diagram or framework visual"
+              className="my-8 h-48 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl border-2 border-dashed border-gray-300 flex items-center justify-center flex-col gap-2"
+            >
+              <span className="text-gray-700 text-xs font-medium">
+                PROCESS DIAGRAM / FRAMEWORK VISUAL
+              </span>
+              <span className="text-gray-600 text-[10px]">NDA-safe recreated artifact</span>
+            </div>
+          </FadeIn>
+        )}
 
         {/* Outcomes */}
         <FadeIn>
