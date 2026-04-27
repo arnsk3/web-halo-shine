@@ -461,7 +461,6 @@ function Home({
               <button
                 onClick={() => {
                   setCase(s);
-                  setPage("case");
                 }}
                 aria-label={`View case study: ${s.title}`}
                 className="text-left w-full group rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2"
