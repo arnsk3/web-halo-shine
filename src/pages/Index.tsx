@@ -1491,7 +1491,7 @@ const Index = () => {
         {page === "resume" && <Resume />}
         {page === "contact" && <Contact />}
       </main>
-      <Footer setPage={navigate} />
+      <Footer setPage={navigate} currentPage={page} />
     </div>
   );
 };
