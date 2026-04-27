@@ -1246,14 +1246,39 @@ function Footer({ setPage }: { setPage: (p: PageId) => void }) {
   );
 }
 
+const PAGE_TITLES: Record<PageId, string> = {
+  home: "Senthil Nagappan — AI Safety & Human Systems Integration",
+  about: "About — Senthil Nagappan",
+  approach: "Approach — Senthil Nagappan",
+  resume: "Resume — Senthil Nagappan",
+  contact: "Contact — Senthil Nagappan",
+  case: "Case Study — Senthil Nagappan",
+};
+
 const Index = () => {
   const [page, setPage] = useState<PageId>("home");
   const [activeCase, setActiveCase] = useState<CaseStudyType | null>(null);
+  const [routeAnnouncement, setRouteAnnouncement] = useState("");
+  const mainRef = useRef<HTMLElement | null>(null);
+
+  // Update document title and announce route changes (WCAG 2.4.2, 4.1.3)
+  useEffect(() => {
+    const title =
+      page === "case" && activeCase
+        ? `${activeCase.title} — Case Study — Senthil Nagappan`
+        : PAGE_TITLES[page];
+    document.title = title;
+    setRouteAnnouncement(`Navigated to ${title}`);
+  }, [page, activeCase]);
 
   const navigate = (p: PageId) => {
     setPage(p);
     if (p !== "case") setActiveCase(null);
     window.scrollTo({ top: 0 });
+    // Move keyboard focus to main landmark so SR users start at new content
+    requestAnimationFrame(() => {
+      mainRef.current?.focus();
+    });
   };
 
   return (
@@ -1264,13 +1289,23 @@ const Index = () => {
       >
         Skip to main content
       </a>
+      {/* SPA route announcer for assistive tech (WCAG 4.1.3) */}
+      <div role="status" aria-live="polite" aria-atomic="true" className="sr-only">
+        {routeAnnouncement}
+      </div>
       <Nav page={page} setPage={navigate} />
-      <main id="main-content" tabIndex={-1}>
+      <main
+        id="main-content"
+        ref={mainRef}
+        tabIndex={-1}
+        className="focus:outline-none"
+      >
         {page === "home" && (
           <Home
             setPage={navigate}
             setCase={(c) => {
               setActiveCase(c);
+              setPage("case");
             }}
           />
         )}
