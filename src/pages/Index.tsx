@@ -432,23 +432,26 @@ function Home({
       </header>
 
       {/* Credentials */}
-      <div className="bg-[#fafbfc] border-b border-gray-100 py-4">
-        <div className="max-w-4xl mx-auto flex justify-center gap-2 flex-wrap px-4">
+      <section
+        aria-label="Professional certifications and standards"
+        className="bg-[#fafbfc] border-b border-gray-100 py-4"
+      >
+        <ul className="max-w-4xl mx-auto flex justify-center gap-2 flex-wrap px-4 list-none p-0 m-0">
           {CREDS.map((c) => (
-            <span
+            <li
               key={c}
-              className="text-[10px] sm:text-xs px-3 py-1 rounded-full border border-[#1B3A5C]/15 text-[#1B3A5C] font-medium"
+              className="text-[10px] sm:text-xs px-3 py-1 rounded-full border border-[#1B3A5C]/30 text-[#1B3A5C] font-medium bg-white"
             >
               {c}
-            </span>
+            </li>
           ))}
-        </div>
-      </div>
+        </ul>
+      </section>
 
       {/* Case Studies */}
-      <section id="cases" className="max-w-5xl mx-auto px-6 py-16">
+      <section id="cases" className="max-w-5xl mx-auto px-6 py-16" aria-labelledby="cases-heading">
         <FadeIn>
-          <h2 className="text-2xl font-extrabold text-gray-900 mb-2 tracking-tight">
+          <h2 id="cases-heading" className="text-2xl font-extrabold text-gray-900 mb-2 tracking-tight">
             Case Studies
           </h2>
           <p className="text-gray-700 text-sm mb-10">
