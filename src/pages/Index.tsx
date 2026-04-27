@@ -1008,49 +1008,110 @@ function Resume() {
         <h1 className="text-3xl font-extrabold text-gray-900 tracking-tight mb-2">
           Resume
         </h1>
-        <p className="text-gray-700 text-sm mb-8">Download or view inline</p>
+        <p className="text-gray-700 text-sm mb-8">
+          Download the PDF or view it inline below. An accessible{" "}
+          <button
+            type="button"
+            onClick={() => {
+              const e = document.getElementById("resume-text-summary");
+              e?.scrollIntoView({ behavior: "smooth", block: "start" });
+              (e?.querySelector("summary") as HTMLElement | null)?.focus();
+            }}
+            className="text-[#1B3A5C] underline font-semibold rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2"
+          >
+            text summary
+          </button>{" "}
+          is also provided.
+        </p>
         <a
           href="/Senthil_Nagappan_Resume.pdf"
           download
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Download Senthil Nagappan resume PDF (opens in new tab)"
-          className="inline-block bg-[#1B3A5C] text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-[#E8913A] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2"
+          className="inline-block bg-[#1B3A5C] text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-[#E8913A] hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2"
         >
           Download PDF <span aria-hidden="true">↓</span>
         </a>
-        <div className="mt-10 w-full bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+
+        {/* PDF preview — hidden from AT because the same content is provided as
+            HTML below in the accessible text summary (avoids duplicate reading). */}
+        <div
+          aria-hidden="true"
+          className="mt-10 w-full bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hidden md:block"
+        >
           <iframe
-            src="/Senthil_Nagappan_Resume.pdf"
-            title="Senthil Nagappan Resume preview"
-            aria-label="Senthil Nagappan resume PDF preview"
+            src="/Senthil_Nagappan_Resume.pdf#view=FitH"
+            title="Senthil Nagappan resume PDF preview"
             className="w-full"
             style={{ height: "700px" }}
-          >
-            <p className="p-6 text-sm text-gray-700">
-              Your browser can't display the PDF inline.{" "}
-              <a
-                href="/Senthil_Nagappan_Resume.pdf"
-                download
-                className="text-[#1B3A5C] underline hover:text-[#B85D1A] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2 rounded"
-              >
-                Download the resume
-              </a>{" "}
-              instead.
-            </p>
-          </iframe>
+          />
         </div>
-        <p className="mt-4 text-sm text-gray-700 sm:hidden">
-          Can't see the preview?{" "}
+
+        {/* Always-visible fallback link — works on mobile/older browsers and for SR users */}
+        <p className="mt-4 text-sm text-gray-700 md:sr-only">
+          Inline PDF preview is not shown on small screens.{" "}
           <a
             href="/Senthil_Nagappan_Resume.pdf"
-            download
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-[#1B3A5C] underline hover:text-[#B85D1A] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2 rounded"
           >
-            Download the PDF
+            Open the resume PDF in a new tab
+            <span className="sr-only"> (opens in a new tab)</span>
           </a>
           .
         </p>
+
+        {/* Accessible plain-text summary — keeps content reachable to screen
+            readers and assistive tech that can't render PDFs (Section 508 / WCAG 1.1.1). */}
+        <details
+          id="resume-text-summary"
+          className="mt-10 text-left border border-gray-200 rounded-xl bg-white"
+        >
+          <summary className="cursor-pointer px-5 py-3 text-sm font-semibold text-[#1B3A5C] bg-[#1B3A5C]/5 hover:bg-[#1B3A5C]/10 rounded-t-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-inset">
+            Accessible text summary of resume
+          </summary>
+          <div className="px-5 py-4 text-sm text-gray-800 leading-relaxed space-y-3">
+            <p>
+              <strong>Senthil Kumar Nagappan</strong> — AI Safety &amp; Human Systems
+              Integration Leader. 18+ years building enterprise functions that deliver
+              safe, compliant, AI-driven products across healthcare, federal, retail,
+              and defense.
+            </p>
+            <p>
+              <strong>Current role:</strong> AI + Human Systems Integration Lead, GE
+              HealthCare (2025 – Present). Built the enterprise AI safety framework
+              for clinical decision-support systems.
+            </p>
+            <p>
+              <strong>Prior roles:</strong> Sr. UX &amp; Accessibility Lead at Leidos
+              / SSA (2022 – 2025) — built SSA11y, an AI-driven federal compliance
+              platform saving $1.5M+ annually. Inclusive Design &amp; Accessibility
+              Lead at Best Buy Health (2021 – 2022). Sr. UX &amp; Accessibility
+              Program Manager at Eagle Technologies / HHS / SAMHSA (2014 – 2021),
+              directing a $130M behavioral health portfolio.
+            </p>
+            <p>
+              <strong>Certifications:</strong> CPACC and WAS (IAAP), CUA (HFI), CSM
+              (Scrum Alliance), DAU HSI in progress.
+            </p>
+            <p>
+              <strong>Standards:</strong> MIL-STD-1472H, FDA, IEC 62366, ISO 14971,
+              MBSE/SysML, WCAG 2.2 AA, Section 508, ADA Title II, DoDI 5000.95.
+            </p>
+            <p>
+              <strong>Contact:</strong>{" "}
+              <a
+                href="mailto:arnsk3@gmail.com"
+                className="text-[#1B3A5C] underline rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2"
+              >
+                arnsk3@gmail.com
+              </a>{" "}
+              · 571-403-0835 · Vienna, VA &amp; Frisco, TX.
+            </p>
+          </div>
+        </details>
       </FadeIn>
     </div>
   );
