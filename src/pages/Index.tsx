@@ -405,7 +405,7 @@ function Home({
             </h1>
           </FadeIn>
           <FadeIn delay={0.2}>
-            <p className="text-white/60 text-lg mb-8 max-w-lg mx-auto leading-relaxed">
+            <p className="text-white/90 text-lg mb-8 max-w-lg mx-auto leading-relaxed">
               AI Safety & Human Systems Integration Leadership for Healthcare, Government,
               and Regulated Environments
             </p>
@@ -432,26 +432,29 @@ function Home({
       </header>
 
       {/* Credentials */}
-      <div className="bg-[#fafbfc] border-b border-gray-100 py-4">
-        <div className="max-w-4xl mx-auto flex justify-center gap-2 flex-wrap px-4">
+      <section
+        aria-label="Professional certifications and standards"
+        className="bg-[#fafbfc] border-b border-gray-100 py-4"
+      >
+        <ul className="max-w-4xl mx-auto flex justify-center gap-2 flex-wrap px-4 list-none p-0 m-0">
           {CREDS.map((c) => (
-            <span
+            <li
               key={c}
-              className="text-[10px] sm:text-xs px-3 py-1 rounded-full border border-[#1B3A5C]/15 text-[#1B3A5C] font-medium"
+              className="text-[10px] sm:text-xs px-3 py-1 rounded-full border border-[#1B3A5C]/30 text-[#1B3A5C] font-medium bg-white"
             >
               {c}
-            </span>
+            </li>
           ))}
-        </div>
-      </div>
+        </ul>
+      </section>
 
       {/* Case Studies */}
-      <section id="cases" className="max-w-5xl mx-auto px-6 py-16">
+      <section id="cases" className="max-w-5xl mx-auto px-6 py-16" aria-labelledby="cases-heading">
         <FadeIn>
-          <h2 className="text-2xl font-extrabold text-gray-900 mb-2 tracking-tight">
+          <h2 id="cases-heading" className="text-2xl font-extrabold text-gray-900 mb-2 tracking-tight">
             Case Studies
           </h2>
-          <p className="text-gray-500 text-sm mb-10">
+          <p className="text-gray-700 text-sm mb-10">
             Enterprise-scale work in AI safety, accessibility, and regulated systems
           </p>
         </FadeIn>
@@ -461,7 +464,6 @@ function Home({
               <button
                 onClick={() => {
                   setCase(s);
-                  setPage("case");
                 }}
                 aria-label={`View case study: ${s.title}`}
                 className="text-left w-full group rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2"
@@ -477,7 +479,7 @@ function Home({
                   <h3 className="font-bold text-gray-900 text-base mb-1.5 leading-snug group-hover:text-[#1B3A5C] transition-colors">
                     {s.title}
                   </h3>
-                  <p className="text-gray-500 text-xs mb-4 leading-relaxed line-clamp-2">
+                  <p className="text-gray-700 text-xs mb-4 leading-relaxed line-clamp-2">
                     {s.subtitle}
                   </p>
                   <div className="flex gap-2 flex-wrap">
@@ -498,7 +500,7 @@ function Home({
       </section>
 
       {/* Brief About */}
-      <section className="max-w-3xl mx-auto px-6 pb-16">
+      <section className="max-w-3xl mx-auto px-6 pb-16" aria-labelledby="brief-about-heading">
         <FadeIn>
           <div className="flex gap-5 items-start bg-white border border-gray-200 rounded-xl p-6">
             <img
@@ -508,7 +510,9 @@ function Home({
               className="w-16 h-16 rounded-full object-cover flex-shrink-0"
             />
             <div>
-              <h3 className="font-bold text-gray-900 mb-1">Senthil Kumar Nagappan</h3>
+              <h2 id="brief-about-heading" className="font-bold text-gray-900 mb-1 text-base">
+                Senthil Kumar Nagappan
+              </h2>
               <p className="text-gray-700 text-sm leading-relaxed mb-2">
                 Senior AI and Human Systems Integration leader with 18+ years building
                 enterprise functions that deliver safe, compliant, AI-driven products in
@@ -519,6 +523,7 @@ function Home({
                 className="text-[#1B3A5C] text-sm font-semibold hover:text-[#E8913A] transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2"
               >
                 Read full story <span aria-hidden="true">→</span>
+                <span className="sr-only">about Senthil Nagappan</span>
               </button>
             </div>
           </div>
@@ -974,12 +979,19 @@ function Approach() {
             together.
           </p>
           <ul className="flex justify-center gap-4 flex-wrap list-none p-0 m-0">
-            {["HSI", "HFE", "A11y", "AI Safety"].map((d) => (
+            {[
+              { abbr: "HSI", full: "Human Systems Integration" },
+              { abbr: "HFE", full: "Human Factors Engineering" },
+              { abbr: "A11y", full: "Accessibility" },
+              { abbr: "AI Safety", full: "Artificial Intelligence Safety" },
+            ].map((d) => (
               <li
-                key={d}
-                className="w-16 h-16 rounded-full border-2 border-white/70 bg-white/10 flex items-center justify-center text-white text-xs font-bold"
+                key={d.abbr}
+                className="w-16 h-16 rounded-full border-2 border-white bg-white/15 flex items-center justify-center text-white text-xs font-bold text-center px-1"
               >
-                {d}
+                <abbr title={d.full} className="no-underline">
+                  {d.abbr}
+                </abbr>
               </li>
             ))}
           </ul>
@@ -996,49 +1008,110 @@ function Resume() {
         <h1 className="text-3xl font-extrabold text-gray-900 tracking-tight mb-2">
           Resume
         </h1>
-        <p className="text-gray-700 text-sm mb-8">Download or view inline</p>
+        <p className="text-gray-700 text-sm mb-8">
+          Download the PDF or view it inline below. An accessible{" "}
+          <button
+            type="button"
+            onClick={() => {
+              const e = document.getElementById("resume-text-summary");
+              e?.scrollIntoView({ behavior: "smooth", block: "start" });
+              (e?.querySelector("summary") as HTMLElement | null)?.focus();
+            }}
+            className="text-[#1B3A5C] underline font-semibold rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2"
+          >
+            text summary
+          </button>{" "}
+          is also provided.
+        </p>
         <a
           href="/Senthil_Nagappan_Resume.pdf"
           download
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Download Senthil Nagappan resume PDF (opens in new tab)"
-          className="inline-block bg-[#1B3A5C] text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-[#E8913A] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2"
+          className="inline-block bg-[#1B3A5C] text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-[#E8913A] hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2"
         >
           Download PDF <span aria-hidden="true">↓</span>
         </a>
-        <div className="mt-10 w-full bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+
+        {/* PDF preview — hidden from AT because the same content is provided as
+            HTML below in the accessible text summary (avoids duplicate reading). */}
+        <div
+          aria-hidden="true"
+          className="mt-10 w-full bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hidden md:block"
+        >
           <iframe
-            src="/Senthil_Nagappan_Resume.pdf"
-            title="Senthil Nagappan Resume preview"
-            aria-label="Senthil Nagappan resume PDF preview"
+            src="/Senthil_Nagappan_Resume.pdf#view=FitH"
+            title="Senthil Nagappan resume PDF preview"
             className="w-full"
             style={{ height: "700px" }}
-          >
-            <p className="p-6 text-sm text-gray-700">
-              Your browser can't display the PDF inline.{" "}
-              <a
-                href="/Senthil_Nagappan_Resume.pdf"
-                download
-                className="text-[#1B3A5C] underline hover:text-[#B85D1A] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2 rounded"
-              >
-                Download the resume
-              </a>{" "}
-              instead.
-            </p>
-          </iframe>
+          />
         </div>
-        <p className="mt-4 text-sm text-gray-700 sm:hidden">
-          Can't see the preview?{" "}
+
+        {/* Always-visible fallback link — works on mobile/older browsers and for SR users */}
+        <p className="mt-4 text-sm text-gray-700 md:sr-only">
+          Inline PDF preview is not shown on small screens.{" "}
           <a
             href="/Senthil_Nagappan_Resume.pdf"
-            download
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-[#1B3A5C] underline hover:text-[#B85D1A] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2 rounded"
           >
-            Download the PDF
+            Open the resume PDF in a new tab
+            <span className="sr-only"> (opens in a new tab)</span>
           </a>
           .
         </p>
+
+        {/* Accessible plain-text summary — keeps content reachable to screen
+            readers and assistive tech that can't render PDFs (Section 508 / WCAG 1.1.1). */}
+        <details
+          id="resume-text-summary"
+          className="mt-10 text-left border border-gray-200 rounded-xl bg-white"
+        >
+          <summary className="cursor-pointer px-5 py-3 text-sm font-semibold text-[#1B3A5C] bg-[#1B3A5C]/5 hover:bg-[#1B3A5C]/10 rounded-t-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-inset">
+            Accessible text summary of resume
+          </summary>
+          <div className="px-5 py-4 text-sm text-gray-800 leading-relaxed space-y-3">
+            <p>
+              <strong>Senthil Kumar Nagappan</strong> — AI Safety &amp; Human Systems
+              Integration Leader. 18+ years building enterprise functions that deliver
+              safe, compliant, AI-driven products across healthcare, federal, retail,
+              and defense.
+            </p>
+            <p>
+              <strong>Current role:</strong> AI + Human Systems Integration Lead, GE
+              HealthCare (2025 – Present). Built the enterprise AI safety framework
+              for clinical decision-support systems.
+            </p>
+            <p>
+              <strong>Prior roles:</strong> Sr. UX &amp; Accessibility Lead at Leidos
+              / SSA (2022 – 2025) — built SSA11y, an AI-driven federal compliance
+              platform saving $1.5M+ annually. Inclusive Design &amp; Accessibility
+              Lead at Best Buy Health (2021 – 2022). Sr. UX &amp; Accessibility
+              Program Manager at Eagle Technologies / HHS / SAMHSA (2014 – 2021),
+              directing a $130M behavioral health portfolio.
+            </p>
+            <p>
+              <strong>Certifications:</strong> CPACC and WAS (IAAP), CUA (HFI), CSM
+              (Scrum Alliance), DAU HSI in progress.
+            </p>
+            <p>
+              <strong>Standards:</strong> MIL-STD-1472H, FDA, IEC 62366, ISO 14971,
+              MBSE/SysML, WCAG 2.2 AA, Section 508, ADA Title II, DoDI 5000.95.
+            </p>
+            <p>
+              <strong>Contact:</strong>{" "}
+              <a
+                href="mailto:arnsk3@gmail.com"
+                className="text-[#1B3A5C] underline rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2"
+              >
+                arnsk3@gmail.com
+              </a>{" "}
+              · 571-403-0835 · Vienna, VA &amp; Frisco, TX.
+            </p>
+          </div>
+        </details>
       </FadeIn>
     </div>
   );
@@ -1048,12 +1121,54 @@ function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
+  const errorSummaryRef = useRef<HTMLDivElement | null>(null);
+  const successHeadingRef = useRef<HTMLHeadingElement | null>(null);
+
+  // Move focus to the success heading when message is sent (WCAG 3.3.1, 4.1.3)
+  useEffect(() => {
+    if (submitted) {
+      requestAnimationFrame(() => successHeadingRef.current?.focus());
+    }
+  }, [submitted]);
+
+  // Move focus to the error summary when a server error appears
+  useEffect(() => {
+    if (error) {
+      requestAnimationFrame(() => errorSummaryRef.current?.focus());
+    }
+  }, [error]);
+
+  const validate = (form: HTMLFormElement) => {
+    const errs: Record<string, string> = {};
+    const data = new FormData(form);
+    if (!String(data.get("name") ?? "").trim()) errs.name = "Please enter your name.";
+    const email = String(data.get("email") ?? "").trim();
+    if (!email) errs.email = "Please enter your email address.";
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
+      errs.email = "Please enter a valid email address (e.g., name@example.com).";
+    if (!String(data.get("subject") ?? "").trim())
+      errs.subject = "Please enter a subject.";
+    if (!String(data.get("message") ?? "").trim())
+      errs.message = "Please enter a message.";
+    return errs;
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setLoading(true);
     setError(null);
     const form = e.currentTarget;
+    const errs = validate(form);
+    setFieldErrors(errs);
+    if (Object.keys(errs).length > 0) {
+      // Focus first invalid field
+      const firstId = Object.keys(errs)[0];
+      requestAnimationFrame(() => {
+        document.getElementById(`contact-${firstId}`)?.focus();
+      });
+      return;
+    }
+    setLoading(true);
     try {
       const response = await fetch("https://formspree.io/f/xyklopnb", {
         method: "POST",
@@ -1087,7 +1202,7 @@ function Contact() {
         </h1>
         <p className="text-gray-700 text-sm mb-8 text-center">
           Open to conversations about AI safety, human factors, and accessibility
-          leadership
+          leadership.
         </p>
         {submitted ? (
           <div
@@ -1097,13 +1212,19 @@ function Contact() {
           >
             <div
               aria-hidden="true"
-              className="w-12 h-12 mx-auto mb-4 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-2xl font-bold"
+              className="w-12 h-12 mx-auto mb-4 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center text-2xl font-bold"
             >
               ✓
             </div>
-            <h2 className="text-lg font-bold text-gray-900 mb-1">Message Sent!</h2>
+            <h2
+              ref={successHeadingRef}
+              tabIndex={-1}
+              className="text-lg font-bold text-gray-900 mb-1 focus:outline-none"
+            >
+              Message Sent
+            </h2>
             <p className="text-sm text-gray-700">
-              Thank you! I'll get back to you soon.
+              Thank you. I'll get back to you soon.
             </p>
             <button
               onClick={() => setSubmitted(false)}
@@ -1115,43 +1236,61 @@ function Contact() {
         ) : (
           <form
             onSubmit={handleSubmit}
-            noValidate={false}
+            noValidate
             aria-label="Contact form"
+            aria-describedby="contact-required-hint"
             className="bg-white border border-gray-200 rounded-xl p-6 space-y-4"
           >
             {error && (
               <div
+                ref={errorSummaryRef}
                 role="alert"
-                className="rounded-lg border border-red-300 bg-red-50 px-3 py-2 text-sm text-red-800"
+                tabIndex={-1}
+                className="rounded-lg border border-red-400 bg-red-50 px-3 py-2 text-sm text-red-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-700"
               >
                 {error}
               </div>
             )}
-            {fields.map((f) => (
-              <div key={f.id}>
-                <label
-                  htmlFor={`contact-${f.id}`}
-                  className="text-xs font-semibold text-gray-800 block mb-1"
-                >
-                  {f.label}
-                  <span aria-hidden="true" className="text-red-700"> *</span>
-                </label>
-                <input
-                  id={`contact-${f.id}`}
-                  type={f.type}
-                  name={f.id}
-                  required
-                  aria-required="true"
-                  autoComplete={f.autoComplete}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 transition-colors focus:outline-none focus:border-[#1B3A5C] focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-1"
-                  placeholder={f.placeholder}
-                />
-              </div>
-            ))}
+            {fields.map((f) => {
+              const errId = `contact-${f.id}-error`;
+              const hasError = Boolean(fieldErrors[f.id]);
+              return (
+                <div key={f.id}>
+                  <label
+                    htmlFor={`contact-${f.id}`}
+                    className="text-xs font-semibold text-gray-900 block mb-1"
+                  >
+                    {f.label}
+                    <span aria-hidden="true" className="text-red-700"> *</span>
+                  </label>
+                  <input
+                    id={`contact-${f.id}`}
+                    type={f.type}
+                    name={f.id}
+                    required
+                    aria-required="true"
+                    aria-invalid={hasError || undefined}
+                    aria-describedby={hasError ? errId : undefined}
+                    autoComplete={f.autoComplete}
+                    className={`w-full px-3 py-2 border rounded-lg text-sm text-gray-900 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-1 ${
+                      hasError
+                        ? "border-red-600 focus:border-red-700"
+                        : "border-gray-400 focus:border-[#1B3A5C]"
+                    }`}
+                    placeholder={f.placeholder}
+                  />
+                  {hasError && (
+                    <p id={errId} className="mt-1 text-xs text-red-800 font-medium">
+                      {fieldErrors[f.id]}
+                    </p>
+                  )}
+                </div>
+              );
+            })}
             <div>
               <label
                 htmlFor="contact-message"
-                className="text-xs font-semibold text-gray-800 block mb-1"
+                className="text-xs font-semibold text-gray-900 block mb-1"
               >
                 Message
                 <span aria-hidden="true" className="text-red-700"> *</span>
@@ -1161,19 +1300,35 @@ function Contact() {
                 name="message"
                 required
                 aria-required="true"
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 h-28 transition-colors focus:outline-none focus:border-[#1B3A5C] focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-1 resize-y"
+                aria-invalid={Boolean(fieldErrors.message) || undefined}
+                aria-describedby={
+                  fieldErrors.message ? "contact-message-error" : undefined
+                }
+                className={`w-full px-3 py-2 border rounded-lg text-sm text-gray-900 h-28 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-1 resize-y ${
+                  fieldErrors.message
+                    ? "border-red-600 focus:border-red-700"
+                    : "border-gray-400 focus:border-[#1B3A5C]"
+                }`}
               />
+              {fieldErrors.message && (
+                <p
+                  id="contact-message-error"
+                  className="mt-1 text-xs text-red-800 font-medium"
+                >
+                  {fieldErrors.message}
+                </p>
+              )}
             </div>
-            <p className="text-xs text-gray-700">
+            <p id="contact-required-hint" className="text-xs text-gray-700">
               <span aria-hidden="true" className="text-red-700">*</span> Required field
             </p>
             <button
               type="submit"
               disabled={loading}
               aria-busy={loading}
-              className="w-full bg-[#1B3A5C] text-white py-2.5 rounded-lg font-semibold text-sm hover:bg-[#B85D1A] transition-colors disabled:opacity-60 disabled:cursor-not-allowed focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2"
+              className="w-full bg-[#1B3A5C] text-white py-2.5 rounded-lg font-semibold text-sm hover:bg-[#B85D1A] transition-colors disabled:opacity-70 disabled:cursor-not-allowed focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2"
             >
-              {loading ? "Sending..." : "Send Message"}
+              {loading ? "Sending…" : "Send Message"}
             </button>
             <p role="status" aria-live="polite" className="sr-only">
               {loading ? "Sending your message" : ""}
@@ -1214,16 +1369,30 @@ function Contact() {
   );
 }
 
-function Footer({ setPage }: { setPage: (p: PageId) => void }) {
+function Footer({
+  setPage,
+  currentPage,
+}: {
+  setPage: (p: PageId) => void;
+  currentPage: PageId;
+}) {
+  const labels: Record<PageId, string> = {
+    home: "Home",
+    about: "About",
+    approach: "Approach",
+    resume: "Resume",
+    contact: "Contact",
+    case: "Case Study",
+  };
   return (
-    <footer className="bg-[#111827] mt-16">
+    <footer className="bg-[#111827] mt-16" role="contentinfo">
       <div className="max-w-5xl mx-auto px-6 py-10 flex flex-col sm:flex-row justify-between items-start gap-6">
         <div>
           <p className="font-bold text-white text-sm">Senthil Kumar Nagappan</p>
-          <p className="text-white/85 text-xs mt-1">
+          <p className="text-white text-xs mt-1">
             AI Safety &amp; Human Systems Integration Leader
           </p>
-          <p className="text-white/75 text-xs mt-3">
+          <p className="text-white/90 text-xs mt-3">
             © 2026 · Designed &amp; built with accessibility in mind
           </p>
         </div>
@@ -1233,9 +1402,14 @@ function Footer({ setPage }: { setPage: (p: PageId) => void }) {
               <li key={p}>
                 <button
                   onClick={() => setPage(p)}
-                  className="text-white/90 text-xs hover:text-white underline-offset-4 hover:underline transition-colors capitalize rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#111827]"
+                  aria-current={currentPage === p ? "page" : undefined}
+                  className={`text-xs underline-offset-4 hover:underline transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#111827] ${
+                    currentPage === p
+                      ? "text-white font-semibold underline"
+                      : "text-white hover:text-white"
+                  }`}
                 >
-                  {p}
+                  {labels[p]}
                 </button>
               </li>
             ))}
@@ -1246,14 +1420,39 @@ function Footer({ setPage }: { setPage: (p: PageId) => void }) {
   );
 }
 
+const PAGE_TITLES: Record<PageId, string> = {
+  home: "Senthil Nagappan — AI Safety & Human Systems Integration",
+  about: "About — Senthil Nagappan",
+  approach: "Approach — Senthil Nagappan",
+  resume: "Resume — Senthil Nagappan",
+  contact: "Contact — Senthil Nagappan",
+  case: "Case Study — Senthil Nagappan",
+};
+
 const Index = () => {
   const [page, setPage] = useState<PageId>("home");
   const [activeCase, setActiveCase] = useState<CaseStudyType | null>(null);
+  const [routeAnnouncement, setRouteAnnouncement] = useState("");
+  const mainRef = useRef<HTMLElement | null>(null);
+
+  // Update document title and announce route changes (WCAG 2.4.2, 4.1.3)
+  useEffect(() => {
+    const title =
+      page === "case" && activeCase
+        ? `${activeCase.title} — Case Study — Senthil Nagappan`
+        : PAGE_TITLES[page];
+    document.title = title;
+    setRouteAnnouncement(`Navigated to ${title}`);
+  }, [page, activeCase]);
 
   const navigate = (p: PageId) => {
     setPage(p);
     if (p !== "case") setActiveCase(null);
     window.scrollTo({ top: 0 });
+    // Move keyboard focus to main landmark so SR users start at new content
+    requestAnimationFrame(() => {
+      mainRef.current?.focus();
+    });
   };
 
   return (
@@ -1264,13 +1463,23 @@ const Index = () => {
       >
         Skip to main content
       </a>
+      {/* SPA route announcer for assistive tech (WCAG 4.1.3) */}
+      <div role="status" aria-live="polite" aria-atomic="true" className="sr-only">
+        {routeAnnouncement}
+      </div>
       <Nav page={page} setPage={navigate} />
-      <main id="main-content" tabIndex={-1}>
+      <main
+        id="main-content"
+        ref={mainRef}
+        tabIndex={-1}
+        className="focus:outline-none"
+      >
         {page === "home" && (
           <Home
             setPage={navigate}
             setCase={(c) => {
               setActiveCase(c);
+              setPage("case");
             }}
           />
         )}
@@ -1282,7 +1491,7 @@ const Index = () => {
         {page === "resume" && <Resume />}
         {page === "contact" && <Contact />}
       </main>
-      <Footer setPage={navigate} />
+      <Footer setPage={navigate} currentPage={page} />
     </div>
   );
 };
