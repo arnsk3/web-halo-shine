@@ -101,17 +101,36 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    /* Avoid disabling browser text resize (WCAG 1.4.4) */
+    text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
   }
 
-  /* Accessibility: visible focus indicator for keyboard users (WCAG 2.4.7 / 508) */
+  /* Smooth in-page anchor scrolling, but only when motion is allowed */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Accessibility: visible 3:1+ focus indicator for keyboard users
+     (WCAG 2.4.7, 2.4.11, 2.4.13 / Section 508) */
   :focus-visible {
-    outline: 2px solid #1B3A5C;
+    outline: 3px solid #1B3A5C;
     outline-offset: 2px;
     border-radius: 2px;
+    box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.85);
+  }
+  /* On dark surfaces, swap to a light focus ring for contrast */
+  .dark :focus-visible,
+  [data-theme="dark"] :focus-visible {
+    outline-color: #ffffff;
+    box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.6);
   }
 
   /* Respect users who prefer reduced motion (WCAG 2.3.3) */
   @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
     *,
     *::before,
     *::after {
@@ -119,6 +138,30 @@ All colors MUST be HSL.
       animation-iteration-count: 1 !important;
       transition-duration: 0.001ms !important;
       scroll-behavior: auto !important;
+    }
+  }
+
+  /* Honor users who prefer more contrast (WCAG 1.4.6 enhanced) */
+  @media (prefers-contrast: more) {
+    :focus-visible {
+      outline-width: 4px;
+      outline-color: #000000;
+    }
+    a {
+      text-decoration: underline;
+    }
+  }
+
+  /* Make text selection meet contrast (4.5:1 against white) */
+  ::selection {
+    background-color: #1B3A5C;
+    color: #ffffff;
+  }
+
+  /* Forced-colors / Windows High Contrast Mode support */
+  @media (forced-colors: active) {
+    :focus-visible {
+      outline: 3px solid CanvasText;
     }
   }
 }
