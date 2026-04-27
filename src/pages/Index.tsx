@@ -497,7 +497,7 @@ function Home({
       </section>
 
       {/* Brief About */}
-      <section className="max-w-3xl mx-auto px-6 pb-16">
+      <section className="max-w-3xl mx-auto px-6 pb-16" aria-labelledby="brief-about-heading">
         <FadeIn>
           <div className="flex gap-5 items-start bg-white border border-gray-200 rounded-xl p-6">
             <img
@@ -507,7 +507,9 @@ function Home({
               className="w-16 h-16 rounded-full object-cover flex-shrink-0"
             />
             <div>
-              <h3 className="font-bold text-gray-900 mb-1">Senthil Kumar Nagappan</h3>
+              <h2 id="brief-about-heading" className="font-bold text-gray-900 mb-1 text-base">
+                Senthil Kumar Nagappan
+              </h2>
               <p className="text-gray-700 text-sm leading-relaxed mb-2">
                 Senior AI and Human Systems Integration leader with 18+ years building
                 enterprise functions that deliver safe, compliant, AI-driven products in
@@ -518,6 +520,7 @@ function Home({
                 className="text-[#1B3A5C] text-sm font-semibold hover:text-[#E8913A] transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2"
               >
                 Read full story <span aria-hidden="true">→</span>
+                <span className="sr-only">about Senthil Nagappan</span>
               </button>
             </div>
           </div>
