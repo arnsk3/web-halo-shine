@@ -405,7 +405,7 @@ function Home({
             </h1>
           </FadeIn>
           <FadeIn delay={0.2}>
-            <p className="text-white/60 text-lg mb-8 max-w-lg mx-auto leading-relaxed">
+            <p className="text-white/90 text-lg mb-8 max-w-lg mx-auto leading-relaxed">
               AI Safety & Human Systems Integration Leadership for Healthcare, Government,
               and Regulated Environments
             </p>
@@ -451,7 +451,7 @@ function Home({
           <h2 className="text-2xl font-extrabold text-gray-900 mb-2 tracking-tight">
             Case Studies
           </h2>
-          <p className="text-gray-500 text-sm mb-10">
+          <p className="text-gray-700 text-sm mb-10">
             Enterprise-scale work in AI safety, accessibility, and regulated systems
           </p>
         </FadeIn>
@@ -476,7 +476,7 @@ function Home({
                   <h3 className="font-bold text-gray-900 text-base mb-1.5 leading-snug group-hover:text-[#1B3A5C] transition-colors">
                     {s.title}
                   </h3>
-                  <p className="text-gray-500 text-xs mb-4 leading-relaxed line-clamp-2">
+                  <p className="text-gray-700 text-xs mb-4 leading-relaxed line-clamp-2">
                     {s.subtitle}
                   </p>
                   <div className="flex gap-2 flex-wrap">
