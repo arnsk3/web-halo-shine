@@ -1369,16 +1369,30 @@ function Contact() {
   );
 }
 
-function Footer({ setPage }: { setPage: (p: PageId) => void }) {
+function Footer({
+  setPage,
+  currentPage,
+}: {
+  setPage: (p: PageId) => void;
+  currentPage: PageId;
+}) {
+  const labels: Record<PageId, string> = {
+    home: "Home",
+    about: "About",
+    approach: "Approach",
+    resume: "Resume",
+    contact: "Contact",
+    case: "Case Study",
+  };
   return (
-    <footer className="bg-[#111827] mt-16">
+    <footer className="bg-[#111827] mt-16" role="contentinfo">
       <div className="max-w-5xl mx-auto px-6 py-10 flex flex-col sm:flex-row justify-between items-start gap-6">
         <div>
           <p className="font-bold text-white text-sm">Senthil Kumar Nagappan</p>
-          <p className="text-white/85 text-xs mt-1">
+          <p className="text-white text-xs mt-1">
             AI Safety &amp; Human Systems Integration Leader
           </p>
-          <p className="text-white/75 text-xs mt-3">
+          <p className="text-white/90 text-xs mt-3">
             © 2026 · Designed &amp; built with accessibility in mind
           </p>
         </div>
@@ -1388,9 +1402,14 @@ function Footer({ setPage }: { setPage: (p: PageId) => void }) {
               <li key={p}>
                 <button
                   onClick={() => setPage(p)}
-                  className="text-white/90 text-xs hover:text-white underline-offset-4 hover:underline transition-colors capitalize rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#111827]"
+                  aria-current={currentPage === p ? "page" : undefined}
+                  className={`text-xs underline-offset-4 hover:underline transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#111827] ${
+                    currentPage === p
+                      ? "text-white font-semibold underline"
+                      : "text-white hover:text-white"
+                  }`}
                 >
-                  {p}
+                  {labels[p]}
                 </button>
               </li>
             ))}
