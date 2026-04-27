@@ -979,12 +979,19 @@ function Approach() {
             together.
           </p>
           <ul className="flex justify-center gap-4 flex-wrap list-none p-0 m-0">
-            {["HSI", "HFE", "A11y", "AI Safety"].map((d) => (
+            {[
+              { abbr: "HSI", full: "Human Systems Integration" },
+              { abbr: "HFE", full: "Human Factors Engineering" },
+              { abbr: "A11y", full: "Accessibility" },
+              { abbr: "AI Safety", full: "Artificial Intelligence Safety" },
+            ].map((d) => (
               <li
-                key={d}
-                className="w-16 h-16 rounded-full border-2 border-white/70 bg-white/10 flex items-center justify-center text-white text-xs font-bold"
+                key={d.abbr}
+                className="w-16 h-16 rounded-full border-2 border-white bg-white/15 flex items-center justify-center text-white text-xs font-bold text-center px-1"
               >
-                {d}
+                <abbr title={d.full} className="no-underline">
+                  {d.abbr}
+                </abbr>
               </li>
             ))}
           </ul>
