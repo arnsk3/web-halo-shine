@@ -1121,12 +1121,54 @@ function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
+  const errorSummaryRef = useRef<HTMLDivElement | null>(null);
+  const successHeadingRef = useRef<HTMLHeadingElement | null>(null);
+
+  // Move focus to the success heading when message is sent (WCAG 3.3.1, 4.1.3)
+  useEffect(() => {
+    if (submitted) {
+      requestAnimationFrame(() => successHeadingRef.current?.focus());
+    }
+  }, [submitted]);
+
+  // Move focus to the error summary when a server error appears
+  useEffect(() => {
+    if (error) {
+      requestAnimationFrame(() => errorSummaryRef.current?.focus());
+    }
+  }, [error]);
+
+  const validate = (form: HTMLFormElement) => {
+    const errs: Record<string, string> = {};
+    const data = new FormData(form);
+    if (!String(data.get("name") ?? "").trim()) errs.name = "Please enter your name.";
+    const email = String(data.get("email") ?? "").trim();
+    if (!email) errs.email = "Please enter your email address.";
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
+      errs.email = "Please enter a valid email address (e.g., name@example.com).";
+    if (!String(data.get("subject") ?? "").trim())
+      errs.subject = "Please enter a subject.";
+    if (!String(data.get("message") ?? "").trim())
+      errs.message = "Please enter a message.";
+    return errs;
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setLoading(true);
     setError(null);
     const form = e.currentTarget;
+    const errs = validate(form);
+    setFieldErrors(errs);
+    if (Object.keys(errs).length > 0) {
+      // Focus first invalid field
+      const firstId = Object.keys(errs)[0];
+      requestAnimationFrame(() => {
+        document.getElementById(`contact-${firstId}`)?.focus();
+      });
+      return;
+    }
+    setLoading(true);
     try {
       const response = await fetch("https://formspree.io/f/xyklopnb", {
         method: "POST",
@@ -1160,7 +1202,7 @@ function Contact() {
         </h1>
         <p className="text-gray-700 text-sm mb-8 text-center">
           Open to conversations about AI safety, human factors, and accessibility
-          leadership
+          leadership.
         </p>
         {submitted ? (
           <div
@@ -1170,13 +1212,19 @@ function Contact() {
           >
             <div
               aria-hidden="true"
-              className="w-12 h-12 mx-auto mb-4 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-2xl font-bold"
+              className="w-12 h-12 mx-auto mb-4 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center text-2xl font-bold"
             >
               ✓
             </div>
-            <h2 className="text-lg font-bold text-gray-900 mb-1">Message Sent!</h2>
+            <h2
+              ref={successHeadingRef}
+              tabIndex={-1}
+              className="text-lg font-bold text-gray-900 mb-1 focus:outline-none"
+            >
+              Message Sent
+            </h2>
             <p className="text-sm text-gray-700">
-              Thank you! I'll get back to you soon.
+              Thank you. I'll get back to you soon.
             </p>
             <button
               onClick={() => setSubmitted(false)}
@@ -1188,43 +1236,61 @@ function Contact() {
         ) : (
           <form
             onSubmit={handleSubmit}
-            noValidate={false}
+            noValidate
             aria-label="Contact form"
+            aria-describedby="contact-required-hint"
             className="bg-white border border-gray-200 rounded-xl p-6 space-y-4"
           >
             {error && (
               <div
+                ref={errorSummaryRef}
                 role="alert"
-                className="rounded-lg border border-red-300 bg-red-50 px-3 py-2 text-sm text-red-800"
+                tabIndex={-1}
+                className="rounded-lg border border-red-400 bg-red-50 px-3 py-2 text-sm text-red-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-700"
               >
                 {error}
               </div>
             )}
-            {fields.map((f) => (
-              <div key={f.id}>
-                <label
-                  htmlFor={`contact-${f.id}`}
-                  className="text-xs font-semibold text-gray-800 block mb-1"
-                >
-                  {f.label}
-                  <span aria-hidden="true" className="text-red-700"> *</span>
-                </label>
-                <input
-                  id={`contact-${f.id}`}
-                  type={f.type}
-                  name={f.id}
-                  required
-                  aria-required="true"
-                  autoComplete={f.autoComplete}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 transition-colors focus:outline-none focus:border-[#1B3A5C] focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-1"
-                  placeholder={f.placeholder}
-                />
-              </div>
-            ))}
+            {fields.map((f) => {
+              const errId = `contact-${f.id}-error`;
+              const hasError = Boolean(fieldErrors[f.id]);
+              return (
+                <div key={f.id}>
+                  <label
+                    htmlFor={`contact-${f.id}`}
+                    className="text-xs font-semibold text-gray-900 block mb-1"
+                  >
+                    {f.label}
+                    <span aria-hidden="true" className="text-red-700"> *</span>
+                  </label>
+                  <input
+                    id={`contact-${f.id}`}
+                    type={f.type}
+                    name={f.id}
+                    required
+                    aria-required="true"
+                    aria-invalid={hasError || undefined}
+                    aria-describedby={hasError ? errId : undefined}
+                    autoComplete={f.autoComplete}
+                    className={`w-full px-3 py-2 border rounded-lg text-sm text-gray-900 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-1 ${
+                      hasError
+                        ? "border-red-600 focus:border-red-700"
+                        : "border-gray-400 focus:border-[#1B3A5C]"
+                    }`}
+                    placeholder={f.placeholder}
+                  />
+                  {hasError && (
+                    <p id={errId} className="mt-1 text-xs text-red-800 font-medium">
+                      {fieldErrors[f.id]}
+                    </p>
+                  )}
+                </div>
+              );
+            })}
             <div>
               <label
                 htmlFor="contact-message"
-                className="text-xs font-semibold text-gray-800 block mb-1"
+                className="text-xs font-semibold text-gray-900 block mb-1"
               >
                 Message
                 <span aria-hidden="true" className="text-red-700"> *</span>
@@ -1234,19 +1300,35 @@ function Contact() {
                 name="message"
                 required
                 aria-required="true"
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 h-28 transition-colors focus:outline-none focus:border-[#1B3A5C] focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-1 resize-y"
+                aria-invalid={Boolean(fieldErrors.message) || undefined}
+                aria-describedby={
+                  fieldErrors.message ? "contact-message-error" : undefined
+                }
+                className={`w-full px-3 py-2 border rounded-lg text-sm text-gray-900 h-28 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-1 resize-y ${
+                  fieldErrors.message
+                    ? "border-red-600 focus:border-red-700"
+                    : "border-gray-400 focus:border-[#1B3A5C]"
+                }`}
               />
+              {fieldErrors.message && (
+                <p
+                  id="contact-message-error"
+                  className="mt-1 text-xs text-red-800 font-medium"
+                >
+                  {fieldErrors.message}
+                </p>
+              )}
             </div>
-            <p className="text-xs text-gray-700">
+            <p id="contact-required-hint" className="text-xs text-gray-700">
               <span aria-hidden="true" className="text-red-700">*</span> Required field
             </p>
             <button
               type="submit"
               disabled={loading}
               aria-busy={loading}
-              className="w-full bg-[#1B3A5C] text-white py-2.5 rounded-lg font-semibold text-sm hover:bg-[#B85D1A] transition-colors disabled:opacity-60 disabled:cursor-not-allowed focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2"
+              className="w-full bg-[#1B3A5C] text-white py-2.5 rounded-lg font-semibold text-sm hover:bg-[#B85D1A] transition-colors disabled:opacity-70 disabled:cursor-not-allowed focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2"
             >
-              {loading ? "Sending..." : "Send Message"}
+              {loading ? "Sending…" : "Send Message"}
             </button>
             <p role="status" aria-live="polite" className="sr-only">
               {loading ? "Sending your message" : ""}
