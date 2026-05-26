@@ -533,6 +533,333 @@ function Home({
   );
 }
 
+// ─────────────────────────────────────────────────────────────
+// Case Study Showcase: NDA-safe wireframes, workflow, and sample screens
+// ─────────────────────────────────────────────────────────────
+
+type ShowcaseScreen = {
+  title: string;
+  body: React.ReactNode;
+};
+
+type ShowcaseConfig = {
+  workflowTitle: string;
+  steps: string[];
+  screensTitle: string;
+  screens: ShowcaseScreen[];
+};
+
+const WBar = ({ w = "100%", h = 8, c = "bg-gray-300", className = "" }: { w?: string; h?: number; c?: string; className?: string }) => (
+  <div aria-hidden="true" className={`rounded ${c} ${className}`} style={{ width: w, height: h }} />
+);
+const WBlock = ({ h = 40, c = "bg-gray-100", children, className = "" }: { h?: number; c?: string; children?: React.ReactNode; className?: string }) => (
+  <div aria-hidden="true" className={`rounded ${c} ${className}`} style={{ minHeight: h }}>{children}</div>
+);
+
+function ScreenFrame({ label, children }: { label: string; children: React.ReactNode }) {
+  return (
+    <div className="rounded-lg border border-gray-200 bg-white shadow-sm overflow-hidden flex flex-col h-full">
+      <div className="flex items-center gap-1.5 px-2.5 py-1.5 bg-gray-50 border-b border-gray-200" aria-hidden="true">
+        <span className="w-2 h-2 rounded-full bg-[#ff5f57]" />
+        <span className="w-2 h-2 rounded-full bg-[#febc2e]" />
+        <span className="w-2 h-2 rounded-full bg-[#28c840]" />
+        <span className="ml-2 text-[9px] uppercase tracking-wider text-gray-500 font-medium truncate">{label}</span>
+      </div>
+      <div className="p-3 flex-1 flex flex-col gap-2 bg-white min-h-[160px]">{children}</div>
+    </div>
+  );
+}
+
+const SHOWCASE: Record<string, ShowcaseConfig> = {
+  ssa: {
+    workflowTitle: "Continuous accessibility validation pipeline",
+    steps: ["Crawl & Discover", "AI Rule Scan", "WCAG / 508 Mapping", "Auto-Ticket & PR", "Verify in CI/CD"],
+    screensTitle: "Sample screens — SSA11y operator console",
+    screens: [
+      {
+        title: "Portfolio Dashboard",
+        body: (
+          <>
+            <WBar w="55%" h={10} c="bg-[#1B3A5C]" />
+            <div className="grid grid-cols-3 gap-2 mt-1">
+              <WBlock h={42} c="bg-[#eaf3fb]"><div className="p-1.5"><div className="text-[9px] text-[#1B3A5C] font-bold">CRIT</div><div className="text-sm font-bold text-[#1B3A5C]">128</div></div></WBlock>
+              <WBlock h={42} c="bg-[#fff4e5]"><div className="p-1.5"><div className="text-[9px] text-[#8a5a00] font-bold">SERIOUS</div><div className="text-sm font-bold text-[#8a5a00]">412</div></div></WBlock>
+              <WBlock h={42} c="bg-[#eef7ee]"><div className="p-1.5"><div className="text-[9px] text-[#1f6b2e] font-bold">PASSED</div><div className="text-sm font-bold text-[#1f6b2e]">9.2k</div></div></WBlock>
+            </div>
+            <WBar w="100%" h={6} />
+            <WBar w="80%" h={6} />
+            <WBar w="65%" h={6} />
+          </>
+        ),
+      },
+      {
+        title: "Issue Detail · WCAG 1.4.3",
+        body: (
+          <>
+            <WBar w="70%" h={10} c="bg-[#1B3A5C]" />
+            <div className="rounded bg-gray-900 p-2 font-mono text-[8px] leading-tight text-green-300" aria-hidden="true">
+              {'<button class="text-gray-400">'}<br />&nbsp;&nbsp;Submit<br />{'</button>'}
+            </div>
+            <div className="flex items-center gap-1.5">
+              <span className="text-[9px] px-1.5 py-0.5 rounded bg-[#ffe2e2] text-[#8a1a1a] font-bold">2.1:1</span>
+              <span className="text-[9px] text-gray-600">requires 4.5:1</span>
+            </div>
+            <WBar w="100%" h={6} />
+            <WBar w="55%" h={6} />
+          </>
+        ),
+      },
+      {
+        title: "AI Remediation Suggestion",
+        body: (
+          <>
+            <WBar w="60%" h={10} c="bg-[#1B3A5C]" />
+            <div className="rounded bg-[#f4faff] border border-[#cfe3f5] p-2" aria-hidden="true">
+              <div className="text-[9px] font-bold text-[#1B3A5C] mb-1">PROPOSED FIX</div>
+              <div className="font-mono text-[8px] leading-tight text-[#0f2027]">class="text-gray-900"</div>
+            </div>
+            <div className="flex gap-1.5 mt-auto">
+              <div className="flex-1 rounded bg-[#1B3A5C] text-white text-[9px] font-bold text-center py-1.5">Open PR</div>
+              <div className="flex-1 rounded border border-gray-300 text-gray-700 text-[9px] font-bold text-center py-1.5">Dismiss</div>
+            </div>
+          </>
+        ),
+      },
+    ],
+  },
+  ge: {
+    workflowTitle: "Clinician × AI decision-support interaction flow",
+    steps: ["Open Patient Chart", "AI Surfaces Suggestion", "Confidence + Rationale", "Clinician Decides", "Outcome Logged"],
+    screensTitle: "Sample screens — AI-augmented clinical workspace",
+    screens: [
+      {
+        title: "Patient Summary + AI Panel",
+        body: (
+          <>
+            <div className="flex gap-2">
+              <div className="flex-1 space-y-1.5">
+                <WBar w="60%" h={8} c="bg-[#0f2027]" />
+                <WBar w="100%" h={5} />
+                <WBar w="90%" h={5} />
+                <WBar w="75%" h={5} />
+              </div>
+              <div className="w-20 rounded bg-[#eaf3fb] border border-[#cfe3f5] p-1.5 space-y-1" aria-hidden="true">
+                <div className="text-[8px] font-bold text-[#1B3A5C]">AI INSIGHT</div>
+                <WBar w="100%" h={4} c="bg-[#2E75B6]" />
+                <WBar w="80%" h={4} c="bg-[#2E75B6]/60" />
+                <WBar w="60%" h={4} c="bg-[#2E75B6]/40" />
+              </div>
+            </div>
+            <WBar w="100%" h={5} />
+            <WBar w="70%" h={5} />
+          </>
+        ),
+      },
+      {
+        title: "Confidence & Explainability",
+        body: (
+          <>
+            <WBar w="65%" h={10} c="bg-[#0f2027]" />
+            <div aria-hidden="true">
+              <div className="text-[9px] text-gray-700 mb-1 font-medium">Model confidence</div>
+              <div className="h-2 rounded-full bg-gray-200 overflow-hidden">
+                <div className="h-full bg-gradient-to-r from-[#2E75B6] to-[#1B3A5C]" style={{ width: "72%" }} />
+              </div>
+              <div className="text-[8px] text-gray-600 mt-0.5">72% · Moderate</div>
+            </div>
+            <div className="rounded bg-[#fff8e5] border border-[#ffe6a1] p-1.5 text-[9px] text-[#5a4400]" aria-hidden="true">
+              ⚠ Verify against labs before acting
+            </div>
+            <WBar w="100%" h={5} />
+          </>
+        ),
+      },
+      {
+        title: "Override Capture",
+        body: (
+          <>
+            <WBar w="55%" h={10} c="bg-[#0f2027]" />
+            <div className="space-y-1" aria-hidden="true">
+              {["Disagree with reasoning", "Patient context differs", "Insufficient evidence"].map((t) => (
+                <div key={t} className="flex items-center gap-1.5">
+                  <span className="w-2.5 h-2.5 rounded-sm border border-gray-400" />
+                  <span className="text-[9px] text-gray-700">{t}</span>
+                </div>
+              ))}
+            </div>
+            <div className="flex gap-1.5 mt-auto">
+              <div className="flex-1 rounded bg-[#1B3A5C] text-white text-[9px] font-bold text-center py-1.5">Log Decision</div>
+              <div className="flex-1 rounded border border-gray-300 text-gray-700 text-[9px] font-bold text-center py-1.5">Cancel</div>
+            </div>
+          </>
+        ),
+      },
+    ],
+  },
+  bestbuy: {
+    workflowTitle: "Emergency activation — elderly user journey",
+    steps: ["At-Risk Event", "Large Activation Tap", "Multi-Sensory Confirm", "Connecting", "Operator on Call"],
+    screensTitle: "Sample screens — wearable companion app",
+    screens: [
+      {
+        title: "Home · Single Tap to Help",
+        body: (
+          <>
+            <WBar w="40%" h={6} />
+            <div className="flex-1 flex items-center justify-center" aria-hidden="true">
+              <div className="w-20 h-20 rounded-full bg-gradient-to-b from-[#d64545] to-[#8a1a1a] flex items-center justify-center text-white text-[10px] font-extrabold shadow-md">
+                HELP
+              </div>
+            </div>
+            <div className="text-[9px] text-gray-700 text-center font-medium">Press and hold for 1 second</div>
+          </>
+        ),
+      },
+      {
+        title: "Confirm Activation",
+        body: (
+          <>
+            <WBar w="60%" h={10} c="bg-[#1B3A5C]" />
+            <div className="rounded bg-[#fff4e5] border border-[#ffd29a] p-2 text-[10px] text-[#5a3300] font-medium" aria-hidden="true">
+              Calling help in 3…
+            </div>
+            <div className="flex items-center gap-2 text-[9px] text-gray-700" aria-hidden="true">
+              <span>🔊 Audio</span><span>📳 Haptic</span><span>👁 Visual</span>
+            </div>
+            <div className="flex gap-1.5 mt-auto">
+              <div className="flex-1 rounded bg-[#1f6b2e] text-white text-[10px] font-bold text-center py-2">Confirm</div>
+              <div className="flex-1 rounded border border-gray-300 text-gray-700 text-[10px] font-bold text-center py-2">Cancel</div>
+            </div>
+          </>
+        ),
+      },
+      {
+        title: "Connected to Operator",
+        body: (
+          <>
+            <div className="flex items-center gap-2" aria-hidden="true">
+              <div className="w-8 h-8 rounded-full bg-[#eaf3fb] border border-[#cfe3f5]" />
+              <div className="flex-1 space-y-1">
+                <WBar w="70%" h={6} c="bg-[#1B3A5C]" />
+                <WBar w="45%" h={5} />
+              </div>
+            </div>
+            <div className="flex-1 rounded bg-[#eef7ee] border border-[#cce6d0] flex items-center justify-center text-[10px] font-bold text-[#1f6b2e] min-h-[40px]" aria-hidden="true">
+              ● LIVE · 00:14
+            </div>
+            <div className="rounded bg-[#1B3A5C] text-white text-[10px] font-bold text-center py-2" aria-hidden="true">End Call</div>
+          </>
+        ),
+      },
+    ],
+  },
+  samhsa: {
+    workflowTitle: "Portfolio governance & performance lifecycle",
+    steps: ["Funding Intake", "Cross-Agency Review", "Award & Onboard", "Performance Tracking", "Executive Reporting"],
+    screensTitle: "Sample screens — portfolio command center",
+    screens: [
+      {
+        title: "Portfolio Dashboard",
+        body: (
+          <>
+            <WBar w="55%" h={10} c="bg-[#1B3A5C]" />
+            <div className="grid grid-cols-2 gap-2" aria-hidden="true">
+              <WBlock h={36} c="bg-[#eaf3fb]"><div className="p-1.5"><div className="text-[8px] text-[#1B3A5C] font-bold">VALUE</div><div className="text-xs font-bold text-[#1B3A5C]">$130M</div></div></WBlock>
+              <WBlock h={36} c="bg-[#eef7ee]"><div className="p-1.5"><div className="text-[8px] text-[#1f6b2e] font-bold">ACTIVE</div><div className="text-xs font-bold text-[#1f6b2e]">42</div></div></WBlock>
+            </div>
+            <div className="flex items-end gap-1 h-8 mt-1" aria-hidden="true">
+              {[40, 55, 35, 70, 50, 80, 65].map((h, i) => (
+                <div key={i} className="flex-1 rounded-sm bg-[#2E75B6]" style={{ height: `${h}%` }} />
+              ))}
+            </div>
+          </>
+        ),
+      },
+      {
+        title: "Program Detail",
+        body: (
+          <>
+            <WBar w="65%" h={10} c="bg-[#1B3A5C]" />
+            <div className="space-y-1" aria-hidden="true">
+              <div className="flex justify-between text-[9px] text-gray-700"><span>Milestones</span><span className="font-bold text-[#1f6b2e]">8 / 10</span></div>
+              <div className="h-1.5 rounded-full bg-gray-200 overflow-hidden"><div className="h-full bg-[#1f6b2e]" style={{ width: "80%" }} /></div>
+              <div className="flex justify-between text-[9px] text-gray-700"><span>Budget used</span><span className="font-bold text-[#1B3A5C]">62%</span></div>
+              <div className="h-1.5 rounded-full bg-gray-200 overflow-hidden"><div className="h-full bg-[#1B3A5C]" style={{ width: "62%" }} /></div>
+            </div>
+            <WBar w="100%" h={5} />
+            <WBar w="80%" h={5} />
+          </>
+        ),
+      },
+      {
+        title: "Executive Brief",
+        body: (
+          <>
+            <WBar w="50%" h={10} c="bg-[#1B3A5C]" />
+            <div className="rounded bg-[#f4faff] border border-[#cfe3f5] p-1.5 space-y-1" aria-hidden="true">
+              <div className="text-[8px] font-bold text-[#1B3A5C]">KEY TAKEAWAY</div>
+              <WBar w="100%" h={4} />
+              <WBar w="85%" h={4} />
+              <WBar w="60%" h={4} />
+            </div>
+            <div className="flex gap-1.5 mt-auto" aria-hidden="true">
+              <div className="flex-1 rounded bg-[#1B3A5C] text-white text-[9px] font-bold text-center py-1.5">Export PDF</div>
+              <div className="flex-1 rounded border border-gray-300 text-gray-700 text-[9px] font-bold text-center py-1.5">Share</div>
+            </div>
+          </>
+        ),
+      },
+    ],
+  },
+};
+
+function CaseStudyShowcase({ id }: { id: string }) {
+  const cfg = SHOWCASE[id];
+  if (!cfg) return null;
+  const flowId = `flow-${id}`;
+  const screensId = `screens-${id}`;
+  return (
+    <FadeIn>
+      <figure className="my-8" aria-labelledby={flowId}>
+        <figcaption id={flowId} className="text-xs font-semibold tracking-wide uppercase text-gray-700 mb-3 text-center">
+          {cfg.workflowTitle}
+        </figcaption>
+        <ol
+          className="flex flex-col md:flex-row md:items-stretch rounded-xl border border-gray-200 bg-white overflow-hidden list-none p-0 m-0 shadow-sm"
+          aria-label="Workflow stages"
+        >
+          {cfg.steps.map((step, i) => (
+            <li key={step} className="flex-1 flex items-center gap-2 px-3 py-3 border-b md:border-b-0 md:border-r border-gray-200 last:border-0">
+              <span className="w-6 h-6 rounded-full bg-[#1B3A5C] text-white text-[10px] font-bold flex items-center justify-center flex-shrink-0">
+                {i + 1}
+              </span>
+              <span className="text-[11px] font-semibold text-gray-800 leading-tight">{step}</span>
+            </li>
+          ))}
+        </ol>
+      </figure>
+
+      <figure className="my-8" aria-labelledby={screensId}>
+        <figcaption id={screensId} className="text-xs font-semibold tracking-wide uppercase text-gray-700 mb-3 text-center">
+          {cfg.screensTitle}
+        </figcaption>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {cfg.screens.map((s) => (
+            <div key={s.title} className="flex flex-col">
+              <ScreenFrame label={s.title}>{s.body}</ScreenFrame>
+              <div className="mt-2 text-[10px] text-gray-700 font-medium text-center">{s.title}</div>
+            </div>
+          ))}
+        </div>
+        <p className="text-[11px] text-gray-600 mt-3 text-center">
+          NDA-safe stylized wireframes — structure and interaction shown, proprietary visuals omitted.
+        </p>
+      </figure>
+    </FadeIn>
+  );
+}
+
+
 function CaseStudy({
   study,
   setPage,
