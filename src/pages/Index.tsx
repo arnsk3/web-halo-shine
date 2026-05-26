@@ -840,6 +840,11 @@ function CaseStudy({
           </FadeIn>
         )}
 
+        {/* Wireframes + Workflow + Sample Screens — per case study */}
+        <CaseStudyShowcase id={study.id} />
+
+
+
         {/* Outcomes */}
         <FadeIn>
           <div className="bg-[#1B3A5C] rounded-xl p-6 mb-8">
