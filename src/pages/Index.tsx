@@ -718,6 +718,113 @@ function CaseStudy({
               </div>
             </figure>
           </FadeIn>
+        ) : study.id === "ge" ? (
+          <FadeIn>
+            <figure className="my-8" aria-labelledby="ge-framework-title">
+              <figcaption
+                id="ge-framework-title"
+                className="text-xs font-semibold tracking-wide uppercase text-gray-700 mb-3 text-center"
+              >
+                AI Safety Framework — Clinical Decision-Support Lifecycle
+              </figcaption>
+
+              {/* Gate header */}
+              <div className="rounded-t-xl bg-gradient-to-r from-[#0f2027] via-[#1B3A5C] to-[#2E75B6] text-white px-5 py-3 flex items-center justify-between">
+                <span className="text-[11px] font-bold tracking-[0.18em] uppercase">
+                  Safety Gate
+                </span>
+                <span className="text-[11px] text-white/85">
+                  Zero AI features ship without passing every stage
+                </span>
+              </div>
+
+              {/* Stages */}
+              <ol
+                className="grid grid-cols-1 md:grid-cols-5 gap-px bg-gray-200 border-x border-b border-gray-200 rounded-b-xl overflow-hidden list-none p-0 m-0"
+                aria-label="Five-stage AI safety framework"
+              >
+                {[
+                  {
+                    n: "01",
+                    title: "Hazard Identification",
+                    desc: "Map automation bias, overreliance, and failure modes per clinical context.",
+                    std: "ISO 14971",
+                  },
+                  {
+                    n: "02",
+                    title: "Human Factors Design",
+                    desc: "Apply MIL-STD-1472H criteria to AI interfaces — workload, trust, calibration.",
+                    std: "MIL-STD-1472H",
+                  },
+                  {
+                    n: "03",
+                    title: "Evidence Generation",
+                    desc: "Structured usability + simulated clinical scenarios with target clinicians.",
+                    std: "IEC 62366",
+                  },
+                  {
+                    n: "04",
+                    title: "Safety Case Review",
+                    desc: "Traceable arguments linking requirements → design → test → residual risk.",
+                    std: "FDA SaMD",
+                  },
+                  {
+                    n: "05",
+                    title: "Post-Market Monitoring",
+                    desc: "Continuous signals on drift, misuse, and human-AI performance in the field.",
+                    std: "DoDI 5000.95",
+                  },
+                ].map((stage, idx, arr) => (
+                  <li
+                    key={stage.n}
+                    className="bg-white p-4 relative flex flex-col"
+                  >
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-[10px] font-bold text-[#2E75B6] tracking-widest">
+                        {stage.n}
+                      </span>
+                      <span
+                        aria-hidden="true"
+                        className="flex-1 h-px bg-gradient-to-r from-[#2E75B6]/40 to-transparent"
+                      />
+                      {idx < arr.length - 1 && (
+                        <span
+                          aria-hidden="true"
+                          className="hidden md:inline text-[#1B3A5C] text-sm leading-none"
+                        >
+                          →
+                        </span>
+                      )}
+                    </div>
+                    <h4 className="text-[13px] font-bold text-[#0f2027] leading-snug mb-1.5">
+                      {stage.title}
+                    </h4>
+                    <p className="text-[11px] text-gray-700 leading-relaxed flex-1">
+                      {stage.desc}
+                    </p>
+                    <span className="mt-3 inline-block self-start text-[9px] font-semibold tracking-wider uppercase px-1.5 py-0.5 rounded bg-[#eaf3fb] text-[#1B3A5C]">
+                      {stage.std}
+                    </span>
+                  </li>
+                ))}
+              </ol>
+
+              {/* Feedback loop */}
+              <div
+                className="mt-3 flex items-center justify-center gap-2 text-[11px] text-gray-700"
+                aria-label="Continuous feedback loop from post-market monitoring back into hazard identification"
+              >
+                <span aria-hidden="true" className="text-[#2E75B6] text-base leading-none">↻</span>
+                <span>
+                  Field signals feed back into hazard identification — continuous learning loop
+                </span>
+              </div>
+
+              <p className="text-[11px] text-gray-600 mt-2 text-center">
+                NDA-safe recreated artifact — structure shown, proprietary details omitted.
+              </p>
+            </figure>
+          </FadeIn>
         ) : (
           <FadeIn>
             <div
