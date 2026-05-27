@@ -1095,7 +1095,7 @@ function ResearchProcess({ id }: { id: string }) {
 }
 
 
-
+function CaseStudy({
   study,
   setPage,
 }: {
