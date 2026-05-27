@@ -1152,6 +1152,113 @@ function CaseStudy({
               </p>
             </figure>
           </FadeIn>
+        ) : study.id === "ssa" ? (
+          <FadeIn>
+            <figure className="my-8" aria-labelledby="ssa-framework-title">
+              <figcaption
+                id="ssa-framework-title"
+                className="text-xs font-semibold tracking-wide uppercase text-gray-700 mb-3 text-center"
+              >
+                SSA11y Platform — AI-Powered Federal Compliance Pipeline
+              </figcaption>
+
+              {/* Header band */}
+              <div className="rounded-t-xl bg-gradient-to-r from-[#0f2027] via-[#1B3A5C] to-[#2E75B6] text-white px-5 py-3 flex items-center justify-between">
+                <span className="text-[11px] font-bold tracking-[0.18em] uppercase">
+                  Section 508 / WCAG 2.1 AA
+                </span>
+                <span className="text-[11px] text-white/85">
+                  Continuous scan → triage → remediate → verify
+                </span>
+              </div>
+
+              {/* Stages */}
+              <ol
+                className="grid grid-cols-1 md:grid-cols-5 gap-px bg-gray-200 border-x border-b border-gray-200 rounded-b-xl overflow-hidden list-none p-0 m-0"
+                aria-label="Five-stage SSA11y compliance pipeline"
+              >
+                {[
+                  {
+                    n: "01",
+                    title: "Crawl & Discover",
+                    desc: "Headless crawl of federal properties — pages, components, PDFs, dynamic states.",
+                    std: "axe-core",
+                  },
+                  {
+                    n: "02",
+                    title: "Detect Violations",
+                    desc: "Automated WCAG 2.1 AA + Section 508 rule evaluation across DOM and ARIA tree.",
+                    std: "WCAG 2.1 AA",
+                  },
+                  {
+                    n: "03",
+                    title: "AI Triage & Map",
+                    desc: "LLM classifies severity, deduplicates, and maps each issue to a success criterion + owner.",
+                    std: "Section 508",
+                  },
+                  {
+                    n: "04",
+                    title: "Auto-Remediate",
+                    desc: "AI-generated patch suggestions, PR drafts, and accessible alternatives with rationale.",
+                    std: "ARIA APG",
+                  },
+                  {
+                    n: "05",
+                    title: "Verify in CI/CD",
+                    desc: "Regression gates block non-compliant merges; dashboards track agency-wide posture.",
+                    std: "OMB M-24-08",
+                  },
+                ].map((stage, idx, arr) => (
+                  <li
+                    key={stage.n}
+                    className="bg-white p-4 relative flex flex-col"
+                  >
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-[10px] font-bold text-[#2E75B6] tracking-widest">
+                        {stage.n}
+                      </span>
+                      <span
+                        aria-hidden="true"
+                        className="flex-1 h-px bg-gradient-to-r from-[#2E75B6]/40 to-transparent"
+                      />
+                      {idx < arr.length - 1 && (
+                        <span
+                          aria-hidden="true"
+                          className="hidden md:inline text-[#1B3A5C] text-sm leading-none"
+                        >
+                          →
+                        </span>
+                      )}
+                    </div>
+                    <h4 className="text-[13px] font-bold text-[#0f2027] leading-snug mb-1.5">
+                      {stage.title}
+                    </h4>
+                    <p className="text-[11px] text-gray-700 leading-relaxed flex-1">
+                      {stage.desc}
+                    </p>
+                    <span className="mt-3 inline-block self-start text-[9px] font-semibold tracking-wider uppercase px-1.5 py-0.5 rounded bg-[#eaf3fb] text-[#1B3A5C]">
+                      {stage.std}
+                    </span>
+                  </li>
+                ))}
+              </ol>
+
+              {/* Feedback loop */}
+              <div
+                className="mt-3 flex items-center justify-center gap-2 text-[11px] text-gray-700"
+                aria-label="Verification results feed back into detection rules for continuous learning"
+              >
+                <span aria-hidden="true" className="text-[#2E75B6] text-base leading-none">↻</span>
+                <span>
+                  Verified fixes train the rule set — false positives shrink with every release
+                </span>
+              </div>
+
+              <p className="text-[11px] text-gray-600 mt-2 text-center">
+                NDA-safe recreated artifact — structure shown, proprietary details omitted.
+              </p>
+            </figure>
+          </FadeIn>
         ) : (
           <FadeIn>
             <div
