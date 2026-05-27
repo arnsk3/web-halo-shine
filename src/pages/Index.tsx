@@ -1609,9 +1609,12 @@ function CaseStudy({
         {/* Wireframes + Workflow + Sample Screens — per case study */}
         <CaseStudyShowcase id={study.id} />
 
-        {/* Research Process — SSA11y and Best Buy elderly */}
-        {(study.id === "ssa" || study.id === "bestbuy") && (
-          <ResearchProcess id={study.id} />
+        {/* Research Process — applies to ssa, bestbuy, ge, samhsa */}
+        {RESEARCH_CONFIG[study.id] && <ResearchProcess id={study.id} />}
+
+        {/* Deep research dossier — GE + SAMHSA: journey map + patterns */}
+        {(study.id === "ge" || study.id === "samhsa") && (
+          <DeepResearchDossier id={study.id} />
         )}
 
 
