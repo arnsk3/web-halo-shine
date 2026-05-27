@@ -2043,10 +2043,8 @@ function CaseStudy({
         {/* Research Process — applies to ssa, bestbuy, ge, samhsa */}
         {RESEARCH_CONFIG[study.id] && <ResearchProcess id={study.id} />}
 
-        {/* Deep research dossier — GE + SAMHSA: journey map + patterns */}
-        {(study.id === "ge" || study.id === "samhsa") && (
-          <DeepResearchDossier id={study.id} />
-        )}
+        {/* Deep research dossier — all case studies: journey map + patterns */}
+        {DOSSIERS[study.id] && <DeepResearchDossier id={study.id} />}
 
 
 
