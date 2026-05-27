@@ -5,7 +5,39 @@ const NotFound = () => {
   const location = useLocation();
 
   useEffect(() => {
-    document.title = "Page not found — Senthil Nagappan";
+    const title = "Page not found (404) — Senthil Nagappan";
+    const description =
+      "The page you're looking for can't be found. Return to senthilnagappan.com for AI safety, human systems integration, and accessibility work.";
+    const canonical = `https://web-halo-shine.lovable.app${location.pathname}`;
+
+    document.title = title;
+
+    const upsertMeta = (attr: "name" | "property", key: string, content: string) => {
+      let el = document.head.querySelector<HTMLMetaElement>(`meta[${attr}="${key}"]`);
+      if (!el) {
+        el = document.createElement("meta");
+        el.setAttribute(attr, key);
+        document.head.appendChild(el);
+      }
+      el.setAttribute("content", content);
+    };
+
+    upsertMeta("name", "description", description);
+    upsertMeta("name", "robots", "noindex, follow");
+    upsertMeta("property", "og:title", title);
+    upsertMeta("property", "og:description", description);
+    upsertMeta("property", "og:url", canonical);
+    upsertMeta("name", "twitter:title", title);
+    upsertMeta("name", "twitter:description", description);
+
+    let link = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+    if (!link) {
+      link = document.createElement("link");
+      link.setAttribute("rel", "canonical");
+      document.head.appendChild(link);
+    }
+    link.setAttribute("href", canonical);
+
     console.error("404 Error: User attempted to access non-existent route:", location.pathname);
   }, [location.pathname]);
 

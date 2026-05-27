@@ -1,0 +1,10 @@
+# Senthil Nagappan
+
+> Portfolio of Senthil Kumar Nagappan — AI safety, human systems integration, and accessibility leadership for healthcare, federal, and regulated environments.
+
+Single-page portfolio with sections for case studies, about, approach, resume, and contact.
+
+## Pages
+
+- [Home](/): Overview, hero, and entry points into case studies, about, approach, resume, and contact.
+- [Resume PDF](/Senthil_Nagappan_Resume.pdf): Downloadable resume.

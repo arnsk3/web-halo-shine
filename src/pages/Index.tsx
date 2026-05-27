@@ -960,9 +960,9 @@ function CaseStudy({
                       aria-hidden="true"
                       className="w-2 h-2 rounded-full bg-[#c7d49a]"
                     />
-                    <h4 className="text-sm font-bold tracking-wide uppercase">
+                    <h3 className="text-sm font-bold tracking-wide uppercase">
                       Military Operator
-                    </h4>
+                    </h3>
                   </div>
                   <ul className="space-y-3 text-sm leading-snug list-none p-0 m-0">
                     <li>Reduced dexterity (gloves)</li>
@@ -979,9 +979,9 @@ function CaseStudy({
                       aria-hidden="true"
                       className="w-2 h-2 rounded-full bg-[#2E75B6]"
                     />
-                    <h4 className="text-sm font-bold tracking-wide uppercase text-[#1B3A5C]">
+                    <h3 className="text-sm font-bold tracking-wide uppercase text-[#1B3A5C]">
                       Elderly User
-                    </h4>
+                    </h3>
                   </div>
                   <ul className="space-y-3 text-sm leading-snug list-none p-0 m-0">
                     <li>
@@ -1123,9 +1123,9 @@ function CaseStudy({
                         </span>
                       )}
                     </div>
-                    <h4 className="text-[13px] font-bold text-[#0f2027] leading-snug mb-1.5">
+                    <h3 className="text-[13px] font-bold text-[#0f2027] leading-snug mb-1.5">
                       {stage.title}
-                    </h4>
+                    </h3>
                     <p className="text-[11px] text-gray-700 leading-relaxed flex-1">
                       {stage.desc}
                     </p>
@@ -1230,9 +1230,9 @@ function CaseStudy({
                         </span>
                       )}
                     </div>
-                    <h4 className="text-[13px] font-bold text-[#0f2027] leading-snug mb-1.5">
+                    <h3 className="text-[13px] font-bold text-[#0f2027] leading-snug mb-1.5">
                       {stage.title}
-                    </h4>
+                    </h3>
                     <p className="text-[11px] text-gray-700 leading-relaxed flex-1">
                       {stage.desc}
                     </p>
@@ -1282,7 +1282,7 @@ function CaseStudy({
         {/* Outcomes */}
         <FadeIn>
           <div className="bg-[#1B3A5C] rounded-xl p-6 mb-8">
-            <h3 className="text-white font-bold mb-4">Impact & Outcomes</h3>
+            <h2 className="text-white font-bold mb-4">Impact & Outcomes</h2>
             <ul className="space-y-2.5 list-none p-0 m-0">
               {study.outcomes.map((o, i) => (
                 <li key={i} className="flex gap-3 items-start">
@@ -1401,9 +1401,9 @@ function About() {
 
       <FadeIn delay={0.2}>
         <div className="bg-white border border-gray-200 rounded-xl p-5">
-          <h3 className="font-bold text-gray-900 text-sm mb-3">
+          <h2 className="font-bold text-gray-900 text-sm mb-3">
             Certifications & Affiliations
-          </h3>
+          </h2>
           <div className="flex gap-2 flex-wrap mb-3">
             {[
               "CPACC (IAAP)",
@@ -1499,7 +1499,7 @@ function Approach() {
               className="bg-white border border-gray-200 rounded-xl p-5 hover:shadow-sm transition-shadow"
               style={{ borderLeftWidth: 4, borderLeftColor: f.color }}
             >
-              <h3 className="font-bold text-gray-900 text-base mb-0.5">{f.title}</h3>
+              <h2 className="font-bold text-gray-900 text-base mb-0.5">{f.title}</h2>
               <p className="text-gray-700 text-xs mb-3">{f.sub}</p>
               <ul className="flex gap-2 flex-wrap list-none p-0 m-0">
                 {f.items.map((item) => (
@@ -1518,7 +1518,7 @@ function Approach() {
 
       <FadeIn>
         <div className="bg-[#1B3A5C] rounded-xl p-6 text-center">
-          <h3 className="text-white font-bold mb-2">Where My Domains Converge</h3>
+          <h2 className="text-white font-bold mb-2">Where My Domains Converge</h2>
           <p className="text-white text-xs mb-5 max-w-md mx-auto opacity-95">
             Every project I lead integrates these four disciplines — AI safety isn't just
             governance, it's systems engineering, human factors, and accessibility working
@@ -1975,19 +1975,64 @@ const PAGE_TITLES: Record<PageId, string> = {
   case: "Case Study — Senthil Nagappan",
 };
 
+const PAGE_DESCRIPTIONS: Record<PageId, string> = {
+  home: "Senthil Kumar Nagappan: AI safety, human systems integration, and accessibility leadership for healthcare, federal, and regulated environments.",
+  about: "About Senthil Nagappan — 18+ years building AI-driven products in regulated healthcare, federal, retail, and defense environments.",
+  approach: "How Senthil Nagappan ensures AI-driven systems are safe, accessible, and compliant — from requirements through deployment.",
+  resume: "Download or read Senthil Nagappan's resume — AI safety and human systems integration leadership.",
+  contact: "Contact Senthil Nagappan for AI safety, human systems integration, and accessibility leadership engagements.",
+  case: "Case study from Senthil Nagappan — AI safety, human systems integration, and accessibility work in regulated environments.",
+};
+
+function upsertMeta(attr: "name" | "property", key: string, content: string) {
+  let el = document.head.querySelector<HTMLMetaElement>(`meta[${attr}="${key}"]`);
+  if (!el) {
+    el = document.createElement("meta");
+    el.setAttribute(attr, key);
+    document.head.appendChild(el);
+  }
+  el.setAttribute("content", content);
+}
+
+function upsertCanonical(href: string) {
+  let el = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+  if (!el) {
+    el = document.createElement("link");
+    el.setAttribute("rel", "canonical");
+    document.head.appendChild(el);
+  }
+  el.setAttribute("href", href);
+}
+
 const Index = () => {
   const [page, setPage] = useState<PageId>("home");
   const [activeCase, setActiveCase] = useState<CaseStudyType | null>(null);
   const [routeAnnouncement, setRouteAnnouncement] = useState("");
   const mainRef = useRef<HTMLElement | null>(null);
 
-  // Update document title and announce route changes (WCAG 2.4.2, 4.1.3)
+  // Update document title, metadata, and announce route changes (WCAG 2.4.2, 4.1.3)
   useEffect(() => {
-    const title =
-      page === "case" && activeCase
-        ? `${activeCase.title} — Case Study — Senthil Nagappan`
-        : PAGE_TITLES[page];
+    const isCase = page === "case" && activeCase;
+    // Keep case-study titles under the 60-char SERP limit by dropping the site suffix.
+    const title = isCase ? activeCase!.title : PAGE_TITLES[page];
+    const description = isCase
+      ? `${activeCase!.title} — ${activeCase!.subtitle}`.slice(0, 158)
+      : PAGE_DESCRIPTIONS[page];
+    const slug = isCase ? `case-${activeCase!.id}` : page;
+    const canonical =
+      page === "home"
+        ? "https://web-halo-shine.lovable.app/"
+        : `https://web-halo-shine.lovable.app/#${slug}`;
+
     document.title = title;
+    upsertMeta("name", "description", description);
+    upsertMeta("property", "og:title", title);
+    upsertMeta("property", "og:description", description);
+    upsertMeta("property", "og:url", canonical);
+    upsertMeta("name", "twitter:title", title);
+    upsertMeta("name", "twitter:description", description);
+    upsertCanonical(canonical);
+
     setRouteAnnouncement(`Navigated to ${title}`);
   }, [page, activeCase]);
 
