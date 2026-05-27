@@ -1191,6 +1191,437 @@ function ResearchProcess({ id }: { id: string }) {
   );
 }
 
+/* ─────────── Deep Research Dossier (GE + SAMHSA) ─────────── */
+
+type JourneyStage = {
+  stage: string;
+  actor: string;
+  thinking: string;
+  pains: string[];
+  opportunities: string[];
+  signals: string[];
+};
+
+type ResearchPattern = {
+  name: string;
+  problem: string;
+  pattern: string;
+  evidence: string;
+};
+
+type Dossier = {
+  title: string;
+  intro: string;
+  plan: { label: string; items: string[] }[];
+  journeyTitle: string;
+  journey: JourneyStage[];
+  patternsTitle: string;
+  patterns: ResearchPattern[];
+  reporting: { audience: string; format: string; decision: string }[];
+};
+
+const DOSSIERS: Record<string, Dossier> = {
+  ge: {
+    title: "Clinical AI Safety — Detailed Research Dossier",
+    intro:
+      "End-to-end research operating against FDA HF, IEC 62366, and ISO 14971. Mixed methods bridge clinical workflow reality and quantitative model behavior, with every finding traced to a hazard in the risk file.",
+    plan: [
+      {
+        label: "Recruiting",
+        items: [
+          "Maternal-fetal medicine MDs (6–8) — board-certified, ≥5 yrs prenatal Dx, recruited via clinical advisory board and KOL network across 3 health systems.",
+          "OB sonographers (8–10) — RDMS-credentialed, daily AI-assisted scans, balanced across academic + community sites.",
+          "Clinical safety + regulatory affairs leads (4–6) — prior FDA submission and post-market surveillance experience.",
+          "ML + product engineers (6–8) — model owners and UX engineers responsible for shipping HITL features.",
+          "Unmoderated cross-site benchmark (≥120) — stratified by site and role; conflicted reviewers excluded.",
+          "Screener gates on role, AI-exposure tier, and risk-tier (Model A/B/C). IRB-aligned consent with PHI handling; sessions de-identified at capture.",
+        ],
+      },
+      {
+        label: "Qualitative Execution",
+        items: [
+          "Cognitive Task Analysis in live reading rooms — observe baseline diagnostic workflow before AI insertion points.",
+          "Think-aloud on retrospective gold-standard cases with confidence-score overrides surfaced.",
+          "Semi-structured interviews on trust calibration, escalation patterns, and perceived accountability.",
+          "Scenario-based simulations derived from FMEA + URRA failure modes (drift, edge-case anatomy, ambiguous findings).",
+        ],
+      },
+      {
+        label: "Quantitative Execution",
+        items: [
+          "Override-accuracy rate vs. ground truth across confidence bins — target ≥ 90% on Model A high-risk decisions.",
+          "Time-to-confirm and time-to-override (median + 95th percentile).",
+          "Standardized instruments: SUS, NASA-TLX, Trust-in-Automation scale.",
+          "Alert-precision and investigation cost for Model C screening (false-positive triage time).",
+          "Telemetry: rationale-open rate, abandonment, re-query frequency.",
+        ],
+      },
+      {
+        label: "Synthesis",
+        items: [
+          "Dovetail coding mapped to IEC 62366 use-error taxonomy and ISO 14971 hazard categories.",
+          "Severity matrix: hazard severity × probability × population reach; each finding linked to a URRA entry.",
+          "Mixed-effects model on override accuracy with random effects for clinician and site.",
+          "Triangulation — qualitative themes cross-checked against telemetry and override outcomes before promotion to a finding.",
+        ],
+      },
+    ],
+    journeyTitle: "Clinician Journey — Reading an AI-Assisted Prenatal Scan",
+    journey: [
+      {
+        stage: "01 · Prepare",
+        actor: "OB sonographer",
+        thinking: "I want to know if the AI flagged anything before I form my own read.",
+        pains: ["AI output buried in a side panel", "No indication of model version / scope"],
+        opportunities: ["Show model scope + last-validated date upfront", "Defer AI surfacing until first manual pass complete"],
+        signals: ["Time-to-first-AI-glance", "Manual-pass abandonment rate"],
+      },
+      {
+        stage: "02 · Read",
+        actor: "MFM physician",
+        thinking: "Where is the AI confident, and where am I being asked to confirm?",
+        pains: ["Single opaque confidence number", "Conflict between AI heatmap and clinical landmarks"],
+        opportunities: ["Layered explainability — recommendation now, rationale on demand", "Per-region confidence tied to anatomy"],
+        signals: ["Rationale-open rate", "NASA-TLX mental demand"],
+      },
+      {
+        stage: "03 · Decide",
+        actor: "MFM physician",
+        thinking: "Do I accept, override, or escalate? What does each cost?",
+        pains: ["Override path harder than accept", "No visible audit trail for the decision"],
+        opportunities: ["Symmetric accept/override affordances", "Decision capture with one-tap reason codes"],
+        signals: ["Override-accuracy vs. ground truth", "Time-to-confirm / time-to-override"],
+      },
+      {
+        stage: "04 · Communicate",
+        actor: "MFM physician + care team",
+        thinking: "How do I explain the AI’s role to the patient and the team?",
+        pains: ["No patient-facing framing", "Notes don’t reflect AI contribution"],
+        opportunities: ["Auto-drafted note stub with AI-vs-clinician attribution", "Patient-friendly summary preset"],
+        signals: ["Note edit-distance", "Patient comprehension survey"],
+      },
+      {
+        stage: "05 · Monitor",
+        actor: "Clinical safety + ML owner",
+        thinking: "Is the model still behaving the way it did at approval?",
+        pains: ["Drift visible only in retrospective audit", "No closed loop from incident to model owner"],
+        opportunities: ["Live drift dashboard tied to URRA hazards", "Auto-route incidents to model owner + safety board"],
+        signals: ["Drift alerts triaged < 24h", "Post-market HF signals"],
+      },
+    ],
+    patternsTitle: "Reusable Patterns — Clinical AI HITL Library",
+    patterns: [
+      {
+        name: "HITL Model Selector (A / B / C)",
+        problem: "Every AI feature is shipped with a different and implicit human-oversight model.",
+        pattern: "Force product teams to declare Model A (AI recommends, human decides), Model B (AI acts, human monitors), or Model C (AI alerts, human investigates) at design intake. Each model has fixed UI, audit, and evaluation requirements.",
+        evidence: "Reduced automation-bias errors by 38% vs. pre-framework baseline on adjudicated cases.",
+      },
+      {
+        name: "Layered Explainability",
+        problem: "Single-shot AI outputs either oversell precision or overwhelm clinicians with detail.",
+        pattern: "Surface the recommendation immediately; reveal rationale, confidence-by-region, and contributing features on demand within ≤8s of added time.",
+        evidence: "Rationale-open rate rose on high-stakes reads without exceeding clinician time budget.",
+      },
+      {
+        name: "Confidence-Calibrated Override",
+        problem: "Override is harder than accept, so clinicians drift toward acceptance even when uncertain.",
+        pattern: "Symmetric accept/override affordances, with override capturing a one-tap reason code that feeds the safety review board.",
+        evidence: "Override-accuracy against gold standard improved across confidence bins.",
+      },
+      {
+        name: "Hazard-Linked Finding",
+        problem: "Research findings die in slide decks and never reach the risk file.",
+        pattern: "Every research finding is registered with a URRA hazard ID, severity × probability × reach, and a named owner before it can be reported.",
+        evidence: "Late-stage HF rework reduced; HF issues caught in design phase, not at finish line.",
+      },
+      {
+        name: "Drift-to-Owner Loop",
+        problem: "Post-deployment drift is found by audit, not by the model owner.",
+        pattern: "Drift signals route directly to the model owner and AI Safety Review Board, with SLAs measured in hours.",
+        evidence: "Zero post-market HF-related safety signals to date.",
+      },
+    ],
+    reporting: [
+      { audience: "AI Safety Review Board", format: "Go/no-go memo + framework conformance scorecard", decision: "Ship / hold / re-evaluate per feature" },
+      { audience: "Clinical + product leadership", format: "Severity-ranked findings, executive deck + 1-pager", decision: "Roadmap and resourcing trade-offs" },
+      { audience: "Regulatory affairs / FDA", format: "HF validation evidence aligned to FDA HF + IEC 62366", decision: "Premarket submission readiness" },
+      { audience: "Engineering + ML model owners", format: "HITL pattern library, explainability + drift requirements", decision: "Implementation acceptance criteria" },
+    ],
+  },
+  samhsa: {
+    title: "Behavioral Health Portfolio — Detailed Research Dossier",
+    intro:
+      "Research for SAMHSA’s national behavioral-health portfolio: people in crisis searching for treatment, caregivers searching on their behalf, and the providers and states who submit the data. Trauma-informed protocol and Section 508 + WCAG 2.0 AA are embedded into every phase, not bolted on.",
+    plan: [
+      {
+        label: "Recruiting",
+        items: [
+          "People seeking treatment (10–12) — SUD and MH, trauma-informed protocol, recruited via SAMHSA grantee networks, 988/211 warm hand-offs, peer-recovery orgs.",
+          "Family / caregiver searchers (6–8) — searching on behalf of a loved one; balanced urban / rural and digital literacy.",
+          "Facility data submitters (8–10) — state + provider staff who submitted N-SSATS / N-MHSS in last 12 months.",
+          "State behavioral-health agency staff (6–8) — block-grant and data leads across regions.",
+          "AT + low-literacy panel (≥30) — screen-reader users, ESL speakers, 6th-grade reading level, recruited via DRA + community partners.",
+          "Unmoderated Treatment Locator benchmark (≥800) across mobile / desktop / AT.",
+          "Plain-language consent with explicit opt-out at any moment; compensation via non-stigmatizing methods.",
+        ],
+      },
+      {
+        label: "Qualitative Execution",
+        items: [
+          "Remote contextual inquiry with people actively searching for care; moderator trained in crisis de-escalation.",
+          "Caregiver-dyad sessions — observe how a family member searches on behalf of someone in crisis.",
+          "Task-based interviews with facility submitters using their real (non-PII) submission data.",
+          "Stakeholder workshops across SAMHSA program offices to surface competing investment priorities.",
+        ],
+      },
+      {
+        label: "Quantitative Execution",
+        items: [
+          "Task success and time-to-find-facility (median + 95th percentile) on the Treatment Locator.",
+          "SUS + Single Ease Question on submission portals; drop-off funnel start → submit → accepted.",
+          "Large-n unmoderated benchmark across devices and AT (n ≥ 800 per wave).",
+          "Analytics: search-refinement counts, zero-result rates, call-deflection to 988 / SAMHSA helpline.",
+          "Regression on locator completion across cohorts (rural/urban, AT vs. non-AT, language).",
+        ],
+      },
+      {
+        label: "Synthesis",
+        items: [
+          "Coding mapped to Section 508 Functional Performance Criteria and WCAG 2.0 AA success criteria.",
+          "Crisis-state journey: search → trust → contact → arrive-at-care; friction quantified at each stage.",
+          "Severity matrix weighted by population reach (2M+ monthly visitors) and crisis-state vulnerability.",
+          "Portfolio view: rework hours per platform mapped to governance gaps, surfacing highest-leverage fixes.",
+        ],
+      },
+    ],
+    journeyTitle: "Crisis-State Journey — Finding a Treatment Facility",
+    journey: [
+      {
+        stage: "01 · Recognize need",
+        actor: "Person seeking treatment / caregiver",
+        thinking: "Something has to change today. Where do I even start?",
+        pains: ["Stigma + fear of being judged", "Doesn’t know SAMHSA exists"],
+        opportunities: ["Plain-language entry from search engines + 988", "Anonymous-by-default search"],
+        signals: ["Organic landing rate", "Bounce within 10s"],
+      },
+      {
+        stage: "02 · Search",
+        actor: "Person in crisis",
+        thinking: "I just need a place that takes my insurance and is near me.",
+        pains: ["Too many filters at once", "Zero-result dead ends"],
+        opportunities: ["Progressive disclosure of filters", "Always show nearest available alternatives"],
+        signals: ["Time-to-first-result", "Zero-result rate"],
+      },
+      {
+        stage: "03 · Trust",
+        actor: "Person + caregiver",
+        thinking: "Is this place real, safe, and right for me?",
+        pains: ["No signal of credentials, payment, or specialty", "Outdated facility info erodes trust"],
+        opportunities: ["At-a-glance credential and payment badges", "Last-verified date on every facility"],
+        signals: ["Detail-view depth", "Outbound call/click-through"],
+      },
+      {
+        stage: "04 · Contact",
+        actor: "Person seeking treatment",
+        thinking: "I’m scared to call. What happens if I do?",
+        pains: ["No idea what the first call will be like", "Phone-only contact, no SMS or chat"],
+        opportunities: ["What-to-expect snippet before the call", "Multiple contact modalities including 988 warm hand-off"],
+        signals: ["Call/click-to-988 rate", "Drop-off between detail view and contact"],
+      },
+      {
+        stage: "05 · Provider submits data",
+        actor: "Facility submitter",
+        thinking: "I have 30 minutes and 12 fields I don’t understand.",
+        pains: ["Validation surfaces only at submit", "No save-and-resume"],
+        opportunities: ["Inline validation + plain-language help", "Save-and-resume + bulk import for state submitters"],
+        signals: ["Submission completion rate", "Partial-submit recovery rate"],
+      },
+    ],
+    patternsTitle: "Reusable Patterns — Behavioral Health Service Library",
+    patterns: [
+      {
+        name: "Crisis-Safe Entry",
+        problem: "People in crisis hit a generic search box and bounce.",
+        pattern: "Plain-language landing with one-tap 988 escalation, anonymous-by-default search, and a clear ‘what happens if I call’ snippet.",
+        evidence: "Bounce on first 10 seconds dropped; call-to-988 hand-off increased.",
+      },
+      {
+        name: "Always-an-Alternative",
+        problem: "Zero-result screens send vulnerable users into dead ends.",
+        pattern: "Never return an empty result page — always show nearest alternatives by distance, specialty, or payment, with explicit explanation.",
+        evidence: "Zero-result rate reduced; locator completion improved across rural cohorts.",
+      },
+      {
+        name: "Credential + Recency Badge",
+        problem: "Users cannot tell which facilities are current and credentialed.",
+        pattern: "Standardized badges for credentials, payment accepted, and last-verified date, applied consistently across the portfolio.",
+        evidence: "Detail-view depth and outbound contact rate both increased.",
+      },
+      {
+        name: "Submit-Without-Surprises",
+        problem: "Data submitters discover errors only at the final submit.",
+        pattern: "Inline validation, plain-language field help, save-and-resume, and bulk import for state submitters.",
+        evidence: "Submission completion improved; rework on submitted data dropped.",
+      },
+      {
+        name: "508-as-Acceptance-Criteria",
+        problem: "Section 508 treated as post-launch audit, regressions reintroduced each release.",
+        pattern: "Section 508 + WCAG 2.0 AA criteria written into user-story acceptance, enforced in CI/CD, and reported at the portfolio level.",
+        evidence: "Development rework across the portfolio dropped ~30% after rollout.",
+      },
+      {
+        name: "Portfolio Prioritization Score",
+        problem: "Investment decisions across $130M driven by politics, not outcomes.",
+        pattern: "Impact score = (population reach × crisis-state vulnerability × evidence strength) ÷ effort; quarterly roadmap reviews bound to the score.",
+        evidence: "Investment shifted toward highest-leverage fixes; executive trust in roadmap rose.",
+      },
+    ],
+    reporting: [
+      { audience: "SAMHSA executive sponsors", format: "Quarterly portfolio review — public-health impact + ROI of rework reduction", decision: "Investment allocation across 6+ platforms" },
+      { audience: "Grantees + state BH agencies", format: "Grantee-facing briefing on submission burden", decision: "Portal changes and training priorities" },
+      { audience: "Product, content, engineering", format: "Pattern library, 508 acceptance criteria, content guidelines", decision: "Implementation acceptance + sprint planning" },
+      { audience: "508 program + OMB reporting", format: "Portfolio compliance memo + remediation backlog", decision: "Compliance posture + remediation funding" },
+    ],
+  },
+};
+
+function DeepResearchDossier({ id }: { id: string }) {
+  const d = DOSSIERS[id];
+  if (!d) return null;
+  const titleId = `dossier-${id}-title`;
+
+  return (
+    <FadeIn>
+      <section className="my-12" aria-labelledby={titleId}>
+        <header className="rounded-t-xl bg-gradient-to-r from-[#0f2027] via-[#1B3A5C] to-[#2E75B6] text-white px-5 py-3 flex items-center justify-between">
+          <span className="text-[11px] font-bold tracking-[0.18em] uppercase">
+            Research Dossier · Plan · Journey · Patterns
+          </span>
+          <span className="text-[11px] text-white/85">Mixed methods · Traced to standards</span>
+        </header>
+
+        <div className="border border-t-0 border-gray-200 rounded-b-xl bg-white p-6">
+          <h3 id={titleId} className="text-lg font-bold text-[#1B3A5C] mb-2">
+            {d.title}
+          </h3>
+          <p className="text-sm text-gray-700 mb-6">{d.intro}</p>
+
+          {/* Detailed plan grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+            {d.plan.map((p) => (
+              <div key={p.label} className="border border-gray-200 rounded-lg p-4">
+                <div className="text-[11px] font-bold tracking-[0.16em] uppercase text-[#2E75B6] mb-2">
+                  {p.label}
+                </div>
+                <ul className="list-disc pl-5 space-y-1.5 text-sm text-gray-800">
+                  {p.items.map((it, i) => (
+                    <li key={i}>{it}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          {/* Journey map */}
+          <h4 className="text-sm font-bold text-[#1B3A5C] mb-3 uppercase tracking-wide">
+            {d.journeyTitle}
+          </h4>
+          <div className="overflow-x-auto mb-8">
+            <table
+              className="w-full text-left text-sm border-collapse"
+              aria-label={d.journeyTitle}
+            >
+              <thead>
+                <tr className="bg-[#1B3A5C] text-white">
+                  <th className="p-3 font-semibold w-[14%]">Stage</th>
+                  <th className="p-3 font-semibold w-[14%]">Actor</th>
+                  <th className="p-3 font-semibold w-[20%]">Thinking</th>
+                  <th className="p-3 font-semibold w-[18%]">Pain points</th>
+                  <th className="p-3 font-semibold w-[18%]">Opportunities</th>
+                  <th className="p-3 font-semibold w-[16%]">Signals tracked</th>
+                </tr>
+              </thead>
+              <tbody>
+                {d.journey.map((s) => (
+                  <tr key={s.stage} className="border-b border-gray-200 align-top">
+                    <td className="p-3 font-bold text-[#1B3A5C] bg-[#EAF1F8]">{s.stage}</td>
+                    <td className="p-3 text-gray-800">{s.actor}</td>
+                    <td className="p-3 italic text-gray-700">“{s.thinking}”</td>
+                    <td className="p-3 text-gray-800">
+                      <ul className="list-disc pl-4 space-y-1">
+                        {s.pains.map((p, i) => <li key={i}>{p}</li>)}
+                      </ul>
+                    </td>
+                    <td className="p-3 text-gray-800">
+                      <ul className="list-disc pl-4 space-y-1">
+                        {s.opportunities.map((p, i) => <li key={i}>{p}</li>)}
+                      </ul>
+                    </td>
+                    <td className="p-3 text-gray-800">
+                      <ul className="list-disc pl-4 space-y-1">
+                        {s.signals.map((p, i) => <li key={i}>{p}</li>)}
+                      </ul>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          {/* Patterns */}
+          <h4 className="text-sm font-bold text-[#1B3A5C] mb-3 uppercase tracking-wide">
+            {d.patternsTitle}
+          </h4>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+            {d.patterns.map((p) => (
+              <article
+                key={p.name}
+                className="border border-gray-200 rounded-lg p-4 bg-[#F8FAFC]"
+              >
+                <div className="text-sm font-bold text-[#1B3A5C] mb-1">{p.name}</div>
+                <div className="text-xs uppercase tracking-wide text-gray-500 mt-2">Problem</div>
+                <p className="text-sm text-gray-800 mb-2">{p.problem}</p>
+                <div className="text-xs uppercase tracking-wide text-gray-500">Pattern</div>
+                <p className="text-sm text-gray-800 mb-2">{p.pattern}</p>
+                <div className="text-xs uppercase tracking-wide text-gray-500">Evidence</div>
+                <p className="text-sm text-gray-800">{p.evidence}</p>
+              </article>
+            ))}
+          </div>
+
+          {/* Reporting matrix */}
+          <h4 className="text-sm font-bold text-[#1B3A5C] mb-3 uppercase tracking-wide">
+            Reporting & Decisions by Audience
+          </h4>
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-sm border-collapse" aria-label="Reporting and decisions by audience">
+              <thead>
+                <tr className="bg-[#1B3A5C] text-white">
+                  <th className="p-3 font-semibold w-1/3">Audience</th>
+                  <th className="p-3 font-semibold w-1/3">Format</th>
+                  <th className="p-3 font-semibold w-1/3">Decision driven</th>
+                </tr>
+              </thead>
+              <tbody>
+                {d.reporting.map((r) => (
+                  <tr key={r.audience} className="border-b border-gray-200 align-top">
+                    <td className="p-3 font-semibold text-[#1B3A5C] bg-[#EAF1F8]">{r.audience}</td>
+                    <td className="p-3 text-gray-800">{r.format}</td>
+                    <td className="p-3 text-gray-800">{r.decision}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </FadeIn>
+  );
+}
+
+
+
 
 function CaseStudy({
   study,
@@ -1609,9 +2040,12 @@ function CaseStudy({
         {/* Wireframes + Workflow + Sample Screens — per case study */}
         <CaseStudyShowcase id={study.id} />
 
-        {/* Research Process — SSA11y and Best Buy elderly */}
-        {(study.id === "ssa" || study.id === "bestbuy") && (
-          <ResearchProcess id={study.id} />
+        {/* Research Process — applies to ssa, bestbuy, ge, samhsa */}
+        {RESEARCH_CONFIG[study.id] && <ResearchProcess id={study.id} />}
+
+        {/* Deep research dossier — GE + SAMHSA: journey map + patterns */}
+        {(study.id === "ge" || study.id === "samhsa") && (
+          <DeepResearchDossier id={study.id} />
         )}
 
 
