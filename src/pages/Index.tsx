@@ -1277,6 +1277,13 @@ function CaseStudy({
         {/* Wireframes + Workflow + Sample Screens — per case study */}
         <CaseStudyShowcase id={study.id} />
 
+        {/* Research Process — SSA11y and Best Buy elderly */}
+        {(study.id === "ssa" || study.id === "bestbuy") && (
+          <ResearchProcess id={study.id} />
+        )}
+
+
+
 
 
         {/* Outcomes */}
