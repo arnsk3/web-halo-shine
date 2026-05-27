@@ -860,6 +860,241 @@ function CaseStudyShowcase({ id }: { id: string }) {
 }
 
 
+type ResearchPhase = {
+  n: string;
+  title: string;
+  methods: string[];
+  artifact: string;
+};
+
+type ResearchConfig = {
+  title: string;
+  populations: { label: string; n: string; note: string }[];
+  phases: ResearchPhase[];
+  metrics: { value: string; label: string }[];
+  audiences: string[];
+};
+
+const RESEARCH_CONFIG: Record<string, ResearchConfig> = {
+  ssa: {
+    title: "Federal A11y Research — Practitioners + AT End-Users",
+    populations: [
+      { label: "Federal a11y leads", n: "6–8", note: "GS-13+ across 3 agencies" },
+      { label: "Agency developers", n: "8–10", note: "Closed a11y tickets in last 90d" },
+      { label: "AT end-users", n: "≥30", note: "JAWS · NVDA · VoiceOver · Dragon · switch" },
+      { label: "Unmoderated benchmark", n: "≥200", note: "AT panel · cross-browser × OS" },
+    ],
+    phases: [
+      {
+        n: "01",
+        title: "Plan",
+        methods: ["Section 508 + WCAG 2.1 AA framing", "Hypotheses tied to trust & ROI", "Success criteria mapped to OMB M-24-08"],
+        artifact: "Research brief",
+      },
+      {
+        n: "02",
+        title: "Recruit",
+        methods: ["GSA a11y CoP + DRA + Knowbility partners", "Disability-inclusive screener", "Accessible consent (HTML + ASL)"],
+        artifact: "Screener + consent kit",
+      },
+      {
+        n: "03",
+        title: "Execute",
+        methods: ["Contextual inquiry in axe/JAWS workflows", "2-week dev diary on AI-drafted PRs", "Moderated SUS/SEQ on triage console", "Unmoderated AT panel benchmark"],
+        artifact: "Sessions · telemetry · transcripts",
+      },
+      {
+        n: "04",
+        title: "Synthesize",
+        methods: ["Dovetail coding mapped to SC + 508 FPC", "Severity × population reach matrix", "Paired t-test on time-to-merge"],
+        artifact: "Affinity map + journey",
+      },
+      {
+        n: "05",
+        title: "Report",
+        methods: ["Exec readout (ROI + risk)", "Engineering enablement w/ ARIA patterns", "Policy memo aligned to M-24-08"],
+        artifact: "Multi-audience artifacts",
+      },
+    ],
+    metrics: [
+      { value: "92%", label: "AI-suggestion acceptance on remediated PRs" },
+      { value: "−87%", label: "Median time-to-merge vs manual baseline" },
+      { value: "0", label: "Critical regressions in CI/CD after gate" },
+    ],
+    audiences: ["Agency exec sponsors", "Product + engineering", "Legal / compliance", "OMB reporting"],
+  },
+  bestbuy: {
+    title: "Inclusive Design Research — 1M+ Elderly Users",
+    populations: [
+      { label: "Independent older adults", n: "8–10", note: "Ages 65–84 · rural/suburban/urban" },
+      { label: "Older adults w/ support", n: "8–10", note: "Ages 75+ · caregiver present" },
+      { label: "Low-vision / low-dexterity", n: "8–10", note: "Tremor · arthritis · post-stroke" },
+      { label: "Moderated benchmark", n: "≥60", note: "Per wave · simulation goggles + tremor gloves" },
+      { label: "Unmoderated large-n", n: "≥1,000", note: "UserTesting Senior Panel" },
+    ],
+    phases: [
+      {
+        n: "01",
+        title: "Plan",
+        methods: ["Use envelope: vision · motor · cognition · stress", "ISO 14971 hazard framing", "MIL-STD-1472H criteria translated to consumer"],
+        artifact: "Research brief + risk file",
+      },
+      {
+        n: "02",
+        title: "Recruit",
+        methods: ["AARP · senior centers · AAA partners", "Phone + web screener (never web-only)", "18pt consent w/ teach-back step"],
+        artifact: "Inclusive screener kit",
+      },
+      {
+        n: "03",
+        title: "Execute",
+        methods: ["In-home contextual inquiry", "Caregiver-dyad interviews", "3-week diary w/ voice + photo prompts", "Lab benchmark w/ vision/tremor simulation", "Eye-tracking sub-study (n=24)"],
+        artifact: "Field + lab evidence",
+      },
+      {
+        n: "04",
+        title: "Synthesize",
+        methods: ["MIL-STD-1472H coding (reach, sizing, legibility)", "Dyad journey: discover → use → recover", "Hazard × impact × reach severity matrix", "ANOVA + survival analysis on abandonment"],
+        artifact: "Behavioral personas",
+      },
+      {
+        n: "05",
+        title: "Report",
+        methods: ["Exec readout: safety + call-deflection economics", "Design system tokens + motion/audio guidance", "Caregiver-facing one-pager"],
+        artifact: "Enablement kit",
+      },
+    ],
+    metrics: [
+      { value: "<10s", label: "Time-to-connect at 95th percentile" },
+      { value: "96%", label: "Comprehension across cohorts (state messages)" },
+      { value: "−41%", label: "Accidental activations vs baseline" },
+    ],
+    audiences: ["Exec sponsors", "Product + design system", "Care-partner support", "External advocacy (AARP, AFB)"],
+  },
+};
+
+function ResearchProcess({ id }: { id: string }) {
+  const cfg = RESEARCH_CONFIG[id];
+  if (!cfg) return null;
+  const titleId = `research-process-${id}-title`;
+
+  return (
+    <FadeIn>
+      <figure className="my-10" aria-labelledby={titleId}>
+        <figcaption
+          id={titleId}
+          className="text-xs font-semibold tracking-wide uppercase text-gray-700 mb-3 text-center"
+        >
+          {cfg.title}
+        </figcaption>
+
+        {/* Header band */}
+        <div className="rounded-t-xl bg-gradient-to-r from-[#0f2027] via-[#1B3A5C] to-[#2E75B6] text-white px-5 py-3 flex items-center justify-between">
+          <span className="text-[11px] font-bold tracking-[0.18em] uppercase">
+            User Research · Mixed Methods
+          </span>
+          <span className="text-[11px] text-white/85">
+            Plan → Recruit → Execute → Synthesize → Report
+          </span>
+        </div>
+
+        {/* Phases */}
+        <ol
+          className="grid grid-cols-1 md:grid-cols-5 gap-px bg-gray-200 border-x border-gray-200 list-none p-0 m-0"
+          aria-label="Five-phase user research process"
+        >
+          {cfg.phases.map((p, idx, arr) => (
+            <li key={p.n} className="bg-white p-4 flex flex-col">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="text-[10px] font-bold text-[#2E75B6] tracking-widest">
+                  {p.n}
+                </span>
+                <span aria-hidden="true" className="flex-1 h-px bg-gradient-to-r from-[#2E75B6]/40 to-transparent" />
+                {idx < arr.length - 1 && (
+                  <span aria-hidden="true" className="hidden md:inline text-[#1B3A5C] text-sm leading-none">→</span>
+                )}
+              </div>
+              <h3 className="text-[13px] font-bold text-[#0f2027] leading-snug mb-2">
+                {p.title}
+              </h3>
+              <ul className="space-y-1.5 list-none p-0 m-0 flex-1">
+                {p.methods.map((m) => (
+                  <li key={m} className="text-[11px] text-gray-700 leading-snug flex gap-1.5">
+                    <span aria-hidden="true" className="text-[#2E75B6] mt-0.5">•</span>
+                    <span>{m}</span>
+                  </li>
+                ))}
+              </ul>
+              <span className="mt-3 inline-block self-start text-[9px] font-semibold tracking-wider uppercase px-1.5 py-0.5 rounded bg-[#eaf3fb] text-[#1B3A5C]">
+                {p.artifact}
+              </span>
+            </li>
+          ))}
+        </ol>
+
+        {/* Populations + recruiting */}
+        <div className="bg-white border-x border-b border-gray-200 px-5 py-4">
+          <h3 className="text-[11px] font-bold tracking-[0.18em] uppercase text-[#1B3A5C] mb-3">
+            Recruiting · Participant Mix
+          </h3>
+          <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 list-none p-0 m-0">
+            {cfg.populations.map((p) => (
+              <li
+                key={p.label}
+                className="border border-gray-200 rounded-lg px-3 py-2 bg-[#fafbfc] flex items-baseline gap-2"
+              >
+                <span className="text-[13px] font-extrabold text-[#1B3A5C] tabular-nums">
+                  {p.n}
+                </span>
+                <div className="flex-1 min-w-0">
+                  <div className="text-[11px] font-semibold text-gray-900 truncate">{p.label}</div>
+                  <div className="text-[10px] text-gray-600 leading-snug">{p.note}</div>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Outcome metrics */}
+        <div className="bg-[#0f2027] text-white rounded-b-xl px-5 py-4">
+          <h3 className="text-[11px] font-bold tracking-[0.18em] uppercase text-white/85 mb-3">
+            Research Outcomes
+          </h3>
+          <ul className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4 list-none p-0 m-0">
+            {cfg.metrics.map((m) => (
+              <li
+                key={m.label}
+                className="bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-center"
+              >
+                <div className="text-lg font-extrabold text-[#E8913A] tabular-nums">{m.value}</div>
+                <div className="text-[10px] text-white/85 leading-snug">{m.label}</div>
+              </li>
+            ))}
+          </ul>
+          <div className="flex flex-wrap gap-1.5">
+            <span className="text-[10px] font-semibold tracking-wider uppercase text-white/70 mr-1">
+              Reporting tailored to:
+            </span>
+            {cfg.audiences.map((a) => (
+              <span
+                key={a}
+                className="text-[10px] px-2 py-0.5 rounded-full bg-white/10 border border-white/15 text-white"
+              >
+                {a}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <p className="text-[11px] text-gray-600 mt-2 text-center">
+          NDA-safe research artifact — structure shown, proprietary protocols and participant data omitted.
+        </p>
+      </figure>
+    </FadeIn>
+  );
+}
+
+
 function CaseStudy({
   study,
   setPage,
@@ -1276,6 +1511,13 @@ function CaseStudy({
 
         {/* Wireframes + Workflow + Sample Screens — per case study */}
         <CaseStudyShowcase id={study.id} />
+
+        {/* Research Process — SSA11y and Best Buy elderly */}
+        {(study.id === "ssa" || study.id === "bestbuy") && (
+          <ResearchProcess id={study.id} />
+        )}
+
+
 
 
 
