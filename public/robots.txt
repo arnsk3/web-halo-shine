@@ -12,3 +12,5 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+Sitemap: https://web-halo-shine.lovable.app/sitemap.xml
