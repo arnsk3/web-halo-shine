@@ -1484,6 +1484,262 @@ const DOSSIERS: Record<string, Dossier> = {
       { audience: "508 program + OMB reporting", format: "Portfolio compliance memo + remediation backlog", decision: "Compliance posture + remediation funding" },
     ],
   },
+  ssa: {
+    title: "SSA11y — Detailed Research Dossier",
+    intro:
+      "Research operating against WCAG 2.2 AA, Section 508, and ADA Title II for a federal disability-benefits platform used by 50M+ citizens. Mixed methods bridge assistive-technology (AT) reality, developer adoption of the component library, and the CI/CD gate that enforces accessibility before code reaches staging.",
+    plan: [
+      {
+        label: "Recruiting",
+        items: [
+          "Assistive-technology users (12–16) — daily JAWS, NVDA, VoiceOver, Dragon, switch-control; recruited via Disability Rights orgs, AT trainer networks, and SSA beneficiary outreach.",
+          "Adjudicators + DDS examiners (8–10) — case-processing staff using the 15+ modules daily; balanced across regions and tenure.",
+          "Citizens with cognitive / low-vision / low-literacy needs (8–10) — recruited via community partners; 6th-grade reading benchmark.",
+          "Front-end engineers + module owners (8–10) — adopters of the 8 core components; sampled across 40+ monthly releases.",
+          "Unmoderated CI/CD telemetry cohort (≥40 module releases) — pre/post SSA11y rollout, stratified by module risk-tier.",
+          "Plain-language consent, accessible scheduling (phone + email + relay), stipends via non-stigmatizing methods.",
+        ],
+      },
+      {
+        label: "Qualitative Execution",
+        items: [
+          "Contextual inquiry with AT users completing real benefit-claim flows on JAWS / NVDA / VoiceOver.",
+          "Cognitive walkthroughs across all 15+ modules to surface inconsistent component behavior.",
+          "Developer think-aloud on adopting the component library — friction points, doc gaps, override patterns.",
+          "Heuristic + manual audits keyed to WCAG 2.2 AA SC and Section 508 FPC, scored per component (not per page).",
+        ],
+      },
+      {
+        label: "Quantitative Execution",
+        items: [
+          "Task success and time-on-task for top 10 adjudicator flows, stratified by AT vs. non-AT.",
+          "WCAG violation density per 1k LOC, tracked per module pre/post SSA11y gate.",
+          "Audit hours per release (target: 30% reduction → $1.5M+ annual savings).",
+          "SUS + SEQ on the 8 core components; defect-recurrence rate post-adoption.",
+          "Pipeline telemetry: SSA11y catch-rate, false-positive rate, time-to-fix from flag to merge.",
+        ],
+      },
+      {
+        label: "Synthesis",
+        items: [
+          "Coding mapped to WCAG 2.2 AA SC and Section 508 FPC; severity weighted by population reach (50M+ citizens).",
+          "Root-cause attribution to shared components — confirming the 65% / 8-component hypothesis.",
+          "Defect-flow analysis: where in CI/CD violations are caught vs. escape to staging.",
+          "Triangulation — AT findings cross-checked with telemetry and adjudicator task data before any finding is promoted.",
+        ],
+      },
+    ],
+    journeyTitle: "Adjudicator + AT-User Journey — Processing a Disability Claim",
+    journey: [
+      {
+        stage: "01 · Intake",
+        actor: "DDS examiner",
+        thinking: "I need to open the case and see the citizen's full history without re-keying anything.",
+        pains: ["Inconsistent table behavior across modules", "Keyboard focus lost between screens"],
+        opportunities: ["Single shared data-table component with predictable focus order", "Persistent breadcrumb + back-stack"],
+        signals: ["Time-to-open-case", "Focus-loss events per session"],
+      },
+      {
+        stage: "02 · Evidence review",
+        actor: "Examiner + AT user (citizen self-service)",
+        thinking: "I need to read every document and confirm nothing is missing.",
+        pains: ["PDFs without text layer", "Modal traps with no escape route"],
+        opportunities: ["Accessible PDF preflight at upload", "Standardized modal pattern with focus-trap exit"],
+        signals: ["Screen-reader completion rate", "Modal-abandon rate"],
+      },
+      {
+        stage: "03 · Determination",
+        actor: "DDS examiner",
+        thinking: "Are the form errors blocking me from submitting clearly explained?",
+        pains: ["Errors surfaced only at submit", "Error messages not announced by screen readers"],
+        opportunities: ["Inline validation tied to ARIA live regions", "Plain-language error copy mapped to fix"],
+        signals: ["Submit-error rate", "Time from error to resolution"],
+      },
+      {
+        stage: "04 · Citizen notification",
+        actor: "Claimant (AT user)",
+        thinking: "What did they decide and what do I do next?",
+        pains: ["Determination letters not screen-reader friendly", "Next-step CTAs visual-only"],
+        opportunities: ["Plain-language summary first, legal language second", "Multi-modal next-step guidance (text + audio)"],
+        signals: ["Comprehension survey", "Appeal-rate due to misunderstanding"],
+      },
+      {
+        stage: "05 · Continuous compliance",
+        actor: "Engineer + accessibility program",
+        thinking: "Is this release clean before it merges?",
+        pains: ["Violations found only post-deploy", "Same defect recurs across modules"],
+        opportunities: ["SSA11y CI/CD gate scans at commit", "Component-library upgrade auto-PRs"],
+        signals: ["Violations per 1k LOC", "Time-to-fix from flag to merge"],
+      },
+    ],
+    patternsTitle: "Reusable Patterns — Federal Accessibility Library",
+    patterns: [
+      {
+        name: "Fix-the-Component-Not-the-Page",
+        problem: "200+ WCAG violations across 15+ modules, each team re-implementing tables / modals / forms.",
+        pattern: "Identify the small set of shared components (≈8) that generate the majority of violations; rebuild those once with ARIA, keyboard, and AT tests baked in; migrate modules to consume the library.",
+        evidence: "65% of violations resolved by fixing 8 components; defect recurrence dropped sharply post-migration.",
+      },
+      {
+        name: "Accessibility-as-CI/CD-Gate",
+        problem: "Manual WCAG audits gate every release; violations found post-deploy.",
+        pattern: "SSA11y scans code at commit time, ranks fixes by severity, blocks merge on high-severity violations, and reports trends per module.",
+        evidence: "Audit effort reduced 30%; $1.5M+ annual savings; near-zero release delays from accessibility regressions.",
+      },
+      {
+        name: "AT-User in the Loop",
+        problem: "Component decisions made without daily AT users; ARIA written 'to spec' but unusable in practice.",
+        pattern: "Every shared component validated with JAWS / NVDA / VoiceOver users before it ships; AT cohort participates in component design, not just QA.",
+        evidence: "Component-level usability defects dropped 30–40%; AT task-success parity with non-AT.",
+      },
+      {
+        name: "USWDS-Aligned Default",
+        problem: "Federal teams diverge from USWDS, creating accessibility debt and brand drift.",
+        pattern: "Every new component aligns to USWDS tokens and patterns by default; deviations require an accessibility + design review.",
+        evidence: "Faster adoption across 40+ monthly releases; consistent AT behavior across modules.",
+      },
+      {
+        name: "Defect Root-Cause Loop",
+        problem: "Same violation re-appears in new modules; no learning loop.",
+        pattern: "Every shipped defect is traced to a component, a doc gap, or a missing CI/CD rule; fix lands in the library and the gate, not just in the module.",
+        evidence: "Recurrence rate of same defect class dropped after library + gate updates.",
+      },
+    ],
+    reporting: [
+      { audience: "SSA executive sponsors", format: "Quarterly portfolio scorecard — audit hours saved, violations prevented, release-velocity impact", decision: "Continued funding + scale to additional federal agencies" },
+      { audience: "DDS / adjudicator leadership", format: "Module-by-module findings with adjudicator task metrics", decision: "Module-level remediation priorities" },
+      { audience: "Engineering + module owners", format: "Component-library release notes, CI/CD rules, migration playbook", decision: "Adoption + sprint planning" },
+      { audience: "508 program + federal partners", format: "Compliance posture memo + reusable framework write-up", decision: "Replication across federal systems" },
+    ],
+  },
+  bestbuy: {
+    title: "Best Buy Health — Detailed Research Dossier",
+    intro:
+      "Research with elderly users (65–90+) of personal emergency response systems, validated against MIL-STD-1472H human engineering criteria, FDA / IEC 62366 usability engineering, and WCAG 2.2 AA. Mixed methods include stress-condition simulation because emergency activation never happens in calm lab conditions.",
+    plan: [
+      {
+        label: "Recruiting",
+        items: [
+          "Primary users aged 65–90+ (16–20) — stratified by arthritis severity, low vision (cataracts / AMD), age-related hearing loss, and mild cognitive impairment.",
+          "Caregivers + adult children (6–8) — set up and monitor devices on behalf of the primary user.",
+          "Emergency-response operators (4–6) — receive activations from Lively + Jitterbug devices.",
+          "AT-user panel (≥20) — VoiceOver, TalkBack, large-text and high-contrast users.",
+          "Large-n unmoderated benchmark (≥200) across the 5 product lines after each redesign wave.",
+          "IRB-aligned consent; sessions held in-home where possible; trained moderators for cognitive accommodation.",
+        ],
+      },
+      {
+        label: "Qualitative Execution",
+        items: [
+          "Contextual inquiry in the home — how the device sits in the daily routine (charging, wearing, traveling).",
+          "Stress-condition simulation — time pressure + distraction + physical limitation; participant must trigger SOS.",
+          "Caregiver-dyad sessions — observe setup, troubleshooting, and false-alarm handling.",
+          "Operator listening sessions — review real (consented) activation calls for activation-quality patterns.",
+        ],
+      },
+      {
+        label: "Quantitative Execution",
+        items: [
+          "Activation success rate under stress vs. baseline; false-activation rate; abandonment rate.",
+          "MIL-STD-1472H conformance: touch-target size, control force, contrast, audio level — measured against population thresholds.",
+          "NASA-TLX + SUS on each redesign wave; comprehension test on alert wording.",
+          "ANOVA + survival analysis on activation abandonment; effect sizes per impairment cohort.",
+          "Field telemetry: missed-activation events, retry counts, time-to-first-press.",
+        ],
+      },
+      {
+        label: "Synthesis",
+        items: [
+          "Coding mapped to MIL-STD-1472H sections (reach, sizing, legibility, controls) + IEC 62366 use-error taxonomy.",
+          "Dyad journey: discover → set up → use → recover from false alarm → renew.",
+          "Severity matrix: hazard severity × probability × reach across 1M+ users.",
+          "Triangulation — qualitative stress findings cross-checked against field telemetry before promotion to a hazard.",
+        ],
+      },
+    ],
+    journeyTitle: "Elderly-User + Caregiver Journey — Emergency Activation",
+    journey: [
+      {
+        stage: "01 · Setup",
+        actor: "Caregiver + primary user",
+        thinking: "Will this thing actually work when I need it?",
+        pains: ["Pairing assumes smartphone fluency", "Setup steps not voice-guided"],
+        opportunities: ["Caregiver-assisted setup mode", "Voice-guided pairing with large captions"],
+        signals: ["Setup completion rate", "Calls to support during setup"],
+      },
+      {
+        stage: "02 · Daily wear",
+        actor: "Primary user (65–90+)",
+        thinking: "Is the device still on, charged, and noticing me?",
+        pains: ["Charge status visual-only", "Wearable uncomfortable or stigmatizing"],
+        opportunities: ["Multi-modal charge indicator (visual + audio + haptic)", "Discreet wearable form factor options"],
+        signals: ["Days-worn per week", "Time-off-charger before low-battery alert"],
+      },
+      {
+        stage: "03 · Emergency activation",
+        actor: "Primary user under stress",
+        thinking: "I need help now. Press. Did it go through?",
+        pains: ["Touch target too small for arthritic hands", "No confirmation of successful activation"],
+        opportunities: ["MIL-STD-1472H-sized control with progressive activation (press → hold → confirm)", "Multi-modal activation confirmation (visual + audio + haptic)"],
+        signals: ["Activation success under stress", "Time-to-first-press"],
+      },
+      {
+        stage: "04 · Operator hand-off",
+        actor: "Operator + primary user",
+        thinking: "Can the operator hear me and know who I am?",
+        pains: ["Audio levels not tuned for age-related hearing loss", "Operator lacks context on user profile"],
+        opportunities: ["Audio frequency profile tuned to presbycusis", "Operator dashboard shows user's accessibility profile + medications"],
+        signals: ["Call-completion rate", "Operator time-to-context"],
+      },
+      {
+        stage: "05 · Recover from false alarm",
+        actor: "Primary user + caregiver",
+        thinking: "I pressed it by accident. Now what?",
+        pains: ["Cancellation harder than activation", "Caregiver not notified of false alarm + resolution"],
+        opportunities: ["Symmetric cancel affordance with grace window", "Auto-notify caregiver of activation + resolution"],
+        signals: ["False-alarm rate", "Repeat false alarms per user"],
+      },
+    ],
+    patternsTitle: "Reusable Patterns — Inclusive Health-Device Library",
+    patterns: [
+      {
+        name: "Progressive Emergency Activation",
+        problem: "Single-press activation triggers false alarms; multi-step activation fails under stress.",
+        pattern: "Press → hold → confirm sequence sized to MIL-STD-1472H control criteria, with multi-modal confirmation at each step; cancel affordance symmetric with activation.",
+        evidence: "Missed activations eliminated; false-alarm rate reduced.",
+      },
+      {
+        name: "Redundant-Modality Alerts",
+        problem: "Visual-only or audio-only alerts fail users with sensory impairment.",
+        pattern: "Every critical alert delivered via visual + auditory + haptic simultaneously; audio frequencies tuned for age-related hearing loss; contrast beyond WCAG minimum for cataracts and AMD.",
+        evidence: "Zero critical alerts missed in post-launch field telemetry sample.",
+      },
+      {
+        name: "Stress-Condition Validation",
+        problem: "Calm-lab usability testing overstates real-world activation success.",
+        pattern: "Every emergency flow validated under simulated stress (time pressure + distraction + physical limitation) with representative 65–90+ population before release.",
+        evidence: "Caught activation failures invisible in calm-lab testing; redesigns shipped only after stress-condition pass.",
+      },
+      {
+        name: "Caregiver-in-the-Loop",
+        problem: "Elderly users abandon devices that require independent troubleshooting.",
+        pattern: "Caregiver-assisted setup, caregiver notification on activation + resolution, optional remote check-in.",
+        evidence: "Days-worn per week increased; setup-support calls dropped.",
+      },
+      {
+        name: "MIL-STD-1472H as Acceptance",
+        problem: "Inclusive-design intent without measurable criteria becomes opinion.",
+        pattern: "MIL-STD-1472H thresholds (touch target, control force, contrast, audio level) written into design acceptance criteria across all 5 product lines.",
+        evidence: "Remediation cycles reduced 30–40%; governance approved at executive level.",
+      },
+    ],
+    reporting: [
+      { audience: "Best Buy Health executive leadership", format: "Cross-portfolio safety + activation-success scorecard", decision: "Governance adoption across all 5 product lines" },
+      { audience: "Product + engineering teams", format: "Pattern library + MIL-STD-1472H acceptance criteria + redlines", decision: "Redesign sprint planning + release gating" },
+      { audience: "FDA / regulatory affairs", format: "IEC 62366 usability engineering file + stress-condition evidence", decision: "Submission readiness for medical-device claims" },
+      { audience: "Operator partners + care teams", format: "Operator dashboard requirements + alert taxonomy", decision: "Call-center training + dashboard rollout" },
+    ],
+  },
 };
 
 function DeepResearchDossier({ id }: { id: string }) {
@@ -2043,10 +2299,8 @@ function CaseStudy({
         {/* Research Process — applies to ssa, bestbuy, ge, samhsa */}
         {RESEARCH_CONFIG[study.id] && <ResearchProcess id={study.id} />}
 
-        {/* Deep research dossier — GE + SAMHSA: journey map + patterns */}
-        {(study.id === "ge" || study.id === "samhsa") && (
-          <DeepResearchDossier id={study.id} />
-        )}
+        {/* Deep research dossier — all case studies: journey map + patterns */}
+        {DOSSIERS[study.id] && <DeepResearchDossier id={study.id} />}
 
 
 
