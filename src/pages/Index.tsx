@@ -876,6 +876,103 @@ type ResearchConfig = {
 };
 
 const RESEARCH_CONFIG: Record<string, ResearchConfig> = {
+  ge: {
+    title: "Clinical AI Safety Research — Clinicians + ML/Regulatory Stakeholders",
+    populations: [
+      { label: "Maternal-fetal medicine MDs", n: "6–8", note: "Board-certified · ≥5 yrs prenatal Dx" },
+      { label: "OB sonographers", n: "8–10", note: "RDMS · daily AI-assisted scans" },
+      { label: "Clinical safety / RA leads", n: "4–6", note: "FDA submissions · post-market" },
+      { label: "ML + product engineers", n: "6–8", note: "Model owners + UX engineers" },
+      { label: "Unmoderated benchmark", n: "≥120", note: "Cross-site clinician panel · 3 health systems" },
+    ],
+    phases: [
+      {
+        n: "01",
+        title: "Plan",
+        methods: ["FDA HF / IEC 62366 / ISO 14971 framing", "Use-error & automation-bias hypotheses", "Success criteria tied to URRA hazards"],
+        artifact: "Research brief + URRA",
+      },
+      {
+        n: "02",
+        title: "Recruit",
+        methods: ["Clinical advisory board + KOL network", "Role + risk-tier screener (Model A/B/C)", "IRB-aligned consent + PHI handling"],
+        artifact: "Screener + consent kit",
+      },
+      {
+        n: "03",
+        title: "Execute",
+        methods: ["Cognitive task analysis in live reading rooms", "Think-aloud with confidence-score overrides", "Simulated edge-case scenarios (FMEA-derived)", "Quant: override rate, time-to-confirm, SUS, NASA-TLX"],
+        artifact: "Sessions · telemetry · CTA maps",
+      },
+      {
+        n: "04",
+        title: "Synthesize",
+        methods: ["Dovetail coding mapped to IEC 62366 use-errors", "Automation-bias × overreliance severity matrix", "Mixed-effects model on override accuracy"],
+        artifact: "Hazard-linked findings + journey",
+      },
+      {
+        n: "05",
+        title: "Report",
+        methods: ["AI Safety Review Board readout (go/no-go)", "Design enablement: HITL patterns + explainability", "Regulatory evidence pack for FDA submission"],
+        artifact: "Multi-audience artifacts",
+      },
+    ],
+    metrics: [
+      { value: "100%", label: "AI features passing safety framework before ship" },
+      { value: "−38%", label: "Automation-bias errors vs. pre-framework baseline" },
+      { value: "0", label: "Post-market HF-related safety signals to date" },
+    ],
+    audiences: ["AI Safety Review Board", "Clinical + product leadership", "Regulatory affairs / FDA", "Engineering + ML model owners"],
+  },
+  samhsa: {
+    title: "Behavioral Health Research — People in Crisis + Federal Data Submitters",
+    populations: [
+      { label: "People seeking treatment", n: "10–12", note: "SUD + MH · trauma-informed protocol" },
+      { label: "Family / caregiver searchers", n: "6–8", note: "Searching on behalf of a loved one" },
+      { label: "Facility data submitters", n: "8–10", note: "State + provider · N-SSATS / N-MHSS" },
+      { label: "State BH agency staff", n: "6–8", note: "Block-grant + data leads" },
+      { label: "AT + low-literacy panel", n: "≥30", note: "Screen reader · ESL · 6th-grade reading" },
+      { label: "Unmoderated benchmark", n: "≥800", note: "Treatment Locator across devices" },
+    ],
+    phases: [
+      {
+        n: "01",
+        title: "Plan",
+        methods: ["Section 508 + WCAG 2.0 AA framing", "Crisis-safe + trauma-informed protocol", "Success criteria tied to find-treatment outcomes"],
+        artifact: "Research brief + safety plan",
+      },
+      {
+        n: "02",
+        title: "Recruit",
+        methods: ["SAMHSA grantee + peer-recovery networks", "988 / 211 partner referrals (warm hand-off)", "Plain-language consent + opt-out anytime"],
+        artifact: "Inclusive screener + safety kit",
+      },
+      {
+        n: "03",
+        title: "Execute",
+        methods: ["Remote contextual inquiry with crisis safeguards", "Caregiver-dyad search sessions", "Facility submitter task analysis on data portals", "Quant: task success, time-to-find-facility, SUS, drop-off funnel"],
+        artifact: "Field + lab + analytics evidence",
+      },
+      {
+        n: "04",
+        title: "Synthesize",
+        methods: ["Coding mapped to 508 FPC + WCAG SC", "Crisis-state journey: search → trust → contact", "Severity × population-reach (2M+ monthly visitors)", "Regression on locator completion across cohorts"],
+        artifact: "Behavioral personas + journey",
+      },
+      {
+        n: "05",
+        title: "Report",
+        methods: ["Exec readout: public-health + ROI of rework reduction", "Pattern library updates + 508 acceptance criteria", "Stakeholder portfolio review across 6+ platforms"],
+        artifact: "Portfolio enablement kit",
+      },
+    ],
+    metrics: [
+      { value: "−34%", label: "Median time to find a treatment facility" },
+      { value: "−30%", label: "Development rework after governance rollout" },
+      { value: "2M+", label: "Monthly visitors served across portfolio" },
+    ],
+    audiences: ["SAMHSA exec sponsors", "Grantees + state BH agencies", "Product, content, engineering", "Section 508 + OMB reporting"],
+  },
   ssa: {
     title: "Federal A11y Research — Practitioners + AT End-Users",
     populations: [
