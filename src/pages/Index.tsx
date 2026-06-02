@@ -2522,57 +2522,102 @@ function WcagToolDetails() {
             needs those tasks satisfy.
           </p>
 
-          {/* Column legend */}
-          <div className="hidden md:grid grid-cols-[1.1fr_auto_2fr_auto_1.6fr] items-center gap-3 mb-3 px-1">
-            <span className="text-[10px] font-bold uppercase tracking-wide text-[#1B3A5C]">Persona</span>
-            <span aria-hidden="true" />
-            <span className="text-[10px] font-bold uppercase tracking-wide text-[#7e22ce]">Tasks</span>
-            <span aria-hidden="true" />
-            <span className="text-[10px] font-bold uppercase tracking-wide text-emerald-700">WCAG needs</span>
+          {/* Expand / collapse controls */}
+          <div className="flex items-center gap-2 mb-4">
+            <button
+              type="button"
+              onClick={() => setOpenJourneys(journeys.map((j) => j.persona))}
+              className="text-[11px] font-semibold px-3 py-1.5 rounded-md border border-gray-200 bg-white text-[#1B3A5C] hover:bg-gray-50 transition-colors"
+            >
+              Expand all
+            </button>
+            <button
+              type="button"
+              onClick={() => setOpenJourneys([])}
+              className="text-[11px] font-semibold px-3 py-1.5 rounded-md border border-gray-200 bg-white text-gray-600 hover:bg-gray-50 transition-colors"
+            >
+              Collapse all
+            </button>
           </div>
 
-          <div className="space-y-4">
-            {journeys.map((j) => (
-              <div
-                key={j.persona}
-                className="grid grid-cols-1 md:grid-cols-[1.1fr_auto_2fr_auto_1.6fr] items-center gap-3 border border-gray-200 rounded-xl p-4 bg-white"
-              >
-                {/* Persona */}
-                <div className="rounded-lg bg-gradient-to-br from-[#0b132b] via-[#1B3A5C] to-[#2E75B6] text-white px-4 py-3 text-center">
-                  <span className="text-[13px] font-bold">{j.persona}</span>
-                </div>
-
-                <span aria-hidden="true" className="hidden md:block text-[#9bbce0] text-xl text-center">→</span>
-
-                {/* Tasks */}
-                <div className="flex flex-wrap gap-2">
-                  {j.tasks.map((t, i) => (
-                    <span key={t} className="inline-flex items-center gap-1.5">
-                      <span className="text-[11px] font-medium px-2.5 py-1 rounded-md bg-[#f3e8fd] text-[#7e22ce] border border-[#e9d5ff]">
-                        {t}
+          <div className="space-y-3">
+            {journeys.map((j) => {
+              const isOpen = openJourneys.includes(j.persona);
+              const panelId = `journey-panel-${j.persona.replace(/[^a-z0-9]/gi, "-").toLowerCase()}`;
+              return (
+                <div
+                  key={j.persona}
+                  className="border border-gray-200 rounded-xl bg-white overflow-hidden"
+                >
+                  {/* Persona toggle */}
+                  <button
+                    type="button"
+                    aria-expanded={isOpen}
+                    aria-controls={panelId}
+                    onClick={() => toggleJourney(j.persona)}
+                    className="w-full flex items-center justify-between gap-3 px-4 py-3 text-left bg-gradient-to-br from-[#0b132b] via-[#1B3A5C] to-[#2E75B6] text-white hover:opacity-95 transition-opacity"
+                  >
+                    <span className="text-[13px] font-bold">{j.persona}</span>
+                    <span className="flex items-center gap-3">
+                      <span className="text-[10px] font-medium text-[#9bbce0] hidden sm:inline">
+                        {j.tasks.length} tasks · {j.needs.length} WCAG needs
                       </span>
-                      {i < j.tasks.length - 1 && (
-                        <span aria-hidden="true" className="text-[#c4a3e8] text-xs">›</span>
-                      )}
+                      <span
+                        aria-hidden="true"
+                        className={`text-base leading-none transition-transform duration-200 ${
+                          isOpen ? "rotate-180" : ""
+                        }`}
+                      >
+                        ⌄
+                      </span>
                     </span>
-                  ))}
-                </div>
+                  </button>
 
-                <span aria-hidden="true" className="hidden md:block text-[#9bbce0] text-xl text-center">→</span>
+                  {/* Expandable detail */}
+                  {isOpen && (
+                    <div id={panelId} className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
+                      {/* Tasks */}
+                      <div>
+                        <span className="text-[10px] font-bold uppercase tracking-wide text-[#7e22ce]">
+                          Tasks
+                        </span>
+                        <div className="flex flex-wrap gap-2 mt-2">
+                          {j.tasks.map((t, i) => (
+                            <span key={t} className="inline-flex items-center gap-1.5">
+                              <span className="text-[11px] font-medium px-2.5 py-1 rounded-md bg-[#f3e8fd] text-[#7e22ce] border border-[#e9d5ff]">
+                                {t}
+                              </span>
+                              {i < j.tasks.length - 1 && (
+                                <span aria-hidden="true" className="text-[#c4a3e8] text-xs">
+                                  ›
+                                </span>
+                              )}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
 
-                {/* WCAG needs */}
-                <div className="flex flex-wrap gap-2">
-                  {j.needs.map((n) => (
-                    <span
-                      key={n}
-                      className="text-[11px] font-semibold px-2.5 py-1 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-100"
-                    >
-                      {n}
-                    </span>
-                  ))}
+                      {/* WCAG needs */}
+                      <div>
+                        <span className="text-[10px] font-bold uppercase tracking-wide text-emerald-700">
+                          WCAG needs
+                        </span>
+                        <div className="flex flex-wrap gap-2 mt-2">
+                          {j.needs.map((n) => (
+                            <span
+                              key={n}
+                              className="text-[11px] font-semibold px-2.5 py-1 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-100"
+                            >
+                              {n}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           {/* Sample study excerpts */}
