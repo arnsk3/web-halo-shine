@@ -1810,6 +1810,11 @@ const DOSSIERS: Record<string, Dossier> = {
 };
 
 function WcagToolDetails() {
+  const [openJourneys, setOpenJourneys] = useState<string[]>([]);
+  const toggleJourney = (persona: string) =>
+    setOpenJourneys((prev) =>
+      prev.includes(persona) ? prev.filter((p) => p !== persona) : [...prev, persona]
+    );
   const aiFixExamples = [
     {
       criterion: "1.1.1 Non-text Content",
