@@ -1919,6 +1919,179 @@ function WcagToolDetails() {
     },
   ];
 
+  const detailedPersonas = [
+    {
+      img: personaDeveloper,
+      name: "Dev — Front-End Engineer",
+      group: "Developers",
+      tagline: "“Tell me exactly what to change and where.”",
+      context: "Ships React/HTML daily, owns component libraries, lives in the IDE and CI.",
+      goals: [
+        "Fix violations at the source without leaving the editor",
+        "Catch regressions before merge in the pipeline",
+        "Understand the ARIA/markup rationale, not just the rule ID",
+      ],
+      frustrations: [
+        "Scanners flag problems but never show the corrected code",
+        "Vague rule references force manual spec lookups",
+      ],
+      needs: ["Copy-paste corrected markup", "Inline visual cue", "CI/CD gating"],
+    },
+    {
+      img: personaQa,
+      name: "Quinn — QA / Test Engineer",
+      group: "Testers / QA",
+      tagline: "“I need repeatable pass/fail evidence per build.”",
+      context: "Runs regression suites, gatekeeps releases, files reproducible defects.",
+      goals: [
+        "Verify a fix actually resolves the criterion",
+        "Produce consistent pass/fail reports across builds",
+        "Reproduce issues with clear steps and locations",
+      ],
+      frustrations: [
+        "Non-deterministic results between runs",
+        "No traceable evidence to attach to tickets",
+      ],
+      needs: ["Deterministic scans", "Exportable evidence", "Regression diffing"],
+    },
+    {
+      img: personaSme,
+      name: "Sam — Accessibility SME / Lead",
+      group: "SMEs / Accessibility Leads",
+      tagline: "“Show me defensible conformance against every criterion.”",
+      context: "Owns the conformance strategy, signs off audits, advises teams on WCAG-EM.",
+      goals: [
+        "Validate all 28 criteria across A/AA/AAA tiers",
+        "Generate auditable WCAG-EM and Section 508 evidence",
+        "Mentor teams toward repeatable practice",
+      ],
+      frustrations: [
+        "Tools stop at AA and ignore AAA",
+        "Manual evidence assembly is slow and error-prone",
+      ],
+      needs: ["Full criteria coverage", "Audit trail export", "Tier-aware scoring"],
+    },
+    {
+      img: personaContent,
+      name: "Casey — Content Owner / Author",
+      group: "Content Owners",
+      tagline: "“Explain it without the code jargon.”",
+      context: "Manages copy, media, and CMS pages; not a developer.",
+      goals: [
+        "Understand findings in plain language",
+        "Fix alt text, headings, and link text confidently",
+        "Avoid breaking compliance when publishing",
+      ],
+      frustrations: [
+        "Findings written for engineers",
+        "No before/after examples to learn from",
+      ],
+      needs: ["Plain-language guidance", "Before/after samples", "Self-serve fixes"],
+    },
+    {
+      img: personaCompliance,
+      name: "Morgan — Product / Compliance Manager",
+      group: "Product / Compliance",
+      tagline: "“Sequence the work by impact and legal risk.”",
+      context: "Balances roadmap, deadlines, and regulatory exposure across products.",
+      goals: [
+        "Prioritize remediation by user impact and risk",
+        "Track progress toward AAA over time",
+        "Report conformance status to stakeholders",
+      ],
+      frustrations: [
+        "Flat defect lists with no prioritization",
+        "No visibility into risk reduction over time",
+      ],
+      needs: ["Risk-ranked backlog", "Impact weighting", "Executive reporting"],
+    },
+  ];
+
+  const iaLevels = [
+    {
+      level: "L0 — Entry",
+      nodes: ["Dashboard", "New Scan", "Recent Scans"],
+      note: "Single entry point; choose URL fetch or paste-HTML input.",
+    },
+    {
+      level: "L1 — Scan Workspace",
+      nodes: ["Results Overview", "Criteria Filter (A/AA/AAA)", "Severity Filter"],
+      note: "Faceted navigation lets each persona slice the same dataset their way.",
+    },
+    {
+      level: "L2 — Issue Detail",
+      nodes: ["Offending Markup", "AI Suggestion + Visual Cue", "Before/After Fix"],
+      note: "The shared deep-link unit referenced from tickets, PRs, and reports.",
+    },
+    {
+      level: "L3 — Remediation Roadmap",
+      nodes: ["Impact Weighting", "Effort Estimate", "Risk-Ranked Backlog"],
+      note: "Aggregates issues into a prioritized, trackable plan.",
+    },
+    {
+      level: "L4 — Evidence & Export",
+      nodes: ["WCAG-EM Report", "Section 508 Evidence", "CI/CD Artifacts"],
+      note: "Output layer producing auditable, shareable conformance artifacts.",
+    },
+  ];
+
+  const researchStudies = [
+    {
+      kind: "Qualitative",
+      method: "Moderated Usability Testing",
+      participants: "8 participants — 3 Developers, 2 QA, 2 SMEs, 1 Content Owner",
+      approach:
+        "Task-based sessions: scan a page, locate the highest-impact issue, apply the AI fix, and confirm the criterion passes. Think-aloud protocol with screen recording.",
+      questions: [
+        "Where do you expect the corrected code to appear?",
+        "What does the visual cue tell you about severity?",
+        "Walk me through how you'd verify this fix passed.",
+      ],
+      finding: "7/8 applied the AI fix without leaving the issue view; SMEs wanted clearer tier labels.",
+    },
+    {
+      kind: "Qualitative",
+      method: "Persona Interviews & Diary Study",
+      participants: "12 contributors across 4 teams over 2 weeks",
+      approach:
+        "Semi-structured interviews to map goals/frustrations, followed by a diary capturing real remediation moments in their daily workflow.",
+      questions: [
+        "When accessibility comes up, what's your first action today?",
+        "What makes a finding actionable vs. ignorable for you?",
+        "How do you currently prove a fix is compliant?",
+      ],
+      finding: "Plain-language framing was decisive for Content Owners; Developers prized in-context code.",
+    },
+    {
+      kind: "Quantitative",
+      method: "Pre/Post Task Benchmark",
+      participants: "32 contributors, A/B vs. legacy scanner",
+      approach:
+        "Measured time-to-remediate, task success rate, and errors per fix with and without AI suggestions.",
+      questions: [
+        "Median time from detection to verified fix?",
+        "Task success rate per persona group?",
+        "Error rate on applied corrections?",
+      ],
+      finding: "Median time-to-remediate dropped 54%; first-attempt fix success rose from 61% to 92%.",
+    },
+    {
+      kind: "Quantitative",
+      method: "In-Product Analytics & SUS Survey",
+      participants: "210 sessions; 64 SUS responses",
+      approach:
+        "Tracked funnel completion (scan → fix → verify), feature adoption of visual cues, and System Usability Scale scoring.",
+      questions: [
+        "What % of scans reach a verified fix?",
+        "Which personas adopt CI/CD gating?",
+        "What is the overall SUS score?",
+      ],
+      finding: "Scan-to-verified-fix completion 78%; SUS score 86 (excellent).",
+    },
+  ];
+
+
+
   return (
     <div className="my-12 space-y-12">
       {/* Purpose */}
