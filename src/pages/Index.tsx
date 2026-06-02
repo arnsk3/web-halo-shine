@@ -2043,6 +2043,18 @@ function CaseStudy({
               <dd className="block font-semibold mt-0.5">{study.org}</dd>
             </div>
           </dl>
+          {study.liveUrl && (
+            <a
+              href={study.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8 inline-flex items-center gap-2 bg-white text-[#1B3A5C] font-semibold text-sm px-5 py-2.5 rounded-lg hover:bg-[#EAF1F8] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E8913A] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1B3A5C]"
+            >
+              {study.liveLabel ?? "View live"}
+              <span aria-hidden="true">↗</span>
+              <span className="sr-only">(opens in a new tab)</span>
+            </a>
+          )}
         </div>
       </div>
 
