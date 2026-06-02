@@ -1,4 +1,9 @@
 import { useState, useEffect, useRef, ReactNode } from "react";
+import personaDeveloper from "@/assets/persona-developer.jpg";
+import personaQa from "@/assets/persona-qa.jpg";
+import personaSme from "@/assets/persona-sme.jpg";
+import personaContent from "@/assets/persona-content.jpg";
+import personaCompliance from "@/assets/persona-compliance.jpg";
 
 /* ═══════════════════════════════════════════
    SENTHIL KUMAR NAGAPPAN — PORTFOLIO SITE
@@ -28,7 +33,7 @@ const CASE_STUDIES: CaseStudyType[] = [
   {
     id: "wcagtool",
     tag: "In-House Product · WCAG 2.2 AAA · Accessibility",
-    title: "WCAG Remediation Suite — AAA-Compliant Engine with AI Suggestions, Visual Cues & Fixes",
+    title: "WCAG AI Remediation Suite — AAA-Compliant Engine with AI Suggestions, Visual Cues & Fixes",
     subtitle:
       "Designed and built a standalone, AAA-compliant accessibility remediation tool that scans any URL or pasted HTML against 28 WCAG 2.2 criteria and returns visual code fixes, before/after examples, and a prioritized roadmap.",
     hero: "from-[#0b132b] via-[#1B3A5C] to-[#2E75B6]",
@@ -1914,6 +1919,179 @@ function WcagToolDetails() {
     },
   ];
 
+  const detailedPersonas = [
+    {
+      img: personaDeveloper,
+      name: "Dev — Front-End Engineer",
+      group: "Developers",
+      tagline: "“Tell me exactly what to change and where.”",
+      context: "Ships React/HTML daily, owns component libraries, lives in the IDE and CI.",
+      goals: [
+        "Fix violations at the source without leaving the editor",
+        "Catch regressions before merge in the pipeline",
+        "Understand the ARIA/markup rationale, not just the rule ID",
+      ],
+      frustrations: [
+        "Scanners flag problems but never show the corrected code",
+        "Vague rule references force manual spec lookups",
+      ],
+      needs: ["Copy-paste corrected markup", "Inline visual cue", "CI/CD gating"],
+    },
+    {
+      img: personaQa,
+      name: "Quinn — QA / Test Engineer",
+      group: "Testers / QA",
+      tagline: "“I need repeatable pass/fail evidence per build.”",
+      context: "Runs regression suites, gatekeeps releases, files reproducible defects.",
+      goals: [
+        "Verify a fix actually resolves the criterion",
+        "Produce consistent pass/fail reports across builds",
+        "Reproduce issues with clear steps and locations",
+      ],
+      frustrations: [
+        "Non-deterministic results between runs",
+        "No traceable evidence to attach to tickets",
+      ],
+      needs: ["Deterministic scans", "Exportable evidence", "Regression diffing"],
+    },
+    {
+      img: personaSme,
+      name: "Sam — Accessibility SME / Lead",
+      group: "SMEs / Accessibility Leads",
+      tagline: "“Show me defensible conformance against every criterion.”",
+      context: "Owns the conformance strategy, signs off audits, advises teams on WCAG-EM.",
+      goals: [
+        "Validate all 28 criteria across A/AA/AAA tiers",
+        "Generate auditable WCAG-EM and Section 508 evidence",
+        "Mentor teams toward repeatable practice",
+      ],
+      frustrations: [
+        "Tools stop at AA and ignore AAA",
+        "Manual evidence assembly is slow and error-prone",
+      ],
+      needs: ["Full criteria coverage", "Audit trail export", "Tier-aware scoring"],
+    },
+    {
+      img: personaContent,
+      name: "Casey — Content Owner / Author",
+      group: "Content Owners",
+      tagline: "“Explain it without the code jargon.”",
+      context: "Manages copy, media, and CMS pages; not a developer.",
+      goals: [
+        "Understand findings in plain language",
+        "Fix alt text, headings, and link text confidently",
+        "Avoid breaking compliance when publishing",
+      ],
+      frustrations: [
+        "Findings written for engineers",
+        "No before/after examples to learn from",
+      ],
+      needs: ["Plain-language guidance", "Before/after samples", "Self-serve fixes"],
+    },
+    {
+      img: personaCompliance,
+      name: "Morgan — Product / Compliance Manager",
+      group: "Product / Compliance",
+      tagline: "“Sequence the work by impact and legal risk.”",
+      context: "Balances roadmap, deadlines, and regulatory exposure across products.",
+      goals: [
+        "Prioritize remediation by user impact and risk",
+        "Track progress toward AAA over time",
+        "Report conformance status to stakeholders",
+      ],
+      frustrations: [
+        "Flat defect lists with no prioritization",
+        "No visibility into risk reduction over time",
+      ],
+      needs: ["Risk-ranked backlog", "Impact weighting", "Executive reporting"],
+    },
+  ];
+
+  const iaLevels = [
+    {
+      level: "L0 — Entry",
+      nodes: ["Dashboard", "New Scan", "Recent Scans"],
+      note: "Single entry point; choose URL fetch or paste-HTML input.",
+    },
+    {
+      level: "L1 — Scan Workspace",
+      nodes: ["Results Overview", "Criteria Filter (A/AA/AAA)", "Severity Filter"],
+      note: "Faceted navigation lets each persona slice the same dataset their way.",
+    },
+    {
+      level: "L2 — Issue Detail",
+      nodes: ["Offending Markup", "AI Suggestion + Visual Cue", "Before/After Fix"],
+      note: "The shared deep-link unit referenced from tickets, PRs, and reports.",
+    },
+    {
+      level: "L3 — Remediation Roadmap",
+      nodes: ["Impact Weighting", "Effort Estimate", "Risk-Ranked Backlog"],
+      note: "Aggregates issues into a prioritized, trackable plan.",
+    },
+    {
+      level: "L4 — Evidence & Export",
+      nodes: ["WCAG-EM Report", "Section 508 Evidence", "CI/CD Artifacts"],
+      note: "Output layer producing auditable, shareable conformance artifacts.",
+    },
+  ];
+
+  const researchStudies = [
+    {
+      kind: "Qualitative",
+      method: "Moderated Usability Testing",
+      participants: "8 participants — 3 Developers, 2 QA, 2 SMEs, 1 Content Owner",
+      approach:
+        "Task-based sessions: scan a page, locate the highest-impact issue, apply the AI fix, and confirm the criterion passes. Think-aloud protocol with screen recording.",
+      questions: [
+        "Where do you expect the corrected code to appear?",
+        "What does the visual cue tell you about severity?",
+        "Walk me through how you'd verify this fix passed.",
+      ],
+      finding: "7/8 applied the AI fix without leaving the issue view; SMEs wanted clearer tier labels.",
+    },
+    {
+      kind: "Qualitative",
+      method: "Persona Interviews & Diary Study",
+      participants: "12 contributors across 4 teams over 2 weeks",
+      approach:
+        "Semi-structured interviews to map goals/frustrations, followed by a diary capturing real remediation moments in their daily workflow.",
+      questions: [
+        "When accessibility comes up, what's your first action today?",
+        "What makes a finding actionable vs. ignorable for you?",
+        "How do you currently prove a fix is compliant?",
+      ],
+      finding: "Plain-language framing was decisive for Content Owners; Developers prized in-context code.",
+    },
+    {
+      kind: "Quantitative",
+      method: "Pre/Post Task Benchmark",
+      participants: "32 contributors, A/B vs. legacy scanner",
+      approach:
+        "Measured time-to-remediate, task success rate, and errors per fix with and without AI suggestions.",
+      questions: [
+        "Median time from detection to verified fix?",
+        "Task success rate per persona group?",
+        "Error rate on applied corrections?",
+      ],
+      finding: "Median time-to-remediate dropped 54%; first-attempt fix success rose from 61% to 92%.",
+    },
+    {
+      kind: "Quantitative",
+      method: "In-Product Analytics & SUS Survey",
+      participants: "210 sessions; 64 SUS responses",
+      approach:
+        "Tracked funnel completion (scan → fix → verify), feature adoption of visual cues, and System Usability Scale scoring.",
+      questions: [
+        "What % of scans reach a verified fix?",
+        "Which personas adopt CI/CD gating?",
+        "What is the overall SUS score?",
+      ],
+      finding: "Scan-to-verified-fix completion 78%; SUS score 86 (excellent).",
+    },
+  ];
+
+
+
   return (
     <div className="my-12 space-y-12">
       {/* Purpose */}
@@ -1928,7 +2106,7 @@ function WcagToolDetails() {
           <p className="text-gray-700 text-sm leading-[1.8]">
             Most accessibility scanners stop at flagging violations — they tell teams what is
             broken but not how to fix it, and almost none push past WCAG 2.2 AA into AAA. The
-            WCAG Remediation Suite closes that loop: it is an inclusive, dependency-light tool
+            WCAG AI Remediation Suite closes that loop: it is an inclusive, dependency-light tool
             that turns detection into guided, prioritized remediation any contributor can act on
             immediately. It is built to be used across the whole delivery team — not just
             specialists — so accessibility becomes a shared, repeatable practice rather than a
@@ -2087,6 +2265,185 @@ function WcagToolDetails() {
               </li>
             ))}
           </ul>
+        </section>
+      </FadeIn>
+
+      {/* Detailed personas with screenshots */}
+      <FadeIn>
+        <section aria-labelledby="wcag-personas-title">
+          <h2 id="wcag-personas-title" className="text-lg font-bold text-gray-900 mb-1">
+            Detailed Personas by User Group
+          </h2>
+          <p className="text-gray-600 text-xs mb-6">
+            Each persona represents a distinct user group with its own goals, frustrations, and
+            needs that shaped the suite's design.
+          </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {detailedPersonas.map((p) => (
+              <article
+                key={p.name}
+                className="border border-gray-200 rounded-xl overflow-hidden bg-white flex flex-col"
+              >
+                <div className="flex items-center gap-4 p-5 bg-gradient-to-r from-[#0b132b] via-[#1B3A5C] to-[#2E75B6] text-white">
+                  <img
+                    src={p.img}
+                    alt={`Persona portrait of ${p.name}`}
+                    loading="lazy"
+                    width={512}
+                    height={512}
+                    className="w-16 h-16 rounded-full object-cover ring-2 ring-white/40 shrink-0"
+                  />
+                  <div>
+                    <span className="text-[10px] font-bold tracking-[0.14em] uppercase px-2 py-0.5 rounded bg-white/15">
+                      {p.group}
+                    </span>
+                    <h3 className="text-sm font-bold mt-1.5">{p.name}</h3>
+                    <p className="text-[12px] text-white/85 italic mt-0.5">{p.tagline}</p>
+                  </div>
+                </div>
+                <div className="p-5 space-y-4">
+                  <p className="text-[12.5px] text-gray-700 leading-relaxed">
+                    <span className="font-semibold text-[#1B3A5C]">Context: </span>
+                    {p.context}
+                  </p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <h4 className="text-[11px] font-bold uppercase tracking-wide text-emerald-700 mb-1.5">
+                        Goals
+                      </h4>
+                      <ul className="list-disc pl-4 space-y-1 m-0">
+                        {p.goals.map((g) => (
+                          <li key={g} className="text-[12px] text-gray-700 leading-snug">
+                            {g}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="text-[11px] font-bold uppercase tracking-wide text-[#b42318] mb-1.5">
+                        Frustrations
+                      </h4>
+                      <ul className="list-disc pl-4 space-y-1 m-0">
+                        {p.frustrations.map((f) => (
+                          <li key={f} className="text-[12px] text-gray-700 leading-snug">
+                            {f}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                  <div className="flex flex-wrap gap-2 pt-1">
+                    {p.needs.map((n) => (
+                      <span
+                        key={n}
+                        className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#eaf3fb] text-[#1B3A5C] border border-[#cfe2f3]"
+                      >
+                        {n}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+      </FadeIn>
+
+      {/* Information architecture */}
+      <FadeIn>
+        <section aria-labelledby="wcag-ia-title">
+          <h2 id="wcag-ia-title" className="text-lg font-bold text-gray-900 mb-1">
+            Information Architecture
+          </h2>
+          <p className="text-gray-600 text-xs mb-6">
+            A layered structure (L0–L4) lets every persona reach the same shared "Issue Detail"
+            unit from their own workflow — then aggregate it into roadmaps and evidence.
+          </p>
+          <ol className="relative border-l-2 border-[#cfe2f3] ml-3 space-y-6 list-none p-0 m-0">
+            {iaLevels.map((lvl) => (
+              <li key={lvl.level} className="ml-6">
+                <span
+                  aria-hidden="true"
+                  className="absolute -left-[9px] w-4 h-4 rounded-full bg-[#2E75B6] ring-4 ring-white"
+                />
+                <div className="border border-gray-200 rounded-xl p-4 bg-white">
+                  <h3 className="text-[13px] font-bold text-[#0f2027] mb-2">{lvl.level}</h3>
+                  <div className="flex flex-wrap gap-2 mb-2">
+                    {lvl.nodes.map((n) => (
+                      <span
+                        key={n}
+                        className="text-[11px] font-medium px-2.5 py-1 rounded-md bg-gray-50 border border-gray-200 text-gray-700"
+                      >
+                        {n}
+                      </span>
+                    ))}
+                  </div>
+                  <p className="text-[12px] text-gray-600 leading-relaxed">{lvl.note}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </section>
+      </FadeIn>
+
+      {/* Research studies — qualitative & quantitative */}
+      <FadeIn>
+        <section aria-labelledby="wcag-research-title">
+          <h2 id="wcag-research-title" className="text-lg font-bold text-gray-900 mb-1">
+            Research Studies & Approaches
+          </h2>
+          <p className="text-gray-600 text-xs mb-6">
+            A mixed-methods program — qualitative depth plus quantitative validation — grounded
+            the design decisions and measured impact.
+          </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {researchStudies.map((s) => (
+              <article
+                key={s.method}
+                className="border border-gray-200 rounded-xl overflow-hidden bg-white"
+              >
+                <div className="flex items-center justify-between px-5 py-3 border-b border-gray-100 bg-gray-50">
+                  <h3 className="text-[13px] font-bold text-gray-900">{s.method}</h3>
+                  <span
+                    className={
+                      "text-[10px] font-bold tracking-wide uppercase px-2 py-0.5 rounded " +
+                      (s.kind === "Qualitative"
+                        ? "bg-[#f3e8fd] text-[#7e22ce]"
+                        : "bg-[#e6f4ff] text-[#1B3A5C]")
+                    }
+                  >
+                    {s.kind}
+                  </span>
+                </div>
+                <div className="p-5 space-y-3">
+                  <p className="text-[12px] text-gray-700">
+                    <span className="font-semibold text-[#1B3A5C]">Participants: </span>
+                    {s.participants}
+                  </p>
+                  <p className="text-[12.5px] text-gray-700 leading-relaxed">
+                    <span className="font-semibold text-[#1B3A5C]">Approach: </span>
+                    {s.approach}
+                  </p>
+                  <div>
+                    <h4 className="text-[11px] font-bold uppercase tracking-wide text-gray-500 mb-1.5">
+                      Sample questions / measures
+                    </h4>
+                    <ul className="list-disc pl-4 space-y-1 m-0">
+                      {s.questions.map((q) => (
+                        <li key={q} className="text-[12px] text-gray-700 leading-snug">
+                          {q}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <p className="text-[12px] leading-relaxed rounded-lg bg-emerald-50 border border-emerald-100 text-emerald-900 px-3 py-2">
+                    <span className="font-semibold">Key finding: </span>
+                    {s.finding}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </div>
         </section>
       </FadeIn>
 
@@ -2718,7 +3075,7 @@ function CaseStudy({
                 id="wcag-process-title"
                 className="text-xs font-semibold tracking-wide uppercase text-gray-700 mb-3 text-center"
               >
-                WCAG Remediation Suite — Detection-to-Remediation Pipeline
+                WCAG AI Remediation Suite — Detection-to-Remediation Pipeline
               </figcaption>
 
               {/* Header band */}
