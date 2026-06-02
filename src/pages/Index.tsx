@@ -20,9 +20,71 @@ type CaseStudyType = {
   sections: Section[];
   outcomes: string[];
   hsi: string[];
+  liveUrl?: string;
+  liveLabel?: string;
 };
 
 const CASE_STUDIES: CaseStudyType[] = [
+  {
+    id: "wcagtool",
+    tag: "In-House Product · WCAG 2.2 AAA · Accessibility",
+    title: "WCAG Remediation Suite — AAA-Compliant Audit Engine",
+    subtitle:
+      "Designed and built a standalone, AAA-compliant accessibility remediation tool that scans any URL or pasted HTML against 28 WCAG 2.2 criteria and returns visual code fixes, before/after examples, and a prioritized roadmap.",
+    hero: "from-[#0b132b] via-[#1B3A5C] to-[#2E75B6]",
+    role: "Product Owner · Accessibility Architect · Builder",
+    timeline: "2025 – Present",
+    org: "BrainPulse (In-House)",
+    standards: ["WCAG 2.2 A/AA/AAA", "Section 508", "ARIA", "WCAG-EM", "HTML5"],
+    liveUrl: "https://www.brainpulseinc.com/wcag-tool.html",
+    liveLabel: "Launch the live tool",
+    metrics: [
+      { value: "28", label: "WCAG Criteria" },
+      { value: "AAA", label: "Compliance Level" },
+      { value: "3", label: "Conformance Tiers" },
+    ],
+    sections: [
+      {
+        heading: "Why I Built It",
+        content:
+          "Most accessibility scanners stop at flagging violations — they tell teams what's broken but not how to fix it, and almost none push past WCAG 2.2 AA into AAA. After years of running federal accessibility programs, I kept seeing the same gap: audits produced long defect lists that overwhelmed teams and stalled remediation. I built this in-house tool to close that loop — turn detection into guided, prioritized remediation that any engineer or content owner can act on immediately.",
+      },
+      {
+        heading: "What It Does",
+        content:
+          "The tool accepts either a live URL or pasted HTML and evaluates it against 28 WCAG 2.2 success criteria spanning all four principles — Perceivable, Operable, Understandable, and Robust — across conformance levels A, AA, and AAA. For each finding it returns the exact rule reference, the offending markup, a corrected code snippet, and a side-by-side before/after example so the fix is unambiguous.",
+      },
+      {
+        heading: "AAA by Design",
+        content:
+          "Reaching AAA is the hard part — most tools and most products never attempt it. The engine codifies AAA-specific checks (enhanced contrast, context-sensitive help, reading level, no timing constraints, and richer error prevention) and the tool's own interface is itself built to AAA: full keyboard operability, visible focus, high-contrast theming, and screen-reader-first semantics. It practices what it audits.",
+      },
+      {
+        heading: "Prioritized Remediation Roadmap",
+        content:
+          "Instead of a flat defect dump, results are ranked into a remediation roadmap weighted by user impact, conformance level, and fix effort. Teams get a clear sequence — what to fix first for the largest accessibility and legal-risk reduction — turning an intimidating audit into a tractable backlog. This mirrors the prioritization methodology I deployed across federal compliance programs, now packaged as a reusable product.",
+      },
+      {
+        heading: "Architecture & Approach",
+        content:
+          "Built as a self-contained, dependency-light tool so it can run anywhere without a heavy install or backend lock-in. The rule set is structured for extensibility — new criteria and heuristics plug in cleanly as WCAG evolves — and every check maps directly back to its normative success criterion, so output doubles as auditable evidence for Section 508 and WCAG-EM reporting.",
+      },
+    ],
+    outcomes: [
+      "Standalone tool achieving WCAG 2.2 AAA conformance — both in what it checks and how it's built",
+      "28 success criteria covered across A, AA, and AAA in a single pass",
+      "Converts raw audits into prioritized, effort-weighted remediation roadmaps",
+      "Visual before/after code fixes make remediation actionable for any engineer",
+      "Reusable productization of methodology proven across federal accessibility programs",
+      "Output maps to Section 508 and WCAG-EM evidence requirements",
+    ],
+    hsi: [
+      "Human Performance — designed for assistive-technology users first, validated with keyboard and screen-reader workflows",
+      "Section 508 / WCAG 2.2 — every check traces to a normative success criterion",
+      "Error Prevention — guided fixes reduce remediation rework and reintroduced defects",
+      "Same prioritization and accessibility methodology applied at SSA, now packaged as a product",
+    ],
+  },
   {
     id: "ge",
     tag: "AI Safety · FDA · Clinical Systems",
@@ -367,18 +429,6 @@ function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) 
               </button>
             </li>
           ))}
-          <li>
-            <a
-              href="https://www.brainpulseinc.com/wcag-tool.html"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 px-3 py-1.5 rounded-md text-sm transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2 text-gray-700 hover:text-gray-900 hover:bg-gray-100"
-            >
-              WCAG Tool
-              <span aria-hidden="true">↗</span>
-              <span className="sr-only">(opens in a new tab)</span>
-            </a>
-          </li>
         </ul>
       </div>
     </nav>
@@ -510,55 +560,6 @@ function Home({
           ))}
         </div>
       </section>
-
-      {/* Featured Tool */}
-      <section
-        className="max-w-5xl mx-auto px-6 pb-16"
-        aria-labelledby="tool-heading"
-      >
-        <FadeIn>
-          <div className="relative overflow-hidden rounded-2xl border border-gray-200 bg-gradient-to-br from-[#1B3A5C] to-[#2E75B6] p-8 sm:p-10">
-            <span className="inline-block text-white/80 text-[10px] font-semibold tracking-widest uppercase mb-3">
-              Tool · AAA Compliant
-            </span>
-            <h2
-              id="tool-heading"
-              className="text-2xl font-extrabold text-white mb-2 tracking-tight"
-            >
-              WCAG Remediation Tool
-            </h2>
-            <p className="text-white/85 text-sm leading-relaxed max-w-2xl mb-6">
-              A standalone, WCAG 2.2 AAA-compliant scanner that checks a URL or
-              pasted HTML against 28 criteria across A, AA, and AAA — with visual
-              code fixes, before/after examples, and a prioritized remediation
-              roadmap.
-            </p>
-            <div className="flex gap-2 flex-wrap mb-6">
-              {["28 Criteria", "A · AA · AAA", "Code Fixes", "Prioritized Roadmap"].map(
-                (t) => (
-                  <span
-                    key={t}
-                    className="text-[10px] font-semibold px-2.5 py-1 rounded-full bg-white/15 text-white border border-white/20"
-                  >
-                    {t}
-                  </span>
-                ),
-              )}
-            </div>
-            <a
-              href="https://www.brainpulseinc.com/wcag-tool.html"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-white text-[#1B3A5C] font-semibold text-sm px-5 py-2.5 rounded-lg hover:bg-[#EAF1F8] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#1B3A5C]"
-            >
-              Launch the tool
-              <span aria-hidden="true">↗</span>
-              <span className="sr-only">(opens in a new tab)</span>
-            </a>
-          </div>
-        </FadeIn>
-      </section>
-
 
       {/* Brief About */}
       <section className="max-w-3xl mx-auto px-6 pb-16" aria-labelledby="brief-about-heading">
@@ -1981,6 +1982,18 @@ function CaseStudy({
               <dd className="block font-semibold mt-0.5">{study.org}</dd>
             </div>
           </dl>
+          {study.liveUrl && (
+            <a
+              href={study.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8 inline-flex items-center gap-2 bg-white text-[#1B3A5C] font-semibold text-sm px-5 py-2.5 rounded-lg hover:bg-[#EAF1F8] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E8913A] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1B3A5C]"
+            >
+              {study.liveLabel ?? "View live"}
+              <span aria-hidden="true">↗</span>
+              <span className="sr-only">(opens in a new tab)</span>
+            </a>
+          )}
         </div>
       </div>
 
