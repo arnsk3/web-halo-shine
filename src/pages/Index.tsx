@@ -561,55 +561,6 @@ function Home({
         </div>
       </section>
 
-      {/* Featured Tool */}
-      <section
-        className="max-w-5xl mx-auto px-6 pb-16"
-        aria-labelledby="tool-heading"
-      >
-        <FadeIn>
-          <div className="relative overflow-hidden rounded-2xl border border-gray-200 bg-gradient-to-br from-[#1B3A5C] to-[#2E75B6] p-8 sm:p-10">
-            <span className="inline-block text-white/80 text-[10px] font-semibold tracking-widest uppercase mb-3">
-              Tool · AAA Compliant
-            </span>
-            <h2
-              id="tool-heading"
-              className="text-2xl font-extrabold text-white mb-2 tracking-tight"
-            >
-              WCAG Remediation Tool
-            </h2>
-            <p className="text-white/85 text-sm leading-relaxed max-w-2xl mb-6">
-              A standalone, WCAG 2.2 AAA-compliant scanner that checks a URL or
-              pasted HTML against 28 criteria across A, AA, and AAA — with visual
-              code fixes, before/after examples, and a prioritized remediation
-              roadmap.
-            </p>
-            <div className="flex gap-2 flex-wrap mb-6">
-              {["28 Criteria", "A · AA · AAA", "Code Fixes", "Prioritized Roadmap"].map(
-                (t) => (
-                  <span
-                    key={t}
-                    className="text-[10px] font-semibold px-2.5 py-1 rounded-full bg-white/15 text-white border border-white/20"
-                  >
-                    {t}
-                  </span>
-                ),
-              )}
-            </div>
-            <a
-              href="https://www.brainpulseinc.com/wcag-tool.html"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-white text-[#1B3A5C] font-semibold text-sm px-5 py-2.5 rounded-lg hover:bg-[#EAF1F8] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#1B3A5C]"
-            >
-              Launch the tool
-              <span aria-hidden="true">↗</span>
-              <span className="sr-only">(opens in a new tab)</span>
-            </a>
-          </div>
-        </FadeIn>
-      </section>
-
-
       {/* Brief About */}
       <section className="max-w-3xl mx-auto px-6 pb-16" aria-labelledby="brief-about-heading">
         <FadeIn>
