@@ -26,6 +26,66 @@ type CaseStudyType = {
 
 const CASE_STUDIES: CaseStudyType[] = [
   {
+    id: "wcagtool",
+    tag: "In-House Product · WCAG 2.2 AAA · Accessibility",
+    title: "WCAG Remediation Suite — AAA-Compliant Audit Engine",
+    subtitle:
+      "Designed and built a standalone, AAA-compliant accessibility remediation tool that scans any URL or pasted HTML against 28 WCAG 2.2 criteria and returns visual code fixes, before/after examples, and a prioritized roadmap.",
+    hero: "from-[#0b132b] via-[#1B3A5C] to-[#2E75B6]",
+    role: "Product Owner · Accessibility Architect · Builder",
+    timeline: "2025 – Present",
+    org: "BrainPulse (In-House)",
+    standards: ["WCAG 2.2 A/AA/AAA", "Section 508", "ARIA", "WCAG-EM", "HTML5"],
+    liveUrl: "https://www.brainpulseinc.com/wcag-tool.html",
+    liveLabel: "Launch the live tool",
+    metrics: [
+      { value: "28", label: "WCAG Criteria" },
+      { value: "AAA", label: "Compliance Level" },
+      { value: "3", label: "Conformance Tiers" },
+    ],
+    sections: [
+      {
+        heading: "Why I Built It",
+        content:
+          "Most accessibility scanners stop at flagging violations — they tell teams what's broken but not how to fix it, and almost none push past WCAG 2.2 AA into AAA. After years of running federal accessibility programs, I kept seeing the same gap: audits produced long defect lists that overwhelmed teams and stalled remediation. I built this in-house tool to close that loop — turn detection into guided, prioritized remediation that any engineer or content owner can act on immediately.",
+      },
+      {
+        heading: "What It Does",
+        content:
+          "The tool accepts either a live URL or pasted HTML and evaluates it against 28 WCAG 2.2 success criteria spanning all four principles — Perceivable, Operable, Understandable, and Robust — across conformance levels A, AA, and AAA. For each finding it returns the exact rule reference, the offending markup, a corrected code snippet, and a side-by-side before/after example so the fix is unambiguous.",
+      },
+      {
+        heading: "AAA by Design",
+        content:
+          "Reaching AAA is the hard part — most tools and most products never attempt it. The engine codifies AAA-specific checks (enhanced contrast, context-sensitive help, reading level, no timing constraints, and richer error prevention) and the tool's own interface is itself built to AAA: full keyboard operability, visible focus, high-contrast theming, and screen-reader-first semantics. It practices what it audits.",
+      },
+      {
+        heading: "Prioritized Remediation Roadmap",
+        content:
+          "Instead of a flat defect dump, results are ranked into a remediation roadmap weighted by user impact, conformance level, and fix effort. Teams get a clear sequence — what to fix first for the largest accessibility and legal-risk reduction — turning an intimidating audit into a tractable backlog. This mirrors the prioritization methodology I deployed across federal compliance programs, now packaged as a reusable product.",
+      },
+      {
+        heading: "Architecture & Approach",
+        content:
+          "Built as a self-contained, dependency-light tool so it can run anywhere without a heavy install or backend lock-in. The rule set is structured for extensibility — new criteria and heuristics plug in cleanly as WCAG evolves — and every check maps directly back to its normative success criterion, so output doubles as auditable evidence for Section 508 and WCAG-EM reporting.",
+      },
+    ],
+    outcomes: [
+      "Standalone tool achieving WCAG 2.2 AAA conformance — both in what it checks and how it's built",
+      "28 success criteria covered across A, AA, and AAA in a single pass",
+      "Converts raw audits into prioritized, effort-weighted remediation roadmaps",
+      "Visual before/after code fixes make remediation actionable for any engineer",
+      "Reusable productization of methodology proven across federal accessibility programs",
+      "Output maps to Section 508 and WCAG-EM evidence requirements",
+    ],
+    hsi: [
+      "Human Performance — designed for assistive-technology users first, validated with keyboard and screen-reader workflows",
+      "Section 508 / WCAG 2.2 — every check traces to a normative success criterion",
+      "Error Prevention — guided fixes reduce remediation rework and reintroduced defects",
+      "Same prioritization and accessibility methodology applied at SSA, now packaged as a product",
+    ],
+  },
+  {
     id: "ge",
     tag: "AI Safety · FDA · Clinical Systems",
     title: "AI Safety Framework for Clinical Decision-Support",
