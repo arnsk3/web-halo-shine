@@ -1805,7 +1805,60 @@ const DOSSIERS: Record<string, Dossier> = {
 };
 
 function WcagToolDetails() {
+  const aiFixExamples = [
+    {
+      criterion: "1.1.1 Non-text Content",
+      title: "Image missing alt text",
+      impact: "Critical",
+      suggestion:
+        "Add a descriptive alt attribute conveying the chart's key takeaway, not just the file name.",
+      before: `<img src="q3-revenue.png">`,
+      after: `<img src="q3-revenue.png"
+  alt="Q3 revenue rose 18% to $4.2M">`,
+    },
+    {
+      criterion: "1.4.3 Contrast (Minimum)",
+      title: "Low text contrast on button",
+      impact: "Serious",
+      suggestion:
+        "Foreground/background ratio is 2.1:1. Darken the text to #1B3A5C to reach 4.5:1 for AA / 7:1 for AAA.",
+      before: `.cta {
+  color: #9bbce0; /* ratio 2.1:1 */
+  background: #ffffff;
+}`,
+      after: `.cta {
+  color: #1B3A5C; /* ratio 8.9:1 */
+  background: #ffffff;
+}`,
+    },
+    {
+      criterion: "4.1.2 Name, Role, Value",
+      title: "Icon button has no accessible name",
+      impact: "Critical",
+      suggestion:
+        "Add aria-label so screen readers announce the control's purpose; mark the decorative icon aria-hidden.",
+      before: `<button class="icon">
+  <svg>...</svg>
+</button>`,
+      after: `<button class="icon" aria-label="Close dialog">
+  <svg aria-hidden="true">...</svg>
+</button>`,
+    },
+    {
+      criterion: "3.3.2 Labels or Instructions",
+      title: "Form input without a programmatic label",
+      impact: "Serious",
+      suggestion:
+        "Associate a <label> with the field via for/id so the input is named and clickable.",
+      before: `<span>Email</span>
+<input type="email" name="email">`,
+      after: `<label for="email">Email</label>
+<input type="email" id="email" name="email">`,
+    },
+  ];
+
   const profiles = [
+
     {
       role: "Developers",
       icon: "</>",
