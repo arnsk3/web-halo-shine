@@ -429,18 +429,6 @@ function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) 
               </button>
             </li>
           ))}
-          <li>
-            <a
-              href="https://www.brainpulseinc.com/wcag-tool.html"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 px-3 py-1.5 rounded-md text-sm transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2 text-gray-700 hover:text-gray-900 hover:bg-gray-100"
-            >
-              WCAG Tool
-              <span aria-hidden="true">↗</span>
-              <span className="sr-only">(opens in a new tab)</span>
-            </a>
-          </li>
         </ul>
       </div>
     </nav>
