@@ -28,7 +28,7 @@ const CASE_STUDIES: CaseStudyType[] = [
   {
     id: "wcagtool",
     tag: "In-House Product · WCAG 2.2 AAA · Accessibility",
-    title: "WCAG Remediation Suite — AAA-Compliant Audit Engine",
+    title: "WCAG Remediation Suite — AAA-Compliant Engine with AI Suggestions, Visual Cues & Fixes",
     subtitle:
       "Designed and built a standalone, AAA-compliant accessibility remediation tool that scans any URL or pasted HTML against 28 WCAG 2.2 criteria and returns visual code fixes, before/after examples, and a prioritized roadmap.",
     hero: "from-[#0b132b] via-[#1B3A5C] to-[#2E75B6]",
