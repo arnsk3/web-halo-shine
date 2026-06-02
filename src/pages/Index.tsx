@@ -1928,7 +1928,7 @@ function WcagToolDetails() {
           <p className="text-gray-700 text-sm leading-[1.8]">
             Most accessibility scanners stop at flagging violations — they tell teams what is
             broken but not how to fix it, and almost none push past WCAG 2.2 AA into AAA. The
-            WCAG Remediation Suite closes that loop: it is an inclusive, dependency-light tool
+            WCAG AI Remediation Suite closes that loop: it is an inclusive, dependency-light tool
             that turns detection into guided, prioritized remediation any contributor can act on
             immediately. It is built to be used across the whole delivery team — not just
             specialists — so accessibility becomes a shared, repeatable practice rather than a
