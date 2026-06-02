@@ -20,6 +20,8 @@ type CaseStudyType = {
   sections: Section[];
   outcomes: string[];
   hsi: string[];
+  liveUrl?: string;
+  liveLabel?: string;
 };
 
 const CASE_STUDIES: CaseStudyType[] = [
