@@ -2268,6 +2268,185 @@ function WcagToolDetails() {
         </section>
       </FadeIn>
 
+      {/* Detailed personas with screenshots */}
+      <FadeIn>
+        <section aria-labelledby="wcag-personas-title">
+          <h2 id="wcag-personas-title" className="text-lg font-bold text-gray-900 mb-1">
+            Detailed Personas by User Group
+          </h2>
+          <p className="text-gray-600 text-xs mb-6">
+            Each persona represents a distinct user group with its own goals, frustrations, and
+            needs that shaped the suite's design.
+          </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {detailedPersonas.map((p) => (
+              <article
+                key={p.name}
+                className="border border-gray-200 rounded-xl overflow-hidden bg-white flex flex-col"
+              >
+                <div className="flex items-center gap-4 p-5 bg-gradient-to-r from-[#0b132b] via-[#1B3A5C] to-[#2E75B6] text-white">
+                  <img
+                    src={p.img}
+                    alt={`Persona portrait of ${p.name}`}
+                    loading="lazy"
+                    width={512}
+                    height={512}
+                    className="w-16 h-16 rounded-full object-cover ring-2 ring-white/40 shrink-0"
+                  />
+                  <div>
+                    <span className="text-[10px] font-bold tracking-[0.14em] uppercase px-2 py-0.5 rounded bg-white/15">
+                      {p.group}
+                    </span>
+                    <h3 className="text-sm font-bold mt-1.5">{p.name}</h3>
+                    <p className="text-[12px] text-white/85 italic mt-0.5">{p.tagline}</p>
+                  </div>
+                </div>
+                <div className="p-5 space-y-4">
+                  <p className="text-[12.5px] text-gray-700 leading-relaxed">
+                    <span className="font-semibold text-[#1B3A5C]">Context: </span>
+                    {p.context}
+                  </p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <h4 className="text-[11px] font-bold uppercase tracking-wide text-emerald-700 mb-1.5">
+                        Goals
+                      </h4>
+                      <ul className="list-disc pl-4 space-y-1 m-0">
+                        {p.goals.map((g) => (
+                          <li key={g} className="text-[12px] text-gray-700 leading-snug">
+                            {g}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="text-[11px] font-bold uppercase tracking-wide text-[#b42318] mb-1.5">
+                        Frustrations
+                      </h4>
+                      <ul className="list-disc pl-4 space-y-1 m-0">
+                        {p.frustrations.map((f) => (
+                          <li key={f} className="text-[12px] text-gray-700 leading-snug">
+                            {f}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                  <div className="flex flex-wrap gap-2 pt-1">
+                    {p.needs.map((n) => (
+                      <span
+                        key={n}
+                        className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#eaf3fb] text-[#1B3A5C] border border-[#cfe2f3]"
+                      >
+                        {n}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+      </FadeIn>
+
+      {/* Information architecture */}
+      <FadeIn>
+        <section aria-labelledby="wcag-ia-title">
+          <h2 id="wcag-ia-title" className="text-lg font-bold text-gray-900 mb-1">
+            Information Architecture
+          </h2>
+          <p className="text-gray-600 text-xs mb-6">
+            A layered structure (L0–L4) lets every persona reach the same shared "Issue Detail"
+            unit from their own workflow — then aggregate it into roadmaps and evidence.
+          </p>
+          <ol className="relative border-l-2 border-[#cfe2f3] ml-3 space-y-6 list-none p-0 m-0">
+            {iaLevels.map((lvl) => (
+              <li key={lvl.level} className="ml-6">
+                <span
+                  aria-hidden="true"
+                  className="absolute -left-[9px] w-4 h-4 rounded-full bg-[#2E75B6] ring-4 ring-white"
+                />
+                <div className="border border-gray-200 rounded-xl p-4 bg-white">
+                  <h3 className="text-[13px] font-bold text-[#0f2027] mb-2">{lvl.level}</h3>
+                  <div className="flex flex-wrap gap-2 mb-2">
+                    {lvl.nodes.map((n) => (
+                      <span
+                        key={n}
+                        className="text-[11px] font-medium px-2.5 py-1 rounded-md bg-gray-50 border border-gray-200 text-gray-700"
+                      >
+                        {n}
+                      </span>
+                    ))}
+                  </div>
+                  <p className="text-[12px] text-gray-600 leading-relaxed">{lvl.note}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </section>
+      </FadeIn>
+
+      {/* Research studies — qualitative & quantitative */}
+      <FadeIn>
+        <section aria-labelledby="wcag-research-title">
+          <h2 id="wcag-research-title" className="text-lg font-bold text-gray-900 mb-1">
+            Research Studies & Approaches
+          </h2>
+          <p className="text-gray-600 text-xs mb-6">
+            A mixed-methods program — qualitative depth plus quantitative validation — grounded
+            the design decisions and measured impact.
+          </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {researchStudies.map((s) => (
+              <article
+                key={s.method}
+                className="border border-gray-200 rounded-xl overflow-hidden bg-white"
+              >
+                <div className="flex items-center justify-between px-5 py-3 border-b border-gray-100 bg-gray-50">
+                  <h3 className="text-[13px] font-bold text-gray-900">{s.method}</h3>
+                  <span
+                    className={
+                      "text-[10px] font-bold tracking-wide uppercase px-2 py-0.5 rounded " +
+                      (s.kind === "Qualitative"
+                        ? "bg-[#f3e8fd] text-[#7e22ce]"
+                        : "bg-[#e6f4ff] text-[#1B3A5C]")
+                    }
+                  >
+                    {s.kind}
+                  </span>
+                </div>
+                <div className="p-5 space-y-3">
+                  <p className="text-[12px] text-gray-700">
+                    <span className="font-semibold text-[#1B3A5C]">Participants: </span>
+                    {s.participants}
+                  </p>
+                  <p className="text-[12.5px] text-gray-700 leading-relaxed">
+                    <span className="font-semibold text-[#1B3A5C]">Approach: </span>
+                    {s.approach}
+                  </p>
+                  <div>
+                    <h4 className="text-[11px] font-bold uppercase tracking-wide text-gray-500 mb-1.5">
+                      Sample questions / measures
+                    </h4>
+                    <ul className="list-disc pl-4 space-y-1 m-0">
+                      {s.questions.map((q) => (
+                        <li key={q} className="text-[12px] text-gray-700 leading-snug">
+                          {q}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <p className="text-[12px] leading-relaxed rounded-lg bg-emerald-50 border border-emerald-100 text-emerald-900 px-3 py-2">
+                    <span className="font-semibold">Key finding: </span>
+                    {s.finding}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+      </FadeIn>
+
       {/* Architecture diagram */}
       <FadeIn>
         <section aria-labelledby="wcag-arch-title">
