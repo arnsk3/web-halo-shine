@@ -1884,6 +1884,56 @@ function WcagToolDetails() {
         </section>
       </FadeIn>
 
+      {/* AI-powered remediation */}
+      <FadeIn>
+        <section
+          aria-labelledby="wcag-ai-title"
+          className="rounded-xl bg-gradient-to-br from-[#0b132b] via-[#1B3A5C] to-[#2E75B6] p-6 text-white"
+        >
+          <div className="flex items-center gap-2 mb-3">
+            <span
+              aria-hidden="true"
+              className="text-[10px] font-bold tracking-[0.18em] uppercase px-2 py-1 rounded bg-white/15"
+            >
+              AI-Powered
+            </span>
+          </div>
+          <h2 id="wcag-ai-title" className="text-lg font-bold mb-3">
+            Built with AI in Mind
+          </h2>
+          <p className="text-white/90 text-sm leading-[1.8] mb-5">
+            The suite is designed around AI from the ground up. Instead of a flat defect list, it
+            generates AI-driven suggestions paired with a visual cue and a ready-to-apply fix — so
+            the user can see exactly what is wrong and resolve it ASAP. Wired into a CI/CD
+            pipeline, those fixes surface at the point of change, turning accessibility from a
+            release blocker into an automated quality gate that boosts team productivity.
+          </p>
+          <ul className="grid grid-cols-1 sm:grid-cols-3 gap-4 list-none p-0 m-0">
+            {[
+              {
+                t: "AI suggestions + visual cue",
+                d: "Each issue is highlighted in context with an AI-recommended correction.",
+              },
+              {
+                t: "Fix issues ASAP",
+                d: "Copy-paste fixes shorten the gap between detection and resolution.",
+              },
+              {
+                t: "CI/CD-ready",
+                d: "Runs in the pipeline so non-compliant changes are caught before merge.",
+              },
+            ].map((c) => (
+              <li key={c.t} className="rounded-lg bg-white/10 p-4">
+                <h3 className="text-[13px] font-bold mb-1.5">{c.t}</h3>
+                <p className="text-[12px] text-white/85 leading-relaxed">{c.d}</p>
+              </li>
+            ))}
+          </ul>
+        </section>
+      </FadeIn>
+
+
+
       {/* Profiles */}
       <FadeIn>
         <section aria-labelledby="wcag-profiles-title">
