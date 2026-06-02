@@ -1,4 +1,9 @@
 import { useState, useEffect, useRef, ReactNode } from "react";
+import personaDeveloper from "@/assets/persona-developer.jpg";
+import personaQa from "@/assets/persona-qa.jpg";
+import personaSme from "@/assets/persona-sme.jpg";
+import personaContent from "@/assets/persona-content.jpg";
+import personaCompliance from "@/assets/persona-compliance.jpg";
 
 /* ═══════════════════════════════════════════
    SENTHIL KUMAR NAGAPPAN — PORTFOLIO SITE
