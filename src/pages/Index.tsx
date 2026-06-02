@@ -1804,6 +1804,196 @@ const DOSSIERS: Record<string, Dossier> = {
   },
 };
 
+function WcagToolDetails() {
+  const profiles = [
+    {
+      role: "Developers",
+      icon: "</>",
+      use: "Paste a component or URL and get the exact corrected markup — fix issues at the source, in the language they already work in.",
+      gain: "Copy-paste code fixes",
+    },
+    {
+      role: "Testers / QA",
+      icon: "✓",
+      use: "Run any build through the scanner to catch regressions before release and confirm fixes actually resolve the criterion.",
+      gain: "Repeatable pass/fail evidence",
+    },
+    {
+      role: "SMEs / Accessibility Leads",
+      icon: "★",
+      use: "Validate conformance against all 28 criteria and produce auditable WCAG-EM evidence for sign-off.",
+      gain: "Defensible audit trail",
+    },
+    {
+      role: "Content Owners",
+      icon: "✎",
+      use: "Understand plain-language findings and before/after examples without needing to read raw code.",
+      gain: "Actionable, jargon-free guidance",
+    },
+    {
+      role: "Product / Compliance",
+      icon: "◎",
+      use: "Track the prioritized roadmap to sequence remediation by user impact and legal-risk reduction.",
+      gain: "Risk-ranked backlog",
+    },
+  ];
+
+  const layers = [
+    {
+      title: "Input Layer",
+      items: ["Live URL fetch", "Pasted HTML", "DOM + ARIA normalization"],
+    },
+    {
+      title: "Rule Engine",
+      items: ["28 WCAG 2.2 criteria", "A / AA / AAA tiers", "Extensible rule modules"],
+    },
+    {
+      title: "Remediation Engine",
+      items: ["Offending markup", "Corrected snippet", "Before/after diff"],
+    },
+    {
+      title: "Prioritization",
+      items: ["Impact weighting", "Conformance level", "Effort estimate"],
+    },
+    {
+      title: "Output Layer",
+      items: ["Roadmap view", "Section 508 evidence", "WCAG-EM export"],
+    },
+  ];
+
+  return (
+    <div className="my-12 space-y-12">
+      {/* Purpose */}
+      <FadeIn>
+        <section aria-labelledby="wcag-purpose-title">
+          <h2
+            id="wcag-purpose-title"
+            className="text-lg font-bold text-gray-900 mb-3"
+          >
+            Purpose
+          </h2>
+          <p className="text-gray-700 text-sm leading-[1.8]">
+            Most accessibility scanners stop at flagging violations — they tell teams what is
+            broken but not how to fix it, and almost none push past WCAG 2.2 AA into AAA. The
+            WCAG Remediation Suite closes that loop: it is an inclusive, dependency-light tool
+            that turns detection into guided, prioritized remediation any contributor can act on
+            immediately. It is built to be used across the whole delivery team — not just
+            specialists — so accessibility becomes a shared, repeatable practice rather than a
+            last-minute audit.
+          </p>
+        </section>
+      </FadeIn>
+
+      {/* Profiles */}
+      <FadeIn>
+        <section aria-labelledby="wcag-profiles-title">
+          <h2
+            id="wcag-profiles-title"
+            className="text-lg font-bold text-gray-900 mb-1"
+          >
+            Who It Serves
+          </h2>
+          <p className="text-gray-600 text-xs mb-5">
+            Designed as an inclusive tool — usable by Developers, Testers, SMEs, QA, and more.
+          </p>
+          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 list-none p-0 m-0">
+            {profiles.map((p) => (
+              <li
+                key={p.role}
+                className="border border-gray-200 rounded-xl p-5 flex gap-4 items-start bg-white"
+              >
+                <span
+                  aria-hidden="true"
+                  className="shrink-0 w-10 h-10 rounded-lg bg-[#eaf3fb] text-[#1B3A5C] font-bold text-sm flex items-center justify-center"
+                >
+                  {p.icon}
+                </span>
+                <div>
+                  <h3 className="text-sm font-bold text-[#0f2027] mb-1">{p.role}</h3>
+                  <p className="text-[12.5px] text-gray-700 leading-relaxed mb-2">{p.use}</p>
+                  <span className="inline-block text-[10px] font-semibold tracking-wide uppercase px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-100">
+                    {p.gain}
+                  </span>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </section>
+      </FadeIn>
+
+      {/* Architecture diagram */}
+      <FadeIn>
+        <section aria-labelledby="wcag-arch-title">
+          <h2 id="wcag-arch-title" className="text-lg font-bold text-gray-900 mb-4">
+            Architecture
+          </h2>
+          <ol
+            className="grid grid-cols-1 md:grid-cols-5 gap-px bg-gray-200 border border-gray-200 rounded-xl overflow-hidden list-none p-0 m-0"
+            aria-label="Five-layer tool architecture, data flows left to right"
+          >
+            {layers.map((layer, idx, arr) => (
+              <li key={layer.title} className="bg-white p-4 flex flex-col">
+                <div className="flex items-center justify-between mb-2">
+                  <h3 className="text-[12px] font-bold text-[#1B3A5C] leading-snug">
+                    {layer.title}
+                  </h3>
+                  {idx < arr.length - 1 && (
+                    <span
+                      aria-hidden="true"
+                      className="hidden md:inline text-[#2E75B6] text-sm leading-none"
+                    >
+                      →
+                    </span>
+                  )}
+                </div>
+                <ul className="space-y-1.5 list-none p-0 m-0">
+                  {layer.items.map((it) => (
+                    <li key={it} className="text-[11px] text-gray-700 flex gap-1.5">
+                      <span aria-hidden="true" className="text-[#2E75B6]">•</span>
+                      {it}
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            ))}
+          </ol>
+          <p className="text-[11px] text-gray-600 mt-3">
+            Self-contained and backend-light — runs anywhere. Every check maps back to its
+            normative success criterion, so output doubles as auditable evidence.
+          </p>
+        </section>
+      </FadeIn>
+
+      {/* How to use */}
+      <FadeIn>
+        <section aria-labelledby="wcag-usage-title">
+          <h2 id="wcag-usage-title" className="text-lg font-bold text-gray-900 mb-4">
+            How to Use It
+          </h2>
+          <ol className="space-y-3 list-none p-0 m-0">
+            {[
+              "Paste a live URL or raw HTML into the tool.",
+              "Run the scan — all 28 WCAG 2.2 criteria are evaluated across A, AA, and AAA in one pass.",
+              "Review each finding with its rule reference, offending markup, and a corrected before/after snippet.",
+              "Work the prioritized roadmap — fix the highest-impact, highest-risk items first.",
+              "Re-scan to confirm conformance, then export Section 508 / WCAG-EM evidence.",
+            ].map((step, i) => (
+              <li key={i} className="flex gap-3 items-start">
+                <span className="shrink-0 w-6 h-6 rounded-full bg-[#1B3A5C] text-white text-xs flex items-center justify-center font-bold">
+                  {i + 1}
+                </span>
+                <span className="text-gray-700 text-sm leading-relaxed pt-0.5">{step}</span>
+              </li>
+            ))}
+          </ol>
+        </section>
+      </FadeIn>
+    </div>
+  );
+}
+
+
+
 function DeepResearchDossier({ id }: { id: string }) {
   const d = DOSSIERS[id];
   if (!d) return null;
