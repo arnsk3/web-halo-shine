@@ -2476,6 +2476,11 @@ function CaseStudy({
         {/* Deep research dossier — all case studies: journey map + patterns */}
         {DOSSIERS[study.id] && <DeepResearchDossier id={study.id} />}
 
+        {/* WCAG tool deep details: purpose, profiles, architecture, use cases */}
+        {study.id === "wcagtool" && <WcagToolDetails />}
+
+
+
 
 
 
