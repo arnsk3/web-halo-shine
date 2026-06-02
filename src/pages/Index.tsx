@@ -1805,7 +1805,60 @@ const DOSSIERS: Record<string, Dossier> = {
 };
 
 function WcagToolDetails() {
+  const aiFixExamples = [
+    {
+      criterion: "1.1.1 Non-text Content",
+      title: "Image missing alt text",
+      impact: "Critical",
+      suggestion:
+        "Add a descriptive alt attribute conveying the chart's key takeaway, not just the file name.",
+      before: `<img src="q3-revenue.png">`,
+      after: `<img src="q3-revenue.png"
+  alt="Q3 revenue rose 18% to $4.2M">`,
+    },
+    {
+      criterion: "1.4.3 Contrast (Minimum)",
+      title: "Low text contrast on button",
+      impact: "Serious",
+      suggestion:
+        "Foreground/background ratio is 2.1:1. Darken the text to #1B3A5C to reach 4.5:1 for AA / 7:1 for AAA.",
+      before: `.cta {
+  color: #9bbce0; /* ratio 2.1:1 */
+  background: #ffffff;
+}`,
+      after: `.cta {
+  color: #1B3A5C; /* ratio 8.9:1 */
+  background: #ffffff;
+}`,
+    },
+    {
+      criterion: "4.1.2 Name, Role, Value",
+      title: "Icon button has no accessible name",
+      impact: "Critical",
+      suggestion:
+        "Add aria-label so screen readers announce the control's purpose; mark the decorative icon aria-hidden.",
+      before: `<button class="icon">
+  <svg>...</svg>
+</button>`,
+      after: `<button class="icon" aria-label="Close dialog">
+  <svg aria-hidden="true">...</svg>
+</button>`,
+    },
+    {
+      criterion: "3.3.2 Labels or Instructions",
+      title: "Form input without a programmatic label",
+      impact: "Serious",
+      suggestion:
+        "Associate a <label> with the field via for/id so the input is named and clickable.",
+      before: `<span>Email</span>
+<input type="email" name="email">`,
+      after: `<label for="email">Email</label>
+<input type="email" id="email" name="email">`,
+    },
+  ];
+
   const profiles = [
+
     {
       role: "Developers",
       icon: "</>",
@@ -1932,7 +1985,73 @@ function WcagToolDetails() {
         </section>
       </FadeIn>
 
+      {/* AI fixes in action — concrete before/after examples */}
+      <FadeIn>
+        <section aria-labelledby="wcag-examples-title">
+          <h2
+            id="wcag-examples-title"
+            className="text-lg font-bold text-gray-900 mb-1"
+          >
+            AI Fixes in Action
+          </h2>
+          <p className="text-gray-600 text-xs mb-5">
+            Concrete examples of issues the tool flags, the AI suggestion it surfaces, and the
+            ready-to-apply before/after fix.
+          </p>
+          <div className="grid grid-cols-1 gap-5">
+            {aiFixExamples.map((ex) => (
+              <article
+                key={ex.title}
+                className="border border-gray-200 rounded-xl overflow-hidden bg-white"
+              >
+                <div className="flex flex-wrap items-center gap-2 px-5 py-3 border-b border-gray-100 bg-gray-50">
+                  <span className="text-[10px] font-bold tracking-[0.14em] uppercase px-2 py-0.5 rounded bg-[#fdeaea] text-[#b42318]">
+                    {ex.criterion}
+                  </span>
+                  <h3 className="text-[13px] font-bold text-gray-900">{ex.title}</h3>
+                  <span className="ml-auto text-[10px] font-semibold px-2 py-0.5 rounded bg-[#eaf3fb] text-[#1B3A5C]">
+                    {ex.impact}
+                  </span>
+                </div>
 
+                <div className="px-5 py-3 border-b border-gray-100">
+                  <p className="text-[12px] text-gray-700 leading-relaxed">
+                    <span className="font-semibold text-[#2E75B6]">AI suggestion: </span>
+                    {ex.suggestion}
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2">
+                  {/* Before */}
+                  <figure className="m-0 p-5 border-b md:border-b-0 md:border-r border-gray-100">
+                    <figcaption className="flex items-center gap-2 mb-2">
+                      <span className="w-2 h-2 rounded-full bg-[#d92d20]" aria-hidden="true" />
+                      <span className="text-[11px] font-bold uppercase tracking-wide text-[#b42318]">
+                        Before — fails
+                      </span>
+                    </figcaption>
+                    <pre className="text-[11px] leading-relaxed bg-[#1d1f23] text-[#f4b4b4] rounded-lg p-3 overflow-x-auto whitespace-pre-wrap break-words">
+                      <code>{ex.before}</code>
+                    </pre>
+                  </figure>
+                  {/* After */}
+                  <figure className="m-0 p-5">
+                    <figcaption className="flex items-center gap-2 mb-2">
+                      <span className="w-2 h-2 rounded-full bg-[#12b76a]" aria-hidden="true" />
+                      <span className="text-[11px] font-bold uppercase tracking-wide text-[#067647]">
+                        After — passes
+                      </span>
+                    </figcaption>
+                    <pre className="text-[11px] leading-relaxed bg-[#13211a] text-[#aef0c8] rounded-lg p-3 overflow-x-auto whitespace-pre-wrap break-words">
+                      <code>{ex.after}</code>
+                    </pre>
+                  </figure>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+      </FadeIn>
 
       {/* Profiles */}
       <FadeIn>
