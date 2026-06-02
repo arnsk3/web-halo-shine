@@ -2090,7 +2090,66 @@ function WcagToolDetails() {
     },
   ];
 
+  const journeys = [
+    {
+      persona: "Developers",
+      tasks: ["Paste component / URL", "Read AI fix + visual cue", "Apply corrected markup", "Gate in CI/CD"],
+      needs: ["1.1.1 Non-text Content", "4.1.2 Name, Role, Value", "2.4.4 Link Purpose"],
+    },
+    {
+      persona: "Testers / QA",
+      tasks: ["Run build through scanner", "Diff against last pass", "Reproduce + log defect", "Verify fix passes"],
+      needs: ["3.3.1 Error Identification", "4.1.3 Status Messages", "2.4.3 Focus Order"],
+    },
+    {
+      persona: "SMEs / Leads",
+      tasks: ["Audit all 28 criteria", "Validate A/AA/AAA tiers", "Assemble evidence", "Sign off conformance"],
+      needs: ["1.4.6 Contrast (Enhanced)", "2.4.10 Section Headings", "1.4.3 Contrast (Minimum)"],
+    },
+    {
+      persona: "Content Owners",
+      tasks: ["Read plain-language finding", "Review before/after sample", "Fix alt text & headings", "Re-publish safely"],
+      needs: ["1.1.1 Non-text Content", "2.4.6 Headings & Labels", "3.1.5 Reading Level"],
+    },
+    {
+      persona: "Product / Compliance",
+      tasks: ["Review risk-ranked backlog", "Sequence by impact", "Track AAA progress", "Report to stakeholders"],
+      needs: ["Conformance %", "Legal-risk reduction", "WCAG-EM evidence"],
+    },
+  ];
 
+  const studyExcerpts = [
+    {
+      persona: "Developers",
+      kind: "Usability test",
+      quote: "“The corrected snippet was right there — I pasted it and the criterion went green. I never opened the spec.”",
+      meta: "P3, front-end engineer",
+    },
+    {
+      persona: "Testers / QA",
+      kind: "Diary study",
+      quote: "“Being able to diff this build against the last pass is what makes it evidence I can attach to a ticket.”",
+      meta: "P7, QA engineer",
+    },
+    {
+      persona: "SMEs / Leads",
+      kind: "Interview",
+      quote: "“Most tools stop at AA. Seeing AAA coverage with exportable WCAG-EM is what I'd sign off on.”",
+      meta: "P11, accessibility lead",
+    },
+    {
+      persona: "Content Owners",
+      kind: "Usability test",
+      quote: "“The plain-language explanation and the before/after example meant I didn't need a developer to fix the alt text.”",
+      meta: "P5, content author",
+    },
+    {
+      persona: "Product / Compliance",
+      kind: "Interview",
+      quote: "“The risk-ranked backlog let me sequence remediation by impact instead of guessing from a flat list.”",
+      meta: "P9, compliance manager",
+    },
+  ];
 
   return (
     <div className="my-12 space-y-12">
