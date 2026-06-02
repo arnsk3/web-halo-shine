@@ -2090,7 +2090,66 @@ function WcagToolDetails() {
     },
   ];
 
+  const journeys = [
+    {
+      persona: "Developers",
+      tasks: ["Paste component / URL", "Read AI fix + visual cue", "Apply corrected markup", "Gate in CI/CD"],
+      needs: ["1.1.1 Non-text Content", "4.1.2 Name, Role, Value", "2.4.4 Link Purpose"],
+    },
+    {
+      persona: "Testers / QA",
+      tasks: ["Run build through scanner", "Diff against last pass", "Reproduce + log defect", "Verify fix passes"],
+      needs: ["3.3.1 Error Identification", "4.1.3 Status Messages", "2.4.3 Focus Order"],
+    },
+    {
+      persona: "SMEs / Leads",
+      tasks: ["Audit all 28 criteria", "Validate A/AA/AAA tiers", "Assemble evidence", "Sign off conformance"],
+      needs: ["1.4.6 Contrast (Enhanced)", "2.4.10 Section Headings", "1.4.3 Contrast (Minimum)"],
+    },
+    {
+      persona: "Content Owners",
+      tasks: ["Read plain-language finding", "Review before/after sample", "Fix alt text & headings", "Re-publish safely"],
+      needs: ["1.1.1 Non-text Content", "2.4.6 Headings & Labels", "3.1.5 Reading Level"],
+    },
+    {
+      persona: "Product / Compliance",
+      tasks: ["Review risk-ranked backlog", "Sequence by impact", "Track AAA progress", "Report to stakeholders"],
+      needs: ["Conformance %", "Legal-risk reduction", "WCAG-EM evidence"],
+    },
+  ];
 
+  const studyExcerpts = [
+    {
+      persona: "Developers",
+      kind: "Usability test",
+      quote: "“The corrected snippet was right there — I pasted it and the criterion went green. I never opened the spec.”",
+      meta: "P3, front-end engineer",
+    },
+    {
+      persona: "Testers / QA",
+      kind: "Diary study",
+      quote: "“Being able to diff this build against the last pass is what makes it evidence I can attach to a ticket.”",
+      meta: "P7, QA engineer",
+    },
+    {
+      persona: "SMEs / Leads",
+      kind: "Interview",
+      quote: "“Most tools stop at AA. Seeing AAA coverage with exportable WCAG-EM is what I'd sign off on.”",
+      meta: "P11, accessibility lead",
+    },
+    {
+      persona: "Content Owners",
+      kind: "Usability test",
+      quote: "“The plain-language explanation and the before/after example meant I didn't need a developer to fix the alt text.”",
+      meta: "P5, content author",
+    },
+    {
+      persona: "Product / Compliance",
+      kind: "Interview",
+      quote: "“The risk-ranked backlog let me sequence remediation by impact instead of guessing from a flat list.”",
+      meta: "P9, compliance manager",
+    },
+  ];
 
   return (
     <div className="my-12 space-y-12">
@@ -2442,6 +2501,99 @@ function WcagToolDetails() {
                   </p>
                 </div>
               </article>
+            ))}
+          </div>
+        </section>
+      </FadeIn>
+
+      {/* User-group journey flow */}
+      <FadeIn>
+        <section aria-labelledby="wcag-journey-title">
+          <h2 id="wcag-journey-title" className="text-lg font-bold text-gray-900 mb-1">
+            User-Group Journey Flow
+          </h2>
+          <p className="text-gray-600 text-xs mb-6">
+            Each user group flows from persona, to the tasks they perform in the suite, to the WCAG
+            needs those tasks satisfy.
+          </p>
+
+          {/* Column legend */}
+          <div className="hidden md:grid grid-cols-[1.1fr_auto_2fr_auto_1.6fr] items-center gap-3 mb-3 px-1">
+            <span className="text-[10px] font-bold uppercase tracking-wide text-[#1B3A5C]">Persona</span>
+            <span aria-hidden="true" />
+            <span className="text-[10px] font-bold uppercase tracking-wide text-[#7e22ce]">Tasks</span>
+            <span aria-hidden="true" />
+            <span className="text-[10px] font-bold uppercase tracking-wide text-emerald-700">WCAG needs</span>
+          </div>
+
+          <div className="space-y-4">
+            {journeys.map((j) => (
+              <div
+                key={j.persona}
+                className="grid grid-cols-1 md:grid-cols-[1.1fr_auto_2fr_auto_1.6fr] items-center gap-3 border border-gray-200 rounded-xl p-4 bg-white"
+              >
+                {/* Persona */}
+                <div className="rounded-lg bg-gradient-to-br from-[#0b132b] via-[#1B3A5C] to-[#2E75B6] text-white px-4 py-3 text-center">
+                  <span className="text-[13px] font-bold">{j.persona}</span>
+                </div>
+
+                <span aria-hidden="true" className="hidden md:block text-[#9bbce0] text-xl text-center">→</span>
+
+                {/* Tasks */}
+                <div className="flex flex-wrap gap-2">
+                  {j.tasks.map((t, i) => (
+                    <span key={t} className="inline-flex items-center gap-1.5">
+                      <span className="text-[11px] font-medium px-2.5 py-1 rounded-md bg-[#f3e8fd] text-[#7e22ce] border border-[#e9d5ff]">
+                        {t}
+                      </span>
+                      {i < j.tasks.length - 1 && (
+                        <span aria-hidden="true" className="text-[#c4a3e8] text-xs">›</span>
+                      )}
+                    </span>
+                  ))}
+                </div>
+
+                <span aria-hidden="true" className="hidden md:block text-[#9bbce0] text-xl text-center">→</span>
+
+                {/* WCAG needs */}
+                <div className="flex flex-wrap gap-2">
+                  {j.needs.map((n) => (
+                    <span
+                      key={n}
+                      className="text-[11px] font-semibold px-2.5 py-1 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-100"
+                    >
+                      {n}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Sample study excerpts */}
+          <h3 className="text-sm font-bold text-gray-900 mt-8 mb-1">Sample Study Excerpts</h3>
+          <p className="text-gray-600 text-xs mb-4">
+            Verbatim quotes from the research that validated each group's journey.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {studyExcerpts.map((e) => (
+              <figure
+                key={e.persona}
+                className="m-0 border-l-4 border-[#2E75B6] bg-gray-50 rounded-r-lg p-4"
+              >
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-[10px] font-bold uppercase tracking-wide px-2 py-0.5 rounded bg-[#eaf3fb] text-[#1B3A5C]">
+                    {e.persona}
+                  </span>
+                  <span className="text-[10px] font-semibold uppercase tracking-wide text-gray-500">
+                    {e.kind}
+                  </span>
+                </div>
+                <blockquote className="m-0 text-[12.5px] text-gray-700 leading-relaxed italic">
+                  {e.quote}
+                </blockquote>
+                <figcaption className="text-[11px] text-gray-500 mt-2">— {e.meta}</figcaption>
+              </figure>
             ))}
           </div>
         </section>
