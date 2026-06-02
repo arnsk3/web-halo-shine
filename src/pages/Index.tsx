@@ -2352,6 +2352,106 @@ function CaseStudy({
               </p>
             </figure>
           </FadeIn>
+        ) : study.id === "wcagtool" ? (
+          <FadeIn>
+            <figure className="my-8" aria-labelledby="wcag-process-title">
+              <figcaption
+                id="wcag-process-title"
+                className="text-xs font-semibold tracking-wide uppercase text-gray-700 mb-3 text-center"
+              >
+                WCAG Remediation Suite — Detection-to-Remediation Pipeline
+              </figcaption>
+
+              {/* Header band */}
+              <div className="rounded-t-xl bg-gradient-to-r from-[#0b132b] via-[#1B3A5C] to-[#2E75B6] text-white px-5 py-3 flex items-center justify-between">
+                <span className="text-[11px] font-bold tracking-[0.18em] uppercase">
+                  WCAG 2.2 A · AA · AAA
+                </span>
+                <span className="text-[11px] text-white/85">
+                  Input → scan → fix → prioritize → evidence
+                </span>
+              </div>
+
+              {/* Stages */}
+              <ol
+                className="grid grid-cols-1 md:grid-cols-5 gap-px bg-gray-200 border-x border-b border-gray-200 rounded-b-xl overflow-hidden list-none p-0 m-0"
+                aria-label="Five-stage WCAG remediation pipeline"
+              >
+                {[
+                  {
+                    n: "01",
+                    title: "Ingest Input",
+                    desc: "Accept a live URL or pasted HTML; normalize the DOM and ARIA tree for analysis.",
+                    std: "URL / HTML",
+                  },
+                  {
+                    n: "02",
+                    title: "Scan 28 Criteria",
+                    desc: "Evaluate all four WCAG principles across A, AA, and AAA in a single pass.",
+                    std: "28 Criteria",
+                  },
+                  {
+                    n: "03",
+                    title: "Generate Fixes",
+                    desc: "Return the offending markup, a corrected snippet, and a before/after example per finding.",
+                    std: "Code Fixes",
+                  },
+                  {
+                    n: "04",
+                    title: "Prioritize Roadmap",
+                    desc: "Rank issues by user impact, conformance level, and fix effort into an ordered backlog.",
+                    std: "Impact-Weighted",
+                  },
+                  {
+                    n: "05",
+                    title: "Export Evidence",
+                    desc: "Map each result to its success criterion for Section 508 and WCAG-EM reporting.",
+                    std: "WCAG-EM",
+                  },
+                ].map((stage, idx, arr) => (
+                  <li key={stage.n} className="bg-white p-4 relative flex flex-col">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-[10px] font-bold text-[#2E75B6] tracking-widest">
+                        {stage.n}
+                      </span>
+                      <span
+                        aria-hidden="true"
+                        className="flex-1 h-px bg-gradient-to-r from-[#2E75B6]/40 to-transparent"
+                      />
+                      {idx < arr.length - 1 && (
+                        <span
+                          aria-hidden="true"
+                          className="hidden md:inline text-[#1B3A5C] text-sm leading-none"
+                        >
+                          →
+                        </span>
+                      )}
+                    </div>
+                    <h3 className="text-[13px] font-bold text-[#0f2027] leading-snug mb-1.5">
+                      {stage.title}
+                    </h3>
+                    <p className="text-[11px] text-gray-700 leading-relaxed flex-1">
+                      {stage.desc}
+                    </p>
+                    <span className="mt-3 inline-block self-start text-[9px] font-semibold tracking-wider uppercase px-1.5 py-0.5 rounded bg-[#eaf3fb] text-[#1B3A5C]">
+                      {stage.std}
+                    </span>
+                  </li>
+                ))}
+              </ol>
+
+              {/* Feedback loop */}
+              <div
+                className="mt-3 flex items-center justify-center gap-2 text-[11px] text-gray-700"
+                aria-label="Re-scan after fixes confirms conformance in a repeatable loop"
+              >
+                <span aria-hidden="true" className="text-[#2E75B6] text-base leading-none">↻</span>
+                <span>
+                  Re-scan after remediation confirms conformance — repeat until AAA is reached
+                </span>
+              </div>
+            </figure>
+          </FadeIn>
         ) : (
           <FadeIn>
             <div
