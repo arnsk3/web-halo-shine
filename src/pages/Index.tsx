@@ -2718,7 +2718,7 @@ function CaseStudy({
                 id="wcag-process-title"
                 className="text-xs font-semibold tracking-wide uppercase text-gray-700 mb-3 text-center"
               >
-                WCAG Remediation Suite — Detection-to-Remediation Pipeline
+                WCAG AI Remediation Suite — Detection-to-Remediation Pipeline
               </figcaption>
 
               {/* Header band */}
