@@ -2518,8 +2518,8 @@ function WcagToolDetails() {
             User-Group Journey Flow
           </h2>
           <p className="text-gray-600 text-xs mb-6">
-            Each user group flows from persona, to the tasks they perform in the suite, to the WCAG
-            needs those tasks satisfy.
+            Select a user group to expand its journey — the tasks they perform in the suite and the
+            WCAG needs those tasks satisfy.
           </p>
 
           {/* Expand / collapse controls */}
