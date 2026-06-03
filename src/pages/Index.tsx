@@ -407,7 +407,7 @@ function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) 
       aria-label="Primary"
       className="sticky top-0 z-50 backdrop-blur-xl bg-white/95 border-b border-gray-200"
     >
-      <div className="max-w-5xl mx-auto flex items-center justify-between px-6 py-3">
+      <div className="max-w-5xl mx-auto flex items-center justify-between gap-2 px-4 sm:px-6 py-3">
         <button
           onClick={() => setPage("home")}
           aria-label="Senthil Nagappan — go to home"
