@@ -3282,7 +3282,7 @@ function CaseStudy({
       </div>
 
       {/* Content */}
-      <div className="max-w-6xl mx-auto px-6 py-12">
+      <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-12">
         {study.sections.map((s, i) => (
           <FadeIn key={i} delay={i * 0.05}>
             <div className="mb-10">
