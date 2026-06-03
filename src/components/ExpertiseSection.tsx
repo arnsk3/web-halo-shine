@@ -184,28 +184,31 @@ export default function ExpertiseSection({ onViewWork }: { onViewWork?: () => vo
         <div className="grid md:grid-cols-2 gap-5">
           {DOMAINS.map((d) => {
             return (
-              <div
+            <article
                 key={d.id}
+                aria-labelledby={`${d.id}-title`}
                 className="rounded-2xl border bg-white border-[rgb(var(--c-primary)/0.3)] shadow-lg"
               >
-                <h3 className="m-0">
-                  <div className="flex w-full items-start gap-4 p-5 text-left">
-                    <span
-                      aria-hidden="true"
-                      className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[rgb(var(--c-tint-100))] text-[rgb(var(--c-accent-on-light))]"
+                <div className="flex w-full items-start gap-4 p-5 text-left">
+                  <span
+                    aria-hidden="true"
+                    className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[rgb(var(--c-tint-100))] text-[rgb(var(--c-accent-on-light))]"
+                  >
+                    <span className="h-6 w-6 block">{d.icon}</span>
+                  </span>
+                  <div className="flex-1">
+                    <h3
+                      id={`${d.id}-title`}
+                      className="font-bold text-gray-900 text-lg leading-snug m-0"
                     >
-                      <span className="h-6 w-6 block">{d.icon}</span>
-                    </span>
-                    <span className="flex-1">
-                      <span className="block font-bold text-gray-900 text-lg leading-snug">
-                        {d.title}
-                      </span>
-                      <span className="block text-gray-700 text-sm mt-1 leading-relaxed">
-                        {d.tagline}
-                      </span>
-                    </span>
+                      {d.title}
+                    </h3>
+                    <p className="text-gray-700 text-sm mt-1 leading-relaxed">
+                      {d.tagline}
+                    </p>
                   </div>
-                </h3>
+                </div>
+
 
                 <div className="px-5 pb-5">
                   <p className="text-gray-700 text-sm leading-relaxed mb-4">{d.summary}</p>
@@ -227,7 +230,8 @@ export default function ExpertiseSection({ onViewWork }: { onViewWork?: () => vo
                     ))}
                   </div>
 
-                  <p className="text-[11px] font-bold uppercase tracking-wide text-gray-600 mb-2">
+                  <p className="text-[11px] font-bold uppercase tracking-wide text-gray-700 mb-2">
+
                     What I bring
                   </p>
                   <ul className="list-none p-0 m-0 mb-5 space-y-1.5">
@@ -242,7 +246,7 @@ export default function ExpertiseSection({ onViewWork }: { onViewWork?: () => vo
                     ))}
                   </ul>
 
-                  <p className="text-[11px] font-bold uppercase tracking-wide text-gray-600 mb-2">
+                  <p className="text-[11px] font-bold uppercase tracking-wide text-gray-700 mb-2">
                     Live examples & impact
                   </p>
                   <ul className="list-none p-0 m-0 space-y-3">
@@ -261,7 +265,8 @@ export default function ExpertiseSection({ onViewWork }: { onViewWork?: () => vo
                     ))}
                   </ul>
                 </div>
-              </div>
+              </article>
+
             );
           })}
         </div>
