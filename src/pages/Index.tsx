@@ -9,6 +9,7 @@ import personaMlEngineer from "@/assets/persona-mlengineer.jpg";
 import personaRegulatory from "@/assets/persona-regulatory.jpg";
 import personaSafety from "@/assets/persona-safety.jpg";
 import personaLeadership from "@/assets/persona-leadership.jpg";
+import ThemeSwitcher from "@/components/ThemeSwitcher";
 
 /* ═══════════════════════════════════════════
    SENTHIL KUMAR NAGAPPAN — PORTFOLIO SITE
