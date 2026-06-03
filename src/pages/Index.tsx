@@ -3212,7 +3212,7 @@ function CaseStudy({
     <div>
       {/* Hero */}
       <div className={`bg-gradient-to-br ${study.hero} text-white`}>
-        <div className="max-w-3xl mx-auto px-6 py-16">
+        <div className="max-w-6xl mx-auto px-6 py-16">
           <button
             onClick={() => setPage("home")}
             className="text-white/85 text-sm hover:text-white mb-6 inline-block transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E76F51] focus-visible:ring-offset-2 focus-visible:ring-offset-[#134E5E]"
@@ -3259,7 +3259,7 @@ function CaseStudy({
 
       {/* Metrics */}
       <div className="bg-white border-b border-gray-100">
-        <div className="max-w-3xl mx-auto px-6 py-6">
+        <div className="max-w-6xl mx-auto px-6 py-6">
           <div className="grid grid-cols-3 gap-4">
             {study.metrics.map((m) => (
               <div
@@ -3277,7 +3277,7 @@ function CaseStudy({
       </div>
 
       {/* Content */}
-      <div className="max-w-3xl mx-auto px-6 py-12">
+      <div className="max-w-6xl mx-auto px-6 py-12">
         {study.sections.map((s, i) => (
           <FadeIn key={i} delay={i * 0.05}>
             <div className="mb-10">
