@@ -3264,7 +3264,7 @@ function CaseStudy({
 
       {/* Metrics */}
       <div className="bg-white border-b border-gray-100">
-        <div className="max-w-6xl mx-auto px-6 py-6">
+        <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-6">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {study.metrics.map((m) => (
               <div
