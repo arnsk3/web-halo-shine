@@ -104,11 +104,26 @@ All colors MUST be HSL.
     /* Avoid disabling browser text resize (WCAG 1.4.4) */
     text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
+    /* Prevent any accidental horizontal scroll on small screens */
+    overflow-x: clip;
   }
 
   /* Smooth in-page anchor scrolling, but only when motion is allowed */
   html {
     scroll-behavior: smooth;
+    /* Elastic/liquid type scale: the whole rem-based UI fluidly
+       scales between mobile and desktop for a responsive, fluid feel */
+    font-size: clamp(0.9375rem, 0.875rem + 0.3vw, 1.0625rem);
+    overflow-x: clip;
+  }
+
+  /* Honour deep zoom / small viewports: media never overflows its column */
+  img,
+  svg,
+  video,
+  canvas,
+  pre {
+    max-width: 100%;
   }
 
   /* Accessibility: visible 3:1+ focus indicator for keyboard users
