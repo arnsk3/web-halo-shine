@@ -45,7 +45,7 @@ const NotFound = () => {
     <>
       <a
         href="#notfound-main"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:bg-[#312e81] focus:text-white focus:px-4 focus:py-2 focus:rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6366f1]"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:bg-[rgb(var(--c-primary))] focus:text-white focus:px-4 focus:py-2 focus:rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))]"
       >
         Skip to main content
       </a>
@@ -57,7 +57,7 @@ const NotFound = () => {
         <div className="text-center px-6 max-w-lg">
           <p
             aria-hidden="true"
-            className="text-6xl font-extrabold text-[#312e81] mb-2 tracking-tight"
+            className="text-6xl font-extrabold text-[rgb(var(--c-primary))] mb-2 tracking-tight"
           >
             404
           </p>
@@ -70,7 +70,7 @@ const NotFound = () => {
           </p>
           <a
             href="/"
-            className="inline-block bg-[#312e81] text-white px-5 py-2.5 rounded-lg font-semibold text-sm hover:bg-[#6366f1] hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#312e81] focus-visible:ring-offset-2"
+            className="inline-block bg-[rgb(var(--c-primary))] text-white px-5 py-2.5 rounded-lg font-semibold text-sm hover:bg-[rgb(var(--c-accent-light))] hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
           >
             Return to home
           </a>
