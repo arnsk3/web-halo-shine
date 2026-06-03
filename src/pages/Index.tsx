@@ -2067,14 +2067,14 @@ function GeFrameworkPersonas() {
             <button
               type="button"
               onClick={() => setOpenJourneys(journeys.map((j) => j.persona))}
-              className="text-[11px] font-semibold px-3 py-1.5 rounded-md border border-gray-200 bg-white text-[rgb(var(--c-primary))] hover:bg-gray-50 transition-colors"
+              className="text-[11px] font-semibold px-3 py-1.5 rounded-md border border-gray-200 bg-white text-[rgb(var(--c-primary))] hover:bg-gray-50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
             >
               Expand all
             </button>
             <button
               type="button"
               onClick={() => setOpenJourneys([])}
-              className="text-[11px] font-semibold px-3 py-1.5 rounded-md border border-gray-200 bg-white text-gray-600 hover:bg-gray-50 transition-colors"
+              className="text-[11px] font-semibold px-3 py-1.5 rounded-md border border-gray-200 bg-white text-gray-600 hover:bg-gray-50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
             >
               Collapse all
             </button>
@@ -2094,7 +2094,7 @@ function GeFrameworkPersonas() {
                     aria-expanded={isOpen}
                     aria-controls={panelId}
                     onClick={() => toggleJourney(j.persona)}
-                    className="w-full flex items-center justify-between gap-3 px-4 py-3 text-left bg-gradient-to-br from-[rgb(var(--c-hero-dark))] via-[rgb(var(--c-primary))] to-[rgb(var(--c-accent))] text-white hover:opacity-95 transition-opacity"
+                    className="w-full flex items-center justify-between gap-3 px-4 py-3 text-left bg-gradient-to-br from-[rgb(var(--c-hero-dark))] via-[rgb(var(--c-primary))] to-[rgb(var(--c-accent))] text-white hover:opacity-95 transition-opacity focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-inset"
                   >
                     <span className="text-[13px] font-bold">{j.persona}</span>
                     <span className="flex items-center gap-3">
@@ -2878,14 +2878,14 @@ function WcagToolDetails() {
             <button
               type="button"
               onClick={() => setOpenJourneys(journeys.map((j) => j.persona))}
-              className="text-[11px] font-semibold px-3 py-1.5 rounded-md border border-gray-200 bg-white text-[rgb(var(--c-primary))] hover:bg-gray-50 transition-colors"
+              className="text-[11px] font-semibold px-3 py-1.5 rounded-md border border-gray-200 bg-white text-[rgb(var(--c-primary))] hover:bg-gray-50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
             >
               Expand all
             </button>
             <button
               type="button"
               onClick={() => setOpenJourneys([])}
-              className="text-[11px] font-semibold px-3 py-1.5 rounded-md border border-gray-200 bg-white text-gray-600 hover:bg-gray-50 transition-colors"
+              className="text-[11px] font-semibold px-3 py-1.5 rounded-md border border-gray-200 bg-white text-gray-600 hover:bg-gray-50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
             >
               Collapse all
             </button>
@@ -2906,7 +2906,7 @@ function WcagToolDetails() {
                     aria-expanded={isOpen}
                     aria-controls={panelId}
                     onClick={() => toggleJourney(j.persona)}
-                    className="w-full flex items-center justify-between gap-3 px-4 py-3 text-left bg-gradient-to-br from-[rgb(var(--c-hero-mid))] via-[rgb(var(--c-primary))] to-[rgb(var(--c-accent))] text-white hover:opacity-95 transition-opacity"
+                    className="w-full flex items-center justify-between gap-3 px-4 py-3 text-left bg-gradient-to-br from-[rgb(var(--c-hero-mid))] via-[rgb(var(--c-primary))] to-[rgb(var(--c-accent))] text-white hover:opacity-95 transition-opacity focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-inset"
                   >
                     <span className="text-[13px] font-bold">{j.persona}</span>
                     <span className="flex items-center gap-3">
