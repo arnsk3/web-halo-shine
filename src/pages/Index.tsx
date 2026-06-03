@@ -3217,7 +3217,7 @@ function CaseStudy({
     <div>
       {/* Hero */}
       <div className={`bg-gradient-to-br ${study.hero} text-white`}>
-        <div className="max-w-6xl mx-auto px-6 py-16">
+        <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(3rem,6vw,6rem)]">
           <button
             onClick={() => setPage("home")}
             className="text-white/85 text-sm hover:text-white mb-6 inline-block transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
