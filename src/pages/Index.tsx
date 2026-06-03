@@ -533,14 +533,14 @@ function Home({
       {/* Case Studies */}
       <section id="cases" className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(3rem,6vw,6rem)]" aria-labelledby="cases-heading">
         <FadeIn>
-          <h2 id="cases-heading" className="text-2xl font-extrabold text-gray-900 mb-2 tracking-tight">
+          <h2 id="cases-heading" className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2 tracking-tight">
             Case Studies
           </h2>
-          <p className="text-gray-700 text-sm mb-10">
+          <p className="text-gray-700 text-base mb-10">
             Enterprise-scale work in AI safety, accessibility, and regulated systems
           </p>
         </FadeIn>
-        <div className="grid gap-5 items-stretch [grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr))]">
+        <div className="grid gap-8 items-stretch [grid-template-columns:repeat(auto-fit,minmax(min(100%,30rem),1fr))]">
           {CASE_STUDIES.map((s, i) => {
             const isOpen = openCases.includes(s.id);
             const panelId = `case-panel-${s.id}`;
