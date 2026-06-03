@@ -593,7 +593,7 @@ function Home({
               </p>
               <button
                 onClick={() => setPage("about")}
-                className="text-[rgb(var(--c-primary))] text-sm font-semibold hover:text-[rgb(var(--c-accent-light))] transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
+                className="text-[rgb(var(--c-primary))] text-sm font-semibold hover:text-[rgb(var(--c-accent-on-light))] transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
               >
                 Read full story <span aria-hidden="true">→</span>
                 <span className="sr-only">about Senthil Nagappan</span>
@@ -1176,7 +1176,7 @@ function ResearchProcess({ id }: { id: string }) {
           {cfg.phases.map((p, idx, arr) => (
             <li key={p.n} className="bg-white p-4 flex flex-col">
               <div className="flex items-center gap-2 mb-2">
-                <span className="text-[10px] font-bold text-[rgb(var(--c-accent))] tracking-widest">
+                <span className="text-[10px] font-bold text-[rgb(var(--c-accent-on-light))] tracking-widest">
                   {p.n}
                 </span>
                 <span aria-hidden="true" className="flex-1 h-px bg-gradient-to-r from-[rgb(var(--c-accent)/0.4)] to-transparent" />
@@ -1190,7 +1190,7 @@ function ResearchProcess({ id }: { id: string }) {
               <ul className="space-y-1.5 list-none p-0 m-0 flex-1">
                 {p.methods.map((m) => (
                   <li key={m} className="text-[11px] text-gray-700 leading-snug flex gap-1.5">
-                    <span aria-hidden="true" className="text-[rgb(var(--c-accent))] mt-0.5">•</span>
+                    <span aria-hidden="true" className="text-[rgb(var(--c-accent-on-light))] mt-0.5">•</span>
                     <span>{m}</span>
                   </li>
                 ))}
@@ -1236,7 +1236,7 @@ function ResearchProcess({ id }: { id: string }) {
                 key={m.label}
                 className="bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-center"
               >
-                <div className="text-lg font-extrabold text-[rgb(var(--c-accent-light))] tabular-nums">{m.value}</div>
+                <div className="text-lg font-extrabold text-[rgb(var(--c-accent-on-light))] tabular-nums">{m.value}</div>
                 <div className="text-[10px] text-white/85 leading-snug">{m.label}</div>
               </li>
             ))}
@@ -2601,7 +2601,7 @@ function WcagToolDetails() {
 
                 <div className="px-5 py-3 border-b border-gray-100">
                   <p className="text-[12px] text-gray-700 leading-relaxed">
-                    <span className="font-semibold text-[rgb(var(--c-accent))]">AI suggestion: </span>
+                    <span className="font-semibold text-[rgb(var(--c-accent-on-light))]">AI suggestion: </span>
                     {ex.suggestion}
                   </p>
                 </div>
@@ -3011,7 +3011,7 @@ function WcagToolDetails() {
                   {idx < arr.length - 1 && (
                     <span
                       aria-hidden="true"
-                      className="hidden md:inline text-[rgb(var(--c-accent))] text-sm leading-none"
+                      className="hidden md:inline text-[rgb(var(--c-accent-on-light))] text-sm leading-none"
                     >
                       →
                     </span>
@@ -3020,7 +3020,7 @@ function WcagToolDetails() {
                 <ul className="space-y-1.5 list-none p-0 m-0">
                   {layer.items.map((it) => (
                     <li key={it} className="text-[11px] text-gray-700 flex gap-1.5">
-                      <span aria-hidden="true" className="text-[rgb(var(--c-accent))]">•</span>
+                      <span aria-hidden="true" className="text-[rgb(var(--c-accent-on-light))]">•</span>
                       {it}
                     </li>
                   ))}
@@ -3090,7 +3090,7 @@ function DeepResearchDossier({ id }: { id: string }) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
             {d.plan.map((p) => (
               <div key={p.label} className="border border-gray-200 rounded-lg p-4">
-                <div className="text-[11px] font-bold tracking-[0.16em] uppercase text-[rgb(var(--c-accent))] mb-2">
+                <div className="text-[11px] font-bold tracking-[0.16em] uppercase text-[rgb(var(--c-accent-on-light))] mb-2">
                   {p.label}
                 </div>
                 <ul className="list-disc pl-5 space-y-1.5 text-sm text-gray-800">
@@ -3461,7 +3461,7 @@ function CaseStudy({
                     className="bg-white p-4 relative flex flex-col"
                   >
                     <div className="flex items-center gap-2 mb-2">
-                      <span className="text-[10px] font-bold text-[rgb(var(--c-accent))] tracking-widest">
+                      <span className="text-[10px] font-bold text-[rgb(var(--c-accent-on-light))] tracking-widest">
                         {stage.n}
                       </span>
                       <span
@@ -3495,7 +3495,7 @@ function CaseStudy({
                 className="mt-3 flex items-center justify-center gap-2 text-[11px] text-gray-700"
                 aria-label="Continuous feedback loop from post-market monitoring back into hazard identification"
               >
-                <span aria-hidden="true" className="text-[rgb(var(--c-accent))] text-base leading-none">↻</span>
+                <span aria-hidden="true" className="text-[rgb(var(--c-accent-on-light))] text-base leading-none">↻</span>
                 <span>
                   Field signals feed back into hazard identification — continuous learning loop
                 </span>
@@ -3568,7 +3568,7 @@ function CaseStudy({
                     className="bg-white p-4 relative flex flex-col"
                   >
                     <div className="flex items-center gap-2 mb-2">
-                      <span className="text-[10px] font-bold text-[rgb(var(--c-accent))] tracking-widest">
+                      <span className="text-[10px] font-bold text-[rgb(var(--c-accent-on-light))] tracking-widest">
                         {stage.n}
                       </span>
                       <span
@@ -3602,7 +3602,7 @@ function CaseStudy({
                 className="mt-3 flex items-center justify-center gap-2 text-[11px] text-gray-700"
                 aria-label="Verification results feed back into detection rules for continuous learning"
               >
-                <span aria-hidden="true" className="text-[rgb(var(--c-accent))] text-base leading-none">↻</span>
+                <span aria-hidden="true" className="text-[rgb(var(--c-accent-on-light))] text-base leading-none">↻</span>
                 <span>
                   Verified fixes train the rule set — false positives shrink with every release
                 </span>
@@ -3672,7 +3672,7 @@ function CaseStudy({
                 ].map((stage, idx, arr) => (
                   <li key={stage.n} className="bg-white p-4 relative flex flex-col">
                     <div className="flex items-center gap-2 mb-2">
-                      <span className="text-[10px] font-bold text-[rgb(var(--c-accent))] tracking-widest">
+                      <span className="text-[10px] font-bold text-[rgb(var(--c-accent-on-light))] tracking-widest">
                         {stage.n}
                       </span>
                       <span
@@ -3706,7 +3706,7 @@ function CaseStudy({
                 className="mt-3 flex items-center justify-center gap-2 text-[11px] text-gray-700"
                 aria-label="Re-scan after fixes confirms conformance in a repeatable loop"
               >
-                <span aria-hidden="true" className="text-[rgb(var(--c-accent))] text-base leading-none">↻</span>
+                <span aria-hidden="true" className="text-[rgb(var(--c-accent-on-light))] text-base leading-none">↻</span>
                 <span>
                   Re-scan after remediation confirms conformance — repeat until AAA is reached
                 </span>
@@ -3756,7 +3756,7 @@ function CaseStudy({
             <ul className="space-y-2.5 list-none p-0 m-0">
               {study.outcomes.map((o, i) => (
                 <li key={i} className="flex gap-3 items-start">
-                  <span aria-hidden="true" className="text-[rgb(var(--c-accent-light))] text-base mt-0.5">✓</span>
+                  <span aria-hidden="true" className="text-[rgb(var(--c-accent-on-light))] text-base mt-0.5">✓</span>
                   <span className="text-white text-sm leading-relaxed">{o}</span>
                 </li>
               ))}
