@@ -264,7 +264,8 @@ export default function ExpertiseSection({ onViewWork }: { onViewWork?: () => vo
                     ))}
                   </ul>
                 </div>
-              </div>
+              </article>
+
             );
           })}
         </div>
