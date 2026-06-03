@@ -548,24 +548,24 @@ function Home({
             <FadeIn key={s.id} delay={i * 0.08} className="h-full">
               <article className="h-full flex flex-col rounded-xl overflow-hidden bg-white border border-gray-200 transition-all hover:border-[rgb(var(--c-primary)/0.3)] hover:shadow-lg">
                 <div
-                  className={`h-36 bg-gradient-to-br ${s.hero} flex items-end p-5`}
+                  className={`h-52 bg-gradient-to-br ${s.hero} flex items-end p-6`}
                 >
-                  <span className="text-white text-[10px] font-semibold tracking-widest uppercase">
+                  <span className="text-white text-xs font-semibold tracking-widest uppercase">
                     {s.tag}
                   </span>
                 </div>
-                <div className="flex-1 flex flex-col p-5">
-                  <h3 className="font-bold text-gray-900 text-base mb-1.5 leading-snug">
+                <div className="flex-1 flex flex-col p-7">
+                  <h3 className="font-bold text-gray-900 text-xl mb-2 leading-snug">
                     {s.title}
                   </h3>
-                  <p className={`text-gray-700 text-xs mb-4 leading-relaxed ${isOpen ? "" : "line-clamp-2"}`}>
+                  <p className={`text-gray-700 text-sm mb-5 leading-relaxed ${isOpen ? "" : "line-clamp-3"}`}>
                     {s.subtitle}
                   </p>
                   <div className="flex gap-2 flex-wrap">
                     {s.metrics.map((m) => (
                       <span
                         key={m.label}
-                        className="text-[10px] font-semibold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-100"
+                        className="text-xs font-semibold px-3 py-1.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-100"
                       >
                         {m.value} {m.label}
                       </span>
