@@ -3260,7 +3260,7 @@ function CaseStudy({
       {/* Metrics */}
       <div className="bg-white border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-6 py-6">
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {study.metrics.map((m) => (
               <div
                 key={m.label}
