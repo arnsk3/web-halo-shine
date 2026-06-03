@@ -454,6 +454,11 @@ function Home({
   setPage: (p: PageId) => void;
   setCase: (c: CaseStudyType) => void;
 }) {
+  const [openCases, setOpenCases] = useState<string[]>([]);
+  const toggleCase = (id: string) =>
+    setOpenCases((prev) =>
+      prev.includes(id) ? prev.filter((c) => c !== id) : [...prev, id]
+    );
   return (
     <div>
       {/* Hero */}
@@ -536,27 +541,24 @@ function Home({
           </p>
         </FadeIn>
         <div className="grid gap-5 items-stretch [grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr))]">
-          {CASE_STUDIES.map((s, i) => (
+          {CASE_STUDIES.map((s, i) => {
+            const isOpen = openCases.includes(s.id);
+            const panelId = `case-panel-${s.id}`;
+            return (
             <FadeIn key={s.id} delay={i * 0.08} className="h-full">
-              <button
-                onClick={() => {
-                  setCase(s);
-                }}
-                aria-label={`View case study: ${s.title}`}
-                className="text-left w-full h-full flex flex-col group rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
-              >
+              <article className="h-full flex flex-col rounded-xl overflow-hidden bg-white border border-gray-200 transition-all hover:border-[rgb(var(--c-primary)/0.3)] hover:shadow-lg">
                 <div
-                  className={`h-36 bg-gradient-to-br ${s.hero} rounded-t-xl flex items-end p-5`}
+                  className={`h-36 bg-gradient-to-br ${s.hero} flex items-end p-5`}
                 >
                   <span className="text-white text-[10px] font-semibold tracking-widest uppercase">
                     {s.tag}
                   </span>
                 </div>
-                <div className="flex-1 flex flex-col bg-white border border-t-0 border-gray-200 rounded-b-xl p-5 group-hover:border-[rgb(var(--c-primary)/0.3)] group-hover:shadow-lg transition-all">
-                  <h3 className="font-bold text-gray-900 text-base mb-1.5 leading-snug group-hover:text-[rgb(var(--c-primary))] transition-colors">
+                <div className="flex-1 flex flex-col p-5">
+                  <h3 className="font-bold text-gray-900 text-base mb-1.5 leading-snug">
                     {s.title}
                   </h3>
-                  <p className="text-gray-700 text-xs mb-4 leading-relaxed line-clamp-2">
+                  <p className={`text-gray-700 text-xs mb-4 leading-relaxed ${isOpen ? "" : "line-clamp-2"}`}>
                     {s.subtitle}
                   </p>
                   <div className="flex gap-2 flex-wrap">
@@ -569,10 +571,62 @@ function Home({
                       </span>
                     ))}
                   </div>
+
+                  {isOpen && (
+                    <div id={panelId} className="mt-4 pt-4 border-t border-gray-100 space-y-4">
+                      {s.sections?.[0] && (
+                        <div>
+                          <p className="text-[11px] font-bold uppercase tracking-wide text-gray-700 mb-1">
+                            {s.sections[0].heading}
+                          </p>
+                          <p className="text-gray-700 text-[13px] leading-relaxed">
+                            {s.sections[0].content}
+                          </p>
+                        </div>
+                      )}
+                      {s.outcomes?.length > 0 && (
+                        <div>
+                          <p className="text-[11px] font-bold uppercase tracking-wide text-gray-700 mb-2">
+                            Key outcomes
+                          </p>
+                          <ul className="list-none p-0 m-0 space-y-1.5">
+                            {s.outcomes.map((o) => (
+                              <li key={o} className="flex items-start gap-2 text-[13px] text-gray-700">
+                                <span
+                                  aria-hidden="true"
+                                  className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[rgb(var(--c-accent))]"
+                                />
+                                <span className="leading-relaxed">{o}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                    </div>
+                  )}
+
+                  <div className="mt-auto pt-4 flex flex-wrap gap-2">
+                    <button
+                      onClick={() => toggleCase(s.id)}
+                      aria-expanded={isOpen}
+                      aria-controls={panelId}
+                      className="text-xs font-semibold px-3 py-1.5 rounded-lg border border-[rgb(var(--c-primary)/0.3)] text-[rgb(var(--c-primary))] hover:bg-[rgb(var(--c-tint-50))] focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2 transition-colors"
+                    >
+                      {isOpen ? "Show less" : "Show more"}
+                    </button>
+                    <button
+                      onClick={() => setCase(s)}
+                      aria-label={`View full case study: ${s.title}`}
+                      className="text-xs font-semibold px-3 py-1.5 rounded-lg bg-[rgb(var(--c-primary))] text-white hover:bg-[rgb(var(--c-accent-dark))] focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2 transition-colors"
+                    >
+                      View case study
+                    </button>
+                  </div>
                 </div>
-              </button>
+              </article>
             </FadeIn>
-          ))}
+            );
+          })}
         </div>
       </section>
 
