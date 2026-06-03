@@ -94,6 +94,134 @@ All colors MUST be HSL.
   }
 }
 
+/* =========================================================
+   Switchable color themes.
+   Each theme defines the same set of channel variables as
+   space-separated RGB triples so they work with
+   rgb(var(--c-x)) and rgb(var(--c-x)/<alpha>) in arbitrary
+   Tailwind classes. Default (no data-theme) = Midnight Indigo.
+   ========================================================= */
+@layer base {
+  :root,
+  [data-theme="indigo"] {
+    --c-primary: 49 46 129;
+    --c-accent: 79 70 229;
+    --c-accent-light: 99 102 241;
+    --c-accent-dark: 67 56 202;
+    --c-hero-dark: 10 10 26;
+    --c-hero-mid: 20 20 50;
+    --c-tint-50: 243 243 254;
+    --c-tint-100: 236 236 251;
+    --c-tint-200: 205 206 245;
+    --c-tint-300: 165 166 238;
+  }
+
+  [data-theme="emerald"] {
+    --c-primary: 6 78 59;
+    --c-accent: 16 122 87;
+    --c-accent-light: 34 197 94;
+    --c-accent-dark: 21 128 61;
+    --c-hero-dark: 6 26 20;
+    --c-hero-mid: 6 50 38;
+    --c-tint-50: 240 253 244;
+    --c-tint-100: 220 252 231;
+    --c-tint-200: 187 247 208;
+    --c-tint-300: 134 239 172;
+  }
+
+  [data-theme="violet"] {
+    --c-primary: 76 29 149;
+    --c-accent: 124 58 237;
+    --c-accent-light: 139 92 246;
+    --c-accent-dark: 109 40 217;
+    --c-hero-dark: 24 10 40;
+    --c-hero-mid: 46 16 80;
+    --c-tint-50: 250 245 255;
+    --c-tint-100: 243 232 255;
+    --c-tint-200: 233 213 255;
+    --c-tint-300: 196 181 253;
+  }
+
+  [data-theme="slate"] {
+    --c-primary: 30 41 59;
+    --c-accent: 71 85 105;
+    --c-accent-light: 100 116 139;
+    --c-accent-dark: 51 65 85;
+    --c-hero-dark: 15 23 42;
+    --c-hero-mid: 30 41 59;
+    --c-tint-50: 248 250 252;
+    --c-tint-100: 241 245 249;
+    --c-tint-200: 226 232 240;
+    --c-tint-300: 148 163 184;
+  }
+
+  [data-theme="mono"] {
+    --c-primary: 23 23 23;
+    --c-accent: 64 64 64;
+    --c-accent-light: 115 115 115;
+    --c-accent-dark: 38 38 38;
+    --c-hero-dark: 10 10 10;
+    --c-hero-mid: 38 38 38;
+    --c-tint-50: 250 250 250;
+    --c-tint-100: 245 245 245;
+    --c-tint-200: 229 229 229;
+    --c-tint-300: 163 163 163;
+  }
+
+  [data-theme="ocean"] {
+    --c-primary: 12 35 64;
+    --c-accent: 26 74 110;
+    --c-accent-light: 45 138 158;
+    --c-accent-dark: 13 58 89;
+    --c-hero-dark: 8 23 35;
+    --c-hero-mid: 12 42 64;
+    --c-tint-50: 240 249 255;
+    --c-tint-100: 224 242 254;
+    --c-tint-200: 186 230 253;
+    --c-tint-300: 125 211 252;
+  }
+
+  [data-theme="rose"] {
+    --c-primary: 136 19 55;
+    --c-accent: 225 29 72;
+    --c-accent-light: 244 63 94;
+    --c-accent-dark: 159 18 57;
+    --c-hero-dark: 30 8 14;
+    --c-hero-mid: 60 16 30;
+    --c-tint-50: 255 241 242;
+    --c-tint-100: 255 228 230;
+    --c-tint-200: 254 205 211;
+    --c-tint-300: 253 164 175;
+  }
+
+  [data-theme="amber"] {
+    --c-primary: 120 53 15;
+    --c-accent: 217 119 6;
+    --c-accent-light: 245 158 11;
+    --c-accent-dark: 180 83 9;
+    --c-hero-dark: 28 18 8;
+    --c-hero-mid: 60 38 12;
+    --c-tint-50: 255 251 235;
+    --c-tint-100: 254 243 199;
+    --c-tint-200: 253 230 138;
+    --c-tint-300: 252 211 77;
+  }
+
+  [data-theme="teal"] {
+    --c-primary: 19 78 94;
+    --c-accent: 231 111 81;
+    --c-accent-light: 240 138 110;
+    --c-accent-dark: 199 91 63;
+    --c-hero-dark: 15 32 39;
+    --c-hero-mid: 31 122 140;
+    --c-tint-50: 240 250 251;
+    --c-tint-100: 230 244 245;
+    --c-tint-200: 195 225 228;
+    --c-tint-300: 156 202 210;
+  }
+}
+
+
 @layer base {
   * {
     @apply border-border;
