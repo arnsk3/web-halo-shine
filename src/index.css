@@ -109,6 +109,7 @@ All colors MUST be HSL.
     --c-accent-light: 99 102 241;
     --c-accent-dark: 67 56 202;
     --c-accent-on-light: 67 56 202;
+    --c-accent-on-dark: 152 154 246;
     --c-hero-dark: 10 10 26;
     --c-hero-mid: 20 20 50;
     --c-tint-50: 243 243 254;
@@ -123,6 +124,7 @@ All colors MUST be HSL.
     --c-accent-light: 34 197 94;
     --c-accent-dark: 21 128 61;
     --c-accent-on-light: 6 92 64;
+    --c-accent-on-dark: 72 207 121;
     --c-hero-dark: 6 26 20;
     --c-hero-mid: 6 50 38;
     --c-tint-50: 240 253 244;
@@ -137,6 +139,7 @@ All colors MUST be HSL.
     --c-accent-light: 139 92 246;
     --c-accent-dark: 109 40 217;
     --c-accent-on-light: 109 40 217;
+    --c-accent-on-dark: 184 156 250;
     --c-hero-dark: 24 10 40;
     --c-hero-mid: 46 16 80;
     --c-tint-50: 250 245 255;
@@ -151,6 +154,7 @@ All colors MUST be HSL.
     --c-accent-light: 100 116 139;
     --c-accent-dark: 51 65 85;
     --c-accent-on-light: 51 65 85;
+    --c-accent-on-dark: 173 181 194;
     --c-hero-dark: 15 23 42;
     --c-hero-mid: 30 41 59;
     --c-tint-50: 248 250 252;
@@ -165,6 +169,7 @@ All colors MUST be HSL.
     --c-accent-light: 115 115 115;
     --c-accent-dark: 38 38 38;
     --c-accent-on-light: 38 38 38;
+    --c-accent-on-dark: 177 177 177;
     --c-hero-dark: 10 10 10;
     --c-hero-mid: 38 38 38;
     --c-tint-50: 250 250 250;
@@ -179,6 +184,7 @@ All colors MUST be HSL.
     --c-accent-light: 45 138 158;
     --c-accent-dark: 13 58 89;
     --c-accent-on-light: 13 58 89;
+    --c-accent-on-dark: 135 188 200;
     --c-hero-dark: 8 23 35;
     --c-hero-mid: 12 42 64;
     --c-tint-50: 240 249 255;
@@ -193,6 +199,7 @@ All colors MUST be HSL.
     --c-accent-light: 244 63 94;
     --c-accent-dark: 159 18 57;
     --c-accent-on-light: 159 18 57;
+    --c-accent-on-dark: 248 138 157;
     --c-hero-dark: 30 8 14;
     --c-hero-mid: 60 16 30;
     --c-tint-50: 255 241 242;
@@ -207,6 +214,7 @@ All colors MUST be HSL.
     --c-accent-light: 245 158 11;
     --c-accent-dark: 180 83 9;
     --c-accent-on-light: 146 64 4;
+    --c-accent-on-dark: 246 166 31;
     --c-hero-dark: 28 18 8;
     --c-hero-mid: 60 38 12;
     --c-tint-50: 255 251 235;
@@ -221,8 +229,9 @@ All colors MUST be HSL.
     --c-accent-light: 240 138 110;
     --c-accent-dark: 199 91 63;
     --c-accent-on-light: 150 55 35;
+    --c-accent-on-dark: 249 209 198;
     --c-hero-dark: 15 32 39;
-    --c-hero-mid: 31 122 140;
+    --c-hero-mid: 16 74 86;
     --c-tint-50: 240 250 251;
     --c-tint-100: 230 244 245;
     --c-tint-200: 195 225 228;
