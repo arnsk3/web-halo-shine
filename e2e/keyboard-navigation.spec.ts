@@ -59,8 +59,8 @@ test.describe("Keyboard navigation", () => {
     await skip.focus();
     await page.keyboard.press("Enter");
     // Hash navigation should target the main content region.
-    await expect(page).toHaveURL(/#main/);
-    const main = page.locator("main");
+    await expect(page).toHaveURL(/#main-content/);
+    const main = page.locator("main#main-content");
     await expect(main).toBeVisible();
   });
 
