@@ -181,13 +181,13 @@ export default function ExpertiseSection() {
           impact it delivered.
         </p>
 
-        <div className="grid md:grid-cols-2 gap-5">
+        <div className="grid md:grid-cols-2 gap-5 items-stretch">
           {DOMAINS.map((d) => {
             return (
             <article
                 key={d.id}
                 aria-labelledby={`${d.id}-title`}
-                className="rounded-2xl border bg-white border-[rgb(var(--c-primary)/0.3)] shadow-lg"
+                className="flex h-full flex-col rounded-2xl border bg-white border-[rgb(var(--c-primary)/0.3)] shadow-lg"
               >
                 <div className="flex w-full items-start gap-4 p-5 text-left">
                   <span
