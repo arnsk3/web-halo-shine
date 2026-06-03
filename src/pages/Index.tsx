@@ -11,6 +11,11 @@ import personaSafety from "@/assets/persona-safety.jpg";
 import personaLeadership from "@/assets/persona-leadership.jpg";
 import ThemeSwitcher from "@/components/ThemeSwitcher";
 import ExpertiseSection from "@/components/ExpertiseSection";
+import caseWcagtool from "@/assets/case-wcagtool.jpg";
+import caseGe from "@/assets/case-ge.jpg";
+import caseSsa from "@/assets/case-ssa.jpg";
+import caseBestbuy from "@/assets/case-bestbuy.jpg";
+import caseSamhsa from "@/assets/case-samhsa.jpg";
 
 /* ═══════════════════════════════════════════
    SENTHIL KUMAR NAGAPPAN — PORTFOLIO SITE
@@ -24,6 +29,7 @@ type CaseStudyType = {
   title: string;
   subtitle: string;
   hero: string;
+  image?: string;
   role: string;
   timeline: string;
   org: string;
@@ -44,6 +50,7 @@ const CASE_STUDIES: CaseStudyType[] = [
     subtitle:
       "Designed and built a standalone, AAA-compliant accessibility remediation tool that scans any URL or pasted HTML against 28 WCAG 2.2 criteria and returns visual code fixes, before/after examples, and a prioritized roadmap.",
     hero: "from-[rgb(var(--c-hero-mid))] via-[rgb(var(--c-primary))] to-[rgb(var(--c-accent))]",
+    image: caseWcagtool,
     role: "Product Owner · Accessibility Architect · Builder",
     timeline: "2025 – Present",
     org: "BrainPulse (In-House)",
@@ -104,6 +111,7 @@ const CASE_STUDIES: CaseStudyType[] = [
     subtitle:
       "Built the AI safety function from the ground up at GE HealthCare — zero AI-enabled features now ship without passing this framework.",
     hero: "from-[rgb(var(--c-hero-dark))] via-[rgb(var(--c-primary))] to-[rgb(var(--c-accent))]",
+    image: caseGe,
     role: "AI + Human Systems Integration Lead",
     timeline: "2025 – Present",
     org: "GE HealthCare",
@@ -165,6 +173,7 @@ const CASE_STUDIES: CaseStudyType[] = [
     subtitle:
       "Conceived, built, and deployed an AI-driven compliance platform that replaced manual audits with continuous validation — saving $1.5M+ annually and becoming the federal standard.",
     hero: "from-[#1a1a2e] via-[#16213e] to-[#0f3460]",
+    image: caseSsa,
     role: "Sr. UX & Accessibility Lead",
     timeline: "2022 – 2025",
     org: "Leidos / Social Security Administration",
@@ -225,6 +234,7 @@ const CASE_STUDIES: CaseStudyType[] = [
     subtitle:
       "Applied military human factors standards to eliminate missed emergency activations in consumer health products — saving lives through engineering discipline.",
     hero: "from-[#2d1b69] via-[#11998e] to-[#38ef7d]",
+    image: caseBestbuy,
     role: "Inclusive Design & Accessibility Lead",
     timeline: "2021 – 2022",
     org: "Best Buy Health",
@@ -283,6 +293,7 @@ const CASE_STUDIES: CaseStudyType[] = [
     subtitle:
       "Directed a national-scale portfolio end-to-end for 7 years — building teams, defining governance, and influencing executive funding decisions that shaped behavioral health systems nationwide.",
     hero: "from-[rgb(var(--c-primary))] via-[rgb(var(--c-accent))] to-[rgb(var(--c-accent-light))]",
+    image: caseSamhsa,
     role: "Sr. UX & Accessibility Program Manager",
     timeline: "2014 – 2021",
     org: "Eagle Technologies / HHS / SAMHSA",
@@ -548,9 +559,20 @@ function Home({
             <FadeIn key={s.id} delay={i * 0.08} className="h-full">
               <article className="h-full flex flex-col rounded-xl overflow-hidden bg-white border border-gray-200 transition-all hover:border-[rgb(var(--c-primary)/0.3)] hover:shadow-lg">
                 <div
-                  className={`h-52 bg-gradient-to-br ${s.hero} flex items-end p-6`}
+                  className={`relative h-52 bg-gradient-to-br ${s.hero} flex items-end p-6 overflow-hidden`}
                 >
-                  <span className="text-white text-xs font-semibold tracking-widest uppercase">
+                  {s.image && (
+                    <img
+                      src={s.image}
+                      alt={`Project visual for ${s.title}`}
+                      loading="lazy"
+                      width={1024}
+                      height={640}
+                      className="absolute inset-0 h-full w-full object-cover"
+                    />
+                  )}
+                  <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                  <span className="relative text-white text-xs font-semibold tracking-widest uppercase">
                     {s.tag}
                   </span>
                 </div>
