@@ -41,7 +41,7 @@ const CASE_STUDIES: CaseStudyType[] = [
     title: "WCAG AI Remediation Suite — AAA-Compliant Engine with AI Suggestions, Visual Cues & Fixes",
     subtitle:
       "Designed and built a standalone, AAA-compliant accessibility remediation tool that scans any URL or pasted HTML against 28 WCAG 2.2 criteria and returns visual code fixes, before/after examples, and a prioritized roadmap.",
-    hero: "from-[#0b132b] via-[#1B3A5C] to-[#2E75B6]",
+    hero: "from-[#082a30] via-[#134E5E] to-[#2C8C9C]",
     role: "Product Owner · Accessibility Architect · Builder",
     timeline: "2025 – Present",
     org: "BrainPulse (In-House)",
@@ -101,7 +101,7 @@ const CASE_STUDIES: CaseStudyType[] = [
     title: "AI Safety Framework for Clinical Decision-Support",
     subtitle:
       "Built the AI safety function from the ground up at GE HealthCare — zero AI-enabled features now ship without passing this framework.",
-    hero: "from-[#0f2027] via-[#1B3A5C] to-[#2E75B6]",
+    hero: "from-[#0f2027] via-[#134E5E] to-[#2C8C9C]",
     role: "AI + Human Systems Integration Lead",
     timeline: "2025 – Present",
     org: "GE HealthCare",
@@ -280,7 +280,7 @@ const CASE_STUDIES: CaseStudyType[] = [
     title: "$130M Federal Behavioral Health Program",
     subtitle:
       "Directed a national-scale portfolio end-to-end for 7 years — building teams, defining governance, and influencing executive funding decisions that shaped behavioral health systems nationwide.",
-    hero: "from-[#1B3A5C] via-[#4a6fa5] to-[#E8913A]",
+    hero: "from-[#134E5E] via-[#3a8a98] to-[#E76F51]",
     role: "Sr. UX & Accessibility Program Manager",
     timeline: "2014 – 2021",
     org: "Eagle Technologies / HHS / SAMHSA",
@@ -411,7 +411,7 @@ function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) 
         <button
           onClick={() => setPage("home")}
           aria-label="Senthil Nagappan — go to home"
-          className="flex items-center gap-2 group rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2"
+          className="flex items-center gap-2 group rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[#134E5E] focus-visible:ring-offset-2"
         >
           <img
             src="/headshot.jpg"
@@ -429,9 +429,9 @@ function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) 
               <button
                 onClick={() => setPage(l.id)}
                 aria-current={page === l.id ? "page" : undefined}
-                className={`inline-flex items-center min-h-11 px-2.5 sm:px-3 py-1.5 rounded-md text-sm transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2 ${
+                className={`inline-flex items-center min-h-11 px-2.5 sm:px-3 py-1.5 rounded-md text-sm transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#134E5E] focus-visible:ring-offset-2 ${
                   page === l.id
-                    ? "bg-[#1B3A5C]/10 text-[#1B3A5C] font-semibold"
+                    ? "bg-[#134E5E]/10 text-[#134E5E] font-semibold"
                     : "text-gray-700 hover:text-gray-900 hover:bg-gray-100"
                 }`}
               >
@@ -455,7 +455,7 @@ function Home({
   return (
     <div>
       {/* Hero */}
-      <header className="relative overflow-hidden bg-gradient-to-br from-[#0f1a2e] via-[#1B3A5C] to-[#2a5a8a] text-white">
+      <header className="relative overflow-hidden bg-gradient-to-br from-[#082730] via-[#134E5E] to-[#1f7a8c] text-white">
         <div
           className="absolute inset-0 opacity-[0.04]"
           style={{
@@ -466,14 +466,14 @@ function Home({
         />
         <div className="max-w-3xl mx-auto px-6 py-24 text-center relative">
           <FadeIn>
-            <p className="text-[#E8913A] text-xs font-semibold tracking-[3px] uppercase mb-5">
+            <p className="text-[#E76F51] text-xs font-semibold tracking-[3px] uppercase mb-5">
               AI Safety · Human Systems Integration · Accessibility
             </p>
           </FadeIn>
           <FadeIn delay={0.1}>
             <h1 className="text-4xl sm:text-5xl font-extrabold leading-[1.1] mb-5 tracking-tight">
               Designing for systems where getting it wrong
-              <span className="text-[#E8913A]"> isn't an option.</span>
+              <span className="text-[#E76F51]"> isn't an option.</span>
             </h1>
           </FadeIn>
           <FadeIn delay={0.2}>
@@ -488,13 +488,13 @@ function Home({
                 onClick={() =>
                   document.getElementById("cases")?.scrollIntoView({ behavior: "smooth" })
                 }
-                className="inline-flex items-center justify-center min-h-11 bg-white text-[#1B3A5C] px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-[#E8913A] hover:text-white transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E8913A] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1B3A5C]"
+                className="inline-flex items-center justify-center min-h-11 bg-white text-[#134E5E] px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-[#E76F51] hover:text-white transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E76F51] focus-visible:ring-offset-2 focus-visible:ring-offset-[#134E5E]"
               >
                 View Case Studies <span aria-hidden="true">↓</span>
               </button>
               <button
                 onClick={() => setPage("about")}
-                className="inline-flex items-center justify-center min-h-11 border border-white/60 text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-white/10 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E8913A] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1B3A5C]"
+                className="inline-flex items-center justify-center min-h-11 border border-white/60 text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-white/10 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E76F51] focus-visible:ring-offset-2 focus-visible:ring-offset-[#134E5E]"
               >
                 About Me
               </button>
@@ -512,7 +512,7 @@ function Home({
           {CREDS.map((c) => (
             <li
               key={c}
-              className="text-[10px] sm:text-xs px-3 py-1 rounded-full border border-[#1B3A5C]/30 text-[#1B3A5C] font-medium bg-white"
+              className="text-[10px] sm:text-xs px-3 py-1 rounded-full border border-[#134E5E]/30 text-[#134E5E] font-medium bg-white"
             >
               {c}
             </li>
@@ -538,7 +538,7 @@ function Home({
                   setCase(s);
                 }}
                 aria-label={`View case study: ${s.title}`}
-                className="text-left w-full group rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2"
+                className="text-left w-full group rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[#134E5E] focus-visible:ring-offset-2"
               >
                 <div
                   className={`h-36 bg-gradient-to-br ${s.hero} rounded-t-xl flex items-end p-5`}
@@ -547,8 +547,8 @@ function Home({
                     {s.tag}
                   </span>
                 </div>
-                <div className="bg-white border border-t-0 border-gray-200 rounded-b-xl p-5 group-hover:border-[#1B3A5C]/30 group-hover:shadow-lg transition-all">
-                  <h3 className="font-bold text-gray-900 text-base mb-1.5 leading-snug group-hover:text-[#1B3A5C] transition-colors">
+                <div className="bg-white border border-t-0 border-gray-200 rounded-b-xl p-5 group-hover:border-[#134E5E]/30 group-hover:shadow-lg transition-all">
+                  <h3 className="font-bold text-gray-900 text-base mb-1.5 leading-snug group-hover:text-[#134E5E] transition-colors">
                     {s.title}
                   </h3>
                   <p className="text-gray-700 text-xs mb-4 leading-relaxed line-clamp-2">
@@ -592,7 +592,7 @@ function Home({
               </p>
               <button
                 onClick={() => setPage("about")}
-                className="text-[#1B3A5C] text-sm font-semibold hover:text-[#E8913A] transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2"
+                className="text-[#134E5E] text-sm font-semibold hover:text-[#E76F51] transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#134E5E] focus-visible:ring-offset-2"
               >
                 Read full story <span aria-hidden="true">→</span>
                 <span className="sr-only">about Senthil Nagappan</span>
@@ -652,9 +652,9 @@ const SHOWCASE: Record<string, ShowcaseConfig> = {
         title: "Portfolio Dashboard",
         body: (
           <>
-            <WBar w="55%" h={10} c="bg-[#1B3A5C]" />
+            <WBar w="55%" h={10} c="bg-[#134E5E]" />
             <div className="grid grid-cols-3 gap-2 mt-1">
-              <WBlock h={42} c="bg-[#eaf3fb]"><div className="p-1.5"><div className="text-[9px] text-[#1B3A5C] font-bold">CRIT</div><div className="text-sm font-bold text-[#1B3A5C]">128</div></div></WBlock>
+              <WBlock h={42} c="bg-[#e6f4f5]"><div className="p-1.5"><div className="text-[9px] text-[#134E5E] font-bold">CRIT</div><div className="text-sm font-bold text-[#134E5E]">128</div></div></WBlock>
               <WBlock h={42} c="bg-[#fff4e5]"><div className="p-1.5"><div className="text-[9px] text-[#8a5a00] font-bold">SERIOUS</div><div className="text-sm font-bold text-[#8a5a00]">412</div></div></WBlock>
               <WBlock h={42} c="bg-[#eef7ee]"><div className="p-1.5"><div className="text-[9px] text-[#1f6b2e] font-bold">PASSED</div><div className="text-sm font-bold text-[#1f6b2e]">9.2k</div></div></WBlock>
             </div>
@@ -668,7 +668,7 @@ const SHOWCASE: Record<string, ShowcaseConfig> = {
         title: "Issue Detail · WCAG 1.4.3",
         body: (
           <>
-            <WBar w="70%" h={10} c="bg-[#1B3A5C]" />
+            <WBar w="70%" h={10} c="bg-[#134E5E]" />
             <div className="rounded bg-gray-900 p-2 font-mono text-[8px] leading-tight text-green-300" aria-hidden="true">
               {'<button class="text-gray-600">'}<br />&nbsp;&nbsp;Submit<br />{'</button>'}
             </div>
@@ -685,13 +685,13 @@ const SHOWCASE: Record<string, ShowcaseConfig> = {
         title: "AI Remediation Suggestion",
         body: (
           <>
-            <WBar w="60%" h={10} c="bg-[#1B3A5C]" />
-            <div className="rounded bg-[#f4faff] border border-[#cfe3f5] p-2" aria-hidden="true">
-              <div className="text-[9px] font-bold text-[#1B3A5C] mb-1">PROPOSED FIX</div>
+            <WBar w="60%" h={10} c="bg-[#134E5E]" />
+            <div className="rounded bg-[#f0fafb] border border-[#c3e1e4] p-2" aria-hidden="true">
+              <div className="text-[9px] font-bold text-[#134E5E] mb-1">PROPOSED FIX</div>
               <div className="font-mono text-[8px] leading-tight text-[#0f2027]">class="text-gray-900"</div>
             </div>
             <div className="flex gap-1.5 mt-auto">
-              <div className="flex-1 rounded bg-[#1B3A5C] text-white text-[9px] font-bold text-center py-1.5">Open PR</div>
+              <div className="flex-1 rounded bg-[#134E5E] text-white text-[9px] font-bold text-center py-1.5">Open PR</div>
               <div className="flex-1 rounded border border-gray-300 text-gray-700 text-[9px] font-bold text-center py-1.5">Dismiss</div>
             </div>
           </>
@@ -715,11 +715,11 @@ const SHOWCASE: Record<string, ShowcaseConfig> = {
                 <WBar w="90%" h={5} />
                 <WBar w="75%" h={5} />
               </div>
-              <div className="w-20 rounded bg-[#eaf3fb] border border-[#cfe3f5] p-1.5 space-y-1" aria-hidden="true">
-                <div className="text-[8px] font-bold text-[#1B3A5C]">AI INSIGHT</div>
-                <WBar w="100%" h={4} c="bg-[#2E75B6]" />
-                <WBar w="80%" h={4} c="bg-[#2E75B6]/60" />
-                <WBar w="60%" h={4} c="bg-[#2E75B6]/40" />
+              <div className="w-20 rounded bg-[#e6f4f5] border border-[#c3e1e4] p-1.5 space-y-1" aria-hidden="true">
+                <div className="text-[8px] font-bold text-[#134E5E]">AI INSIGHT</div>
+                <WBar w="100%" h={4} c="bg-[#2C8C9C]" />
+                <WBar w="80%" h={4} c="bg-[#2C8C9C]/60" />
+                <WBar w="60%" h={4} c="bg-[#2C8C9C]/40" />
               </div>
             </div>
             <WBar w="100%" h={5} />
@@ -735,7 +735,7 @@ const SHOWCASE: Record<string, ShowcaseConfig> = {
             <div aria-hidden="true">
               <div className="text-[9px] text-gray-700 mb-1 font-medium">Model confidence</div>
               <div className="h-2 rounded-full bg-gray-200 overflow-hidden">
-                <div className="h-full bg-gradient-to-r from-[#2E75B6] to-[#1B3A5C]" style={{ width: "72%" }} />
+                <div className="h-full bg-gradient-to-r from-[#2C8C9C] to-[#134E5E]" style={{ width: "72%" }} />
               </div>
               <div className="text-[8px] text-gray-600 mt-0.5">72% · Moderate</div>
             </div>
@@ -760,7 +760,7 @@ const SHOWCASE: Record<string, ShowcaseConfig> = {
               ))}
             </div>
             <div className="flex gap-1.5 mt-auto">
-              <div className="flex-1 rounded bg-[#1B3A5C] text-white text-[9px] font-bold text-center py-1.5">Log Decision</div>
+              <div className="flex-1 rounded bg-[#134E5E] text-white text-[9px] font-bold text-center py-1.5">Log Decision</div>
               <div className="flex-1 rounded border border-gray-300 text-gray-700 text-[9px] font-bold text-center py-1.5">Cancel</div>
             </div>
           </>
@@ -791,7 +791,7 @@ const SHOWCASE: Record<string, ShowcaseConfig> = {
         title: "Confirm Activation",
         body: (
           <>
-            <WBar w="60%" h={10} c="bg-[#1B3A5C]" />
+            <WBar w="60%" h={10} c="bg-[#134E5E]" />
             <div className="rounded bg-[#fff4e5] border border-[#ffd29a] p-2 text-[10px] text-[#5a3300] font-medium" aria-hidden="true">
               Calling help in 3…
             </div>
@@ -810,16 +810,16 @@ const SHOWCASE: Record<string, ShowcaseConfig> = {
         body: (
           <>
             <div className="flex items-center gap-2" aria-hidden="true">
-              <div className="w-8 h-8 rounded-full bg-[#eaf3fb] border border-[#cfe3f5]" />
+              <div className="w-8 h-8 rounded-full bg-[#e6f4f5] border border-[#c3e1e4]" />
               <div className="flex-1 space-y-1">
-                <WBar w="70%" h={6} c="bg-[#1B3A5C]" />
+                <WBar w="70%" h={6} c="bg-[#134E5E]" />
                 <WBar w="45%" h={5} />
               </div>
             </div>
             <div className="flex-1 rounded bg-[#eef7ee] border border-[#cce6d0] flex items-center justify-center text-[10px] font-bold text-[#1f6b2e] min-h-[40px]" aria-hidden="true">
               ● LIVE · 00:14
             </div>
-            <div className="rounded bg-[#1B3A5C] text-white text-[10px] font-bold text-center py-2" aria-hidden="true">End Call</div>
+            <div className="rounded bg-[#134E5E] text-white text-[10px] font-bold text-center py-2" aria-hidden="true">End Call</div>
           </>
         ),
       },
@@ -834,14 +834,14 @@ const SHOWCASE: Record<string, ShowcaseConfig> = {
         title: "Portfolio Dashboard",
         body: (
           <>
-            <WBar w="55%" h={10} c="bg-[#1B3A5C]" />
+            <WBar w="55%" h={10} c="bg-[#134E5E]" />
             <div className="grid grid-cols-2 gap-2" aria-hidden="true">
-              <WBlock h={36} c="bg-[#eaf3fb]"><div className="p-1.5"><div className="text-[8px] text-[#1B3A5C] font-bold">VALUE</div><div className="text-xs font-bold text-[#1B3A5C]">$130M</div></div></WBlock>
+              <WBlock h={36} c="bg-[#e6f4f5]"><div className="p-1.5"><div className="text-[8px] text-[#134E5E] font-bold">VALUE</div><div className="text-xs font-bold text-[#134E5E]">$130M</div></div></WBlock>
               <WBlock h={36} c="bg-[#eef7ee]"><div className="p-1.5"><div className="text-[8px] text-[#1f6b2e] font-bold">ACTIVE</div><div className="text-xs font-bold text-[#1f6b2e]">42</div></div></WBlock>
             </div>
             <div className="flex items-end gap-1 h-8 mt-1" aria-hidden="true">
               {[40, 55, 35, 70, 50, 80, 65].map((h, i) => (
-                <div key={i} className="flex-1 rounded-sm bg-[#2E75B6]" style={{ height: `${h}%` }} />
+                <div key={i} className="flex-1 rounded-sm bg-[#2C8C9C]" style={{ height: `${h}%` }} />
               ))}
             </div>
           </>
@@ -851,12 +851,12 @@ const SHOWCASE: Record<string, ShowcaseConfig> = {
         title: "Program Detail",
         body: (
           <>
-            <WBar w="65%" h={10} c="bg-[#1B3A5C]" />
+            <WBar w="65%" h={10} c="bg-[#134E5E]" />
             <div className="space-y-1" aria-hidden="true">
               <div className="flex justify-between text-[9px] text-gray-700"><span>Milestones</span><span className="font-bold text-[#1f6b2e]">8 / 10</span></div>
               <div className="h-1.5 rounded-full bg-gray-200 overflow-hidden"><div className="h-full bg-[#1f6b2e]" style={{ width: "80%" }} /></div>
-              <div className="flex justify-between text-[9px] text-gray-700"><span>Budget used</span><span className="font-bold text-[#1B3A5C]">62%</span></div>
-              <div className="h-1.5 rounded-full bg-gray-200 overflow-hidden"><div className="h-full bg-[#1B3A5C]" style={{ width: "62%" }} /></div>
+              <div className="flex justify-between text-[9px] text-gray-700"><span>Budget used</span><span className="font-bold text-[#134E5E]">62%</span></div>
+              <div className="h-1.5 rounded-full bg-gray-200 overflow-hidden"><div className="h-full bg-[#134E5E]" style={{ width: "62%" }} /></div>
             </div>
             <WBar w="100%" h={5} />
             <WBar w="80%" h={5} />
@@ -867,15 +867,15 @@ const SHOWCASE: Record<string, ShowcaseConfig> = {
         title: "Executive Brief",
         body: (
           <>
-            <WBar w="50%" h={10} c="bg-[#1B3A5C]" />
-            <div className="rounded bg-[#f4faff] border border-[#cfe3f5] p-1.5 space-y-1" aria-hidden="true">
-              <div className="text-[8px] font-bold text-[#1B3A5C]">KEY TAKEAWAY</div>
+            <WBar w="50%" h={10} c="bg-[#134E5E]" />
+            <div className="rounded bg-[#f0fafb] border border-[#c3e1e4] p-1.5 space-y-1" aria-hidden="true">
+              <div className="text-[8px] font-bold text-[#134E5E]">KEY TAKEAWAY</div>
               <WBar w="100%" h={4} />
               <WBar w="85%" h={4} />
               <WBar w="60%" h={4} />
             </div>
             <div className="flex gap-1.5 mt-auto" aria-hidden="true">
-              <div className="flex-1 rounded bg-[#1B3A5C] text-white text-[9px] font-bold text-center py-1.5">Export PDF</div>
+              <div className="flex-1 rounded bg-[#134E5E] text-white text-[9px] font-bold text-center py-1.5">Export PDF</div>
               <div className="flex-1 rounded border border-gray-300 text-gray-700 text-[9px] font-bold text-center py-1.5">Share</div>
             </div>
           </>
@@ -902,7 +902,7 @@ function CaseStudyShowcase({ id }: { id: string }) {
         >
           {cfg.steps.map((step, i) => (
             <li key={step} className="flex-1 flex items-center gap-2 px-3 py-3 border-b md:border-b-0 md:border-r border-gray-200 last:border-0">
-              <span className="w-6 h-6 rounded-full bg-[#1B3A5C] text-white text-[10px] font-bold flex items-center justify-center flex-shrink-0">
+              <span className="w-6 h-6 rounded-full bg-[#134E5E] text-white text-[10px] font-bold flex items-center justify-center flex-shrink-0">
                 {i + 1}
               </span>
               <span className="text-[11px] font-semibold text-gray-800 leading-tight">{step}</span>
@@ -1158,7 +1158,7 @@ function ResearchProcess({ id }: { id: string }) {
         </figcaption>
 
         {/* Header band */}
-        <div className="rounded-t-xl bg-gradient-to-r from-[#0f2027] via-[#1B3A5C] to-[#2E75B6] text-white px-5 py-3 flex items-center justify-between">
+        <div className="rounded-t-xl bg-gradient-to-r from-[#0f2027] via-[#134E5E] to-[#2C8C9C] text-white px-5 py-3 flex items-center justify-between">
           <span className="text-[11px] font-bold tracking-[0.18em] uppercase">
             User Research · Mixed Methods
           </span>
@@ -1175,12 +1175,12 @@ function ResearchProcess({ id }: { id: string }) {
           {cfg.phases.map((p, idx, arr) => (
             <li key={p.n} className="bg-white p-4 flex flex-col">
               <div className="flex items-center gap-2 mb-2">
-                <span className="text-[10px] font-bold text-[#2E75B6] tracking-widest">
+                <span className="text-[10px] font-bold text-[#2C8C9C] tracking-widest">
                   {p.n}
                 </span>
-                <span aria-hidden="true" className="flex-1 h-px bg-gradient-to-r from-[#2E75B6]/40 to-transparent" />
+                <span aria-hidden="true" className="flex-1 h-px bg-gradient-to-r from-[#2C8C9C]/40 to-transparent" />
                 {idx < arr.length - 1 && (
-                  <span aria-hidden="true" className="hidden md:inline text-[#1B3A5C] text-sm leading-none">→</span>
+                  <span aria-hidden="true" className="hidden md:inline text-[#134E5E] text-sm leading-none">→</span>
                 )}
               </div>
               <h3 className="text-[13px] font-bold text-[#0f2027] leading-snug mb-2">
@@ -1189,12 +1189,12 @@ function ResearchProcess({ id }: { id: string }) {
               <ul className="space-y-1.5 list-none p-0 m-0 flex-1">
                 {p.methods.map((m) => (
                   <li key={m} className="text-[11px] text-gray-700 leading-snug flex gap-1.5">
-                    <span aria-hidden="true" className="text-[#2E75B6] mt-0.5">•</span>
+                    <span aria-hidden="true" className="text-[#2C8C9C] mt-0.5">•</span>
                     <span>{m}</span>
                   </li>
                 ))}
               </ul>
-              <span className="mt-3 inline-block self-start text-[9px] font-semibold tracking-wider uppercase px-1.5 py-0.5 rounded bg-[#eaf3fb] text-[#1B3A5C]">
+              <span className="mt-3 inline-block self-start text-[9px] font-semibold tracking-wider uppercase px-1.5 py-0.5 rounded bg-[#e6f4f5] text-[#134E5E]">
                 {p.artifact}
               </span>
             </li>
@@ -1203,7 +1203,7 @@ function ResearchProcess({ id }: { id: string }) {
 
         {/* Populations + recruiting */}
         <div className="bg-white border-x border-b border-gray-200 px-5 py-4">
-          <h3 className="text-[11px] font-bold tracking-[0.18em] uppercase text-[#1B3A5C] mb-3">
+          <h3 className="text-[11px] font-bold tracking-[0.18em] uppercase text-[#134E5E] mb-3">
             Recruiting · Participant Mix
           </h3>
           <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 list-none p-0 m-0">
@@ -1212,7 +1212,7 @@ function ResearchProcess({ id }: { id: string }) {
                 key={p.label}
                 className="border border-gray-200 rounded-lg px-3 py-2 bg-[#fafbfc] flex items-baseline gap-2"
               >
-                <span className="text-[13px] font-extrabold text-[#1B3A5C] tabular-nums">
+                <span className="text-[13px] font-extrabold text-[#134E5E] tabular-nums">
                   {p.n}
                 </span>
                 <div className="flex-1 min-w-0">
@@ -1235,7 +1235,7 @@ function ResearchProcess({ id }: { id: string }) {
                 key={m.label}
                 className="bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-center"
               >
-                <div className="text-lg font-extrabold text-[#E8913A] tabular-nums">{m.value}</div>
+                <div className="text-lg font-extrabold text-[#E76F51] tabular-nums">{m.value}</div>
                 <div className="text-[10px] text-white/85 leading-snug">{m.label}</div>
               </li>
             ))}
@@ -1963,7 +1963,7 @@ function GeFrameworkPersonas() {
                 key={p.name}
                 className="border border-gray-200 rounded-xl overflow-hidden bg-white flex flex-col"
               >
-                <div className="flex items-center gap-4 p-5 bg-gradient-to-r from-[#0f2027] via-[#1B3A5C] to-[#2E75B6] text-white">
+                <div className="flex items-center gap-4 p-5 bg-gradient-to-r from-[#0f2027] via-[#134E5E] to-[#2C8C9C] text-white">
                   <img
                     src={p.img}
                     alt={`Persona portrait of ${p.name}`}
@@ -1982,7 +1982,7 @@ function GeFrameworkPersonas() {
                 </div>
                 <div className="p-5 space-y-4">
                   <p className="text-[12.5px] text-gray-700 leading-relaxed">
-                    <span className="font-semibold text-[#1B3A5C]">Context: </span>
+                    <span className="font-semibold text-[#134E5E]">Context: </span>
                     {p.context}
                   </p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -2015,7 +2015,7 @@ function GeFrameworkPersonas() {
                     {p.needs.map((n) => (
                       <span
                         key={n}
-                        className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#eaf3fb] text-[#1B3A5C] border border-[#cfe2f3]"
+                        className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#e6f4f5] text-[#134E5E] border border-[#c3e1e4]"
                       >
                         {n}
                       </span>
@@ -2043,11 +2043,11 @@ function GeFrameworkPersonas() {
           <div className="flex flex-wrap items-center gap-2 mb-4">
             {stages.map((s, i) => (
               <span key={s} className="inline-flex items-center gap-2">
-                <span className="text-[11px] font-semibold px-2.5 py-1 rounded-md bg-[#eaf3fb] text-[#1B3A5C] border border-[#cfe2f3]">
+                <span className="text-[11px] font-semibold px-2.5 py-1 rounded-md bg-[#e6f4f5] text-[#134E5E] border border-[#c3e1e4]">
                   {i + 1}. {s}
                 </span>
                 {i < stages.length - 1 && (
-                  <span aria-hidden="true" className="text-[#9bbce0] text-xs">→</span>
+                  <span aria-hidden="true" className="text-[#9ccad2] text-xs">→</span>
                 )}
               </span>
             ))}
@@ -2058,7 +2058,7 @@ function GeFrameworkPersonas() {
             <button
               type="button"
               onClick={() => setOpenJourneys(journeys.map((j) => j.persona))}
-              className="text-[11px] font-semibold px-3 py-1.5 rounded-md border border-gray-200 bg-white text-[#1B3A5C] hover:bg-gray-50 transition-colors"
+              className="text-[11px] font-semibold px-3 py-1.5 rounded-md border border-gray-200 bg-white text-[#134E5E] hover:bg-gray-50 transition-colors"
             >
               Expand all
             </button>
@@ -2085,11 +2085,11 @@ function GeFrameworkPersonas() {
                     aria-expanded={isOpen}
                     aria-controls={panelId}
                     onClick={() => toggleJourney(j.persona)}
-                    className="w-full flex items-center justify-between gap-3 px-4 py-3 text-left bg-gradient-to-br from-[#0f2027] via-[#1B3A5C] to-[#2E75B6] text-white hover:opacity-95 transition-opacity"
+                    className="w-full flex items-center justify-between gap-3 px-4 py-3 text-left bg-gradient-to-br from-[#0f2027] via-[#134E5E] to-[#2C8C9C] text-white hover:opacity-95 transition-opacity"
                   >
                     <span className="text-[13px] font-bold">{j.persona}</span>
                     <span className="flex items-center gap-3">
-                      <span className="text-[10px] font-medium text-[#9bbce0] hidden sm:inline">
+                      <span className="text-[10px] font-medium text-[#9ccad2] hidden sm:inline">
                         {j.tasks.length} tasks · {j.needs.length} safety needs
                       </span>
                       <span
@@ -2173,13 +2173,13 @@ function WcagToolDetails() {
       title: "Low text contrast on button",
       impact: "Serious",
       suggestion:
-        "Foreground/background ratio is 2.1:1. Darken the text to #1B3A5C to reach 4.5:1 for AA / 7:1 for AAA.",
+        "Foreground/background ratio is 2.1:1. Darken the text to #134E5E to reach 4.5:1 for AA / 7:1 for AAA.",
       before: `.cta {
-  color: #9bbce0; /* ratio 2.1:1 */
+  color: #9ccad2; /* ratio 2.1:1 */
   background: #ffffff;
 }`,
       after: `.cta {
-  color: #1B3A5C; /* ratio 8.9:1 */
+  color: #134E5E; /* ratio 8.9:1 */
   background: #ffffff;
 }`,
     },
@@ -2525,7 +2525,7 @@ function WcagToolDetails() {
       <FadeIn>
         <section
           aria-labelledby="wcag-ai-title"
-          className="rounded-xl bg-gradient-to-br from-[#0b132b] via-[#1B3A5C] to-[#2E75B6] p-6 text-white"
+          className="rounded-xl bg-gradient-to-br from-[#082a30] via-[#134E5E] to-[#2C8C9C] p-6 text-white"
         >
           <div className="flex items-center gap-2 mb-3">
             <span
@@ -2593,14 +2593,14 @@ function WcagToolDetails() {
                     {ex.criterion}
                   </span>
                   <h3 className="text-[13px] font-bold text-gray-900">{ex.title}</h3>
-                  <span className="ml-auto text-[10px] font-semibold px-2 py-0.5 rounded bg-[#eaf3fb] text-[#1B3A5C]">
+                  <span className="ml-auto text-[10px] font-semibold px-2 py-0.5 rounded bg-[#e6f4f5] text-[#134E5E]">
                     {ex.impact}
                   </span>
                 </div>
 
                 <div className="px-5 py-3 border-b border-gray-100">
                   <p className="text-[12px] text-gray-700 leading-relaxed">
-                    <span className="font-semibold text-[#2E75B6]">AI suggestion: </span>
+                    <span className="font-semibold text-[#2C8C9C]">AI suggestion: </span>
                     {ex.suggestion}
                   </p>
                 </div>
@@ -2657,7 +2657,7 @@ function WcagToolDetails() {
               >
                 <span
                   aria-hidden="true"
-                  className="shrink-0 w-10 h-10 rounded-lg bg-[#eaf3fb] text-[#1B3A5C] font-bold text-sm flex items-center justify-center"
+                  className="shrink-0 w-10 h-10 rounded-lg bg-[#e6f4f5] text-[#134E5E] font-bold text-sm flex items-center justify-center"
                 >
                   {p.icon}
                 </span>
@@ -2690,7 +2690,7 @@ function WcagToolDetails() {
                 key={p.name}
                 className="border border-gray-200 rounded-xl overflow-hidden bg-white flex flex-col"
               >
-                <div className="flex items-center gap-4 p-5 bg-gradient-to-r from-[#0b132b] via-[#1B3A5C] to-[#2E75B6] text-white">
+                <div className="flex items-center gap-4 p-5 bg-gradient-to-r from-[#082a30] via-[#134E5E] to-[#2C8C9C] text-white">
                   <img
                     src={p.img}
                     alt={`Persona portrait of ${p.name}`}
@@ -2709,7 +2709,7 @@ function WcagToolDetails() {
                 </div>
                 <div className="p-5 space-y-4">
                   <p className="text-[12.5px] text-gray-700 leading-relaxed">
-                    <span className="font-semibold text-[#1B3A5C]">Context: </span>
+                    <span className="font-semibold text-[#134E5E]">Context: </span>
                     {p.context}
                   </p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -2742,7 +2742,7 @@ function WcagToolDetails() {
                     {p.needs.map((n) => (
                       <span
                         key={n}
-                        className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#eaf3fb] text-[#1B3A5C] border border-[#cfe2f3]"
+                        className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#e6f4f5] text-[#134E5E] border border-[#c3e1e4]"
                       >
                         {n}
                       </span>
@@ -2765,12 +2765,12 @@ function WcagToolDetails() {
             A layered structure (L0–L4) lets every persona reach the same shared "Issue Detail"
             unit from their own workflow — then aggregate it into roadmaps and evidence.
           </p>
-          <ol className="relative border-l-2 border-[#cfe2f3] ml-3 space-y-6 list-none p-0 m-0">
+          <ol className="relative border-l-2 border-[#c3e1e4] ml-3 space-y-6 list-none p-0 m-0">
             {iaLevels.map((lvl) => (
               <li key={lvl.level} className="ml-6">
                 <span
                   aria-hidden="true"
-                  className="absolute -left-[9px] w-4 h-4 rounded-full bg-[#2E75B6] ring-4 ring-white"
+                  className="absolute -left-[9px] w-4 h-4 rounded-full bg-[#2C8C9C] ring-4 ring-white"
                 />
                 <div className="border border-gray-200 rounded-xl p-4 bg-white">
                   <h3 className="text-[13px] font-bold text-[#0f2027] mb-2">{lvl.level}</h3>
@@ -2815,7 +2815,7 @@ function WcagToolDetails() {
                       "text-[10px] font-bold tracking-wide uppercase px-2 py-0.5 rounded " +
                       (s.kind === "Qualitative"
                         ? "bg-[#f3e8fd] text-[#7e22ce]"
-                        : "bg-[#e6f4ff] text-[#1B3A5C]")
+                        : "bg-[#e0f2f4] text-[#134E5E]")
                     }
                   >
                     {s.kind}
@@ -2823,11 +2823,11 @@ function WcagToolDetails() {
                 </div>
                 <div className="p-5 space-y-3">
                   <p className="text-[12px] text-gray-700">
-                    <span className="font-semibold text-[#1B3A5C]">Participants: </span>
+                    <span className="font-semibold text-[#134E5E]">Participants: </span>
                     {s.participants}
                   </p>
                   <p className="text-[12.5px] text-gray-700 leading-relaxed">
-                    <span className="font-semibold text-[#1B3A5C]">Approach: </span>
+                    <span className="font-semibold text-[#134E5E]">Approach: </span>
                     {s.approach}
                   </p>
                   <div>
@@ -2869,7 +2869,7 @@ function WcagToolDetails() {
             <button
               type="button"
               onClick={() => setOpenJourneys(journeys.map((j) => j.persona))}
-              className="text-[11px] font-semibold px-3 py-1.5 rounded-md border border-gray-200 bg-white text-[#1B3A5C] hover:bg-gray-50 transition-colors"
+              className="text-[11px] font-semibold px-3 py-1.5 rounded-md border border-gray-200 bg-white text-[#134E5E] hover:bg-gray-50 transition-colors"
             >
               Expand all
             </button>
@@ -2897,11 +2897,11 @@ function WcagToolDetails() {
                     aria-expanded={isOpen}
                     aria-controls={panelId}
                     onClick={() => toggleJourney(j.persona)}
-                    className="w-full flex items-center justify-between gap-3 px-4 py-3 text-left bg-gradient-to-br from-[#0b132b] via-[#1B3A5C] to-[#2E75B6] text-white hover:opacity-95 transition-opacity"
+                    className="w-full flex items-center justify-between gap-3 px-4 py-3 text-left bg-gradient-to-br from-[#082a30] via-[#134E5E] to-[#2C8C9C] text-white hover:opacity-95 transition-opacity"
                   >
                     <span className="text-[13px] font-bold">{j.persona}</span>
                     <span className="flex items-center gap-3">
-                      <span className="text-[10px] font-medium text-[#9bbce0] hidden sm:inline">
+                      <span className="text-[10px] font-medium text-[#9ccad2] hidden sm:inline">
                         {j.tasks.length} tasks · {j.needs.length} WCAG needs
                       </span>
                       <span
@@ -2971,10 +2971,10 @@ function WcagToolDetails() {
             {studyExcerpts.map((e) => (
               <figure
                 key={e.persona}
-                className="m-0 border-l-4 border-[#2E75B6] bg-gray-50 rounded-r-lg p-4"
+                className="m-0 border-l-4 border-[#2C8C9C] bg-gray-50 rounded-r-lg p-4"
               >
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="text-[10px] font-bold uppercase tracking-wide px-2 py-0.5 rounded bg-[#eaf3fb] text-[#1B3A5C]">
+                  <span className="text-[10px] font-bold uppercase tracking-wide px-2 py-0.5 rounded bg-[#e6f4f5] text-[#134E5E]">
                     {e.persona}
                   </span>
                   <span className="text-[10px] font-semibold uppercase tracking-wide text-gray-700">
@@ -3004,13 +3004,13 @@ function WcagToolDetails() {
             {layers.map((layer, idx, arr) => (
               <li key={layer.title} className="bg-white p-4 flex flex-col">
                 <div className="flex items-center justify-between mb-2">
-                  <h3 className="text-[12px] font-bold text-[#1B3A5C] leading-snug">
+                  <h3 className="text-[12px] font-bold text-[#134E5E] leading-snug">
                     {layer.title}
                   </h3>
                   {idx < arr.length - 1 && (
                     <span
                       aria-hidden="true"
-                      className="hidden md:inline text-[#2E75B6] text-sm leading-none"
+                      className="hidden md:inline text-[#2C8C9C] text-sm leading-none"
                     >
                       →
                     </span>
@@ -3019,7 +3019,7 @@ function WcagToolDetails() {
                 <ul className="space-y-1.5 list-none p-0 m-0">
                   {layer.items.map((it) => (
                     <li key={it} className="text-[11px] text-gray-700 flex gap-1.5">
-                      <span aria-hidden="true" className="text-[#2E75B6]">•</span>
+                      <span aria-hidden="true" className="text-[#2C8C9C]">•</span>
                       {it}
                     </li>
                   ))}
@@ -3049,7 +3049,7 @@ function WcagToolDetails() {
               "Re-scan to confirm conformance, then export Section 508 / WCAG-EM evidence.",
             ].map((step, i) => (
               <li key={i} className="flex gap-3 items-start">
-                <span className="shrink-0 w-6 h-6 rounded-full bg-[#1B3A5C] text-white text-xs flex items-center justify-center font-bold">
+                <span className="shrink-0 w-6 h-6 rounded-full bg-[#134E5E] text-white text-xs flex items-center justify-center font-bold">
                   {i + 1}
                 </span>
                 <span className="text-gray-700 text-sm leading-relaxed pt-0.5">{step}</span>
@@ -3072,7 +3072,7 @@ function DeepResearchDossier({ id }: { id: string }) {
   return (
     <FadeIn>
       <section className="my-12" aria-labelledby={titleId}>
-        <header className="rounded-t-xl bg-gradient-to-r from-[#0f2027] via-[#1B3A5C] to-[#2E75B6] text-white px-5 py-3 flex items-center justify-between">
+        <header className="rounded-t-xl bg-gradient-to-r from-[#0f2027] via-[#134E5E] to-[#2C8C9C] text-white px-5 py-3 flex items-center justify-between">
           <span className="text-[11px] font-bold tracking-[0.18em] uppercase">
             Research Dossier · Plan · Journey · Patterns
           </span>
@@ -3080,7 +3080,7 @@ function DeepResearchDossier({ id }: { id: string }) {
         </header>
 
         <div className="border border-t-0 border-gray-200 rounded-b-xl bg-white p-6">
-          <h3 id={titleId} className="text-lg font-bold text-[#1B3A5C] mb-2">
+          <h3 id={titleId} className="text-lg font-bold text-[#134E5E] mb-2">
             {d.title}
           </h3>
           <p className="text-sm text-gray-700 mb-6">{d.intro}</p>
@@ -3089,7 +3089,7 @@ function DeepResearchDossier({ id }: { id: string }) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
             {d.plan.map((p) => (
               <div key={p.label} className="border border-gray-200 rounded-lg p-4">
-                <div className="text-[11px] font-bold tracking-[0.16em] uppercase text-[#2E75B6] mb-2">
+                <div className="text-[11px] font-bold tracking-[0.16em] uppercase text-[#2C8C9C] mb-2">
                   {p.label}
                 </div>
                 <ul className="list-disc pl-5 space-y-1.5 text-sm text-gray-800">
@@ -3102,7 +3102,7 @@ function DeepResearchDossier({ id }: { id: string }) {
           </div>
 
           {/* Journey map */}
-          <h4 className="text-sm font-bold text-[#1B3A5C] mb-3 uppercase tracking-wide">
+          <h4 className="text-sm font-bold text-[#134E5E] mb-3 uppercase tracking-wide">
             {d.journeyTitle}
           </h4>
           <div className="overflow-x-auto mb-8">
@@ -3111,7 +3111,7 @@ function DeepResearchDossier({ id }: { id: string }) {
               aria-label={d.journeyTitle}
             >
               <thead>
-                <tr className="bg-[#1B3A5C] text-white">
+                <tr className="bg-[#134E5E] text-white">
                   <th className="p-3 font-semibold w-[14%]">Stage</th>
                   <th className="p-3 font-semibold w-[14%]">Actor</th>
                   <th className="p-3 font-semibold w-[20%]">Thinking</th>
@@ -3123,7 +3123,7 @@ function DeepResearchDossier({ id }: { id: string }) {
               <tbody>
                 {d.journey.map((s) => (
                   <tr key={s.stage} className="border-b border-gray-200 align-top">
-                    <td className="p-3 font-bold text-[#1B3A5C] bg-[#EAF1F8]">{s.stage}</td>
+                    <td className="p-3 font-bold text-[#134E5E] bg-[#E4F1F2]">{s.stage}</td>
                     <td className="p-3 text-gray-800">{s.actor}</td>
                     <td className="p-3 italic text-gray-700">“{s.thinking}”</td>
                     <td className="p-3 text-gray-800">
@@ -3148,7 +3148,7 @@ function DeepResearchDossier({ id }: { id: string }) {
           </div>
 
           {/* Patterns */}
-          <h4 className="text-sm font-bold text-[#1B3A5C] mb-3 uppercase tracking-wide">
+          <h4 className="text-sm font-bold text-[#134E5E] mb-3 uppercase tracking-wide">
             {d.patternsTitle}
           </h4>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
@@ -3157,7 +3157,7 @@ function DeepResearchDossier({ id }: { id: string }) {
                 key={p.name}
                 className="border border-gray-200 rounded-lg p-4 bg-[#F8FAFC]"
               >
-                <div className="text-sm font-bold text-[#1B3A5C] mb-1">{p.name}</div>
+                <div className="text-sm font-bold text-[#134E5E] mb-1">{p.name}</div>
                 <div className="text-xs uppercase tracking-wide text-gray-700 mt-2">Problem</div>
                 <p className="text-sm text-gray-800 mb-2">{p.problem}</p>
                 <div className="text-xs uppercase tracking-wide text-gray-700">Pattern</div>
@@ -3169,13 +3169,13 @@ function DeepResearchDossier({ id }: { id: string }) {
           </div>
 
           {/* Reporting matrix */}
-          <h4 className="text-sm font-bold text-[#1B3A5C] mb-3 uppercase tracking-wide">
+          <h4 className="text-sm font-bold text-[#134E5E] mb-3 uppercase tracking-wide">
             Reporting & Decisions by Audience
           </h4>
           <div className="overflow-x-auto">
             <table className="w-full text-left text-sm border-collapse" aria-label="Reporting and decisions by audience">
               <thead>
-                <tr className="bg-[#1B3A5C] text-white">
+                <tr className="bg-[#134E5E] text-white">
                   <th className="p-3 font-semibold w-1/3">Audience</th>
                   <th className="p-3 font-semibold w-1/3">Format</th>
                   <th className="p-3 font-semibold w-1/3">Decision driven</th>
@@ -3184,7 +3184,7 @@ function DeepResearchDossier({ id }: { id: string }) {
               <tbody>
                 {d.reporting.map((r) => (
                   <tr key={r.audience} className="border-b border-gray-200 align-top">
-                    <td className="p-3 font-semibold text-[#1B3A5C] bg-[#EAF1F8]">{r.audience}</td>
+                    <td className="p-3 font-semibold text-[#134E5E] bg-[#E4F1F2]">{r.audience}</td>
                     <td className="p-3 text-gray-800">{r.format}</td>
                     <td className="p-3 text-gray-800">{r.decision}</td>
                   </tr>
@@ -3215,11 +3215,11 @@ function CaseStudy({
         <div className="max-w-3xl mx-auto px-6 py-16">
           <button
             onClick={() => setPage("home")}
-            className="text-white/85 text-sm hover:text-white mb-6 inline-block transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E8913A] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1B3A5C]"
+            className="text-white/85 text-sm hover:text-white mb-6 inline-block transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E76F51] focus-visible:ring-offset-2 focus-visible:ring-offset-[#134E5E]"
           >
             <span aria-hidden="true">←</span> Back to Case Studies
           </button>
-          <p className="text-[#E8913A] text-xs font-semibold tracking-[2px] uppercase mb-3">
+          <p className="text-[#E76F51] text-xs font-semibold tracking-[2px] uppercase mb-3">
             {study.tag}
           </p>
           <h1 className="text-3xl sm:text-4xl font-extrabold leading-tight mb-4 tracking-tight">
@@ -3247,7 +3247,7 @@ function CaseStudy({
               href={study.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-8 inline-flex items-center gap-2 bg-white text-[#1B3A5C] font-semibold text-sm px-5 py-2.5 rounded-lg hover:bg-[#EAF1F8] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E8913A] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1B3A5C]"
+              className="mt-8 inline-flex items-center gap-2 bg-white text-[#134E5E] font-semibold text-sm px-5 py-2.5 rounded-lg hover:bg-[#E4F1F2] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E76F51] focus-visible:ring-offset-2 focus-visible:ring-offset-[#134E5E]"
             >
               {study.liveLabel ?? "View live"}
               <span aria-hidden="true">↗</span>
@@ -3282,7 +3282,7 @@ function CaseStudy({
           <FadeIn key={i} delay={i * 0.05}>
             <div className="mb-10">
               <h2 className="text-lg font-bold text-gray-900 mb-3 flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-[#1B3A5C] text-white text-xs flex items-center justify-center font-bold">
+                <span className="w-6 h-6 rounded-full bg-[#134E5E] text-white text-xs flex items-center justify-center font-bold">
                   {i + 1}
                 </span>
                 {s.heading}
@@ -3326,35 +3326,35 @@ function CaseStudy({
                   </ul>
                 </div>
                 {/* Civilian column */}
-                <div className="bg-[#eaf3fb] text-[#0f2a44] p-5 relative">
+                <div className="bg-[#e6f4f5] text-[#0d3a44] p-5 relative">
                   <div className="flex items-center gap-2 mb-4">
                     <span
                       aria-hidden="true"
-                      className="w-2 h-2 rounded-full bg-[#2E75B6]"
+                      className="w-2 h-2 rounded-full bg-[#2C8C9C]"
                     />
-                    <h3 className="text-sm font-bold tracking-wide uppercase text-[#1B3A5C]">
+                    <h3 className="text-sm font-bold tracking-wide uppercase text-[#134E5E]">
                       Elderly User
                     </h3>
                   </div>
                   <ul className="space-y-3 text-sm leading-snug list-none p-0 m-0">
                     <li>
-                      <span aria-hidden="true" className="text-[#1B3A5C] mr-1">→</span>
+                      <span aria-hidden="true" className="text-[#134E5E] mr-1">→</span>
                       Reduced dexterity (arthritis)
                     </li>
                     <li>
-                      <span aria-hidden="true" className="text-[#1B3A5C] mr-1">→</span>
+                      <span aria-hidden="true" className="text-[#134E5E] mr-1">→</span>
                       Degraded vision (cataracts)
                     </li>
                     <li>
-                      <span aria-hidden="true" className="text-[#1B3A5C] mr-1">→</span>
+                      <span aria-hidden="true" className="text-[#134E5E] mr-1">→</span>
                       High stress (medical emergency)
                     </li>
                     <li>
-                      <span aria-hidden="true" className="text-[#1B3A5C] mr-1">→</span>
+                      <span aria-hidden="true" className="text-[#134E5E] mr-1">→</span>
                       Cognitive decline (age-related)
                     </li>
                     <li>
-                      <span aria-hidden="true" className="text-[#1B3A5C] mr-1">→</span>
+                      <span aria-hidden="true" className="text-[#134E5E] mr-1">→</span>
                       Must activate help quickly
                     </li>
                   </ul>
@@ -3377,7 +3377,7 @@ function CaseStudy({
               >
                 Portfolio scale at a glance
               </figcaption>
-              <div className="bg-[#1B3A5C] rounded-xl shadow-sm overflow-hidden">
+              <div className="bg-[#134E5E] rounded-xl shadow-sm overflow-hidden">
                 <ul className="grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-white/15 list-none p-0 m-0">
                   {[
                     { value: "$130M", label: "Portfolio Value" },
@@ -3409,7 +3409,7 @@ function CaseStudy({
               </figcaption>
 
               {/* Gate header */}
-              <div className="rounded-t-xl bg-gradient-to-r from-[#0f2027] via-[#1B3A5C] to-[#2E75B6] text-white px-5 py-3 flex items-center justify-between">
+              <div className="rounded-t-xl bg-gradient-to-r from-[#0f2027] via-[#134E5E] to-[#2C8C9C] text-white px-5 py-3 flex items-center justify-between">
                 <span className="text-[11px] font-bold tracking-[0.18em] uppercase">
                   Safety Gate
                 </span>
@@ -3460,17 +3460,17 @@ function CaseStudy({
                     className="bg-white p-4 relative flex flex-col"
                   >
                     <div className="flex items-center gap-2 mb-2">
-                      <span className="text-[10px] font-bold text-[#2E75B6] tracking-widest">
+                      <span className="text-[10px] font-bold text-[#2C8C9C] tracking-widest">
                         {stage.n}
                       </span>
                       <span
                         aria-hidden="true"
-                        className="flex-1 h-px bg-gradient-to-r from-[#2E75B6]/40 to-transparent"
+                        className="flex-1 h-px bg-gradient-to-r from-[#2C8C9C]/40 to-transparent"
                       />
                       {idx < arr.length - 1 && (
                         <span
                           aria-hidden="true"
-                          className="hidden md:inline text-[#1B3A5C] text-sm leading-none"
+                          className="hidden md:inline text-[#134E5E] text-sm leading-none"
                         >
                           →
                         </span>
@@ -3482,7 +3482,7 @@ function CaseStudy({
                     <p className="text-[11px] text-gray-700 leading-relaxed flex-1">
                       {stage.desc}
                     </p>
-                    <span className="mt-3 inline-block self-start text-[9px] font-semibold tracking-wider uppercase px-1.5 py-0.5 rounded bg-[#eaf3fb] text-[#1B3A5C]">
+                    <span className="mt-3 inline-block self-start text-[9px] font-semibold tracking-wider uppercase px-1.5 py-0.5 rounded bg-[#e6f4f5] text-[#134E5E]">
                       {stage.std}
                     </span>
                   </li>
@@ -3494,7 +3494,7 @@ function CaseStudy({
                 className="mt-3 flex items-center justify-center gap-2 text-[11px] text-gray-700"
                 aria-label="Continuous feedback loop from post-market monitoring back into hazard identification"
               >
-                <span aria-hidden="true" className="text-[#2E75B6] text-base leading-none">↻</span>
+                <span aria-hidden="true" className="text-[#2C8C9C] text-base leading-none">↻</span>
                 <span>
                   Field signals feed back into hazard identification — continuous learning loop
                 </span>
@@ -3516,7 +3516,7 @@ function CaseStudy({
               </figcaption>
 
               {/* Header band */}
-              <div className="rounded-t-xl bg-gradient-to-r from-[#0f2027] via-[#1B3A5C] to-[#2E75B6] text-white px-5 py-3 flex items-center justify-between">
+              <div className="rounded-t-xl bg-gradient-to-r from-[#0f2027] via-[#134E5E] to-[#2C8C9C] text-white px-5 py-3 flex items-center justify-between">
                 <span className="text-[11px] font-bold tracking-[0.18em] uppercase">
                   Section 508 / WCAG 2.1 AA
                 </span>
@@ -3567,17 +3567,17 @@ function CaseStudy({
                     className="bg-white p-4 relative flex flex-col"
                   >
                     <div className="flex items-center gap-2 mb-2">
-                      <span className="text-[10px] font-bold text-[#2E75B6] tracking-widest">
+                      <span className="text-[10px] font-bold text-[#2C8C9C] tracking-widest">
                         {stage.n}
                       </span>
                       <span
                         aria-hidden="true"
-                        className="flex-1 h-px bg-gradient-to-r from-[#2E75B6]/40 to-transparent"
+                        className="flex-1 h-px bg-gradient-to-r from-[#2C8C9C]/40 to-transparent"
                       />
                       {idx < arr.length - 1 && (
                         <span
                           aria-hidden="true"
-                          className="hidden md:inline text-[#1B3A5C] text-sm leading-none"
+                          className="hidden md:inline text-[#134E5E] text-sm leading-none"
                         >
                           →
                         </span>
@@ -3589,7 +3589,7 @@ function CaseStudy({
                     <p className="text-[11px] text-gray-700 leading-relaxed flex-1">
                       {stage.desc}
                     </p>
-                    <span className="mt-3 inline-block self-start text-[9px] font-semibold tracking-wider uppercase px-1.5 py-0.5 rounded bg-[#eaf3fb] text-[#1B3A5C]">
+                    <span className="mt-3 inline-block self-start text-[9px] font-semibold tracking-wider uppercase px-1.5 py-0.5 rounded bg-[#e6f4f5] text-[#134E5E]">
                       {stage.std}
                     </span>
                   </li>
@@ -3601,7 +3601,7 @@ function CaseStudy({
                 className="mt-3 flex items-center justify-center gap-2 text-[11px] text-gray-700"
                 aria-label="Verification results feed back into detection rules for continuous learning"
               >
-                <span aria-hidden="true" className="text-[#2E75B6] text-base leading-none">↻</span>
+                <span aria-hidden="true" className="text-[#2C8C9C] text-base leading-none">↻</span>
                 <span>
                   Verified fixes train the rule set — false positives shrink with every release
                 </span>
@@ -3623,7 +3623,7 @@ function CaseStudy({
               </figcaption>
 
               {/* Header band */}
-              <div className="rounded-t-xl bg-gradient-to-r from-[#0b132b] via-[#1B3A5C] to-[#2E75B6] text-white px-5 py-3 flex items-center justify-between">
+              <div className="rounded-t-xl bg-gradient-to-r from-[#082a30] via-[#134E5E] to-[#2C8C9C] text-white px-5 py-3 flex items-center justify-between">
                 <span className="text-[11px] font-bold tracking-[0.18em] uppercase">
                   WCAG 2.2 A · AA · AAA
                 </span>
@@ -3671,17 +3671,17 @@ function CaseStudy({
                 ].map((stage, idx, arr) => (
                   <li key={stage.n} className="bg-white p-4 relative flex flex-col">
                     <div className="flex items-center gap-2 mb-2">
-                      <span className="text-[10px] font-bold text-[#2E75B6] tracking-widest">
+                      <span className="text-[10px] font-bold text-[#2C8C9C] tracking-widest">
                         {stage.n}
                       </span>
                       <span
                         aria-hidden="true"
-                        className="flex-1 h-px bg-gradient-to-r from-[#2E75B6]/40 to-transparent"
+                        className="flex-1 h-px bg-gradient-to-r from-[#2C8C9C]/40 to-transparent"
                       />
                       {idx < arr.length - 1 && (
                         <span
                           aria-hidden="true"
-                          className="hidden md:inline text-[#1B3A5C] text-sm leading-none"
+                          className="hidden md:inline text-[#134E5E] text-sm leading-none"
                         >
                           →
                         </span>
@@ -3693,7 +3693,7 @@ function CaseStudy({
                     <p className="text-[11px] text-gray-700 leading-relaxed flex-1">
                       {stage.desc}
                     </p>
-                    <span className="mt-3 inline-block self-start text-[9px] font-semibold tracking-wider uppercase px-1.5 py-0.5 rounded bg-[#eaf3fb] text-[#1B3A5C]">
+                    <span className="mt-3 inline-block self-start text-[9px] font-semibold tracking-wider uppercase px-1.5 py-0.5 rounded bg-[#e6f4f5] text-[#134E5E]">
                       {stage.std}
                     </span>
                   </li>
@@ -3705,7 +3705,7 @@ function CaseStudy({
                 className="mt-3 flex items-center justify-center gap-2 text-[11px] text-gray-700"
                 aria-label="Re-scan after fixes confirms conformance in a repeatable loop"
               >
-                <span aria-hidden="true" className="text-[#2E75B6] text-base leading-none">↻</span>
+                <span aria-hidden="true" className="text-[#2C8C9C] text-base leading-none">↻</span>
                 <span>
                   Re-scan after remediation confirms conformance — repeat until AAA is reached
                 </span>
@@ -3750,12 +3750,12 @@ function CaseStudy({
 
         {/* Outcomes */}
         <FadeIn>
-          <div className="bg-[#1B3A5C] rounded-xl p-6 mb-8">
+          <div className="bg-[#134E5E] rounded-xl p-6 mb-8">
             <h2 className="text-white font-bold mb-4">Impact & Outcomes</h2>
             <ul className="space-y-2.5 list-none p-0 m-0">
               {study.outcomes.map((o, i) => (
                 <li key={i} className="flex gap-3 items-start">
-                  <span aria-hidden="true" className="text-[#E8913A] text-base mt-0.5">✓</span>
+                  <span aria-hidden="true" className="text-[#E76F51] text-base mt-0.5">✓</span>
                   <span className="text-white text-sm leading-relaxed">{o}</span>
                 </li>
               ))}
@@ -3765,21 +3765,21 @@ function CaseStudy({
 
         {/* HSI Sidebar */}
         <FadeIn>
-          <details className="group border border-[#1B3A5C]/15 rounded-xl overflow-hidden">
-            <summary className="px-5 py-3 cursor-pointer flex items-center justify-between bg-[#1B3A5C]/5 hover:bg-[#1B3A5C]/10 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-inset">
-              <span className="text-sm font-semibold text-[#1B3A5C]">
+          <details className="group border border-[#134E5E]/15 rounded-xl overflow-hidden">
+            <summary className="px-5 py-3 cursor-pointer flex items-center justify-between bg-[#134E5E]/5 hover:bg-[#134E5E]/10 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#134E5E] focus-visible:ring-inset">
+              <span className="text-sm font-semibold text-[#134E5E]">
                 How this maps to HSI methodology
               </span>
-              <span aria-hidden="true" className="text-[#1B3A5C] text-xs group-open:rotate-180 transition-transform">
+              <span aria-hidden="true" className="text-[#134E5E] text-xs group-open:rotate-180 transition-transform">
                 ▼
               </span>
             </summary>
-            <div className="px-5 py-4 border-t border-[#1B3A5C]/10">
+            <div className="px-5 py-4 border-t border-[#134E5E]/10">
               <div className="flex gap-2 flex-wrap mb-3">
                 {study.standards.map((s) => (
                   <span
                     key={s}
-                    className="text-[10px] px-2.5 py-1 rounded-full bg-[#1B3A5C]/10 text-[#1B3A5C] font-medium"
+                    className="text-[10px] px-2.5 py-1 rounded-full bg-[#134E5E]/10 text-[#134E5E] font-medium"
                   >
                     {s}
                   </span>
@@ -3788,7 +3788,7 @@ function CaseStudy({
               <ul className="space-y-1.5">
                 {study.hsi.map((h, i) => (
                   <li key={i} className="text-xs text-gray-700 flex gap-2">
-                    <span aria-hidden="true" className="text-[#1B3A5C]">→</span>
+                    <span aria-hidden="true" className="text-[#134E5E]">→</span>
                     {h}
                   </li>
                 ))}
@@ -3815,7 +3815,7 @@ function About() {
             <h1 className="text-3xl font-extrabold text-gray-900 tracking-tight mb-1">
               Senthil Kumar Nagappan
             </h1>
-            <p className="text-[#B85D1A] font-semibold text-sm mb-3">
+            <p className="text-[#C75B3F] font-semibold text-sm mb-3">
               AI Safety &amp; Human Systems Integration Leader
             </p>
             <p className="text-gray-700 text-sm leading-relaxed">
@@ -3858,9 +3858,9 @@ function About() {
           ].map((c) => (
             <div
               key={c.num}
-              className="p-5 rounded-xl bg-white border border-gray-200 hover:border-[#1B3A5C]/20 hover:shadow-sm transition-all"
+              className="p-5 rounded-xl bg-white border border-gray-200 hover:border-[#134E5E]/20 hover:shadow-sm transition-all"
             >
-              <div aria-hidden="true" className="text-3xl font-extrabold text-[#1B3A5C]/30 mb-2">{c.num}</div>
+              <div aria-hidden="true" className="text-3xl font-extrabold text-[#134E5E]/30 mb-2">{c.num}</div>
               <div className="font-bold text-gray-900 text-sm mb-1">{c.t}</div>
               <div className="text-gray-700 text-xs leading-relaxed">{c.d}</div>
             </div>
@@ -3883,7 +3883,7 @@ function About() {
             ].map((c) => (
               <span
                 key={c}
-                className="text-xs px-3 py-1.5 rounded-full bg-[#1B3A5C]/10 text-[#1B3A5C] font-medium"
+                className="text-xs px-3 py-1.5 rounded-full bg-[#134E5E]/10 text-[#134E5E] font-medium"
               >
                 {c}
               </span>
@@ -3912,7 +3912,7 @@ function Approach() {
         "Personnel · Training · HFE · Safety",
         "System-level integration",
       ],
-      color: "#1B3A5C",
+      color: "#134E5E",
     },
     {
       title: "MIL-STD-1472H",
@@ -3923,7 +3923,7 @@ function Approach() {
         "Human error mitigation",
         "Operator performance",
       ],
-      color: "#2E75B6",
+      color: "#2C8C9C",
     },
     {
       title: "MBSE / SysML",
@@ -3945,7 +3945,7 @@ function Approach() {
         "Design system integration",
         "Organizational policy",
       ],
-      color: "#E8913A",
+      color: "#E76F51",
     },
   ];
 
@@ -3986,7 +3986,7 @@ function Approach() {
       </div>
 
       <FadeIn>
-        <div className="bg-[#1B3A5C] rounded-xl p-6 text-center">
+        <div className="bg-[#134E5E] rounded-xl p-6 text-center">
           <h2 className="text-white font-bold mb-2">Where My Domains Converge</h2>
           <p className="text-white text-xs mb-5 max-w-md mx-auto opacity-95">
             Every project I lead integrates these four disciplines — AI safety isn't just
@@ -4032,7 +4032,7 @@ function Resume() {
               e?.scrollIntoView({ behavior: "smooth", block: "start" });
               (e?.querySelector("summary") as HTMLElement | null)?.focus();
             }}
-            className="text-[#1B3A5C] underline font-semibold rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2"
+            className="text-[#134E5E] underline font-semibold rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#134E5E] focus-visible:ring-offset-2"
           >
             text summary
           </button>{" "}
@@ -4044,7 +4044,7 @@ function Resume() {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Download Senthil Nagappan resume PDF (opens in new tab)"
-          className="inline-block bg-[#1B3A5C] text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-[#E8913A] hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2"
+          className="inline-block bg-[#134E5E] text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-[#E76F51] hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#134E5E] focus-visible:ring-offset-2"
         >
           Download PDF <span aria-hidden="true">↓</span>
         </a>
@@ -4070,7 +4070,7 @@ function Resume() {
             href="/Senthil_Nagappan_Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#1B3A5C] underline hover:text-[#B85D1A] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2 rounded"
+            className="text-[#134E5E] underline hover:text-[#C75B3F] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#134E5E] focus-visible:ring-offset-2 rounded"
           >
             Open the resume PDF in a new tab
             <span className="sr-only"> (opens in a new tab)</span>
@@ -4084,7 +4084,7 @@ function Resume() {
           id="resume-text-summary"
           className="mt-10 text-left border border-gray-200 rounded-xl bg-white"
         >
-          <summary className="cursor-pointer px-5 py-3 text-sm font-semibold text-[#1B3A5C] bg-[#1B3A5C]/5 hover:bg-[#1B3A5C]/10 rounded-t-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-inset">
+          <summary className="cursor-pointer px-5 py-3 text-sm font-semibold text-[#134E5E] bg-[#134E5E]/5 hover:bg-[#134E5E]/10 rounded-t-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[#134E5E] focus-visible:ring-inset">
             Accessible text summary of resume
           </summary>
           <div className="px-5 py-4 text-sm text-gray-800 leading-relaxed space-y-3">
@@ -4119,7 +4119,7 @@ function Resume() {
               <strong>Contact:</strong>{" "}
               <a
                 href="mailto:arnsk3@gmail.com"
-                className="text-[#1B3A5C] underline rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2"
+                className="text-[#134E5E] underline rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#134E5E] focus-visible:ring-offset-2"
               >
                 arnsk3@gmail.com
               </a>{" "}
@@ -4243,7 +4243,7 @@ function Contact() {
             </p>
             <button
               onClick={() => setSubmitted(false)}
-              className="mt-4 text-sm text-[#1B3A5C] font-semibold hover:text-[#B85D1A] transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2"
+              className="mt-4 text-sm text-[#134E5E] font-semibold hover:text-[#C75B3F] transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#134E5E] focus-visible:ring-offset-2"
             >
               Send another message
             </button>
@@ -4287,10 +4287,10 @@ function Contact() {
                     aria-invalid={hasError || undefined}
                     aria-describedby={hasError ? errId : undefined}
                     autoComplete={f.autoComplete}
-                    className={`w-full px-3 py-2 border rounded-lg text-sm text-gray-900 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-1 ${
+                    className={`w-full px-3 py-2 border rounded-lg text-sm text-gray-900 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#134E5E] focus-visible:ring-offset-1 ${
                       hasError
                         ? "border-red-600 focus:border-red-700"
-                        : "border-gray-400 focus:border-[#1B3A5C]"
+                        : "border-gray-400 focus:border-[#134E5E]"
                     }`}
                     placeholder={f.placeholder}
                   />
@@ -4319,10 +4319,10 @@ function Contact() {
                 aria-describedby={
                   fieldErrors.message ? "contact-message-error" : undefined
                 }
-                className={`w-full px-3 py-2 border rounded-lg text-sm text-gray-900 h-28 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-1 resize-y ${
+                className={`w-full px-3 py-2 border rounded-lg text-sm text-gray-900 h-28 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#134E5E] focus-visible:ring-offset-1 resize-y ${
                   fieldErrors.message
                     ? "border-red-600 focus:border-red-700"
-                    : "border-gray-400 focus:border-[#1B3A5C]"
+                    : "border-gray-400 focus:border-[#134E5E]"
                 }`}
               />
               {fieldErrors.message && (
@@ -4341,7 +4341,7 @@ function Contact() {
               type="submit"
               disabled={loading}
               aria-busy={loading}
-              className="w-full bg-[#1B3A5C] text-white py-2.5 rounded-lg font-semibold text-sm hover:bg-[#B85D1A] transition-colors disabled:opacity-70 disabled:cursor-not-allowed focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2"
+              className="w-full bg-[#134E5E] text-white py-2.5 rounded-lg font-semibold text-sm hover:bg-[#C75B3F] transition-colors disabled:opacity-70 disabled:cursor-not-allowed focus:outline-none focus-visible:ring-2 focus-visible:ring-[#134E5E] focus-visible:ring-offset-2"
             >
               {loading ? "Sending…" : "Send Message"}
             </button>
@@ -4354,14 +4354,14 @@ function Contact() {
           <p className="text-sm text-gray-700">
             <a
               href="mailto:arnsk3@gmail.com"
-              className="text-[#1B3A5C] hover:text-[#B85D1A] underline rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2"
+              className="text-[#134E5E] hover:text-[#C75B3F] underline rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#134E5E] focus-visible:ring-offset-2"
             >
               arnsk3@gmail.com
             </a>{" "}
             ·{" "}
             <a
               href="tel:+15714030835"
-              className="text-[#1B3A5C] hover:text-[#B85D1A] underline rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2"
+              className="text-[#134E5E] hover:text-[#C75B3F] underline rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#134E5E] focus-visible:ring-offset-2"
             >
               571-403-0835
             </a>
@@ -4371,7 +4371,7 @@ function Contact() {
               href="https://www.linkedin.com/in/senthil-nagappan"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#1B3A5C] hover:text-[#B85D1A] underline rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2"
+              className="text-[#134E5E] hover:text-[#C75B3F] underline rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#134E5E] focus-visible:ring-offset-2"
             >
               linkedin.com/in/senthil-nagappan
               <span className="sr-only"> (opens in a new tab)</span>
@@ -4519,7 +4519,7 @@ const Index = () => {
     <div className="min-h-screen bg-[#fafbfc]">
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:bg-[#1B3A5C] focus:text-white focus:px-4 focus:py-2 focus:rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E8913A]"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:bg-[#134E5E] focus:text-white focus:px-4 focus:py-2 focus:rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E76F51]"
       >
         Skip to main content
       </a>
