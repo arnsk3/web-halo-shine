@@ -559,9 +559,20 @@ function Home({
             <FadeIn key={s.id} delay={i * 0.08} className="h-full">
               <article className="h-full flex flex-col rounded-xl overflow-hidden bg-white border border-gray-200 transition-all hover:border-[rgb(var(--c-primary)/0.3)] hover:shadow-lg">
                 <div
-                  className={`h-52 bg-gradient-to-br ${s.hero} flex items-end p-6`}
+                  className={`relative h-52 bg-gradient-to-br ${s.hero} flex items-end p-6 overflow-hidden`}
                 >
-                  <span className="text-white text-xs font-semibold tracking-widest uppercase">
+                  {s.image && (
+                    <img
+                      src={s.image}
+                      alt={`Project visual for ${s.title}`}
+                      loading="lazy"
+                      width={1024}
+                      height={640}
+                      className="absolute inset-0 h-full w-full object-cover"
+                    />
+                  )}
+                  <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                  <span className="relative text-white text-xs font-semibold tracking-widest uppercase">
                     {s.tag}
                   </span>
                 </div>
