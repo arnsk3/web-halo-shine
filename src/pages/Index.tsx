@@ -4,6 +4,11 @@ import personaQa from "@/assets/persona-qa.jpg";
 import personaSme from "@/assets/persona-sme.jpg";
 import personaContent from "@/assets/persona-content.jpg";
 import personaCompliance from "@/assets/persona-compliance.jpg";
+import personaClinician from "@/assets/persona-clinician.jpg";
+import personaMlEngineer from "@/assets/persona-mlengineer.jpg";
+import personaRegulatory from "@/assets/persona-regulatory.jpg";
+import personaSafety from "@/assets/persona-safety.jpg";
+import personaLeadership from "@/assets/persona-leadership.jpg";
 
 /* ═══════════════════════════════════════════
    SENTHIL KUMAR NAGAPPAN — PORTFOLIO SITE
