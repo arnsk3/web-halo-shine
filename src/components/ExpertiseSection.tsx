@@ -157,7 +157,7 @@ const DOMAINS: Domain[] = [
   },
 ];
 
-export default function ExpertiseSection({ onViewWork }: { onViewWork?: () => void }) {
+export default function ExpertiseSection() {
   return (
     <section
       id="expertise"
@@ -181,13 +181,13 @@ export default function ExpertiseSection({ onViewWork }: { onViewWork?: () => vo
           impact it delivered.
         </p>
 
-        <div className="grid md:grid-cols-2 gap-5">
+        <div className="grid md:grid-cols-2 gap-5 items-stretch">
           {DOMAINS.map((d) => {
             return (
             <article
                 key={d.id}
                 aria-labelledby={`${d.id}-title`}
-                className="rounded-2xl border bg-white border-[rgb(var(--c-primary)/0.3)] shadow-lg"
+                className="flex h-full flex-col rounded-2xl border bg-white border-[rgb(var(--c-primary)/0.3)] shadow-lg"
               >
                 <div className="flex w-full items-start gap-4 p-5 text-left">
                   <span
@@ -210,8 +210,9 @@ export default function ExpertiseSection({ onViewWork }: { onViewWork?: () => vo
                 </div>
 
 
-                <div className="px-5 pb-5">
+                <div className="flex flex-1 flex-col px-5 pb-5">
                   <p className="text-gray-700 text-sm leading-relaxed mb-4">{d.summary}</p>
+
 
 
                   <div className="grid grid-cols-3 gap-2 mb-5">
@@ -270,18 +271,6 @@ export default function ExpertiseSection({ onViewWork }: { onViewWork?: () => vo
             );
           })}
         </div>
-
-        {onViewWork && (
-          <div className="mt-10">
-            <button
-              type="button"
-              onClick={onViewWork}
-              className="inline-flex items-center justify-center min-h-11 bg-[rgb(var(--c-primary))] text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-[rgb(var(--c-accent-on-light))] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
-            >
-              See the case studies behind this <span aria-hidden="true">↓</span>
-            </button>
-          </div>
-        )}
       </div>
     </section>
   );
