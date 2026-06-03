@@ -50,6 +50,7 @@ const CASE_STUDIES: CaseStudyType[] = [
     subtitle:
       "Designed and built a standalone, AAA-compliant accessibility remediation tool that scans any URL or pasted HTML against 28 WCAG 2.2 criteria and returns visual code fixes, before/after examples, and a prioritized roadmap.",
     hero: "from-[rgb(var(--c-hero-mid))] via-[rgb(var(--c-primary))] to-[rgb(var(--c-accent))]",
+    image: caseWcagtool,
     role: "Product Owner · Accessibility Architect · Builder",
     timeline: "2025 – Present",
     org: "BrainPulse (In-House)",
@@ -110,6 +111,7 @@ const CASE_STUDIES: CaseStudyType[] = [
     subtitle:
       "Built the AI safety function from the ground up at GE HealthCare — zero AI-enabled features now ship without passing this framework.",
     hero: "from-[rgb(var(--c-hero-dark))] via-[rgb(var(--c-primary))] to-[rgb(var(--c-accent))]",
+    image: caseGe,
     role: "AI + Human Systems Integration Lead",
     timeline: "2025 – Present",
     org: "GE HealthCare",
@@ -171,6 +173,7 @@ const CASE_STUDIES: CaseStudyType[] = [
     subtitle:
       "Conceived, built, and deployed an AI-driven compliance platform that replaced manual audits with continuous validation — saving $1.5M+ annually and becoming the federal standard.",
     hero: "from-[#1a1a2e] via-[#16213e] to-[#0f3460]",
+    image: caseSsa,
     role: "Sr. UX & Accessibility Lead",
     timeline: "2022 – 2025",
     org: "Leidos / Social Security Administration",
@@ -231,6 +234,7 @@ const CASE_STUDIES: CaseStudyType[] = [
     subtitle:
       "Applied military human factors standards to eliminate missed emergency activations in consumer health products — saving lives through engineering discipline.",
     hero: "from-[#2d1b69] via-[#11998e] to-[#38ef7d]",
+    image: caseBestbuy,
     role: "Inclusive Design & Accessibility Lead",
     timeline: "2021 – 2022",
     org: "Best Buy Health",
@@ -289,6 +293,7 @@ const CASE_STUDIES: CaseStudyType[] = [
     subtitle:
       "Directed a national-scale portfolio end-to-end for 7 years — building teams, defining governance, and influencing executive funding decisions that shaped behavioral health systems nationwide.",
     hero: "from-[rgb(var(--c-primary))] via-[rgb(var(--c-accent))] to-[rgb(var(--c-accent-light))]",
+    image: caseSamhsa,
     role: "Sr. UX & Accessibility Program Manager",
     timeline: "2014 – 2021",
     org: "Eagle Technologies / HHS / SAMHSA",
