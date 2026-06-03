@@ -489,7 +489,7 @@ function Home({
                 onClick={() =>
                   document.getElementById("cases")?.scrollIntoView({ behavior: "smooth" })
                 }
-                className="inline-flex items-center justify-center min-h-11 bg-white text-[rgb(var(--c-primary))] px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-[rgb(var(--c-accent-light))] hover:text-white transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
+                className="inline-flex items-center justify-center min-h-11 bg-white text-[rgb(var(--c-primary))] px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-[rgb(var(--c-accent-on-light))] hover:text-white transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
               >
                 View Case Studies <span aria-hidden="true">↓</span>
               </button>
@@ -4045,7 +4045,7 @@ function Resume() {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Download Senthil Nagappan resume PDF (opens in new tab)"
-          className="inline-block bg-[rgb(var(--c-primary))] text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-[rgb(var(--c-accent-light))] hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
+          className="inline-block bg-[rgb(var(--c-primary))] text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-[rgb(var(--c-accent-on-light))] hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
         >
           Download PDF <span aria-hidden="true">↓</span>
         </a>
