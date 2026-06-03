@@ -158,8 +158,6 @@ const DOMAINS: Domain[] = [
 ];
 
 export default function ExpertiseSection({ onViewWork }: { onViewWork?: () => void }) {
-  const [openId, setOpenId] = useState<string>(DOMAINS[0].id);
-
   return (
     <section
       id="expertise"
