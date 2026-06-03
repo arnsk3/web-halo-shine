@@ -3739,6 +3739,9 @@ function CaseStudy({
         {/* WCAG tool deep details: purpose, profiles, architecture, use cases */}
         {study.id === "wcagtool" && <WcagToolDetails />}
 
+        {/* AI Safety Framework: clinical personas + journey maps */}
+        {study.id === "ge" && <GeFrameworkPersonas />}
+
 
 
 
