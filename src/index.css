@@ -129,7 +129,7 @@ All colors MUST be HSL.
   /* Accessibility: visible 3:1+ focus indicator for keyboard users
      (WCAG 2.4.7, 2.4.11, 2.4.13 / Section 508) */
   :focus-visible {
-    outline: 3px solid #1e3a5f;
+    outline: 3px solid #312e81;
     outline-offset: 2px;
     border-radius: 2px;
     box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.85);
@@ -169,7 +169,7 @@ All colors MUST be HSL.
 
   /* Make text selection meet contrast (4.5:1 against white) */
   ::selection {
-    background-color: #1e3a5f;
+    background-color: #312e81;
     color: #ffffff;
   }
 
