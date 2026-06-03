@@ -526,7 +526,7 @@ function Home({
       <ExpertiseSection />
 
       {/* Case Studies */}
-      <section id="cases" className="max-w-5xl mx-auto px-6 py-16" aria-labelledby="cases-heading">
+      <section id="cases" className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(3rem,6vw,6rem)]" aria-labelledby="cases-heading">
         <FadeIn>
           <h2 id="cases-heading" className="text-2xl font-extrabold text-gray-900 mb-2 tracking-tight">
             Case Studies
@@ -535,15 +535,15 @@ function Home({
             Enterprise-scale work in AI safety, accessibility, and regulated systems
           </p>
         </FadeIn>
-        <div className="grid sm:grid-cols-2 gap-5">
+        <div className="grid gap-5 items-stretch [grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr))]">
           {CASE_STUDIES.map((s, i) => (
-            <FadeIn key={s.id} delay={i * 0.08}>
+            <FadeIn key={s.id} delay={i * 0.08} className="h-full">
               <button
                 onClick={() => {
                   setCase(s);
                 }}
                 aria-label={`View case study: ${s.title}`}
-                className="text-left w-full group rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
+                className="text-left w-full h-full flex flex-col group rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
               >
                 <div
                   className={`h-36 bg-gradient-to-br ${s.hero} rounded-t-xl flex items-end p-5`}
@@ -552,7 +552,7 @@ function Home({
                     {s.tag}
                   </span>
                 </div>
-                <div className="bg-white border border-t-0 border-gray-200 rounded-b-xl p-5 group-hover:border-[rgb(var(--c-primary)/0.3)] group-hover:shadow-lg transition-all">
+                <div className="flex-1 flex flex-col bg-white border border-t-0 border-gray-200 rounded-b-xl p-5 group-hover:border-[rgb(var(--c-primary)/0.3)] group-hover:shadow-lg transition-all">
                   <h3 className="font-bold text-gray-900 text-base mb-1.5 leading-snug group-hover:text-[rgb(var(--c-primary))] transition-colors">
                     {s.title}
                   </h3>
@@ -3217,7 +3217,7 @@ function CaseStudy({
     <div>
       {/* Hero */}
       <div className={`bg-gradient-to-br ${study.hero} text-white`}>
-        <div className="max-w-6xl mx-auto px-6 py-16">
+        <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(3rem,6vw,6rem)]">
           <button
             onClick={() => setPage("home")}
             className="text-white/85 text-sm hover:text-white mb-6 inline-block transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
@@ -3264,7 +3264,7 @@ function CaseStudy({
 
       {/* Metrics */}
       <div className="bg-white border-b border-gray-100">
-        <div className="max-w-6xl mx-auto px-6 py-6">
+        <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-6">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {study.metrics.map((m) => (
               <div
@@ -3282,7 +3282,7 @@ function CaseStudy({
       </div>
 
       {/* Content */}
-      <div className="max-w-6xl mx-auto px-6 py-12">
+      <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-12">
         {study.sections.map((s, i) => (
           <FadeIn key={i} delay={i * 0.05}>
             <div className="mb-10">
