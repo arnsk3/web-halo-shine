@@ -270,18 +270,6 @@ export default function ExpertiseSection() {
             );
           })}
         </div>
-
-        {onViewWork && (
-          <div className="mt-10">
-            <button
-              type="button"
-              onClick={onViewWork}
-              className="inline-flex items-center justify-center min-h-11 bg-[rgb(var(--c-primary))] text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-[rgb(var(--c-accent-on-light))] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
-            >
-              See the case studies behind this <span aria-hidden="true">↓</span>
-            </button>
-          </div>
-        )}
       </div>
     </section>
   );
