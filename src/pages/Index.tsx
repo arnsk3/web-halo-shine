@@ -526,7 +526,7 @@ function Home({
       <ExpertiseSection />
 
       {/* Case Studies */}
-      <section id="cases" className="max-w-5xl mx-auto px-6 py-16" aria-labelledby="cases-heading">
+      <section id="cases" className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(3rem,6vw,6rem)]" aria-labelledby="cases-heading">
         <FadeIn>
           <h2 id="cases-heading" className="text-2xl font-extrabold text-gray-900 mb-2 tracking-tight">
             Case Studies
