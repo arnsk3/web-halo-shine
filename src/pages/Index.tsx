@@ -537,13 +537,13 @@ function Home({
         </FadeIn>
         <div className="grid gap-5 items-stretch [grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr))]">
           {CASE_STUDIES.map((s, i) => (
-            <FadeIn key={s.id} delay={i * 0.08}>
+            <FadeIn key={s.id} delay={i * 0.08} className="h-full">
               <button
                 onClick={() => {
                   setCase(s);
                 }}
                 aria-label={`View case study: ${s.title}`}
-                className="text-left w-full group rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
+                className="text-left w-full h-full flex flex-col group rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
               >
                 <div
                   className={`h-36 bg-gradient-to-br ${s.hero} rounded-t-xl flex items-end p-5`}
@@ -552,7 +552,7 @@ function Home({
                     {s.tag}
                   </span>
                 </div>
-                <div className="bg-white border border-t-0 border-gray-200 rounded-b-xl p-5 group-hover:border-[rgb(var(--c-primary)/0.3)] group-hover:shadow-lg transition-all">
+                <div className="flex-1 flex flex-col bg-white border border-t-0 border-gray-200 rounded-b-xl p-5 group-hover:border-[rgb(var(--c-primary)/0.3)] group-hover:shadow-lg transition-all">
                   <h3 className="font-bold text-gray-900 text-base mb-1.5 leading-snug group-hover:text-[rgb(var(--c-primary))] transition-colors">
                     {s.title}
                   </h3>
