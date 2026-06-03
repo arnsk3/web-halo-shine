@@ -523,11 +523,7 @@ function Home({
       </section>
 
       {/* Domain Expertise */}
-      <ExpertiseSection
-        onViewWork={() =>
-          document.getElementById("cases")?.scrollIntoView({ behavior: "smooth" })
-        }
-      />
+      <ExpertiseSection />
 
       {/* Case Studies */}
       <section id="cases" className="max-w-5xl mx-auto px-6 py-16" aria-labelledby="cases-heading">
