@@ -4553,6 +4553,8 @@ const Index = () => {
         {page === "contact" && <Contact />}
       </main>
       <Footer setPage={navigate} currentPage={page} />
+      <ThemeSwitcher />
+
     </div>
   );
 };
