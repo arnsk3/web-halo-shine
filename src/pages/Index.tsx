@@ -535,7 +535,7 @@ function Home({
             Enterprise-scale work in AI safety, accessibility, and regulated systems
           </p>
         </FadeIn>
-        <div className="grid sm:grid-cols-2 gap-5">
+        <div className="grid gap-5 items-stretch [grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr))]">
           {CASE_STUDIES.map((s, i) => (
             <FadeIn key={s.id} delay={i * 0.08}>
               <button
