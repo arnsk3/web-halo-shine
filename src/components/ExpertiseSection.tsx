@@ -157,7 +157,7 @@ const DOMAINS: Domain[] = [
   },
 ];
 
-export default function ExpertiseSection({ onViewWork }: { onViewWork?: () => void }) {
+export default function ExpertiseSection() {
   return (
     <section
       id="expertise"
