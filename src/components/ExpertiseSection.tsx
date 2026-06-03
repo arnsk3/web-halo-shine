@@ -210,8 +210,9 @@ export default function ExpertiseSection() {
                 </div>
 
 
-                <div className="px-5 pb-5">
+                <div className="flex flex-1 flex-col px-5 pb-5">
                   <p className="text-gray-700 text-sm leading-relaxed mb-4">{d.summary}</p>
+
 
 
                   <div className="grid grid-cols-3 gap-2 mb-5">
