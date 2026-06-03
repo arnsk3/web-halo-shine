@@ -181,7 +181,7 @@ export default function ExpertiseSection() {
           impact it delivered.
         </p>
 
-        <div className="grid md:grid-cols-2 gap-5 items-stretch">
+        <div className="grid gap-5 items-stretch [grid-template-columns:repeat(auto-fit,minmax(min(100%,28rem),1fr))]">
           {DOMAINS.map((d) => {
             return (
             <article
