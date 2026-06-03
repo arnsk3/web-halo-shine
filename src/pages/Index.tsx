@@ -467,14 +467,14 @@ function Home({
         />
         <div className="max-w-3xl mx-auto px-6 py-24 text-center relative">
           <FadeIn>
-            <p className="text-[rgb(var(--c-accent-light))] text-xs font-semibold tracking-[3px] uppercase mb-5">
+            <p className="text-[rgb(var(--c-accent-on-dark))] text-xs font-semibold tracking-[3px] uppercase mb-5">
               AI Safety · Human Systems Integration · Accessibility
             </p>
           </FadeIn>
           <FadeIn delay={0.1}>
             <h1 className="text-4xl sm:text-5xl font-extrabold leading-[1.1] mb-5 tracking-tight">
               Designing for systems where getting it wrong
-              <span className="text-[rgb(var(--c-accent-light))]"> isn't an option.</span>
+              <span className="text-[rgb(var(--c-accent-on-dark))]"> isn't an option.</span>
             </h1>
           </FadeIn>
           <FadeIn delay={0.2}>
@@ -3220,7 +3220,7 @@ function CaseStudy({
           >
             <span aria-hidden="true">←</span> Back to Case Studies
           </button>
-          <p className="text-[rgb(var(--c-accent-light))] text-xs font-semibold tracking-[2px] uppercase mb-3">
+          <p className="text-[rgb(var(--c-accent-on-dark))] text-xs font-semibold tracking-[2px] uppercase mb-3">
             {study.tag}
           </p>
           <h1 className="text-3xl sm:text-4xl font-extrabold leading-tight mb-4 tracking-tight">
