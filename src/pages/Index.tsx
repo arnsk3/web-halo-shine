@@ -423,7 +423,7 @@ function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) 
             Senthil Nagappan
           </span>
         </button>
-        <ul className="flex gap-1 list-none m-0 p-0">
+        <ul className="flex flex-wrap justify-end gap-0.5 sm:gap-1 list-none m-0 p-0">
           {links.map((l) => (
             <li key={l.id}>
               <button
