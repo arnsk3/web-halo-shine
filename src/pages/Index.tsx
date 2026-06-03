@@ -3912,7 +3912,7 @@ function Approach() {
         "Personnel · Training · HFE · Safety",
         "System-level integration",
       ],
-      color: "#312e81",
+      color: "rgb(var(--c-primary))",
     },
     {
       title: "MIL-STD-1472H",
@@ -3923,7 +3923,7 @@ function Approach() {
         "Human error mitigation",
         "Operator performance",
       ],
-      color: "#4f46e5",
+      color: "rgb(var(--c-accent))",
     },
     {
       title: "MBSE / SysML",
@@ -3945,7 +3945,7 @@ function Approach() {
         "Design system integration",
         "Organizational policy",
       ],
-      color: "#6366f1",
+      color: "rgb(var(--c-accent-light))",
     },
   ];
 
