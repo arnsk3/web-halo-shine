@@ -1,4 +1,4 @@
-import { useState } from "react";
+import type { JSX } from "react";
 
 type Domain = {
   id: string;
@@ -158,8 +158,6 @@ const DOMAINS: Domain[] = [
 ];
 
 export default function ExpertiseSection({ onViewWork }: { onViewWork?: () => void }) {
-  const [openId, setOpenId] = useState<string>(DOMAINS[0].id);
-
   return (
     <section
       id="expertise"
@@ -185,27 +183,13 @@ export default function ExpertiseSection({ onViewWork }: { onViewWork?: () => vo
 
         <div className="grid md:grid-cols-2 gap-5">
           {DOMAINS.map((d) => {
-            const open = openId === d.id;
-            const panelId = `expertise-panel-${d.id}`;
-            const btnId = `expertise-btn-${d.id}`;
             return (
               <div
                 key={d.id}
-                className={`rounded-2xl border bg-white transition-shadow ${
-                  open
-                    ? "border-[rgb(var(--c-primary)/0.3)] shadow-lg"
-                    : "border-gray-200 hover:shadow-md"
-                }`}
+                className="rounded-2xl border bg-white border-[rgb(var(--c-primary)/0.3)] shadow-lg"
               >
                 <h3 className="m-0">
-                  <button
-                    id={btnId}
-                    type="button"
-                    aria-expanded={open}
-                    aria-controls={panelId}
-                    onClick={() => setOpenId(open ? "" : d.id)}
-                    className="flex w-full items-start gap-4 p-5 text-left rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
-                  >
+                  <div className="flex w-full items-start gap-4 p-5 text-left">
                     <span
                       aria-hidden="true"
                       className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[rgb(var(--c-tint-100))] text-[rgb(var(--c-accent-on-light))]"
@@ -220,25 +204,12 @@ export default function ExpertiseSection({ onViewWork }: { onViewWork?: () => vo
                         {d.tagline}
                       </span>
                     </span>
-                    <span
-                      aria-hidden="true"
-                      className={`mt-1 shrink-0 text-[rgb(var(--c-primary))] transition-transform ${
-                        open ? "rotate-180" : ""
-                      }`}
-                    >
-                      ▾
-                    </span>
-                  </button>
+                  </div>
                 </h3>
 
-                <div
-                  id={panelId}
-                  role="region"
-                  aria-labelledby={btnId}
-                  hidden={!open}
-                  className="px-5 pb-5"
-                >
+                <div className="px-5 pb-5">
                   <p className="text-gray-700 text-sm leading-relaxed mb-4">{d.summary}</p>
+
 
                   <div className="grid grid-cols-3 gap-2 mb-5">
                     {d.impact.map((m) => (
