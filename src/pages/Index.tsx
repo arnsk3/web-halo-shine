@@ -407,7 +407,7 @@ function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) 
       aria-label="Primary"
       className="sticky top-0 z-50 backdrop-blur-xl bg-white/95 border-b border-gray-200"
     >
-      <div className="max-w-5xl mx-auto flex items-center justify-between px-6 py-3">
+      <div className="max-w-5xl mx-auto flex items-center justify-between gap-2 px-4 sm:px-6 py-3">
         <button
           onClick={() => setPage("home")}
           aria-label="Senthil Nagappan — go to home"
@@ -423,13 +423,13 @@ function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) 
             Senthil Nagappan
           </span>
         </button>
-        <ul className="flex gap-1 list-none m-0 p-0">
+        <ul className="flex flex-wrap justify-end gap-0.5 sm:gap-1 list-none m-0 p-0">
           {links.map((l) => (
             <li key={l.id}>
               <button
                 onClick={() => setPage(l.id)}
                 aria-current={page === l.id ? "page" : undefined}
-                className={`inline-flex items-center min-h-11 px-3 py-1.5 rounded-md text-sm transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2 ${
+                className={`inline-flex items-center min-h-11 px-2.5 sm:px-3 py-1.5 rounded-md text-sm transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2 ${
                   page === l.id
                     ? "bg-[#1B3A5C]/10 text-[#1B3A5C] font-semibold"
                     : "text-gray-700 hover:text-gray-900 hover:bg-gray-100"
