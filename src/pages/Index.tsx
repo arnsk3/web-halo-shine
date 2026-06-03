@@ -429,7 +429,7 @@ function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) 
               <button
                 onClick={() => setPage(l.id)}
                 aria-current={page === l.id ? "page" : undefined}
-                className={`inline-flex items-center min-h-11 px-3 py-1.5 rounded-md text-sm transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2 ${
+                className={`inline-flex items-center min-h-11 px-2.5 sm:px-3 py-1.5 rounded-md text-sm transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2 ${
                   page === l.id
                     ? "bg-[#1B3A5C]/10 text-[#1B3A5C] font-semibold"
                     : "text-gray-700 hover:text-gray-900 hover:bg-gray-100"
