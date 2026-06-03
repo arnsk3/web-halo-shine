@@ -4,6 +4,11 @@ import personaQa from "@/assets/persona-qa.jpg";
 import personaSme from "@/assets/persona-sme.jpg";
 import personaContent from "@/assets/persona-content.jpg";
 import personaCompliance from "@/assets/persona-compliance.jpg";
+import personaClinician from "@/assets/persona-clinician.jpg";
+import personaMlEngineer from "@/assets/persona-mlengineer.jpg";
+import personaRegulatory from "@/assets/persona-regulatory.jpg";
+import personaSafety from "@/assets/persona-safety.jpg";
+import personaLeadership from "@/assets/persona-leadership.jpg";
 
 /* ═══════════════════════════════════════════
    SENTHIL KUMAR NAGAPPAN — PORTFOLIO SITE
@@ -1809,6 +1814,343 @@ const DOSSIERS: Record<string, Dossier> = {
   },
 };
 
+function GeFrameworkPersonas() {
+  const [openJourneys, setOpenJourneys] = useState<string[]>([]);
+  const toggleJourney = (persona: string) =>
+    setOpenJourneys((prev) =>
+      prev.includes(persona) ? prev.filter((p) => p !== persona) : [...prev, persona]
+    );
+
+  const personas = [
+    {
+      img: personaClinician,
+      name: "Dr. Priya — Clinician / Radiologist",
+      group: "End-User Clinicians",
+      tagline: "“If I can't see why the AI flagged it, I won't trust it on a patient.”",
+      context:
+        "Reads prenatal scans under time pressure; the AI sits inside her diagnostic workflow as a second set of eyes.",
+      goals: [
+        "Confirm, override, or defer to AI with a clear rationale",
+        "Avoid automation bias and alert fatigue during high-volume reading",
+        "Reach a confident diagnosis without slowing the clinical workflow",
+      ],
+      frustrations: [
+        "Opaque outputs with no confidence or explanation",
+        "Too many false-positive alerts that erode trust",
+      ],
+      needs: ["Model A — AI Recommends", "On-demand explainability", "Meaningful human checkpoint"],
+    },
+    {
+      img: personaMlEngineer,
+      name: "Arjun — ML / AI Engineer",
+      group: "Model Owners",
+      tagline: "“Tell me the thresholds and failure modes I have to design against.”",
+      context:
+        "Owns model training, evaluation, and deployment; needs the framework to translate into concrete acceptance criteria.",
+      goals: [
+        "Map model performance to deployment thresholds",
+        "Instrument drift detection and monitoring early",
+        "Pass evaluation gates without late-stage rework",
+      ],
+      frustrations: [
+        "Ambiguous safety requirements discovered at submission time",
+        "No standard FMEA/URRA template for AI-specific failures",
+      ],
+      needs: ["Model evaluation criteria", "Drift + incident hooks", "FMEA / URRA templates"],
+    },
+    {
+      img: personaRegulatory,
+      name: "Elena — Regulatory Affairs Lead",
+      group: "Regulatory / FDA",
+      tagline: "“Show me the evidence trail that maps to IEC 62366 and ISO 14971.”",
+      context:
+        "Assembles FDA submissions and post-market documentation; depends on traceable, defensible safety evidence.",
+      goals: [
+        "Produce submission-ready human factors evidence",
+        "Trace each design decision to a normative standard",
+        "Accelerate approval cycles by catching issues in design",
+      ],
+      frustrations: [
+        "Evidence reconstructed retroactively at the finish line",
+        "Gaps between engineering artifacts and regulatory requirements",
+      ],
+      needs: ["FDA HF evidence pack", "ISO 14971 traceability", "Go/no-go documentation"],
+    },
+    {
+      img: personaSafety,
+      name: "Marcus — QA / Safety Engineer",
+      group: "Quality & Safety",
+      tagline: "“Every failure scenario needs a documented, testable mitigation.”",
+      context:
+        "Runs risk analysis and verification; gatekeeps that mitigations actually hold before release.",
+      goals: [
+        "Validate URRA and FMEA mitigations are effective",
+        "Verify human-in-the-loop checkpoints function as designed",
+        "Produce repeatable pass/fail safety evidence",
+      ],
+      frustrations: [
+        "Risk artifacts that aren't tied to verifiable tests",
+        "Safety treated as a sign-off, not a continuous control",
+      ],
+      needs: ["Verifiable mitigations", "HITL conformance checks", "Post-market monitoring"],
+    },
+    {
+      img: personaLeadership,
+      name: "Sophia — Clinical Product Leadership",
+      group: "Product / Compliance Leadership",
+      tagline: "“Protect patients without killing our innovation velocity.”",
+      context:
+        "Balances roadmap, risk, and regulatory exposure across 10+ product teams; owns go/no-go authority.",
+      goals: [
+        "Make ship/hold decisions with cross-functional sign-off",
+        "Standardize safety across teams without bottlenecks",
+        "Report framework conformance to the AI Safety Review Board",
+      ],
+      frustrations: [
+        "Ad-hoc, team-by-team safety decisions",
+        "No shared scorecard for readiness and risk",
+      ],
+      needs: ["Go/no-go authority", "Conformance scorecard", "Enterprise standard"],
+    },
+  ];
+
+  const journeys = [
+    {
+      persona: "End-User Clinicians",
+      tasks: ["Open AI-flagged scan", "Review confidence + rationale", "Confirm / override / defer", "Document decision"],
+      needs: ["HITL Model A", "Layered explainability", "Automation-bias safeguards", "Audit-logged checkpoint"],
+    },
+    {
+      persona: "Model Owners",
+      tasks: ["Define eval criteria", "Run FMEA / URRA", "Validate deployment thresholds", "Wire drift monitoring"],
+      needs: ["Model evaluation gate", "Failure-mode coverage", "Drift detection", "Incident response hook"],
+    },
+    {
+      persona: "Regulatory / FDA",
+      tasks: ["Map design to standards", "Assemble HF evidence", "Compile go/no-go memo", "Prepare FDA submission"],
+      needs: ["IEC 62366 trace", "ISO 14971 risk file", "FDA HF evidence", "Conformance scorecard"],
+    },
+    {
+      persona: "Quality & Safety",
+      tasks: ["Review risk artifacts", "Verify mitigations", "Test HITL checkpoints", "Sign off readiness"],
+      needs: ["Verifiable mitigations", "HITL conformance", "Pass/fail evidence", "Post-market plan"],
+    },
+    {
+      persona: "Product / Compliance Leadership",
+      tasks: ["Review readiness scorecard", "Convene Safety Review Board", "Make ship / hold call", "Report conformance"],
+      needs: ["Go/no-go authority", "Cross-functional sign-off", "Risk visibility", "Enterprise standard"],
+    },
+  ];
+
+  const stages = ["Design", "Evaluation", "Approval", "Monitoring"];
+
+  return (
+    <div className="my-12 space-y-12">
+      {/* Detailed personas */}
+      <FadeIn>
+        <section aria-labelledby="ge-personas-title">
+          <h2 id="ge-personas-title" className="text-lg font-bold text-gray-900 mb-1">
+            Detailed Personas by User Group
+          </h2>
+          <p className="text-gray-600 text-xs mb-6">
+            The AI safety framework serves five distinct user groups across the clinical AI
+            lifecycle. Each persona has its own goals, frustrations, and safety needs that shaped
+            the governance model.
+          </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {personas.map((p) => (
+              <article
+                key={p.name}
+                className="border border-gray-200 rounded-xl overflow-hidden bg-white flex flex-col"
+              >
+                <div className="flex items-center gap-4 p-5 bg-gradient-to-r from-[#0f2027] via-[#1B3A5C] to-[#2E75B6] text-white">
+                  <img
+                    src={p.img}
+                    alt={`Persona portrait of ${p.name}`}
+                    loading="lazy"
+                    width={1024}
+                    height={1024}
+                    className="w-16 h-16 rounded-full object-cover ring-2 ring-white/40 shrink-0"
+                  />
+                  <div>
+                    <span className="text-[10px] font-bold tracking-[0.14em] uppercase px-2 py-0.5 rounded bg-white/15">
+                      {p.group}
+                    </span>
+                    <h3 className="text-sm font-bold mt-1.5">{p.name}</h3>
+                    <p className="text-[12px] text-white/85 italic mt-0.5">{p.tagline}</p>
+                  </div>
+                </div>
+                <div className="p-5 space-y-4">
+                  <p className="text-[12.5px] text-gray-700 leading-relaxed">
+                    <span className="font-semibold text-[#1B3A5C]">Context: </span>
+                    {p.context}
+                  </p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <h4 className="text-[11px] font-bold uppercase tracking-wide text-emerald-700 mb-1.5">
+                        Goals
+                      </h4>
+                      <ul className="list-disc pl-4 space-y-1 m-0">
+                        {p.goals.map((g) => (
+                          <li key={g} className="text-[12px] text-gray-700 leading-snug">
+                            {g}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="text-[11px] font-bold uppercase tracking-wide text-[#b42318] mb-1.5">
+                        Frustrations
+                      </h4>
+                      <ul className="list-disc pl-4 space-y-1 m-0">
+                        {p.frustrations.map((f) => (
+                          <li key={f} className="text-[12px] text-gray-700 leading-snug">
+                            {f}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                  <div className="flex flex-wrap gap-2 pt-1">
+                    {p.needs.map((n) => (
+                      <span
+                        key={n}
+                        className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#eaf3fb] text-[#1B3A5C] border border-[#cfe2f3]"
+                      >
+                        {n}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+      </FadeIn>
+
+      {/* Journey maps */}
+      <FadeIn>
+        <section aria-labelledby="ge-journey-title">
+          <h2 id="ge-journey-title" className="text-lg font-bold text-gray-900 mb-1">
+            User-Group Journey Maps
+          </h2>
+          <p className="text-gray-600 text-xs mb-4">
+            Select a user group to expand its journey — the tasks they perform across the AI
+            lifecycle and the safety needs each task must satisfy.
+          </p>
+
+          {/* Lifecycle stage legend */}
+          <div className="flex flex-wrap items-center gap-2 mb-4">
+            {stages.map((s, i) => (
+              <span key={s} className="inline-flex items-center gap-2">
+                <span className="text-[11px] font-semibold px-2.5 py-1 rounded-md bg-[#eaf3fb] text-[#1B3A5C] border border-[#cfe2f3]">
+                  {i + 1}. {s}
+                </span>
+                {i < stages.length - 1 && (
+                  <span aria-hidden="true" className="text-[#9bbce0] text-xs">→</span>
+                )}
+              </span>
+            ))}
+          </div>
+
+          {/* Expand / collapse controls */}
+          <div className="flex items-center gap-2 mb-4">
+            <button
+              type="button"
+              onClick={() => setOpenJourneys(journeys.map((j) => j.persona))}
+              className="text-[11px] font-semibold px-3 py-1.5 rounded-md border border-gray-200 bg-white text-[#1B3A5C] hover:bg-gray-50 transition-colors"
+            >
+              Expand all
+            </button>
+            <button
+              type="button"
+              onClick={() => setOpenJourneys([])}
+              className="text-[11px] font-semibold px-3 py-1.5 rounded-md border border-gray-200 bg-white text-gray-600 hover:bg-gray-50 transition-colors"
+            >
+              Collapse all
+            </button>
+          </div>
+
+          <div className="space-y-3">
+            {journeys.map((j) => {
+              const isOpen = openJourneys.includes(j.persona);
+              const panelId = `ge-journey-panel-${j.persona.replace(/[^a-z0-9]/gi, "-").toLowerCase()}`;
+              return (
+                <div
+                  key={j.persona}
+                  className="border border-gray-200 rounded-xl bg-white overflow-hidden"
+                >
+                  <button
+                    type="button"
+                    aria-expanded={isOpen}
+                    aria-controls={panelId}
+                    onClick={() => toggleJourney(j.persona)}
+                    className="w-full flex items-center justify-between gap-3 px-4 py-3 text-left bg-gradient-to-br from-[#0f2027] via-[#1B3A5C] to-[#2E75B6] text-white hover:opacity-95 transition-opacity"
+                  >
+                    <span className="text-[13px] font-bold">{j.persona}</span>
+                    <span className="flex items-center gap-3">
+                      <span className="text-[10px] font-medium text-[#9bbce0] hidden sm:inline">
+                        {j.tasks.length} tasks · {j.needs.length} safety needs
+                      </span>
+                      <span
+                        aria-hidden="true"
+                        className={`text-base leading-none transition-transform duration-200 ${
+                          isOpen ? "rotate-180" : ""
+                        }`}
+                      >
+                        ⌄
+                      </span>
+                    </span>
+                  </button>
+
+                  {isOpen && (
+                    <div id={panelId} className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
+                      <div>
+                        <span className="text-[10px] font-bold uppercase tracking-wide text-[#7e22ce]">
+                          Tasks
+                        </span>
+                        <div className="flex flex-wrap gap-2 mt-2">
+                          {j.tasks.map((t, i) => (
+                            <span key={t} className="inline-flex items-center gap-1.5">
+                              <span className="text-[11px] font-medium px-2.5 py-1 rounded-md bg-[#f3e8fd] text-[#7e22ce] border border-[#e9d5ff]">
+                                {t}
+                              </span>
+                              {i < j.tasks.length - 1 && (
+                                <span aria-hidden="true" className="text-[#c4a3e8] text-xs">
+                                  ›
+                                </span>
+                              )}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                      <div>
+                        <span className="text-[10px] font-bold uppercase tracking-wide text-emerald-700">
+                          Safety needs
+                        </span>
+                        <div className="flex flex-wrap gap-2 mt-2">
+                          {j.needs.map((n) => (
+                            <span
+                              key={n}
+                              className="text-[11px] font-semibold px-2.5 py-1 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-100"
+                            >
+                              {n}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </section>
+      </FadeIn>
+    </div>
+  );
+}
+
 function WcagToolDetails() {
   const [openJourneys, setOpenJourneys] = useState<string[]>([]);
   const toggleJourney = (persona: string) =>
@@ -3396,6 +3738,9 @@ function CaseStudy({
 
         {/* WCAG tool deep details: purpose, profiles, architecture, use cases */}
         {study.id === "wcagtool" && <WcagToolDetails />}
+
+        {/* AI Safety Framework: clinical personas + journey maps */}
+        {study.id === "ge" && <GeFrameworkPersonas />}
 
 
 
