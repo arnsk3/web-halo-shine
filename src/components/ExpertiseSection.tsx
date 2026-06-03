@@ -230,7 +230,8 @@ export default function ExpertiseSection({ onViewWork }: { onViewWork?: () => vo
                     ))}
                   </div>
 
-                  <p className="text-[11px] font-bold uppercase tracking-wide text-gray-600 mb-2">
+                  <p className="text-[11px] font-bold uppercase tracking-wide text-gray-700 mb-2">
+
                     What I bring
                   </p>
                   <ul className="list-none p-0 m-0 mb-5 space-y-1.5">
