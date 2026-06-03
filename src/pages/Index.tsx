@@ -429,7 +429,7 @@ function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) 
               <button
                 onClick={() => setPage(l.id)}
                 aria-current={page === l.id ? "page" : undefined}
-                className={`px-3 py-1.5 rounded-md text-sm transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2 ${
+                className={`inline-flex items-center min-h-11 px-3 py-1.5 rounded-md text-sm transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B3A5C] focus-visible:ring-offset-2 ${
                   page === l.id
                     ? "bg-[#1B3A5C]/10 text-[#1B3A5C] font-semibold"
                     : "text-gray-700 hover:text-gray-900 hover:bg-gray-100"
@@ -488,13 +488,13 @@ function Home({
                 onClick={() =>
                   document.getElementById("cases")?.scrollIntoView({ behavior: "smooth" })
                 }
-                className="bg-white text-[#1B3A5C] px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-[#E8913A] hover:text-white transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E8913A] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1B3A5C]"
+                className="inline-flex items-center justify-center min-h-11 bg-white text-[#1B3A5C] px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-[#E8913A] hover:text-white transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E8913A] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1B3A5C]"
               >
                 View Case Studies <span aria-hidden="true">↓</span>
               </button>
               <button
                 onClick={() => setPage("about")}
-                className="border border-white/60 text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-white/10 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E8913A] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1B3A5C]"
+                className="inline-flex items-center justify-center min-h-11 border border-white/60 text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-white/10 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E8913A] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1B3A5C]"
               >
                 About Me
               </button>
@@ -635,7 +635,7 @@ function ScreenFrame({ label, children }: { label: string; children: React.React
         <span className="w-2 h-2 rounded-full bg-[#ff5f57]" />
         <span className="w-2 h-2 rounded-full bg-[#febc2e]" />
         <span className="w-2 h-2 rounded-full bg-[#28c840]" />
-        <span className="ml-2 text-[9px] uppercase tracking-wider text-gray-500 font-medium truncate">{label}</span>
+        <span className="ml-2 text-[9px] uppercase tracking-wider text-gray-700 font-medium truncate">{label}</span>
       </div>
       <div className="p-3 flex-1 flex flex-col gap-2 bg-white min-h-[160px]">{children}</div>
     </div>
@@ -670,7 +670,7 @@ const SHOWCASE: Record<string, ShowcaseConfig> = {
           <>
             <WBar w="70%" h={10} c="bg-[#1B3A5C]" />
             <div className="rounded bg-gray-900 p-2 font-mono text-[8px] leading-tight text-green-300" aria-hidden="true">
-              {'<button class="text-gray-400">'}<br />&nbsp;&nbsp;Submit<br />{'</button>'}
+              {'<button class="text-gray-600">'}<br />&nbsp;&nbsp;Submit<br />{'</button>'}
             </div>
             <div className="flex items-center gap-1.5">
               <span className="text-[9px] px-1.5 py-0.5 rounded bg-[#ffe2e2] text-[#8a1a1a] font-bold">2.1:1</span>
@@ -2831,7 +2831,7 @@ function WcagToolDetails() {
                     {s.approach}
                   </p>
                   <div>
-                    <h4 className="text-[11px] font-bold uppercase tracking-wide text-gray-500 mb-1.5">
+                    <h4 className="text-[11px] font-bold uppercase tracking-wide text-gray-700 mb-1.5">
                       Sample questions / measures
                     </h4>
                     <ul className="list-disc pl-4 space-y-1 m-0">
@@ -2977,14 +2977,14 @@ function WcagToolDetails() {
                   <span className="text-[10px] font-bold uppercase tracking-wide px-2 py-0.5 rounded bg-[#eaf3fb] text-[#1B3A5C]">
                     {e.persona}
                   </span>
-                  <span className="text-[10px] font-semibold uppercase tracking-wide text-gray-500">
+                  <span className="text-[10px] font-semibold uppercase tracking-wide text-gray-700">
                     {e.kind}
                   </span>
                 </div>
                 <blockquote className="m-0 text-[12.5px] text-gray-700 leading-relaxed italic">
                   {e.quote}
                 </blockquote>
-                <figcaption className="text-[11px] text-gray-500 mt-2">— {e.meta}</figcaption>
+                <figcaption className="text-[11px] text-gray-700 mt-2">— {e.meta}</figcaption>
               </figure>
             ))}
           </div>
@@ -3158,11 +3158,11 @@ function DeepResearchDossier({ id }: { id: string }) {
                 className="border border-gray-200 rounded-lg p-4 bg-[#F8FAFC]"
               >
                 <div className="text-sm font-bold text-[#1B3A5C] mb-1">{p.name}</div>
-                <div className="text-xs uppercase tracking-wide text-gray-500 mt-2">Problem</div>
+                <div className="text-xs uppercase tracking-wide text-gray-700 mt-2">Problem</div>
                 <p className="text-sm text-gray-800 mb-2">{p.problem}</p>
-                <div className="text-xs uppercase tracking-wide text-gray-500">Pattern</div>
+                <div className="text-xs uppercase tracking-wide text-gray-700">Pattern</div>
                 <p className="text-sm text-gray-800 mb-2">{p.pattern}</p>
-                <div className="text-xs uppercase tracking-wide text-gray-500">Evidence</div>
+                <div className="text-xs uppercase tracking-wide text-gray-700">Evidence</div>
                 <p className="text-sm text-gray-800">{p.evidence}</p>
               </article>
             ))}
