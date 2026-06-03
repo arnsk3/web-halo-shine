@@ -454,6 +454,11 @@ function Home({
   setPage: (p: PageId) => void;
   setCase: (c: CaseStudyType) => void;
 }) {
+  const [openCases, setOpenCases] = useState<string[]>([]);
+  const toggleCase = (id: string) =>
+    setOpenCases((prev) =>
+      prev.includes(id) ? prev.filter((c) => c !== id) : [...prev, id]
+    );
   return (
     <div>
       {/* Hero */}
