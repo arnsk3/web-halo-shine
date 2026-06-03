@@ -164,7 +164,7 @@ export default function ExpertiseSection() {
       aria-labelledby="expertise-heading"
       className="bg-[rgb(var(--c-tint-50))] border-y border-[rgb(var(--c-primary)/0.1)]"
     >
-      <div className="max-w-5xl mx-auto px-6 py-16">
+      <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(3rem,6vw,6rem)]">
         <p className="text-[rgb(var(--c-accent-on-light))] text-xs font-semibold tracking-[2px] uppercase mb-3">
           Domain Expertise
         </p>
@@ -181,7 +181,7 @@ export default function ExpertiseSection() {
           impact it delivered.
         </p>
 
-        <div className="grid md:grid-cols-2 gap-5 items-stretch">
+        <div className="grid gap-5 items-stretch [grid-template-columns:repeat(auto-fit,minmax(min(100%,28rem),1fr))]">
           {DOMAINS.map((d) => {
             return (
             <article
