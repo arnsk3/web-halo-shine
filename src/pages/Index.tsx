@@ -10,6 +10,7 @@ import personaRegulatory from "@/assets/persona-regulatory.jpg";
 import personaSafety from "@/assets/persona-safety.jpg";
 import personaLeadership from "@/assets/persona-leadership.jpg";
 import ThemeSwitcher from "@/components/ThemeSwitcher";
+import ExpertiseSection from "@/components/ExpertiseSection";
 
 /* ═══════════════════════════════════════════
    SENTHIL KUMAR NAGAPPAN — PORTFOLIO SITE
