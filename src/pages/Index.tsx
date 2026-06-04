@@ -2546,6 +2546,36 @@ function WcagToolDetails() {
     },
   ];
 
+  const userFlowSteps = [
+    { step: "Entry", action: "Open the suite and start a New Scan.", branch: null },
+    { step: "Input", action: "Paste raw HTML or enter a live URL.", branch: "Invalid input → inline guidance and retry." },
+    { step: "Scan", action: "Engine evaluates 28 WCAG 2.2 criteria across A / AA / AAA.", branch: null },
+    { step: "Results", action: "Review findings filtered by criterion and severity.", branch: "Zero issues → conformance summary and export." },
+    { step: "Issue Detail", action: "Open a finding: offending markup, AI suggestion, and visual cue.", branch: null },
+    { step: "Remediate", action: "Apply the corrected snippet from the before/after fix.", branch: "Defer → add to the risk-ranked roadmap." },
+    { step: "Verify", action: "Re-scan to confirm the criterion now passes.", branch: "Still failing → loop back to Issue Detail." },
+    { step: "Export", action: "Generate WCAG-EM / Section 508 evidence.", branch: null },
+  ];
+
+  const customerJourney = [
+    { phase: "Discover", action: "Hits an audit deadline or a failed scan elsewhere.", emotion: "Anxious", feeling: "😟", thought: "“The defect list is overwhelming — where do I even start?”", opportunity: "Single entry point accepting a URL or pasted HTML." },
+    { phase: "Onboard", action: "Runs a first scan with zero setup.", emotion: "Curious", feeling: "🙂", thought: "“No install, no account — I just pasted my page.”", opportunity: "Dependency-light, zero-config first run." },
+    { phase: "Diagnose", action: "Reviews findings ranked by impact and tier.", emotion: "Focused", feeling: "🧐", thought: "“I can see exactly what fails AAA and why.”", opportunity: "Severity + A/AA/AAA faceting over one dataset." },
+    { phase: "Remediate", action: "Applies AI suggestions and visual-cue fixes.", emotion: "Empowered", feeling: "💪", thought: "“The corrected code is right here — I just paste it.”", opportunity: "Copy-paste fixes with before/after examples." },
+    { phase: "Verify", action: "Re-scans to confirm conformance.", emotion: "Confident", feeling: "😌", thought: "“It went green — I can prove the fix worked.”", opportunity: "Deterministic re-scan loop until AAA." },
+    { phase: "Advocate", action: "Exports evidence and shares the practice with the team.", emotion: "Proud", feeling: "🤩", thought: "“This is auditable and my whole team can use it.”", opportunity: "WCAG-EM / 508 export plus a reusable roadmap." },
+  ];
+
+  const processFlow = [
+    { lane: "Input", icon: "▤", steps: ["Fetch live URL or accept pasted HTML", "Normalize DOM + ARIA tree"] },
+    { lane: "Detect", icon: "◎", steps: ["Run 28 WCAG 2.2 rule modules", "Classify by A / AA / AAA tier"] },
+    { lane: "Remediate", icon: "✦", steps: ["Generate corrected markup", "Produce before/after + visual cue"] },
+    { lane: "Prioritize", icon: "▲", steps: ["Weight by user impact + effort", "Build risk-ranked roadmap"] },
+    { lane: "Verify & Report", icon: "✓", steps: ["Re-scan to confirm pass", "Export WCAG-EM / 508 evidence"] },
+  ];
+
+
+
   const studyExcerpts = [
     {
       persona: "Developers",
@@ -2872,6 +2902,129 @@ function WcagToolDetails() {
           </ol>
         </section>
       </FadeIn>
+
+      {/* User flow */}
+      <FadeIn>
+        <section aria-labelledby="wcag-userflow-title">
+          <h2 id="wcag-userflow-title" className="text-lg font-bold text-gray-900 mb-1">
+            User Flow
+          </h2>
+          <p className="text-gray-600 text-xs mb-6">
+            The end-to-end path a contributor takes from a raw page to verified, exportable
+            conformance — including the decision branch at each step.
+          </p>
+          <ol className="grid gap-3 list-none p-0 m-0">
+            {userFlowSteps.map((s, i) => (
+              <li key={s.step} className="flex gap-3 items-start">
+                <span
+                  aria-hidden="true"
+                  className="w-7 h-7 rounded-full bg-[rgb(var(--c-primary))] text-white text-[11px] font-bold flex items-center justify-center flex-shrink-0 mt-0.5"
+                >
+                  {i + 1}
+                </span>
+                <div className="flex-1 border border-gray-200 rounded-xl p-4 bg-white">
+                  <h3 className="text-[13px] font-bold text-[rgb(var(--c-hero-dark))] mb-1">{s.step}</h3>
+                  <p className="text-[12.5px] text-gray-700 leading-relaxed">{s.action}</p>
+                  {s.branch && (
+                    <p className="mt-2 text-[11.5px] text-[rgb(var(--c-primary))] flex items-start gap-1.5">
+                      <span aria-hidden="true">⤷</span>
+                      <span>{s.branch}</span>
+                    </p>
+                  )}
+                </div>
+              </li>
+            ))}
+          </ol>
+        </section>
+      </FadeIn>
+
+      {/* Customer journey */}
+      <FadeIn>
+        <section aria-labelledby="wcag-cj-title">
+          <h2 id="wcag-cj-title" className="text-lg font-bold text-gray-900 mb-1">
+            Customer Journey
+          </h2>
+          <p className="text-gray-600 text-xs mb-6">
+            The emotional arc from an overwhelming audit to confident, auditable conformance — and
+            the product opportunity that turns each phase positive.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {customerJourney.map((c, i) => (
+              <article
+                key={c.phase}
+                className="border border-gray-200 rounded-xl bg-white overflow-hidden flex flex-col"
+              >
+                <div className="flex items-center justify-between px-4 py-2.5 bg-gray-50 border-b border-gray-100">
+                  <h3 className="text-[12.5px] font-bold text-gray-900">
+                    <span className="text-[rgb(var(--c-primary))]">{String(i + 1).padStart(2, "0")}</span> · {c.phase}
+                  </h3>
+                  <span aria-hidden="true" className="text-lg leading-none">{c.feeling}</span>
+                </div>
+                <div className="p-4 space-y-2 flex-1">
+                  <p className="text-[12px] text-gray-700">
+                    <span className="font-semibold text-[rgb(var(--c-primary))]">Action: </span>
+                    {c.action}
+                  </p>
+                  <p className="text-[12px] italic text-gray-600">{c.thought}</p>
+                  <span className="inline-block text-[10px] font-bold uppercase tracking-wide px-2 py-0.5 rounded bg-[rgb(var(--c-tint-100))] text-[rgb(var(--c-primary))]">
+                    {c.emotion}
+                  </span>
+                  <p className="text-[11.5px] text-emerald-900 bg-emerald-50 border border-emerald-100 rounded-lg px-2.5 py-1.5">
+                    <span className="font-semibold">Opportunity: </span>
+                    {c.opportunity}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+      </FadeIn>
+
+      {/* Process flow */}
+      <FadeIn>
+        <section aria-labelledby="wcag-process-title">
+          <h2 id="wcag-process-title" className="text-lg font-bold text-gray-900 mb-1">
+            Process Flow
+          </h2>
+          <p className="text-gray-600 text-xs mb-6">
+            How the engine transforms input into auditable output — a five-stage pipeline that loops
+            on re-scan until AAA conformance is reached.
+          </p>
+          <ol className="flex flex-col md:flex-row md:items-stretch gap-3 list-none p-0 m-0">
+            {processFlow.map((lane, i) => (
+              <li key={lane.lane} className="flex-1 flex items-center md:flex-col md:items-stretch gap-3">
+                <div className="flex-1 border border-gray-200 rounded-xl p-4 bg-white w-full h-full">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span
+                      aria-hidden="true"
+                      className="w-7 h-7 rounded-lg bg-[rgb(var(--c-tint-100))] text-[rgb(var(--c-primary))] text-sm font-bold flex items-center justify-center flex-shrink-0"
+                    >
+                      {lane.icon}
+                    </span>
+                    <h3 className="text-[12.5px] font-bold text-[rgb(var(--c-hero-dark))]">{lane.lane}</h3>
+                  </div>
+                  <ul className="space-y-1.5 list-none p-0 m-0">
+                    {lane.steps.map((st) => (
+                      <li key={st} className="text-[11.5px] text-gray-700 leading-snug flex gap-1.5">
+                        <span aria-hidden="true" className="text-[rgb(var(--c-accent))]">•</span>
+                        <span>{st}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                {i < processFlow.length - 1 && (
+                  <span aria-hidden="true" className="text-[rgb(var(--c-accent-on-light))] font-bold self-center md:rotate-90">→</span>
+                )}
+              </li>
+            ))}
+          </ol>
+          <div className="mt-3 flex items-center justify-center gap-2 text-[11px] text-gray-700">
+            <span aria-hidden="true" className="text-[rgb(var(--c-accent-on-light))] text-base leading-none">↻</span>
+            <span>Re-scan after remediation feeds back into Detect — repeat until AAA is reached.</span>
+          </div>
+        </section>
+      </FadeIn>
+
 
       {/* Research studies — qualitative & quantitative */}
       <FadeIn>
