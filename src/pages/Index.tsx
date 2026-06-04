@@ -2546,6 +2546,36 @@ function WcagToolDetails() {
     },
   ];
 
+  const userFlowSteps = [
+    { step: "Entry", action: "Open the suite and start a New Scan.", branch: null },
+    { step: "Input", action: "Paste raw HTML or enter a live URL.", branch: "Invalid input → inline guidance and retry." },
+    { step: "Scan", action: "Engine evaluates 28 WCAG 2.2 criteria across A / AA / AAA.", branch: null },
+    { step: "Results", action: "Review findings filtered by criterion and severity.", branch: "Zero issues → conformance summary and export." },
+    { step: "Issue Detail", action: "Open a finding: offending markup, AI suggestion, and visual cue.", branch: null },
+    { step: "Remediate", action: "Apply the corrected snippet from the before/after fix.", branch: "Defer → add to the risk-ranked roadmap." },
+    { step: "Verify", action: "Re-scan to confirm the criterion now passes.", branch: "Still failing → loop back to Issue Detail." },
+    { step: "Export", action: "Generate WCAG-EM / Section 508 evidence.", branch: null },
+  ];
+
+  const customerJourney = [
+    { phase: "Discover", action: "Hits an audit deadline or a failed scan elsewhere.", emotion: "Anxious", feeling: "😟", thought: "“The defect list is overwhelming — where do I even start?”", opportunity: "Single entry point accepting a URL or pasted HTML." },
+    { phase: "Onboard", action: "Runs a first scan with zero setup.", emotion: "Curious", feeling: "🙂", thought: "“No install, no account — I just pasted my page.”", opportunity: "Dependency-light, zero-config first run." },
+    { phase: "Diagnose", action: "Reviews findings ranked by impact and tier.", emotion: "Focused", feeling: "🧐", thought: "“I can see exactly what fails AAA and why.”", opportunity: "Severity + A/AA/AAA faceting over one dataset." },
+    { phase: "Remediate", action: "Applies AI suggestions and visual-cue fixes.", emotion: "Empowered", feeling: "💪", thought: "“The corrected code is right here — I just paste it.”", opportunity: "Copy-paste fixes with before/after examples." },
+    { phase: "Verify", action: "Re-scans to confirm conformance.", emotion: "Confident", feeling: "😌", thought: "“It went green — I can prove the fix worked.”", opportunity: "Deterministic re-scan loop until AAA." },
+    { phase: "Advocate", action: "Exports evidence and shares the practice with the team.", emotion: "Proud", feeling: "🤩", thought: "“This is auditable and my whole team can use it.”", opportunity: "WCAG-EM / 508 export plus a reusable roadmap." },
+  ];
+
+  const processFlow = [
+    { lane: "Input", icon: "▤", steps: ["Fetch live URL or accept pasted HTML", "Normalize DOM + ARIA tree"] },
+    { lane: "Detect", icon: "◎", steps: ["Run 28 WCAG 2.2 rule modules", "Classify by A / AA / AAA tier"] },
+    { lane: "Remediate", icon: "✦", steps: ["Generate corrected markup", "Produce before/after + visual cue"] },
+    { lane: "Prioritize", icon: "▲", steps: ["Weight by user impact + effort", "Build risk-ranked roadmap"] },
+    { lane: "Verify & Report", icon: "✓", steps: ["Re-scan to confirm pass", "Export WCAG-EM / 508 evidence"] },
+  ];
+
+
+
   const studyExcerpts = [
     {
       persona: "Developers",
