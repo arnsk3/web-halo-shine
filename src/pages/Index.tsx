@@ -2438,13 +2438,13 @@ function WcagToolDetails() {
   const iaLevels = [
     {
       level: "L0 — Entry",
-      nodes: ["Dashboard", "New Scan", "Recent Scans"],
-      note: "Single entry point; choose URL fetch or paste-HTML input.",
+      nodes: ["Scan URL tab", "Paste HTML tab", "Run Scan"],
+      note: "Single zero-config screen; no account or install — choose URL fetch or paste-HTML input.",
     },
     {
       level: "L1 — Scan Workspace",
-      nodes: ["Results Overview", "Criteria Filter (A/AA/AAA)", "Severity Filter"],
-      note: "Faceted navigation lets each persona slice the same dataset their way.",
+      nodes: ["Results Overview", "POUR Filter (Perceivable/Operable/Understandable/Robust)", "Level Filter (A/AA/AAA)"],
+      note: "Faceted navigation lets each persona slice the same 28-criteria dataset their way.",
     },
     {
       level: "L2 — Issue Detail",
@@ -2547,8 +2547,8 @@ function WcagToolDetails() {
   ];
 
   const userFlowSteps = [
-    { step: "Entry", action: "Open the suite and start a New Scan.", branch: null },
-    { step: "Input", action: "Paste raw HTML or enter a live URL.", branch: "Invalid input → inline guidance and retry." },
+    { step: "Entry", action: "Open BrainPulse Ally — one zero-config screen, no sign-in.", branch: null },
+    { step: "Input", action: "Choose the Scan URL tab to enter a live URL, or Paste HTML to drop in markup.", branch: "Invalid input → inline guidance and retry." },
     { step: "Scan", action: "Engine evaluates 28 WCAG 2.2 criteria across A / AA / AAA.", branch: null },
     { step: "Results", action: "Review findings filtered by criterion and severity.", branch: "Zero issues → conformance summary and export." },
     { step: "Issue Detail", action: "Open a finding: offending markup, AI suggestion, and visual cue.", branch: null },
