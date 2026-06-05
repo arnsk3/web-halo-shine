@@ -94,7 +94,6 @@ const CASE_STUDIES: CaseStudyType[] = [
       "28 success criteria covered across A, AA, and AAA in a single pass",
       "Converts raw audits into prioritized, effort-weighted remediation roadmaps",
       "Visual before/after code fixes make remediation actionable for any engineer",
-      "Reusable productization of methodology proven across federal accessibility programs",
       "Output maps to Section 508 and WCAG-EM evidence requirements",
     ],
     hsi: [
