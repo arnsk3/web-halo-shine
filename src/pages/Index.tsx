@@ -3272,6 +3272,161 @@ function WcagToolDetails() {
           </ol>
         </section>
       </FadeIn>
+
+      {/* A11y Assistant — conversational chatbot experience */}
+      <FadeIn>
+        <section aria-labelledby="wcag-assistant-title">
+          <div className="rounded-2xl border border-gray-200 overflow-hidden">
+            <header className="bg-gradient-to-r from-[rgb(var(--c-hero-mid))] via-[rgb(var(--c-primary))] to-[rgb(var(--c-accent))] text-white px-6 py-5">
+              <div className="flex items-center gap-2 mb-2">
+                <span
+                  aria-hidden="true"
+                  className="text-[10px] font-bold tracking-[0.18em] uppercase px-2 py-1 rounded bg-white/15"
+                >
+                  Conversational AI
+                </span>
+                <span className="text-[10px] font-semibold tracking-[0.14em] uppercase text-white/80">
+                  Built into the Suite
+                </span>
+              </div>
+              <h2 id="wcag-assistant-title" className="text-lg font-bold mb-2">
+                A11y Assistant — the chatbot at the heart of the experience
+              </h2>
+              <p className="text-white/90 text-sm leading-[1.8]">
+                The A11y Assistant is the conversational layer that wraps the entire remediation
+                engine. Instead of forcing users to read a defect table, it lets anyone — engineers,
+                content owners, QA, or compliance leads — ask plain-language questions and get back
+                contextual answers, visual cues, and ready-to-paste fixes. It turns a static audit
+                into a guided, AAA-compliant accessibility conversation.
+              </p>
+            </header>
+
+            <div className="bg-white p-6 space-y-8">
+              {/* What the assistant does */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                {[
+                  {
+                    t: "Ask in plain language",
+                    d: "“Why is this button failing AAA?” returns the criterion, the offending markup, and the exact fix.",
+                  },
+                  {
+                    t: "Explains, then fixes",
+                    d: "Every reply pairs a why-it-matters explanation with a copy-paste before/after snippet.",
+                  },
+                  {
+                    t: "Remembers the scan",
+                    d: "The assistant is grounded in your latest scan results, so answers reference your real findings.",
+                  },
+                ].map((c) => (
+                  <div key={c.t} className="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                    <h3 className="text-[12px] font-bold text-[rgb(var(--c-primary))] mb-1.5">
+                      {c.t}
+                    </h3>
+                    <p className="text-[11.5px] text-gray-700 leading-relaxed">{c.d}</p>
+                  </div>
+                ))}
+              </div>
+
+              {/* Sample conversation */}
+              <div>
+                <h3 className="text-sm font-bold text-gray-900 mb-3">Sample conversation</h3>
+                <div
+                  className="rounded-xl border border-gray-200 bg-gray-50 p-4 space-y-3"
+                  role="log"
+                  aria-label="Example A11y Assistant conversation"
+                >
+                  {[
+                    {
+                      from: "user" as const,
+                      text: "My contact form fails AAA. What's wrong and how do I fix it?",
+                    },
+                    {
+                      from: "bot" as const,
+                      text: "I found 2 AAA blockers on the form. The email field has no programmatic label (1.3.1) and the submit button's contrast is 3.8:1 — below the 7:1 AAA threshold (1.4.6). Here's the label fix:",
+                      code: `<label for="email">Email</label>
+<input id="email" type="email" />`,
+                    },
+                    {
+                      from: "user" as const,
+                      text: "And the button contrast?",
+                    },
+                    {
+                      from: "bot" as const,
+                      text: "Darken the text to #1f2937 on the current background to reach 9.2:1, clearing AAA. I've flagged it as Serious in your roadmap — fix it before the label since it affects every page.",
+                    },
+                  ].map((m, i) => (
+                    <div
+                      key={i}
+                      className={
+                        m.from === "user" ? "flex justify-end" : "flex justify-start"
+                      }
+                    >
+                      <div
+                        className={
+                          m.from === "user"
+                            ? "max-w-[85%] rounded-2xl rounded-br-sm bg-[rgb(var(--c-primary))] text-white px-4 py-2.5 text-[12.5px] leading-relaxed"
+                            : "max-w-[85%] rounded-2xl rounded-bl-sm bg-white border border-gray-200 text-gray-800 px-4 py-2.5 text-[12.5px] leading-relaxed"
+                        }
+                      >
+                        <span className="block text-[9px] font-bold uppercase tracking-wide mb-1 opacity-70">
+                          {m.from === "user" ? "You" : "A11y Assistant"}
+                        </span>
+                        {m.text}
+                        {"code" in m && m.code && (
+                          <pre className="mt-2 bg-gray-900 text-gray-100 rounded-lg p-3 text-[11px] overflow-x-auto">
+                            <code>{m.code}</code>
+                          </pre>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* How the assistant works */}
+              <div>
+                <h3 className="text-sm font-bold text-gray-900 mb-3">How the assistant works</h3>
+                <ol className="space-y-3 list-none p-0 m-0">
+                  {[
+                    "Scan results (URL or HTML) are parsed into structured findings tied to WCAG 2.2 criteria.",
+                    "The assistant grounds every answer in those findings — no generic advice, only your real issues.",
+                    "For each question it returns the rule reference, a plain-language explanation, and a before/after fix.",
+                    "Visual cues highlight the offending element in context so the user sees exactly what to change.",
+                    "Resolved items update the prioritized roadmap, so the conversation drives measurable progress.",
+                  ].map((step, i) => (
+                    <li key={i} className="flex gap-3 items-start">
+                      <span className="shrink-0 w-6 h-6 rounded-full bg-[rgb(var(--c-accent))] text-white text-xs flex items-center justify-center font-bold">
+                        {i + 1}
+                      </span>
+                      <span className="text-gray-700 text-sm leading-relaxed pt-0.5">{step}</span>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+
+              {/* Accessibility of the assistant itself */}
+              <div className="rounded-xl border border-emerald-100 bg-emerald-50 p-4">
+                <h3 className="text-[12px] font-bold text-emerald-800 mb-2">
+                  The assistant is itself AAA-compliant
+                </h3>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5 list-none p-0 m-0">
+                  {[
+                    "Full keyboard operability — send, scroll, and copy fixes without a mouse",
+                    "Screen-reader-first: messages announced via an ARIA live region",
+                    "High-contrast theming that meets the 7:1 AAA contrast ratio",
+                    "Visible focus states and respect for reduced-motion preferences",
+                  ].map((f) => (
+                    <li key={f} className="text-[11.5px] text-emerald-900 flex gap-2">
+                      <span aria-hidden="true">✓</span>
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+      </FadeIn>
     </div>
   );
 }
