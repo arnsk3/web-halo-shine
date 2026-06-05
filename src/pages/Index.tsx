@@ -81,7 +81,7 @@ const CASE_STUDIES: CaseStudyType[] = [
       {
         heading: "Prioritized Remediation Roadmap",
         content:
-          "Instead of a flat defect dump, results are ranked into a remediation roadmap weighted by user impact, conformance level, and fix effort. Teams get a clear sequence — what to fix first for the largest accessibility and legal-risk reduction — turning an intimidating audit into a tractable backlog. This mirrors the prioritization methodology I deployed across federal compliance programs, now packaged as a reusable product.",
+          "Instead of a flat defect dump, results are ranked into a remediation roadmap weighted by user impact, conformance level, and fix effort. Teams get a clear sequence — what to fix first for the largest accessibility and legal-risk reduction — turning an intimidating audit into a tractable backlog.",
       },
       {
         heading: "Architecture & Approach",
