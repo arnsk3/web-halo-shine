@@ -100,7 +100,6 @@ const CASE_STUDIES: CaseStudyType[] = [
       "Human Performance — designed for assistive-technology users first, validated with keyboard and screen-reader workflows",
       "Section 508 / WCAG 2.2 — every check traces to a normative success criterion",
       "Error Prevention — guided fixes reduce remediation rework and reintroduced defects",
-      "Same prioritization and accessibility methodology applied at SSA, now packaged as a product",
     ],
   },
   {
