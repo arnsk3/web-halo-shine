@@ -221,7 +221,6 @@ const CASE_STUDIES: CaseStudyType[] = [
       "Risk-based prioritization — the 65%/8-component insight drove the entire strategy",
       "Lifecycle integration — compliance embedded in CI/CD, not post-hoc auditing",
       "Evidence-based design — every decision backed by test data from users with assistive technologies",
-      "Same structured methodology now applied to AI safety at GE HealthCare",
     ],
   },
   {
