@@ -81,7 +81,7 @@ const CASE_STUDIES: CaseStudyType[] = [
       {
         heading: "Prioritized Remediation Roadmap",
         content:
-          "Instead of a flat defect dump, results are ranked into a remediation roadmap weighted by user impact, conformance level, and fix effort. Teams get a clear sequence — what to fix first for the largest accessibility and legal-risk reduction — turning an intimidating audit into a tractable backlog. This mirrors the prioritization methodology I deployed across federal compliance programs, now packaged as a reusable product.",
+          "Instead of a flat defect dump, results are ranked into a remediation roadmap weighted by user impact, conformance level, and fix effort. Teams get a clear sequence — what to fix first for the largest accessibility and legal-risk reduction — turning an intimidating audit into a tractable backlog.",
       },
       {
         heading: "Architecture & Approach",
@@ -94,14 +94,12 @@ const CASE_STUDIES: CaseStudyType[] = [
       "28 success criteria covered across A, AA, and AAA in a single pass",
       "Converts raw audits into prioritized, effort-weighted remediation roadmaps",
       "Visual before/after code fixes make remediation actionable for any engineer",
-      "Reusable productization of methodology proven across federal accessibility programs",
       "Output maps to Section 508 and WCAG-EM evidence requirements",
     ],
     hsi: [
       "Human Performance — designed for assistive-technology users first, validated with keyboard and screen-reader workflows",
       "Section 508 / WCAG 2.2 — every check traces to a normative success criterion",
       "Error Prevention — guided fixes reduce remediation rework and reintroduced defects",
-      "Same prioritization and accessibility methodology applied at SSA, now packaged as a product",
     ],
   },
   {
@@ -163,7 +161,6 @@ const CASE_STUDIES: CaseStudyType[] = [
       "MBSE/SysML — traced human performance requirements through system architecture",
       "Safety & Health — core mission: preventing patient harm from automation bias and overreliance",
       "DoDI 5000.95 — HSI lifecycle principles applied to AI system development",
-      "Same structured HSI methodology previously applied to SSA11y and federal systems",
     ],
   },
   {
@@ -224,7 +221,6 @@ const CASE_STUDIES: CaseStudyType[] = [
       "Risk-based prioritization — the 65%/8-component insight drove the entire strategy",
       "Lifecycle integration — compliance embedded in CI/CD, not post-hoc auditing",
       "Evidence-based design — every decision backed by test data from users with assistive technologies",
-      "Same structured methodology now applied to AI safety at GE HealthCare",
     ],
   },
   {
