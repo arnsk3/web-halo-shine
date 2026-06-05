@@ -161,7 +161,6 @@ const CASE_STUDIES: CaseStudyType[] = [
       "MBSE/SysML — traced human performance requirements through system architecture",
       "Safety & Health — core mission: preventing patient harm from automation bias and overreliance",
       "DoDI 5000.95 — HSI lifecycle principles applied to AI system development",
-      "Same structured HSI methodology previously applied to SSA11y and federal systems",
     ],
   },
   {
