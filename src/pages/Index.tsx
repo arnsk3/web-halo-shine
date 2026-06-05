@@ -544,13 +544,11 @@ function Home({
         </FadeIn>
         <div className="grid gap-8 items-stretch [grid-template-columns:repeat(auto-fit,minmax(min(100%,30rem),1fr))]">
           {CASE_STUDIES.map((s, i) => {
-            const isOpen = openCases.includes(s.id);
-            const panelId = `case-panel-${s.id}`;
             return (
             <FadeIn key={s.id} delay={i * 0.08} className="h-full">
               <article className="h-full flex flex-col rounded-xl overflow-hidden bg-white border border-gray-200 transition-all hover:border-[rgb(var(--c-primary)/0.3)] hover:shadow-lg">
                 <div
-                  className={`relative h-52 bg-gradient-to-br ${s.hero} flex items-end p-6 overflow-hidden`}
+                  className={`relative h-44 bg-gradient-to-br ${s.hero} flex items-end p-5 overflow-hidden`}
                 >
                   {s.image && (
                     <img
@@ -563,18 +561,21 @@ function Home({
                     />
                   )}
                   <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                  <span className="relative text-white text-xs font-semibold tracking-widest uppercase">
+                  <span className="relative text-white text-[11px] font-semibold tracking-widest uppercase">
                     {s.tag}
                   </span>
                 </div>
-                <div className="flex-1 flex flex-col p-7">
-                  <h3 className="font-bold text-gray-900 text-xl mb-2 leading-snug">
+                <div className="flex-1 flex flex-col p-6">
+                  <h3 className="font-bold text-gray-900 text-lg mb-1.5 leading-snug">
                     {s.title}
                   </h3>
-                  <p className={`text-gray-700 text-sm mb-5 leading-relaxed ${isOpen ? "" : "line-clamp-3"}`}>
+                  <p className="text-gray-600 text-[12px] mb-3 font-medium">
+                    {s.role} · {s.org} · {s.timeline}
+                  </p>
+                  <p className="text-gray-700 text-sm mb-4 leading-relaxed">
                     {s.subtitle}
                   </p>
-                  <div className="flex gap-2 flex-wrap">
+                  <div className="flex gap-2 flex-wrap mb-4">
                     {s.metrics.map((m) => (
                       <span
                         key={m.label}
@@ -585,55 +586,43 @@ function Home({
                     ))}
                   </div>
 
-                  {isOpen && (
-                    <div id={panelId} className="mt-4 pt-4 border-t border-gray-100 space-y-4">
-                      {s.sections?.[0] && (
-                        <div>
-                          <p className="text-[11px] font-bold uppercase tracking-wide text-gray-700 mb-1">
-                            {s.sections[0].heading}
-                          </p>
-                          <p className="text-gray-700 text-[13px] leading-relaxed">
-                            {s.sections[0].content}
-                          </p>
-                        </div>
-                      )}
-                      {s.outcomes?.length > 0 && (
-                        <div>
-                          <p className="text-[11px] font-bold uppercase tracking-wide text-gray-700 mb-2">
-                            Key outcomes
-                          </p>
-                          <ul className="list-none p-0 m-0 space-y-1.5">
-                            {s.outcomes.map((o) => (
-                              <li key={o} className="flex items-start gap-2 text-[13px] text-gray-700">
-                                <span
-                                  aria-hidden="true"
-                                  className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[rgb(var(--c-accent))]"
-                                />
-                                <span className="leading-relaxed">{o}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
+                  {s.outcomes?.length > 0 && (
+                    <div className="mb-2 pt-4 border-t border-gray-100">
+                      <p className="text-[11px] font-bold uppercase tracking-wide text-gray-700 mb-2">
+                        Key outcomes
+                      </p>
+                      <ul className="list-none p-0 m-0 space-y-1.5">
+                        {s.outcomes.slice(0, 4).map((o) => (
+                          <li key={o} className="flex items-start gap-2 text-[13px] text-gray-700">
+                            <span
+                              aria-hidden="true"
+                              className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[rgb(var(--c-accent))]"
+                            />
+                            <span className="leading-relaxed">{o}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   )}
 
                   <div className="mt-auto pt-4 flex flex-wrap gap-2">
                     <button
-                      onClick={() => toggleCase(s.id)}
-                      aria-expanded={isOpen}
-                      aria-controls={panelId}
-                      className="text-xs font-semibold px-3 py-1.5 rounded-lg border border-[rgb(var(--c-primary)/0.3)] text-[rgb(var(--c-primary))] hover:bg-[rgb(var(--c-tint-50))] focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2 transition-colors"
-                    >
-                      {isOpen ? "Show less" : "Show more"}
-                    </button>
-                    <button
                       onClick={() => setCase(s)}
                       aria-label={`View full case study: ${s.title}`}
-                      className="text-xs font-semibold px-3 py-1.5 rounded-lg bg-[rgb(var(--c-primary))] text-white hover:bg-[rgb(var(--c-accent-dark))] focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2 transition-colors"
+                      className="text-xs font-semibold px-4 py-2 rounded-lg bg-[rgb(var(--c-primary))] text-white hover:bg-[rgb(var(--c-accent-dark))] focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2 transition-colors"
                     >
-                      View case study
+                      View full case study
                     </button>
+                    {s.liveUrl && (
+                      <a
+                        href={s.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-xs font-semibold px-4 py-2 rounded-lg border border-[rgb(var(--c-primary)/0.3)] text-[rgb(var(--c-primary))] hover:bg-[rgb(var(--c-tint-50))] focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2 transition-colors"
+                      >
+                        {s.liveLabel ?? "View live"}
+                      </a>
+                    )}
                   </div>
                 </div>
               </article>
