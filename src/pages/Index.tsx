@@ -328,21 +328,34 @@ const CASE_STUDIES: CaseStudyType[] = [
         content:
           "UX Strategy & Design Governance: defined consistent navigation, labeling, and content structure across all platforms. Created shared pattern library so common interactions work the same way everywhere. Section 508 as Organizational Policy: defined compliance as organizational mandate, not project checklist. Embedded accessibility into every lifecycle phase. Created automated testing in CI/CD. This was my most significant governance contribution. HSI-Driven Design: institutionalized user-centered design as standard practice — research, prototyping, usability testing built into every project. Conducted inclusive research with users with disabilities, limited English proficiency, and users in crisis. Investment Prioritization: built impact scoring framework, quarterly roadmap reviews, trade-off transparency, and budget allocation tied to outcomes instead of politics.",
       },
-      {
-        heading: "Seven Years of Leadership",
-        content:
-          "Short engagements let you design solutions. Multi-year ownership teaches you whether those solutions survive: new leadership, changing requirements, team turnover, technology shifts. The governance frameworks I built in year 2 were still operating in year 7. The team I recruited in year 1 grew to 15+ by year 4. The Section 508 policy I defined became the organizational standard that outlasted my tenure. Seven years taught me that the real test of leadership isn't what you build — it's what still works after you leave.",
-      },
-    ],
-    outcomes: [
-      "Reduced development rework 30-40%, saving $2M+ annually in remediation costs",
-      "Defined Section 508 governance as organizational policy — not a project deliverable",
-      "Served 2M+ monthly visitors across 6+ enterprise platforms",
-      "Influenced executive funding and technology strategy for 7 years",
-      "Grew cross-functional team from initial staff to 15+ under my leadership",
-      "People in crisis finding treatment facilities faster through improved Treatment Locator",
-      "Investment prioritization framework replaced political decision-making with strategic allocation",
-    ],
+       {
+         heading: "Cloud Modernization — TEDS to AWS GovCloud",
+         content:
+           "Led the digital modernization of SAMHSA's behavioral health data infrastructure by migrating the Treatment Episode Data Set (TEDS) — the federal government's primary source on substance use treatment admissions and discharges — from aging on-premises systems to Amazon Web Services GovCloud (US). GovCloud was selected for its FedRAMP High and DoD-compliant isolation, meeting the strict data residency, sovereignty, and compliance requirements for sensitive federal behavioral health data. The migration re-platformed TEDS ingestion, storage, and the public data-visualization layer onto managed cloud services: Amazon S3 for durable encrypted data lakes, RDS/Redshift for warehousing the admission and discharge records states submit annually, Lambda and Glue for ETL pipelines that validate and normalize state-submitted datasets, and CloudFront-fronted delivery for the public-facing analytics. Encryption (KMS) in transit and at rest, IAM least-privilege, and continuous audit logging via CloudTrail were embedded to satisfy HIPAA and Section 508 obligations end-to-end.",
+       },
+       {
+         heading: "Modernization Impact",
+         content:
+           "Migrating TEDS to AWS GovCloud eliminated brittle legacy hardware, cut infrastructure and maintenance costs, and gave SAMHSA elastic capacity to handle annual state data submissions without over-provisioning. Automated, validated ETL pipelines replaced manual data handling — improving the accuracy and timeliness of national behavioral health reporting. Modernized, accessible data-visualization dashboards made TEDS insights available faster to researchers, state agencies, and the public, while compliant cloud governance reduced the audit burden and strengthened security posture across the portfolio.",
+       },
+       {
+         heading: "Seven Years of Leadership",
+         content:
+           "Short engagements let you design solutions. Multi-year ownership teaches you whether those solutions survive: new leadership, changing requirements, team turnover, technology shifts. The governance frameworks I built in year 2 were still operating in year 7. The team I recruited in year 1 grew to 15+ by year 4. The Section 508 policy I defined became the organizational standard that outlasted my tenure. Seven years taught me that the real test of leadership isn't what you build — it's what still works after you leave.",
+       },
+     ],
+     outcomes: [
+       "Reduced development rework 30-40%, saving $2M+ annually in remediation costs",
+       "Migrated TEDS datasets to AWS GovCloud (FedRAMP High) — modernizing federal behavioral health data infrastructure",
+       "Automated, validated cloud ETL pipelines improved accuracy and timeliness of national TEDS reporting",
+       "Cut legacy infrastructure and maintenance costs with elastic, on-demand cloud capacity",
+       "Defined Section 508 governance as organizational policy — not a project deliverable",
+       "Served 2M+ monthly visitors across 6+ enterprise platforms",
+       "Influenced executive funding and technology strategy for 7 years",
+       "Grew cross-functional team from initial staff to 15+ under my leadership",
+       "People in crisis finding treatment facilities faster through improved Treatment Locator",
+       "Investment prioritization framework replaced political decision-making with strategic allocation",
+     ],
     hsi: [
       "Portfolio management at scale — $130M across 6+ platforms with full budget and delivery accountability",
       "HSI lifecycle integration — UCD and accessibility embedded as standard engineering practice",
