@@ -20,8 +20,6 @@ const THEMES: ThemeDef[] = [
   { id: "emerald", label: "Emerald", swatch: ["#064e3b", "#22c55e"] },
   { id: "ocean", label: "Ocean Deep", swatch: ["#0c2340", "#2d8a9e"] },
   { id: "teal", label: "Teal & Coral", swatch: ["#134e5e", "#e76f51"] },
-  { id: "rose", label: "Crimson Rose", swatch: ["#881337", "#f43f5e"] },
-  { id: "amber", label: "Warm Amber", swatch: ["#78350f", "#f59e0b"] },
   { id: "slate", label: "Slate", swatch: ["#1e293b", "#64748b"] },
   { id: "mono", label: "Monochrome", swatch: ["#171717", "#737373"] },
 ];
