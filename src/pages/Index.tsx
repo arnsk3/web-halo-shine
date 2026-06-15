@@ -88,10 +88,18 @@ const CASE_STUDIES: CaseStudyType[] = [
         content:
           "Built as a self-contained, dependency-light tool so it can run anywhere without a heavy install or backend lock-in. The rule set is structured for extensibility — new criteria and heuristics plug in cleanly as WCAG evolves — and every check maps directly back to its normative success criterion, so output doubles as auditable evidence for Section 508 and WCAG-EM reporting.",
       },
+      {
+        heading: "UI Architecture & React Engineering",
+        content:
+          "I architected and wrote the front end myself in React + TypeScript, structured as a library of reusable, composable components driven by a single semantic design-token layer. State is managed with React Context and predictable reducer patterns so scan results, filters, and the remediation roadmap stay in sync without prop-drilling. The build runs on Vite (Webpack/Babel-equivalent tooling) with code-splitting and lazy loading for performance, REST integration for live URL scans, and Git-based workflows with documented coding standards and component guidelines so the codebase scales cleanly as new criteria are added.",
+      },
     ],
     outcomes: [
       "Standalone tool achieving WCAG 2.2 AAA conformance — both in what it checks and how it's built",
       "28 success criteria covered across A, AA, and AAA in a single pass",
+      "Reusable React + TypeScript component architecture on a single token layer — scalable and themeable",
+      "Context-based state management keeps scans, filters, and roadmap in sync without prop-drilling",
+      "Vite build with code-splitting and lazy loading for fast, high-performance UI",
       "Converts raw audits into prioritized, effort-weighted remediation roadmaps",
       "Visual before/after code fixes make remediation actionable for any engineer",
       "Output maps to Section 508 and WCAG-EM evidence requirements",
