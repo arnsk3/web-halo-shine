@@ -6,8 +6,6 @@ type ThemeId =
   | "emerald"
   | "ocean"
   | "teal"
-  | "rose"
-  | "amber"
   | "slate"
   | "mono";
 
