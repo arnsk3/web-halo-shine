@@ -362,7 +362,8 @@ const CASE_STUDIES: CaseStudyType[] = [
       "Stakeholder management — aligned 50+ stakeholders through structured governance",
       "Section 508 enterprise governance — defined and enforced as organizational policy",
       "Inclusive design for vulnerable populations — users in crisis with diverse abilities",
-      "7-year continuity — sustained leadership through changing administrations",
+       "Cloud migration & digital modernization — TEDS datasets re-platformed to AWS GovCloud (FedRAMP High)",
+       "7-year continuity — sustained leadership through changing administrations",
     ],
   },
 ];
