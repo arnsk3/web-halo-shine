@@ -4489,6 +4489,15 @@ function Resume() {
               (Scrum Alliance), DAU HSI in progress.
             </p>
             <p>
+              <strong>UI architecture &amp; engineering:</strong> Define and build
+              scalable front-end architecture in React + TypeScript — reusable,
+              token-driven component systems, state management with Redux/Context API,
+              Vite/Webpack/Babel build tooling, and REST API integration. Lead UI
+              efforts with established coding standards, design guidelines, code
+              reviews, and mentoring of junior developers, partnering with UX and
+              backend teams to ship high-performance, accessible interfaces.
+            </p>
+            <p>
               <strong>Standards:</strong> MIL-STD-1472H, FDA, IEC 62366, ISO 14971,
               MBSE/SysML, WCAG 2.2 AA, Section 508, ADA Title II, DoDI 5000.95.
             </p>
