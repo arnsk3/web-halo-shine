@@ -84,6 +84,43 @@ const DOMAINS: Domain[] = [
     ),
   },
   {
+    id: "ui-architecture",
+    title: "UI Architecture & React Engineering",
+    tagline: "Scalable, high-performance front-end architecture — defined, built, and led.",
+    summary:
+      "I define the front-end architecture for complex web apps and lead teams to ship it: reusable React component systems, predictable state management, clean API integration, and the coding standards and reviews that keep quality high as teams scale.",
+    capabilities: [
+      "Front-end architecture & reusable, scalable React component libraries",
+      "State management with Redux & Context API for predictable data flow",
+      "Build tooling — Webpack, Babel, Vite — and performance optimization",
+      "RESTful API integration with backend teams; Git-based workflows",
+      "Coding standards, design guidelines, code reviews & mentoring juniors",
+    ],
+    impact: [
+      { value: "Lead", label: "UI architecture & technical direction" },
+      { value: "Reusable", label: "component systems across teams" },
+      { value: "Standards", label: "reviews & mentorship at scale" },
+    ],
+    examples: [
+      {
+        title: "Front-end architecture & component systems",
+        detail:
+          "Defined the architecture and built reusable, high-quality React + Tailwind components — guiding development teams and embedding best practices from the first commit.",
+      },
+      {
+        title: "API integration & team enablement",
+        detail:
+          "Collaborated with backend teams on RESTful API integration, established coding standards and design guidelines, and ran code reviews to mentor junior developers.",
+      },
+    ],
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <rect x="3" y="4" width="18" height="14" rx="2" />
+        <path d="M3 9h18M8 13l-2 2 2 2M12 17l2-4M16 13l2 2-2 2" />
+      </svg>
+    ),
+  },
+  {
     id: "research-strategy",
     title: "Research & Strategy",
     tagline: "Evidence-driven strategy grounded in real users and systems thinking.",
