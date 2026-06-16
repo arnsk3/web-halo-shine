@@ -282,11 +282,17 @@ const CASE_STUDIES: CaseStudyType[] = [
       },
     ],
     outcomes: [
-      "Eliminated missed emergency activations for 1M+ elderly users",
-      "Reduced remediation cycles 30-40% — compliance built in, not fixed after",
-      "Delivered FDA/IEC 62366-compliant solutions through structured usability engineering",
-      "Governance adopted across all 5 product lines as executive-approved standard",
-      "Multi-modal alerts ensure no critical notification missed regardless of sensory impairment",
+      "Reduced drop-off in critical user flows by 30–40% through mobile-first visual design",
+      "Drove adoption across 5 product lines for 1M+ consumers",
+      "Improved task completion and engagement with a cohesive, on-brand experience",
+      "Brand-consistent component system and style guide adopted across all product lines",
+      "On-brand multi-modal UI keeps the experience accessible and conversion-ready under stress",
+    ],
+    artifacts: [
+      { label: "Mobile-first UI screens (app + web)", desc: "High-polish, on-brand consumer screens across web, mobile, and in-device — built for visual clarity and engagement." },
+      { label: "Brand-consistent component system", desc: "Shared style guide and component library keeping color, type, and interaction consistent across 5 product lines." },
+      { label: "Before/after screen redesign", desc: "Redesigned critical flow with engagement framing — cleaner hierarchy, stronger CTAs, lower drop-off." },
+      { label: "Onboarding & upgrade prompts", desc: "Welcome flows, feature announcements, and upgrade prompts designed to drive adoption and conversion." },
     ],
     hsi: [
       "MIL-STD-1472H — direct application of DoD human engineering design criteria",
