@@ -174,19 +174,19 @@ const CASE_STUDIES: CaseStudyType[] = [
   },
   {
     id: "ssa",
-    tag: "Federal · AI · Accessibility",
-    title: "SSA11y: AI-Powered Federal Compliance Platform",
+    tag: "Design System · Data-Driven · Brand Consistency",
+    title: "A Data-Driven Design System That Unified 50M+ User Experiences",
     subtitle:
-      "Conceived, built, and deployed an AI-driven compliance platform that replaced manual audits with continuous validation — saving $1.5M+ annually and becoming the federal standard.",
+      "Led the visual design system and data-driven design decisions across 15+ digital touchpoints — analyzing behavioral data to drive a system-wide redesign that improved engagement, unified the brand, and saved $1.5M+ annually for 50M+ users.",
     hero: "from-[#1a1a2e] via-[#16213e] to-[#0f3460]",
     image: caseSsa,
-    role: "Sr. UX & Accessibility Lead",
+    role: "Lead Visual & Design Systems Designer",
     timeline: "2022 – 2025",
     org: "Leidos / Social Security Administration",
-    standards: ["WCAG 2.2 AA", "Section 508", "Llama2", "USWDS", "ADA Title II"],
+    standards: ["Design System", "Style Guide", "Data-Driven Design", "Responsive", "WCAG 2.2 AA"],
     metrics: [
-      { value: "50M+", label: "Citizens Impacted" },
-      { value: "30%", label: "Audit Reduction" },
+      { value: "50M+", label: "Users Unified" },
+      { value: "30–40%", label: "Fewer UX Defects" },
       { value: "$1.5M+", label: "Annual Savings" },
     ],
     sections: [
