@@ -3608,8 +3608,20 @@ function CaseStudy({
   return (
     <div>
       {/* Hero */}
-      <div className={`bg-gradient-to-br ${study.hero} text-white`}>
-        <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(3rem,6vw,6rem)]">
+      <div className={`relative overflow-hidden bg-gradient-to-br ${study.hero} text-white`}>
+        {study.image && (
+          <>
+            <img
+              src={study.image}
+              alt={`Hero visual for ${study.title}`}
+              width={1600}
+              height={900}
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+            <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/55 to-black/40" />
+          </>
+        )}
+        <div className="relative w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(3rem,6vw,6rem)]">
           <button
             onClick={() => setPage("home")}
             className="text-white/85 text-sm hover:text-white mb-6 inline-block transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
