@@ -251,9 +251,14 @@ const CASE_STUDIES: CaseStudyType[] = [
     ],
     sections: [
       {
-        heading: "The Problem",
+        heading: "The Challenge",
         content:
-          "Best Buy Health manufactures personal emergency response systems — Lively and Jitterbug devices that elderly people depend on daily. Users were missing emergency activations. Touch targets were too small for arthritic hands. Alerts relied on single modalities. Under stress — which is exactly when emergency activation happens — elderly users with reduced dexterity, low vision, or cognitive decline couldn't reliably trigger help. A missed activation for a 78-year-old who has fallen means they lie on the floor until someone finds them. No enterprise accessibility governance existed across 5 product lines.",
+          "Best Buy Health needed to engage 1M+ consumers across 5 product lines (Lively, Jitterbug) with cohesive, on-brand digital experiences spanning web, mobile, and in-device touchpoints. Visual experiences were fragmented across product lines, critical user flows leaked engagement through drop-off, and there was no shared design system to keep the brand consistent or conversion-ready at scale.",
+      },
+      {
+        heading: "My Role",
+        content:
+          "As Senior Visual & Experience Designer I owned the visual design, brand consistency, and customer-focused digital experience across every consumer touchpoint. I led a mobile-first redesign, built the brand-consistent component system and style guide, and drove design decisions that lifted engagement and task completion — partnering with product, content, and engineering to ship on-brand UI.",
       },
       {
         heading: "Military Standards for Civilian Safety",
