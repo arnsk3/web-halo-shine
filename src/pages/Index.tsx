@@ -130,14 +130,14 @@ const CASE_STUDIES: CaseStudyType[] = [
     ],
     sections: [
       {
-        heading: "The Problem",
+        heading: "The Challenge",
         content:
-          "GE HealthCare was developing AI-enabled clinical decision-support systems for prenatal diagnostics — tools where a wrong output doesn't mean a bad user experience, it means a missed diagnosis. When I joined, the organization had no AI safety framework: no evaluation criteria, no deployment thresholds, no human-in-the-loop governance, no standardized method for identifying automation bias or overreliance risks. Each product team was making ad-hoc safety decisions independently. In a regulated environment governed by FDA, IEC 62366, and ISO 14971, this was a patient safety liability.",
+          "Multiple product teams needed consistent, on-brand, accessible visual experiences across digital platforms. Without a shared design system, each team built UI its own way — inconsistent components, drifting brand, and accessibility handled ad hoc — slowing delivery and weakening the experience for clinicians who depend on clarity under pressure.",
       },
       {
-        heading: "What I Was Hired To Do",
+        heading: "My Role",
         content:
-          "I was brought in to build the AI safety function from the ground up — not to consult or advise, but to own it. My mandate: define how AI-driven clinical systems are designed, evaluated, and approved. Establish governance that ensures patient safety without killing innovation velocity. Align engineering, clinical, regulatory, and QA teams around shared safety standards. Make the organization FDA-ready for AI-enabled product submissions.",
+          "As Senior UI/UX & Visual Designer I advocated for and evolved the design system and best practices. I owned the component library and design tokens, produced high-fidelity Figma mockups, defined accessible color/contrast systems, and partnered cross-functionally — presenting work and aligning engineering, clinical, and regulatory teams around one on-brand, accessible standard.",
       },
       {
         heading: "The Governance Framework",
