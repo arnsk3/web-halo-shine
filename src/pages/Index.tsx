@@ -37,6 +37,7 @@ type CaseStudyType = {
   metrics: Metric[];
   sections: Section[];
   outcomes: string[];
+  artifacts?: { label: string; desc: string }[];
   hsi: string[];
   liveUrl?: string;
   liveLabel?: string;
@@ -355,8 +356,14 @@ const CASE_STUDIES: CaseStudyType[] = [
        "Grew cross-functional team from initial staff to 15+ under my leadership",
        "People in crisis finding treatment facilities faster through improved Treatment Locator",
        "Investment prioritization framework replaced political decision-making with strategic allocation",
-     ],
-    hsi: [
+      ],
+      artifacts: [
+        { label: "Cross-platform pattern library", desc: "Shared components and interaction patterns unifying 6+ products into one consistent system." },
+        { label: "Accessible data-viz dashboard system", desc: "Modernized, Section 508-conformant TEDS visualizations with a reusable chart and color framework." },
+        { label: "Section 508 acceptance-criteria kit", desc: "Design, content, and engineering checklists embedded into sprint planning and CI/CD." },
+        { label: "Content & labeling style guide", desc: "Consistent navigation, voice, and labeling standards applied org-wide." },
+      ],
+     hsi: [
       "Portfolio management at scale — $130M across 6+ platforms with full budget and delivery accountability",
       "HSI lifecycle integration — UCD and accessibility embedded as standard engineering practice",
       "Stakeholder management — aligned 50+ stakeholders through structured governance",
@@ -498,7 +505,7 @@ function Home({
         <div className="max-w-3xl mx-auto px-6 py-24 text-center relative">
           <FadeIn>
             <p className="text-[rgb(var(--c-accent-on-dark))] text-xs font-semibold tracking-[3px] uppercase mb-5">
-              Design for AI · Design &amp; Engineering · Research &amp; Strategy · AI Governance
+              Visual &amp; Brand Designer · Design Systems · UI Engineering · AI Governance
             </p>
           </FadeIn>
           <FadeIn delay={0.1}>
@@ -507,10 +514,16 @@ function Home({
               <span className="text-[rgb(var(--c-accent-on-dark))]"> isn't an option.</span>
             </h1>
           </FadeIn>
+          <FadeIn delay={0.15}>
+            <p className="text-white text-base sm:text-lg font-semibold mb-3 max-w-2xl mx-auto leading-relaxed">
+              Visual &amp; brand designer building polished, on-brand product experiences —
+              design systems, component libraries, and UI that ships.
+            </p>
+          </FadeIn>
           <FadeIn delay={0.2}>
-            <p className="text-white/90 text-lg mb-8 max-w-lg mx-auto leading-relaxed">
-              AI Safety & Human Systems Integration Leadership for Healthcare, Government,
-              and Regulated Environments
+            <p className="text-white/85 text-base mb-8 max-w-lg mx-auto leading-relaxed">
+              Backed by AI Safety &amp; Human Systems Integration leadership for healthcare,
+              government, and regulated environments.
             </p>
           </FadeIn>
           <FadeIn delay={0.3}>
@@ -3602,8 +3615,20 @@ function CaseStudy({
   return (
     <div>
       {/* Hero */}
-      <div className={`bg-gradient-to-br ${study.hero} text-white`}>
-        <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(3rem,6vw,6rem)]">
+      <div className={`relative overflow-hidden bg-gradient-to-br ${study.hero} text-white`}>
+        {study.image && (
+          <>
+            <img
+              src={study.image}
+              alt={`Hero visual for ${study.title}`}
+              width={1600}
+              height={900}
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+            <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/55 to-black/40" />
+          </>
+        )}
+        <div className="relative w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(3rem,6vw,6rem)]">
           <button
             onClick={() => setPage("home")}
             className="text-white/85 text-sm hover:text-white mb-6 inline-block transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
