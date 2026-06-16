@@ -113,19 +113,19 @@ const CASE_STUDIES: CaseStudyType[] = [
   },
   {
     id: "ge",
-    tag: "AI Safety · FDA · Clinical Systems",
-    title: "AI Safety Framework for Clinical Decision-Support",
+    tag: "Design System · On-Brand · Accessible Experiences",
+    title: "Evolving a Design System to Power Consistent, Accessible Digital Experiences",
     subtitle:
-      "Built the AI safety function from the ground up at GE HealthCare — zero AI-enabled features now ship without passing this framework.",
+      "Advocated for and evolved the design system and best practices at GE HealthCare so multiple product teams could ship consistent, on-brand, accessible digital experiences — from shared components and design tokens to high-fidelity Figma mockups and accessible color/contrast systems.",
     hero: "from-[rgb(var(--c-hero-dark))] via-[rgb(var(--c-primary))] to-[rgb(var(--c-accent))]",
     image: caseGe,
-    role: "AI + Human Systems Integration Lead",
+    role: "Senior UI/UX & Visual Designer",
     timeline: "2025 – Present",
     org: "GE HealthCare",
-    standards: ["FDA", "IEC 62366", "ISO 14971", "MIL-STD-1472H", "MBSE/SysML", "DoDI 5000.95"],
+    standards: ["Design System", "Design Tokens", "Figma", "Accessibility", "Cross-Functional"],
     metrics: [
-      { value: "10+", label: "Product Teams" },
-      { value: "15+", label: "Leaders" },
+      { value: "10+", label: "Teams Aligned" },
+      { value: "1", label: "Shared System" },
       { value: "50+", label: "Stakeholders" },
     ],
     sections: [
