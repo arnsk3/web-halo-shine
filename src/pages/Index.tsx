@@ -356,8 +356,14 @@ const CASE_STUDIES: CaseStudyType[] = [
        "Grew cross-functional team from initial staff to 15+ under my leadership",
        "People in crisis finding treatment facilities faster through improved Treatment Locator",
        "Investment prioritization framework replaced political decision-making with strategic allocation",
-     ],
-    hsi: [
+      ],
+      artifacts: [
+        { label: "Cross-platform pattern library", desc: "Shared components and interaction patterns unifying 6+ products into one consistent system." },
+        { label: "Accessible data-viz dashboard system", desc: "Modernized, Section 508-conformant TEDS visualizations with a reusable chart and color framework." },
+        { label: "Section 508 acceptance-criteria kit", desc: "Design, content, and engineering checklists embedded into sprint planning and CI/CD." },
+        { label: "Content & labeling style guide", desc: "Consistent navigation, voice, and labeling standards applied org-wide." },
+      ],
+     hsi: [
       "Portfolio management at scale — $130M across 6+ platforms with full budget and delivery accountability",
       "HSI lifecycle integration — UCD and accessibility embedded as standard engineering practice",
       "Stakeholder management — aligned 50+ stakeholders through structured governance",
