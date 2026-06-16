@@ -234,20 +234,20 @@ const CASE_STUDIES: CaseStudyType[] = [
   },
   {
     id: "bestbuy",
-    tag: "Healthcare · Inclusive Design · MIL-STD-1472H",
-    title: "Inclusive Design for 1M+ Elderly Users",
+    tag: "Consumer · Digital Brand Experience · Mobile-First",
+    title: "Driving Engagement for 1M+ Consumers Through Cohesive Digital Brand Experiences",
     subtitle:
-      "Applied military human factors standards to eliminate missed emergency activations in consumer health products — saving lives through engineering discipline.",
+      "Owned the visual design, brand consistency, and mobile-first digital experience for Best Buy Health (Lively, Jitterbug) — engaging 1M+ consumers across 5 product lines with cohesive, on-brand touchpoints spanning web, mobile, and in-device.",
     hero: "from-[#2d1b69] via-[#11998e] to-[#38ef7d]",
     image: caseBestbuy,
-    role: "Inclusive Design & Accessibility Lead",
+    role: "Senior Visual & Experience Designer",
     timeline: "2021 – 2022",
     org: "Best Buy Health",
-    standards: ["MIL-STD-1472H", "FDA", "IEC 62366", "WCAG 2.2 AA", "Section 508"],
+    standards: ["Design System", "Mobile-First", "Brand Consistency", "WCAG 2.2 AA", "MIL-STD-1472H"],
     metrics: [
-      { value: "1M+", label: "Elderly Users" },
+      { value: "30-40%", label: "Lower Drop-Off" },
+      { value: "1M+", label: "Consumers Engaged" },
       { value: "5", label: "Product Lines" },
-      { value: "30-40%", label: "Fewer Defects" },
     ],
     sections: [
       {
