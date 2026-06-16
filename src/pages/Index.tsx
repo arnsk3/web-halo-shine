@@ -113,31 +113,31 @@ const CASE_STUDIES: CaseStudyType[] = [
   },
   {
     id: "ge",
-    tag: "AI Safety · FDA · Clinical Systems",
-    title: "AI Safety Framework for Clinical Decision-Support",
+    tag: "Design System · On-Brand · Accessible Experiences",
+    title: "Evolving a Design System to Power Consistent, Accessible Digital Experiences",
     subtitle:
-      "Built the AI safety function from the ground up at GE HealthCare — zero AI-enabled features now ship without passing this framework.",
+      "Advocated for and evolved the design system and best practices at GE HealthCare so multiple product teams could ship consistent, on-brand, accessible digital experiences — from shared components and design tokens to high-fidelity Figma mockups and accessible color/contrast systems.",
     hero: "from-[rgb(var(--c-hero-dark))] via-[rgb(var(--c-primary))] to-[rgb(var(--c-accent))]",
     image: caseGe,
-    role: "AI + Human Systems Integration Lead",
+    role: "Senior UI/UX & Visual Designer",
     timeline: "2025 – Present",
     org: "GE HealthCare",
-    standards: ["FDA", "IEC 62366", "ISO 14971", "MIL-STD-1472H", "MBSE/SysML", "DoDI 5000.95"],
+    standards: ["Design System", "Design Tokens", "Figma", "Accessibility", "Cross-Functional"],
     metrics: [
-      { value: "10+", label: "Product Teams" },
-      { value: "15+", label: "Leaders" },
+      { value: "10+", label: "Teams Aligned" },
+      { value: "1", label: "Shared System" },
       { value: "50+", label: "Stakeholders" },
     ],
     sections: [
       {
-        heading: "The Problem",
+        heading: "The Challenge",
         content:
-          "GE HealthCare was developing AI-enabled clinical decision-support systems for prenatal diagnostics — tools where a wrong output doesn't mean a bad user experience, it means a missed diagnosis. When I joined, the organization had no AI safety framework: no evaluation criteria, no deployment thresholds, no human-in-the-loop governance, no standardized method for identifying automation bias or overreliance risks. Each product team was making ad-hoc safety decisions independently. In a regulated environment governed by FDA, IEC 62366, and ISO 14971, this was a patient safety liability.",
+          "Multiple product teams needed consistent, on-brand, accessible visual experiences across digital platforms. Without a shared design system, each team built UI its own way — inconsistent components, drifting brand, and accessibility handled ad hoc — slowing delivery and weakening the experience for clinicians who depend on clarity under pressure.",
       },
       {
-        heading: "What I Was Hired To Do",
+        heading: "My Role",
         content:
-          "I was brought in to build the AI safety function from the ground up — not to consult or advise, but to own it. My mandate: define how AI-driven clinical systems are designed, evaluated, and approved. Establish governance that ensures patient safety without killing innovation velocity. Align engineering, clinical, regulatory, and QA teams around shared safety standards. Make the organization FDA-ready for AI-enabled product submissions.",
+          "As Senior UI/UX & Visual Designer I advocated for and evolved the design system and best practices. I owned the component library and design tokens, produced high-fidelity Figma mockups, defined accessible color/contrast systems, and partnered cross-functionally — presenting work and aligning engineering, clinical, and regulatory teams around one on-brand, accessible standard.",
       },
       {
         heading: "The Governance Framework",
@@ -156,13 +156,18 @@ const CASE_STUDIES: CaseStudyType[] = [
       },
     ],
     outcomes: [
-      "Zero AI-enabled features now ship without passing this framework",
-      "Institutionalized across 10+ product teams, 15+ leaders, 50+ stakeholders",
-      "Established as the enterprise standard operating model for clinical product development",
-      "Accelerated regulatory approval cycles — catching safety issues in design, not at the finish line",
-      "Reduced late-stage design rework by embedding safety validation early",
-      "Framework maps directly to FDA Human Factors, IEC 62366, and ISO 14971",
-      "AI Safety Review Board established with cross-functional governance",
+      "Evolved a shared design system adopted across 10+ product teams for consistent, on-brand UI",
+      "Accessible color/contrast and component standards built into every digital experience",
+      "Established design best practices and reusable patterns as the cross-functional standard",
+      "Reduced late-stage design rework by aligning teams on one system early",
+      "High-fidelity Figma mockups and design tokens kept engineering and design in sync",
+      "Presented and championed the system with 50+ cross-functional stakeholders",
+    ],
+    artifacts: [
+      { label: "Component library & design tokens", desc: "Reusable components with shared color, type, and spacing tokens powering consistent UI across teams." },
+      { label: "High-fidelity Figma mockups", desc: "Polished, on-brand UI mockups that set the visual bar and guided implementation." },
+      { label: "Accessible color/contrast system", desc: "Contrast-compliant palette and type system ensuring every experience is readable and on-brand." },
+      { label: "Cross-functional workshop outputs", desc: "Collaboration artifacts from design, engineering, clinical, and regulatory alignment sessions." },
     ],
     hsi: [
       "Human Performance Requirements — defined clinician interaction models for AI outputs",
@@ -174,31 +179,36 @@ const CASE_STUDIES: CaseStudyType[] = [
   },
   {
     id: "ssa",
-    tag: "Federal · AI · Accessibility",
-    title: "SSA11y: AI-Powered Federal Compliance Platform",
+    tag: "Design System · Data-Driven · Brand Consistency",
+    title: "A Data-Driven Design System That Unified 50M+ User Experiences",
     subtitle:
-      "Conceived, built, and deployed an AI-driven compliance platform that replaced manual audits with continuous validation — saving $1.5M+ annually and becoming the federal standard.",
+      "Led the visual design system and data-driven design decisions across 15+ digital touchpoints — analyzing behavioral data to drive a system-wide redesign that improved engagement, unified the brand, and saved $1.5M+ annually for 50M+ users.",
     hero: "from-[#1a1a2e] via-[#16213e] to-[#0f3460]",
     image: caseSsa,
-    role: "Sr. UX & Accessibility Lead",
+    role: "Lead Visual & Design Systems Designer",
     timeline: "2022 – 2025",
     org: "Leidos / Social Security Administration",
-    standards: ["WCAG 2.2 AA", "Section 508", "Llama2", "USWDS", "ADA Title II"],
+    standards: ["Design System", "Style Guide", "Data-Driven Design", "Responsive", "WCAG 2.2 AA"],
     metrics: [
-      { value: "50M+", label: "Citizens Impacted" },
-      { value: "30%", label: "Audit Reduction" },
+      { value: "50M+", label: "Users Unified" },
+      { value: "30–40%", label: "Fewer UX Defects" },
       { value: "$1.5M+", label: "Annual Savings" },
     ],
     sections: [
       {
-        heading: "The Problem",
+        heading: "The Challenge",
         content:
-          "SSA's Disability Case Processing System serves 50 million citizens across all 50 states — determining whether Americans with disabilities receive the benefits they're entitled to. When I joined, the platform had 15+ modules with inconsistent accessibility, 40+ monthly releases gated by manual WCAG audits, and 200+ violations across the system. Every failed audit delayed a release. Every delayed release meant citizens waited longer. The system built to serve people with disabilities was itself inaccessible.",
+          "Inconsistent visual experiences across 15+ digital touchpoints were hurting usability and engagement for 50M+ users. Every team styled the same patterns differently, the brand felt fragmented module to module, and there was no shared design system to keep the experience consistent, responsive, or efficient to maintain.",
       },
       {
-        heading: "The Discovery",
+        heading: "My Role",
         content:
-          "My first 60 days were spent auditing the entire platform — not just automated scans, but manual keyboard testing, screen reader testing (JAWS, NVDA), and cognitive walkthroughs across all 15+ modules. The critical insight: out of 200+ WCAG violations, 65% originated from just 8 shared UI components. Data tables, navigation, form controls, modals, date pickers — each team implemented them differently. Some added ARIA labels, some didn't. The same component was accessible in one module and broken in another. Fixing individual pages would be endless. The components themselves were the problem.",
+          "I led the visual design system and the data-driven design decisions behind it. I owned the component library, style guide, and brand-consistency standards — then used behavioral data to decide where to focus the redesign for the biggest engagement and efficiency gains.",
+      },
+      {
+        heading: "The Data-Driven Insight",
+        content:
+          "I analyzed behavioral data and audit findings across all 15+ modules and discovered that 65% of issues traced to just 8 shared UI components — data tables, navigation, form controls, modals, date pickers. Each team had implemented them differently. That insight drove the entire strategy: fix the system, not the symptoms, by rebuilding those 8 components once and propagating them everywhere.",
       },
       {
         heading: "The Strategic Decision",
@@ -217,13 +227,18 @@ const CASE_STUDIES: CaseStudyType[] = [
       },
     ],
     outcomes: [
-      "Reduced audit effort 30% and saved $1.5M+ annually",
-      "Eliminated 200+ WCAG violations at the source — not page by page, but component by component",
-      "Reduced usability defects 30–40% across the platform",
-      "Adopted across 40+ monthly releases as mandatory CI/CD gate",
-      "Became the compliance standard across federal systems",
-      "50+ designers and engineers trained on the new component library",
-      "Near-zero release delays due to accessibility — previously frequent",
+      "Used behavioral data to drive a system-wide redesign — improving engagement across 50M+ user experiences",
+      "Unified 15+ digital touchpoints under one consistent, on-brand design system",
+      "Reduced usability defects 30–40% and saved $1.5M+ annually",
+      "Adopted across 40+ monthly releases as the standard component library",
+      "Became the design and consistency standard across federal systems",
+      "50+ designers and engineers onboarded onto the shared design system",
+    ],
+    artifacts: [
+      { label: "Design system & component library", desc: "8 core components rebuilt with shared color, type, spacing, and interaction tokens — the visual foundation across every module." },
+      { label: "Style guide pages", desc: "Documented usage, states, and responsive behavior so every team applies the brand consistently." },
+      { label: "Before/after visual comparisons", desc: "Side-by-side redesigns of high-traffic components showing cleaner hierarchy and stronger engagement." },
+      { label: "Data-viz & dashboard screens", desc: "Behavioral-data dashboards that surfaced the 65%/8-component insight and guided design decisions." },
     ],
     hsi: [
       "Requirements analysis — traced accessibility requirements to system design decisions",
@@ -234,26 +249,31 @@ const CASE_STUDIES: CaseStudyType[] = [
   },
   {
     id: "bestbuy",
-    tag: "Healthcare · Inclusive Design · MIL-STD-1472H",
-    title: "Inclusive Design for 1M+ Elderly Users",
+    tag: "Consumer · Digital Brand Experience · Mobile-First",
+    title: "Driving Engagement for 1M+ Consumers Through Cohesive Digital Brand Experiences",
     subtitle:
-      "Applied military human factors standards to eliminate missed emergency activations in consumer health products — saving lives through engineering discipline.",
+      "Owned the visual design, brand consistency, and mobile-first digital experience for Best Buy Health (Lively, Jitterbug) — engaging 1M+ consumers across 5 product lines with cohesive, on-brand touchpoints spanning web, mobile, and in-device.",
     hero: "from-[#2d1b69] via-[#11998e] to-[#38ef7d]",
     image: caseBestbuy,
-    role: "Inclusive Design & Accessibility Lead",
+    role: "Senior Visual & Experience Designer",
     timeline: "2021 – 2022",
     org: "Best Buy Health",
-    standards: ["MIL-STD-1472H", "FDA", "IEC 62366", "WCAG 2.2 AA", "Section 508"],
+    standards: ["Design System", "Mobile-First", "Brand Consistency", "WCAG 2.2 AA", "MIL-STD-1472H"],
     metrics: [
-      { value: "1M+", label: "Elderly Users" },
+      { value: "30-40%", label: "Lower Drop-Off" },
+      { value: "1M+", label: "Consumers Engaged" },
       { value: "5", label: "Product Lines" },
-      { value: "30-40%", label: "Fewer Defects" },
     ],
     sections: [
       {
-        heading: "The Problem",
+        heading: "The Challenge",
         content:
-          "Best Buy Health manufactures personal emergency response systems — Lively and Jitterbug devices that elderly people depend on daily. Users were missing emergency activations. Touch targets were too small for arthritic hands. Alerts relied on single modalities. Under stress — which is exactly when emergency activation happens — elderly users with reduced dexterity, low vision, or cognitive decline couldn't reliably trigger help. A missed activation for a 78-year-old who has fallen means they lie on the floor until someone finds them. No enterprise accessibility governance existed across 5 product lines.",
+          "Best Buy Health needed to engage 1M+ consumers across 5 product lines (Lively, Jitterbug) with cohesive, on-brand digital experiences spanning web, mobile, and in-device touchpoints. Visual experiences were fragmented across product lines, critical user flows leaked engagement through drop-off, and there was no shared design system to keep the brand consistent or conversion-ready at scale.",
+      },
+      {
+        heading: "My Role",
+        content:
+          "As Senior Visual & Experience Designer I owned the visual design, brand consistency, and customer-focused digital experience across every consumer touchpoint. I led a mobile-first redesign, built the brand-consistent component system and style guide, and drove design decisions that lifted engagement and task completion — partnering with product, content, and engineering to ship on-brand UI.",
       },
       {
         heading: "Military Standards for Civilian Safety",
@@ -277,11 +297,17 @@ const CASE_STUDIES: CaseStudyType[] = [
       },
     ],
     outcomes: [
-      "Eliminated missed emergency activations for 1M+ elderly users",
-      "Reduced remediation cycles 30-40% — compliance built in, not fixed after",
-      "Delivered FDA/IEC 62366-compliant solutions through structured usability engineering",
-      "Governance adopted across all 5 product lines as executive-approved standard",
-      "Multi-modal alerts ensure no critical notification missed regardless of sensory impairment",
+      "Reduced drop-off in critical user flows by 30–40% through mobile-first visual design",
+      "Drove adoption across 5 product lines for 1M+ consumers",
+      "Improved task completion and engagement with a cohesive, on-brand experience",
+      "Brand-consistent component system and style guide adopted across all product lines",
+      "On-brand multi-modal UI keeps the experience accessible and conversion-ready under stress",
+    ],
+    artifacts: [
+      { label: "Mobile-first UI screens (app + web)", desc: "High-polish, on-brand consumer screens across web, mobile, and in-device — built for visual clarity and engagement." },
+      { label: "Brand-consistent component system", desc: "Shared style guide and component library keeping color, type, and interaction consistent across 5 product lines." },
+      { label: "Before/after screen redesign", desc: "Redesigned critical flow with engagement framing — cleaner hierarchy, stronger CTAs, lower drop-off." },
+      { label: "Onboarding & upgrade prompts", desc: "Welcome flows, feature announcements, and upgrade prompts designed to drive adoption and conversion." },
     ],
     hsi: [
       "MIL-STD-1472H — direct application of DoD human engineering design criteria",
@@ -516,8 +542,9 @@ function Home({
           </FadeIn>
           <FadeIn delay={0.15}>
             <p className="text-white text-base sm:text-lg font-semibold mb-3 max-w-2xl mx-auto leading-relaxed">
-              Visual &amp; brand designer building polished, on-brand product experiences —
-              design systems, component libraries, and UI that ships.
+              Senior UI/UX &amp; Visual Designer specializing in digital brand experiences,
+              design systems, and data-driven design that drives engagement and conversion —
+              across healthcare, consumer, and enterprise platforms.
             </p>
           </FadeIn>
           <FadeIn delay={0.2}>
@@ -574,7 +601,7 @@ function Home({
             Case Studies
           </h2>
           <p className="text-gray-700 text-base mb-10">
-            Enterprise-scale work in AI safety, accessibility, and regulated systems
+            Digital brand experiences, design systems, and data-driven design that drove engagement, adoption, and conversion at scale
           </p>
         </FadeIn>
         <div className="grid gap-8 items-stretch [grid-template-columns:repeat(auto-fit,minmax(min(100%,30rem),1fr))]">
@@ -3707,6 +3734,43 @@ function CaseStudy({
             </div>
           </FadeIn>
         ))}
+
+        {/* The Work — visual artifacts */}
+        {study.artifacts && study.artifacts.length > 0 && (
+          <FadeIn>
+            <div className="mb-12">
+              <h2 className="text-lg font-bold text-gray-900 mb-1 flex items-center gap-2">
+                <span className="w-6 h-6 rounded-full bg-[rgb(var(--c-primary))] text-white text-xs flex items-center justify-center font-bold">
+                  <span aria-hidden="true">★</span>
+                </span>
+                The Work — Visual Artifacts
+              </h2>
+              <p className="text-gray-600 text-sm mb-5 pl-8">
+                UI screens, style guides, component systems, and before/afters.
+              </p>
+              <div className="grid gap-4 pl-8 [grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr))]">
+                {study.artifacts.map((a) => (
+                  <div
+                    key={a.label}
+                    className="rounded-xl border border-gray-200 bg-[rgb(var(--c-tint-50))] p-4 hover:border-[rgb(var(--c-primary)/0.3)] transition-colors"
+                  >
+                    <div className="flex items-center gap-2 mb-2">
+                      <span
+                        aria-hidden="true"
+                        className="h-2 w-2 shrink-0 rounded-full bg-[rgb(var(--c-accent))]"
+                      />
+                      <h3 className="text-[13px] font-bold text-[rgb(var(--c-hero-dark))] leading-snug">
+                        {a.label}
+                      </h3>
+                    </div>
+                    <p className="text-[12.5px] text-gray-700 leading-relaxed">{a.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </FadeIn>
+        )}
+
 
         {/* Visual: case-study specific */}
         {study.id === "bestbuy" ? (
