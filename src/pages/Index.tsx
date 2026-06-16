@@ -37,6 +37,7 @@ type CaseStudyType = {
   metrics: Metric[];
   sections: Section[];
   outcomes: string[];
+  artifacts?: { label: string; desc: string }[];
   hsi: string[];
   liveUrl?: string;
   liveLabel?: string;
