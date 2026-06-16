@@ -191,14 +191,19 @@ const CASE_STUDIES: CaseStudyType[] = [
     ],
     sections: [
       {
-        heading: "The Problem",
+        heading: "The Challenge",
         content:
-          "SSA's Disability Case Processing System serves 50 million citizens across all 50 states — determining whether Americans with disabilities receive the benefits they're entitled to. When I joined, the platform had 15+ modules with inconsistent accessibility, 40+ monthly releases gated by manual WCAG audits, and 200+ violations across the system. Every failed audit delayed a release. Every delayed release meant citizens waited longer. The system built to serve people with disabilities was itself inaccessible.",
+          "Inconsistent visual experiences across 15+ digital touchpoints were hurting usability and engagement for 50M+ users. Every team styled the same patterns differently, the brand felt fragmented module to module, and there was no shared design system to keep the experience consistent, responsive, or efficient to maintain.",
       },
       {
-        heading: "The Discovery",
+        heading: "My Role",
         content:
-          "My first 60 days were spent auditing the entire platform — not just automated scans, but manual keyboard testing, screen reader testing (JAWS, NVDA), and cognitive walkthroughs across all 15+ modules. The critical insight: out of 200+ WCAG violations, 65% originated from just 8 shared UI components. Data tables, navigation, form controls, modals, date pickers — each team implemented them differently. Some added ARIA labels, some didn't. The same component was accessible in one module and broken in another. Fixing individual pages would be endless. The components themselves were the problem.",
+          "I led the visual design system and the data-driven design decisions behind it. I owned the component library, style guide, and brand-consistency standards — then used behavioral data to decide where to focus the redesign for the biggest engagement and efficiency gains.",
+      },
+      {
+        heading: "The Data-Driven Insight",
+        content:
+          "I analyzed behavioral data and audit findings across all 15+ modules and discovered that 65% of issues traced to just 8 shared UI components — data tables, navigation, form controls, modals, date pickers. Each team had implemented them differently. That insight drove the entire strategy: fix the system, not the symptoms, by rebuilding those 8 components once and propagating them everywhere.",
       },
       {
         heading: "The Strategic Decision",
