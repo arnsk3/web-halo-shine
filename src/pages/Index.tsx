@@ -516,8 +516,9 @@ function Home({
           </FadeIn>
           <FadeIn delay={0.15}>
             <p className="text-white text-base sm:text-lg font-semibold mb-3 max-w-2xl mx-auto leading-relaxed">
-              Visual &amp; brand designer building polished, on-brand product experiences —
-              design systems, component libraries, and UI that ships.
+              Senior UI/UX &amp; Visual Designer specializing in digital brand experiences,
+              design systems, and data-driven design that drives engagement and conversion —
+              across healthcare, consumer, and enterprise platforms.
             </p>
           </FadeIn>
           <FadeIn delay={0.2}>
