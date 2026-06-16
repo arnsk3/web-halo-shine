@@ -601,7 +601,7 @@ function Home({
             Case Studies
           </h2>
           <p className="text-gray-700 text-base mb-10">
-            Enterprise-scale work in AI safety, accessibility, and regulated systems
+            Digital brand experiences, design systems, and data-driven design that drove engagement, adoption, and conversion at scale
           </p>
         </FadeIn>
         <div className="grid gap-8 items-stretch [grid-template-columns:repeat(auto-fit,minmax(min(100%,30rem),1fr))]">
