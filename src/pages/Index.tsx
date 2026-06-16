@@ -3735,6 +3735,43 @@ function CaseStudy({
           </FadeIn>
         ))}
 
+        {/* The Work — visual artifacts */}
+        {study.artifacts && study.artifacts.length > 0 && (
+          <FadeIn>
+            <div className="mb-12">
+              <h2 className="text-lg font-bold text-gray-900 mb-1 flex items-center gap-2">
+                <span className="w-6 h-6 rounded-full bg-[rgb(var(--c-primary))] text-white text-xs flex items-center justify-center font-bold">
+                  <span aria-hidden="true">★</span>
+                </span>
+                The Work — Visual Artifacts
+              </h2>
+              <p className="text-gray-600 text-sm mb-5 pl-8">
+                UI screens, style guides, component systems, and before/afters.
+              </p>
+              <div className="grid gap-4 pl-8 [grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr))]">
+                {study.artifacts.map((a) => (
+                  <div
+                    key={a.label}
+                    className="rounded-xl border border-gray-200 bg-[rgb(var(--c-tint-50))] p-4 hover:border-[rgb(var(--c-primary)/0.3)] transition-colors"
+                  >
+                    <div className="flex items-center gap-2 mb-2">
+                      <span
+                        aria-hidden="true"
+                        className="h-2 w-2 shrink-0 rounded-full bg-[rgb(var(--c-accent))]"
+                      />
+                      <h3 className="text-[13px] font-bold text-[rgb(var(--c-hero-dark))] leading-snug">
+                        {a.label}
+                      </h3>
+                    </div>
+                    <p className="text-[12.5px] text-gray-700 leading-relaxed">{a.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </FadeIn>
+        )}
+
+
         {/* Visual: case-study specific */}
         {study.id === "bestbuy" ? (
           <FadeIn>
