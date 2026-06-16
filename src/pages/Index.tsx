@@ -507,10 +507,16 @@ function Home({
               <span className="text-[rgb(var(--c-accent-on-dark))]"> isn't an option.</span>
             </h1>
           </FadeIn>
+          <FadeIn delay={0.15}>
+            <p className="text-white text-base sm:text-lg font-semibold mb-3 max-w-2xl mx-auto leading-relaxed">
+              Visual &amp; brand designer building polished, on-brand product experiences —
+              design systems, component libraries, and UI that ships.
+            </p>
+          </FadeIn>
           <FadeIn delay={0.2}>
-            <p className="text-white/90 text-lg mb-8 max-w-lg mx-auto leading-relaxed">
-              AI Safety & Human Systems Integration Leadership for Healthcare, Government,
-              and Regulated Environments
+            <p className="text-white/85 text-base mb-8 max-w-lg mx-auto leading-relaxed">
+              Backed by AI Safety &amp; Human Systems Integration leadership for healthcare,
+              government, and regulated environments.
             </p>
           </FadeIn>
           <FadeIn delay={0.3}>
