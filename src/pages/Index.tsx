@@ -498,7 +498,7 @@ function Home({
         <div className="max-w-3xl mx-auto px-6 py-24 text-center relative">
           <FadeIn>
             <p className="text-[rgb(var(--c-accent-on-dark))] text-xs font-semibold tracking-[3px] uppercase mb-5">
-              Design for AI · Design &amp; Engineering · Research &amp; Strategy · AI Governance
+              Visual &amp; Brand Designer · Design Systems · UI Engineering · AI Governance
             </p>
           </FadeIn>
           <FadeIn delay={0.1}>
