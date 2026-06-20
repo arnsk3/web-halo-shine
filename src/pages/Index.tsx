@@ -4912,13 +4912,32 @@ function Contact() {
   return (
     <div className="max-w-md mx-auto px-6 py-16">
       <FadeIn>
+        <div className="inline-flex items-center gap-2 mb-3 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-[11px] font-semibold text-emerald-700">
+          <span aria-hidden="true" className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+          Available for new opportunities
+        </div>
         <h1 className="text-3xl font-extrabold text-gray-900 tracking-tight mb-2 text-center">
           Get in Touch
         </h1>
-        <p className="text-gray-700 text-sm mb-8 text-center">
-          Open to conversations about AI safety, human factors, and accessibility
-          leadership.
+        <p className="text-gray-700 text-sm mb-6 text-center">
+          Open to Senior UI/UX &amp; Visual Designer, Design Systems, and AI safety /
+          human-factors leadership roles — full-time, contract, or advisory.
         </p>
+
+        {/* What to expect */}
+        <ul className="mb-8 grid gap-2 list-none p-0 m-0">
+          {[
+            "I reply within 1–2 business days",
+            "Happy to share work samples, references, and a portfolio walkthrough",
+            "Open to remote, hybrid (DMV / DFW), or relocation for the right team",
+          ].map((x) => (
+            <li key={x} className="flex items-start gap-2 text-[13px] text-gray-700">
+              <span aria-hidden="true" className="mt-0.5 text-emerald-600 font-bold">✓</span>
+              <span className="leading-relaxed">{x}</span>
+            </li>
+          ))}
+        </ul>
+
         {submitted ? (
           <div
             role="status"
