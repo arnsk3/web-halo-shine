@@ -4701,6 +4701,45 @@ function Resume() {
           Download PDF <span aria-hidden="true">↓</span>
         </a>
 
+        {/* Career highlights */}
+        <div className="mt-12 grid sm:grid-cols-3 gap-4 text-left">
+          {[
+            { v: "$1.5M+", l: "Annual savings from SSA11y CI/CD accessibility automation" },
+            { v: "50M+", l: "Users served by a unified, data-driven design system" },
+            { v: "10+", l: "Product teams aligned on one design system at GE HealthCare" },
+          ].map((h) => (
+            <div key={h.l} className="rounded-xl border border-gray-200 bg-white p-5">
+              <div className="text-2xl font-extrabold text-[rgb(var(--c-primary))] mb-1">{h.v}</div>
+              <p className="text-[13px] text-gray-700 leading-relaxed">{h.l}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Skills snapshot */}
+        <div className="mt-8 text-left">
+          <h2 className="text-xl font-extrabold text-gray-900 tracking-tight mb-4 text-center">Skills snapshot</h2>
+          <div className="grid sm:grid-cols-2 gap-4">
+            {[
+              { g: "Design", s: ["Visual & brand design", "Design systems", "Figma & prototyping", "Data visualization"] },
+              { g: "Engineering", s: ["React", "TypeScript", "Tailwind CSS", "Redux / Context", "Vite / Webpack", "REST APIs"] },
+              { g: "Research", s: ["Mixed-methods UX research", "Journey mapping", "Usability testing", "MBSE / SysML"] },
+              { g: "Compliance", s: ["WCAG 2.2 AAA", "Section 508", "FDA / IEC 62366", "ISO 14971", "MIL-STD-1472H", "DoDI 5000.95"] },
+            ].map((c) => (
+              <div key={c.g} className="rounded-xl border border-gray-200 bg-white p-5">
+                <h3 className="text-[11px] font-bold uppercase tracking-wide text-[rgb(var(--c-accent-dark))] mb-3">{c.g}</h3>
+                <ul className="flex gap-1.5 flex-wrap list-none p-0 m-0">
+                  {c.s.map((x) => (
+                    <li key={x} className="text-[11px] px-2.5 py-1 rounded-full bg-gray-100 text-gray-800 border border-gray-200">
+                      {x}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+
+
         {/* PDF preview — hidden from AT because the same content is provided as
             HTML below in the accessible text summary (avoids duplicate reading). */}
         <div
