@@ -4287,37 +4287,104 @@ function CaseStudy({
 }
 
 function About() {
+  const stats = [
+    { value: "18+", label: "Years of experience" },
+    { value: "50M+", label: "Users impacted" },
+    { value: "$130M", label: "Programs led" },
+    { value: "AAA", label: "Accessibility built to" },
+  ];
+
+  const skillGroups = [
+    {
+      title: "Visual & Brand Design",
+      icon: "🎨",
+      skills: ["Brand systems", "Visual identity", "Hi-fi UI design", "Figma", "Typography & color", "Iconography", "Marketing & campaign creative", "Data visualization"],
+    },
+    {
+      title: "Design Systems",
+      icon: "🧩",
+      skills: ["Component libraries", "Design tokens", "Theming at runtime", "Style guides", "Pattern governance", "Accessible color systems", "Documentation"],
+    },
+    {
+      title: "UI Architecture & Engineering",
+      icon: "⚛️",
+      skills: ["React", "TypeScript", "Tailwind CSS", "Redux & Context API", "Vite / Webpack / Babel", "REST API integration", "Git workflows", "Performance optimization", "Code reviews & mentoring"],
+    },
+    {
+      title: "UX Research & Strategy",
+      icon: "🔬",
+      skills: ["Mixed-methods research", "Journey mapping", "Personas", "Usability testing", "Information architecture", "MBSE / SysML traceability", "Service design"],
+    },
+    {
+      title: "Accessibility",
+      icon: "♿",
+      skills: ["WCAG 2.2 A/AA/AAA", "Section 508", "ARIA & semantics", "Screen-reader testing", "CI/CD a11y automation", "WCAG-EM audits", "Inclusive design"],
+    },
+    {
+      title: "AI Safety & Governance",
+      icon: "🛡️",
+      skills: ["Human-in-the-loop models", "FMEA / URRA", "FDA / IEC 62366", "ISO 14971", "MIL-STD-1472H", "DoDI 5000.95 HSI", "AI risk & evaluation frameworks"],
+    },
+  ];
+
+  const timeline = [
+    { role: "AI + Human Systems Integration Lead", org: "GE HealthCare", period: "2025 – Present", desc: "Built the enterprise AI safety framework and evolved the design system for clinical decision-support across 10+ product teams." },
+    { role: "Sr. UX & Accessibility Lead", org: "Leidos / Social Security Administration", period: "2022 – 2025", desc: "Led a data-driven design system unifying 50M+ user experiences and built SSA11y, saving $1.5M+ annually." },
+    { role: "Inclusive Design & Accessibility Lead", org: "Best Buy Health", period: "2021 – 2022", desc: "Owned visual design and mobile-first brand experience for 1M+ consumers across 5 product lines." },
+    { role: "Sr. UX & Accessibility Program Manager", org: "Eagle Technologies / HHS / SAMHSA", period: "2014 – 2021", desc: "Directed a $130M behavioral health portfolio and led the AWS GovCloud migration of national TEDS datasets." },
+  ];
+
   return (
     <div className="max-w-3xl mx-auto px-6 py-16">
       <FadeIn>
-        <div className="flex flex-col sm:flex-row gap-6 items-start mb-12">
+        <div className="flex flex-col sm:flex-row gap-6 items-start mb-10">
           <img
             src="/headshot.jpg"
             alt="Portrait of Senthil Kumar Nagappan"
-            className="w-28 h-28 rounded-2xl object-cover flex-shrink-0"
+            className="w-28 h-28 rounded-2xl object-cover flex-shrink-0 shadow-md"
           />
           <div>
             <h1 className="text-3xl font-extrabold text-gray-900 tracking-tight mb-1">
               Senthil Kumar Nagappan
             </h1>
             <p className="text-[rgb(var(--c-accent-dark))] font-semibold text-sm mb-3">
-              AI Safety &amp; Human Systems Integration Leader
+              Senior UI/UX &amp; Visual Designer · AI Safety &amp; Human Systems Integration Leader
             </p>
-            <p className="text-gray-700 text-sm leading-relaxed">
+            <p className="text-gray-700 text-sm leading-relaxed mb-3">
               18+ years building enterprise functions that deliver safe, compliant,
               AI-driven products in regulated environments across healthcare, federal,
               retail, and defense sectors.
             </p>
+            <div className="flex gap-2 flex-wrap">
+              {["Vienna, VA (DMV)", "Frisco, TX (DFW)", "Open to remote"].map((l) => (
+                <span key={l} className="text-[11px] px-2.5 py-1 rounded-full bg-[rgb(var(--c-primary)/0.08)] text-[rgb(var(--c-primary))] font-medium">
+                  {l}
+                </span>
+              ))}
+            </div>
           </div>
+        </div>
+      </FadeIn>
+
+      {/* Stat band */}
+      <FadeIn delay={0.05}>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-12">
+          {stats.map((s) => (
+            <div key={s.label} className="rounded-xl bg-gradient-to-br from-[rgb(var(--c-primary))] to-[rgb(var(--c-accent))] text-white p-4 text-center">
+              <div className="text-2xl font-extrabold">{s.value}</div>
+              <div className="text-[11px] font-medium opacity-90 mt-0.5 leading-tight">{s.label}</div>
+            </div>
+          ))}
         </div>
       </FadeIn>
 
       <FadeIn delay={0.1}>
         <div className="prose prose-sm max-w-none mb-12">
           <p className="text-gray-700 leading-[1.9] mb-4">
-            I've spent my career at the intersection of technology and human safety —
-            building the systems, standards, and teams that ensure AI-driven products work
-            correctly for the people who depend on them.
+            I'm a designer-engineer who works across the full arc of a product — from brand
+            and visual design, to the design system and front-end code that ships it, to the
+            governance that keeps it safe and compliant. I make complex, regulated experiences
+            feel clear, on-brand, and accessible to everyone.
           </p>
           <p className="text-gray-700 leading-[1.9] mb-4">
             My methodology is grounded in structured engineering standards: MIL-STD-1472H
@@ -4334,7 +4401,54 @@ function About() {
         </div>
       </FadeIn>
 
-      <FadeIn delay={0.15}>
+      {/* Skills matrix */}
+      <FadeIn delay={0.12}>
+        <h2 className="text-xl font-extrabold text-gray-900 tracking-tight mb-1">Skills &amp; Capabilities</h2>
+        <p className="text-gray-600 text-sm mb-6">The full toolkit I bring across design, engineering, and governance.</p>
+        <div className="grid sm:grid-cols-2 gap-4 mb-12">
+          {skillGroups.map((g) => (
+            <div
+              key={g.title}
+              className="group rounded-xl bg-white border border-gray-200 p-5 transition-all hover:border-[rgb(var(--c-primary)/0.35)] hover:shadow-md hover:-translate-y-0.5"
+            >
+              <div className="flex items-center gap-2 mb-3">
+                <span aria-hidden="true" className="text-lg">{g.icon}</span>
+                <h3 className="font-bold text-gray-900 text-sm">{g.title}</h3>
+              </div>
+              <ul className="flex gap-1.5 flex-wrap list-none p-0 m-0">
+                {g.skills.map((s) => (
+                  <li
+                    key={s}
+                    className="text-[11px] px-2.5 py-1 rounded-full bg-gray-100 text-gray-800 border border-gray-200 transition-colors group-hover:bg-[rgb(var(--c-primary)/0.06)] group-hover:border-[rgb(var(--c-primary)/0.2)]"
+                  >
+                    {s}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </FadeIn>
+
+      {/* Experience timeline */}
+      <FadeIn delay={0.14}>
+        <h2 className="text-xl font-extrabold text-gray-900 tracking-tight mb-6">Experience</h2>
+        <ol className="relative list-none p-0 m-0 mb-12 border-l-2 border-[rgb(var(--c-primary)/0.2)] ml-2">
+          {timeline.map((t) => (
+            <li key={t.role + t.org} className="relative pl-6 pb-7 last:pb-0">
+              <span aria-hidden="true" className="absolute -left-[7px] top-1.5 h-3 w-3 rounded-full bg-[rgb(var(--c-primary))] ring-4 ring-white" />
+              <div className="flex flex-wrap items-baseline justify-between gap-x-3">
+                <h3 className="font-bold text-gray-900 text-sm">{t.role}</h3>
+                <span className="text-[11px] font-medium text-[rgb(var(--c-accent-dark))]">{t.period}</span>
+              </div>
+              <p className="text-xs font-semibold text-gray-600 mb-1">{t.org}</p>
+              <p className="text-[13px] text-gray-700 leading-relaxed">{t.desc}</p>
+            </li>
+          ))}
+        </ol>
+      </FadeIn>
+
+      <FadeIn delay={0.16}>
         <div className="grid sm:grid-cols-3 gap-4 mb-12">
           {[
             { num: "01", t: "Systems over screens", d: "Design the governance, not just the interface" },
@@ -4356,7 +4470,7 @@ function About() {
       <FadeIn delay={0.2}>
         <div className="bg-white border border-gray-200 rounded-xl p-5">
           <h2 className="font-bold text-gray-900 text-sm mb-3">
-            Certifications & Affiliations
+            Certifications &amp; Affiliations
           </h2>
           <div className="flex gap-2 flex-wrap mb-3">
             {[
@@ -4434,6 +4548,20 @@ function Approach() {
     },
   ];
 
+  const process = [
+    { step: "Discover", desc: "Mixed-methods research, stakeholder interviews, and analytics to frame the real problem and the humans in the system." },
+    { step: "Define", desc: "Personas, journey maps, and requirements traced to standards — so every decision has a defensible reason." },
+    { step: "Design", desc: "Brand-aligned visual design, design tokens, and high-fidelity UI built on an accessible component system." },
+    { step: "Build", desc: "Production React + TypeScript front-end engineering, with accessibility baked into CI/CD, not bolted on." },
+    { step: "Validate", desc: "Usability testing, FMEA/URRA, and WCAG audits that produce the evidence trail proving the design works." },
+  ];
+
+  const tooling = [
+    { group: "Design", items: ["Figma", "FigJam", "Design tokens", "Prototyping", "Photoshop / Illustrator"] },
+    { group: "Engineering", items: ["React", "TypeScript", "Tailwind CSS", "Vite", "Redux / Context", "Git / CI/CD"] },
+    { group: "Research & QA", items: ["Usability testing", "Axe / WAVE", "Screen readers (NVDA/JAWS/VoiceOver)", "Analytics", "MBSE / SysML"] },
+  ];
+
   return (
     <div className="max-w-3xl mx-auto px-6 py-16">
       <FadeIn>
@@ -4441,16 +4569,36 @@ function Approach() {
           My Approach
         </h1>
         <p className="text-gray-700 text-sm mb-12 max-w-lg">
-          How I ensure AI-driven systems are safe, accessible, and compliant — from
-          requirements through deployment
+          How I take a product from research to a polished, on-brand, accessible
+          experience — safe and compliant from requirements through deployment.
         </p>
       </FadeIn>
 
+      {/* Process stepper */}
+      <FadeIn delay={0.05}>
+        <h2 className="text-xl font-extrabold text-gray-900 tracking-tight mb-1">From insight to shipped product</h2>
+        <p className="text-gray-600 text-sm mb-6">A repeatable, evidence-driven process I run end to end.</p>
+        <ol className="relative list-none p-0 m-0 mb-12 border-l-2 border-[rgb(var(--c-accent)/0.3)] ml-3">
+          {process.map((p, i) => (
+            <li key={p.step} className="relative pl-7 pb-6 last:pb-0">
+              <span aria-hidden="true" className="absolute -left-[15px] top-0 h-7 w-7 rounded-full bg-[rgb(var(--c-primary))] text-white text-xs font-bold flex items-center justify-center ring-4 ring-white">
+                {i + 1}
+              </span>
+              <h3 className="font-bold text-gray-900 text-sm mb-0.5">{p.step}</h3>
+              <p className="text-[13px] text-gray-700 leading-relaxed">{p.desc}</p>
+            </li>
+          ))}
+        </ol>
+      </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <h2 className="text-xl font-extrabold text-gray-900 tracking-tight mb-6">Governing frameworks</h2>
+      </FadeIn>
       <div className="space-y-4 mb-12">
         {frameworks.map((f, i) => (
           <FadeIn key={f.title} delay={i * 0.06}>
             <div
-              className="bg-white border border-gray-200 rounded-xl p-5 hover:shadow-sm transition-shadow"
+              className="bg-white border border-gray-200 rounded-xl p-5 hover:shadow-md hover:-translate-y-0.5 transition-all"
               style={{ borderLeftWidth: 4, borderLeftColor: f.color }}
             >
               <h2 className="font-bold text-gray-900 text-base mb-0.5">{f.title}</h2>
@@ -4469,6 +4617,25 @@ function Approach() {
           </FadeIn>
         ))}
       </div>
+
+      {/* Tooling stack */}
+      <FadeIn delay={0.1}>
+        <h2 className="text-xl font-extrabold text-gray-900 tracking-tight mb-6">Tools &amp; stack</h2>
+        <div className="grid sm:grid-cols-3 gap-4 mb-12">
+          {tooling.map((t) => (
+            <div key={t.group} className="rounded-xl bg-white border border-gray-200 p-5 hover:shadow-sm transition-shadow">
+              <h3 className="text-[11px] font-bold uppercase tracking-wide text-[rgb(var(--c-accent-dark))] mb-3">{t.group}</h3>
+              <ul className="flex gap-1.5 flex-wrap list-none p-0 m-0">
+                {t.items.map((it) => (
+                  <li key={it} className="text-[11px] px-2.5 py-1 rounded-full bg-[rgb(var(--c-primary)/0.06)] text-[rgb(var(--c-primary))] border border-[rgb(var(--c-primary)/0.15)] font-medium">
+                    {it}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </FadeIn>
 
       <FadeIn>
         <div className="bg-[rgb(var(--c-primary))] rounded-xl p-6 text-center">
@@ -4533,6 +4700,45 @@ function Resume() {
         >
           Download PDF <span aria-hidden="true">↓</span>
         </a>
+
+        {/* Career highlights */}
+        <div className="mt-12 grid sm:grid-cols-3 gap-4 text-left">
+          {[
+            { v: "$1.5M+", l: "Annual savings from SSA11y CI/CD accessibility automation" },
+            { v: "50M+", l: "Users served by a unified, data-driven design system" },
+            { v: "10+", l: "Product teams aligned on one design system at GE HealthCare" },
+          ].map((h) => (
+            <div key={h.l} className="rounded-xl border border-gray-200 bg-white p-5">
+              <div className="text-2xl font-extrabold text-[rgb(var(--c-primary))] mb-1">{h.v}</div>
+              <p className="text-[13px] text-gray-700 leading-relaxed">{h.l}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Skills snapshot */}
+        <div className="mt-8 text-left">
+          <h2 className="text-xl font-extrabold text-gray-900 tracking-tight mb-4 text-center">Skills snapshot</h2>
+          <div className="grid sm:grid-cols-2 gap-4">
+            {[
+              { g: "Design", s: ["Visual & brand design", "Design systems", "Figma & prototyping", "Data visualization"] },
+              { g: "Engineering", s: ["React", "TypeScript", "Tailwind CSS", "Redux / Context", "Vite / Webpack", "REST APIs"] },
+              { g: "Research", s: ["Mixed-methods UX research", "Journey mapping", "Usability testing", "MBSE / SysML"] },
+              { g: "Compliance", s: ["WCAG 2.2 AAA", "Section 508", "FDA / IEC 62366", "ISO 14971", "MIL-STD-1472H", "DoDI 5000.95"] },
+            ].map((c) => (
+              <div key={c.g} className="rounded-xl border border-gray-200 bg-white p-5">
+                <h3 className="text-[11px] font-bold uppercase tracking-wide text-[rgb(var(--c-accent-dark))] mb-3">{c.g}</h3>
+                <ul className="flex gap-1.5 flex-wrap list-none p-0 m-0">
+                  {c.s.map((x) => (
+                    <li key={x} className="text-[11px] px-2.5 py-1 rounded-full bg-gray-100 text-gray-800 border border-gray-200">
+                      {x}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+
 
         {/* PDF preview — hidden from AT because the same content is provided as
             HTML below in the accessible text summary (avoids duplicate reading). */}
@@ -4706,13 +4912,32 @@ function Contact() {
   return (
     <div className="max-w-md mx-auto px-6 py-16">
       <FadeIn>
+        <div className="inline-flex items-center gap-2 mb-3 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-[11px] font-semibold text-emerald-700">
+          <span aria-hidden="true" className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+          Available for new opportunities
+        </div>
         <h1 className="text-3xl font-extrabold text-gray-900 tracking-tight mb-2 text-center">
           Get in Touch
         </h1>
-        <p className="text-gray-700 text-sm mb-8 text-center">
-          Open to conversations about AI safety, human factors, and accessibility
-          leadership.
+        <p className="text-gray-700 text-sm mb-6 text-center">
+          Open to Senior UI/UX &amp; Visual Designer, Design Systems, and AI safety /
+          human-factors leadership roles — full-time, contract, or advisory.
         </p>
+
+        {/* What to expect */}
+        <ul className="mb-8 grid gap-2 list-none p-0 m-0">
+          {[
+            "I reply within 1–2 business days",
+            "Happy to share work samples, references, and a portfolio walkthrough",
+            "Open to remote, hybrid (DMV / DFW), or relocation for the right team",
+          ].map((x) => (
+            <li key={x} className="flex items-start gap-2 text-[13px] text-gray-700">
+              <span aria-hidden="true" className="mt-0.5 text-emerald-600 font-bold">✓</span>
+              <span className="leading-relaxed">{x}</span>
+            </li>
+          ))}
+        </ul>
+
         {submitted ? (
           <div
             role="status"
