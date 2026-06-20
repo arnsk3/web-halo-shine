@@ -528,16 +528,20 @@ function Home({
             backgroundSize: "32px 32px",
           }}
         />
+        {/* Floating gradient orbs */}
+        <div aria-hidden="true" className="pointer-events-none absolute -top-24 -left-24 h-80 w-80 rounded-full bg-[rgb(var(--c-accent))] opacity-25 blur-3xl animate-float-slow" />
+        <div aria-hidden="true" className="pointer-events-none absolute -bottom-32 -right-16 h-96 w-96 rounded-full bg-[rgb(var(--c-accent-light))] opacity-20 blur-3xl animate-float-slower" />
         <div className="max-w-3xl mx-auto px-6 py-24 text-center relative">
           <FadeIn>
-            <p className="text-[rgb(var(--c-accent-on-dark))] text-xs font-semibold tracking-[3px] uppercase mb-5">
+            <p className="inline-flex items-center gap-2 text-[rgb(var(--c-accent-on-dark))] text-xs font-semibold tracking-[3px] uppercase mb-5 rounded-full border border-white/15 bg-white/5 backdrop-blur px-4 py-1.5">
+              <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-[rgb(var(--c-accent-light))] animate-pulse" />
               Visual &amp; Brand Designer · Design Systems · UI Engineering · AI Governance
             </p>
           </FadeIn>
           <FadeIn delay={0.1}>
             <h1 className="text-4xl sm:text-5xl font-extrabold leading-[1.1] mb-5 tracking-tight">
               Designing for systems where getting it wrong
-              <span className="text-[rgb(var(--c-accent-on-dark))]"> isn't an option.</span>
+              <span className="bg-gradient-to-r from-[rgb(var(--c-accent-light))] to-[rgb(var(--c-accent-on-dark))] bg-clip-text text-transparent"> isn't an option.</span>
             </h1>
           </FadeIn>
           <FadeIn delay={0.15}>
