@@ -612,7 +612,7 @@ function Home({
           {CASE_STUDIES.map((s, i) => {
             return (
             <FadeIn key={s.id} delay={i * 0.08} className="h-full">
-              <article className="h-full flex flex-col rounded-xl overflow-hidden bg-white border border-gray-200 transition-all hover:border-[rgb(var(--c-primary)/0.3)] hover:shadow-lg">
+              <article className="group h-full flex flex-col rounded-xl overflow-hidden bg-white border border-gray-200 transition-all duration-300 hover:border-[rgb(var(--c-primary)/0.3)] hover:shadow-xl hover:-translate-y-1">
                 <div
                   className={`relative h-44 bg-gradient-to-br ${s.hero} flex items-end p-5 overflow-hidden`}
                 >
@@ -623,7 +623,7 @@ function Home({
                       loading="lazy"
                       width={1024}
                       height={640}
-                      className="absolute inset-0 h-full w-full object-cover"
+                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   )}
                   <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
