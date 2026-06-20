@@ -80,10 +80,20 @@ export default {
             height: "0",
           },
         },
+        "float-slow": {
+          "0%, 100%": { transform: "translate(0, 0)" },
+          "50%": { transform: "translate(20px, -20px)" },
+        },
+        "float-slower": {
+          "0%, 100%": { transform: "translate(0, 0)" },
+          "50%": { transform: "translate(-24px, 18px)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "float-slow": "float-slow 9s ease-in-out infinite",
+        "float-slower": "float-slower 13s ease-in-out infinite",
       },
     },
   },
