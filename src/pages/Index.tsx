@@ -4548,6 +4548,20 @@ function Approach() {
     },
   ];
 
+  const process = [
+    { step: "Discover", desc: "Mixed-methods research, stakeholder interviews, and analytics to frame the real problem and the humans in the system." },
+    { step: "Define", desc: "Personas, journey maps, and requirements traced to standards — so every decision has a defensible reason." },
+    { step: "Design", desc: "Brand-aligned visual design, design tokens, and high-fidelity UI built on an accessible component system." },
+    { step: "Build", desc: "Production React + TypeScript front-end engineering, with accessibility baked into CI/CD, not bolted on." },
+    { step: "Validate", desc: "Usability testing, FMEA/URRA, and WCAG audits that produce the evidence trail proving the design works." },
+  ];
+
+  const tooling = [
+    { group: "Design", items: ["Figma", "FigJam", "Design tokens", "Prototyping", "Photoshop / Illustrator"] },
+    { group: "Engineering", items: ["React", "TypeScript", "Tailwind CSS", "Vite", "Redux / Context", "Git / CI/CD"] },
+    { group: "Research & QA", items: ["Usability testing", "Axe / WAVE", "Screen readers (NVDA/JAWS/VoiceOver)", "Analytics", "MBSE / SysML"] },
+  ];
+
   return (
     <div className="max-w-3xl mx-auto px-6 py-16">
       <FadeIn>
@@ -4555,16 +4569,36 @@ function Approach() {
           My Approach
         </h1>
         <p className="text-gray-700 text-sm mb-12 max-w-lg">
-          How I ensure AI-driven systems are safe, accessible, and compliant — from
-          requirements through deployment
+          How I take a product from research to a polished, on-brand, accessible
+          experience — safe and compliant from requirements through deployment.
         </p>
       </FadeIn>
 
+      {/* Process stepper */}
+      <FadeIn delay={0.05}>
+        <h2 className="text-xl font-extrabold text-gray-900 tracking-tight mb-1">From insight to shipped product</h2>
+        <p className="text-gray-600 text-sm mb-6">A repeatable, evidence-driven process I run end to end.</p>
+        <ol className="relative list-none p-0 m-0 mb-12 border-l-2 border-[rgb(var(--c-accent)/0.3)] ml-3">
+          {process.map((p, i) => (
+            <li key={p.step} className="relative pl-7 pb-6 last:pb-0">
+              <span aria-hidden="true" className="absolute -left-[15px] top-0 h-7 w-7 rounded-full bg-[rgb(var(--c-primary))] text-white text-xs font-bold flex items-center justify-center ring-4 ring-white">
+                {i + 1}
+              </span>
+              <h3 className="font-bold text-gray-900 text-sm mb-0.5">{p.step}</h3>
+              <p className="text-[13px] text-gray-700 leading-relaxed">{p.desc}</p>
+            </li>
+          ))}
+        </ol>
+      </FadeIn>
+
+      <FadeIn delay={0.08}>
+        <h2 className="text-xl font-extrabold text-gray-900 tracking-tight mb-6">Governing frameworks</h2>
+      </FadeIn>
       <div className="space-y-4 mb-12">
         {frameworks.map((f, i) => (
           <FadeIn key={f.title} delay={i * 0.06}>
             <div
-              className="bg-white border border-gray-200 rounded-xl p-5 hover:shadow-sm transition-shadow"
+              className="bg-white border border-gray-200 rounded-xl p-5 hover:shadow-md hover:-translate-y-0.5 transition-all"
               style={{ borderLeftWidth: 4, borderLeftColor: f.color }}
             >
               <h2 className="font-bold text-gray-900 text-base mb-0.5">{f.title}</h2>
@@ -4583,6 +4617,25 @@ function Approach() {
           </FadeIn>
         ))}
       </div>
+
+      {/* Tooling stack */}
+      <FadeIn delay={0.1}>
+        <h2 className="text-xl font-extrabold text-gray-900 tracking-tight mb-6">Tools &amp; stack</h2>
+        <div className="grid sm:grid-cols-3 gap-4 mb-12">
+          {tooling.map((t) => (
+            <div key={t.group} className="rounded-xl bg-white border border-gray-200 p-5 hover:shadow-sm transition-shadow">
+              <h3 className="text-[11px] font-bold uppercase tracking-wide text-[rgb(var(--c-accent-dark))] mb-3">{t.group}</h3>
+              <ul className="flex gap-1.5 flex-wrap list-none p-0 m-0">
+                {t.items.map((it) => (
+                  <li key={it} className="text-[11px] px-2.5 py-1 rounded-full bg-[rgb(var(--c-primary)/0.06)] text-[rgb(var(--c-primary))] border border-[rgb(var(--c-primary)/0.15)] font-medium">
+                    {it}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </FadeIn>
 
       <FadeIn>
         <div className="bg-[rgb(var(--c-primary))] rounded-xl p-6 text-center">
