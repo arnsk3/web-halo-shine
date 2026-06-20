@@ -675,9 +675,10 @@ function Home({
                     <button
                       onClick={() => setCase(s)}
                       aria-label={`View full case study: ${s.title}`}
-                      className="text-xs font-semibold px-4 py-2 rounded-lg bg-[rgb(var(--c-primary))] text-white hover:bg-[rgb(var(--c-accent-dark))] focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2 transition-colors"
+                      className="group/btn inline-flex items-center gap-1.5 text-xs font-semibold px-4 py-2 rounded-lg bg-[rgb(var(--c-primary))] text-white hover:bg-[rgb(var(--c-accent-dark))] focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2 transition-colors"
                     >
                       View full case study
+                      <span aria-hidden="true" className="transition-transform group-hover/btn:translate-x-0.5">→</span>
                     </button>
                     {s.liveUrl && (
                       <a
