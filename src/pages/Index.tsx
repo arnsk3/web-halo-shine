@@ -933,7 +933,7 @@ function Home({
         </FadeIn>
 
         <div className="grid gap-8 items-stretch [grid-template-columns:repeat(auto-fit,minmax(min(100%,30rem),1fr))]">
-          {CASE_STUDIES.map((s, i) => {
+          {visibleCases.map((s, i) => {
             return (
             <FadeIn key={s.id} delay={i * 0.08} className="h-full">
               <article className="group h-full flex flex-col rounded-xl overflow-hidden bg-white border border-gray-200 transition-all duration-300 hover:border-[rgb(var(--c-primary)/0.3)] hover:shadow-xl hover:-translate-y-1">
