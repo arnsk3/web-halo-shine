@@ -16,6 +16,8 @@ import caseGe from "@/assets/case-ge.jpg";
 import caseSsa from "@/assets/case-ssa.jpg";
 import caseBestbuy from "@/assets/case-bestbuy.jpg";
 import caseSamhsa from "@/assets/case-samhsa.jpg";
+import caseTrustlens from "@/assets/case-trustlens.jpg";
+import caseClinicalAi from "@/assets/case-clinicalai.jpg";
 
 /* ═══════════════════════════════════════════
    SENTHIL KUMAR NAGAPPAN — PORTFOLIO SITE
