@@ -11,6 +11,7 @@ import personaSafety from "@/assets/persona-safety.jpg";
 import personaLeadership from "@/assets/persona-leadership.jpg";
 import ThemeSwitcher from "@/components/ThemeSwitcher";
 import ExpertiseSection from "@/components/ExpertiseSection";
+import AISkillsMatrix from "@/components/AISkillsMatrix";
 import caseWcagtool from "@/assets/case-wcagtool.jpg";
 import caseGe from "@/assets/case-ge.jpg";
 import caseSsa from "@/assets/case-ssa.jpg";
@@ -18,6 +19,8 @@ import caseBestbuy from "@/assets/case-bestbuy.jpg";
 import caseSamhsa from "@/assets/case-samhsa.jpg";
 import caseTrustlens from "@/assets/case-trustlens.jpg";
 import caseClinicalAi from "@/assets/case-clinicalai.jpg";
+import caseSentinel from "@/assets/case-sentinel.jpg";
+import caseLumen from "@/assets/case-lumen.jpg";
 
 /* ═══════════════════════════════════════════
    SENTHIL KUMAR NAGAPPAN — PORTFOLIO SITE
@@ -533,6 +536,126 @@ const CASE_STUDIES: CaseStudyType[] = [
        "7-year continuity — sustained leadership through changing administrations",
     ],
   },
+  {
+    id: "sentinel",
+    tag: "In-House AI Product · Agentic AI Safety · Red-Team Evaluation",
+    title: "Sentinel — Guardrails & Red-Team Console for Agentic AI",
+    subtitle:
+      "Designed and built a control console for autonomous AI agents — making tool-use, approvals, and failure modes visible so teams can deploy agents that take actions without losing human control.",
+    hero: "from-[rgb(var(--c-hero-mid))] via-[rgb(var(--c-primary))] to-[rgb(var(--c-accent))]",
+    image: caseSentinel,
+    role: "AI Product Designer · Builder",
+    timeline: "2025 – Present",
+    org: "BrainPulse (In-House)",
+    standards: ["NIST AI RMF", "OWASP LLM Top 10", "ISO/IEC 42001", "WCAG 2.2 AA"],
+    metrics: [
+      { value: "100%", label: "Agent Actions Logged" },
+      { value: "4", label: "Guardrail Tiers" },
+      { value: "Real-time", label: "Red-Team Alerts" },
+    ],
+    sections: [
+      {
+        heading: "Why I Built It",
+        content:
+          "Agentic AI changes the risk model entirely — a model that can call tools, browse, and execute actions can also be manipulated into doing the wrong thing through prompt injection or unsafe tool chains. Most teams ship agents with no way to see what the agent intended, what it actually did, or where a human should have intervened. I built Sentinel to make agent behavior legible and controllable before it reaches production.",
+      },
+      {
+        heading: "What It Does",
+        content:
+          "Sentinel wraps any agent in a layered guardrail system: input filters catch prompt-injection and jailbreak patterns, an approval layer pauses high-impact tool calls for human confirmation, an action ledger records every step with its rationale and outcome, and a kill-switch returns the agent to a safe state. A red-team console lets evaluators run adversarial scenarios and watch guardrails fire in real time.",
+      },
+      {
+        heading: "Guardrail Tiers",
+        content:
+          "I codified four tiers mapped to action impact — observe (log only), confirm (human approval required), constrain (allowed within hard limits), and block (never permitted). Each tier has fixed UI, audit, and evaluation requirements, so the question 'is this agent safe to deploy?' becomes a checklist teams can pass rather than a judgment call.",
+      },
+      {
+        heading: "Architecture & Approach",
+        content:
+          "Built the front end in React + TypeScript as reusable visualization components — action timelines, tool-call inspectors, guardrail status panels, and adversarial-test result views — on a single semantic design-token layer. Streaming agent telemetry is handled with predictable state so dense, fast-moving logs stay readable, and every panel is keyboard-operable and WCAG 2.2 AA conformant.",
+      },
+    ],
+    outcomes: [
+      "Made autonomous agent behavior fully auditable — every action logged with intent and outcome",
+      "Four-tier guardrail model turns agent safety into a passable checklist",
+      "Prompt-injection and jailbreak detection surfaced before actions execute",
+      "Red-team console lets evaluators reproduce and verify adversarial failures",
+      "Reusable React + TypeScript visualization components on one token layer",
+      "Human-in-the-loop approvals keep humans in control of high-impact actions",
+    ],
+    artifacts: [
+      { label: "Agent action timeline", desc: "Step-by-step view of intent, tool calls, and outcomes for every agent run." },
+      { label: "Guardrail status panels", desc: "Live tier indicators showing what is observed, confirmed, constrained, or blocked." },
+      { label: "Red-team scenario library", desc: "Reusable adversarial tests that exercise prompt injection and unsafe tool chains." },
+      { label: "Evaluation evidence export", desc: "Audit-ready records mapping agent behavior to NIST AI RMF and OWASP LLM controls." },
+    ],
+    hsi: [
+      "Human-in-the-loop oversight — approvals gate high-impact autonomous actions",
+      "Failure-mode design — kill-switch and safe-state recovery for runaway agents",
+      "NIST AI RMF — measure and manage agent risk with traceable evidence",
+      "OWASP LLM Top 10 — prompt-injection and tool-abuse defenses built in",
+    ],
+  },
+  {
+    id: "lumen",
+    tag: "In-House AI Product · RAG Transparency · Source-Grounding UX",
+    title: "Lumen — Source-Grounding & Transparency UX for Enterprise Knowledge AI",
+    subtitle:
+      "Designed the trust layer for retrieval-augmented generation — connecting every AI answer to its source evidence so users can verify, challenge, and rely on knowledge AI in high-stakes work.",
+    hero: "from-[#1b2a69] via-[rgb(var(--c-primary))] to-[rgb(var(--c-accent))]",
+    image: caseLumen,
+    role: "AI Interaction Designer · Builder",
+    timeline: "2025 – Present",
+    org: "BrainPulse (In-House)",
+    standards: ["NIST AI RMF", "WCAG 2.2 AA", "ISO/IEC 42001"],
+    metrics: [
+      { value: "100%", label: "Answers Source-Linked" },
+      { value: "3", label: "Confidence States" },
+      { value: "↓ Hallucination", label: "Risk Surfaced" },
+    ],
+    sections: [
+      {
+        heading: "Why I Built It",
+        content:
+          "Enterprise knowledge AI fails the moment users can't tell whether an answer is grounded in real documents or quietly invented. In regulated and high-stakes work, an unverifiable answer is worse than no answer. I designed Lumen as the transparency layer for retrieval-augmented generation — making the connection between answer and evidence the centerpiece of the experience, not a footnote.",
+      },
+      {
+        heading: "What It Does",
+        content:
+          "Every claim in an answer is linked to the retrieved passages that support it, with inline citations users can expand to read the exact source. When retrieval is weak or sources conflict, Lumen says so explicitly rather than projecting false confidence. Users can challenge an answer, jump to source documents, and see why a passage was retrieved — turning a black-box response into a defensible, checkable result.",
+      },
+      {
+        heading: "Confidence & Hallucination Cues",
+        content:
+          "Confidence is shown as a meaningful, contextual signal grounded in retrieval quality and source agreement — not a raw model probability. When the system has thin or contradictory evidence, the UI down-weights the answer and surfaces the gap, so users calibrate trust appropriately and hallucination risk is made visible instead of hidden.",
+      },
+      {
+        heading: "Architecture & Approach",
+        content:
+          "Built in React + TypeScript with reusable components for citation chips, source-passage drawers, evidence-linking lines, and confidence indicators — all on a single semantic design-token layer. Streaming responses are reconciled with their citations in predictable state, and the entire experience is keyboard-operable and screen-reader-first to WCAG 2.2 AA.",
+      },
+    ],
+    outcomes: [
+      "Linked 100% of AI answers to their source evidence for verifiable, defensible output",
+      "Surfaced hallucination risk explicitly when retrieval is weak or sources conflict",
+      "Confidence shown as calibrated, contextual signal — not raw model probability",
+      "Reusable citation, source-drawer, and grounding components on one token layer",
+      "Screen-reader-first, keyboard-operable transparency UX to WCAG 2.2 AA",
+      "Gave users a defensible basis to trust or challenge knowledge-AI answers",
+    ],
+    artifacts: [
+      { label: "Inline citation system", desc: "Per-claim citation chips that expand to the exact supporting passage." },
+      { label: "Source-passage drawer", desc: "Side panel showing retrieved evidence and why each passage was selected." },
+      { label: "Confidence & gap indicators", desc: "Contextual signals that down-weight thin or conflicting evidence." },
+      { label: "Grounding component library", desc: "Reusable React + TypeScript primitives for evidence-linked AI answers." },
+    ],
+    hsi: [
+      "Appropriate reliance — evidence linking lets users trust or challenge AI output",
+      "Explainability — every claim traces to its retrieved source passage",
+      "Error prevention — hallucination risk surfaced rather than hidden",
+      "NIST AI RMF — transparency and measurement built into the experience",
+    ],
+  },
 ];
 
 const CREDS = [
@@ -544,6 +667,34 @@ const CREDS = [
   "WCAG 2.2 AA",
   "MBSE / SysML",
 ];
+
+// Derive filterable categories from each case study's tag so the work can be
+// filtered without duplicating metadata on every entry.
+const CASE_FILTERS = [
+  "All",
+  "AI & Governance",
+  "Design Systems",
+  "Accessibility",
+  "Consumer & Brand",
+  "Federal & Enterprise",
+] as const;
+type CaseFilter = (typeof CASE_FILTERS)[number];
+
+function caseCategories(s: CaseStudyType): CaseFilter[] {
+  const t = `${s.tag} ${s.title} ${s.standards.join(" ")}`.toLowerCase();
+  const cats: CaseFilter[] = [];
+  if (/\bai\b|agentic|rag|governance|model|llm|nist|explainable/.test(t))
+    cats.push("AI & Governance");
+  if (/design system|component library|component system/.test(t))
+    cats.push("Design Systems");
+  if (/accessib|wcag|section 508|a11y/.test(t)) cats.push("Accessibility");
+  if (/consumer|brand|mobile-first/.test(t)) cats.push("Consumer & Brand");
+  if (/federal|government|portfolio|samhsa|hhs|enterprise/.test(t))
+    cats.push("Federal & Enterprise");
+  return cats;
+}
+
+
 
 type FadeInProps = { children: ReactNode; delay?: number; className?: string };
 function FadeIn({ children, delay = 0, className = "" }: FadeInProps) {
@@ -650,6 +801,11 @@ function Home({
   setPage: (p: PageId) => void;
   setCase: (c: CaseStudyType) => void;
 }) {
+  const [caseFilter, setCaseFilter] = useState<CaseFilter>("All");
+  const visibleCases =
+    caseFilter === "All"
+      ? CASE_STUDIES
+      : CASE_STUDIES.filter((s) => caseCategories(s).includes(caseFilter));
   return (
     <div>
       {/* Hero */}
@@ -732,18 +888,52 @@ function Home({
       {/* Domain Expertise */}
       <ExpertiseSection />
 
+      {/* AI Skills Matrix */}
+      <AISkillsMatrix />
+
       {/* Case Studies */}
       <section id="cases" className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(3rem,6vw,6rem)]" aria-labelledby="cases-heading">
         <FadeIn>
           <h2 id="cases-heading" className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2 tracking-tight">
             Case Studies
           </h2>
-          <p className="text-gray-700 text-base mb-10">
-            Digital brand experiences, design systems, and data-driven design that drove engagement, adoption, and conversion at scale
+          <p className="text-gray-700 text-base mb-6">
+            Digital brand experiences, design systems, data-driven design, and AI products that drove engagement, adoption, and conversion at scale
           </p>
         </FadeIn>
+        <FadeIn delay={0.05}>
+          <div className="flex flex-wrap gap-2 mb-10" role="group" aria-label="Filter case studies by category">
+            {CASE_FILTERS.map((f) => {
+              const count =
+                f === "All"
+                  ? CASE_STUDIES.length
+                  : CASE_STUDIES.filter((s) => caseCategories(s).includes(f)).length;
+              if (count === 0) return null;
+              const active = caseFilter === f;
+              return (
+                <button
+                  key={f}
+                  type="button"
+                  onClick={() => setCaseFilter(f)}
+                  aria-pressed={active}
+                  className={`inline-flex items-center gap-1.5 text-xs font-semibold px-3.5 py-2 rounded-full border transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2 ${
+                    active
+                      ? "bg-[rgb(var(--c-primary))] text-white border-[rgb(var(--c-primary))]"
+                      : "bg-white text-gray-700 border-gray-200 hover:border-[rgb(var(--c-primary)/0.4)] hover:text-[rgb(var(--c-primary))]"
+                  }`}
+                >
+                  {f}
+                  <span className={`text-[10px] font-bold ${active ? "text-white/80" : "text-gray-400"}`}>
+                    {count}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </FadeIn>
+
         <div className="grid gap-8 items-stretch [grid-template-columns:repeat(auto-fit,minmax(min(100%,30rem),1fr))]">
-          {CASE_STUDIES.map((s, i) => {
+          {visibleCases.map((s, i) => {
             return (
             <FadeIn key={s.id} delay={i * 0.08} className="h-full">
               <article className="group h-full flex flex-col rounded-xl overflow-hidden bg-white border border-gray-200 transition-all duration-300 hover:border-[rgb(var(--c-primary)/0.3)] hover:shadow-xl hover:-translate-y-1">
@@ -4836,9 +5026,10 @@ function Resume() {
         </a>
 
         {/* Career highlights */}
-        <div className="mt-12 grid sm:grid-cols-3 gap-4 text-left">
+        <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
           {[
-            { v: "$1.5M+", l: "Annual savings from SSA11y CI/CD accessibility automation" },
+            { v: "Enterprise", l: "AI safety framework defining Model A/B/C oversight tiers for clinical decision-support" },
+            { v: "$1.5M+", l: "Annual savings from SSA11y — AI-driven CI/CD accessibility automation" },
             { v: "50M+", l: "Users served by a unified, data-driven design system" },
             { v: "10+", l: "Product teams aligned on one design system at GE HealthCare" },
           ].map((h) => (
@@ -4854,6 +5045,8 @@ function Resume() {
           <h2 className="text-xl font-extrabold text-gray-900 tracking-tight mb-4 text-center">Skills snapshot</h2>
           <div className="grid sm:grid-cols-2 gap-4">
             {[
+              { g: "AI Design & Governance", s: ["Human–AI interaction", "Explainability & confidence UX", "Human-in-the-loop oversight", "Agentic AI guardrails", "RAG / source-grounding UX", "NIST AI RMF", "EU AI Act", "ISO/IEC 42001", "Bias & drift monitoring", "Red-team / TEVV"] },
+              { g: "AI Engineering", s: ["LLM integration (React + TS)", "AI data-viz components", "Llama / GPT-class models", "CI/CD AI quality gates", "Eval harness & telemetry UX"] },
               { g: "Design", s: ["Visual & brand design", "Design systems", "Figma & prototyping", "Data visualization"] },
               { g: "Engineering", s: ["React", "TypeScript", "Tailwind CSS", "Redux / Context", "Vite / Webpack", "REST APIs"] },
               { g: "Research", s: ["Mixed-methods UX research", "Journey mapping", "Usability testing", "MBSE / SysML"] },
@@ -4872,6 +5065,7 @@ function Resume() {
             ))}
           </div>
         </div>
+
 
 
         {/* PDF preview — hidden from AT because the same content is provided as
@@ -4944,6 +5138,16 @@ function Resume() {
               efforts with established coding standards, design guidelines, code
               reviews, and mentoring of junior developers, partnering with UX and
               backend teams to ship high-performance, accessible interfaces.
+            </p>
+            <p>
+              <strong>AI design &amp; governance:</strong> Design and build AI products
+              for safety-critical, regulated environments — human–AI interaction models
+              (recommend / act / alert), explainability and calibrated-confidence UX,
+              human-in-the-loop oversight, agentic-AI guardrails, and RAG source-grounding.
+              Operationalize NIST AI RMF, the EU AI Act, and ISO/IEC 42001 into model-risk
+              tiers, bias/drift monitoring, red-team / TEVV evaluation, and audit-ready
+              evidence. Engineer the front end with LLM integration, AI data-visualization
+              component systems, and CI/CD AI quality gates (SSA11y, built on Llama).
             </p>
             <p>
               <strong>Standards:</strong> MIL-STD-1472H, FDA, IEC 62366, ISO 14971,
