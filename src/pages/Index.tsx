@@ -5026,9 +5026,10 @@ function Resume() {
         </a>
 
         {/* Career highlights */}
-        <div className="mt-12 grid sm:grid-cols-3 gap-4 text-left">
+        <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
           {[
-            { v: "$1.5M+", l: "Annual savings from SSA11y CI/CD accessibility automation" },
+            { v: "Enterprise", l: "AI safety framework defining Model A/B/C oversight tiers for clinical decision-support" },
+            { v: "$1.5M+", l: "Annual savings from SSA11y — AI-driven CI/CD accessibility automation" },
             { v: "50M+", l: "Users served by a unified, data-driven design system" },
             { v: "10+", l: "Product teams aligned on one design system at GE HealthCare" },
           ].map((h) => (
@@ -5044,6 +5045,8 @@ function Resume() {
           <h2 className="text-xl font-extrabold text-gray-900 tracking-tight mb-4 text-center">Skills snapshot</h2>
           <div className="grid sm:grid-cols-2 gap-4">
             {[
+              { g: "AI Design & Governance", s: ["Human–AI interaction", "Explainability & confidence UX", "Human-in-the-loop oversight", "Agentic AI guardrails", "RAG / source-grounding UX", "NIST AI RMF", "EU AI Act", "ISO/IEC 42001", "Bias & drift monitoring", "Red-team / TEVV"] },
+              { g: "AI Engineering", s: ["LLM integration (React + TS)", "AI data-viz components", "Llama / GPT-class models", "CI/CD AI quality gates", "Eval harness & telemetry UX"] },
               { g: "Design", s: ["Visual & brand design", "Design systems", "Figma & prototyping", "Data visualization"] },
               { g: "Engineering", s: ["React", "TypeScript", "Tailwind CSS", "Redux / Context", "Vite / Webpack", "REST APIs"] },
               { g: "Research", s: ["Mixed-methods UX research", "Journey mapping", "Usability testing", "MBSE / SysML"] },
@@ -5062,6 +5065,7 @@ function Resume() {
             ))}
           </div>
         </div>
+
 
 
         {/* PDF preview — hidden from AT because the same content is provided as
