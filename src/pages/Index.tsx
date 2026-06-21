@@ -245,6 +245,7 @@ const CASE_STUDIES: CaseStudyType[] = [
       "FDA / IEC 62366 usability engineering — oversight tiers matched to clinical risk",
     ],
   },
+  {
     id: "ge",
     tag: "Design System · On-Brand · Accessible Experiences",
     title: "Evolving a Design System to Power Consistent, Accessible Digital Experiences",
