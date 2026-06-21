@@ -5140,6 +5140,16 @@ function Resume() {
               backend teams to ship high-performance, accessible interfaces.
             </p>
             <p>
+              <strong>AI design &amp; governance:</strong> Design and build AI products
+              for safety-critical, regulated environments — human–AI interaction models
+              (recommend / act / alert), explainability and calibrated-confidence UX,
+              human-in-the-loop oversight, agentic-AI guardrails, and RAG source-grounding.
+              Operationalize NIST AI RMF, the EU AI Act, and ISO/IEC 42001 into model-risk
+              tiers, bias/drift monitoring, red-team / TEVV evaluation, and audit-ready
+              evidence. Engineer the front end with LLM integration, AI data-visualization
+              component systems, and CI/CD AI quality gates (SSA11y, built on Llama).
+            </p>
+            <p>
               <strong>Standards:</strong> MIL-STD-1472H, FDA, IEC 62366, ISO 14971,
               MBSE/SysML, WCAG 2.2 AA, Section 508, ADA Title II, DoDI 5000.95.
             </p>
