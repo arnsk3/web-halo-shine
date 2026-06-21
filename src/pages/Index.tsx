@@ -668,6 +668,34 @@ const CREDS = [
   "MBSE / SysML",
 ];
 
+// Derive filterable categories from each case study's tag so the work can be
+// filtered without duplicating metadata on every entry.
+const CASE_FILTERS = [
+  "All",
+  "AI & Governance",
+  "Design Systems",
+  "Accessibility",
+  "Consumer & Brand",
+  "Federal & Enterprise",
+] as const;
+type CaseFilter = (typeof CASE_FILTERS)[number];
+
+function caseCategories(s: CaseStudyType): CaseFilter[] {
+  const t = `${s.tag} ${s.title} ${s.standards.join(" ")}`.toLowerCase();
+  const cats: CaseFilter[] = [];
+  if (/\bai\b|agentic|rag|governance|model|llm|nist|explainable/.test(t))
+    cats.push("AI & Governance");
+  if (/design system|component library|component system/.test(t))
+    cats.push("Design Systems");
+  if (/accessib|wcag|section 508|a11y/.test(t)) cats.push("Accessibility");
+  if (/consumer|brand|mobile-first/.test(t)) cats.push("Consumer & Brand");
+  if (/federal|government|portfolio|samhsa|hhs|enterprise/.test(t))
+    cats.push("Federal & Enterprise");
+  return cats;
+}
+
+
+
 type FadeInProps = { children: ReactNode; delay?: number; className?: string };
 function FadeIn({ children, delay = 0, className = "" }: FadeInProps) {
   const [vis, setVis] = useState(false);
