@@ -888,16 +888,50 @@ function Home({
       {/* Domain Expertise */}
       <ExpertiseSection />
 
+      {/* AI Skills Matrix */}
+      <AISkillsMatrix />
+
       {/* Case Studies */}
       <section id="cases" className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(3rem,6vw,6rem)]" aria-labelledby="cases-heading">
         <FadeIn>
           <h2 id="cases-heading" className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2 tracking-tight">
             Case Studies
           </h2>
-          <p className="text-gray-700 text-base mb-10">
-            Digital brand experiences, design systems, and data-driven design that drove engagement, adoption, and conversion at scale
+          <p className="text-gray-700 text-base mb-6">
+            Digital brand experiences, design systems, data-driven design, and AI products that drove engagement, adoption, and conversion at scale
           </p>
         </FadeIn>
+        <FadeIn delay={0.05}>
+          <div className="flex flex-wrap gap-2 mb-10" role="group" aria-label="Filter case studies by category">
+            {CASE_FILTERS.map((f) => {
+              const count =
+                f === "All"
+                  ? CASE_STUDIES.length
+                  : CASE_STUDIES.filter((s) => caseCategories(s).includes(f)).length;
+              if (count === 0) return null;
+              const active = caseFilter === f;
+              return (
+                <button
+                  key={f}
+                  type="button"
+                  onClick={() => setCaseFilter(f)}
+                  aria-pressed={active}
+                  className={`inline-flex items-center gap-1.5 text-xs font-semibold px-3.5 py-2 rounded-full border transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2 ${
+                    active
+                      ? "bg-[rgb(var(--c-primary))] text-white border-[rgb(var(--c-primary))]"
+                      : "bg-white text-gray-700 border-gray-200 hover:border-[rgb(var(--c-primary)/0.4)] hover:text-[rgb(var(--c-primary))]"
+                  }`}
+                >
+                  {f}
+                  <span className={`text-[10px] font-bold ${active ? "text-white/80" : "text-gray-400"}`}>
+                    {count}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </FadeIn>
+
         <div className="grid gap-8 items-stretch [grid-template-columns:repeat(auto-fit,minmax(min(100%,30rem),1fr))]">
           {CASE_STUDIES.map((s, i) => {
             return (
