@@ -801,6 +801,11 @@ function Home({
   setPage: (p: PageId) => void;
   setCase: (c: CaseStudyType) => void;
 }) {
+  const [caseFilter, setCaseFilter] = useState<CaseFilter>("All");
+  const visibleCases =
+    caseFilter === "All"
+      ? CASE_STUDIES
+      : CASE_STUDIES.filter((s) => caseCategories(s).includes(caseFilter));
   return (
     <div>
       {/* Hero */}
