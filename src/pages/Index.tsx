@@ -590,6 +590,11 @@ const CASE_STUDIES: CaseStudyType[] = [
           "Agentic AI changes the risk model entirely — a model that can call tools, browse, and execute actions can also be manipulated into doing the wrong thing through prompt injection or unsafe tool chains. Most teams ship agents with no way to see what the agent intended, what it actually did, or where a human should have intervened. I built Sentinel to make agent behavior legible and controllable before it reaches production.",
       },
       {
+        heading: "My Role",
+        content:
+          "I designed and built the console end-to-end: the guardrail taxonomy, the red-team workflow, the visualization system, and the React + TypeScript front end. I defined what 'safe to deploy' means as a concrete, passable checklist, designed the human-approval and kill-switch interactions, and built the adversarial scenario library so safety becomes something teams can demonstrate with evidence — not assert in a slide.",
+      },
+      {
         heading: "What It Does",
         content:
           "Sentinel wraps any agent in a layered guardrail system: input filters catch prompt-injection and jailbreak patterns, an approval layer pauses high-impact tool calls for human confirmation, an action ledger records every step with its rationale and outcome, and a kill-switch returns the agent to a safe state. A red-team console lets evaluators run adversarial scenarios and watch guardrails fire in real time.",
@@ -600,6 +605,16 @@ const CASE_STUDIES: CaseStudyType[] = [
           "I codified four tiers mapped to action impact — observe (log only), confirm (human approval required), constrain (allowed within hard limits), and block (never permitted). Each tier has fixed UI, audit, and evaluation requirements, so the question 'is this agent safe to deploy?' becomes a checklist teams can pass rather than a judgment call.",
       },
       {
+        heading: "The Hardest Decisions",
+        content:
+          "Autonomy vs. control: teams want agents that move fast, but unbounded tool-use is where damage happens — I made high-impact actions require confirmation by default and earn autonomy only after they clear red-team evaluation. Alert fatigue vs. coverage: filtering everything would bury operators, so I tiered detections by severity and grouped low-risk events, keeping the approval queue focused on what truly matters. Trust vs. verification: rather than trusting a vendor's safety claim, I designed the red-team console so safety must be reproduced and proven before launch.",
+      },
+      {
+        heading: "Validation & Impact",
+        content:
+          "By making every agent action auditable and forcing high-impact steps through human approval, Sentinel turns 'we think it's safe' into demonstrable, evidence-backed readiness — the gate enterprises need before they let agents act in production. The four-tier checklist gives risk and engineering a shared deployment standard, shrinking back-and-forth review cycles and giving leadership the confidence to greenlight agentic features they'd otherwise block.",
+      },
+      {
         heading: "Architecture & Approach",
         content:
           "Built the front end in React + TypeScript as reusable visualization components — action timelines, tool-call inspectors, guardrail status panels, and adversarial-test result views — on a single semantic design-token layer. Streaming agent telemetry is handled with predictable state so dense, fast-moving logs stay readable, and every panel is keyboard-operable and WCAG 2.2 AA conformant.",
@@ -607,15 +622,17 @@ const CASE_STUDIES: CaseStudyType[] = [
     ],
     outcomes: [
       "Made autonomous agent behavior fully auditable — every action logged with intent and outcome",
-      "Four-tier guardrail model turns agent safety into a passable checklist",
+      "Four-tier guardrail model turns agent safety into a passable, shared deployment checklist",
       "Prompt-injection and jailbreak detection surfaced before actions execute",
-      "Red-team console lets evaluators reproduce and verify adversarial failures",
+      "Red-team console lets evaluators reproduce and verify adversarial failures before launch",
+      "Severity-tiered alerts keep the human approval queue focused and fatigue-free",
       "Reusable React + TypeScript visualization components on one token layer",
       "Human-in-the-loop approvals keep humans in control of high-impact actions",
     ],
     artifacts: [
       { label: "Agent action timeline", desc: "Step-by-step view of intent, tool calls, and outcomes for every agent run." },
       { label: "Guardrail status panels", desc: "Live tier indicators showing what is observed, confirmed, constrained, or blocked." },
+      { label: "Tool-call inspector", desc: "Drill-in view of each tool invocation, its arguments, and the guardrail decision applied." },
       { label: "Red-team scenario library", desc: "Reusable adversarial tests that exercise prompt injection and unsafe tool chains." },
       { label: "Evaluation evidence export", desc: "Audit-ready records mapping agent behavior to NIST AI RMF and OWASP LLM controls." },
     ],
