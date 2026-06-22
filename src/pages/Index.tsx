@@ -219,6 +219,11 @@ const CASE_STUDIES: CaseStudyType[] = [
           "Clinical AI fails not when the model is wrong, but when the interface hides how confident it is, why it recommended something, or who is accountable for acting on it. After years designing safety-critical systems, I built Clarity to prove that AI decision-support can be powerful and safe at the same time — by treating explainability, confidence, and human oversight as primary UI, not footnotes.",
       },
       {
+        heading: "My Role",
+        content:
+          "I led design and built the working prototype: the human-AI interaction model, the explainability and confidence patterns, the accessible component system, and the React + TypeScript front end. I ran the failure-mode analysis, defined the graded oversight tiers, and designed the override-capture flow that turns clinician disagreement into auditable, model-improving signal — the way I'd partner with a clinical and regulatory team to ship something both safe and usable.",
+      },
+      {
         heading: "What It Does",
         content:
           "Clarity presents an AI recommendation alongside a patient summary, a plain-language rationale, the evidence behind it, and a calibrated confidence score. Clinicians can accept, modify, or reject the recommendation, and every action — especially overrides — is captured with reasoning for the audit trail. High-uncertainty cases are visually flagged and escalated rather than silently auto-acted.",
@@ -234,6 +239,16 @@ const CASE_STUDIES: CaseStudyType[] = [
           "Confidence is shown as a meaningful, contextual signal — not a raw percentage — so clinicians know when to trust the model and when to dig deeper. Explainability panels connect each recommendation to the contributing factors and source data, giving clinicians a defensible basis to agree or challenge, which is the foundation of appropriate reliance on AI.",
       },
       {
+        heading: "The Hardest Decisions",
+        content:
+          "Confidence as number vs. signal: a raw 87% invites false precision and automation bias, so I designed contextual confidence bands tied to evidence strength instead of a bare percentage. Speed vs. explainability: leadership wanted instant recommendations, but explanation can't be an afterthought — I used layered disclosure so the recommendation lands immediately and the rationale is one interaction away. Autonomy vs. oversight: for the highest-risk decisions I refused full automation and codified a mandatory human checkpoint, scaling control to clinical risk rather than to engineering convenience.",
+      },
+      {
+        heading: "Validation & Impact",
+        content:
+          "I pressure-tested the interface against the cognitive conditions clinical AI actually fails in — time pressure, interruption, and ambiguous cases — and validated keyboard and screen-reader operability so the product holds up in real environments, not just demos. The result is a decision-support experience designed to reduce automation bias and over-reliance, shorten time-to-confident-decision through layered explainability, and keep 100% of decisions accountable — the trust foundation that gets clinical AI adopted instead of switched off.",
+      },
+      {
         heading: "UI Architecture & React Engineering",
         content:
           "I built the prototype front end in React + TypeScript with a reusable, accessible component set — recommendation cards, confidence indicators, explainability drawers, and override-capture flows — on a single semantic design-token layer themed to AAA contrast targets. State management keeps recommendations, clinician actions, and audit events consistent, and the interface is fully keyboard-operable and screen-reader-first so it holds up in real clinical environments.",
@@ -245,12 +260,14 @@ const CASE_STUDIES: CaseStudyType[] = [
       "100% of clinician decisions and overrides captured for the audit trail",
       "Designed safe-state behaviors for automation bias, drift, and ambiguous accountability",
       "Trust-calibration UX promotes appropriate reliance — not blind acceptance or dismissal",
+      "Layered explainability shortens time-to-confident-decision without hiding the rationale",
       "Reusable, AAA-contrast React + TypeScript clinical component library",
       "Keyboard-operable, screen-reader-first interface aligned to FDA / IEC 62366",
     ],
     artifacts: [
       { label: "AI recommendation card system", desc: "Recommendation + confidence + rationale + evidence in a single legible, accessible unit." },
       { label: "Explainability drawer", desc: "Connects each recommendation to contributing factors and source data on demand." },
+      { label: "Confidence-band visual language", desc: "Contextual confidence shown as evidence-tied bands rather than misleading raw percentages." },
       { label: "Override capture flow", desc: "Structured reasoning capture that feeds the audit trail and model feedback loop." },
       { label: "Oversight-tier interaction spec", desc: "Recommend/act/alert behaviors mapped to clinical risk and IEC 62366 criteria." },
     ],
