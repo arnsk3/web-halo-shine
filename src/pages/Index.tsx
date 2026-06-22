@@ -667,6 +667,11 @@ const CASE_STUDIES: CaseStudyType[] = [
           "Enterprise knowledge AI fails the moment users can't tell whether an answer is grounded in real documents or quietly invented. In regulated and high-stakes work, an unverifiable answer is worse than no answer. I designed Lumen as the transparency layer for retrieval-augmented generation — making the connection between answer and evidence the centerpiece of the experience, not a footnote.",
       },
       {
+        heading: "My Role",
+        content:
+          "I designed the trust layer and built the front end: the evidence-linking interaction model, the citation and confidence visual language, the accessible component system, and the React + TypeScript implementation. I defined how answers reconcile with their sources as they stream, how the UI behaves when evidence is thin, and how a user moves from answer to proof in a single step — the pattern that decides whether people actually rely on knowledge AI in serious work.",
+      },
+      {
         heading: "What It Does",
         content:
           "Every claim in an answer is linked to the retrieved passages that support it, with inline citations users can expand to read the exact source. When retrieval is weak or sources conflict, Lumen says so explicitly rather than projecting false confidence. Users can challenge an answer, jump to source documents, and see why a passage was retrieved — turning a black-box response into a defensible, checkable result.",
@@ -677,6 +682,16 @@ const CASE_STUDIES: CaseStudyType[] = [
           "Confidence is shown as a meaningful, contextual signal grounded in retrieval quality and source agreement — not a raw model probability. When the system has thin or contradictory evidence, the UI down-weights the answer and surfaces the gap, so users calibrate trust appropriately and hallucination risk is made visible instead of hidden.",
       },
       {
+        heading: "The Hardest Decisions",
+        content:
+          "Fluency vs. honesty: a confident, well-written wrong answer is the most dangerous output a RAG system can produce, so I designed the UI to visibly down-weight answers with weak grounding even when the prose reads smoothly. Friction vs. trust: surfacing every citation risks clutter, so I used inline chips with on-demand source drawers — proof is always one interaction away without drowning the answer. Coverage vs. honesty about gaps: instead of always producing an answer, I designed an explicit 'insufficient evidence' state, because in regulated work admitting a gap beats inventing one.",
+      },
+      {
+        heading: "Validation & Impact",
+        content:
+          "By linking 100% of answers to their sources and making hallucination risk visible, Lumen converts a black-box assistant into a tool people can defend to an auditor or a regulator — the prerequisite for adoption in high-stakes domains. Grounding every claim and exposing weak evidence drives appropriate reliance: users trust answers faster when they can verify them in a click, and stop trusting confidently-wrong ones before they act, which is what moves knowledge AI from pilot to production.",
+      },
+      {
         heading: "Architecture & Approach",
         content:
           "Built in React + TypeScript with reusable components for citation chips, source-passage drawers, evidence-linking lines, and confidence indicators — all on a single semantic design-token layer. Streaming responses are reconciled with their citations in predictable state, and the entire experience is keyboard-operable and screen-reader-first to WCAG 2.2 AA.",
@@ -685,7 +700,9 @@ const CASE_STUDIES: CaseStudyType[] = [
     outcomes: [
       "Linked 100% of AI answers to their source evidence for verifiable, defensible output",
       "Surfaced hallucination risk explicitly when retrieval is weak or sources conflict",
+      "Explicit 'insufficient evidence' state prevents confident, well-written wrong answers",
       "Confidence shown as calibrated, contextual signal — not raw model probability",
+      "Drove appropriate reliance — users verify in one click instead of trusting blindly",
       "Reusable citation, source-drawer, and grounding components on one token layer",
       "Screen-reader-first, keyboard-operable transparency UX to WCAG 2.2 AA",
       "Gave users a defensible basis to trust or challenge knowledge-AI answers",
@@ -694,6 +711,7 @@ const CASE_STUDIES: CaseStudyType[] = [
       { label: "Inline citation system", desc: "Per-claim citation chips that expand to the exact supporting passage." },
       { label: "Source-passage drawer", desc: "Side panel showing retrieved evidence and why each passage was selected." },
       { label: "Confidence & gap indicators", desc: "Contextual signals that down-weight thin or conflicting evidence." },
+      { label: "Insufficient-evidence state", desc: "Explicit UI pattern that admits a gap instead of fabricating an answer." },
       { label: "Grounding component library", desc: "Reusable React + TypeScript primitives for evidence-linked AI answers." },
     ],
     hsi: [
