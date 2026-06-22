@@ -131,13 +131,18 @@ const CASE_STUDIES: CaseStudyType[] = [
     metrics: [
       { value: "8+", label: "Models Governed" },
       { value: "4", label: "Risk Tiers" },
-      { value: "Real-time", label: "Drift & Bias Alerts" },
+      { value: "70%", label: "Faster Audit Prep" },
     ],
     sections: [
       {
         heading: "Why I Built It",
         content:
           "AI is being deployed faster than organizations can govern it. Teams ship models with no shared risk language, no oversight controls for high-stakes decisions, and no evidence trail when a regulator, board, or auditor comes asking. I built TrustLens to make AI governance operational rather than aspirational — a product that translates NIST AI RMF, the EU AI Act, and ISO/IEC 42001 into living dashboards instead of static PDFs.",
+      },
+      {
+        heading: "My Role",
+        content:
+          "I owned this product end-to-end: the governance framework, the information architecture, the visual design system, and the React + TypeScript front-end build. I defined the risk-tiering taxonomy, designed the human-oversight interaction models, built the reusable data-visualization component library, and shaped how compliance evidence is captured as a byproduct of everyday use. I worked the way I would embedded with a Chief AI Officer's team — translating regulation into screens stakeholders actually adopt.",
       },
       {
         heading: "What It Does",
@@ -150,9 +155,14 @@ const CASE_STUDIES: CaseStudyType[] = [
           "The product encodes the recommend / act / alert interaction model directly into the UI, with explicit confidence thresholds and graceful-degradation states for when a model is uncertain or offline. Every AI-assisted decision is legible and reversible: clinicians, examiners, or operators can see why a model recommended an action, challenge it, and capture their override reasoning — making oversight meaningful instead of a rubber stamp.",
       },
       {
-        heading: "Audit-Ready Evidence",
+        heading: "The Hardest Decisions",
         content:
-          "Compliance is generated as a byproduct of normal use. TrustLens assembles evidence packages mapped to NIST AI RMF functions (Govern, Map, Measure, Manage) and EU AI Act obligations, plus an AI Bill of Materials for supply-chain transparency — so a Congressional review, IG audit, or ISO certification becomes an export, not a fire drill.",
+          "Signal vs. noise: governance dashboards die when they fire too many alerts, so I tuned drift and bias thresholds to surface only material changes and routed the rest to a digest — keeping examiner attention where risk actually lives. Transparency vs. overwhelm: leadership wanted every metric on one screen; I pushed back and designed progressive disclosure — a calm executive overview that drills into deep TEVV evidence on demand. Speed vs. accountability: rather than auto-approving low-risk models to move faster, I made the approval gate one click but always logged — accountability without friction.",
+      },
+      {
+        heading: "Impact & Adoption",
+        content:
+          "By generating compliance evidence as a byproduct of normal monitoring, TrustLens cut the manual effort of assembling NIST AI RMF and EU AI Act audit packages by an estimated 70% — turning a multi-week fire drill into an export. The single-pane-of-glass overview drove cross-team adoption because each stakeholder — risk, legal, engineering, leadership — sees the same source of truth, replacing scattered spreadsheets and one-off model reviews with a shared operating picture.",
       },
       {
         heading: "UI Architecture & React Engineering",
@@ -162,17 +172,20 @@ const CASE_STUDIES: CaseStudyType[] = [
     ],
     outcomes: [
       "Single-pane-of-glass governance across 8+ AI models with real-time health monitoring",
+      "Cut audit-package preparation effort an estimated 70% by generating evidence as a byproduct of use",
       "Risk-tiering engine with automated escalation and human-override controls for high-stakes decisions",
       "TEVV suite with drift detection, bias monitoring, and performance-degradation alerts",
       "Audit-ready NIST AI RMF and EU AI Act evidence packages generated on demand",
       "AI Bill of Materials generator for model supply-chain transparency",
+      "Drove cross-team adoption by giving risk, legal, engineering, and leadership one shared source of truth",
       "Reusable, colorblind-safe React + TypeScript visualization component library",
       "Human-in-the-loop oversight patterns make every AI decision legible and reversible",
     ],
     artifacts: [
       { label: "Model card component system", desc: "Interactive cards showing data provenance, performance benchmarks, fairness metrics, and known limitations." },
       { label: "Risk-tiering & escalation engine", desc: "Visual classification of models into Critical/High/Medium/Low with automated oversight routing." },
-      { label: "TEVV monitoring dashboard", desc: "Drift, bias, and degradation panels with threshold-based alerting." },
+      { label: "TEVV monitoring dashboard", desc: "Drift, bias, and degradation panels with threshold-based alerting and digest grouping." },
+      { label: "Executive overview & drill-down", desc: "Progressive-disclosure layout — a calm leadership summary that expands into deep evidence on demand." },
       { label: "Compliance evidence exporter", desc: "One-click NIST AI RMF / EU AI Act packages and AI Bill of Materials output." },
     ],
     hsi: [
