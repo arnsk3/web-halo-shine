@@ -1400,6 +1400,211 @@ const SHOWCASE: Record<string, ShowcaseConfig> = {
       },
     ],
   },
+  trustlens: {
+    workflowTitle: "Model governance lifecycle — registration to audit",
+    steps: ["Register Model", "Risk-Tier Classify", "Attach Controls", "Monitor Drift & Bias", "Export Evidence"],
+    screensTitle: "Sample screens — TrustLens command center",
+    screens: [
+      {
+        title: "Portfolio Risk Overview",
+        body: (
+          <>
+            <WBar w="55%" h={10} c="bg-[rgb(var(--c-primary))]" />
+            <div className="grid grid-cols-4 gap-1.5 mt-1" aria-hidden="true">
+              <WBlock h={40} c="bg-[#ffe2e2]"><div className="p-1"><div className="text-[8px] text-[#8a1a1a] font-bold">CRIT</div><div className="text-sm font-bold text-[#8a1a1a]">3</div></div></WBlock>
+              <WBlock h={40} c="bg-[#fff4e5]"><div className="p-1"><div className="text-[8px] text-[#8a5a00] font-bold">HIGH</div><div className="text-sm font-bold text-[#8a5a00]">7</div></div></WBlock>
+              <WBlock h={40} c="bg-[rgb(var(--c-tint-100))]"><div className="p-1"><div className="text-[8px] text-[rgb(var(--c-primary))] font-bold">MED</div><div className="text-sm font-bold text-[rgb(var(--c-primary))]">12</div></div></WBlock>
+              <WBlock h={40} c="bg-[#eef7ee]"><div className="p-1"><div className="text-[8px] text-[#1f6b2e] font-bold">LOW</div><div className="text-sm font-bold text-[#1f6b2e]">26</div></div></WBlock>
+            </div>
+            <WBar w="100%" h={6} />
+            <WBar w="78%" h={6} />
+          </>
+        ),
+      },
+      {
+        title: "Model Card · Provenance",
+        body: (
+          <>
+            <WBar w="70%" h={10} c="bg-[rgb(var(--c-primary))]" />
+            <div className="rounded bg-[rgb(var(--c-tint-50))] border border-[rgb(var(--c-tint-200))] p-2 space-y-1" aria-hidden="true">
+              <div className="text-[8px] font-bold text-[rgb(var(--c-primary))]">TRAINING DATA</div>
+              <WBar w="100%" h={4} /><WBar w="85%" h={4} />
+              <div className="text-[8px] font-bold text-[rgb(var(--c-primary))] pt-1">KNOWN LIMITS</div>
+              <WBar w="70%" h={4} />
+            </div>
+            <span className="text-[9px] px-1.5 py-0.5 rounded bg-[#fff4e5] text-[#8a5a00] font-bold self-start" aria-hidden="true">Risk Tier: HIGH</span>
+          </>
+        ),
+      },
+      {
+        title: "Drift & Bias Monitor",
+        body: (
+          <>
+            <WBar w="60%" h={10} c="bg-[rgb(var(--c-primary))]" />
+            <div className="flex items-end gap-1 h-10 mt-1" aria-hidden="true">
+              {[30, 35, 32, 40, 55, 70, 85].map((h, i) => (
+                <div key={i} className={`flex-1 rounded-sm ${h > 60 ? "bg-[#d64545]" : "bg-[rgb(var(--c-accent))]"}`} style={{ height: `${h}%` }} />
+              ))}
+            </div>
+            <div className="rounded bg-[#ffe2e2] border border-[#f5b5b5] p-1.5 text-[9px] text-[#8a1a1a] font-medium mt-auto" aria-hidden="true">
+              ⚠ Drift threshold exceeded — review triggered
+            </div>
+          </>
+        ),
+      },
+    ],
+  },
+  clinicalai: {
+    workflowTitle: "Clinician × AI trust-calibrated decision flow",
+    steps: ["Patient Context", "AI Recommendation", "Confidence + Evidence", "Accept / Modify / Reject", "Audit Logged"],
+    screensTitle: "Sample screens — Clarity decision-support",
+    screens: [
+      {
+        title: "Recommendation Card",
+        body: (
+          <>
+            <WBar w="60%" h={10} c="bg-[rgb(var(--c-hero-dark))]" />
+            <div className="rounded bg-[rgb(var(--c-tint-50))] border border-[rgb(var(--c-tint-200))] p-2 space-y-1" aria-hidden="true">
+              <div className="text-[9px] font-bold text-[rgb(var(--c-primary))]">AI RECOMMENDS</div>
+              <WBar w="90%" h={5} /><WBar w="70%" h={5} />
+            </div>
+            <div className="flex gap-1.5 mt-auto" aria-hidden="true">
+              <div className="flex-1 rounded bg-[#1f6b2e] text-white text-[9px] font-bold text-center py-1.5">Accept</div>
+              <div className="flex-1 rounded border border-gray-300 text-gray-700 text-[9px] font-bold text-center py-1.5">Modify</div>
+              <div className="flex-1 rounded border border-gray-300 text-gray-700 text-[9px] font-bold text-center py-1.5">Reject</div>
+            </div>
+          </>
+        ),
+      },
+      {
+        title: "Confidence + Rationale",
+        body: (
+          <>
+            <WBar w="55%" h={10} c="bg-[rgb(var(--c-hero-dark))]" />
+            <div aria-hidden="true">
+              <div className="text-[9px] text-gray-700 mb-1 font-medium">Calibrated confidence</div>
+              <div className="h-2 rounded-full bg-gray-200 overflow-hidden"><div className="h-full bg-gradient-to-r from-[rgb(var(--c-accent))] to-[rgb(var(--c-primary))]" style={{ width: "61%" }} /></div>
+              <div className="text-[8px] text-gray-600 mt-0.5">61% · escalate if uncertain</div>
+            </div>
+            <div className="rounded bg-[#fff8e5] border border-[#ffe6a1] p-1.5 text-[9px] text-[#5a4400]" aria-hidden="true">High-uncertainty case — flagged for review</div>
+          </>
+        ),
+      },
+      {
+        title: "Override Capture",
+        body: (
+          <>
+            <WBar w="50%" h={10} c="bg-[rgb(var(--c-hero-dark))]" />
+            <div className="space-y-1" aria-hidden="true">
+              {["Conflicts with patient history", "Insufficient evidence", "Clinical judgment differs"].map((t) => (
+                <div key={t} className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-sm border border-gray-400" /><span className="text-[9px] text-gray-700">{t}</span></div>
+              ))}
+            </div>
+            <div className="rounded bg-[rgb(var(--c-primary))] text-white text-[9px] font-bold text-center py-1.5 mt-auto" aria-hidden="true">Log Decision + Reason</div>
+          </>
+        ),
+      },
+    ],
+  },
+  sentinel: {
+    workflowTitle: "Agentic AI guardrail — intent to safe outcome",
+    steps: ["Agent Intent", "Input Filter", "Tool-Call Approval", "Action Ledger", "Kill-Switch / Safe State"],
+    screensTitle: "Sample screens — Sentinel red-team console",
+    screens: [
+      {
+        title: "Live Action Ledger",
+        body: (
+          <>
+            <WBar w="55%" h={10} c="bg-[rgb(var(--c-primary))]" />
+            <div className="space-y-1" aria-hidden="true">
+              {[["search_web", "ok"], ["read_file", "ok"], ["send_email", "hold"]].map(([a, s]) => (
+                <div key={a} className="flex items-center justify-between rounded bg-gray-50 border border-gray-200 px-1.5 py-1">
+                  <span className="font-mono text-[8px] text-gray-700">{a}</span>
+                  <span className={`text-[8px] font-bold ${s === "hold" ? "text-[#8a5a00]" : "text-[#1f6b2e]"}`}>{s === "hold" ? "● HOLD" : "✓ OK"}</span>
+                </div>
+              ))}
+            </div>
+            <WBar w="80%" h={5} className="mt-auto" />
+          </>
+        ),
+      },
+      {
+        title: "High-Impact Approval",
+        body: (
+          <>
+            <WBar w="60%" h={10} c="bg-[rgb(var(--c-primary))]" />
+            <div className="rounded bg-[#fff4e5] border border-[#ffd29a] p-2 text-[9px] text-[#5a3300] font-medium" aria-hidden="true">
+              Agent requests: <span className="font-mono">send_email()</span> to 1,200 recipients
+            </div>
+            <div className="flex gap-1.5 mt-auto" aria-hidden="true">
+              <div className="flex-1 rounded bg-[#1f6b2e] text-white text-[9px] font-bold text-center py-1.5">Approve</div>
+              <div className="flex-1 rounded bg-[#d64545] text-white text-[9px] font-bold text-center py-1.5">Block</div>
+            </div>
+          </>
+        ),
+      },
+      {
+        title: "Red-Team Scenario",
+        body: (
+          <>
+            <WBar w="65%" h={10} c="bg-[rgb(var(--c-primary))]" />
+            <div className="rounded bg-gray-900 p-2 font-mono text-[8px] leading-tight text-green-300" aria-hidden="true">
+              {"> inject: ignore prior"}<br />{"  instructions…"}
+            </div>
+            <div className="rounded bg-[#eef7ee] border border-[#cce6d0] p-1.5 text-[9px] text-[#1f6b2e] font-bold mt-auto" aria-hidden="true">
+              ✓ Guardrail fired — injection blocked
+            </div>
+          </>
+        ),
+      },
+    ],
+  },
+  lumen: {
+    workflowTitle: "Source-grounded answer — query to verified response",
+    steps: ["User Query", "Retrieve Sources", "Ground & Cite", "Confidence Signal", "Verify in Source"],
+    screensTitle: "Sample screens — Lumen knowledge AI",
+    screens: [
+      {
+        title: "Grounded Answer",
+        body: (
+          <>
+            <WBar w="60%" h={10} c="bg-[rgb(var(--c-primary))]" />
+            <WBar w="100%" h={5} /><WBar w="92%" h={5} />
+            <div className="flex gap-1 mt-1" aria-hidden="true">
+              {["[1]", "[2]", "[3]"].map((c) => (
+                <span key={c} className="text-[8px] font-bold px-1 py-0.5 rounded bg-[rgb(var(--c-tint-100))] text-[rgb(var(--c-primary))]">{c}</span>
+              ))}
+            </div>
+            <WBar w="70%" h={5} />
+          </>
+        ),
+      },
+      {
+        title: "Source Inspector",
+        body: (
+          <>
+            <WBar w="55%" h={10} c="bg-[rgb(var(--c-primary))]" />
+            <div className="rounded bg-[rgb(var(--c-tint-50))] border border-[rgb(var(--c-tint-200))] p-2 space-y-1" aria-hidden="true">
+              <div className="text-[8px] font-bold text-[rgb(var(--c-primary))]">SOURCE [2] · Policy v4</div>
+              <WBar w="100%" h={4} /><WBar w="80%" h={4} />
+              <div className="text-[8px] text-[#1f6b2e] font-bold pt-0.5">Match: 0.91</div>
+            </div>
+          </>
+        ),
+      },
+      {
+        title: "Insufficient Evidence",
+        body: (
+          <>
+            <WBar w="60%" h={10} c="bg-[rgb(var(--c-primary))]" />
+            <div className="flex-1 rounded bg-[#fff8e5] border border-[#ffe6a1] flex items-center justify-center text-center text-[9px] text-[#5a4400] font-medium p-2 min-h-[60px]" aria-hidden="true">
+              ⚠ Not enough grounded evidence to answer confidently. No citation fabricated.
+            </div>
+          </>
+        ),
+      },
+    ],
+  },
 };
 
 function CaseStudyShowcase({ id }: { id: string }) {
