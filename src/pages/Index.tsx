@@ -5186,6 +5186,8 @@ function CaseStudy({
               </div>
             </figure>
           </FadeIn>
+        ) : AI_FRAMEWORKS[study.id] ? (
+          <AIFramework id={study.id} />
         ) : (
           <FadeIn>
             <div
