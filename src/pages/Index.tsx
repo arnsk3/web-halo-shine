@@ -1862,6 +1862,98 @@ const RESEARCH_CONFIG: Record<string, ResearchConfig> = {
     ],
     audiences: ["Exec sponsors", "Product + design system", "Care-partner support", "External advocacy (AARP, AFB)"],
   },
+  trustlens: {
+    title: "AI Governance Research — Risk, Legal, ML Owners + Auditors",
+    populations: [
+      { label: "Chief AI Officer / AI leads", n: "4–6", note: "Accountable for enterprise AI risk posture" },
+      { label: "Risk + legal / compliance", n: "6–8", note: "EU AI Act · NIST AI RMF · ISO 42001" },
+      { label: "ML / model owners", n: "6–8", note: "Ship + maintain production models" },
+      { label: "Internal + external auditors", n: "4–6", note: "Assemble evidence for board + regulators" },
+      { label: "Unmoderated governance benchmark", n: "≥90", note: "Cross-org governance practitioner panel" },
+    ],
+    phases: [
+      { n: "01", title: "Plan", methods: ["Map NIST AI RMF / EU AI Act / ISO 42001 to controls", "Risk-tier hypotheses (Critical→Low)", "Success criteria tied to audit readiness"], artifact: "Governance research brief" },
+      { n: "02", title: "Recruit", methods: ["Cross-functional governance council", "Role + risk-tier screener", "NDA + de-identified model metadata"], artifact: "Screener + consent kit" },
+      { n: "03", title: "Execute", methods: ["Workflow studies on model intake + sign-off", "Think-aloud on drift / bias triage", "Audit-prep observation (current vs. target)", "Quant: time-to-evidence, control-coverage %"], artifact: "Sessions · telemetry · workflow maps" },
+      { n: "04", title: "Synthesize", methods: ["Coding mapped to NIST AI RMF functions", "Risk × reach × evidence-gap matrix", "Adoption blockers across stakeholder roles"], artifact: "Control-linked findings + journey" },
+      { n: "05", title: "Report", methods: ["Board / AI committee readout", "Design enablement: model-card + control patterns", "Regulator-ready evidence package spec"], artifact: "Multi-audience governance kit" },
+    ],
+    metrics: [
+      { value: "−70%", label: "Effort to assemble AI audit packages" },
+      { value: "4", label: "Risk tiers operationalized into controls" },
+      { value: "100%", label: "High-risk decisions routed through oversight gates" },
+    ],
+    audiences: ["Board / AI committee", "Risk, legal & compliance", "Engineering + ML owners", "Internal & external auditors"],
+  },
+  clinicalai: {
+    title: "Clinical AI Trust Research — Clinicians + Safety / Regulatory",
+    populations: [
+      { label: "Treating clinicians", n: "8–10", note: "Decision-makers acting on AI output" },
+      { label: "Nurses / care-team", n: "6–8", note: "Monitor + escalate flagged cases" },
+      { label: "Clinical safety / RA leads", n: "4–6", note: "FDA · IEC 62366 · ISO 14971" },
+      { label: "ML + product engineers", n: "6–8", note: "Own model + explainability surface" },
+      { label: "Unmoderated benchmark", n: "≥100", note: "Cross-site clinician panel" },
+    ],
+    phases: [
+      { n: "01", title: "Plan", methods: ["FDA HF / IEC 62366 framing", "Automation-bias + over-reliance hypotheses", "Success criteria tied to safe oversight"], artifact: "Research brief + risk framing" },
+      { n: "02", title: "Recruit", methods: ["Clinical advisory network", "Role + oversight-tier screener", "IRB-aligned consent + PHI handling"], artifact: "Screener + consent kit" },
+      { n: "03", title: "Execute", methods: ["Think-aloud on graded-oversight cases", "Stress conditions: time pressure + interruption", "Override-reasoning capture", "Quant: override accuracy, time-to-decision, SUS"], artifact: "Sessions · telemetry · transcripts" },
+      { n: "04", title: "Synthesize", methods: ["Coding mapped to IEC 62366 use-errors", "Trust-calibration × confidence matrix", "Mixed-effects model on override accuracy"], artifact: "Hazard-linked findings + journey" },
+      { n: "05", title: "Report", methods: ["Safety review readout (go/no-go)", "Design enablement: oversight + explainability patterns", "FDA-aligned HF evidence pack"], artifact: "Multi-audience artifacts" },
+    ],
+    metrics: [
+      { value: "100%", label: "Decisions auditable with captured reasoning" },
+      { value: "3", label: "Graded oversight tiers (recommend / act / alert)" },
+      { value: "AAA", label: "Contrast + keyboard / screen-reader operability" },
+    ],
+    audiences: ["Clinical safety review board", "Clinical + product leadership", "Regulatory affairs / FDA", "Engineering + ML owners"],
+  },
+  sentinel: {
+    title: "Agentic AI Safety Research — Red-Teamers + Security / ML",
+    populations: [
+      { label: "AI red-teamers", n: "6–8", note: "Adversarial prompt + tool-chain testing" },
+      { label: "Security / AppSec", n: "4–6", note: "Threat modeling for agent actions" },
+      { label: "ML / agent engineers", n: "6–8", note: "Build + deploy agentic features" },
+      { label: "Risk + deployment owners", n: "4–6", note: "Greenlight production rollouts" },
+      { label: "Unmoderated benchmark", n: "≥80", note: "Adversarial scenario library runs" },
+    ],
+    phases: [
+      { n: "01", title: "Plan", methods: ["Threat model: injection, unsafe tool chains, exfiltration", "Guardrail-tier hypotheses", "Success criteria tied to demonstrable readiness"], artifact: "Threat model + research brief" },
+      { n: "02", title: "Recruit", methods: ["Red-team + security network", "Role + agent-exposure screener", "Scenario-library access controls"], artifact: "Screener + scenario kit" },
+      { n: "03", title: "Execute", methods: ["Adversarial scenario runs in red-team console", "Think-aloud on approval + kill-switch decisions", "Action-ledger legibility studies", "Quant: catch-rate, time-to-intervene, false-block %"], artifact: "Sessions · ledger telemetry" },
+      { n: "04", title: "Synthesize", methods: ["Coding mapped to four-tier guardrail taxonomy", "Severity × exploitability × blast-radius matrix", "Intervention-latency analysis"], artifact: "Guardrail-linked findings + journey" },
+      { n: "05", title: "Report", methods: ["Deployment go/no-go readout", "Design enablement: approval + ledger patterns", "Readiness evidence pack for leadership"], artifact: "Multi-audience safety kit" },
+    ],
+    metrics: [
+      { value: "4", label: "Guardrail tiers in shared deployment standard" },
+      { value: "100%", label: "Agent actions captured in auditable ledger" },
+      { value: "0", label: "High-impact actions without human approval" },
+    ],
+    audiences: ["Deployment / risk owners", "Security & AppSec", "Engineering + agent teams", "Leadership greenlight"],
+  },
+  lumen: {
+    title: "Enterprise Knowledge AI Research — Knowledge Workers + SMEs",
+    populations: [
+      { label: "Knowledge workers", n: "8–10", note: "Daily query of enterprise knowledge AI" },
+      { label: "Subject-matter experts", n: "6–8", note: "Own source-of-truth content" },
+      { label: "Compliance / records", n: "4–6", note: "Accountable for cited accuracy" },
+      { label: "ML / RAG engineers", n: "6–8", note: "Own retrieval + grounding pipeline" },
+      { label: "Unmoderated benchmark", n: "≥120", note: "Query panel across knowledge domains" },
+    ],
+    phases: [
+      { n: "01", title: "Plan", methods: ["Framing: grounding, citation, hallucination cues", "Trust-vs-fluency hypotheses", "Success criteria tied to verifiable answers"], artifact: "Research brief" },
+      { n: "02", title: "Recruit", methods: ["Cross-domain knowledge-worker panel", "Role + query-frequency screener", "Source-access + NDA handling"], artifact: "Screener + consent kit" },
+      { n: "03", title: "Execute", methods: ["Task-based query sessions with citation inspection", "Think-aloud on 'insufficient evidence' states", "Source-verification behavior studies", "Quant: verification rate, trust calibration, SUS"], artifact: "Sessions · telemetry · transcripts" },
+      { n: "04", title: "Synthesize", methods: ["Coding on grounding + citation friction", "Trust × accuracy calibration matrix", "Over-trust / under-trust failure analysis"], artifact: "Pattern-linked findings + journey" },
+      { n: "05", title: "Report", methods: ["Leadership + knowledge-ops readout", "Design enablement: citation + transparency patterns", "Grounding acceptance criteria for engineering"], artifact: "Multi-audience enablement kit" },
+    ],
+    metrics: [
+      { value: "↑", label: "Source-verification rate before acting on answers" },
+      { value: "0", label: "Fabricated citations in grounded-answer flow" },
+      { value: "100%", label: "Answers traceable to inspectable sources" },
+    ],
+    audiences: ["Leadership + knowledge ops", "Subject-matter experts", "Compliance / records", "Engineering + RAG owners"],
+  },
 };
 
 function ResearchProcess({ id }: { id: string }) {
