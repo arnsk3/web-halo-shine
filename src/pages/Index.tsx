@@ -4625,6 +4625,133 @@ function DeepResearchDossier({ id }: { id: string }) {
 
 
 
+/* ─────────── AI Framework Visuals (TrustLens / Clarity / Sentinel / Lumen) ─────────── */
+
+type FrameworkStage = { n: string; title: string; desc: string; std: string };
+type FrameworkConfig = {
+  title: string;
+  headerLeft: string;
+  headerRight: string;
+  stages: FrameworkStage[];
+  loop: string;
+};
+
+const AI_FRAMEWORKS: Record<string, FrameworkConfig> = {
+  trustlens: {
+    title: "AI Governance Operating Model — Model Lifecycle Controls",
+    headerLeft: "NIST AI RMF · EU AI Act · ISO/IEC 42001",
+    headerRight: "No model ships ungoverned",
+    stages: [
+      { n: "01", title: "Register & Map", desc: "Capture model metadata, provenance, and intended use at intake into a single registry.", std: "RMF · Map" },
+      { n: "02", title: "Risk-Tier", desc: "Classify each model Critical / High / Medium / Low with captured rationale.", std: "EU AI Act" },
+      { n: "03", title: "Attach Controls", desc: "Tier auto-attaches required controls, oversight gates, and evidence requirements.", std: "ISO 42001" },
+      { n: "04", title: "Measure & Manage", desc: "Monitor drift, bias, and performance; route high-risk decisions to human gates.", std: "RMF · Measure" },
+      { n: "05", title: "Evidence & Govern", desc: "Generate audit-ready evidence continuously; report portfolio risk to the board.", std: "RMF · Govern" },
+    ],
+    loop: "Drift and incidents feed back into risk-tiering and controls — continuous governance loop",
+  },
+  clinicalai: {
+    title: "Trust-Calibration Lifecycle — Clinical Decision-Support",
+    headerLeft: "FDA HF · IEC 62366 · ISO 14971",
+    headerRight: "Every decision accountable",
+    stages: [
+      { n: "01", title: "Frame Oversight", desc: "Declare the oversight tier: AI recommends, acts-with-confirm, or alerts.", std: "ISO 14971" },
+      { n: "02", title: "Explain", desc: "Recommendation now; rationale, evidence, and calibrated confidence on demand.", std: "IEC 62366" },
+      { n: "03", title: "Decide", desc: "Symmetric accept / modify / reject with one-tap override-reason capture.", std: "FDA HF" },
+      { n: "04", title: "Escalate", desc: "High-uncertainty cases are flagged and escalated rather than silently auto-acted.", std: "IEC 62366" },
+      { n: "05", title: "Audit & Learn", desc: "Every action logged; override reasons feed the model-improvement loop.", std: "FDA SaMD" },
+    ],
+    loop: "Override signals feed back into model + design — closed clinical learning loop",
+  },
+  sentinel: {
+    title: "Agentic Guardrail Stack — Intent to Safe Outcome",
+    headerLeft: "Prompt-injection · Tool-chain · Exfiltration threat model",
+    headerRight: "Safe-to-deploy is provable",
+    stages: [
+      { n: "01", title: "Intent", desc: "Surface the agent's intended plan and tool chain before execution.", std: "Threat Model" },
+      { n: "02", title: "Input Filter", desc: "Catch prompt-injection and jailbreak patterns with visible guardrail feedback.", std: "Tier 1" },
+      { n: "03", title: "Approval Gate", desc: "Pause high-impact tool calls for human confirmation with inline context.", std: "Tier 2" },
+      { n: "04", title: "Action Ledger", desc: "Record every step, its rationale, and outcome into a replayable audit trail.", std: "Tier 3" },
+      { n: "05", title: "Kill-Switch", desc: "Return the agent to a defined safe state with graceful rollback.", std: "Tier 4" },
+    ],
+    loop: "Red-team findings harden filters and gates — continuous adversarial loop",
+  },
+  lumen: {
+    title: "Source-Grounding Pipeline — Query to Verified Answer",
+    headerLeft: "RAG transparency · Citation integrity",
+    headerRight: "No grounding, no claim",
+    stages: [
+      { n: "01", title: "Retrieve", desc: "Pull candidate sources for the query and show that retrieval happened.", std: "Retrieval" },
+      { n: "02", title: "Ground & Cite", desc: "Tie each claim to a supporting source with a visible source-match score.", std: "Grounding" },
+      { n: "03", title: "Signal Confidence", desc: "Calibrated confidence and hallucination cues align trust with evidence.", std: "Calibration" },
+      { n: "04", title: "Verify", desc: "One-click source inspector opens the cited passage highlighted, in context.", std: "Verification" },
+      { n: "05", title: "Insufficient State", desc: "When evidence is weak, say so — never fabricate a citation.", std: "Integrity" },
+    ],
+    loop: "Verification + source-quality signals refine retrieval — continuous grounding loop",
+  },
+};
+
+function AIFramework({ id }: { id: string }) {
+  const cfg = AI_FRAMEWORKS[id];
+  if (!cfg) return null;
+  const titleId = `ai-framework-${id}-title`;
+  return (
+    <FadeIn>
+      <figure className="my-8" aria-labelledby={titleId}>
+        <figcaption
+          id={titleId}
+          className="text-xs font-semibold tracking-wide uppercase text-gray-700 mb-3 text-center"
+        >
+          {cfg.title}
+        </figcaption>
+
+        <div className="rounded-t-xl bg-gradient-to-r from-[rgb(var(--c-hero-dark))] via-[rgb(var(--c-primary))] to-[rgb(var(--c-accent))] text-white px-5 py-3 flex items-center justify-between">
+          <span className="text-[11px] font-bold tracking-[0.18em] uppercase">{cfg.headerLeft}</span>
+          <span className="text-[11px] text-white/85">{cfg.headerRight}</span>
+        </div>
+
+        <ol
+          className="grid grid-cols-1 md:grid-cols-5 gap-px bg-gray-200 border-x border-b border-gray-200 rounded-b-xl overflow-hidden list-none p-0 m-0"
+          aria-label="Five-stage AI framework"
+        >
+          {cfg.stages.map((stage, idx, arr) => (
+            <li key={stage.n} className="bg-white p-4 relative flex flex-col">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="text-[10px] font-bold text-[rgb(var(--c-accent-on-light))] tracking-widest">
+                  {stage.n}
+                </span>
+                <span aria-hidden="true" className="flex-1 h-px bg-gradient-to-r from-[rgb(var(--c-accent)/0.4)] to-transparent" />
+                {idx < arr.length - 1 && (
+                  <span aria-hidden="true" className="hidden md:inline text-[rgb(var(--c-primary))] text-sm leading-none">→</span>
+                )}
+              </div>
+              <h3 className="text-[13px] font-bold text-[rgb(var(--c-hero-dark))] leading-snug mb-1.5">
+                {stage.title}
+              </h3>
+              <p className="text-[11px] text-gray-700 leading-relaxed flex-1">{stage.desc}</p>
+              <span className="mt-3 inline-block self-start text-[9px] font-semibold tracking-wider uppercase px-1.5 py-0.5 rounded bg-[rgb(var(--c-tint-100))] text-[rgb(var(--c-primary))]">
+                {stage.std}
+              </span>
+            </li>
+          ))}
+        </ol>
+
+        <div
+          className="mt-3 flex items-center justify-center gap-2 text-[11px] text-gray-700"
+          aria-label={cfg.loop}
+        >
+          <span aria-hidden="true" className="text-[rgb(var(--c-accent-on-light))] text-base leading-none">↻</span>
+          <span>{cfg.loop}</span>
+        </div>
+
+        <p className="text-[11px] text-gray-600 mt-2 text-center">
+          NDA-safe recreated artifact — structure shown, proprietary details omitted.
+        </p>
+      </figure>
+    </FadeIn>
+  );
+}
+
 
 function CaseStudy({
   study,
