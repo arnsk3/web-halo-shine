@@ -1400,6 +1400,211 @@ const SHOWCASE: Record<string, ShowcaseConfig> = {
       },
     ],
   },
+  trustlens: {
+    workflowTitle: "Model governance lifecycle — registration to audit",
+    steps: ["Register Model", "Risk-Tier Classify", "Attach Controls", "Monitor Drift & Bias", "Export Evidence"],
+    screensTitle: "Sample screens — TrustLens command center",
+    screens: [
+      {
+        title: "Portfolio Risk Overview",
+        body: (
+          <>
+            <WBar w="55%" h={10} c="bg-[rgb(var(--c-primary))]" />
+            <div className="grid grid-cols-4 gap-1.5 mt-1" aria-hidden="true">
+              <WBlock h={40} c="bg-[#ffe2e2]"><div className="p-1"><div className="text-[8px] text-[#8a1a1a] font-bold">CRIT</div><div className="text-sm font-bold text-[#8a1a1a]">3</div></div></WBlock>
+              <WBlock h={40} c="bg-[#fff4e5]"><div className="p-1"><div className="text-[8px] text-[#8a5a00] font-bold">HIGH</div><div className="text-sm font-bold text-[#8a5a00]">7</div></div></WBlock>
+              <WBlock h={40} c="bg-[rgb(var(--c-tint-100))]"><div className="p-1"><div className="text-[8px] text-[rgb(var(--c-primary))] font-bold">MED</div><div className="text-sm font-bold text-[rgb(var(--c-primary))]">12</div></div></WBlock>
+              <WBlock h={40} c="bg-[#eef7ee]"><div className="p-1"><div className="text-[8px] text-[#1f6b2e] font-bold">LOW</div><div className="text-sm font-bold text-[#1f6b2e]">26</div></div></WBlock>
+            </div>
+            <WBar w="100%" h={6} />
+            <WBar w="78%" h={6} />
+          </>
+        ),
+      },
+      {
+        title: "Model Card · Provenance",
+        body: (
+          <>
+            <WBar w="70%" h={10} c="bg-[rgb(var(--c-primary))]" />
+            <div className="rounded bg-[rgb(var(--c-tint-50))] border border-[rgb(var(--c-tint-200))] p-2 space-y-1" aria-hidden="true">
+              <div className="text-[8px] font-bold text-[rgb(var(--c-primary))]">TRAINING DATA</div>
+              <WBar w="100%" h={4} /><WBar w="85%" h={4} />
+              <div className="text-[8px] font-bold text-[rgb(var(--c-primary))] pt-1">KNOWN LIMITS</div>
+              <WBar w="70%" h={4} />
+            </div>
+            <span className="text-[9px] px-1.5 py-0.5 rounded bg-[#fff4e5] text-[#8a5a00] font-bold self-start" aria-hidden="true">Risk Tier: HIGH</span>
+          </>
+        ),
+      },
+      {
+        title: "Drift & Bias Monitor",
+        body: (
+          <>
+            <WBar w="60%" h={10} c="bg-[rgb(var(--c-primary))]" />
+            <div className="flex items-end gap-1 h-10 mt-1" aria-hidden="true">
+              {[30, 35, 32, 40, 55, 70, 85].map((h, i) => (
+                <div key={i} className={`flex-1 rounded-sm ${h > 60 ? "bg-[#d64545]" : "bg-[rgb(var(--c-accent))]"}`} style={{ height: `${h}%` }} />
+              ))}
+            </div>
+            <div className="rounded bg-[#ffe2e2] border border-[#f5b5b5] p-1.5 text-[9px] text-[#8a1a1a] font-medium mt-auto" aria-hidden="true">
+              ⚠ Drift threshold exceeded — review triggered
+            </div>
+          </>
+        ),
+      },
+    ],
+  },
+  clinicalai: {
+    workflowTitle: "Clinician × AI trust-calibrated decision flow",
+    steps: ["Patient Context", "AI Recommendation", "Confidence + Evidence", "Accept / Modify / Reject", "Audit Logged"],
+    screensTitle: "Sample screens — Clarity decision-support",
+    screens: [
+      {
+        title: "Recommendation Card",
+        body: (
+          <>
+            <WBar w="60%" h={10} c="bg-[rgb(var(--c-hero-dark))]" />
+            <div className="rounded bg-[rgb(var(--c-tint-50))] border border-[rgb(var(--c-tint-200))] p-2 space-y-1" aria-hidden="true">
+              <div className="text-[9px] font-bold text-[rgb(var(--c-primary))]">AI RECOMMENDS</div>
+              <WBar w="90%" h={5} /><WBar w="70%" h={5} />
+            </div>
+            <div className="flex gap-1.5 mt-auto" aria-hidden="true">
+              <div className="flex-1 rounded bg-[#1f6b2e] text-white text-[9px] font-bold text-center py-1.5">Accept</div>
+              <div className="flex-1 rounded border border-gray-300 text-gray-700 text-[9px] font-bold text-center py-1.5">Modify</div>
+              <div className="flex-1 rounded border border-gray-300 text-gray-700 text-[9px] font-bold text-center py-1.5">Reject</div>
+            </div>
+          </>
+        ),
+      },
+      {
+        title: "Confidence + Rationale",
+        body: (
+          <>
+            <WBar w="55%" h={10} c="bg-[rgb(var(--c-hero-dark))]" />
+            <div aria-hidden="true">
+              <div className="text-[9px] text-gray-700 mb-1 font-medium">Calibrated confidence</div>
+              <div className="h-2 rounded-full bg-gray-200 overflow-hidden"><div className="h-full bg-gradient-to-r from-[rgb(var(--c-accent))] to-[rgb(var(--c-primary))]" style={{ width: "61%" }} /></div>
+              <div className="text-[8px] text-gray-600 mt-0.5">61% · escalate if uncertain</div>
+            </div>
+            <div className="rounded bg-[#fff8e5] border border-[#ffe6a1] p-1.5 text-[9px] text-[#5a4400]" aria-hidden="true">High-uncertainty case — flagged for review</div>
+          </>
+        ),
+      },
+      {
+        title: "Override Capture",
+        body: (
+          <>
+            <WBar w="50%" h={10} c="bg-[rgb(var(--c-hero-dark))]" />
+            <div className="space-y-1" aria-hidden="true">
+              {["Conflicts with patient history", "Insufficient evidence", "Clinical judgment differs"].map((t) => (
+                <div key={t} className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-sm border border-gray-400" /><span className="text-[9px] text-gray-700">{t}</span></div>
+              ))}
+            </div>
+            <div className="rounded bg-[rgb(var(--c-primary))] text-white text-[9px] font-bold text-center py-1.5 mt-auto" aria-hidden="true">Log Decision + Reason</div>
+          </>
+        ),
+      },
+    ],
+  },
+  sentinel: {
+    workflowTitle: "Agentic AI guardrail — intent to safe outcome",
+    steps: ["Agent Intent", "Input Filter", "Tool-Call Approval", "Action Ledger", "Kill-Switch / Safe State"],
+    screensTitle: "Sample screens — Sentinel red-team console",
+    screens: [
+      {
+        title: "Live Action Ledger",
+        body: (
+          <>
+            <WBar w="55%" h={10} c="bg-[rgb(var(--c-primary))]" />
+            <div className="space-y-1" aria-hidden="true">
+              {[["search_web", "ok"], ["read_file", "ok"], ["send_email", "hold"]].map(([a, s]) => (
+                <div key={a} className="flex items-center justify-between rounded bg-gray-50 border border-gray-200 px-1.5 py-1">
+                  <span className="font-mono text-[8px] text-gray-700">{a}</span>
+                  <span className={`text-[8px] font-bold ${s === "hold" ? "text-[#8a5a00]" : "text-[#1f6b2e]"}`}>{s === "hold" ? "● HOLD" : "✓ OK"}</span>
+                </div>
+              ))}
+            </div>
+            <WBar w="80%" h={5} className="mt-auto" />
+          </>
+        ),
+      },
+      {
+        title: "High-Impact Approval",
+        body: (
+          <>
+            <WBar w="60%" h={10} c="bg-[rgb(var(--c-primary))]" />
+            <div className="rounded bg-[#fff4e5] border border-[#ffd29a] p-2 text-[9px] text-[#5a3300] font-medium" aria-hidden="true">
+              Agent requests: <span className="font-mono">send_email()</span> to 1,200 recipients
+            </div>
+            <div className="flex gap-1.5 mt-auto" aria-hidden="true">
+              <div className="flex-1 rounded bg-[#1f6b2e] text-white text-[9px] font-bold text-center py-1.5">Approve</div>
+              <div className="flex-1 rounded bg-[#d64545] text-white text-[9px] font-bold text-center py-1.5">Block</div>
+            </div>
+          </>
+        ),
+      },
+      {
+        title: "Red-Team Scenario",
+        body: (
+          <>
+            <WBar w="65%" h={10} c="bg-[rgb(var(--c-primary))]" />
+            <div className="rounded bg-gray-900 p-2 font-mono text-[8px] leading-tight text-green-300" aria-hidden="true">
+              {"> inject: ignore prior"}<br />{"  instructions…"}
+            </div>
+            <div className="rounded bg-[#eef7ee] border border-[#cce6d0] p-1.5 text-[9px] text-[#1f6b2e] font-bold mt-auto" aria-hidden="true">
+              ✓ Guardrail fired — injection blocked
+            </div>
+          </>
+        ),
+      },
+    ],
+  },
+  lumen: {
+    workflowTitle: "Source-grounded answer — query to verified response",
+    steps: ["User Query", "Retrieve Sources", "Ground & Cite", "Confidence Signal", "Verify in Source"],
+    screensTitle: "Sample screens — Lumen knowledge AI",
+    screens: [
+      {
+        title: "Grounded Answer",
+        body: (
+          <>
+            <WBar w="60%" h={10} c="bg-[rgb(var(--c-primary))]" />
+            <WBar w="100%" h={5} /><WBar w="92%" h={5} />
+            <div className="flex gap-1 mt-1" aria-hidden="true">
+              {["[1]", "[2]", "[3]"].map((c) => (
+                <span key={c} className="text-[8px] font-bold px-1 py-0.5 rounded bg-[rgb(var(--c-tint-100))] text-[rgb(var(--c-primary))]">{c}</span>
+              ))}
+            </div>
+            <WBar w="70%" h={5} />
+          </>
+        ),
+      },
+      {
+        title: "Source Inspector",
+        body: (
+          <>
+            <WBar w="55%" h={10} c="bg-[rgb(var(--c-primary))]" />
+            <div className="rounded bg-[rgb(var(--c-tint-50))] border border-[rgb(var(--c-tint-200))] p-2 space-y-1" aria-hidden="true">
+              <div className="text-[8px] font-bold text-[rgb(var(--c-primary))]">SOURCE [2] · Policy v4</div>
+              <WBar w="100%" h={4} /><WBar w="80%" h={4} />
+              <div className="text-[8px] text-[#1f6b2e] font-bold pt-0.5">Match: 0.91</div>
+            </div>
+          </>
+        ),
+      },
+      {
+        title: "Insufficient Evidence",
+        body: (
+          <>
+            <WBar w="60%" h={10} c="bg-[rgb(var(--c-primary))]" />
+            <div className="flex-1 rounded bg-[#fff8e5] border border-[#ffe6a1] flex items-center justify-center text-center text-[9px] text-[#5a4400] font-medium p-2 min-h-[60px]" aria-hidden="true">
+              ⚠ Not enough grounded evidence to answer confidently. No citation fabricated.
+            </div>
+          </>
+        ),
+      },
+    ],
+  },
 };
 
 function CaseStudyShowcase({ id }: { id: string }) {
@@ -1656,6 +1861,98 @@ const RESEARCH_CONFIG: Record<string, ResearchConfig> = {
       { value: "−41%", label: "Accidental activations vs baseline" },
     ],
     audiences: ["Exec sponsors", "Product + design system", "Care-partner support", "External advocacy (AARP, AFB)"],
+  },
+  trustlens: {
+    title: "AI Governance Research — Risk, Legal, ML Owners + Auditors",
+    populations: [
+      { label: "Chief AI Officer / AI leads", n: "4–6", note: "Accountable for enterprise AI risk posture" },
+      { label: "Risk + legal / compliance", n: "6–8", note: "EU AI Act · NIST AI RMF · ISO 42001" },
+      { label: "ML / model owners", n: "6–8", note: "Ship + maintain production models" },
+      { label: "Internal + external auditors", n: "4–6", note: "Assemble evidence for board + regulators" },
+      { label: "Unmoderated governance benchmark", n: "≥90", note: "Cross-org governance practitioner panel" },
+    ],
+    phases: [
+      { n: "01", title: "Plan", methods: ["Map NIST AI RMF / EU AI Act / ISO 42001 to controls", "Risk-tier hypotheses (Critical→Low)", "Success criteria tied to audit readiness"], artifact: "Governance research brief" },
+      { n: "02", title: "Recruit", methods: ["Cross-functional governance council", "Role + risk-tier screener", "NDA + de-identified model metadata"], artifact: "Screener + consent kit" },
+      { n: "03", title: "Execute", methods: ["Workflow studies on model intake + sign-off", "Think-aloud on drift / bias triage", "Audit-prep observation (current vs. target)", "Quant: time-to-evidence, control-coverage %"], artifact: "Sessions · telemetry · workflow maps" },
+      { n: "04", title: "Synthesize", methods: ["Coding mapped to NIST AI RMF functions", "Risk × reach × evidence-gap matrix", "Adoption blockers across stakeholder roles"], artifact: "Control-linked findings + journey" },
+      { n: "05", title: "Report", methods: ["Board / AI committee readout", "Design enablement: model-card + control patterns", "Regulator-ready evidence package spec"], artifact: "Multi-audience governance kit" },
+    ],
+    metrics: [
+      { value: "−70%", label: "Effort to assemble AI audit packages" },
+      { value: "4", label: "Risk tiers operationalized into controls" },
+      { value: "100%", label: "High-risk decisions routed through oversight gates" },
+    ],
+    audiences: ["Board / AI committee", "Risk, legal & compliance", "Engineering + ML owners", "Internal & external auditors"],
+  },
+  clinicalai: {
+    title: "Clinical AI Trust Research — Clinicians + Safety / Regulatory",
+    populations: [
+      { label: "Treating clinicians", n: "8–10", note: "Decision-makers acting on AI output" },
+      { label: "Nurses / care-team", n: "6–8", note: "Monitor + escalate flagged cases" },
+      { label: "Clinical safety / RA leads", n: "4–6", note: "FDA · IEC 62366 · ISO 14971" },
+      { label: "ML + product engineers", n: "6–8", note: "Own model + explainability surface" },
+      { label: "Unmoderated benchmark", n: "≥100", note: "Cross-site clinician panel" },
+    ],
+    phases: [
+      { n: "01", title: "Plan", methods: ["FDA HF / IEC 62366 framing", "Automation-bias + over-reliance hypotheses", "Success criteria tied to safe oversight"], artifact: "Research brief + risk framing" },
+      { n: "02", title: "Recruit", methods: ["Clinical advisory network", "Role + oversight-tier screener", "IRB-aligned consent + PHI handling"], artifact: "Screener + consent kit" },
+      { n: "03", title: "Execute", methods: ["Think-aloud on graded-oversight cases", "Stress conditions: time pressure + interruption", "Override-reasoning capture", "Quant: override accuracy, time-to-decision, SUS"], artifact: "Sessions · telemetry · transcripts" },
+      { n: "04", title: "Synthesize", methods: ["Coding mapped to IEC 62366 use-errors", "Trust-calibration × confidence matrix", "Mixed-effects model on override accuracy"], artifact: "Hazard-linked findings + journey" },
+      { n: "05", title: "Report", methods: ["Safety review readout (go/no-go)", "Design enablement: oversight + explainability patterns", "FDA-aligned HF evidence pack"], artifact: "Multi-audience artifacts" },
+    ],
+    metrics: [
+      { value: "100%", label: "Decisions auditable with captured reasoning" },
+      { value: "3", label: "Graded oversight tiers (recommend / act / alert)" },
+      { value: "AAA", label: "Contrast + keyboard / screen-reader operability" },
+    ],
+    audiences: ["Clinical safety review board", "Clinical + product leadership", "Regulatory affairs / FDA", "Engineering + ML owners"],
+  },
+  sentinel: {
+    title: "Agentic AI Safety Research — Red-Teamers + Security / ML",
+    populations: [
+      { label: "AI red-teamers", n: "6–8", note: "Adversarial prompt + tool-chain testing" },
+      { label: "Security / AppSec", n: "4–6", note: "Threat modeling for agent actions" },
+      { label: "ML / agent engineers", n: "6–8", note: "Build + deploy agentic features" },
+      { label: "Risk + deployment owners", n: "4–6", note: "Greenlight production rollouts" },
+      { label: "Unmoderated benchmark", n: "≥80", note: "Adversarial scenario library runs" },
+    ],
+    phases: [
+      { n: "01", title: "Plan", methods: ["Threat model: injection, unsafe tool chains, exfiltration", "Guardrail-tier hypotheses", "Success criteria tied to demonstrable readiness"], artifact: "Threat model + research brief" },
+      { n: "02", title: "Recruit", methods: ["Red-team + security network", "Role + agent-exposure screener", "Scenario-library access controls"], artifact: "Screener + scenario kit" },
+      { n: "03", title: "Execute", methods: ["Adversarial scenario runs in red-team console", "Think-aloud on approval + kill-switch decisions", "Action-ledger legibility studies", "Quant: catch-rate, time-to-intervene, false-block %"], artifact: "Sessions · ledger telemetry" },
+      { n: "04", title: "Synthesize", methods: ["Coding mapped to four-tier guardrail taxonomy", "Severity × exploitability × blast-radius matrix", "Intervention-latency analysis"], artifact: "Guardrail-linked findings + journey" },
+      { n: "05", title: "Report", methods: ["Deployment go/no-go readout", "Design enablement: approval + ledger patterns", "Readiness evidence pack for leadership"], artifact: "Multi-audience safety kit" },
+    ],
+    metrics: [
+      { value: "4", label: "Guardrail tiers in shared deployment standard" },
+      { value: "100%", label: "Agent actions captured in auditable ledger" },
+      { value: "0", label: "High-impact actions without human approval" },
+    ],
+    audiences: ["Deployment / risk owners", "Security & AppSec", "Engineering + agent teams", "Leadership greenlight"],
+  },
+  lumen: {
+    title: "Enterprise Knowledge AI Research — Knowledge Workers + SMEs",
+    populations: [
+      { label: "Knowledge workers", n: "8–10", note: "Daily query of enterprise knowledge AI" },
+      { label: "Subject-matter experts", n: "6–8", note: "Own source-of-truth content" },
+      { label: "Compliance / records", n: "4–6", note: "Accountable for cited accuracy" },
+      { label: "ML / RAG engineers", n: "6–8", note: "Own retrieval + grounding pipeline" },
+      { label: "Unmoderated benchmark", n: "≥120", note: "Query panel across knowledge domains" },
+    ],
+    phases: [
+      { n: "01", title: "Plan", methods: ["Framing: grounding, citation, hallucination cues", "Trust-vs-fluency hypotheses", "Success criteria tied to verifiable answers"], artifact: "Research brief" },
+      { n: "02", title: "Recruit", methods: ["Cross-domain knowledge-worker panel", "Role + query-frequency screener", "Source-access + NDA handling"], artifact: "Screener + consent kit" },
+      { n: "03", title: "Execute", methods: ["Task-based query sessions with citation inspection", "Think-aloud on 'insufficient evidence' states", "Source-verification behavior studies", "Quant: verification rate, trust calibration, SUS"], artifact: "Sessions · telemetry · transcripts" },
+      { n: "04", title: "Synthesize", methods: ["Coding on grounding + citation friction", "Trust × accuracy calibration matrix", "Over-trust / under-trust failure analysis"], artifact: "Pattern-linked findings + journey" },
+      { n: "05", title: "Report", methods: ["Leadership + knowledge-ops readout", "Design enablement: citation + transparency patterns", "Grounding acceptance criteria for engineering"], artifact: "Multi-audience enablement kit" },
+    ],
+    metrics: [
+      { value: "↑", label: "Source-verification rate before acting on answers" },
+      { value: "0", label: "Fabricated citations in grounded-answer flow" },
+      { value: "100%", label: "Answers traceable to inspectable sources" },
+    ],
+    audiences: ["Leadership + knowledge ops", "Subject-matter experts", "Compliance / records", "Engineering + RAG owners"],
   },
 };
 
@@ -2327,6 +2624,309 @@ const DOSSIERS: Record<string, Dossier> = {
       { audience: "Product + engineering teams", format: "Pattern library + MIL-STD-1472H acceptance criteria + redlines", decision: "Redesign sprint planning + release gating" },
       { audience: "FDA / regulatory affairs", format: "IEC 62366 usability engineering file + stress-condition evidence", decision: "Submission readiness for medical-device claims" },
       { audience: "Operator partners + care teams", format: "Operator dashboard requirements + alert taxonomy", decision: "Call-center training + dashboard rollout" },
+    ],
+  },
+  trustlens: {
+    title: "AI Governance — Detailed Research Dossier",
+    intro:
+      "End-to-end research operating against NIST AI RMF, the EU AI Act, and ISO/IEC 42001. Mixed methods bridge governance workflow reality and quantitative model behavior, with every finding traced to a control in the risk register.",
+    plan: [
+      {
+        label: "Recruiting",
+        items: [
+          "Chief AI Officer / AI leads (4–6) — accountable for enterprise AI risk posture across the model portfolio.",
+          "Risk, legal + compliance (6–8) — owners of EU AI Act, NIST AI RMF, and ISO/IEC 42001 obligations.",
+          "ML + model owners (6–8) — responsible for shipping and maintaining production models.",
+          "Internal + external auditors (4–6) — assemble evidence for board, regulators, and customers.",
+          "Unmoderated governance benchmark (≥90) — cross-org practitioner panel; conflicted reviewers excluded.",
+          "Screener gates on role, model risk-tier exposure, and audit responsibility. NDA with de-identified model metadata only.",
+        ],
+      },
+      {
+        label: "Qualitative Execution",
+        items: [
+          "Workflow studies on model intake, risk classification, and sign-off — observe the real path from registration to approval.",
+          "Think-aloud on drift and bias triage to surface what evidence stakeholders trust and what they ignore.",
+          "Audit-prep observation comparing current fire-drill assembly vs. continuous-evidence target state.",
+          "Stakeholder interviews on shared risk language and where governance breaks down across teams.",
+        ],
+      },
+      {
+        label: "Quantitative Execution",
+        items: [
+          "Time-to-evidence: hours to assemble a regulator-ready package, before vs. after the command center.",
+          "Control-coverage %: share of production models with attached, monitored controls by risk tier.",
+          "Oversight-gate routing rate for Critical / High decisions and override-capture completeness.",
+          "Drift / bias alert triage latency and false-alert rate.",
+          "Telemetry: model-card completeness, evidence-export frequency, dashboard adoption per role.",
+        ],
+      },
+      {
+        label: "Synthesis",
+        items: [
+          "Coding mapped to NIST AI RMF functions (Govern, Map, Measure, Manage) and EU AI Act obligations.",
+          "Risk × population-reach × evidence-gap matrix; each finding linked to a control in the register.",
+          "Adoption-blocker analysis across risk, legal, engineering, and leadership roles.",
+          "Triangulation — qualitative themes cross-checked against telemetry before promotion to a finding.",
+        ],
+      },
+    ],
+    journeyTitle: "Model Journey — From Registration to Audit",
+    journey: [
+      {
+        stage: "01 · Register",
+        actor: "ML / model owner",
+        thinking: "I just need to ship — governance feels like a tax I pay later.",
+        pains: ["Metadata scattered across tools", "No shared definition of risk tier"],
+        opportunities: ["One-step model registration with provenance capture", "Auto-suggested risk tier from intake answers"],
+        signals: ["Model-card completeness", "Time-to-register"],
+      },
+      {
+        stage: "02 · Classify",
+        actor: "Risk + legal lead",
+        thinking: "Is this Critical or High, and what controls does that trigger?",
+        pains: ["Risk-tiering is subjective and inconsistent", "Controls live in static PDFs"],
+        opportunities: ["Rules-based risk-tier engine with rationale", "Tier auto-attaches required controls"],
+        signals: ["Tier-consistency across reviewers", "Control-coverage %"],
+      },
+      {
+        stage: "03 · Operate",
+        actor: "ML owner + risk",
+        thinking: "Is this model still behaving the way it did at approval?",
+        pains: ["Drift surfaces only in retrospective review", "High-risk decisions act without oversight"],
+        opportunities: ["Live drift / bias monitor tied to controls", "High-risk decisions routed to human-in-the-loop gates"],
+        signals: ["Alert triage latency", "Oversight-gate routing rate"],
+      },
+      {
+        stage: "04 · Evidence",
+        actor: "Auditor",
+        thinking: "Show me proof this model was governed — not a slide that says so.",
+        pains: ["Audit prep is a multi-week fire drill", "Evidence reconstructed after the fact"],
+        opportunities: ["Evidence generated as a byproduct of monitoring", "One-click regulator-ready export"],
+        signals: ["Time-to-evidence", "Evidence-export frequency"],
+      },
+      {
+        stage: "05 · Report",
+        actor: "Board / AI committee",
+        thinking: "What is our aggregate AI risk, and where do we act?",
+        pains: ["No single source of truth across teams", "Risk reported in inconsistent formats"],
+        opportunities: ["Single-pane portfolio risk overview", "Drill-down from board metric to model card"],
+        signals: ["Cross-team adoption", "Decision turnaround at committee"],
+      },
+    ],
+    patternsTitle: "Reusable Patterns — AI Governance Library",
+    patterns: [
+      { name: "Risk-Tier Engine", problem: "Risk classification is subjective, so similar models get different oversight.", pattern: "A rules-based engine classifies every model Critical / High / Medium / Low with captured rationale, and the tier auto-attaches required controls.", evidence: "Consistent tiering across reviewers; controls coverage rose with each model registered." },
+      { name: "Evidence-as-Byproduct", problem: "Audit evidence is reconstructed in a multi-week fire drill.", pattern: "Normal monitoring emits compliance evidence continuously; an audit becomes a one-click export aligned to NIST AI RMF and the EU AI Act.", evidence: "Estimated 70% reduction in audit-package assembly effort." },
+      { name: "Human-in-the-Loop Gate", problem: "High-stakes AI decisions act with no human checkpoint or trail.", pattern: "Critical / High decisions route into configurable approval gates with override capture and full audit logging.", evidence: "100% of high-risk decisions routed through oversight with captured reasoning." },
+      { name: "Single Pane of Truth", problem: "Each team keeps its own spreadsheet, so there is no shared risk picture.", pattern: "One portfolio overview every stakeholder reads, with drill-down from a board metric to the underlying model card.", evidence: "Cross-team adoption replaced scattered spreadsheets and one-off reviews." },
+    ],
+    reporting: [
+      { audience: "Board / AI committee", format: "Portfolio risk scorecard + drill-down model cards", decision: "Where to invest, pause, or escalate AI risk" },
+      { audience: "Risk, legal & compliance", format: "Control-coverage report + obligation mapping", decision: "Regulatory readiness per jurisdiction" },
+      { audience: "Engineering + ML owners", format: "Model-card + control acceptance criteria", decision: "What must ship with each model" },
+      { audience: "Internal & external auditors", format: "Continuous evidence package (NIST AI RMF / EU AI Act)", decision: "Audit sign-off and attestation" },
+    ],
+  },
+  clinicalai: {
+    title: "Clinical AI Trust — Detailed Research Dossier",
+    intro:
+      "Research operating against FDA Human Factors guidance, IEC 62366, and ISO 14971. Mixed methods test how clinicians calibrate trust in AI under real cognitive load, with findings traced to use-errors in the risk file.",
+    plan: [
+      {
+        label: "Recruiting",
+        items: [
+          "Treating clinicians (8–10) — the decision-makers who accept, modify, or reject AI output.",
+          "Nurses / care-team (6–8) — monitor flagged cases and trigger escalation.",
+          "Clinical safety + regulatory affairs leads (4–6) — FDA submission and post-market experience.",
+          "ML + product engineers (6–8) — own the model and the explainability surface.",
+          "Unmoderated cross-site benchmark (≥100) — stratified by role and care setting.",
+          "Screener gates on role and oversight-tier exposure. IRB-aligned consent with PHI de-identified at capture.",
+        ],
+      },
+      {
+        label: "Qualitative Execution",
+        items: [
+          "Think-aloud on graded-oversight cases (recommend / act-with-confirm / alert).",
+          "Stress-condition sessions under time pressure and simulated interruption.",
+          "Override-reasoning capture to understand when and why clinicians disagree.",
+          "Semi-structured interviews on automation bias, over-reliance, and accountability.",
+        ],
+      },
+      {
+        label: "Quantitative Execution",
+        items: [
+          "Override-accuracy vs. ground truth across confidence bins.",
+          "Time-to-confident-decision (median + 95th percentile).",
+          "Standardized instruments: SUS, NASA-TLX, Trust-in-Automation.",
+          "Escalation rate on high-uncertainty cases vs. silent auto-action baseline.",
+          "Telemetry: rationale-open rate, override-reason completeness.",
+        ],
+      },
+      {
+        label: "Synthesis",
+        items: [
+          "Dovetail coding mapped to IEC 62366 use-error taxonomy and ISO 14971 hazards.",
+          "Trust-calibration × confidence severity matrix; findings linked to risk-file entries.",
+          "Mixed-effects model on override accuracy with random effects for clinician and site.",
+          "Triangulation across qualitative themes, telemetry, and override outcomes.",
+        ],
+      },
+    ],
+    journeyTitle: "Clinician Journey — Acting on an AI Recommendation",
+    journey: [
+      { stage: "01 · Context", actor: "Treating clinician", thinking: "What is the patient picture before I look at the AI?", pains: ["AI output pre-empts independent read", "Patient context buried"], opportunities: ["Patient summary first, AI second", "Clear model scope + last-validated date"], signals: ["Time-to-first-AI-glance", "Independent-read rate"] },
+      { stage: "02 · Recommendation", actor: "Treating clinician", thinking: "What is the AI suggesting, and how sure is it?", pains: ["Opaque single confidence number", "No plain-language rationale"], opportunities: ["Calibrated confidence + plain-language rationale", "Evidence shown on demand"], signals: ["Rationale-open rate", "NASA-TLX mental demand"] },
+      { stage: "03 · Decide", actor: "Treating clinician", thinking: "Do I accept, modify, or reject — and what does each cost?", pains: ["Override harder than accept", "No audit trail for the choice"], opportunities: ["Symmetric accept / modify / reject", "One-tap reason codes on override"], signals: ["Override-accuracy", "Time-to-confident-decision"] },
+      { stage: "04 · Escalate", actor: "Clinician + care team", thinking: "This case is uncertain — who else should see it?", pains: ["High-uncertainty cases auto-acted silently", "No clear escalation path"], opportunities: ["High-uncertainty cases visually flagged + escalated", "Hand-off preserves AI context"], signals: ["Escalation rate", "Missed-uncertainty incidents"] },
+      { stage: "05 · Learn", actor: "Safety + ML owner", thinking: "What do overrides tell us about the model?", pains: ["Override reasons lost", "No loop from disagreement to model"], opportunities: ["Override reasons feed model-improvement loop", "Safety board reviews disagreement clusters"], signals: ["Override-reason completeness", "Post-market HF signals"] },
+    ],
+    patternsTitle: "Reusable Patterns — Clinical AI Trust Library",
+    patterns: [
+      { name: "Graded Oversight Tiers", problem: "Every AI feature ships with an implicit, different level of human oversight.", pattern: "Declare one of three tiers — AI recommends / acts-with-confirm / alerts — each with fixed UI, audit, and escalation requirements.", evidence: "Consistent oversight; reduced silent auto-action on high-stakes cases." },
+      { name: "Layered Explainability", problem: "Single-shot outputs oversell precision or overwhelm clinicians.", pattern: "Recommendation immediately; rationale, evidence, and calibrated confidence revealed on demand within the clinician time budget.", evidence: "Rationale-open rate rose on high-stakes reads without exceeding time budget." },
+      { name: "Confidence-Calibrated Override", problem: "Override is harder than accept, so clinicians drift toward acceptance when uncertain.", pattern: "Symmetric accept / modify / reject affordances with one-tap reason capture feeding the safety review board.", evidence: "Override-accuracy against ground truth improved across confidence bins." },
+      { name: "Uncertainty Escalation", problem: "High-uncertainty cases get silently auto-acted instead of reviewed.", pattern: "Visually flag and escalate high-uncertainty cases rather than acting; preserve AI context through the hand-off.", evidence: "100% of decisions auditable; reduced over-reliance on ambiguous cases." },
+    ],
+    reporting: [
+      { audience: "Clinical safety review board", format: "Go/no-go memo + use-error conformance scorecard", decision: "Ship / hold / re-evaluate per feature" },
+      { audience: "Clinical + product leadership", format: "Severity-ranked findings + executive 1-pager", decision: "Roadmap and resourcing trade-offs" },
+      { audience: "Regulatory affairs / FDA", format: "HF validation evidence aligned to FDA HF + IEC 62366", decision: "Premarket submission readiness" },
+      { audience: "Engineering + ML owners", format: "Oversight + explainability acceptance criteria", decision: "Implementation requirements" },
+    ],
+  },
+  sentinel: {
+    title: "Agentic AI Safety — Detailed Research Dossier",
+    intro:
+      "Research built around the agentic threat model — prompt injection, unsafe tool chains, and exfiltration. Mixed methods make agent behavior legible and controllable before production, with findings traced to a guardrail tier.",
+    plan: [
+      {
+        label: "Recruiting",
+        items: [
+          "AI red-teamers (6–8) — run adversarial prompt and tool-chain scenarios.",
+          "Security / AppSec (4–6) — threat-model agent actions and blast radius.",
+          "ML + agent engineers (6–8) — build and deploy agentic features.",
+          "Risk + deployment owners (4–6) — greenlight production rollouts.",
+          "Unmoderated scenario benchmark (≥80) — runs across the adversarial scenario library.",
+          "Screener gates on role and agent-exposure. Scenario-library access controlled; no production secrets in test.",
+        ],
+      },
+      {
+        label: "Qualitative Execution",
+        items: [
+          "Adversarial scenario runs in the red-team console with guardrails firing in real time.",
+          "Think-aloud on approval and kill-switch decisions under ambiguous intent.",
+          "Action-ledger legibility studies — can a reviewer reconstruct what the agent intended vs. did?",
+          "Interviews on what 'safe to deploy' must mean as a concrete, passable bar.",
+        ],
+      },
+      {
+        label: "Quantitative Execution",
+        items: [
+          "Catch-rate: share of injected attacks blocked by input filters.",
+          "Time-to-intervene on high-impact tool calls (median + 95th).",
+          "False-block rate — legitimate actions wrongly halted.",
+          "Kill-switch time-to-safe-state.",
+          "Telemetry: approval-queue throughput, ledger completeness.",
+        ],
+      },
+      {
+        label: "Synthesis",
+        items: [
+          "Coding mapped to a four-tier guardrail taxonomy (filter / approve / record / halt).",
+          "Severity × exploitability × blast-radius matrix; each finding linked to a guardrail tier.",
+          "Intervention-latency analysis across scenario classes.",
+          "Triangulation across red-team observations, ledger telemetry, and reviewer interviews.",
+        ],
+      },
+    ],
+    journeyTitle: "Agent Journey — From Intent to Safe Outcome",
+    journey: [
+      { stage: "01 · Intent", actor: "Agent + operator", thinking: "What is the agent actually trying to do right now?", pains: ["Agent intent is opaque", "No record of the plan"], opportunities: ["Surface intended plan before execution", "Show the tool chain the agent will use"], signals: ["Intent-legibility score", "Plan-review rate"] },
+      { stage: "02 · Filter", actor: "Guardrail system", thinking: "Is this input an injection or jailbreak attempt?", pains: ["Injection patterns slip through", "No visibility when a filter fires"], opportunities: ["Input filters catch injection / jailbreak patterns", "Visible 'guardrail fired' feedback"], signals: ["Catch-rate", "False-block rate"] },
+      { stage: "03 · Approve", actor: "Human reviewer", thinking: "Is this high-impact action safe to allow?", pains: ["High-impact calls act without confirmation", "Reviewer lacks context to decide"], opportunities: ["Approval layer pauses high-impact tool calls", "Decision context surfaced inline"], signals: ["Time-to-intervene", "Approval-queue throughput"] },
+      { stage: "04 · Record", actor: "Auditor / risk", thinking: "Can I reconstruct exactly what happened and why?", pains: ["Steps not logged with rationale", "No outcome trail"], opportunities: ["Action ledger records every step + rationale + outcome", "Replayable scenario history"], signals: ["Ledger completeness", "Replay coverage"] },
+      { stage: "05 · Halt", actor: "Operator", thinking: "Something is wrong — can I stop this safely now?", pains: ["No reliable stop", "Unsafe partial state on abort"], opportunities: ["Kill-switch returns agent to a safe state", "Graceful rollback of in-flight actions"], signals: ["Kill-switch time-to-safe-state", "Unsafe-abort incidents"] },
+    ],
+    patternsTitle: "Reusable Patterns — Agent Guardrail Library",
+    patterns: [
+      { name: "Four-Tier Guardrail", problem: "Teams ship agents with no shared definition of 'safe to deploy.'", pattern: "A concrete, passable checklist across four tiers — input filter, human approval, action ledger, kill-switch — that risk and engineering both sign off.", evidence: "Shared deployment standard shrank back-and-forth review cycles." },
+      { name: "High-Impact Approval", problem: "Agents execute high-impact tool calls with no human in the loop.", pattern: "An approval layer pauses high-impact actions for human confirmation, with decision context surfaced inline.", evidence: "100% of high-impact actions gated; zero acted without approval." },
+      { name: "Action Ledger", problem: "When an agent misbehaves, no one can reconstruct what it intended vs. did.", pattern: "Every step is recorded with its rationale and outcome, producing a replayable, auditable trail.", evidence: "Reviewers could reconstruct and replay incidents end-to-end." },
+      { name: "Kill-Switch to Safe State", problem: "Stopping a running agent leaves unsafe partial state.", pattern: "A kill-switch returns the agent to a defined safe state with graceful rollback of in-flight actions.", evidence: "Predictable recovery; reduced unsafe-abort incidents in red-team runs." },
+    ],
+    reporting: [
+      { audience: "Deployment / risk owners", format: "Readiness scorecard against the four-tier standard", decision: "Greenlight / block agentic features" },
+      { audience: "Security & AppSec", format: "Threat coverage + catch-rate report", decision: "Where to harden guardrails next" },
+      { audience: "Engineering + agent teams", format: "Approval + ledger acceptance criteria", decision: "Implementation requirements" },
+      { audience: "Leadership", format: "Evidence-backed readiness narrative", decision: "Confidence to ship agentic capabilities" },
+    ],
+  },
+  lumen: {
+    title: "Enterprise Knowledge AI — Detailed Research Dossier",
+    intro:
+      "Research focused on the failure mode of enterprise knowledge AI — confident answers with no verifiable grounding. Mixed methods test how source-grounding, citations, and honest uncertainty change trust and verification behavior.",
+    plan: [
+      {
+        label: "Recruiting",
+        items: [
+          "Knowledge workers (8–10) — query enterprise knowledge AI daily to do their jobs.",
+          "Subject-matter experts (6–8) — own the source-of-truth content the AI grounds against.",
+          "Compliance / records (4–6) — accountable for cited accuracy and retention.",
+          "ML / RAG engineers (6–8) — own retrieval, ranking, and grounding.",
+          "Unmoderated query benchmark (≥120) — across multiple knowledge domains.",
+          "Screener gates on role and query frequency. Source access scoped; NDA on proprietary content.",
+        ],
+      },
+      {
+        label: "Qualitative Execution",
+        items: [
+          "Task-based query sessions with citation inspection — do users open and trust sources?",
+          "Think-aloud on 'insufficient evidence' states — is honest uncertainty acceptable?",
+          "Source-verification behavior studies — when do users verify vs. take the answer at face value?",
+          "Interviews on over-trust, under-trust, and what makes a citation credible.",
+        ],
+      },
+      {
+        label: "Quantitative Execution",
+        items: [
+          "Verification rate: share of answers where users inspect a source before acting.",
+          "Trust calibration — confidence vs. actual answer correctness.",
+          "Over-trust incidents (acted on wrong answer) vs. under-trust (re-did the work anyway).",
+          "Citation click-through and source-match relevance.",
+          "Telemetry: 'insufficient evidence' acceptance, re-query frequency, SUS.",
+        ],
+      },
+      {
+        label: "Synthesis",
+        items: [
+          "Coding on grounding and citation friction across query types.",
+          "Trust × accuracy calibration matrix; findings linked to transparency patterns.",
+          "Over-trust / under-trust failure analysis and their UX triggers.",
+          "Triangulation across qualitative themes, verification telemetry, and benchmark accuracy.",
+        ],
+      },
+    ],
+    journeyTitle: "Knowledge Journey — From Query to Verified Answer",
+    journey: [
+      { stage: "01 · Ask", actor: "Knowledge worker", thinking: "I need a precise answer I can act on, fast.", pains: ["Fluent answers feel authoritative regardless of grounding", "No sense of where the answer came from"], opportunities: ["Set expectation that answers are source-grounded", "Show retrieval is happening"], signals: ["Query success", "Time-to-answer"] },
+      { stage: "02 · Ground", actor: "Knowledge AI", thinking: "Which sources actually support this answer?", pains: ["Citations absent or decorative", "Sources don't match the claim"], opportunities: ["Inline citations tied to each claim", "Source-match score surfaced"], signals: ["Citation coverage", "Source-match relevance"] },
+      { stage: "03 · Signal", actor: "Knowledge worker", thinking: "How much should I trust this?", pains: ["Confident tone on weak evidence", "No hallucination cue"], opportunities: ["Calibrated confidence + hallucination cues", "Honest 'insufficient evidence' state"], signals: ["Trust calibration", "Insufficient-evidence acceptance"] },
+      { stage: "04 · Verify", actor: "Knowledge worker", thinking: "Let me check the source before I act.", pains: ["Verifying means leaving the tool", "Can't see the cited passage"], opportunities: ["One-click source inspector with highlighted passage", "Verify without losing the answer"], signals: ["Verification rate", "Citation click-through"] },
+      { stage: "05 · Act / Report", actor: "Worker + compliance", thinking: "Can I defend this answer if asked?", pains: ["No record of what was cited", "Accuracy not auditable"], opportunities: ["Answer + citations captured for the record", "Traceable from claim to source version"], signals: ["Traceability", "Over-trust incidents"] },
+    ],
+    patternsTitle: "Reusable Patterns — Knowledge AI Transparency Library",
+    patterns: [
+      { name: "Claim-Level Citation", problem: "Citations are decorative or absent, so answers can't be verified.", pattern: "Each claim carries inline citations tied to the supporting source, with a visible source-match score.", evidence: "Citation coverage rose; users could trace claims to sources." },
+      { name: "Honest Uncertainty", problem: "The system answers confidently even with weak or no grounding.", pattern: "When evidence is insufficient, the system says so and refuses to fabricate a citation.", evidence: "Zero fabricated citations in the grounded-answer flow; uncertainty states accepted by users." },
+      { name: "One-Click Source Inspector", problem: "Verifying an answer means leaving the tool and hunting for the passage.", pattern: "A source inspector opens the cited passage highlighted, in context, without losing the answer.", evidence: "Verification rate rose before users acted on answers." },
+      { name: "Trust-Calibrated Confidence", problem: "Fluent tone drives over-trust regardless of accuracy.", pattern: "Calibrated confidence and hallucination cues align how much users trust an answer with how grounded it actually is.", evidence: "Improved trust calibration; reduced over-trust incidents." },
+    ],
+    reporting: [
+      { audience: "Leadership + knowledge ops", format: "Trust + verification scorecard across domains", decision: "Where to expand or constrain the assistant" },
+      { audience: "Subject-matter experts", format: "Source-quality + match-relevance report", decision: "Which sources to improve or retire" },
+      { audience: "Compliance / records", format: "Answer + citation audit trail spec", decision: "Defensibility and retention requirements" },
+      { audience: "Engineering + RAG owners", format: "Grounding + citation acceptance criteria", decision: "Retrieval and transparency implementation" },
     ],
   },
 };
@@ -4025,6 +4625,133 @@ function DeepResearchDossier({ id }: { id: string }) {
 
 
 
+/* ─────────── AI Framework Visuals (TrustLens / Clarity / Sentinel / Lumen) ─────────── */
+
+type FrameworkStage = { n: string; title: string; desc: string; std: string };
+type FrameworkConfig = {
+  title: string;
+  headerLeft: string;
+  headerRight: string;
+  stages: FrameworkStage[];
+  loop: string;
+};
+
+const AI_FRAMEWORKS: Record<string, FrameworkConfig> = {
+  trustlens: {
+    title: "AI Governance Operating Model — Model Lifecycle Controls",
+    headerLeft: "NIST AI RMF · EU AI Act · ISO/IEC 42001",
+    headerRight: "No model ships ungoverned",
+    stages: [
+      { n: "01", title: "Register & Map", desc: "Capture model metadata, provenance, and intended use at intake into a single registry.", std: "RMF · Map" },
+      { n: "02", title: "Risk-Tier", desc: "Classify each model Critical / High / Medium / Low with captured rationale.", std: "EU AI Act" },
+      { n: "03", title: "Attach Controls", desc: "Tier auto-attaches required controls, oversight gates, and evidence requirements.", std: "ISO 42001" },
+      { n: "04", title: "Measure & Manage", desc: "Monitor drift, bias, and performance; route high-risk decisions to human gates.", std: "RMF · Measure" },
+      { n: "05", title: "Evidence & Govern", desc: "Generate audit-ready evidence continuously; report portfolio risk to the board.", std: "RMF · Govern" },
+    ],
+    loop: "Drift and incidents feed back into risk-tiering and controls — continuous governance loop",
+  },
+  clinicalai: {
+    title: "Trust-Calibration Lifecycle — Clinical Decision-Support",
+    headerLeft: "FDA HF · IEC 62366 · ISO 14971",
+    headerRight: "Every decision accountable",
+    stages: [
+      { n: "01", title: "Frame Oversight", desc: "Declare the oversight tier: AI recommends, acts-with-confirm, or alerts.", std: "ISO 14971" },
+      { n: "02", title: "Explain", desc: "Recommendation now; rationale, evidence, and calibrated confidence on demand.", std: "IEC 62366" },
+      { n: "03", title: "Decide", desc: "Symmetric accept / modify / reject with one-tap override-reason capture.", std: "FDA HF" },
+      { n: "04", title: "Escalate", desc: "High-uncertainty cases are flagged and escalated rather than silently auto-acted.", std: "IEC 62366" },
+      { n: "05", title: "Audit & Learn", desc: "Every action logged; override reasons feed the model-improvement loop.", std: "FDA SaMD" },
+    ],
+    loop: "Override signals feed back into model + design — closed clinical learning loop",
+  },
+  sentinel: {
+    title: "Agentic Guardrail Stack — Intent to Safe Outcome",
+    headerLeft: "Prompt-injection · Tool-chain · Exfiltration threat model",
+    headerRight: "Safe-to-deploy is provable",
+    stages: [
+      { n: "01", title: "Intent", desc: "Surface the agent's intended plan and tool chain before execution.", std: "Threat Model" },
+      { n: "02", title: "Input Filter", desc: "Catch prompt-injection and jailbreak patterns with visible guardrail feedback.", std: "Tier 1" },
+      { n: "03", title: "Approval Gate", desc: "Pause high-impact tool calls for human confirmation with inline context.", std: "Tier 2" },
+      { n: "04", title: "Action Ledger", desc: "Record every step, its rationale, and outcome into a replayable audit trail.", std: "Tier 3" },
+      { n: "05", title: "Kill-Switch", desc: "Return the agent to a defined safe state with graceful rollback.", std: "Tier 4" },
+    ],
+    loop: "Red-team findings harden filters and gates — continuous adversarial loop",
+  },
+  lumen: {
+    title: "Source-Grounding Pipeline — Query to Verified Answer",
+    headerLeft: "RAG transparency · Citation integrity",
+    headerRight: "No grounding, no claim",
+    stages: [
+      { n: "01", title: "Retrieve", desc: "Pull candidate sources for the query and show that retrieval happened.", std: "Retrieval" },
+      { n: "02", title: "Ground & Cite", desc: "Tie each claim to a supporting source with a visible source-match score.", std: "Grounding" },
+      { n: "03", title: "Signal Confidence", desc: "Calibrated confidence and hallucination cues align trust with evidence.", std: "Calibration" },
+      { n: "04", title: "Verify", desc: "One-click source inspector opens the cited passage highlighted, in context.", std: "Verification" },
+      { n: "05", title: "Insufficient State", desc: "When evidence is weak, say so — never fabricate a citation.", std: "Integrity" },
+    ],
+    loop: "Verification + source-quality signals refine retrieval — continuous grounding loop",
+  },
+};
+
+function AIFramework({ id }: { id: string }) {
+  const cfg = AI_FRAMEWORKS[id];
+  if (!cfg) return null;
+  const titleId = `ai-framework-${id}-title`;
+  return (
+    <FadeIn>
+      <figure className="my-8" aria-labelledby={titleId}>
+        <figcaption
+          id={titleId}
+          className="text-xs font-semibold tracking-wide uppercase text-gray-700 mb-3 text-center"
+        >
+          {cfg.title}
+        </figcaption>
+
+        <div className="rounded-t-xl bg-gradient-to-r from-[rgb(var(--c-hero-dark))] via-[rgb(var(--c-primary))] to-[rgb(var(--c-accent))] text-white px-5 py-3 flex items-center justify-between">
+          <span className="text-[11px] font-bold tracking-[0.18em] uppercase">{cfg.headerLeft}</span>
+          <span className="text-[11px] text-white/85">{cfg.headerRight}</span>
+        </div>
+
+        <ol
+          className="grid grid-cols-1 md:grid-cols-5 gap-px bg-gray-200 border-x border-b border-gray-200 rounded-b-xl overflow-hidden list-none p-0 m-0"
+          aria-label="Five-stage AI framework"
+        >
+          {cfg.stages.map((stage, idx, arr) => (
+            <li key={stage.n} className="bg-white p-4 relative flex flex-col">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="text-[10px] font-bold text-[rgb(var(--c-accent-on-light))] tracking-widest">
+                  {stage.n}
+                </span>
+                <span aria-hidden="true" className="flex-1 h-px bg-gradient-to-r from-[rgb(var(--c-accent)/0.4)] to-transparent" />
+                {idx < arr.length - 1 && (
+                  <span aria-hidden="true" className="hidden md:inline text-[rgb(var(--c-primary))] text-sm leading-none">→</span>
+                )}
+              </div>
+              <h3 className="text-[13px] font-bold text-[rgb(var(--c-hero-dark))] leading-snug mb-1.5">
+                {stage.title}
+              </h3>
+              <p className="text-[11px] text-gray-700 leading-relaxed flex-1">{stage.desc}</p>
+              <span className="mt-3 inline-block self-start text-[9px] font-semibold tracking-wider uppercase px-1.5 py-0.5 rounded bg-[rgb(var(--c-tint-100))] text-[rgb(var(--c-primary))]">
+                {stage.std}
+              </span>
+            </li>
+          ))}
+        </ol>
+
+        <div
+          className="mt-3 flex items-center justify-center gap-2 text-[11px] text-gray-700"
+          aria-label={cfg.loop}
+        >
+          <span aria-hidden="true" className="text-[rgb(var(--c-accent-on-light))] text-base leading-none">↻</span>
+          <span>{cfg.loop}</span>
+        </div>
+
+        <p className="text-[11px] text-gray-600 mt-2 text-center">
+          NDA-safe recreated artifact — structure shown, proprietary details omitted.
+        </p>
+      </figure>
+    </FadeIn>
+  );
+}
+
 
 function CaseStudy({
   study,
@@ -4586,6 +5313,8 @@ function CaseStudy({
               </div>
             </figure>
           </FadeIn>
+        ) : AI_FRAMEWORKS[study.id] ? (
+          <AIFramework id={study.id} />
         ) : (
           <FadeIn>
             <div
