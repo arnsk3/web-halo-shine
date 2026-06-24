@@ -5822,10 +5822,10 @@ function Resume() {
         {/* Career highlights */}
         <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
           {[
-            { v: "Enterprise", l: "AI safety framework defining Model A/B/C oversight tiers for clinical decision-support" },
-            { v: "$1.5M+", l: "Annual savings from SSA11y — AI-driven CI/CD accessibility automation" },
-            { v: "50M+", l: "Users served by a unified, data-driven design system" },
-            { v: "10+", l: "Product teams aligned on one design system at GE HealthCare" },
+            { v: "18+ yrs", l: "Leading human-centered design across healthcare, federal, and regulated environments" },
+            { v: "$1.5M+", l: "Annual savings from SSA11y — AI-driven continuous accessibility validation" },
+            { v: "50M+", l: "Citizens served by SSA11y accessibility platform and design system" },
+            { v: "10+", l: "Teams led on human factors & HSI for clinical AI at GE HealthCare" },
           ].map((h) => (
             <div key={h.l} className="rounded-xl border border-gray-200 bg-white p-5">
               <div className="text-2xl font-extrabold text-[rgb(var(--c-primary))] mb-1">{h.v}</div>
