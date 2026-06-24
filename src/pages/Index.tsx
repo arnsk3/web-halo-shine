@@ -988,7 +988,7 @@ function Home({
                   }`}
                 >
                   {f}
-                  <span className={`text-[10px] font-bold ${active ? "text-white/80" : "text-gray-400"}`}>
+                  <span className={`text-[10px] font-bold ${active ? "text-white/90" : "text-gray-600"}`}>
                     {count}
                   </span>
                 </button>
@@ -5822,10 +5822,10 @@ function Resume() {
         {/* Career highlights */}
         <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
           {[
-            { v: "Enterprise", l: "AI safety framework defining Model A/B/C oversight tiers for clinical decision-support" },
-            { v: "$1.5M+", l: "Annual savings from SSA11y — AI-driven CI/CD accessibility automation" },
-            { v: "50M+", l: "Users served by a unified, data-driven design system" },
-            { v: "10+", l: "Product teams aligned on one design system at GE HealthCare" },
+            { v: "18+ yrs", l: "Leading human-centered design across healthcare, federal, and regulated environments" },
+            { v: "$1.5M+", l: "Annual savings from SSA11y — AI-driven continuous accessibility validation" },
+            { v: "50M+", l: "Citizens served by SSA11y accessibility platform and design system" },
+            { v: "10+", l: "Teams led on human factors & HSI for clinical AI at GE HealthCare" },
           ].map((h) => (
             <div key={h.l} className="rounded-xl border border-gray-200 bg-white p-5">
               <div className="text-2xl font-extrabold text-[rgb(var(--c-primary))] mb-1">{h.v}</div>
@@ -5913,12 +5913,13 @@ function Resume() {
               for clinical decision-support systems.
             </p>
             <p>
-              <strong>Prior roles:</strong> Sr. UX &amp; Accessibility Lead at Leidos
-              / SSA (2022 – 2025) — built SSA11y, an AI-driven federal compliance
-              platform saving $1.5M+ annually. Inclusive Design &amp; Accessibility
-              Lead at Best Buy Health (2021 – 2022). Sr. UX &amp; Accessibility
-              Program Manager at Eagle Technologies / HHS / SAMHSA (2014 – 2021),
-              directing a $130M behavioral health portfolio.
+              <strong>Prior roles:</strong> Senior UX &amp; Accessibility Lead — SSA11y
+              at Leidos / Social Security Administration (2022 – 2025) — built SSA11y, an
+              AI-driven (Llama2) accessibility platform on the Disability Case Processing
+              System serving 50M+ citizens and saving $1.5M+ annually. UX &amp; Human Factors
+              Lead — Connected Health at Best Buy Health (2021 – 2022). Senior UX Designer &amp;
+              Program Lead — TEDS &amp; Behavioral Health at HHS / SAMHSA (Eagle Technologies,
+              2014 – 2021), directing a $130M behavioral-health portfolio.
             </p>
             <p>
               <strong>Certifications:</strong> CPACC and WAS (IAAP), CUA (HFI), CSM
