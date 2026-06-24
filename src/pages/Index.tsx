@@ -988,7 +988,7 @@ function Home({
                   }`}
                 >
                   {f}
-                  <span className={`text-[10px] font-bold ${active ? "text-white/80" : "text-gray-400"}`}>
+                  <span className={`text-[10px] font-bold ${active ? "text-white/90" : "text-gray-600"}`}>
                     {count}
                   </span>
                 </button>
