@@ -5913,12 +5913,13 @@ function Resume() {
               for clinical decision-support systems.
             </p>
             <p>
-              <strong>Prior roles:</strong> Sr. UX &amp; Accessibility Lead at Leidos
-              / SSA (2022 – 2025) — built SSA11y, an AI-driven federal compliance
-              platform saving $1.5M+ annually. Inclusive Design &amp; Accessibility
-              Lead at Best Buy Health (2021 – 2022). Sr. UX &amp; Accessibility
-              Program Manager at Eagle Technologies / HHS / SAMHSA (2014 – 2021),
-              directing a $130M behavioral health portfolio.
+              <strong>Prior roles:</strong> Senior UX &amp; Accessibility Lead — SSA11y
+              at Leidos / Social Security Administration (2022 – 2025) — built SSA11y, an
+              AI-driven (Llama2) accessibility platform on the Disability Case Processing
+              System serving 50M+ citizens and saving $1.5M+ annually. UX &amp; Human Factors
+              Lead — Connected Health at Best Buy Health (2021 – 2022). Senior UX Designer &amp;
+              Program Lead — TEDS &amp; Behavioral Health at HHS / SAMHSA (Eagle Technologies,
+              2014 – 2021), directing a $130M behavioral-health portfolio.
             </p>
             <p>
               <strong>Certifications:</strong> CPACC and WAS (IAAP), CUA (HFI), CSM
