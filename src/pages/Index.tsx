@@ -1671,7 +1671,54 @@ function CaseStudyShowcase({ id }: { id: string }) {
           NDA-safe stylized wireframes — structure and interaction shown, proprietary visuals omitted.
         </p>
       </figure>
+
+      {cfg.examples && cfg.examples.length > 0 && (
+        <figure className="my-10" aria-labelledby={`${screensId}-examples`}>
+          <figcaption id={`${screensId}-examples`} className="text-xs font-semibold tracking-wide uppercase text-gray-700 mb-1 text-center">
+            {cfg.examplesTitle ?? "Detailed examples — annotated walkthroughs"}
+          </figcaption>
+          <p className="text-[11px] text-gray-600 mb-5 text-center max-w-2xl mx-auto">
+            Representative end-to-end scenarios. Each annotated mockup shows the real interaction sequence — numbered callouts map to the design decisions on the right.
+          </p>
+          <div className="space-y-6">
+            {cfg.examples.map((ex) => (
+              <article key={ex.title} className="rounded-2xl border border-gray-200 bg-white shadow-sm overflow-hidden">
+                <div className="px-4 py-3 border-b border-gray-200 bg-[rgb(var(--c-tint-50))]">
+                  <h4 className="text-sm font-bold text-gray-900">{ex.title}</h4>
+                  <p className="text-[12px] text-gray-700 mt-0.5">{ex.context}</p>
+                </div>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 p-4">
+                  <div className="relative">
+                    <ScreenFrame label={ex.screenLabel}>{ex.mockup}</ScreenFrame>
+                  </div>
+                  <div className="flex flex-col">
+                    <ol className="space-y-2.5 list-none p-0 m-0">
+                      {ex.annotations.map((a) => (
+                        <li key={a.n} className="flex gap-2.5">
+                          <span aria-hidden="true" className="mt-0.5 w-5 h-5 flex-shrink-0 rounded-full bg-[rgb(var(--c-primary))] text-white text-[10px] font-bold flex items-center justify-center">{a.n}</span>
+                          <span className="text-[12px] text-gray-700 leading-snug">
+                            <span className="font-semibold text-gray-900">{a.label}.</span> {a.detail}
+                          </span>
+                        </li>
+                      ))}
+                    </ol>
+                    <div className="mt-auto pt-3">
+                      <div className="rounded-lg bg-[#eef7ee] border border-[#cce6d0] px-3 py-2 text-[12px] text-[#1f5a2e]">
+                        <span className="font-bold">Outcome:</span> {ex.outcome}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+          <p className="text-[11px] text-gray-600 mt-3 text-center">
+            NDA-safe representative mockups — interaction logic and content structure shown, proprietary client visuals omitted.
+          </p>
+        </figure>
+      )}
     </FadeIn>
+
   );
 }
 
