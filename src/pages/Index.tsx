@@ -1131,12 +1131,34 @@ type ShowcaseScreen = {
   body: React.ReactNode;
 };
 
+type ShowcaseAnnotation = { n: number; label: string; detail: string };
+type ShowcaseExample = {
+  title: string;
+  context: string;
+  screenLabel: string;
+  mockup: React.ReactNode;
+  annotations: ShowcaseAnnotation[];
+  outcome: string;
+};
+
 type ShowcaseConfig = {
   workflowTitle: string;
   steps: string[];
   screensTitle: string;
   screens: ShowcaseScreen[];
+  examplesTitle?: string;
+  examples?: ShowcaseExample[];
 };
+
+// Annotation pin used on detailed example mockups
+const APin = ({ n, className = "" }: { n: number; className?: string }) => (
+  <span
+    aria-hidden="true"
+    className={`absolute z-10 w-5 h-5 rounded-full bg-[rgb(var(--c-primary))] text-white text-[10px] font-bold flex items-center justify-center shadow ring-2 ring-white ${className}`}
+  >
+    {n}
+  </span>
+);
 
 const WBar = ({ w = "100%", h = 8, c = "bg-gray-300", className = "" }: { w?: string; h?: number; c?: string; className?: string }) => (
   <div aria-hidden="true" className={`rounded ${c} ${className}`} style={{ width: w, height: h }} />
