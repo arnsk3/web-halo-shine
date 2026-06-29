@@ -1475,6 +1475,88 @@ const SHOWCASE: Record<string, ShowcaseConfig> = {
         ),
       },
     ],
+    examplesTitle: "Detailed examples — governance turned into a live operating picture",
+    examples: [
+      {
+        title: "Example 1 — A drifting high-risk model triggers a governed review",
+        context: "TrustLens monitors a production model, detects performance drift, and routes the finding into an evidence-backed review with the right approvers.",
+        screenLabel: "TrustLens · Drift → review",
+        mockup: (
+          <div className="relative space-y-2">
+            <div className="rounded bg-white border border-gray-200 p-2" aria-hidden="true">
+              <div className="flex items-center justify-between">
+                <span className="text-[9px] font-bold text-gray-800">Underwriting Model v3.2</span>
+                <span className="text-[8px] px-1.5 py-0.5 rounded bg-[#fff4e5] text-[#8a5a00] font-bold">Risk Tier: HIGH</span>
+              </div>
+            </div>
+            <div className="relative" aria-hidden="true">
+              <APin n={1} className="-left-1 -top-1" />
+              <div className="flex items-end gap-1 h-10 mt-1">
+                {[30, 35, 32, 40, 55, 70, 85].map((h, i) => (
+                  <div key={i} className={`flex-1 rounded-sm ${h > 60 ? "bg-[#d64545]" : "bg-[rgb(var(--c-accent))]"}`} style={{ height: `${h}%` }} />
+                ))}
+              </div>
+            </div>
+            <div className="relative rounded bg-[#ffe2e2] border border-[#f5b5b5] px-2 py-1.5" aria-hidden="true">
+              <APin n={2} className="-left-1 top-1" />
+              <span className="text-[9px] text-[#8a1a1a] font-medium">⚠ Drift threshold exceeded · fairness delta +6%</span>
+            </div>
+            <div className="relative rounded bg-white border border-gray-200 p-2" aria-hidden="true">
+              <APin n={3} className="-left-1 top-2" />
+              <div className="text-[8px] font-bold text-gray-700">HUMAN-IN-THE-LOOP GATE</div>
+              <div className="text-[9px] text-gray-700">Routed to: Risk lead + ML owner · approval required</div>
+            </div>
+            <div className="relative rounded bg-[rgb(var(--c-tint-50))] border border-[rgb(var(--c-tint-200))] px-2 py-1" aria-hidden="true">
+              <APin n={4} className="-left-1 top-1" />
+              <span className="text-[8px] text-[rgb(var(--c-primary))] font-bold">Evidence auto-captured → NIST AI RMF: MEASURE</span>
+            </div>
+          </div>
+        ),
+        annotations: [
+          { n: 1, label: "Continuous TEVV monitoring", detail: "Performance and fairness metrics are tracked over time so degradation is caught early, not at audit time." },
+          { n: 2, label: "Risk-aware alerting", detail: "A breach of the drift threshold — plus a fairness delta — is flagged in the model’s own risk language." },
+          { n: 3, label: "Routed to the right humans", detail: "Because the model is tier HIGH, the finding is forced through a human-in-the-loop gate with named approvers." },
+          { n: 4, label: "Evidence as a byproduct", detail: "The review and its decision are auto-mapped to a NIST AI RMF function, building the audit trail automatically." },
+        ],
+        outcome: "A potential fairness regression is caught, reviewed, and documented through a governed workflow — not discovered months later by a regulator.",
+      },
+      {
+        title: "Example 2 — An audit package assembled as an export, not a fire drill",
+        context: "When the board’s AI committee requests evidence, TrustLens compiles the model inventory, controls, and decision logs into a regulator-ready pack.",
+        screenLabel: "TrustLens · Evidence export",
+        mockup: (
+          <div className="relative space-y-2">
+            <div className="relative grid grid-cols-4 gap-1.5" aria-hidden="true">
+              <APin n={1} className="-left-1 -top-1" />
+              {[["CRIT", "3", "#8a1a1a", "#ffe2e2"], ["HIGH", "7", "#8a5a00", "#fff4e5"], ["MED", "12", "rgb(var(--c-primary))", "rgb(var(--c-tint-100))"], ["LOW", "26", "#1f6b2e", "#eef7ee"]].map(([l, v, fg, bg]) => (
+                <div key={l} className="rounded p-1" style={{ background: bg as string }}><div className="text-[7px] font-bold" style={{ color: fg as string }}>{l}</div><div className="text-sm font-bold" style={{ color: fg as string }}>{v}</div></div>
+              ))}
+            </div>
+            <div className="relative rounded bg-white border border-gray-200 p-2 space-y-1" aria-hidden="true">
+              <APin n={2} className="-left-1 top-2" />
+              <div className="text-[8px] font-bold text-gray-700">CONTROL COVERAGE</div>
+              <div className="flex items-center justify-between"><span className="text-[9px] text-gray-700">EU AI Act · high-risk obligations</span><span className="text-[8px] text-[#1f6b2e] font-bold">92%</span></div>
+              <div className="flex items-center justify-between"><span className="text-[9px] text-gray-700">ISO/IEC 42001 controls</span><span className="text-[8px] text-[#1f6b2e] font-bold">88%</span></div>
+            </div>
+            <div className="relative rounded bg-gray-50 border border-gray-200 p-2" aria-hidden="true">
+              <APin n={3} className="-left-1 top-1" />
+              <div className="text-[8px] text-gray-700">Includes: model cards · drift history · HITL decisions · override log</div>
+            </div>
+            <div className="relative rounded bg-[rgb(var(--c-primary))] text-white text-[9px] font-bold text-center py-1.5" aria-hidden="true">
+              <APin n={4} className="-left-1 -top-2" />
+              Export audit package (PDF + evidence index)
+            </div>
+          </div>
+        ),
+        annotations: [
+          { n: 1, label: "Single source of truth", detail: "Every model is risk-tiered in one inventory, so risk, legal, and engineering all read from the same picture." },
+          { n: 2, label: "Framework-mapped controls", detail: "Coverage is tracked against EU AI Act and ISO/IEC 42001, surfacing gaps before an auditor does." },
+          { n: 3, label: "Living evidence, not PDFs", detail: "Model cards, drift history, and human decisions are already captured from everyday monitoring." },
+          { n: 4, label: "One-click package", detail: "The full evidence set exports as a structured pack with an index a regulator can navigate." },
+        ],
+        outcome: "A multi-week audit scramble collapses into an export — the basis for the estimated 70% reduction in manual evidence-assembly effort.",
+      },
+    ],
   },
   clinicalai: {
     workflowTitle: "Clinician × AI trust-calibrated decision flow",
