@@ -1626,6 +1626,81 @@ const SHOWCASE: Record<string, ShowcaseConfig> = {
         ),
       },
     ],
+    examplesTitle: "Detailed examples — source-grounded answering in action",
+    examples: [
+      {
+        title: "Example 1 — A policy question answered with traceable citations",
+        context: "An analyst asks “What is our data-retention period for customer PII in the EU?” Lumen retrieves, grounds, and cites before it answers.",
+        screenLabel: "Lumen · Grounded answer",
+        mockup: (
+          <div className="relative space-y-2">
+            <APin n={1} className="-left-1 -top-1" />
+            <div className="rounded bg-[rgb(var(--c-tint-50))] border border-[rgb(var(--c-tint-200))] p-2" aria-hidden="true">
+              <div className="text-[8px] font-bold text-[rgb(var(--c-primary))] mb-1">QUESTION</div>
+              <div className="text-[10px] text-gray-800">Data-retention period for customer PII in the EU?</div>
+            </div>
+            <div className="relative rounded bg-white border border-gray-200 p-2" aria-hidden="true">
+              <APin n={2} className="-left-1 top-2" />
+              <div className="text-[10px] text-gray-800 leading-snug">
+                EU customer PII is retained for <span className="font-semibold">24 months</span><sup className="text-[rgb(var(--c-primary))] font-bold">[1]</sup> after the last transaction, then anonymized<sup className="text-[rgb(var(--c-primary))] font-bold">[2]</sup>.
+              </div>
+              <div className="flex gap-1 mt-1.5 relative">
+                <APin n={3} className="-right-1 -top-2" />
+                {[["[1]", "Retention Policy v4 · §3.2"], ["[2]", "GDPR Handbook · p.18"]].map(([c, s]) => (
+                  <span key={c} className="text-[8px] px-1 py-0.5 rounded bg-[rgb(var(--c-tint-100))] text-[rgb(var(--c-primary))] font-bold">{c} {s}</span>
+                ))}
+              </div>
+            </div>
+            <div className="relative rounded bg-[#eef7ee] border border-[#cce6d0] px-2 py-1 flex items-center justify-between" aria-hidden="true">
+              <APin n={4} className="-left-1 top-1" />
+              <span className="text-[9px] text-[#1f6b2e] font-bold">Grounding: 2 sources · agreement 0.93</span>
+              <span className="text-[8px] text-[#1f6b2e]">High confidence</span>
+            </div>
+          </div>
+        ),
+        annotations: [
+          { n: 1, label: "Query intake", detail: "The user’s natural-language question is preserved verbatim so the grounding trail is auditable against the exact ask." },
+          { n: 2, label: "Claim-level grounding", detail: "Each factual claim carries an inline citation marker — nothing in the answer is stated without a linked source." },
+          { n: 3, label: "Expandable citations", detail: "Citations name the exact document, version, and section; one click opens the passage in the Source Inspector." },
+          { n: 4, label: "Confidence signal", detail: "A calibrated grounding score and source-agreement metric tell the user how far to trust the answer." },
+        ],
+        outcome: "The analyst verifies the 24-month figure against the cited policy section in one click — a defensible, regulator-ready answer instead of an unverifiable assertion.",
+      },
+      {
+        title: "Example 2 — Lumen refuses to fabricate when evidence is weak",
+        context: "A user asks about a niche region with no governing policy on file. Instead of hallucinating, Lumen surfaces the evidence gap.",
+        screenLabel: "Lumen · Insufficient evidence",
+        mockup: (
+          <div className="relative space-y-2">
+            <div className="rounded bg-[rgb(var(--c-tint-50))] border border-[rgb(var(--c-tint-200))] p-2" aria-hidden="true">
+              <div className="text-[8px] font-bold text-[rgb(var(--c-primary))] mb-1">QUESTION</div>
+              <div className="text-[10px] text-gray-800">Retention rule for customer PII in Region X?</div>
+            </div>
+            <div className="relative rounded bg-[#fff8e5] border border-[#ffe6a1] p-2.5" aria-hidden="true">
+              <APin n={1} className="-left-1 -top-1" />
+              <div className="text-[10px] text-[#5a4400] font-medium leading-snug">⚠ Not enough grounded evidence to answer confidently. No citation fabricated.</div>
+            </div>
+            <div className="relative rounded bg-white border border-gray-200 p-2 space-y-1" aria-hidden="true">
+              <APin n={2} className="-left-1 top-2" />
+              <div className="text-[8px] font-bold text-gray-700">CLOSEST PARTIAL MATCHES</div>
+              <div className="flex items-center justify-between"><span className="text-[9px] text-gray-700">Global Privacy Standard · §1</span><span className="text-[8px] text-[#8a5a00] font-bold">Match 0.41</span></div>
+              <div className="flex items-center justify-between"><span className="text-[9px] text-gray-700">Region Y Addendum</span><span className="text-[8px] text-[#8a5a00] font-bold">Match 0.38</span></div>
+            </div>
+            <div className="relative flex gap-1.5" aria-hidden="true">
+              <APin n={3} className="-left-1 -top-2" />
+              <div className="flex-1 rounded border border-gray-300 text-gray-700 text-[9px] font-bold text-center py-1.5">Refine query</div>
+              <div className="flex-1 rounded bg-[rgb(var(--c-primary))] text-white text-[9px] font-bold text-center py-1.5">Request a source</div>
+            </div>
+          </div>
+        ),
+        annotations: [
+          { n: 1, label: "Honest abstention", detail: "When retrieval is below the grounding threshold, Lumen explicitly declines rather than projecting false confidence." },
+          { n: 2, label: "Transparent near-misses", detail: "The weak partial matches are still shown with their low scores, so the user understands exactly why the system held back." },
+          { n: 3, label: "Recovery paths", detail: "Clear next steps — refine the query or request a missing source — turn a dead end into a productive escalation." },
+        ],
+        outcome: "The user trusts the system more, not less: a visible ‘I don’t have grounds to answer’ prevents a confidently-wrong response from reaching a high-stakes decision.",
+      },
+    ],
   },
 };
 
