@@ -1527,6 +1527,88 @@ const SHOWCASE: Record<string, ShowcaseConfig> = {
         ),
       },
     ],
+    examplesTitle: "Detailed examples — trust-calibrated clinical decisions",
+    examples: [
+      {
+        title: "Example 1 — A high-confidence recommendation a clinician can verify fast",
+        context: "Clarity surfaces an AI suggestion alongside the patient summary, a plain-language rationale, the supporting evidence, and a calibrated confidence score.",
+        screenLabel: "Clarity · Recommendation review",
+        mockup: (
+          <div className="relative space-y-2">
+            <div className="rounded bg-gray-50 border border-gray-200 p-2" aria-hidden="true">
+              <div className="text-[8px] font-bold text-gray-700">PATIENT CONTEXT</div>
+              <div className="text-[9px] text-gray-700">38y · low-risk history · 2 prior screenings</div>
+            </div>
+            <div className="relative rounded bg-[rgb(var(--c-tint-50))] border border-[rgb(var(--c-tint-200))] p-2" aria-hidden="true">
+              <APin n={1} className="-left-1 -top-1" />
+              <div className="text-[9px] font-bold text-[rgb(var(--c-primary))]">AI RECOMMENDS</div>
+              <div className="text-[10px] text-gray-800 leading-snug">Order confirmatory test — pattern consistent with 3 evidence markers.</div>
+            </div>
+            <div className="relative" aria-hidden="true">
+              <APin n={2} className="-left-1 -top-1" />
+              <div className="text-[8px] text-gray-700 mb-0.5 font-medium">Calibrated confidence</div>
+              <div className="h-2 rounded-full bg-gray-200 overflow-hidden"><div className="h-full bg-gradient-to-r from-[rgb(var(--c-accent))] to-[rgb(var(--c-primary))]" style={{ width: "88%" }} /></div>
+              <div className="text-[8px] text-gray-600 mt-0.5">88% · well-calibrated for this case type</div>
+            </div>
+            <div className="relative rounded bg-white border border-gray-200 p-1.5" aria-hidden="true">
+              <APin n={3} className="-left-1 top-1" />
+              <div className="text-[8px] font-bold text-gray-700">EVIDENCE</div>
+              <div className="text-[9px] text-gray-700">Marker A ✓ · Marker B ✓ · Guideline ref ✓</div>
+            </div>
+            <div className="relative flex gap-1.5" aria-hidden="true">
+              <APin n={4} className="-left-1 -top-2" />
+              <div className="flex-1 rounded bg-[#1f6b2e] text-white text-[9px] font-bold text-center py-1.5">Accept</div>
+              <div className="flex-1 rounded border border-gray-300 text-gray-700 text-[9px] font-bold text-center py-1.5">Modify</div>
+              <div className="flex-1 rounded border border-gray-300 text-gray-700 text-[9px] font-bold text-center py-1.5">Reject</div>
+            </div>
+          </div>
+        ),
+        annotations: [
+          { n: 1, label: "Recommendation as a claim", detail: "The suggestion leads with what to do and why, in plain clinical language — not an opaque score." },
+          { n: 2, label: "Calibrated confidence", detail: "Confidence is calibrated to this case type, so 88% genuinely means 88% — the basis for appropriate reliance." },
+          { n: 3, label: "Inspectable evidence", detail: "The markers and guideline references behind the recommendation are one glance away, supporting fast verification." },
+          { n: 4, label: "Clinician stays in control", detail: "Accept, modify, or reject are first-class — the human, not the model, owns the decision." },
+        ],
+        outcome: "The clinician confirms a well-supported recommendation in seconds, shortening time-to-confident-decision without ceding accountability to the model.",
+      },
+      {
+        title: "Example 2 — An uncertain case is flagged and the override is captured",
+        context: "On an ambiguous case under time pressure, Clarity escalates rather than auto-acting, and records the clinician’s override reasoning for the audit trail.",
+        screenLabel: "Clarity · Uncertainty + override",
+        mockup: (
+          <div className="relative space-y-2">
+            <div className="relative rounded bg-[#fff8e5] border border-[#ffe6a1] p-2" aria-hidden="true">
+              <APin n={1} className="-left-1 -top-1" />
+              <div className="text-[9px] text-[#5a4400] font-medium">⚠ High-uncertainty case — flagged for review, not auto-acted</div>
+            </div>
+            <div className="relative" aria-hidden="true">
+              <APin n={2} className="-left-1 -top-1" />
+              <div className="text-[8px] text-gray-700 mb-0.5 font-medium">Calibrated confidence</div>
+              <div className="h-2 rounded-full bg-gray-200 overflow-hidden"><div className="h-full bg-[#d4a02a]" style={{ width: "47%" }} /></div>
+              <div className="text-[8px] text-gray-600 mt-0.5">47% · below escalation threshold</div>
+            </div>
+            <div className="relative rounded bg-white border border-gray-200 p-2 space-y-1" aria-hidden="true">
+              <APin n={3} className="-left-1 top-1" />
+              <div className="text-[8px] font-bold text-gray-700">OVERRIDE REASON</div>
+              {["Conflicts with patient history", "Insufficient evidence", "Clinical judgment differs"].map((t, i) => (
+                <div key={t} className="flex items-center gap-1.5"><span className={`w-2.5 h-2.5 rounded-sm border ${i === 0 ? "bg-[rgb(var(--c-primary))] border-[rgb(var(--c-primary))]" : "border-gray-400"}`} /><span className="text-[9px] text-gray-700">{t}</span></div>
+              ))}
+            </div>
+            <div className="relative rounded bg-[rgb(var(--c-primary))] text-white text-[9px] font-bold text-center py-1.5" aria-hidden="true">
+              <APin n={4} className="-left-1 -top-2" />
+              Log Decision + Reason
+            </div>
+          </div>
+        ),
+        annotations: [
+          { n: 1, label: "Escalate, don’t auto-act", detail: "Low-confidence cases are visually flagged and routed to a human instead of being silently acted on." },
+          { n: 2, label: "Honest uncertainty", detail: "A 47% confidence below the threshold is shown plainly — the UI never disguises a guess as a strong recommendation." },
+          { n: 3, label: "Structured override", detail: "The clinician selects a reason, capturing why the AI was overruled in a consistent, analyzable form." },
+          { n: 4, label: "Accountable by default", detail: "Every action — especially overrides — is logged with reasoning, keeping 100% of decisions auditable." },
+        ],
+        outcome: "Automation bias is reduced: the system defers on genuinely hard cases and leaves a defensible record of human judgment for safety review.",
+      },
+    ],
   },
   sentinel: {
     workflowTitle: "Agentic AI guardrail — intent to safe outcome",
