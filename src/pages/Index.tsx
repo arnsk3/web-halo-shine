@@ -817,6 +817,12 @@ function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) 
     { id: "resume", label: "Resume" },
     { id: "contact", label: "Contact" },
   ];
+  const goBrand = () => {
+    setPage("home");
+    requestAnimationFrame(() =>
+      document.getElementById("brand")?.scrollIntoView({ behavior: "smooth" })
+    );
+  };
   return (
     <nav
       aria-label="Primary"
