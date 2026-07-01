@@ -951,6 +951,9 @@ function Home({
         </ul>
       </section>
 
+      {/* Brand Identity & Visual Systems — brand-forward, leads the work */}
+      <BrandIdentitySection />
+
       {/* Domain Expertise */}
       <ExpertiseSection />
 
