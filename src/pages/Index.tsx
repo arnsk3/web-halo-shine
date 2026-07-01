@@ -11,6 +11,7 @@ import personaSafety from "@/assets/persona-safety.jpg";
 import personaLeadership from "@/assets/persona-leadership.jpg";
 import ThemeSwitcher from "@/components/ThemeSwitcher";
 import ExpertiseSection from "@/components/ExpertiseSection";
+import BrandIdentitySection from "@/components/BrandIdentitySection";
 import AISkillsMatrix from "@/components/AISkillsMatrix";
 import caseWcagtool from "@/assets/case-wcagtool.jpg";
 import caseGe from "@/assets/case-ge.jpg";
