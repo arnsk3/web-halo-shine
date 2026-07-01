@@ -11,6 +11,7 @@ import personaSafety from "@/assets/persona-safety.jpg";
 import personaLeadership from "@/assets/persona-leadership.jpg";
 import ThemeSwitcher from "@/components/ThemeSwitcher";
 import ExpertiseSection from "@/components/ExpertiseSection";
+import BrandIdentitySection from "@/components/BrandIdentitySection";
 import AISkillsMatrix from "@/components/AISkillsMatrix";
 import caseWcagtool from "@/assets/case-wcagtool.jpg";
 import caseGe from "@/assets/case-ge.jpg";
@@ -816,6 +817,12 @@ function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) 
     { id: "resume", label: "Resume" },
     { id: "contact", label: "Contact" },
   ];
+  const goBrand = () => {
+    setPage("home");
+    requestAnimationFrame(() =>
+      document.getElementById("brand")?.scrollIntoView({ behavior: "smooth" })
+    );
+  };
   return (
     <nav
       aria-label="Primary"
@@ -838,6 +845,14 @@ function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) 
           </span>
         </button>
         <ul className="flex flex-wrap justify-end gap-0.5 sm:gap-1 list-none m-0 p-0">
+          <li>
+            <button
+              onClick={goBrand}
+              className="inline-flex items-center min-h-11 px-2.5 sm:px-3 py-1.5 rounded-md text-sm font-semibold text-[rgb(var(--c-accent-on-light))] hover:bg-gray-100 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
+            >
+              Brand
+            </button>
+          </li>
           {links.map((l) => (
             <li key={l.id}>
               <button
@@ -895,32 +910,32 @@ function Home({
           </FadeIn>
           <FadeIn delay={0.1}>
             <h1 className="text-4xl sm:text-5xl font-extrabold leading-[1.1] mb-5 tracking-tight">
-              Designing for systems where getting it wrong
-              <span className="bg-gradient-to-r from-[rgb(var(--c-accent-light))] to-[rgb(var(--c-accent-on-dark))] bg-clip-text text-transparent"> isn't an option.</span>
+              Brand identities &amp; visual systems
+              <span className="bg-gradient-to-r from-[rgb(var(--c-accent-light))] to-[rgb(var(--c-accent-on-dark))] bg-clip-text text-transparent"> built to scale.</span>
             </h1>
           </FadeIn>
           <FadeIn delay={0.15}>
             <p className="text-white text-base sm:text-lg font-semibold mb-3 max-w-2xl mx-auto leading-relaxed">
-              Senior UI/UX &amp; Visual Designer specializing in digital brand experiences,
-              design systems, and data-driven design that drives engagement and conversion —
-              across healthcare, consumer, and enterprise platforms.
+              Brand &amp; Visual Designer crafting logos, identity systems, brand guidelines,
+              and brand refreshes — plus the design systems and UI engineering that carry a
+              brand from mark to product, across consumer, healthcare, and enterprise.
             </p>
           </FadeIn>
           <FadeIn delay={0.2}>
             <p className="text-white/85 text-base mb-8 max-w-lg mx-auto leading-relaxed">
-              Backed by AI Safety &amp; Human Systems Integration leadership for healthcare,
-              government, and regulated environments.
+              Backed by design-systems, accessibility, and AI governance leadership for
+              regulated environments.
             </p>
           </FadeIn>
           <FadeIn delay={0.3}>
             <div className="flex gap-3 justify-center flex-wrap">
               <button
                 onClick={() =>
-                  document.getElementById("cases")?.scrollIntoView({ behavior: "smooth" })
+                  document.getElementById("brand")?.scrollIntoView({ behavior: "smooth" })
                 }
                 className="group inline-flex items-center justify-center gap-2 min-h-11 bg-white text-[rgb(var(--c-primary))] px-6 py-2.5 rounded-lg font-semibold text-sm shadow-lg shadow-black/10 hover:-translate-y-0.5 hover:shadow-xl hover:bg-[rgb(var(--c-accent-on-light))] hover:text-white transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
               >
-                View Case Studies <span aria-hidden="true" className="transition-transform group-hover:translate-y-0.5">↓</span>
+                View Brand Work <span aria-hidden="true" className="transition-transform group-hover:translate-y-0.5">↓</span>
               </button>
               <button
                 onClick={() => setPage("about")}
@@ -949,6 +964,9 @@ function Home({
           ))}
         </ul>
       </section>
+
+      {/* Brand Identity & Visual Systems — brand-forward, leads the work */}
+      <BrandIdentitySection />
 
       {/* Domain Expertise */}
       <ExpertiseSection />
