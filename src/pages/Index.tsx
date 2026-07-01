@@ -896,21 +896,21 @@ function Home({
           </FadeIn>
           <FadeIn delay={0.1}>
             <h1 className="text-4xl sm:text-5xl font-extrabold leading-[1.1] mb-5 tracking-tight">
-              Designing for systems where getting it wrong
-              <span className="bg-gradient-to-r from-[rgb(var(--c-accent-light))] to-[rgb(var(--c-accent-on-dark))] bg-clip-text text-transparent"> isn't an option.</span>
+              Brand identities &amp; visual systems
+              <span className="bg-gradient-to-r from-[rgb(var(--c-accent-light))] to-[rgb(var(--c-accent-on-dark))] bg-clip-text text-transparent"> built to scale.</span>
             </h1>
           </FadeIn>
           <FadeIn delay={0.15}>
             <p className="text-white text-base sm:text-lg font-semibold mb-3 max-w-2xl mx-auto leading-relaxed">
-              Senior UI/UX &amp; Visual Designer specializing in digital brand experiences,
-              design systems, and data-driven design that drives engagement and conversion —
-              across healthcare, consumer, and enterprise platforms.
+              Brand &amp; Visual Designer crafting logos, identity systems, brand guidelines,
+              and brand refreshes — plus the design systems and UI engineering that carry a
+              brand from mark to product, across consumer, healthcare, and enterprise.
             </p>
           </FadeIn>
           <FadeIn delay={0.2}>
             <p className="text-white/85 text-base mb-8 max-w-lg mx-auto leading-relaxed">
-              Backed by AI Safety &amp; Human Systems Integration leadership for healthcare,
-              government, and regulated environments.
+              Backed by design-systems, accessibility, and AI governance leadership for
+              regulated environments.
             </p>
           </FadeIn>
           <FadeIn delay={0.3}>
