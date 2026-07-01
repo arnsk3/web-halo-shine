@@ -845,6 +845,14 @@ function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) 
           </span>
         </button>
         <ul className="flex flex-wrap justify-end gap-0.5 sm:gap-1 list-none m-0 p-0">
+          <li>
+            <button
+              onClick={goBrand}
+              className="inline-flex items-center min-h-11 px-2.5 sm:px-3 py-1.5 rounded-md text-sm font-semibold text-[rgb(var(--c-accent-on-light))] hover:bg-gray-100 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
+            >
+              Brand
+            </button>
+          </li>
           {links.map((l) => (
             <li key={l.id}>
               <button
