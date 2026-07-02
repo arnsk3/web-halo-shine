@@ -728,11 +728,11 @@ const CREDS = [
   "CPACC + WAS",
   "CUA",
   "CSM",
-  "MIL-STD-1472H",
   "FDA / IEC 62366",
   "WCAG 2.2 AA",
-  "MBSE / SysML",
+  "MIL-STD-1472H",
 ];
+
 
 // Derive filterable categories from each case study's tag so the work can be
 // filtered without duplicating metadata on every entry.
