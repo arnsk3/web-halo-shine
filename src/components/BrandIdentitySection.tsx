@@ -439,7 +439,7 @@ function BrandPrinciples() {
   );
 }
 
-
+export default function BrandIdentitySection() {
   return (
     <section
       id="brand"
