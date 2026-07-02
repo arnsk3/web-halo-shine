@@ -746,6 +746,10 @@ const CASE_FILTERS = [
 ] as const;
 type CaseFilter = (typeof CASE_FILTERS)[number];
 
+// In-house concept products (vs. shipped named-employer client work).
+const IN_HOUSE_IDS = ["trustlens", "clinicalai", "sentinel", "lumen"];
+
+
 function caseCategories(s: CaseStudyType): CaseFilter[] {
   const t = `${s.tag} ${s.title} ${s.standards.join(" ")}`.toLowerCase();
   const cats: CaseFilter[] = [];
