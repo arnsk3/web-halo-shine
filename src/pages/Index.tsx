@@ -1222,7 +1222,7 @@ function Home({
       </section>
 
       {/* Brief About */}
-      <section className="max-w-3xl mx-auto px-6 pb-16" aria-labelledby="brief-about-heading">
+      <section className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(3rem,6vw,6rem)]" aria-labelledby="brief-about-heading">
         <FadeIn>
           <div className="flex gap-5 items-start bg-white border border-gray-200 rounded-xl p-6">
             <img
