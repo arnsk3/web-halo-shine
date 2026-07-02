@@ -985,7 +985,7 @@ function BrandTeaser({ onOpen }: { onOpen: () => void }) {
   );
 }
 
-
+function Home({
   setPage,
   setCase,
 }: {
