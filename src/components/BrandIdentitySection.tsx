@@ -348,6 +348,97 @@ function RefreshShowcase() {
   );
 }
 
+/* --- Brand impact by the numbers --- */
+function BrandImpact() {
+  const stats = [
+    { value: "20+", label: "Identity systems shipped" },
+    { value: "6", label: "Regulated & consumer sectors" },
+    { value: "AAA", label: "Contrast targets met" },
+    { value: "100%", label: "Token-driven, themeable" },
+  ];
+  return (
+    <div className="rounded-2xl border border-gray-200 bg-[rgb(var(--c-tint-50))] p-6 sm:p-8">
+      <p className="text-[rgb(var(--c-accent-on-light))] text-xs font-semibold tracking-[2px] uppercase mb-2">
+        Impact by the numbers
+      </p>
+      <h3 className="text-xl font-bold text-gray-900 mb-6">
+        Brand work that scales from mark to product
+      </h3>
+      <dl className="grid grid-cols-2 gap-4">
+        {stats.map((s) => (
+          <div key={s.label} className="rounded-xl border border-gray-100 bg-white p-4">
+            <dt className="sr-only">{s.label}</dt>
+            <dd className="text-3xl font-black text-[rgb(var(--c-primary))] leading-none mb-1.5">{s.value}</dd>
+            <p className="text-xs text-gray-600 leading-snug">{s.label}</p>
+          </div>
+        ))}
+      </dl>
+    </div>
+  );
+}
+
+/* --- Brand engagement process --- */
+function BrandProcess() {
+  const steps = [
+    { n: "01", t: "Discovery & audit", d: "Stakeholder interviews, competitive landscape, and an audit of existing equity so the new identity builds on what already works." },
+    { n: "02", t: "Strategy & positioning", d: "Brand platform, personality, and messaging pillars that give the visual system a clear reason to exist." },
+    { n: "03", t: "Identity design", d: "Core mark, wordmark, color, and type systems designed and stress-tested across real applications." },
+    { n: "04", t: "System & guidelines", d: "Enforceable guidelines, design tokens, and component theming so the brand stays consistent as teams scale it." },
+  ];
+  return (
+    <div className="rounded-2xl border border-gray-200 bg-white p-6 sm:p-8">
+      <p className="text-[rgb(var(--c-accent-on-light))] text-xs font-semibold tracking-[2px] uppercase mb-2">
+        Engagement process
+      </p>
+      <h3 className="text-xl font-bold text-gray-900 mb-6">
+        From blank page to an enforceable brand system
+      </h3>
+      <ol className="space-y-4 list-none p-0 m-0">
+        {steps.map((s) => (
+          <li key={s.n} className="flex gap-4">
+            <span className="shrink-0 font-black text-lg text-[rgb(var(--c-primary)/0.35)] tabular-nums">{s.n}</span>
+            <div>
+              <p className="font-bold text-gray-900 text-sm mb-0.5">{s.t}</p>
+              <p className="text-gray-700 text-sm leading-relaxed">{s.d}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  );
+}
+
+/* --- Brand principles --- */
+function BrandPrinciples() {
+  const principles = [
+    { t: "Systems, not one-offs", d: "Every identity ships as a reusable, tokenized system — so it scales cleanly from a single logo to an entire product surface." },
+    { t: "Accessible by default", d: "Color, type, and contrast are validated to WCAG AA/AAA from the first sketch, not retrofitted after launch." },
+    { t: "Built to be enforced", d: "Guidelines, clearspace rules, and design tokens make the brand hard to break and easy for teams to apply." },
+    { t: "Brand meets product", d: "The same design language runs from the marketing mark to the component library, keeping brand and product in lockstep." },
+  ];
+  return (
+    <div>
+      <p className="text-[rgb(var(--c-accent-on-light))] text-xs font-semibold tracking-[2px] uppercase mb-3">
+        Principles
+      </p>
+      <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">
+        How I approach every brand engagement
+      </h3>
+      <div className="grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr))]">
+        {principles.map((p, i) => (
+          <div key={p.t} className="rounded-2xl border border-gray-200 bg-[rgb(var(--c-tint-50))] p-6">
+            <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-[rgb(var(--c-primary))] text-white text-sm font-bold mb-3">
+              {i + 1}
+            </span>
+            <p className="font-bold text-gray-900 text-base mb-1.5">{p.t}</p>
+            <p className="text-gray-700 text-sm leading-relaxed">{p.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function BrandIdentitySection() {
   return (
     <section
@@ -379,11 +470,20 @@ export default function BrandIdentitySection() {
           ))}
         </div>
 
-        {/* Guidelines + refresh */}
-        <div className="grid gap-6 lg:grid-cols-2">
-          <GuidelinesSpread />
-          <RefreshShowcase />
+        {/* Guidelines + refresh / impact / process — balanced two-column layout */}
+        <div className="grid gap-6 lg:grid-cols-2 items-start mb-8">
+          <div className="flex flex-col gap-6">
+            <GuidelinesSpread />
+          </div>
+          <div className="flex flex-col gap-6">
+            <RefreshShowcase />
+            <BrandImpact />
+            <BrandProcess />
+          </div>
         </div>
+
+        {/* Principles */}
+        <BrandPrinciples />
       </div>
     </section>
   );
