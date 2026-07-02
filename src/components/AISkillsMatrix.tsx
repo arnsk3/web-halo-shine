@@ -104,7 +104,7 @@ export default function AISkillsMatrix() {
           ))}
         </div>
 
-        <div className="grid gap-5 items-stretch grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-5 items-stretch [grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr))]">
           {GROUPS.map((g) => (
             <article
               key={g.id}
