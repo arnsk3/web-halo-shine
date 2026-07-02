@@ -6713,6 +6713,7 @@ function Footer({
 
 const PAGE_TITLES: Record<PageId, string> = {
   home: "Senthil Nagappan — AI Safety & Human Systems Integration",
+  brand: "Brand Identity & Visual Systems — Senthil Nagappan",
   about: "About — Senthil Nagappan",
   approach: "Approach — Senthil Nagappan",
   resume: "Resume — Senthil Nagappan",
@@ -6722,6 +6723,7 @@ const PAGE_TITLES: Record<PageId, string> = {
 
 const PAGE_DESCRIPTIONS: Record<PageId, string> = {
   home: "Senthil Kumar Nagappan: AI safety, human systems integration, and accessibility leadership for healthcare, federal, and regulated environments.",
+  brand: "Brand identity & visual systems by Senthil Nagappan — logos, identity systems, brand guidelines, and brand refreshes built to scale across consumer, healthcare, and enterprise.",
   about: "About Senthil Nagappan — 18+ years building AI-driven products in regulated healthcare, federal, retail, and defense environments.",
   approach: "How Senthil Nagappan ensures AI-driven systems are safe, accessible, and compliant — from requirements through deployment.",
   resume: "Download or read Senthil Nagappan's resume — AI safety and human systems integration leadership.",
