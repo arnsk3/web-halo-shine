@@ -80,7 +80,7 @@ export default function AISkillsMatrix() {
       className="bg-[rgb(var(--c-hero-dark))] text-white relative overflow-hidden"
     >
       <div aria-hidden="true" className="pointer-events-none absolute -top-24 -right-24 h-80 w-80 rounded-full bg-[rgb(var(--c-accent))] opacity-20 blur-3xl animate-float-slow" />
-      <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(3rem,6vw,6rem)] relative">
+      <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2rem,4vw,3.5rem)] relative">
         <p className="inline-flex items-center gap-2 text-[rgb(var(--c-accent-on-dark))] text-xs font-semibold tracking-[2px] uppercase mb-3 rounded-full border border-white/15 bg-white/5 backdrop-blur px-3 py-1.5">
           <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-[rgb(var(--c-accent-light))] animate-pulse" />
           AI as a primary skill
@@ -96,7 +96,7 @@ export default function AISkillsMatrix() {
           design and governance to engineering and evaluation. Levels reflect depth of
           hands-on delivery in regulated, safety-critical environments.
         </p>
-        <div className="flex flex-wrap gap-x-4 gap-y-1 mb-10 text-[11px] text-white/70">
+        <div className="flex flex-wrap gap-x-4 gap-y-1 mb-6 text-[11px] text-white/70">
           {LEVEL_LABEL.slice(1).map((l, i) => (
             <span key={l} className="inline-flex items-center gap-1.5">
               <LevelDots level={i + 1} /> {l}

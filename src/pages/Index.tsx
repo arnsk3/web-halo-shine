@@ -894,7 +894,7 @@ function BrandTeaser({ onOpen }: { onOpen: () => void }) {
       aria-labelledby="brand-teaser-heading"
       className="bg-white border-b border-gray-100"
     >
-      <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] pt-[clamp(3rem,5vw,5rem)] pb-[clamp(1.5rem,3vw,3rem)]">
+      <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] pt-[clamp(2rem,4vw,3.5rem)] pb-[clamp(1rem,2vw,2rem)]">
         <FadeIn>
           <article className="group grid gap-8 md:grid-cols-[1.2fr_1fr] items-center rounded-2xl border border-gray-200 bg-[rgb(var(--c-tint-50))] overflow-hidden shadow-sm transition-all duration-300 hover:shadow-xl hover:border-[rgb(var(--c-primary)/0.3)]">
             <div className="p-8 sm:p-10">
@@ -1088,7 +1088,7 @@ function Home({
       <AISkillsMatrix />
 
       {/* Case Studies */}
-      <section id="cases" className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(3rem,6vw,6rem)]" aria-labelledby="cases-heading">
+      <section id="cases" className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2rem,4vw,3.5rem)]" aria-labelledby="cases-heading">
         <FadeIn>
           <h2 id="cases-heading" className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2 tracking-tight">
             Selected Work
@@ -1100,7 +1100,7 @@ function Home({
 
         </FadeIn>
         <FadeIn delay={0.05}>
-          <div className="flex flex-wrap gap-2 mb-10" role="group" aria-label="Filter case studies by category">
+          <div className="flex flex-wrap gap-2 mb-6" role="group" aria-label="Filter case studies by category">
             {CASE_FILTERS.map((f) => {
               const count =
                 f === "All"
@@ -1244,7 +1244,7 @@ function Home({
 
 
       {/* Brief About */}
-      <section className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(3rem,6vw,6rem)]" aria-labelledby="brief-about-heading">
+      <section className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2rem,4vw,3.5rem)]" aria-labelledby="brief-about-heading">
         <FadeIn>
           <div className="max-w-3xl mx-auto">
             <div className="flex gap-5 items-start bg-white border border-gray-200 rounded-xl p-6">
@@ -5316,7 +5316,7 @@ function CaseStudy({
             <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/55 to-black/40" />
           </>
         )}
-        <div className="relative w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(3rem,6vw,6rem)]">
+        <div className="relative w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2rem,4vw,3.5rem)]">
           <button
             onClick={() => setPage("home")}
             className="text-white/85 text-sm hover:text-white mb-6 inline-block transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
