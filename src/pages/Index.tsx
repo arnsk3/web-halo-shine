@@ -903,7 +903,7 @@ function BrandTeaser({ onOpen }: { onOpen: () => void }) {
       aria-labelledby="brand-teaser-heading"
       className="bg-white border-b border-gray-100"
     >
-      <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(3rem,6vw,6rem)]">
+      <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] pt-[clamp(3rem,5vw,5rem)] pb-[clamp(1.5rem,3vw,3rem)]">
         <FadeIn>
           <article className="group grid gap-8 md:grid-cols-[1.2fr_1fr] items-center rounded-2xl border border-gray-200 bg-[rgb(var(--c-tint-50))] overflow-hidden shadow-sm transition-all duration-300 hover:shadow-xl hover:border-[rgb(var(--c-primary)/0.3)]">
             <div className="p-8 sm:p-10">
