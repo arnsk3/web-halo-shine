@@ -132,7 +132,7 @@ export default function AISkillsMatrix() {
                 ))}
               </ul>
             </article>
-          ))}
+          );})}
         </div>
       </div>
     </section>
