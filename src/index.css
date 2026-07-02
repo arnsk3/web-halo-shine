@@ -248,11 +248,18 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif;
     /* Avoid disabling browser text resize (WCAG 1.4.4) */
     text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
     /* Prevent any accidental horizontal scroll on small screens */
     overflow-x: clip;
+  }
+
+  /* Executive editorial voice: Space Grotesk on all display headings */
+  h1, h2, h3, h4, h5, h6, .font-display {
+    font-family: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+    letter-spacing: -0.01em;
   }
 
   /* Smooth in-page anchor scrolling, but only when motion is allowed */
