@@ -470,11 +470,20 @@ export default function BrandIdentitySection() {
           ))}
         </div>
 
-        {/* Guidelines + refresh */}
-        <div className="grid gap-6 lg:grid-cols-2">
-          <GuidelinesSpread />
-          <RefreshShowcase />
+        {/* Guidelines + refresh / impact / process — balanced two-column layout */}
+        <div className="grid gap-6 lg:grid-cols-2 items-start mb-8">
+          <div className="flex flex-col gap-6">
+            <GuidelinesSpread />
+            <BrandProcess />
+          </div>
+          <div className="flex flex-col gap-6">
+            <RefreshShowcase />
+            <BrandImpact />
+          </div>
         </div>
+
+        {/* Principles */}
+        <BrandPrinciples />
       </div>
     </section>
   );
