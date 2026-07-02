@@ -980,10 +980,21 @@ function Home({
   setCase: (c: CaseStudyType) => void;
 }) {
   const [caseFilter, setCaseFilter] = useState<CaseFilter>("All");
-  const visibleCases =
+  const [showAll, setShowAll] = useState(false);
+  // Curated landing selection: strongest 5, interleaving named-employer work
+  // with in-house products so enterprise credibility frames the concepts.
+  const FEATURED_ORDER = ["ssa", "clinicalai", "ge", "trustlens", "bestbuy"];
+  const featuredCases = FEATURED_ORDER
+    .map((id) => CASE_STUDIES.find((s) => s.id === id))
+    .filter((s): s is CaseStudyType => Boolean(s));
+  const filtered =
     caseFilter === "All"
       ? CASE_STUDIES
       : CASE_STUDIES.filter((s) => caseCategories(s).includes(caseFilter));
+  // Only the curated 5 show by default (on the "All" filter, collapsed).
+  const visibleCases =
+    caseFilter === "All" && !showAll ? featuredCases : filtered;
+
   return (
     <div>
       {/* Hero */}
