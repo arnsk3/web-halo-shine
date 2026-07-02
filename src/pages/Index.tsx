@@ -987,8 +987,8 @@ function Home({
         </ul>
       </section>
 
-      {/* Brand Identity & Visual Systems — brand-forward, leads the work */}
-      <BrandIdentitySection />
+      {/* Brand Identity & Visual Systems — teaser card linking to the dedicated page */}
+      <BrandTeaser onOpen={() => setPage("brand")} />
 
       {/* Domain Expertise */}
       <ExpertiseSection />
