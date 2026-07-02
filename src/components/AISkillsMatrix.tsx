@@ -96,7 +96,7 @@ export default function AISkillsMatrix() {
           design and governance to engineering and evaluation. Levels reflect depth of
           hands-on delivery in regulated, safety-critical environments.
         </p>
-        <div className="flex flex-wrap gap-x-4 gap-y-1 mb-10 text-[11px] text-white/70">
+        <div className="flex flex-wrap gap-x-4 gap-y-1 mb-6 text-[11px] text-white/70">
           {LEVEL_LABEL.slice(1).map((l, i) => (
             <span key={l} className="inline-flex items-center gap-1.5">
               <LevelDots level={i + 1} /> {l}
