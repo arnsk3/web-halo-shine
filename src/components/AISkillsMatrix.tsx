@@ -104,14 +104,12 @@ export default function AISkillsMatrix() {
           ))}
         </div>
 
-        <div className="grid gap-5 items-stretch [grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr))]">
-          {GROUPS.map((g, i) => {
-            const isLast = i === GROUPS.length - 1;
-            return (
+        <div className="grid gap-4 items-stretch grid-cols-1 md:grid-cols-3">
+          {GROUPS.map((g) => (
             <article
               key={g.id}
               aria-labelledby={`${g.id}-title`}
-              className={`flex h-full flex-col rounded-2xl border border-white/12 bg-white/[0.04] backdrop-blur p-5 ${isLast ? "md:col-span-2" : ""}`}
+              className="flex h-full flex-col rounded-2xl border border-white/12 bg-white/[0.04] backdrop-blur p-5"
             >
               <h3 id={`${g.id}-title`} className="font-bold text-white text-lg leading-snug">
                 {g.title}
