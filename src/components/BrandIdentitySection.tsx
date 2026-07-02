@@ -448,20 +448,21 @@ export default function BrandIdentitySection() {
     >
       <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(3rem,6vw,6rem)]">
         <p className="text-[rgb(var(--c-accent-on-light))] text-xs font-semibold tracking-[2px] uppercase mb-3">
-          Brand Identity & Visual Systems
+          Design Systems & Brand-Consistent UI
         </p>
         <h2
           id="brand-heading"
           className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 mb-3 tracking-tight"
         >
-          Logos, identity systems &amp; brand guidelines built to scale
+          Design systems &amp; brand-consistent visual systems that scale
         </h2>
         <p className="text-gray-700 text-sm sm:text-base mb-10 max-w-3xl leading-relaxed">
-          I design complete brand identities — from the core mark and wordmark to the color and
-          type systems, guidelines, and every application that follows. Below are representative
-          identity systems, a brand refresh, and the guideline anatomy I ship with each engagement.
-          Consumer, healthcare, fintech, and AI brands.
+          I build the systems that keep a brand consistent at scale — shared components, design
+          tokens, and on-brand UI carried from design intent through to production code. Below
+          are representative visual systems, a refresh, and the guideline anatomy I ship with
+          each engagement, across consumer, healthcare, and enterprise products.
         </p>
+
 
         {/* Brand project grid */}
         <div className="grid gap-6 items-stretch [grid-template-columns:repeat(auto-fit,minmax(min(100%,24rem),1fr))] mb-8">
