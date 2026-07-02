@@ -104,20 +104,21 @@ All colors MUST be HSL.
 @layer base {
   :root,
   [data-theme="indigo"] {
-    /* Paper & Ink — executive editorial monochrome (locked design system) */
-    --c-primary: 13 13 13;
-    --c-accent: 45 45 45;
-    --c-accent-light: 90 90 90;
-    --c-accent-dark: 13 13 13;
-    --c-accent-on-light: 45 45 45;
-    --c-accent-on-dark: 214 210 200;
-    --c-hero-dark: 13 13 13;
-    --c-hero-mid: 33 33 31;
-    --c-tint-50: 245 243 238;
-    --c-tint-100: 239 236 229;
-    --c-tint-200: 232 228 221;
-    --c-tint-300: 201 196 185;
+    /* Deep Teal — ownable executive master brand (AI Experience Design) */
+    --c-primary: 13 59 59;
+    --c-accent: 15 94 88;
+    --c-accent-light: 45 138 130;
+    --c-accent-dark: 8 42 42;
+    --c-accent-on-light: 13 66 62;
+    --c-accent-on-dark: 138 205 195;
+    --c-hero-dark: 8 32 32;
+    --c-hero-mid: 12 54 54;
+    --c-tint-50: 241 248 247;
+    --c-tint-100: 226 242 240;
+    --c-tint-200: 203 229 225;
+    --c-tint-300: 150 201 194;
   }
+
 
   [data-theme="emerald"] {
     --c-primary: 6 78 59;
