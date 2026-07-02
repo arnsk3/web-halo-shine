@@ -326,3 +326,77 @@ All colors MUST be HSL.
     }
   }
 }
+
+/* =========================================================
+   EXECUTIVE PORTFOLIO — 2026 REDESIGN DESIGN SYSTEM
+   One primary (indigo), one accent (coral), ink + 3 grays.
+   Display: Fraunces · Body: Inter. Type scale 64/40/28/20/16.
+   ========================================================= */
+@layer base {
+  :root {
+    /* Core surfaces */
+    --background: 40 33% 98%;      /* warm off-white */
+    --foreground: 228 20% 11%;     /* near-black ink */
+    --card: 0 0% 100%;
+    --card-foreground: 228 20% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 228 20% 11%;
+    --muted: 40 20% 95%;
+    --muted-foreground: 228 9% 40%;
+    --border: 40 14% 88%;
+    --input: 40 14% 88%;
+    --ring: 232 54% 36%;
+
+    /* Brand system */
+    --brand: 232 54% 36%;          /* primary indigo */
+    --brand-foreground: 0 0% 100%;
+    --coral: 14 80% 55%;           /* accent coral */
+    --coral-foreground: 0 0% 100%;
+    --ink: 228 20% 11%;
+    --gray-1: 228 9% 40%;
+    --gray-2: 228 8% 60%;
+    --gray-3: 40 14% 90%;
+
+    --primary: 232 54% 36%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 40 20% 95%;
+    --secondary-foreground: 228 20% 11%;
+    --accent: 40 20% 95%;
+    --accent-foreground: 228 20% 11%;
+
+    /* Pillar colors */
+    --p-ai: 232 54% 42%;
+    --p-hsi: 190 58% 32%;
+    --p-access: 150 46% 30%;
+    --p-brand: 14 80% 50%;
+  }
+}
+
+@layer components {
+  .pp-container { @apply mx-auto w-full max-w-[1200px] px-6 md:px-8; }
+  .pp-section { @apply py-16 md:py-[120px]; }
+  .type-hero {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 600;
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    font-size: clamp(2.75rem, 1.8rem + 4vw, 4rem);
+  }
+  .type-h2 {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 600;
+    line-height: 1.08;
+    letter-spacing: -0.015em;
+    font-size: clamp(1.9rem, 1.3rem + 2.4vw, 2.5rem);
+  }
+  .type-h3 {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 600;
+    line-height: 1.15;
+    font-size: clamp(1.35rem, 1.1rem + 0.9vw, 1.75rem);
+  }
+  .type-lead { font-size: clamp(1.05rem, 1rem + 0.35vw, 1.25rem); line-height: 1.55; }
+  .type-eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.16em];
+  }
+}
