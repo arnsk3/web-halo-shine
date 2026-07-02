@@ -6668,6 +6668,7 @@ function Footer({
 }) {
   const labels: Record<PageId, string> = {
     home: "Home",
+    brand: "Brand",
     about: "About",
     approach: "Approach",
     resume: "Resume",
