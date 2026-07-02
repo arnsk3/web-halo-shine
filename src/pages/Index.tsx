@@ -728,11 +728,11 @@ const CREDS = [
   "CPACC + WAS",
   "CUA",
   "CSM",
-  "MIL-STD-1472H",
   "FDA / IEC 62366",
   "WCAG 2.2 AA",
-  "MBSE / SysML",
+  "MIL-STD-1472H",
 ];
+
 
 // Derive filterable categories from each case study's tag so the work can be
 // filtered without duplicating metadata on every entry.
@@ -741,10 +741,14 @@ const CASE_FILTERS = [
   "AI & Governance",
   "Design Systems",
   "Accessibility",
-  "Consumer & Brand",
+  "Brand",
   "Federal & Enterprise",
 ] as const;
 type CaseFilter = (typeof CASE_FILTERS)[number];
+
+// In-house concept products (vs. shipped named-employer client work).
+const IN_HOUSE_IDS = ["trustlens", "clinicalai", "sentinel", "lumen"];
+
 
 function caseCategories(s: CaseStudyType): CaseFilter[] {
   const t = `${s.tag} ${s.title} ${s.standards.join(" ")}`.toLowerCase();
@@ -754,11 +758,12 @@ function caseCategories(s: CaseStudyType): CaseFilter[] {
   if (/design system|component library|component system/.test(t))
     cats.push("Design Systems");
   if (/accessib|wcag|section 508|a11y/.test(t)) cats.push("Accessibility");
-  if (/consumer|brand|mobile-first/.test(t)) cats.push("Consumer & Brand");
+  if (/consumer|brand|mobile-first|visual/.test(t)) cats.push("Brand");
   if (/federal|government|portfolio|samhsa|hhs|enterprise/.test(t))
     cats.push("Federal & Enterprise");
   return cats;
 }
+
 
 
 
@@ -810,19 +815,15 @@ function FadeIn({ children, delay = 0, className = "" }: FadeInProps) {
 type PageId = "home" | "brand" | "about" | "approach" | "resume" | "contact" | "case";
 
 function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) {
-  const pageLinks: { id: PageId; label: string }[] = [
-    { id: "home", label: "Home" },
-    { id: "brand", label: "Brand" },
-  ];
+  // Curated 5-item nav. "Work" and "Expertise" scroll to landing sections;
+  // Brand lives as a filter inside Work, not a top-level item.
   const sectionLinks: { id: string; label: string }[] = [
-    { id: "expertise", label: "Domain Expertise" },
-    { id: "ai-skills", label: "AI Skills Matrix" },
-    { id: "cases", label: "Case Studies" },
+    { id: "cases", label: "Work" },
+    { id: "expertise", label: "Expertise" },
   ];
   const tailLinks: { id: PageId; label: string }[] = [
     { id: "about", label: "About" },
-    { id: "approach", label: "Approach" },
-    { id: "resume", label: "Resume" },
+    { id: "resume", label: "Résumé" },
     { id: "contact", label: "Contact" },
   ];
   const goSection = (id: string) => {
@@ -848,30 +849,19 @@ function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) 
         <button
           onClick={() => setPage("home")}
           aria-label="Senthil Nagappan — go to home"
-          className="flex items-center gap-2 group rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
+          className="flex items-center gap-2.5 group rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
         >
-          <img
-            src="/headshot.jpg"
-            alt=""
+          <span
             aria-hidden="true"
-            className="w-8 h-8 rounded-full object-cover"
-          />
-          <span className="font-semibold text-gray-900 text-sm tracking-tight hidden sm:block">
+            className="flex h-8 w-8 items-center justify-center rounded-md bg-[rgb(var(--c-primary))] text-white font-display text-xs font-bold tracking-tight"
+          >
+            SN
+          </span>
+          <span className="font-display font-semibold text-gray-900 text-sm tracking-tight hidden sm:block">
             Senthil Nagappan
           </span>
         </button>
         <ul className="flex flex-wrap justify-end gap-0.5 sm:gap-1 list-none m-0 p-0">
-          {pageLinks.map((l) => (
-            <li key={l.id}>
-              <button
-                onClick={() => setPage(l.id)}
-                aria-current={page === l.id ? "page" : undefined}
-                className={linkClass(page === l.id)}
-              >
-                {l.label}
-              </button>
-            </li>
-          ))}
           {sectionLinks.map((l) => (
             <li key={l.id}>
               <button onClick={() => goSection(l.id)} className={linkClass(false)}>
@@ -896,6 +886,7 @@ function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) 
   );
 }
 
+
 function BrandTeaser({ onOpen }: { onOpen: () => void }) {
   return (
     <section
@@ -908,21 +899,21 @@ function BrandTeaser({ onOpen }: { onOpen: () => void }) {
           <article className="group grid gap-8 md:grid-cols-[1.2fr_1fr] items-center rounded-2xl border border-gray-200 bg-[rgb(var(--c-tint-50))] overflow-hidden shadow-sm transition-all duration-300 hover:shadow-xl hover:border-[rgb(var(--c-primary)/0.3)]">
             <div className="p-8 sm:p-10">
               <p className="text-[rgb(var(--c-accent-on-light))] text-xs font-semibold tracking-[2px] uppercase mb-3">
-                Featured · Brand Identity &amp; Visual Systems
+                Featured · Design Systems &amp; Brand-Consistent UI
               </p>
               <h2
                 id="brand-teaser-heading"
                 className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 mb-3 tracking-tight"
               >
-                Logos, identity systems &amp; brand guidelines built to scale
+                Design systems &amp; brand-consistent visual systems that scale
               </h2>
               <p className="text-gray-700 text-sm sm:text-base leading-relaxed mb-5 max-w-xl">
-                Complete brand identities — from the core mark and wordmark to color and type
-                systems, guidelines, and every application that follows. Consumer, healthcare,
-                fintech, and AI brands.
+                Shared components, design tokens, and on-brand UI across consumer, healthcare,
+                and enterprise products — carrying visual consistency from design intent through
+                to production code.
               </p>
               <ul className="flex flex-wrap gap-1.5 list-none p-0 m-0 mb-6">
-                {["Identity systems", "Brand guidelines", "Logo design", "Brand refresh", "Design tokens"].map((t) => (
+                {["Design systems", "Design tokens", "Component libraries", "Brand consistency", "Themeable UI"].map((t) => (
                   <li
                     key={t}
                     className="text-[11px] font-medium px-2.5 py-1 rounded-full bg-white text-[rgb(var(--c-primary))] border border-[rgb(var(--c-primary)/0.12)]"
@@ -931,6 +922,7 @@ function BrandTeaser({ onOpen }: { onOpen: () => void }) {
                   </li>
                 ))}
               </ul>
+
               <button
                 onClick={onOpen}
                 className="group/btn inline-flex items-center justify-center gap-2 min-h-11 bg-[rgb(var(--c-primary))] text-white px-6 py-2.5 rounded-lg font-semibold text-sm shadow-sm hover:-translate-y-0.5 hover:shadow-lg transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
@@ -993,14 +985,25 @@ function Home({
   setCase: (c: CaseStudyType) => void;
 }) {
   const [caseFilter, setCaseFilter] = useState<CaseFilter>("All");
-  const visibleCases =
+  const [showAll, setShowAll] = useState(false);
+  // Curated landing selection: strongest 5, interleaving named-employer work
+  // with in-house products so enterprise credibility frames the concepts.
+  const FEATURED_ORDER = ["ssa", "clinicalai", "ge", "trustlens", "bestbuy"];
+  const featuredCases = FEATURED_ORDER
+    .map((id) => CASE_STUDIES.find((s) => s.id === id))
+    .filter((s): s is CaseStudyType => Boolean(s));
+  const filtered =
     caseFilter === "All"
       ? CASE_STUDIES
       : CASE_STUDIES.filter((s) => caseCategories(s).includes(caseFilter));
+  // Only the curated 5 show by default (on the "All" filter, collapsed).
+  const visibleCases =
+    caseFilter === "All" && !showAll ? featuredCases : filtered;
+
   return (
     <div>
       {/* Hero */}
-      <header className="relative overflow-hidden bg-gradient-to-br from-[rgb(var(--c-hero-dark))] via-[rgb(var(--c-primary))] to-[#2e5580] text-white">
+      <header className="relative overflow-hidden bg-gradient-to-br from-[rgb(var(--c-hero-dark))] via-[rgb(var(--c-primary))] to-[rgb(var(--c-accent))] text-white">
         <div
           className="absolute inset-0 opacity-[0.04]"
           style={{
@@ -1016,51 +1019,46 @@ function Home({
           <FadeIn>
             <p className="inline-flex items-center gap-2 text-[rgb(var(--c-accent-on-dark))] text-xs font-semibold tracking-[3px] uppercase mb-5 rounded-full border border-white/15 bg-white/5 backdrop-blur px-4 py-1.5">
               <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-[rgb(var(--c-accent-light))] animate-pulse" />
-              Visual &amp; Brand Designer · Design Systems · UI Engineering · AI Governance
+              AI Experience Design · Human Factors · Accessibility · Design Systems
             </p>
           </FadeIn>
           <FadeIn delay={0.1}>
             <h1 className="text-4xl sm:text-5xl font-extrabold leading-[1.1] mb-5 tracking-tight">
-              Brand identities &amp; visual systems
-              <span className="bg-gradient-to-r from-[rgb(var(--c-accent-light))] to-[rgb(var(--c-accent-on-dark))] bg-clip-text text-transparent"> built to scale.</span>
+              Designing safe, human-centered AI
+              <span className="bg-gradient-to-r from-[rgb(var(--c-accent-light))] to-[rgb(var(--c-accent-on-dark))] bg-clip-text text-transparent"> for regulated environments.</span>
             </h1>
           </FadeIn>
           <FadeIn delay={0.15}>
             <p className="text-white text-base sm:text-lg font-semibold mb-3 max-w-2xl mx-auto leading-relaxed">
-              Brand &amp; Visual Designer crafting logos, identity systems, brand guidelines,
-              and brand refreshes — plus the design systems and UI engineering that carry a
-              brand from mark to product, across consumer, healthcare, and enterprise.
+              18+ years designing the interface between people and AI — where getting it wrong
+              isn&apos;t an option.
             </p>
           </FadeIn>
           <FadeIn delay={0.2}>
-            <p className="text-white/85 text-base mb-8 max-w-lg mx-auto leading-relaxed">
-              Backed by design-systems, accessibility, and AI governance leadership for
-              regulated environments.
+            <p className="text-white/85 text-base mb-8 max-w-xl mx-auto leading-relaxed">
+              I pair AI experience design and governance with accessibility leadership, design
+              systems, and production front-end engineering — across healthcare, federal, and
+              enterprise.
             </p>
           </FadeIn>
           <FadeIn delay={0.3}>
             <div className="flex gap-3 justify-center flex-wrap">
               <button
-                onClick={() => setPage("brand")}
-                className="group inline-flex items-center justify-center gap-2 min-h-11 bg-white text-[rgb(var(--c-primary))] px-6 py-2.5 rounded-lg font-semibold text-sm shadow-lg shadow-black/10 hover:-translate-y-0.5 hover:shadow-xl hover:bg-[rgb(var(--c-accent-on-light))] hover:text-white transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
-              >
-                View Brand Work <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
-              </button>
-              <button
                 onClick={() => document.getElementById("cases")?.scrollIntoView({ behavior: "smooth" })}
-                className="group inline-flex items-center justify-center gap-2 min-h-11 bg-white/10 border border-white/40 text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-white/20 hover:-translate-y-0.5 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
+                className="group inline-flex items-center justify-center gap-2 min-h-11 bg-white text-[rgb(var(--c-primary))] px-6 py-2.5 rounded-lg font-semibold text-sm shadow-lg shadow-black/10 hover:-translate-y-0.5 hover:shadow-xl hover:bg-[rgb(var(--c-accent-on-light))] hover:text-white transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
               >
                 View Case Studies <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
               </button>
               <button
                 onClick={() => setPage("about")}
-                className="inline-flex items-center justify-center min-h-11 border border-white/60 text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-white/10 hover:-translate-y-0.5 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
+                className="group inline-flex items-center justify-center gap-2 min-h-11 bg-white/10 border border-white/40 text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-white/20 hover:-translate-y-0.5 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
               >
-                About Me
+                About Me <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
               </button>
             </div>
           </FadeIn>
         </div>
+
       </header>
 
       {/* Credentials */}
@@ -1093,11 +1091,13 @@ function Home({
       <section id="cases" className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(3rem,6vw,6rem)]" aria-labelledby="cases-heading">
         <FadeIn>
           <h2 id="cases-heading" className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2 tracking-tight">
-            Case Studies
+            Selected Work
           </h2>
           <p className="text-gray-700 text-base mb-6">
-            Digital brand experiences, design systems, data-driven design, and AI products that drove engagement, adoption, and conversion at scale
+            A curated set of the strongest case studies — enterprise design systems, data-driven
+            design, accessibility, and AI products that drove adoption and trust at scale.
           </p>
+
         </FadeIn>
         <FadeIn delay={0.05}>
           <div className="flex flex-wrap gap-2 mb-10" role="group" aria-label="Filter case studies by category">
@@ -1149,10 +1149,16 @@ function Home({
                     />
                   )}
                   <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                  {IN_HOUSE_IDS.includes(s.id) && (
+                    <span className="absolute top-4 right-4 text-[10px] font-bold tracking-wide uppercase px-2.5 py-1 rounded-full bg-white/90 text-[rgb(var(--c-primary))]">
+                      In-House Product
+                    </span>
+                  )}
                   <span className="relative text-white text-[11px] font-semibold tracking-widest uppercase">
                     {s.tag}
                   </span>
                 </div>
+
                 <div className="flex-1 flex flex-col p-6">
                   <h3 className="font-bold text-gray-900 text-lg mb-1.5 leading-snug">
                     {s.title}
@@ -1219,7 +1225,23 @@ function Home({
             );
           })}
         </div>
+        {caseFilter === "All" && (
+          <div className="mt-10 flex justify-center">
+            <button
+              type="button"
+              onClick={() => setShowAll((v) => !v)}
+              aria-expanded={showAll}
+              className="group inline-flex items-center gap-2 min-h-11 px-6 py-2.5 rounded-lg border border-[rgb(var(--c-primary)/0.3)] text-[rgb(var(--c-primary))] font-semibold text-sm hover:bg-[rgb(var(--c-tint-50))] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
+            >
+              {showAll ? "Show fewer" : `View all work (${CASE_STUDIES.length})`}
+              <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">
+                {showAll ? "↑" : "→"}
+              </span>
+            </button>
+          </div>
+        )}
       </section>
+
 
       {/* Brief About */}
       <section className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(3rem,6vw,6rem)]" aria-labelledby="brief-about-heading">
@@ -6817,8 +6839,9 @@ const PAGE_TITLES: Record<PageId, string> = {
 };
 
 const PAGE_DESCRIPTIONS: Record<PageId, string> = {
-  home: "Senthil Kumar Nagappan: AI safety, human systems integration, and accessibility leadership for healthcare, federal, and regulated environments.",
-  brand: "Brand identity & visual systems by Senthil Nagappan — logos, identity systems, brand guidelines, and brand refreshes built to scale across consumer, healthcare, and enterprise.",
+  home: "Senthil Kumar Nagappan: AI experience design and human systems integration — accessibility, design systems, and production front-end engineering for safe, human-centered AI in healthcare, federal, and enterprise environments.",
+  brand: "Design systems & brand-consistent visual systems by Senthil Nagappan — shared components, design tokens, and on-brand UI that scale across consumer, healthcare, and enterprise products.",
+
   about: "About Senthil Nagappan — 18+ years building AI-driven products in regulated healthcare, federal, retail, and defense environments.",
   approach: "How Senthil Nagappan ensures AI-driven systems are safe, accessible, and compliant — from requirements through deployment.",
   resume: "Download or read Senthil Nagappan's resume — AI safety and human systems integration leadership.",
@@ -6921,18 +6944,20 @@ const Index = () => {
         )}
         {page === "brand" && (
           <div>
-            <header className="relative overflow-hidden bg-gradient-to-br from-[rgb(var(--c-hero-dark))] via-[rgb(var(--c-primary))] to-[#2e5580] text-white">
+            <header className="relative overflow-hidden bg-gradient-to-br from-[rgb(var(--c-hero-dark))] via-[rgb(var(--c-primary))] to-[rgb(var(--c-accent))] text-white">
               <div className="max-w-3xl mx-auto px-6 py-20 text-center relative">
                 <p className="inline-flex items-center gap-2 text-[rgb(var(--c-accent-on-dark))] text-xs font-semibold tracking-[3px] uppercase mb-5 rounded-full border border-white/15 bg-white/5 backdrop-blur px-4 py-1.5">
-                  Brand Identity &amp; Visual Systems
+                  Design Systems &amp; Brand-Consistent UI
                 </p>
                 <h1 className="font-display text-4xl sm:text-5xl font-extrabold leading-[1.1] mb-5 tracking-tight">
-                  Brand identities &amp; visual systems built to scale
+                  Design systems &amp; brand-consistent visual systems that scale
                 </h1>
                 <p className="text-white/90 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-                  Logos, identity systems, brand guidelines, and brand refreshes — plus the
-                  design systems that carry a brand from mark to product.
+                  Shared components, design tokens, and on-brand UI across consumer, healthcare,
+                  and enterprise products — carrying visual consistency from design intent to
+                  production code.
                 </p>
+
               </div>
             </header>
             <BrandIdentitySection />
