@@ -18,6 +18,10 @@ import caseGe from "@/assets/case-ge.jpg";
 import caseSsa from "@/assets/case-ssa.jpg";
 import caseBestbuy from "@/assets/case-bestbuy.jpg";
 import caseSamhsa from "@/assets/case-samhsa.jpg";
+import caseTrustlens from "@/assets/case-trustlens.jpg";
+import caseClinicalAi from "@/assets/case-clinicalai.jpg";
+import caseSentinel from "@/assets/case-sentinel.jpg";
+import caseLumen from "@/assets/case-lumen.jpg";
 
 /* ═══════════════════════════════════════════
    SENTHIL KUMAR NAGAPPAN — PORTFOLIO SITE
@@ -111,6 +115,168 @@ const CASE_STUDIES: CaseStudyType[] = [
       "Human Performance — designed for assistive-technology users first, validated with keyboard and screen-reader workflows",
       "Section 508 / WCAG 2.2 — every check traces to a normative success criterion",
       "Error Prevention — guided fixes reduce remediation rework and reintroduced defects",
+    ],
+  },
+  {
+    id: "trustlens",
+    tag: "In-House AI Product · NIST AI RMF · EU AI Act · Governance",
+    title: "TrustLens — AI Governance & Model-Risk Command Center",
+    subtitle:
+      "Conceived and built an in-house AI governance platform that gives Chief AI Officers a single pane of glass to monitor model risk, fairness, drift, and human-oversight decisions — turning abstract AI regulation into audit-ready, real-time evidence.",
+    hero: "from-[rgb(var(--c-hero-mid))] via-[rgb(var(--c-primary))] to-[rgb(var(--c-accent))]",
+    image: caseTrustlens,
+    role: "AI Product Owner · Governance Architect · Frontend Engineer",
+    timeline: "2024 – Present",
+    org: "BrainPulse (In-House Product)",
+    standards: ["NIST AI RMF", "EU AI Act", "ISO/IEC 42001", "WCAG 2.2 AA", "TEVV"],
+    metrics: [
+      { value: "8+", label: "Models Governed" },
+      { value: "4", label: "Risk Tiers" },
+      { value: "70%", label: "Faster Audit Prep" },
+    ],
+    sections: [
+      {
+        heading: "Why I Built It",
+        content:
+          "AI is being deployed faster than organizations can govern it. Teams ship models with no shared risk language, no oversight controls for high-stakes decisions, and no evidence trail when a regulator, board, or auditor comes asking. I built TrustLens to make AI governance operational rather than aspirational — a product that translates NIST AI RMF, the EU AI Act, and ISO/IEC 42001 into living dashboards instead of static PDFs.",
+      },
+      {
+        heading: "My Role",
+        content:
+          "I owned this product end-to-end: the governance framework, the information architecture, the visual design system, and the React + TypeScript front-end build. I defined the risk-tiering taxonomy, designed the human-oversight interaction models, built the reusable data-visualization component library, and shaped how compliance evidence is captured as a byproduct of everyday use. I worked the way I would embedded with a Chief AI Officer's team — translating regulation into screens stakeholders actually adopt.",
+      },
+      {
+        heading: "What It Does",
+        content:
+          "TrustLens ingests metadata from every AI/ML model an organization runs and renders a unified governance picture: model cards with training-data provenance and known limitations, fairness and bias panels, confidence-score distributions, and a TEVV reporting suite with drift detection and performance-degradation alerts. A risk-tiering engine classifies each model as Critical, High, Medium, or Low and routes high-risk decisions into configurable human-in-the-loop approval gates with override capture and full audit logging.",
+      },
+      {
+        heading: "AI Safety by Design",
+        content:
+          "The product encodes the recommend / act / alert interaction model directly into the UI, with explicit confidence thresholds and graceful-degradation states for when a model is uncertain or offline. Every AI-assisted decision is legible and reversible: clinicians, examiners, or operators can see why a model recommended an action, challenge it, and capture their override reasoning — making oversight meaningful instead of a rubber stamp.",
+      },
+      {
+        heading: "The Hardest Decisions",
+        content:
+          "Signal vs. noise: governance dashboards die when they fire too many alerts, so I tuned drift and bias thresholds to surface only material changes and routed the rest to a digest — keeping examiner attention where risk actually lives. Transparency vs. overwhelm: leadership wanted every metric on one screen; I pushed back and designed progressive disclosure — a calm executive overview that drills into deep TEVV evidence on demand. Speed vs. accountability: rather than auto-approving low-risk models to move faster, I made the approval gate one click but always logged — accountability without friction.",
+      },
+      {
+        heading: "Impact & Adoption",
+        content:
+          "By generating compliance evidence as a byproduct of normal monitoring, TrustLens cut the manual effort of assembling NIST AI RMF and EU AI Act audit packages by an estimated 70% — turning a multi-week fire drill into an export. The single-pane-of-glass overview drove cross-team adoption because each stakeholder — risk, legal, engineering, leadership — sees the same source of truth, replacing scattered spreadsheets and one-off model reviews with a shared operating picture.",
+      },
+      {
+        heading: "UI Architecture & React Engineering",
+        content:
+          "I architected and wrote the front end in React + TypeScript as a library of reusable, accessible data-visualization components — risk gauges, fairness charts, model cards, and audit timelines — driven by a single semantic design-token layer. Predictable state management keeps model status, filters, and oversight queues in sync across views, and the Vite build uses code-splitting and lazy loading so dense, data-heavy dashboards stay fast. Every chart is colorblind-safe and validated to WCAG 2.2 AA.",
+      },
+    ],
+    outcomes: [
+      "Single-pane-of-glass governance across 8+ AI models with real-time health monitoring",
+      "Cut audit-package preparation effort an estimated 70% by generating evidence as a byproduct of use",
+      "Risk-tiering engine with automated escalation and human-override controls for high-stakes decisions",
+      "TEVV suite with drift detection, bias monitoring, and performance-degradation alerts",
+      "Audit-ready NIST AI RMF and EU AI Act evidence packages generated on demand",
+      "AI Bill of Materials generator for model supply-chain transparency",
+      "Drove cross-team adoption by giving risk, legal, engineering, and leadership one shared source of truth",
+      "Reusable, colorblind-safe React + TypeScript visualization component library",
+      "Human-in-the-loop oversight patterns make every AI decision legible and reversible",
+    ],
+    artifacts: [
+      { label: "Model card component system", desc: "Interactive cards showing data provenance, performance benchmarks, fairness metrics, and known limitations." },
+      { label: "Risk-tiering & escalation engine", desc: "Visual classification of models into Critical/High/Medium/Low with automated oversight routing." },
+      { label: "TEVV monitoring dashboard", desc: "Drift, bias, and degradation panels with threshold-based alerting and digest grouping." },
+      { label: "Executive overview & drill-down", desc: "Progressive-disclosure layout — a calm leadership summary that expands into deep evidence on demand." },
+      { label: "Compliance evidence exporter", desc: "One-click NIST AI RMF / EU AI Act packages and AI Bill of Materials output." },
+    ],
+    hsi: [
+      "AI safety & trust calibration — recommend/act/alert model with explicit confidence and oversight",
+      "Human-in-the-loop control — approval gates, overrides, and audit capture for high-risk decisions",
+      "NIST AI RMF / EU AI Act / ISO 42001 — governance encoded as living, auditable UI",
+      "Accessible data visualization — colorblind-safe, WCAG 2.2 AA dashboards under cognitive load",
+    ],
+  },
+  {
+    id: "clinicalai",
+    tag: "In-House AI Product · Clinical Decision-Support · Explainable AI",
+    title: "Clarity — Explainable Clinical AI Decision-Support",
+    subtitle:
+      "Designed and prototyped an AI clinical decision-support product where getting it wrong isn't an option — surfacing model recommendations with confidence, evidence, and a human-in-the-loop override path so clinicians stay meaningfully in control.",
+    hero: "from-[rgb(var(--c-primary))] via-[rgb(var(--c-hero-mid))] to-[rgb(var(--c-accent))]",
+    image: caseClinicalAi,
+    role: "AI Product Designer · Human-AI Interaction Architect · Builder",
+    timeline: "2024 – Present",
+    org: "BrainPulse (In-House Product)",
+    standards: ["FDA / IEC 62366", "ISO 14971", "NIST AI RMF", "WCAG 2.2 AA"],
+    metrics: [
+      { value: "3", label: "Oversight Tiers" },
+      { value: "100%", label: "Decisions Auditable" },
+      { value: "AAA", label: "Contrast Targets" },
+    ],
+    sections: [
+      {
+        heading: "Why I Built It",
+        content:
+          "Clinical AI fails not when the model is wrong, but when the interface hides how confident it is, why it recommended something, or who is accountable for acting on it. After years designing safety-critical systems, I built Clarity to prove that AI decision-support can be powerful and safe at the same time — by treating explainability, confidence, and human oversight as primary UI, not footnotes.",
+      },
+      {
+        heading: "My Role",
+        content:
+          "I led design and built the working prototype: the human-AI interaction model, the explainability and confidence patterns, the accessible component system, and the React + TypeScript front end. I ran the failure-mode analysis, defined the graded oversight tiers, and designed the override-capture flow that turns clinician disagreement into auditable, model-improving signal — the way I'd partner with a clinical and regulatory team to ship something both safe and usable.",
+      },
+      {
+        heading: "What It Does",
+        content:
+          "Clarity presents an AI recommendation alongside a patient summary, a plain-language rationale, the evidence behind it, and a calibrated confidence score. Clinicians can accept, modify, or reject the recommendation, and every action — especially overrides — is captured with reasoning for the audit trail. High-uncertainty cases are visually flagged and escalated rather than silently auto-acted.",
+      },
+      {
+        heading: "Designing for Failure Modes",
+        content:
+          "I mapped the failure modes most teams ignore — automation bias, alert fatigue, silent model drift, and ambiguous accountability — and designed safe-state behaviors for each. The product uses graded oversight tiers (Model A recommends, B acts with confirmation, C alerts only), so the level of human control scales with clinical risk and matches FDA / IEC 62366 usability-engineering expectations.",
+      },
+      {
+        heading: "Trust Calibration & Explainability",
+        content:
+          "Confidence is shown as a meaningful, contextual signal — not a raw percentage — so clinicians know when to trust the model and when to dig deeper. Explainability panels connect each recommendation to the contributing factors and source data, giving clinicians a defensible basis to agree or challenge, which is the foundation of appropriate reliance on AI.",
+      },
+      {
+        heading: "The Hardest Decisions",
+        content:
+          "Confidence as number vs. signal: a raw 87% invites false precision and automation bias, so I designed contextual confidence bands tied to evidence strength instead of a bare percentage. Speed vs. explainability: leadership wanted instant recommendations, but explanation can't be an afterthought — I used layered disclosure so the recommendation lands immediately and the rationale is one interaction away. Autonomy vs. oversight: for the highest-risk decisions I refused full automation and codified a mandatory human checkpoint, scaling control to clinical risk rather than to engineering convenience.",
+      },
+      {
+        heading: "Validation & Impact",
+        content:
+          "I pressure-tested the interface against the cognitive conditions clinical AI actually fails in — time pressure, interruption, and ambiguous cases — and validated keyboard and screen-reader operability so the product holds up in real environments, not just demos. The result is a decision-support experience designed to reduce automation bias and over-reliance, shorten time-to-confident-decision through layered explainability, and keep 100% of decisions accountable — the trust foundation that gets clinical AI adopted instead of switched off.",
+      },
+      {
+        heading: "UI Architecture & React Engineering",
+        content:
+          "I built the prototype front end in React + TypeScript with a reusable, accessible component set — recommendation cards, confidence indicators, explainability drawers, and override-capture flows — on a single semantic design-token layer themed to AAA contrast targets. State management keeps recommendations, clinician actions, and audit events consistent, and the interface is fully keyboard-operable and screen-reader-first so it holds up in real clinical environments.",
+      },
+    ],
+    outcomes: [
+      "Graded human-in-the-loop oversight tiers matched to clinical risk (recommend / act-with-confirm / alert)",
+      "Every AI recommendation paired with confidence, rationale, and source evidence",
+      "100% of clinician decisions and overrides captured for the audit trail",
+      "Designed safe-state behaviors for automation bias, drift, and ambiguous accountability",
+      "Trust-calibration UX promotes appropriate reliance — not blind acceptance or dismissal",
+      "Layered explainability shortens time-to-confident-decision without hiding the rationale",
+      "Reusable, AAA-contrast React + TypeScript clinical component library",
+      "Keyboard-operable, screen-reader-first interface aligned to FDA / IEC 62366",
+    ],
+    artifacts: [
+      { label: "AI recommendation card system", desc: "Recommendation + confidence + rationale + evidence in a single legible, accessible unit." },
+      { label: "Explainability drawer", desc: "Connects each recommendation to contributing factors and source data on demand." },
+      { label: "Confidence-band visual language", desc: "Contextual confidence shown as evidence-tied bands rather than misleading raw percentages." },
+      { label: "Override capture flow", desc: "Structured reasoning capture that feeds the audit trail and model feedback loop." },
+      { label: "Oversight-tier interaction spec", desc: "Recommend/act/alert behaviors mapped to clinical risk and IEC 62366 criteria." },
+    ],
+    hsi: [
+      "Human-AI interaction for safety-critical decisions — legible, reversible, and accountable",
+      "Trust calibration & explainability — confidence shown as meaningful, contextual signal",
+      "Failure-mode design — safe states for automation bias, drift, and alert fatigue",
+      "FDA / IEC 62366 usability engineering — oversight tiers matched to clinical risk",
     ],
   },
   {
@@ -401,6 +567,161 @@ const CASE_STUDIES: CaseStudyType[] = [
        "7-year continuity — sustained leadership through changing administrations",
     ],
   },
+  {
+    id: "sentinel",
+    tag: "In-House AI Product · Agentic AI Safety · Red-Team Evaluation",
+    title: "Sentinel — Guardrails & Red-Team Console for Agentic AI",
+    subtitle:
+      "Designed and built a control console for autonomous AI agents — making tool-use, approvals, and failure modes visible so teams can deploy agents that take actions without losing human control.",
+    hero: "from-[rgb(var(--c-hero-mid))] via-[rgb(var(--c-primary))] to-[rgb(var(--c-accent))]",
+    image: caseSentinel,
+    role: "AI Product Designer · Builder",
+    timeline: "2025 – Present",
+    org: "BrainPulse (In-House)",
+    standards: ["NIST AI RMF", "OWASP LLM Top 10", "ISO/IEC 42001", "WCAG 2.2 AA"],
+    metrics: [
+      { value: "100%", label: "Agent Actions Logged" },
+      { value: "4", label: "Guardrail Tiers" },
+      { value: "Real-time", label: "Red-Team Alerts" },
+    ],
+    sections: [
+      {
+        heading: "Why I Built It",
+        content:
+          "Agentic AI changes the risk model entirely — a model that can call tools, browse, and execute actions can also be manipulated into doing the wrong thing through prompt injection or unsafe tool chains. Most teams ship agents with no way to see what the agent intended, what it actually did, or where a human should have intervened. I built Sentinel to make agent behavior legible and controllable before it reaches production.",
+      },
+      {
+        heading: "My Role",
+        content:
+          "I designed and built the console end-to-end: the guardrail taxonomy, the red-team workflow, the visualization system, and the React + TypeScript front end. I defined what 'safe to deploy' means as a concrete, passable checklist, designed the human-approval and kill-switch interactions, and built the adversarial scenario library so safety becomes something teams can demonstrate with evidence — not assert in a slide.",
+      },
+      {
+        heading: "What It Does",
+        content:
+          "Sentinel wraps any agent in a layered guardrail system: input filters catch prompt-injection and jailbreak patterns, an approval layer pauses high-impact tool calls for human confirmation, an action ledger records every step with its rationale and outcome, and a kill-switch returns the agent to a safe state. A red-team console lets evaluators run adversarial scenarios and watch guardrails fire in real time.",
+      },
+      {
+        heading: "Guardrail Tiers",
+        content:
+          "I codified four tiers mapped to action impact — observe (log only), confirm (human approval required), constrain (allowed within hard limits), and block (never permitted). Each tier has fixed UI, audit, and evaluation requirements, so the question 'is this agent safe to deploy?' becomes a checklist teams can pass rather than a judgment call.",
+      },
+      {
+        heading: "The Hardest Decisions",
+        content:
+          "Autonomy vs. control: teams want agents that move fast, but unbounded tool-use is where damage happens — I made high-impact actions require confirmation by default and earn autonomy only after they clear red-team evaluation. Alert fatigue vs. coverage: filtering everything would bury operators, so I tiered detections by severity and grouped low-risk events, keeping the approval queue focused on what truly matters. Trust vs. verification: rather than trusting a vendor's safety claim, I designed the red-team console so safety must be reproduced and proven before launch.",
+      },
+      {
+        heading: "Validation & Impact",
+        content:
+          "By making every agent action auditable and forcing high-impact steps through human approval, Sentinel turns 'we think it's safe' into demonstrable, evidence-backed readiness — the gate enterprises need before they let agents act in production. The four-tier checklist gives risk and engineering a shared deployment standard, shrinking back-and-forth review cycles and giving leadership the confidence to greenlight agentic features they'd otherwise block.",
+      },
+      {
+        heading: "Architecture & Approach",
+        content:
+          "Built the front end in React + TypeScript as reusable visualization components — action timelines, tool-call inspectors, guardrail status panels, and adversarial-test result views — on a single semantic design-token layer. Streaming agent telemetry is handled with predictable state so dense, fast-moving logs stay readable, and every panel is keyboard-operable and WCAG 2.2 AA conformant.",
+      },
+    ],
+    outcomes: [
+      "Made autonomous agent behavior fully auditable — every action logged with intent and outcome",
+      "Four-tier guardrail model turns agent safety into a passable, shared deployment checklist",
+      "Prompt-injection and jailbreak detection surfaced before actions execute",
+      "Red-team console lets evaluators reproduce and verify adversarial failures before launch",
+      "Severity-tiered alerts keep the human approval queue focused and fatigue-free",
+      "Reusable React + TypeScript visualization components on one token layer",
+      "Human-in-the-loop approvals keep humans in control of high-impact actions",
+    ],
+    artifacts: [
+      { label: "Agent action timeline", desc: "Step-by-step view of intent, tool calls, and outcomes for every agent run." },
+      { label: "Guardrail status panels", desc: "Live tier indicators showing what is observed, confirmed, constrained, or blocked." },
+      { label: "Tool-call inspector", desc: "Drill-in view of each tool invocation, its arguments, and the guardrail decision applied." },
+      { label: "Red-team scenario library", desc: "Reusable adversarial tests that exercise prompt injection and unsafe tool chains." },
+      { label: "Evaluation evidence export", desc: "Audit-ready records mapping agent behavior to NIST AI RMF and OWASP LLM controls." },
+    ],
+    hsi: [
+      "Human-in-the-loop oversight — approvals gate high-impact autonomous actions",
+      "Failure-mode design — kill-switch and safe-state recovery for runaway agents",
+      "NIST AI RMF — measure and manage agent risk with traceable evidence",
+      "OWASP LLM Top 10 — prompt-injection and tool-abuse defenses built in",
+    ],
+  },
+  {
+    id: "lumen",
+    tag: "In-House AI Product · RAG Transparency · Source-Grounding UX",
+    title: "Lumen — Source-Grounding & Transparency UX for Enterprise Knowledge AI",
+    subtitle:
+      "Designed the trust layer for retrieval-augmented generation — connecting every AI answer to its source evidence so users can verify, challenge, and rely on knowledge AI in high-stakes work.",
+    hero: "from-[#1b2a69] via-[rgb(var(--c-primary))] to-[rgb(var(--c-accent))]",
+    image: caseLumen,
+    role: "AI Interaction Designer · Builder",
+    timeline: "2025 – Present",
+    org: "BrainPulse (In-House)",
+    standards: ["NIST AI RMF", "WCAG 2.2 AA", "ISO/IEC 42001"],
+    metrics: [
+      { value: "100%", label: "Answers Source-Linked" },
+      { value: "3", label: "Confidence States" },
+      { value: "↓ Hallucination", label: "Risk Surfaced" },
+    ],
+    sections: [
+      {
+        heading: "Why I Built It",
+        content:
+          "Enterprise knowledge AI fails the moment users can't tell whether an answer is grounded in real documents or quietly invented. In regulated and high-stakes work, an unverifiable answer is worse than no answer. I designed Lumen as the transparency layer for retrieval-augmented generation — making the connection between answer and evidence the centerpiece of the experience, not a footnote.",
+      },
+      {
+        heading: "My Role",
+        content:
+          "I designed the trust layer and built the front end: the evidence-linking interaction model, the citation and confidence visual language, the accessible component system, and the React + TypeScript implementation. I defined how answers reconcile with their sources as they stream, how the UI behaves when evidence is thin, and how a user moves from answer to proof in a single step — the pattern that decides whether people actually rely on knowledge AI in serious work.",
+      },
+      {
+        heading: "What It Does",
+        content:
+          "Every claim in an answer is linked to the retrieved passages that support it, with inline citations users can expand to read the exact source. When retrieval is weak or sources conflict, Lumen says so explicitly rather than projecting false confidence. Users can challenge an answer, jump to source documents, and see why a passage was retrieved — turning a black-box response into a defensible, checkable result.",
+      },
+      {
+        heading: "Confidence & Hallucination Cues",
+        content:
+          "Confidence is shown as a meaningful, contextual signal grounded in retrieval quality and source agreement — not a raw model probability. When the system has thin or contradictory evidence, the UI down-weights the answer and surfaces the gap, so users calibrate trust appropriately and hallucination risk is made visible instead of hidden.",
+      },
+      {
+        heading: "The Hardest Decisions",
+        content:
+          "Fluency vs. honesty: a confident, well-written wrong answer is the most dangerous output a RAG system can produce, so I designed the UI to visibly down-weight answers with weak grounding even when the prose reads smoothly. Friction vs. trust: surfacing every citation risks clutter, so I used inline chips with on-demand source drawers — proof is always one interaction away without drowning the answer. Coverage vs. honesty about gaps: instead of always producing an answer, I designed an explicit 'insufficient evidence' state, because in regulated work admitting a gap beats inventing one.",
+      },
+      {
+        heading: "Validation & Impact",
+        content:
+          "By linking 100% of answers to their sources and making hallucination risk visible, Lumen converts a black-box assistant into a tool people can defend to an auditor or a regulator — the prerequisite for adoption in high-stakes domains. Grounding every claim and exposing weak evidence drives appropriate reliance: users trust answers faster when they can verify them in a click, and stop trusting confidently-wrong ones before they act, which is what moves knowledge AI from pilot to production.",
+      },
+      {
+        heading: "Architecture & Approach",
+        content:
+          "Built in React + TypeScript with reusable components for citation chips, source-passage drawers, evidence-linking lines, and confidence indicators — all on a single semantic design-token layer. Streaming responses are reconciled with their citations in predictable state, and the entire experience is keyboard-operable and screen-reader-first to WCAG 2.2 AA.",
+      },
+    ],
+    outcomes: [
+      "Linked 100% of AI answers to their source evidence for verifiable, defensible output",
+      "Surfaced hallucination risk explicitly when retrieval is weak or sources conflict",
+      "Explicit 'insufficient evidence' state prevents confident, well-written wrong answers",
+      "Confidence shown as calibrated, contextual signal — not raw model probability",
+      "Drove appropriate reliance — users verify in one click instead of trusting blindly",
+      "Reusable citation, source-drawer, and grounding components on one token layer",
+      "Screen-reader-first, keyboard-operable transparency UX to WCAG 2.2 AA",
+      "Gave users a defensible basis to trust or challenge knowledge-AI answers",
+    ],
+    artifacts: [
+      { label: "Inline citation system", desc: "Per-claim citation chips that expand to the exact supporting passage." },
+      { label: "Source-passage drawer", desc: "Side panel showing retrieved evidence and why each passage was selected." },
+      { label: "Confidence & gap indicators", desc: "Contextual signals that down-weight thin or conflicting evidence." },
+      { label: "Insufficient-evidence state", desc: "Explicit UI pattern that admits a gap instead of fabricating an answer." },
+      { label: "Grounding component library", desc: "Reusable React + TypeScript primitives for evidence-linked AI answers." },
+    ],
+    hsi: [
+      "Appropriate reliance — evidence linking lets users trust or challenge AI output",
+      "Explainability — every claim traces to its retrieved source passage",
+      "Error prevention — hallucination risk surfaced rather than hidden",
+      "NIST AI RMF — transparency and measurement built into the experience",
+    ],
+  },
 ];
 
 const CREDS = [
@@ -426,7 +747,7 @@ const CASE_FILTERS = [
 type CaseFilter = (typeof CASE_FILTERS)[number];
 
 // In-house concept products (vs. shipped named-employer client work).
-const IN_HOUSE_IDS: string[] = [];
+const IN_HOUSE_IDS = ["trustlens", "clinicalai", "sentinel", "lumen"];
 
 
 function caseCategories(s: CaseStudyType): CaseFilter[] {
@@ -667,8 +988,8 @@ function Home({
   const [showAll, setShowAll] = useState(false);
   // Curated landing selection: strongest 5, interleaving named-employer work
   // with in-house products so enterprise credibility frames the concepts.
-  const FEATURED_ORDER = ["ssa", "ge", "bestbuy"];
-  const FEATURED_ORDER = ["ssa", "ge", "bestbuy"];
+  const FEATURED_ORDER = ["ssa", "clinicalai", "ge", "trustlens", "bestbuy"];
+  const featuredCases = FEATURED_ORDER
     .map((id) => CASE_STUDIES.find((s) => s.id === id))
     .filter((s): s is CaseStudyType => Boolean(s));
   const filtered =
@@ -828,7 +1149,7 @@ function Home({
                     />
                   )}
                   <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-const IN_HOUSE_IDS: string[] = [];
+                  {IN_HOUSE_IDS.includes(s.id) && (
                     <span className="absolute top-4 right-4 text-[10px] font-bold tracking-wide uppercase px-2.5 py-1 rounded-full bg-white/90 text-[rgb(var(--c-primary))]">
                       In-House Product
                     </span>
