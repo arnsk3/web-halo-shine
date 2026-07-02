@@ -218,13 +218,14 @@ export default function ExpertiseSection() {
           impact it delivered.
         </p>
 
-        <div className="grid gap-5 items-stretch [grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr))]">
-          {DOMAINS.map((d) => {
+        <div className="grid gap-5 items-stretch grid-cols-1 md:grid-cols-2">
+          {DOMAINS.map((d, i) => {
+            const isLast = i === DOMAINS.length - 1;
             return (
             <article
                 key={d.id}
                 aria-labelledby={`${d.id}-title`}
-                className="flex h-full flex-col rounded-2xl border bg-white border-[rgb(var(--c-primary)/0.3)] shadow-lg"
+                className={`flex h-full flex-col rounded-2xl border bg-white border-[rgb(var(--c-primary)/0.3)] shadow-lg ${isLast ? "md:col-span-2" : ""}`}
               >
                 <div className="flex w-full items-start gap-4 p-5 text-left">
                   <span
