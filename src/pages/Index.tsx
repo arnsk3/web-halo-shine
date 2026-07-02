@@ -807,28 +807,44 @@ function FadeIn({ children, delay = 0, className = "" }: FadeInProps) {
   );
 }
 
-type PageId = "home" | "about" | "approach" | "resume" | "contact" | "case";
+type PageId = "home" | "brand" | "about" | "approach" | "resume" | "contact" | "case";
 
 function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) {
-  const links: { id: PageId; label: string }[] = [
+  const pageLinks: { id: PageId; label: string }[] = [
     { id: "home", label: "Home" },
+    { id: "brand", label: "Brand" },
+  ];
+  const sectionLinks: { id: string; label: string }[] = [
+    { id: "expertise", label: "Domain Expertise" },
+    { id: "ai-skills", label: "AI Skills Matrix" },
+    { id: "cases", label: "Case Studies" },
+  ];
+  const tailLinks: { id: PageId; label: string }[] = [
     { id: "about", label: "About" },
     { id: "approach", label: "Approach" },
     { id: "resume", label: "Resume" },
     { id: "contact", label: "Contact" },
   ];
-  const goBrand = () => {
+  const goSection = (id: string) => {
     setPage("home");
     requestAnimationFrame(() =>
-      document.getElementById("brand")?.scrollIntoView({ behavior: "smooth" })
+      requestAnimationFrame(() =>
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })
+      )
     );
   };
+  const linkClass = (active: boolean) =>
+    `inline-flex items-center min-h-11 px-2.5 sm:px-3 py-1.5 rounded-md text-sm transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2 ${
+      active
+        ? "bg-[rgb(var(--c-primary)/0.1)] text-[rgb(var(--c-primary))] font-semibold"
+        : "text-gray-700 hover:text-gray-900 hover:bg-gray-100"
+    }`;
   return (
     <nav
       aria-label="Primary"
       className="sticky top-0 z-50 backdrop-blur-xl bg-white/95 border-b border-gray-200"
     >
-      <div className="max-w-5xl mx-auto flex items-center justify-between gap-2 px-4 sm:px-6 py-3">
+      <div className="max-w-6xl mx-auto flex items-center justify-between gap-2 px-4 sm:px-6 py-3">
         <button
           onClick={() => setPage("home")}
           aria-label="Senthil Nagappan — go to home"
@@ -845,24 +861,30 @@ function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) 
           </span>
         </button>
         <ul className="flex flex-wrap justify-end gap-0.5 sm:gap-1 list-none m-0 p-0">
-          <li>
-            <button
-              onClick={goBrand}
-              className="inline-flex items-center min-h-11 px-2.5 sm:px-3 py-1.5 rounded-md text-sm font-semibold text-[rgb(var(--c-accent-on-light))] hover:bg-gray-100 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
-            >
-              Brand
-            </button>
-          </li>
-          {links.map((l) => (
+          {pageLinks.map((l) => (
             <li key={l.id}>
               <button
                 onClick={() => setPage(l.id)}
                 aria-current={page === l.id ? "page" : undefined}
-                className={`inline-flex items-center min-h-11 px-2.5 sm:px-3 py-1.5 rounded-md text-sm transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2 ${
-                  page === l.id
-                    ? "bg-[rgb(var(--c-primary)/0.1)] text-[rgb(var(--c-primary))] font-semibold"
-                    : "text-gray-700 hover:text-gray-900 hover:bg-gray-100"
-                }`}
+                className={linkClass(page === l.id)}
+              >
+                {l.label}
+              </button>
+            </li>
+          ))}
+          {sectionLinks.map((l) => (
+            <li key={l.id}>
+              <button onClick={() => goSection(l.id)} className={linkClass(false)}>
+                {l.label}
+              </button>
+            </li>
+          ))}
+          {tailLinks.map((l) => (
+            <li key={l.id}>
+              <button
+                onClick={() => setPage(l.id)}
+                aria-current={page === l.id ? "page" : undefined}
+                className={linkClass(page === l.id)}
               >
                 {l.label}
               </button>
