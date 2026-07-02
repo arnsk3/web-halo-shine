@@ -6947,15 +6947,17 @@ const Index = () => {
             <header className="relative overflow-hidden bg-gradient-to-br from-[rgb(var(--c-hero-dark))] via-[rgb(var(--c-primary))] to-[rgb(var(--c-accent))] text-white">
               <div className="max-w-3xl mx-auto px-6 py-20 text-center relative">
                 <p className="inline-flex items-center gap-2 text-[rgb(var(--c-accent-on-dark))] text-xs font-semibold tracking-[3px] uppercase mb-5 rounded-full border border-white/15 bg-white/5 backdrop-blur px-4 py-1.5">
-                  Brand Identity &amp; Visual Systems
+                  Design Systems &amp; Brand-Consistent UI
                 </p>
                 <h1 className="font-display text-4xl sm:text-5xl font-extrabold leading-[1.1] mb-5 tracking-tight">
-                  Brand identities &amp; visual systems built to scale
+                  Design systems &amp; brand-consistent visual systems that scale
                 </h1>
                 <p className="text-white/90 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-                  Logos, identity systems, brand guidelines, and brand refreshes — plus the
-                  design systems that carry a brand from mark to product.
+                  Shared components, design tokens, and on-brand UI across consumer, healthcare,
+                  and enterprise products — carrying visual consistency from design intent to
+                  production code.
                 </p>
+
               </div>
             </header>
             <BrandIdentitySection />
