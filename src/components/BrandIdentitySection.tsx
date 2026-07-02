@@ -474,10 +474,10 @@ export default function BrandIdentitySection() {
         <div className="grid gap-6 lg:grid-cols-2 items-start mb-8">
           <div className="flex flex-col gap-6">
             <GuidelinesSpread />
+            <BrandImpact />
           </div>
           <div className="flex flex-col gap-6">
             <RefreshShowcase />
-            <BrandImpact />
             <BrandProcess />
           </div>
         </div>
