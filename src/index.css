@@ -104,18 +104,19 @@ All colors MUST be HSL.
 @layer base {
   :root,
   [data-theme="indigo"] {
-    --c-primary: 49 46 129;
-    --c-accent: 79 70 229;
-    --c-accent-light: 99 102 241;
-    --c-accent-dark: 67 56 202;
-    --c-accent-on-light: 67 56 202;
-    --c-accent-on-dark: 152 154 246;
-    --c-hero-dark: 10 10 26;
-    --c-hero-mid: 20 20 50;
-    --c-tint-50: 243 243 254;
-    --c-tint-100: 236 236 251;
-    --c-tint-200: 205 206 245;
-    --c-tint-300: 165 166 238;
+    /* Paper & Ink — executive editorial monochrome (locked design system) */
+    --c-primary: 13 13 13;
+    --c-accent: 45 45 45;
+    --c-accent-light: 90 90 90;
+    --c-accent-dark: 13 13 13;
+    --c-accent-on-light: 45 45 45;
+    --c-accent-on-dark: 214 210 200;
+    --c-hero-dark: 13 13 13;
+    --c-hero-mid: 33 33 31;
+    --c-tint-50: 245 243 238;
+    --c-tint-100: 239 236 229;
+    --c-tint-200: 232 228 221;
+    --c-tint-300: 201 196 185;
   }
 
   [data-theme="emerald"] {
