@@ -1224,7 +1224,23 @@ function Home({
             );
           })}
         </div>
+        {caseFilter === "All" && (
+          <div className="mt-10 flex justify-center">
+            <button
+              type="button"
+              onClick={() => setShowAll((v) => !v)}
+              aria-expanded={showAll}
+              className="group inline-flex items-center gap-2 min-h-11 px-6 py-2.5 rounded-lg border border-[rgb(var(--c-primary)/0.3)] text-[rgb(var(--c-primary))] font-semibold text-sm hover:bg-[rgb(var(--c-tint-50))] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
+            >
+              {showAll ? "Show fewer" : `View all work (${CASE_STUDIES.length})`}
+              <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">
+                {showAll ? "↑" : "→"}
+              </span>
+            </button>
+          </div>
+        )}
       </section>
+
 
       {/* Brief About */}
       <section className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(3rem,6vw,6rem)]" aria-labelledby="brief-about-heading">
