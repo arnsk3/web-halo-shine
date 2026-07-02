@@ -1047,6 +1047,12 @@ function Home({
                 View Brand Work <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
               </button>
               <button
+                onClick={() => document.getElementById("cases")?.scrollIntoView({ behavior: "smooth" })}
+                className="group inline-flex items-center justify-center gap-2 min-h-11 bg-white/10 border border-white/40 text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-white/20 hover:-translate-y-0.5 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
+              >
+                View Case Studies <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
+              </button>
+              <button
                 onClick={() => setPage("about")}
                 className="inline-flex items-center justify-center min-h-11 border border-white/60 text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-white/10 hover:-translate-y-0.5 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
               >
