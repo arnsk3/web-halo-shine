@@ -986,7 +986,7 @@ function Home({
   return (
     <div>
       {/* Hero */}
-      <header className="relative overflow-hidden bg-gradient-to-br from-[rgb(var(--c-hero-dark))] via-[rgb(var(--c-primary))] to-[#2e5580] text-white">
+      <header className="relative overflow-hidden bg-gradient-to-br from-[rgb(var(--c-hero-dark))] via-[rgb(var(--c-primary))] to-[rgb(var(--c-accent))] text-white">
         <div
           className="absolute inset-0 opacity-[0.04]"
           style={{
@@ -6902,7 +6902,7 @@ const Index = () => {
         )}
         {page === "brand" && (
           <div>
-            <header className="relative overflow-hidden bg-gradient-to-br from-[rgb(var(--c-hero-dark))] via-[rgb(var(--c-primary))] to-[#2e5580] text-white">
+            <header className="relative overflow-hidden bg-gradient-to-br from-[rgb(var(--c-hero-dark))] via-[rgb(var(--c-primary))] to-[rgb(var(--c-accent))] text-white">
               <div className="max-w-3xl mx-auto px-6 py-20 text-center relative">
                 <p className="inline-flex items-center gap-2 text-[rgb(var(--c-accent-on-dark))] text-xs font-semibold tracking-[3px] uppercase mb-5 rounded-full border border-white/15 bg-white/5 backdrop-blur px-4 py-1.5">
                   Brand Identity &amp; Visual Systems
