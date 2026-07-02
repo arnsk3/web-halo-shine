@@ -201,7 +201,7 @@ export default function ExpertiseSection() {
       aria-labelledby="expertise-heading"
       className="bg-[rgb(var(--c-tint-50))] border-y border-[rgb(var(--c-primary)/0.1)]"
     >
-      <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] pt-[clamp(2rem,3vw,3rem)] pb-[clamp(3rem,6vw,6rem)]">
+      <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] pt-[clamp(1.5rem,2.5vw,2.5rem)] pb-[clamp(2rem,4vw,3.5rem)]">
         <p className="text-[rgb(var(--c-accent-on-light))] text-xs font-semibold tracking-[2px] uppercase mb-3">
           Domain Expertise
         </p>
