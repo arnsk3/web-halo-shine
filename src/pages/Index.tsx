@@ -899,21 +899,21 @@ function BrandTeaser({ onOpen }: { onOpen: () => void }) {
           <article className="group grid gap-8 md:grid-cols-[1.2fr_1fr] items-center rounded-2xl border border-gray-200 bg-[rgb(var(--c-tint-50))] overflow-hidden shadow-sm transition-all duration-300 hover:shadow-xl hover:border-[rgb(var(--c-primary)/0.3)]">
             <div className="p-8 sm:p-10">
               <p className="text-[rgb(var(--c-accent-on-light))] text-xs font-semibold tracking-[2px] uppercase mb-3">
-                Featured · Brand Identity &amp; Visual Systems
+                Featured · Design Systems &amp; Brand-Consistent UI
               </p>
               <h2
                 id="brand-teaser-heading"
                 className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 mb-3 tracking-tight"
               >
-                Logos, identity systems &amp; brand guidelines built to scale
+                Design systems &amp; brand-consistent visual systems that scale
               </h2>
               <p className="text-gray-700 text-sm sm:text-base leading-relaxed mb-5 max-w-xl">
-                Complete brand identities — from the core mark and wordmark to color and type
-                systems, guidelines, and every application that follows. Consumer, healthcare,
-                fintech, and AI brands.
+                Shared components, design tokens, and on-brand UI across consumer, healthcare,
+                and enterprise products — carrying visual consistency from design intent through
+                to production code.
               </p>
               <ul className="flex flex-wrap gap-1.5 list-none p-0 m-0 mb-6">
-                {["Identity systems", "Brand guidelines", "Logo design", "Brand refresh", "Design tokens"].map((t) => (
+                {["Design systems", "Design tokens", "Component libraries", "Brand consistency", "Themeable UI"].map((t) => (
                   <li
                     key={t}
                     className="text-[11px] font-medium px-2.5 py-1 rounded-full bg-white text-[rgb(var(--c-primary))] border border-[rgb(var(--c-primary)/0.12)]"
@@ -922,6 +922,7 @@ function BrandTeaser({ onOpen }: { onOpen: () => void }) {
                   </li>
                 ))}
               </ul>
+
               <button
                 onClick={onOpen}
                 className="group/btn inline-flex items-center justify-center gap-2 min-h-11 bg-[rgb(var(--c-primary))] text-white px-6 py-2.5 rounded-lg font-semibold text-sm shadow-sm hover:-translate-y-0.5 hover:shadow-lg transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
