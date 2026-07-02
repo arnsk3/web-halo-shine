@@ -807,28 +807,44 @@ function FadeIn({ children, delay = 0, className = "" }: FadeInProps) {
   );
 }
 
-type PageId = "home" | "about" | "approach" | "resume" | "contact" | "case";
+type PageId = "home" | "brand" | "about" | "approach" | "resume" | "contact" | "case";
 
 function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) {
-  const links: { id: PageId; label: string }[] = [
+  const pageLinks: { id: PageId; label: string }[] = [
     { id: "home", label: "Home" },
+    { id: "brand", label: "Brand" },
+  ];
+  const sectionLinks: { id: string; label: string }[] = [
+    { id: "expertise", label: "Domain Expertise" },
+    { id: "ai-skills", label: "AI Skills Matrix" },
+    { id: "cases", label: "Case Studies" },
+  ];
+  const tailLinks: { id: PageId; label: string }[] = [
     { id: "about", label: "About" },
     { id: "approach", label: "Approach" },
     { id: "resume", label: "Resume" },
     { id: "contact", label: "Contact" },
   ];
-  const goBrand = () => {
+  const goSection = (id: string) => {
     setPage("home");
     requestAnimationFrame(() =>
-      document.getElementById("brand")?.scrollIntoView({ behavior: "smooth" })
+      requestAnimationFrame(() =>
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })
+      )
     );
   };
+  const linkClass = (active: boolean) =>
+    `inline-flex items-center min-h-11 px-2.5 sm:px-3 py-1.5 rounded-md text-sm transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2 ${
+      active
+        ? "bg-[rgb(var(--c-primary)/0.1)] text-[rgb(var(--c-primary))] font-semibold"
+        : "text-gray-700 hover:text-gray-900 hover:bg-gray-100"
+    }`;
   return (
     <nav
       aria-label="Primary"
       className="sticky top-0 z-50 backdrop-blur-xl bg-white/95 border-b border-gray-200"
     >
-      <div className="max-w-5xl mx-auto flex items-center justify-between gap-2 px-4 sm:px-6 py-3">
+      <div className="max-w-6xl mx-auto flex items-center justify-between gap-2 px-4 sm:px-6 py-3">
         <button
           onClick={() => setPage("home")}
           aria-label="Senthil Nagappan — go to home"
@@ -845,24 +861,30 @@ function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) 
           </span>
         </button>
         <ul className="flex flex-wrap justify-end gap-0.5 sm:gap-1 list-none m-0 p-0">
-          <li>
-            <button
-              onClick={goBrand}
-              className="inline-flex items-center min-h-11 px-2.5 sm:px-3 py-1.5 rounded-md text-sm font-semibold text-[rgb(var(--c-accent-on-light))] hover:bg-gray-100 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
-            >
-              Brand
-            </button>
-          </li>
-          {links.map((l) => (
+          {pageLinks.map((l) => (
             <li key={l.id}>
               <button
                 onClick={() => setPage(l.id)}
                 aria-current={page === l.id ? "page" : undefined}
-                className={`inline-flex items-center min-h-11 px-2.5 sm:px-3 py-1.5 rounded-md text-sm transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2 ${
-                  page === l.id
-                    ? "bg-[rgb(var(--c-primary)/0.1)] text-[rgb(var(--c-primary))] font-semibold"
-                    : "text-gray-700 hover:text-gray-900 hover:bg-gray-100"
-                }`}
+                className={linkClass(page === l.id)}
+              >
+                {l.label}
+              </button>
+            </li>
+          ))}
+          {sectionLinks.map((l) => (
+            <li key={l.id}>
+              <button onClick={() => goSection(l.id)} className={linkClass(false)}>
+                {l.label}
+              </button>
+            </li>
+          ))}
+          {tailLinks.map((l) => (
+            <li key={l.id}>
+              <button
+                onClick={() => setPage(l.id)}
+                aria-current={page === l.id ? "page" : undefined}
+                className={linkClass(page === l.id)}
               >
                 {l.label}
               </button>
@@ -871,6 +893,95 @@ function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) 
         </ul>
       </div>
     </nav>
+  );
+}
+
+function BrandTeaser({ onOpen }: { onOpen: () => void }) {
+  return (
+    <section
+      id="brand-teaser"
+      aria-labelledby="brand-teaser-heading"
+      className="bg-white border-b border-gray-100"
+    >
+      <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(3rem,6vw,6rem)]">
+        <FadeIn>
+          <article className="group grid gap-8 md:grid-cols-[1.2fr_1fr] items-center rounded-2xl border border-gray-200 bg-[rgb(var(--c-tint-50))] overflow-hidden shadow-sm transition-all duration-300 hover:shadow-xl hover:border-[rgb(var(--c-primary)/0.3)]">
+            <div className="p-8 sm:p-10">
+              <p className="text-[rgb(var(--c-accent-on-light))] text-xs font-semibold tracking-[2px] uppercase mb-3">
+                Featured · Brand Identity &amp; Visual Systems
+              </p>
+              <h2
+                id="brand-teaser-heading"
+                className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 mb-3 tracking-tight"
+              >
+                Logos, identity systems &amp; brand guidelines built to scale
+              </h2>
+              <p className="text-gray-700 text-sm sm:text-base leading-relaxed mb-5 max-w-xl">
+                Complete brand identities — from the core mark and wordmark to color and type
+                systems, guidelines, and every application that follows. Consumer, healthcare,
+                fintech, and AI brands.
+              </p>
+              <ul className="flex flex-wrap gap-1.5 list-none p-0 m-0 mb-6">
+                {["Identity systems", "Brand guidelines", "Logo design", "Brand refresh", "Design tokens"].map((t) => (
+                  <li
+                    key={t}
+                    className="text-[11px] font-medium px-2.5 py-1 rounded-full bg-white text-[rgb(var(--c-primary))] border border-[rgb(var(--c-primary)/0.12)]"
+                  >
+                    {t}
+                  </li>
+                ))}
+              </ul>
+              <button
+                onClick={onOpen}
+                className="group/btn inline-flex items-center justify-center gap-2 min-h-11 bg-[rgb(var(--c-primary))] text-white px-6 py-2.5 rounded-lg font-semibold text-sm shadow-sm hover:-translate-y-0.5 hover:shadow-lg transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
+              >
+                View brand work
+                <span aria-hidden="true" className="transition-transform group-hover/btn:translate-x-0.5">→</span>
+              </button>
+            </div>
+            <div className="relative h-full min-h-[220px] bg-white border-t md:border-t-0 md:border-l border-gray-100 flex items-center justify-center p-8">
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 opacity-[0.5]"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(rgb(var(--c-primary)/0.05) 1px, transparent 1px), linear-gradient(90deg, rgb(var(--c-primary)/0.05) 1px, transparent 1px)",
+                  backgroundSize: "20px 20px",
+                }}
+              />
+              <div className="relative grid grid-cols-3 gap-4">
+                {[
+                  <svg key="1" viewBox="0 0 64 64" className="h-12 w-12" role="img" aria-label="Identity mark sample">
+                    <path d="M12 44c0-16 10-28 20-28s20 12 20 28" fill="none" stroke="rgb(var(--c-primary))" strokeWidth="6" strokeLinecap="round" />
+                    <circle cx="32" cy="50" r="4" fill="rgb(var(--c-accent))" />
+                  </svg>,
+                  <svg key="2" viewBox="0 0 64 64" className="h-12 w-12" role="img" aria-label="Identity mark sample">
+                    <polygon points="32,8 56,50 8,50" fill="none" stroke="rgb(var(--c-primary))" strokeWidth="5" strokeLinejoin="round" />
+                    <polygon points="32,24 45,48 19,48" fill="rgb(var(--c-accent))" />
+                  </svg>,
+                  <svg key="3" viewBox="0 0 64 64" className="h-12 w-12" role="img" aria-label="Identity mark sample">
+                    <circle cx="32" cy="32" r="22" fill="none" stroke="rgb(var(--c-primary))" strokeWidth="5" opacity="0.35" />
+                    <path d="M12 32h10l5-12 8 24 5-12h12" fill="none" stroke="rgb(var(--c-accent))" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>,
+                  <svg key="4" viewBox="0 0 64 64" className="h-12 w-12" role="img" aria-label="Identity mark sample">
+                    <circle cx="32" cy="26" r="14" fill="rgb(var(--c-accent))" />
+                    <rect x="28" y="36" width="8" height="20" rx="2" fill="rgb(var(--c-primary))" />
+                  </svg>,
+                  <svg key="5" viewBox="0 0 64 64" className="h-12 w-12" role="img" aria-label="Identity mark sample">
+                    <rect x="12" y="12" width="18" height="18" rx="4" fill="rgb(var(--c-primary))" />
+                    <rect x="34" y="34" width="18" height="18" rx="9" fill="rgb(var(--c-accent))" />
+                  </svg>,
+                  <svg key="6" viewBox="0 0 64 64" className="h-12 w-12" role="img" aria-label="Identity mark sample">
+                    <circle cx="32" cy="32" r="20" fill="rgb(var(--c-primary))" />
+                    <path d="M32 12v40M12 32h40" stroke="rgb(var(--c-accent-light))" strokeWidth="2.5" />
+                  </svg>,
+                ]}
+              </div>
+            </div>
+          </article>
+        </FadeIn>
+      </div>
+    </section>
   );
 }
 
@@ -930,12 +1041,10 @@ function Home({
           <FadeIn delay={0.3}>
             <div className="flex gap-3 justify-center flex-wrap">
               <button
-                onClick={() =>
-                  document.getElementById("brand")?.scrollIntoView({ behavior: "smooth" })
-                }
+                onClick={() => setPage("brand")}
                 className="group inline-flex items-center justify-center gap-2 min-h-11 bg-white text-[rgb(var(--c-primary))] px-6 py-2.5 rounded-lg font-semibold text-sm shadow-lg shadow-black/10 hover:-translate-y-0.5 hover:shadow-xl hover:bg-[rgb(var(--c-accent-on-light))] hover:text-white transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
               >
-                View Brand Work <span aria-hidden="true" className="transition-transform group-hover:translate-y-0.5">↓</span>
+                View Brand Work <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
               </button>
               <button
                 onClick={() => setPage("about")}
@@ -965,8 +1074,8 @@ function Home({
         </ul>
       </section>
 
-      {/* Brand Identity & Visual Systems — brand-forward, leads the work */}
-      <BrandIdentitySection />
+      {/* Brand Identity & Visual Systems — teaser card linking to the dedicated page */}
+      <BrandTeaser onOpen={() => setPage("brand")} />
 
       {/* Domain Expertise */}
       <ExpertiseSection />
@@ -6646,6 +6755,7 @@ function Footer({
 }) {
   const labels: Record<PageId, string> = {
     home: "Home",
+    brand: "Brand",
     about: "About",
     approach: "Approach",
     resume: "Resume",
@@ -6690,6 +6800,7 @@ function Footer({
 
 const PAGE_TITLES: Record<PageId, string> = {
   home: "Senthil Nagappan — AI Safety & Human Systems Integration",
+  brand: "Brand Identity & Visual Systems — Senthil Nagappan",
   about: "About — Senthil Nagappan",
   approach: "Approach — Senthil Nagappan",
   resume: "Resume — Senthil Nagappan",
@@ -6699,6 +6810,7 @@ const PAGE_TITLES: Record<PageId, string> = {
 
 const PAGE_DESCRIPTIONS: Record<PageId, string> = {
   home: "Senthil Kumar Nagappan: AI safety, human systems integration, and accessibility leadership for healthcare, federal, and regulated environments.",
+  brand: "Brand identity & visual systems by Senthil Nagappan — logos, identity systems, brand guidelines, and brand refreshes built to scale across consumer, healthcare, and enterprise.",
   about: "About Senthil Nagappan — 18+ years building AI-driven products in regulated healthcare, federal, retail, and defense environments.",
   approach: "How Senthil Nagappan ensures AI-driven systems are safe, accessible, and compliant — from requirements through deployment.",
   resume: "Download or read Senthil Nagappan's resume — AI safety and human systems integration leadership.",
@@ -6798,6 +6910,25 @@ const Index = () => {
         )}
         {page === "case" && activeCase && (
           <CaseStudy study={activeCase} setPage={navigate} />
+        )}
+        {page === "brand" && (
+          <div>
+            <header className="relative overflow-hidden bg-gradient-to-br from-[rgb(var(--c-hero-dark))] via-[rgb(var(--c-primary))] to-[#2e5580] text-white">
+              <div className="max-w-3xl mx-auto px-6 py-20 text-center relative">
+                <p className="inline-flex items-center gap-2 text-[rgb(var(--c-accent-on-dark))] text-xs font-semibold tracking-[3px] uppercase mb-5 rounded-full border border-white/15 bg-white/5 backdrop-blur px-4 py-1.5">
+                  Brand Identity &amp; Visual Systems
+                </p>
+                <h1 className="font-display text-4xl sm:text-5xl font-extrabold leading-[1.1] mb-5 tracking-tight">
+                  Brand identities &amp; visual systems built to scale
+                </h1>
+                <p className="text-white/90 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+                  Logos, identity systems, brand guidelines, and brand refreshes — plus the
+                  design systems that carry a brand from mark to product.
+                </p>
+              </div>
+            </header>
+            <BrandIdentitySection />
+          </div>
         )}
         {page === "about" && <About />}
         {page === "approach" && <Approach />}
