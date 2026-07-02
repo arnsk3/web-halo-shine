@@ -1002,51 +1002,46 @@ function Home({
           <FadeIn>
             <p className="inline-flex items-center gap-2 text-[rgb(var(--c-accent-on-dark))] text-xs font-semibold tracking-[3px] uppercase mb-5 rounded-full border border-white/15 bg-white/5 backdrop-blur px-4 py-1.5">
               <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-[rgb(var(--c-accent-light))] animate-pulse" />
-              Visual &amp; Brand Designer · Design Systems · UI Engineering · AI Governance
+              AI Experience Design · Human Factors · Accessibility · Design Systems
             </p>
           </FadeIn>
           <FadeIn delay={0.1}>
             <h1 className="text-4xl sm:text-5xl font-extrabold leading-[1.1] mb-5 tracking-tight">
-              Brand identities &amp; visual systems
-              <span className="bg-gradient-to-r from-[rgb(var(--c-accent-light))] to-[rgb(var(--c-accent-on-dark))] bg-clip-text text-transparent"> built to scale.</span>
+              Designing safe, human-centered AI
+              <span className="bg-gradient-to-r from-[rgb(var(--c-accent-light))] to-[rgb(var(--c-accent-on-dark))] bg-clip-text text-transparent"> for regulated environments.</span>
             </h1>
           </FadeIn>
           <FadeIn delay={0.15}>
             <p className="text-white text-base sm:text-lg font-semibold mb-3 max-w-2xl mx-auto leading-relaxed">
-              Brand &amp; Visual Designer crafting logos, identity systems, brand guidelines,
-              and brand refreshes — plus the design systems and UI engineering that carry a
-              brand from mark to product, across consumer, healthcare, and enterprise.
+              18+ years designing the interface between people and AI — where getting it wrong
+              isn&apos;t an option.
             </p>
           </FadeIn>
           <FadeIn delay={0.2}>
-            <p className="text-white/85 text-base mb-8 max-w-lg mx-auto leading-relaxed">
-              Backed by design-systems, accessibility, and AI governance leadership for
-              regulated environments.
+            <p className="text-white/85 text-base mb-8 max-w-xl mx-auto leading-relaxed">
+              I pair AI experience design and governance with accessibility leadership, design
+              systems, and production front-end engineering — across healthcare, federal, and
+              enterprise.
             </p>
           </FadeIn>
           <FadeIn delay={0.3}>
             <div className="flex gap-3 justify-center flex-wrap">
               <button
-                onClick={() => setPage("brand")}
-                className="group inline-flex items-center justify-center gap-2 min-h-11 bg-white text-[rgb(var(--c-primary))] px-6 py-2.5 rounded-lg font-semibold text-sm shadow-lg shadow-black/10 hover:-translate-y-0.5 hover:shadow-xl hover:bg-[rgb(var(--c-accent-on-light))] hover:text-white transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
-              >
-                View Brand Work <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
-              </button>
-              <button
                 onClick={() => document.getElementById("cases")?.scrollIntoView({ behavior: "smooth" })}
-                className="group inline-flex items-center justify-center gap-2 min-h-11 bg-white/10 border border-white/40 text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-white/20 hover:-translate-y-0.5 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
+                className="group inline-flex items-center justify-center gap-2 min-h-11 bg-white text-[rgb(var(--c-primary))] px-6 py-2.5 rounded-lg font-semibold text-sm shadow-lg shadow-black/10 hover:-translate-y-0.5 hover:shadow-xl hover:bg-[rgb(var(--c-accent-on-light))] hover:text-white transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
               >
                 View Case Studies <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
               </button>
               <button
                 onClick={() => setPage("about")}
-                className="inline-flex items-center justify-center min-h-11 border border-white/60 text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-white/10 hover:-translate-y-0.5 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
+                className="group inline-flex items-center justify-center gap-2 min-h-11 bg-white/10 border border-white/40 text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-white/20 hover:-translate-y-0.5 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
               >
-                About Me
+                About Me <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
               </button>
             </div>
           </FadeIn>
         </div>
+
       </header>
 
       {/* Credentials */}
