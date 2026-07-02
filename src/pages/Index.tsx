@@ -1086,11 +1086,13 @@ function Home({
       <section id="cases" className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(3rem,6vw,6rem)]" aria-labelledby="cases-heading">
         <FadeIn>
           <h2 id="cases-heading" className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2 tracking-tight">
-            Case Studies
+            Selected Work
           </h2>
           <p className="text-gray-700 text-base mb-6">
-            Digital brand experiences, design systems, data-driven design, and AI products that drove engagement, adoption, and conversion at scale
+            A curated set of the strongest case studies — enterprise design systems, data-driven
+            design, accessibility, and AI products that drove adoption and trust at scale.
           </p>
+
         </FadeIn>
         <FadeIn delay={0.05}>
           <div className="flex flex-wrap gap-2 mb-10" role="group" aria-label="Filter case studies by category">
