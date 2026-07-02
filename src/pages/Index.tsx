@@ -810,19 +810,15 @@ function FadeIn({ children, delay = 0, className = "" }: FadeInProps) {
 type PageId = "home" | "brand" | "about" | "approach" | "resume" | "contact" | "case";
 
 function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) {
-  const pageLinks: { id: PageId; label: string }[] = [
-    { id: "home", label: "Home" },
-    { id: "brand", label: "Brand" },
-  ];
+  // Curated 5-item nav. "Work" and "Expertise" scroll to landing sections;
+  // Brand lives as a filter inside Work, not a top-level item.
   const sectionLinks: { id: string; label: string }[] = [
-    { id: "expertise", label: "Domain Expertise" },
-    { id: "ai-skills", label: "AI Skills Matrix" },
-    { id: "cases", label: "Case Studies" },
+    { id: "cases", label: "Work" },
+    { id: "expertise", label: "Expertise" },
   ];
   const tailLinks: { id: PageId; label: string }[] = [
     { id: "about", label: "About" },
-    { id: "approach", label: "Approach" },
-    { id: "resume", label: "Resume" },
+    { id: "resume", label: "Résumé" },
     { id: "contact", label: "Contact" },
   ];
   const goSection = (id: string) => {
@@ -848,30 +844,19 @@ function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) 
         <button
           onClick={() => setPage("home")}
           aria-label="Senthil Nagappan — go to home"
-          className="flex items-center gap-2 group rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
+          className="flex items-center gap-2.5 group rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
         >
-          <img
-            src="/headshot.jpg"
-            alt=""
+          <span
             aria-hidden="true"
-            className="w-8 h-8 rounded-full object-cover"
-          />
-          <span className="font-semibold text-gray-900 text-sm tracking-tight hidden sm:block">
+            className="flex h-8 w-8 items-center justify-center rounded-md bg-[rgb(var(--c-primary))] text-white font-display text-xs font-bold tracking-tight"
+          >
+            SN
+          </span>
+          <span className="font-display font-semibold text-gray-900 text-sm tracking-tight hidden sm:block">
             Senthil Nagappan
           </span>
         </button>
         <ul className="flex flex-wrap justify-end gap-0.5 sm:gap-1 list-none m-0 p-0">
-          {pageLinks.map((l) => (
-            <li key={l.id}>
-              <button
-                onClick={() => setPage(l.id)}
-                aria-current={page === l.id ? "page" : undefined}
-                className={linkClass(page === l.id)}
-              >
-                {l.label}
-              </button>
-            </li>
-          ))}
           {sectionLinks.map((l) => (
             <li key={l.id}>
               <button onClick={() => goSection(l.id)} className={linkClass(false)}>
@@ -895,6 +880,7 @@ function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) 
     </nav>
   );
 }
+
 
 function BrandTeaser({ onOpen }: { onOpen: () => void }) {
   return (
