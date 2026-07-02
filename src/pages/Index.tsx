@@ -741,7 +741,7 @@ const CASE_FILTERS = [
   "AI & Governance",
   "Design Systems",
   "Accessibility",
-  "Consumer & Brand",
+  "Brand",
   "Federal & Enterprise",
 ] as const;
 type CaseFilter = (typeof CASE_FILTERS)[number];
@@ -754,11 +754,12 @@ function caseCategories(s: CaseStudyType): CaseFilter[] {
   if (/design system|component library|component system/.test(t))
     cats.push("Design Systems");
   if (/accessib|wcag|section 508|a11y/.test(t)) cats.push("Accessibility");
-  if (/consumer|brand|mobile-first/.test(t)) cats.push("Consumer & Brand");
+  if (/consumer|brand|mobile-first|visual/.test(t)) cats.push("Brand");
   if (/federal|government|portfolio|samhsa|hhs|enterprise/.test(t))
     cats.push("Federal & Enterprise");
   return cats;
 }
+
 
 
 
