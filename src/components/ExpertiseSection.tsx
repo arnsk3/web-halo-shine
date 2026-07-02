@@ -201,7 +201,7 @@ export default function ExpertiseSection() {
       aria-labelledby="expertise-heading"
       className="bg-[rgb(var(--c-tint-50))] border-y border-[rgb(var(--c-primary)/0.1)]"
     >
-      <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(3rem,6vw,6rem)]">
+      <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] pt-[clamp(2rem,3vw,3rem)] pb-[clamp(3rem,6vw,6rem)]">
         <p className="text-[rgb(var(--c-accent-on-light))] text-xs font-semibold tracking-[2px] uppercase mb-3">
           Domain Expertise
         </p>
@@ -218,13 +218,14 @@ export default function ExpertiseSection() {
           impact it delivered.
         </p>
 
-        <div className="grid gap-5 items-stretch [grid-template-columns:repeat(auto-fit,minmax(min(100%,28rem),1fr))]">
-          {DOMAINS.map((d) => {
+        <div className="grid gap-5 items-stretch grid-cols-1 md:grid-cols-2">
+          {DOMAINS.map((d, i) => {
+            const isLast = i === DOMAINS.length - 1;
             return (
             <article
                 key={d.id}
                 aria-labelledby={`${d.id}-title`}
-                className="flex h-full flex-col rounded-2xl border bg-white border-[rgb(var(--c-primary)/0.3)] shadow-lg"
+                className={`flex h-full flex-col rounded-2xl border bg-white border-[rgb(var(--c-primary)/0.3)] shadow-lg ${isLast ? "md:col-span-2" : ""}`}
               >
                 <div className="flex w-full items-start gap-4 p-5 text-left">
                   <span
