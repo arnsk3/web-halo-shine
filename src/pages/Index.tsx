@@ -896,7 +896,96 @@ function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) 
   );
 }
 
-function Home({
+function BrandTeaser({ onOpen }: { onOpen: () => void }) {
+  return (
+    <section
+      id="brand-teaser"
+      aria-labelledby="brand-teaser-heading"
+      className="bg-white border-b border-gray-100"
+    >
+      <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(3rem,6vw,6rem)]">
+        <FadeIn>
+          <article className="group grid gap-8 md:grid-cols-[1.2fr_1fr] items-center rounded-2xl border border-gray-200 bg-[rgb(var(--c-tint-50))] overflow-hidden shadow-sm transition-all duration-300 hover:shadow-xl hover:border-[rgb(var(--c-primary)/0.3)]">
+            <div className="p-8 sm:p-10">
+              <p className="text-[rgb(var(--c-accent-on-light))] text-xs font-semibold tracking-[2px] uppercase mb-3">
+                Featured · Brand Identity &amp; Visual Systems
+              </p>
+              <h2
+                id="brand-teaser-heading"
+                className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 mb-3 tracking-tight"
+              >
+                Logos, identity systems &amp; brand guidelines built to scale
+              </h2>
+              <p className="text-gray-700 text-sm sm:text-base leading-relaxed mb-5 max-w-xl">
+                Complete brand identities — from the core mark and wordmark to color and type
+                systems, guidelines, and every application that follows. Consumer, healthcare,
+                fintech, and AI brands.
+              </p>
+              <ul className="flex flex-wrap gap-1.5 list-none p-0 m-0 mb-6">
+                {["Identity systems", "Brand guidelines", "Logo design", "Brand refresh", "Design tokens"].map((t) => (
+                  <li
+                    key={t}
+                    className="text-[11px] font-medium px-2.5 py-1 rounded-full bg-white text-[rgb(var(--c-primary))] border border-[rgb(var(--c-primary)/0.12)]"
+                  >
+                    {t}
+                  </li>
+                ))}
+              </ul>
+              <button
+                onClick={onOpen}
+                className="group/btn inline-flex items-center justify-center gap-2 min-h-11 bg-[rgb(var(--c-primary))] text-white px-6 py-2.5 rounded-lg font-semibold text-sm shadow-sm hover:-translate-y-0.5 hover:shadow-lg transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
+              >
+                View brand work
+                <span aria-hidden="true" className="transition-transform group-hover/btn:translate-x-0.5">→</span>
+              </button>
+            </div>
+            <div className="relative h-full min-h-[220px] bg-white border-t md:border-t-0 md:border-l border-gray-100 flex items-center justify-center p-8">
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 opacity-[0.5]"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(rgb(var(--c-primary)/0.05) 1px, transparent 1px), linear-gradient(90deg, rgb(var(--c-primary)/0.05) 1px, transparent 1px)",
+                  backgroundSize: "20px 20px",
+                }}
+              />
+              <div className="relative grid grid-cols-3 gap-4">
+                {[
+                  <svg key="1" viewBox="0 0 64 64" className="h-12 w-12" role="img" aria-label="Identity mark sample">
+                    <path d="M12 44c0-16 10-28 20-28s20 12 20 28" fill="none" stroke="rgb(var(--c-primary))" strokeWidth="6" strokeLinecap="round" />
+                    <circle cx="32" cy="50" r="4" fill="rgb(var(--c-accent))" />
+                  </svg>,
+                  <svg key="2" viewBox="0 0 64 64" className="h-12 w-12" role="img" aria-label="Identity mark sample">
+                    <polygon points="32,8 56,50 8,50" fill="none" stroke="rgb(var(--c-primary))" strokeWidth="5" strokeLinejoin="round" />
+                    <polygon points="32,24 45,48 19,48" fill="rgb(var(--c-accent))" />
+                  </svg>,
+                  <svg key="3" viewBox="0 0 64 64" className="h-12 w-12" role="img" aria-label="Identity mark sample">
+                    <circle cx="32" cy="32" r="22" fill="none" stroke="rgb(var(--c-primary))" strokeWidth="5" opacity="0.35" />
+                    <path d="M12 32h10l5-12 8 24 5-12h12" fill="none" stroke="rgb(var(--c-accent))" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>,
+                  <svg key="4" viewBox="0 0 64 64" className="h-12 w-12" role="img" aria-label="Identity mark sample">
+                    <circle cx="32" cy="26" r="14" fill="rgb(var(--c-accent))" />
+                    <rect x="28" y="36" width="8" height="20" rx="2" fill="rgb(var(--c-primary))" />
+                  </svg>,
+                  <svg key="5" viewBox="0 0 64 64" className="h-12 w-12" role="img" aria-label="Identity mark sample">
+                    <rect x="12" y="12" width="18" height="18" rx="4" fill="rgb(var(--c-primary))" />
+                    <rect x="34" y="34" width="18" height="18" rx="9" fill="rgb(var(--c-accent))" />
+                  </svg>,
+                  <svg key="6" viewBox="0 0 64 64" className="h-12 w-12" role="img" aria-label="Identity mark sample">
+                    <circle cx="32" cy="32" r="20" fill="rgb(var(--c-primary))" />
+                    <path d="M32 12v40M12 32h40" stroke="rgb(var(--c-accent-light))" strokeWidth="2.5" />
+                  </svg>,
+                ]}
+              </div>
+            </div>
+          </article>
+        </FadeIn>
+      </div>
+    </section>
+  );
+}
+
+
   setPage,
   setCase,
 }: {
