@@ -195,6 +195,97 @@ const DOMAINS: Domain[] = [
   },
 ];
 
+function ExpertiseCard({ d, isLast }: { d: Domain; isLast: boolean }) {
+  const [open, setOpen] = useState(false);
+  const detailId = `${d.id}-details`;
+  return (
+    <article
+      aria-labelledby={`${d.id}-title`}
+      className={`flex h-full flex-col rounded-2xl border bg-white border-[rgb(var(--c-primary)/0.3)] shadow-lg ${isLast ? "md:col-span-2" : ""}`}
+    >
+      <div className="flex w-full items-start gap-4 p-5 text-left">
+        <span
+          aria-hidden="true"
+          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[rgb(var(--c-tint-100))] text-[rgb(var(--c-accent-on-light))]"
+        >
+          <span className="h-6 w-6 block">{d.icon}</span>
+        </span>
+        <div className="flex-1">
+          <h3 id={`${d.id}-title`} className="font-bold text-gray-900 text-lg leading-snug m-0">
+            {d.title}
+          </h3>
+          <p className="text-gray-700 text-sm mt-1 leading-relaxed">{d.tagline}</p>
+        </div>
+      </div>
+
+      <div className="flex flex-1 flex-col px-5 pb-5">
+        <div className="grid grid-cols-3 gap-2 mb-4">
+          {d.impact.map((m) => (
+            <div
+              key={m.label}
+              className="rounded-lg bg-[rgb(var(--c-tint-50))] border border-[rgb(var(--c-primary)/0.1)] px-2 py-2.5 text-center"
+            >
+              <div className="text-base font-extrabold text-[rgb(var(--c-accent-on-light))] leading-tight">
+                {m.value}
+              </div>
+              <div className="text-[11px] text-gray-700 mt-0.5 leading-tight">{m.label}</div>
+            </div>
+          ))}
+        </div>
+
+        <button
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          aria-expanded={open}
+          aria-controls={detailId}
+          className="mt-auto inline-flex items-center gap-1.5 self-start rounded-md text-[13px] font-bold text-[rgb(var(--c-accent-on-light))] min-h-11 px-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
+        >
+          {open ? "Read less" : "Read more"}
+          <span aria-hidden="true" className={`transition-transform ${open ? "rotate-180" : ""}`}>
+            ↓
+          </span>
+        </button>
+
+        {open && (
+          <div id={detailId} className="pt-4">
+            <p className="text-gray-700 text-sm leading-relaxed mb-4">{d.summary}</p>
+
+            <p className="text-[11px] font-bold uppercase tracking-wide text-gray-700 mb-2">
+              What I bring
+            </p>
+            <ul className="list-none p-0 m-0 mb-5 space-y-1.5">
+              {d.capabilities.map((c) => (
+                <li key={c} className="flex items-start gap-2 text-sm text-gray-700">
+                  <span
+                    aria-hidden="true"
+                    className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[rgb(var(--c-accent))]"
+                  />
+                  <span className="leading-relaxed">{c}</span>
+                </li>
+              ))}
+            </ul>
+
+            <p className="text-[11px] font-bold uppercase tracking-wide text-gray-700 mb-2">
+              Live examples & impact
+            </p>
+            <ul className="list-none p-0 m-0 space-y-3">
+              {d.examples.map((ex) => (
+                <li
+                  key={ex.title}
+                  className="rounded-lg border-l-2 border-[rgb(var(--c-accent))] bg-[rgb(var(--c-tint-50))] pl-3 py-2 pr-3"
+                >
+                  <p className="font-semibold text-gray-900 text-sm leading-snug">{ex.title}</p>
+                  <p className="text-gray-700 text-[13px] mt-0.5 leading-relaxed">{ex.detail}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+    </article>
+  );
+}
+
 export default function ExpertiseSection() {
   return (
     <section
@@ -212,103 +303,16 @@ export default function ExpertiseSection() {
         >
           Four disciplines, one outcome: safe, compliant, human-centered AI
         </h2>
-        <p className="text-gray-700 text-sm sm:text-base mb-10 max-w-2xl leading-relaxed">
+        <p className="text-gray-700 text-sm sm:text-base mb-8 max-w-2xl leading-relaxed">
           I work across the full arc of building responsible AI products — from the research
           that frames the problem, to the design and code that ships, to the governance that
-          keeps it safe and compliant. Here is what that looks like in practice, with the
-          impact it delivered.
+          keeps it safe and compliant. Expand any discipline for capabilities and live impact.
         </p>
 
-        <div className="grid gap-5 items-stretch grid-cols-1 md:grid-cols-2">
-          {DOMAINS.map((d, i) => {
-            const isLast = i === DOMAINS.length - 1;
-            return (
-            <article
-                key={d.id}
-                aria-labelledby={`${d.id}-title`}
-                className={`flex h-full flex-col rounded-2xl border bg-white border-[rgb(var(--c-primary)/0.3)] shadow-lg ${isLast ? "md:col-span-2" : ""}`}
-              >
-                <div className="flex w-full items-start gap-4 p-5 text-left">
-                  <span
-                    aria-hidden="true"
-                    className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[rgb(var(--c-tint-100))] text-[rgb(var(--c-accent-on-light))]"
-                  >
-                    <span className="h-6 w-6 block">{d.icon}</span>
-                  </span>
-                  <div className="flex-1">
-                    <h3
-                      id={`${d.id}-title`}
-                      className="font-bold text-gray-900 text-lg leading-snug m-0"
-                    >
-                      {d.title}
-                    </h3>
-                    <p className="text-gray-700 text-sm mt-1 leading-relaxed">
-                      {d.tagline}
-                    </p>
-                  </div>
-                </div>
-
-
-                <div className="flex flex-1 flex-col px-5 pb-5">
-                  <p className="text-gray-700 text-sm leading-relaxed mb-4">{d.summary}</p>
-
-
-
-                  <div className="grid grid-cols-3 gap-2 mb-5">
-                    {d.impact.map((m) => (
-                      <div
-                        key={m.label}
-                        className="rounded-lg bg-[rgb(var(--c-tint-50))] border border-[rgb(var(--c-primary)/0.1)] px-2 py-2.5 text-center"
-                      >
-                        <div className="text-base font-extrabold text-[rgb(var(--c-accent-on-light))] leading-tight">
-                          {m.value}
-                        </div>
-                        <div className="text-[11px] text-gray-700 mt-0.5 leading-tight">
-                          {m.label}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-
-                  <p className="text-[11px] font-bold uppercase tracking-wide text-gray-700 mb-2">
-
-                    What I bring
-                  </p>
-                  <ul className="list-none p-0 m-0 mb-5 space-y-1.5">
-                    {d.capabilities.map((c) => (
-                      <li key={c} className="flex items-start gap-2 text-sm text-gray-700">
-                        <span
-                          aria-hidden="true"
-                          className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[rgb(var(--c-accent))]"
-                        />
-                        <span className="leading-relaxed">{c}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <p className="text-[11px] font-bold uppercase tracking-wide text-gray-700 mb-2">
-                    Live examples & impact
-                  </p>
-                  <ul className="list-none p-0 m-0 space-y-3">
-                    {d.examples.map((ex) => (
-                      <li
-                        key={ex.title}
-                        className="rounded-lg border-l-2 border-[rgb(var(--c-accent))] bg-[rgb(var(--c-tint-50))] pl-3 py-2 pr-3"
-                      >
-                        <p className="font-semibold text-gray-900 text-sm leading-snug">
-                          {ex.title}
-                        </p>
-                        <p className="text-gray-700 text-[13px] mt-0.5 leading-relaxed">
-                          {ex.detail}
-                        </p>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </article>
-
-            );
-          })}
+        <div className="grid gap-5 items-start grid-cols-1 md:grid-cols-2">
+          {DOMAINS.map((d, i) => (
+            <ExpertiseCard key={d.id} d={d} isLast={i === DOMAINS.length - 1} />
+          ))}
         </div>
       </div>
     </section>
