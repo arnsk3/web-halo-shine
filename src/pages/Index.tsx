@@ -281,10 +281,10 @@ const CASE_STUDIES: CaseStudyType[] = [
   },
   {
     id: "ge",
-    tag: "Design System · On-Brand · Accessible Experiences",
+    tag: "Design System · Unified Visual Language · Accessible Experiences",
     title: "Evolving a Design System to Power Consistent, Accessible Digital Experiences",
     subtitle:
-      "Advocated for and evolved the design system and best practices at GE HealthCare so multiple product teams could ship consistent, on-brand, accessible digital experiences — from shared components and design tokens to high-fidelity Figma mockups and accessible color/contrast systems.",
+      "Advocated for and evolved the design system and best practices at GE HealthCare so multiple product teams could ship a unified visual language across accessible digital experiences — from shared components and design tokens to high-fidelity Figma mockups and accessible color/contrast systems.",
     hero: "from-[rgb(var(--c-hero-dark))] via-[rgb(var(--c-primary))] to-[rgb(var(--c-accent))]",
     image: caseGe,
     role: "Senior UI/UX & Visual Designer",
@@ -300,12 +300,12 @@ const CASE_STUDIES: CaseStudyType[] = [
       {
         heading: "The Challenge",
         content:
-          "Multiple product teams needed consistent, on-brand, accessible visual experiences across digital platforms. Without a shared design system, each team built UI its own way — inconsistent components, drifting brand, and accessibility handled ad hoc — slowing delivery and weakening the experience for clinicians who depend on clarity under pressure.",
+          "Multiple product teams needed a unified visual language across accessible experiences across digital platforms. Without a shared design system, each team built UI its own way — inconsistent components, drifting brand, and accessibility handled ad hoc — slowing delivery and weakening the experience for clinicians who depend on clarity under pressure.",
       },
       {
         heading: "My Role",
         content:
-          "As Senior UI/UX & Visual Designer I advocated for and evolved the design system and best practices. I owned the component library and design tokens, produced high-fidelity Figma mockups, defined accessible color/contrast systems, and partnered cross-functionally — presenting work and aligning engineering, clinical, and regulatory teams around one on-brand, accessible standard.",
+          "As Senior UI/UX & Visual Designer I advocated for and evolved the design system and best practices. I owned the component library and design tokens, produced high-fidelity Figma mockups, defined accessible color/contrast systems, and partnered cross-functionally — presenting work and aligning engineering, clinical, and regulatory teams around one unified visual language and accessible standard.",
       },
       {
         heading: "The Governance Framework",
@@ -324,7 +324,7 @@ const CASE_STUDIES: CaseStudyType[] = [
       },
     ],
     outcomes: [
-      "Evolved a shared design system adopted across 10+ product teams for consistent, on-brand UI",
+      "Evolved a shared design system adopted across 10+ product teams for a unified visual language",
       "Accessible color/contrast and component standards built into every digital experience",
       "Established design best practices and reusable patterns as the cross-functional standard",
       "Reduced late-stage design rework by aligning teams on one system early",
@@ -333,8 +333,8 @@ const CASE_STUDIES: CaseStudyType[] = [
     ],
     artifacts: [
       { label: "Component library & design tokens", desc: "Reusable components with shared color, type, and spacing tokens powering consistent UI across teams." },
-      { label: "High-fidelity Figma mockups", desc: "Polished, on-brand UI mockups that set the visual bar and guided implementation." },
-      { label: "Accessible color/contrast system", desc: "Contrast-compliant palette and type system ensuring every experience is readable and on-brand." },
+      { label: "High-fidelity Figma mockups", desc: "Polished, unified UI mockups that set the visual bar and guided implementation." },
+      { label: "Accessible color/contrast system", desc: "Contrast-compliant palette and type system ensuring every experience is readable and visually unified." },
       { label: "Cross-functional workshop outputs", desc: "Collaboration artifacts from design, engineering, clinical, and regulatory alignment sessions." },
     ],
     hsi: [
@@ -347,7 +347,7 @@ const CASE_STUDIES: CaseStudyType[] = [
   },
   {
     id: "ssa",
-    tag: "Design System · Data-Driven · Brand Consistency",
+    tag: "Design System · Data-Driven · Visual Consistency at Scale",
     title: "A Data-Driven Design System That Unified 50M+ User Experiences",
     subtitle:
       "Led the visual design system and data-driven design decisions across 15+ digital touchpoints — analyzing behavioral data to drive a system-wide redesign that improved engagement, unified the brand, and saved $1.5M+ annually for 50M+ users.",
@@ -371,7 +371,7 @@ const CASE_STUDIES: CaseStudyType[] = [
       {
         heading: "My Role",
         content:
-          "I led the visual design system and the data-driven design decisions behind it. I owned the component library, style guide, and brand-consistency standards — then used behavioral data to decide where to focus the redesign for the biggest engagement and efficiency gains.",
+          "I led the visual design system and the data-driven design decisions behind it. I owned the component library, style guide, and visual-consistency standards — then used behavioral data to decide where to focus the redesign for the biggest engagement and efficiency gains.",
       },
       {
         heading: "The Data-Driven Insight",
@@ -396,7 +396,7 @@ const CASE_STUDIES: CaseStudyType[] = [
     ],
     outcomes: [
       "Used behavioral data to drive a system-wide redesign — improving engagement across 50M+ user experiences",
-      "Unified 15+ digital touchpoints under one consistent, on-brand design system",
+      "Unified 15+ digital touchpoints under one consistent design language",
       "Reduced usability defects 30–40% and saved $1.5M+ annually",
       "Adopted across 40+ monthly releases as the standard component library",
       "Became the design and consistency standard across federal systems",
@@ -404,7 +404,7 @@ const CASE_STUDIES: CaseStudyType[] = [
     ],
     artifacts: [
       { label: "Design system & component library", desc: "8 core components rebuilt with shared color, type, spacing, and interaction tokens — the visual foundation across every module." },
-      { label: "Style guide pages", desc: "Documented usage, states, and responsive behavior so every team applies the brand consistently." },
+      { label: "Style guide pages", desc: "Documented usage, states, and responsive behavior so every team applies the design language consistently." },
       { label: "Before/after visual comparisons", desc: "Side-by-side redesigns of high-traffic components showing cleaner hierarchy and stronger engagement." },
       { label: "Data-viz & dashboard screens", desc: "Behavioral-data dashboards that surfaced the 65%/8-component insight and guided design decisions." },
     ],
@@ -420,13 +420,13 @@ const CASE_STUDIES: CaseStudyType[] = [
     tag: "Consumer · Digital Brand Experience · Mobile-First",
     title: "Driving Engagement for 1M+ Consumers Through Cohesive Digital Brand Experiences",
     subtitle:
-      "Owned the visual design, brand consistency, and mobile-first digital experience for Best Buy Health (Lively, Jitterbug) — engaging 1M+ consumers across 5 product lines with cohesive, on-brand touchpoints spanning web, mobile, and in-device.",
+      "Owned the visual design, brand consistency, and mobile-first digital experience for Best Buy Health (Lively, Jitterbug) — engaging 1M+ consumers across 5 product lines with one cohesive UI system spanning web, mobile, and in-device.",
     hero: "from-[#2d1b69] via-[#11998e] to-[#38ef7d]",
     image: caseBestbuy,
     role: "Senior Visual & Experience Designer",
     timeline: "2021 – 2022",
     org: "Best Buy Health",
-    standards: ["Design System", "Mobile-First", "Brand Consistency", "WCAG 2.2 AA", "MIL-STD-1472H"],
+    standards: ["Design System", "Mobile-First", "Cohesive UI System", "WCAG 2.2 AA", "MIL-STD-1472H"],
     metrics: [
       { value: "30-40%", label: "Lower Drop-Off" },
       { value: "1M+", label: "Consumers Engaged" },
@@ -436,12 +436,12 @@ const CASE_STUDIES: CaseStudyType[] = [
       {
         heading: "The Challenge",
         content:
-          "Best Buy Health needed to engage 1M+ consumers across 5 product lines (Lively, Jitterbug) with cohesive, on-brand digital experiences spanning web, mobile, and in-device touchpoints. Visual experiences were fragmented across product lines, critical user flows leaked engagement through drop-off, and there was no shared design system to keep the brand consistent or conversion-ready at scale.",
+          "Best Buy Health needed to engage 1M+ consumers across 5 product lines (Lively, Jitterbug) with a cohesive UI system spanning web, mobile, and in-device touchpoints. Visual experiences were fragmented across product lines, critical user flows leaked engagement through drop-off, and there was no shared design system to keep the experience cohesive or conversion-ready at scale.",
       },
       {
         heading: "My Role",
         content:
-          "As Senior Visual & Experience Designer I owned the visual design, brand consistency, and customer-focused digital experience across every consumer touchpoint. I led a mobile-first redesign, built the brand-consistent component system and style guide, and drove design decisions that lifted engagement and task completion — partnering with product, content, and engineering to ship on-brand UI.",
+          "As Senior Visual & Experience Designer I owned the visual design, UI cohesion, and customer-focused digital experience across every consumer touchpoint. I led a mobile-first redesign, built the cohesive component system and style guide, and drove design decisions that lifted engagement and task completion — partnering with product, content, and engineering to ship a cohesive UI system.",
       },
       {
         heading: "Military Standards for Civilian Safety",
@@ -467,13 +467,13 @@ const CASE_STUDIES: CaseStudyType[] = [
     outcomes: [
       "Reduced drop-off in critical user flows by 30–40% through mobile-first visual design",
       "Drove adoption across 5 product lines for 1M+ consumers",
-      "Improved task completion and engagement with a cohesive, on-brand experience",
-      "Brand-consistent component system and style guide adopted across all product lines",
-      "On-brand multi-modal UI keeps the experience accessible and conversion-ready under stress",
+      "Improved task completion and engagement with a cohesive, unified experience",
+      "Cohesive component system and style guide adopted across all product lines",
+      "Cohesive multi-modal UI keeps the experience accessible and conversion-ready under stress",
     ],
     artifacts: [
-      { label: "Mobile-first UI screens (app + web)", desc: "High-polish, on-brand consumer screens across web, mobile, and in-device — built for visual clarity and engagement." },
-      { label: "Brand-consistent component system", desc: "Shared style guide and component library keeping color, type, and interaction consistent across 5 product lines." },
+      { label: "Mobile-first UI screens (app + web)", desc: "High-polish, cohesive consumer screens across web, mobile, and in-device — built for visual clarity and engagement." },
+      { label: "Cohesive component system", desc: "Shared style guide and component library keeping color, type, and interaction consistent across 5 product lines." },
       { label: "Before/after screen redesign", desc: "Redesigned critical flow with engagement framing — cleaner hierarchy, stronger CTAs, lower drop-off." },
       { label: "Onboarding & upgrade prompts", desc: "Welcome flows, feature announcements, and upgrade prompts designed to drive adoption and conversion." },
     ],
