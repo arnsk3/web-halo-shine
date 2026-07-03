@@ -747,7 +747,7 @@ const CASE_FILTERS = [
 type CaseFilter = (typeof CASE_FILTERS)[number];
 
 // In-house concept products (vs. shipped named-employer client work).
-const IN_HOUSE_IDS: string[] = [];
+const IN_HOUSE_IDS: string[] = ["trustlens", "clinicalai", "sentinel", "lumen", "wcagtool"];
 
 
 function caseCategories(s: CaseStudyType): CaseFilter[] {
