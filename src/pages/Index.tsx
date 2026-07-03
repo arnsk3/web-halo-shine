@@ -350,7 +350,7 @@ const CASE_STUDIES: CaseStudyType[] = [
     tag: "Design System · Data-Driven · Visual Consistency at Scale",
     title: "A Data-Driven Design System That Unified 50M+ User Experiences",
     subtitle:
-      "Led the visual design system and data-driven design decisions across 15+ digital touchpoints — analyzing behavioral data to drive a system-wide redesign that improved engagement, unified the brand, and saved $1.5M+ annually for 50M+ users.",
+      "Led the visual design system and data-driven design decisions across 15+ digital touchpoints — analyzing behavioral data to drive a system-wide redesign that improved engagement, unified the visual system, and saved $1.5M+ annually for 50M+ users.",
     hero: "from-[#1a1a2e] via-[#16213e] to-[#0f3460]",
     image: caseSsa,
     role: "Lead Visual & Design Systems Designer",
@@ -746,22 +746,24 @@ const CASE_FILTERS = [
 ] as const;
 type CaseFilter = (typeof CASE_FILTERS)[number];
 
-// In-house concept products (vs. shipped named-employer client work).
-const IN_HOUSE_IDS: string[] = ["trustlens", "clinicalai", "sentinel", "lumen"];
 
+
+// Honest, selective tagging: each study is tagged only to the 1–2 categories
+// it genuinely represents as a primary subject. No category may equal the total.
+const CASE_CATEGORY_MAP: Record<string, CaseFilter[]> = {
+  wcagtool: ["Accessibility", "AI & Governance"],
+  trustlens: ["AI & Governance"],
+  clinicalai: ["AI & Governance"],
+  ge: ["Design Systems", "Accessibility"],
+  ssa: ["Design Systems", "Accessibility"],
+  bestbuy: ["Brand"],
+  samhsa: ["Federal & Enterprise"],
+  sentinel: ["AI & Governance"],
+  lumen: ["AI & Governance"],
+};
 
 function caseCategories(s: CaseStudyType): CaseFilter[] {
-  const t = `${s.tag} ${s.title} ${s.standards.join(" ")}`.toLowerCase();
-  const cats: CaseFilter[] = [];
-  if (/\bai\b|agentic|rag|governance|model|llm|nist|explainable/.test(t))
-    cats.push("AI & Governance");
-  if (/design system|component library|component system/.test(t))
-    cats.push("Design Systems");
-  if (/accessib|wcag|section 508|a11y/.test(t)) cats.push("Accessibility");
-  if (/consumer|brand|mobile-first|visual/.test(t)) cats.push("Brand");
-  if (/federal|government|portfolio|samhsa|hhs|enterprise/.test(t))
-    cats.push("Federal & Enterprise");
-  return cats;
+  return CASE_CATEGORY_MAP[s.id] ?? [];
 }
 
 
@@ -1149,11 +1151,7 @@ function Home({
                     />
                   )}
                   <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                  {IN_HOUSE_IDS.includes(s.id) && (
-                    <span className="absolute top-4 right-4 text-[10px] font-bold tracking-wide uppercase px-2.5 py-1 rounded-full bg-white/90 text-[rgb(var(--c-primary))]">
-                      In-House Product
-                    </span>
-                  )}
+
                   <span className="relative text-white text-[11px] font-semibold tracking-widest uppercase">
                     {s.tag}
                   </span>
