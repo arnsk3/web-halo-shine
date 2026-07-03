@@ -367,9 +367,8 @@ function BrandImpact() {
       <dl className="grid grid-cols-2 gap-4">
         {stats.map((s) => (
           <div key={s.label} className="rounded-xl border border-gray-100 bg-white p-4">
-            <dt className="sr-only">{s.label}</dt>
-            <dd className="text-3xl font-black text-[rgb(var(--c-primary))] leading-none mb-1.5">{s.value}</dd>
-            <p className="text-xs text-gray-600 leading-snug">{s.label}</p>
+            <dd className="text-3xl font-black text-[rgb(var(--c-primary))] leading-none mb-1.5 ml-0">{s.value}</dd>
+            <dt className="text-xs text-gray-600 leading-snug">{s.label}</dt>
           </div>
         ))}
       </dl>
