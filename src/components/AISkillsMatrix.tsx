@@ -73,6 +73,8 @@ function LevelDots({ level }: { level: number }) {
 const LEVEL_LABEL = ["", "Aware", "Working", "Proficient", "Advanced", "Expert"];
 
 export default function AISkillsMatrix() {
+  const [active, setActive] = useState(GROUPS[0].id);
+  const g = GROUPS.find((x) => x.id === active) ?? GROUPS[0];
   return (
     <section
       id="ai-skills"
@@ -91,12 +93,12 @@ export default function AISkillsMatrix() {
         >
           AI Skills Matrix
         </h2>
-        <p className="text-white/80 text-sm sm:text-base mb-3 max-w-2xl leading-relaxed">
+        <p className="text-white text-sm sm:text-base mb-3 max-w-2xl leading-relaxed">
           A transparent view of where I operate across the AI lifecycle — from interaction
           design and governance to engineering and evaluation. Levels reflect depth of
           hands-on delivery in regulated, safety-critical environments.
         </p>
-        <div className="flex flex-wrap gap-x-4 gap-y-1 mb-6 text-[11px] text-white/70">
+        <div className="flex flex-wrap gap-x-4 gap-y-1 mb-6 text-[11px] text-white">
           {LEVEL_LABEL.slice(1).map((l, i) => (
             <span key={l} className="inline-flex items-center gap-1.5">
               <LevelDots level={i + 1} /> {l}
@@ -104,34 +106,51 @@ export default function AISkillsMatrix() {
           ))}
         </div>
 
-        <div className="grid gap-4 items-stretch grid-cols-1 md:grid-cols-3">
-          {GROUPS.map((g) => (
-            <article
-              key={g.id}
-              aria-labelledby={`${g.id}-title`}
-              className="flex h-full flex-col rounded-2xl border border-white/12 bg-white/[0.04] backdrop-blur p-5"
-            >
-              <h3 id={`${g.id}-title`} className="font-bold text-white text-lg leading-snug">
-                {g.title}
-              </h3>
-              <p className="text-white/70 text-[13px] mt-1 mb-4 leading-relaxed">{g.blurb}</p>
-              <ul className="list-none p-0 m-0 space-y-3 mt-auto">
-                {g.skills.map((s) => (
-                  <li key={s.name}>
-                    <div className="flex items-center justify-between gap-3">
-                      <span className="text-sm font-semibold text-white leading-snug">{s.name}</span>
-                      <span className="shrink-0">
-                        <LevelDots level={s.level} />
-                        <span className="sr-only">{LEVEL_LABEL[s.level]}</span>
-                      </span>
-                    </div>
-                    <p className="text-white/60 text-[12px] mt-0.5 leading-relaxed">{s.note}</p>
-                  </li>
-                ))}
-              </ul>
-            </article>
-          ))}
+        <div role="tablist" aria-label="AI skill areas" className="flex flex-wrap gap-2 mb-5">
+          {GROUPS.map((grp) => {
+            const selected = grp.id === active;
+            return (
+              <button
+                key={grp.id}
+                role="tab"
+                id={`tab-${grp.id}`}
+                aria-selected={selected}
+                aria-controls={`panel-${grp.id}`}
+                onClick={() => setActive(grp.id)}
+                className={`inline-flex items-center min-h-11 rounded-full px-4 py-2 text-sm font-semibold transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-hero-dark))] ${
+                  selected
+                    ? "bg-white text-[rgb(var(--c-hero-dark))]"
+                    : "border border-white/25 text-white hover:bg-white/10"
+                }`}
+              >
+                {grp.title}
+              </button>
+            );
+          })}
         </div>
+
+        <article
+          role="tabpanel"
+          id={`panel-${g.id}`}
+          aria-labelledby={`tab-${g.id}`}
+          className="rounded-2xl border border-white/12 bg-white/[0.04] backdrop-blur p-5 sm:p-6"
+        >
+          <p className="text-white text-[13px] sm:text-sm mb-5 leading-relaxed max-w-2xl">{g.blurb}</p>
+          <ul className="list-none p-0 m-0 grid gap-x-8 gap-y-3 sm:grid-cols-2">
+            {g.skills.map((s) => (
+              <li key={s.name}>
+                <div className="flex items-center justify-between gap-3">
+                  <span className="text-sm font-semibold text-white leading-snug">{s.name}</span>
+                  <span className="shrink-0">
+                    <LevelDots level={s.level} />
+                    <span className="sr-only">{LEVEL_LABEL[s.level]}</span>
+                  </span>
+                </div>
+                <p className="text-white/90 text-[12px] mt-0.5 leading-relaxed">{s.note}</p>
+              </li>
+            ))}
+          </ul>
+        </article>
       </div>
     </section>
   );
