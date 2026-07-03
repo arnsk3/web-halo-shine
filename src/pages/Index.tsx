@@ -746,8 +746,6 @@ const CASE_FILTERS = [
 ] as const;
 type CaseFilter = (typeof CASE_FILTERS)[number];
 
-// In-house concept products (vs. shipped named-employer client work).
-const IN_HOUSE_IDS: string[] = ["trustlens", "clinicalai", "sentinel", "lumen"];
 
 
 // Honest, selective tagging: each study is tagged only to the 1–2 categories
