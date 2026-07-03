@@ -396,7 +396,7 @@ function BrandProcess() {
       <ol className="space-y-4 list-none p-0 m-0">
         {steps.map((s) => (
           <li key={s.n} className="flex gap-4">
-            <span className="shrink-0 font-black text-lg text-[rgb(var(--c-primary)/0.35)] tabular-nums">{s.n}</span>
+            <span className="shrink-0 font-black text-lg text-[rgb(var(--c-primary)/0.75)] tabular-nums">{s.n}</span>
             <div>
               <p className="font-bold text-gray-900 text-sm mb-0.5">{s.t}</p>
               <p className="text-gray-700 text-sm leading-relaxed">{s.d}</p>
