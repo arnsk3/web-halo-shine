@@ -1171,7 +1171,7 @@ function Home({
                     {s.metrics.map((m) => (
                       <span
                         key={m.label}
-                        className="text-xs font-semibold px-3 py-1.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-100"
+                        className="text-xs font-semibold px-3 py-1.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-100"
                       >
                         {m.value} {m.label}
                       </span>
@@ -1349,8 +1349,8 @@ const SHOWCASE: Record<string, ShowcaseConfig> = {
             <WBar w="55%" h={10} c="bg-[rgb(var(--c-primary))]" />
             <div className="grid grid-cols-3 gap-2 mt-1">
               <WBlock h={42} c="bg-[rgb(var(--c-tint-100))]"><div className="p-1.5"><div className="text-[9px] text-[rgb(var(--c-primary))] font-bold">CRIT</div><div className="text-sm font-bold text-[rgb(var(--c-primary))]">128</div></div></WBlock>
-              <WBlock h={42} c="bg-[#fff4e5]"><div className="p-1.5"><div className="text-[9px] text-[#8a5a00] font-bold">SERIOUS</div><div className="text-sm font-bold text-[#8a5a00]">412</div></div></WBlock>
-              <WBlock h={42} c="bg-[#eef7ee]"><div className="p-1.5"><div className="text-[9px] text-[#1f6b2e] font-bold">PASSED</div><div className="text-sm font-bold text-[#1f6b2e]">9.2k</div></div></WBlock>
+              <WBlock h={42} c="bg-[#fff4e5]"><div className="p-1.5"><div className="text-[9px] text-[#6b4500] font-bold">SERIOUS</div><div className="text-sm font-bold text-[#6b4500]">412</div></div></WBlock>
+              <WBlock h={42} c="bg-[#eef7ee]"><div className="p-1.5"><div className="text-[9px] text-[#155724] font-bold">PASSED</div><div className="text-sm font-bold text-[#155724]">9.2k</div></div></WBlock>
             </div>
             <WBar w="100%" h={6} />
             <WBar w="80%" h={6} />
@@ -1493,7 +1493,7 @@ const SHOWCASE: Record<string, ShowcaseConfig> = {
               <span>🔊 Audio</span><span>📳 Haptic</span><span>👁 Visual</span>
             </div>
             <div className="flex gap-1.5 mt-auto">
-              <div className="flex-1 rounded bg-[#1f6b2e] text-white text-[10px] font-bold text-center py-2">Confirm</div>
+              <div className="flex-1 rounded bg-[#155724] text-white text-[10px] font-bold text-center py-2">Confirm</div>
               <div className="flex-1 rounded border border-gray-300 text-gray-700 text-[10px] font-bold text-center py-2">Cancel</div>
             </div>
           </>
@@ -1510,7 +1510,7 @@ const SHOWCASE: Record<string, ShowcaseConfig> = {
                 <WBar w="45%" h={5} />
               </div>
             </div>
-            <div className="flex-1 rounded bg-[#eef7ee] border border-[#cce6d0] flex items-center justify-center text-[10px] font-bold text-[#1f6b2e] min-h-[40px]" aria-hidden="true">
+            <div className="flex-1 rounded bg-[#eef7ee] border border-[#cce6d0] flex items-center justify-center text-[10px] font-bold text-[#155724] min-h-[40px]" aria-hidden="true">
               ● LIVE · 00:14
             </div>
             <div className="rounded bg-[rgb(var(--c-primary))] text-white text-[10px] font-bold text-center py-2" aria-hidden="true">End Call</div>
@@ -1531,7 +1531,7 @@ const SHOWCASE: Record<string, ShowcaseConfig> = {
             <WBar w="55%" h={10} c="bg-[rgb(var(--c-primary))]" />
             <div className="grid grid-cols-2 gap-2" aria-hidden="true">
               <WBlock h={36} c="bg-[rgb(var(--c-tint-100))]"><div className="p-1.5"><div className="text-[8px] text-[rgb(var(--c-primary))] font-bold">VALUE</div><div className="text-xs font-bold text-[rgb(var(--c-primary))]">$130M</div></div></WBlock>
-              <WBlock h={36} c="bg-[#eef7ee]"><div className="p-1.5"><div className="text-[8px] text-[#1f6b2e] font-bold">ACTIVE</div><div className="text-xs font-bold text-[#1f6b2e]">42</div></div></WBlock>
+              <WBlock h={36} c="bg-[#eef7ee]"><div className="p-1.5"><div className="text-[8px] text-[#155724] font-bold">ACTIVE</div><div className="text-xs font-bold text-[#155724]">42</div></div></WBlock>
             </div>
             <div className="flex items-end gap-1 h-8 mt-1" aria-hidden="true">
               {[40, 55, 35, 70, 50, 80, 65].map((h, i) => (
@@ -1547,8 +1547,8 @@ const SHOWCASE: Record<string, ShowcaseConfig> = {
           <>
             <WBar w="65%" h={10} c="bg-[rgb(var(--c-primary))]" />
             <div className="space-y-1" aria-hidden="true">
-              <div className="flex justify-between text-[9px] text-gray-700"><span>Milestones</span><span className="font-bold text-[#1f6b2e]">8 / 10</span></div>
-              <div className="h-1.5 rounded-full bg-gray-200 overflow-hidden"><div className="h-full bg-[#1f6b2e]" style={{ width: "80%" }} /></div>
+              <div className="flex justify-between text-[9px] text-gray-700"><span>Milestones</span><span className="font-bold text-[#155724]">8 / 10</span></div>
+              <div className="h-1.5 rounded-full bg-gray-200 overflow-hidden"><div className="h-full bg-[#155724]" style={{ width: "80%" }} /></div>
               <div className="flex justify-between text-[9px] text-gray-700"><span>Budget used</span><span className="font-bold text-[rgb(var(--c-primary))]">62%</span></div>
               <div className="h-1.5 rounded-full bg-gray-200 overflow-hidden"><div className="h-full bg-[rgb(var(--c-primary))]" style={{ width: "62%" }} /></div>
             </div>
@@ -1589,9 +1589,9 @@ const SHOWCASE: Record<string, ShowcaseConfig> = {
             <WBar w="55%" h={10} c="bg-[rgb(var(--c-primary))]" />
             <div className="grid grid-cols-4 gap-1.5 mt-1" aria-hidden="true">
               <WBlock h={40} c="bg-[#ffe2e2]"><div className="p-1"><div className="text-[8px] text-[#8a1a1a] font-bold">CRIT</div><div className="text-sm font-bold text-[#8a1a1a]">3</div></div></WBlock>
-              <WBlock h={40} c="bg-[#fff4e5]"><div className="p-1"><div className="text-[8px] text-[#8a5a00] font-bold">HIGH</div><div className="text-sm font-bold text-[#8a5a00]">7</div></div></WBlock>
+              <WBlock h={40} c="bg-[#fff4e5]"><div className="p-1"><div className="text-[8px] text-[#6b4500] font-bold">HIGH</div><div className="text-sm font-bold text-[#6b4500]">7</div></div></WBlock>
               <WBlock h={40} c="bg-[rgb(var(--c-tint-100))]"><div className="p-1"><div className="text-[8px] text-[rgb(var(--c-primary))] font-bold">MED</div><div className="text-sm font-bold text-[rgb(var(--c-primary))]">12</div></div></WBlock>
-              <WBlock h={40} c="bg-[#eef7ee]"><div className="p-1"><div className="text-[8px] text-[#1f6b2e] font-bold">LOW</div><div className="text-sm font-bold text-[#1f6b2e]">26</div></div></WBlock>
+              <WBlock h={40} c="bg-[#eef7ee]"><div className="p-1"><div className="text-[8px] text-[#155724] font-bold">LOW</div><div className="text-sm font-bold text-[#155724]">26</div></div></WBlock>
             </div>
             <WBar w="100%" h={6} />
             <WBar w="78%" h={6} />
@@ -1609,7 +1609,7 @@ const SHOWCASE: Record<string, ShowcaseConfig> = {
               <div className="text-[8px] font-bold text-[rgb(var(--c-primary))] pt-1">KNOWN LIMITS</div>
               <WBar w="70%" h={4} />
             </div>
-            <span className="text-[9px] px-1.5 py-0.5 rounded bg-[#fff4e5] text-[#8a5a00] font-bold self-start" aria-hidden="true">Risk Tier: HIGH</span>
+            <span className="text-[9px] px-1.5 py-0.5 rounded bg-[#fff4e5] text-[#6b4500] font-bold self-start" aria-hidden="true">Risk Tier: HIGH</span>
           </>
         ),
       },
@@ -1641,7 +1641,7 @@ const SHOWCASE: Record<string, ShowcaseConfig> = {
             <div className="rounded bg-white border border-gray-200 p-2" aria-hidden="true">
               <div className="flex items-center justify-between">
                 <span className="text-[9px] font-bold text-gray-800">Underwriting Model v3.2</span>
-                <span className="text-[8px] px-1.5 py-0.5 rounded bg-[#fff4e5] text-[#8a5a00] font-bold">Risk Tier: HIGH</span>
+                <span className="text-[8px] px-1.5 py-0.5 rounded bg-[#fff4e5] text-[#6b4500] font-bold">Risk Tier: HIGH</span>
               </div>
             </div>
             <div className="relative" aria-hidden="true">
@@ -1683,15 +1683,15 @@ const SHOWCASE: Record<string, ShowcaseConfig> = {
           <div className="relative space-y-2">
             <div className="relative grid grid-cols-4 gap-1.5" aria-hidden="true">
               <APin n={1} className="-left-1 -top-1" />
-              {[["CRIT", "3", "#8a1a1a", "#ffe2e2"], ["HIGH", "7", "#8a5a00", "#fff4e5"], ["MED", "12", "rgb(var(--c-primary))", "rgb(var(--c-tint-100))"], ["LOW", "26", "#1f6b2e", "#eef7ee"]].map(([l, v, fg, bg]) => (
+              {[["CRIT", "3", "#8a1a1a", "#ffe2e2"], ["HIGH", "7", "#6b4500", "#fff4e5"], ["MED", "12", "rgb(var(--c-primary))", "rgb(var(--c-tint-100))"], ["LOW", "26", "#155724", "#eef7ee"]].map(([l, v, fg, bg]) => (
                 <div key={l} className="rounded p-1" style={{ background: bg as string }}><div className="text-[7px] font-bold" style={{ color: fg as string }}>{l}</div><div className="text-sm font-bold" style={{ color: fg as string }}>{v}</div></div>
               ))}
             </div>
             <div className="relative rounded bg-white border border-gray-200 p-2 space-y-1" aria-hidden="true">
               <APin n={2} className="-left-1 top-2" />
               <div className="text-[8px] font-bold text-gray-700">CONTROL COVERAGE</div>
-              <div className="flex items-center justify-between"><span className="text-[9px] text-gray-700">EU AI Act · high-risk obligations</span><span className="text-[8px] text-[#1f6b2e] font-bold">92%</span></div>
-              <div className="flex items-center justify-between"><span className="text-[9px] text-gray-700">ISO/IEC 42001 controls</span><span className="text-[8px] text-[#1f6b2e] font-bold">88%</span></div>
+              <div className="flex items-center justify-between"><span className="text-[9px] text-gray-700">EU AI Act · high-risk obligations</span><span className="text-[8px] text-[#155724] font-bold">92%</span></div>
+              <div className="flex items-center justify-between"><span className="text-[9px] text-gray-700">ISO/IEC 42001 controls</span><span className="text-[8px] text-[#155724] font-bold">88%</span></div>
             </div>
             <div className="relative rounded bg-gray-50 border border-gray-200 p-2" aria-hidden="true">
               <APin n={3} className="-left-1 top-1" />
@@ -1728,7 +1728,7 @@ const SHOWCASE: Record<string, ShowcaseConfig> = {
               <WBar w="90%" h={5} /><WBar w="70%" h={5} />
             </div>
             <div className="flex gap-1.5 mt-auto" aria-hidden="true">
-              <div className="flex-1 rounded bg-[#1f6b2e] text-white text-[9px] font-bold text-center py-1.5">Accept</div>
+              <div className="flex-1 rounded bg-[#155724] text-white text-[9px] font-bold text-center py-1.5">Accept</div>
               <div className="flex-1 rounded border border-gray-300 text-gray-700 text-[9px] font-bold text-center py-1.5">Modify</div>
               <div className="flex-1 rounded border border-gray-300 text-gray-700 text-[9px] font-bold text-center py-1.5">Reject</div>
             </div>
@@ -1794,7 +1794,7 @@ const SHOWCASE: Record<string, ShowcaseConfig> = {
             </div>
             <div className="relative flex gap-1.5" aria-hidden="true">
               <APin n={4} className="-left-1 -top-2" />
-              <div className="flex-1 rounded bg-[#1f6b2e] text-white text-[9px] font-bold text-center py-1.5">Accept</div>
+              <div className="flex-1 rounded bg-[#155724] text-white text-[9px] font-bold text-center py-1.5">Accept</div>
               <div className="flex-1 rounded border border-gray-300 text-gray-700 text-[9px] font-bold text-center py-1.5">Modify</div>
               <div className="flex-1 rounded border border-gray-300 text-gray-700 text-[9px] font-bold text-center py-1.5">Reject</div>
             </div>
@@ -1861,7 +1861,7 @@ const SHOWCASE: Record<string, ShowcaseConfig> = {
               {[["search_web", "ok"], ["read_file", "ok"], ["send_email", "hold"]].map(([a, s]) => (
                 <div key={a} className="flex items-center justify-between rounded bg-gray-50 border border-gray-200 px-1.5 py-1">
                   <span className="font-mono text-[8px] text-gray-700">{a}</span>
-                  <span className={`text-[8px] font-bold ${s === "hold" ? "text-[#8a5a00]" : "text-[#1f6b2e]"}`}>{s === "hold" ? "● HOLD" : "✓ OK"}</span>
+                  <span className={`text-[8px] font-bold ${s === "hold" ? "text-[#6b4500]" : "text-[#155724]"}`}>{s === "hold" ? "● HOLD" : "✓ OK"}</span>
                 </div>
               ))}
             </div>
@@ -1878,7 +1878,7 @@ const SHOWCASE: Record<string, ShowcaseConfig> = {
               Agent requests: <span className="font-mono">send_email()</span> to 1,200 recipients
             </div>
             <div className="flex gap-1.5 mt-auto" aria-hidden="true">
-              <div className="flex-1 rounded bg-[#1f6b2e] text-white text-[9px] font-bold text-center py-1.5">Approve</div>
+              <div className="flex-1 rounded bg-[#155724] text-white text-[9px] font-bold text-center py-1.5">Approve</div>
               <div className="flex-1 rounded bg-[#d64545] text-white text-[9px] font-bold text-center py-1.5">Block</div>
             </div>
           </>
@@ -1892,7 +1892,7 @@ const SHOWCASE: Record<string, ShowcaseConfig> = {
             <div className="rounded bg-gray-900 p-2 font-mono text-[8px] leading-tight text-green-300" aria-hidden="true">
               {"> inject: ignore prior"}<br />{"  instructions…"}
             </div>
-            <div className="rounded bg-[#eef7ee] border border-[#cce6d0] p-1.5 text-[9px] text-[#1f6b2e] font-bold mt-auto" aria-hidden="true">
+            <div className="rounded bg-[#eef7ee] border border-[#cce6d0] p-1.5 text-[9px] text-[#155724] font-bold mt-auto" aria-hidden="true">
               ✓ Guardrail fired — injection blocked
             </div>
           </>
@@ -1920,13 +1920,13 @@ const SHOWCASE: Record<string, ShowcaseConfig> = {
               {[["read_page", "ok"], ["plan: send_email", "blocked"], ["return_safe_summary", "ok"]].map(([a, s]) => (
                 <div key={a} className="flex items-center justify-between rounded bg-gray-50 border border-gray-200 px-1.5 py-1">
                   <span className="font-mono text-[8px] text-gray-700">{a}</span>
-                  <span className={`text-[8px] font-bold ${s === "blocked" ? "text-[#8a1a1a]" : "text-[#1f6b2e]"}`}>{s === "blocked" ? "⛔ BLOCKED" : "✓ OK"}</span>
+                  <span className={`text-[8px] font-bold ${s === "blocked" ? "text-[#8a1a1a]" : "text-[#155724]"}`}>{s === "blocked" ? "⛔ BLOCKED" : "✓ OK"}</span>
                 </div>
               ))}
             </div>
             <div className="relative rounded bg-[#eef7ee] border border-[#cce6d0] px-2 py-1" aria-hidden="true">
               <APin n={3} className="-left-1 top-1" />
-              <span className="text-[9px] text-[#1f6b2e] font-bold">Outcome logged · agent returned to safe state</span>
+              <span className="text-[9px] text-[#155724] font-bold">Outcome logged · agent returned to safe state</span>
             </div>
           </div>
         ),
@@ -1951,11 +1951,11 @@ const SHOWCASE: Record<string, ShowcaseConfig> = {
             <div className="relative rounded bg-[#fff4e5] border border-[#ffd29a] p-2" aria-hidden="true">
               <APin n={2} className="-left-1 -top-1" />
               <div className="text-[9px] text-[#5a3300] font-medium">Requests <span className="font-mono">send_email()</span> → <span className="font-bold">1,200 recipients</span></div>
-              <div className="text-[8px] text-[#8a5a00] mt-0.5">Classified: HIGH IMPACT · irreversible</div>
+              <div className="text-[8px] text-[#6b4500] mt-0.5">Classified: HIGH IMPACT · irreversible</div>
             </div>
             <div className="relative flex gap-1.5" aria-hidden="true">
               <APin n={3} className="-left-1 -top-2" />
-              <div className="flex-1 rounded bg-[#1f6b2e] text-white text-[9px] font-bold text-center py-1.5">Approve</div>
+              <div className="flex-1 rounded bg-[#155724] text-white text-[9px] font-bold text-center py-1.5">Approve</div>
               <div className="flex-1 rounded bg-[#d64545] text-white text-[9px] font-bold text-center py-1.5">Block</div>
               <div className="flex-1 rounded border border-gray-300 text-gray-700 text-[9px] font-bold text-center py-1.5">Edit scope</div>
             </div>
@@ -2003,7 +2003,7 @@ const SHOWCASE: Record<string, ShowcaseConfig> = {
             <div className="rounded bg-[rgb(var(--c-tint-50))] border border-[rgb(var(--c-tint-200))] p-2 space-y-1" aria-hidden="true">
               <div className="text-[8px] font-bold text-[rgb(var(--c-primary))]">SOURCE [2] · Policy v4</div>
               <WBar w="100%" h={4} /><WBar w="80%" h={4} />
-              <div className="text-[8px] text-[#1f6b2e] font-bold pt-0.5">Match: 0.91</div>
+              <div className="text-[8px] text-[#155724] font-bold pt-0.5">Match: 0.91</div>
             </div>
           </>
         ),
@@ -2047,8 +2047,8 @@ const SHOWCASE: Record<string, ShowcaseConfig> = {
             </div>
             <div className="relative rounded bg-[#eef7ee] border border-[#cce6d0] px-2 py-1 flex items-center justify-between" aria-hidden="true">
               <APin n={4} className="-left-1 top-1" />
-              <span className="text-[9px] text-[#1f6b2e] font-bold">Grounding: 2 sources · agreement 0.93</span>
-              <span className="text-[8px] text-[#1f6b2e]">High confidence</span>
+              <span className="text-[9px] text-[#155724] font-bold">Grounding: 2 sources · agreement 0.93</span>
+              <span className="text-[8px] text-[#155724]">High confidence</span>
             </div>
           </div>
         ),
@@ -2077,8 +2077,8 @@ const SHOWCASE: Record<string, ShowcaseConfig> = {
             <div className="relative rounded bg-white border border-gray-200 p-2 space-y-1" aria-hidden="true">
               <APin n={2} className="-left-1 top-2" />
               <div className="text-[8px] font-bold text-gray-700">CLOSEST PARTIAL MATCHES</div>
-              <div className="flex items-center justify-between"><span className="text-[9px] text-gray-700">Global Privacy Standard · §1</span><span className="text-[8px] text-[#8a5a00] font-bold">Match 0.41</span></div>
-              <div className="flex items-center justify-between"><span className="text-[9px] text-gray-700">Region Y Addendum</span><span className="text-[8px] text-[#8a5a00] font-bold">Match 0.38</span></div>
+              <div className="flex items-center justify-between"><span className="text-[9px] text-gray-700">Global Privacy Standard · §1</span><span className="text-[8px] text-[#6b4500] font-bold">Match 0.41</span></div>
+              <div className="flex items-center justify-between"><span className="text-[9px] text-gray-700">Region Y Addendum</span><span className="text-[8px] text-[#6b4500] font-bold">Match 0.38</span></div>
             </div>
             <div className="relative flex gap-1.5" aria-hidden="true">
               <APin n={3} className="-left-1 -top-2" />
@@ -2587,7 +2587,7 @@ function ResearchProcess({ id }: { id: string }) {
                 key={m.label}
                 className="bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-center"
               >
-                <div className="text-lg font-extrabold text-[rgb(var(--c-accent-on-light))] tabular-nums">{m.value}</div>
+                <div className="text-lg font-extrabold text-[rgb(var(--c-accent-on-dark))] tabular-nums">{m.value}</div>
                 <div className="text-[10px] text-white/85 leading-snug">{m.label}</div>
               </li>
             ))}
@@ -3642,7 +3642,7 @@ function GeFrameworkPersonas() {
                   </p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <h4 className="text-[11px] font-bold uppercase tracking-wide text-emerald-700 mb-1.5">
+                      <h4 className="text-[11px] font-bold uppercase tracking-wide text-emerald-800 mb-1.5">
                         Goals
                       </h4>
                       <ul className="list-disc pl-4 space-y-1 m-0">
@@ -3654,7 +3654,7 @@ function GeFrameworkPersonas() {
                       </ul>
                     </div>
                     <div>
-                      <h4 className="text-[11px] font-bold uppercase tracking-wide text-[#b42318] mb-1.5">
+                      <h4 className="text-[11px] font-bold uppercase tracking-wide text-[#8a1a1a] mb-1.5">
                         Frustrations
                       </h4>
                       <ul className="list-disc pl-4 space-y-1 m-0">
@@ -3780,7 +3780,7 @@ function GeFrameworkPersonas() {
                         </div>
                       </div>
                       <div>
-                        <span className="text-[10px] font-bold uppercase tracking-wide text-emerald-700">
+                        <span className="text-[10px] font-bold uppercase tracking-wide text-emerald-800">
                           Safety needs
                         </span>
                         <div className="flex flex-wrap gap-2 mt-2">
@@ -4274,7 +4274,7 @@ function WcagToolDetails() {
                 className="border border-gray-200 rounded-xl overflow-hidden bg-white"
               >
                 <div className="flex flex-wrap items-center gap-2 px-5 py-3 border-b border-gray-100 bg-gray-50">
-                  <span className="text-[10px] font-bold tracking-[0.14em] uppercase px-2 py-0.5 rounded bg-[#fdeaea] text-[#b42318]">
+                  <span className="text-[10px] font-bold tracking-[0.14em] uppercase px-2 py-0.5 rounded bg-[#fdeaea] text-[#8a1a1a]">
                     {ex.criterion}
                   </span>
                   <h3 className="text-[13px] font-bold text-gray-900">{ex.title}</h3>
@@ -4295,7 +4295,7 @@ function WcagToolDetails() {
                   <figure className="m-0 p-5 border-b md:border-b-0 md:border-r border-gray-100">
                     <figcaption className="flex items-center gap-2 mb-2">
                       <span className="w-2 h-2 rounded-full bg-[#d92d20]" aria-hidden="true" />
-                      <span className="text-[11px] font-bold uppercase tracking-wide text-[#b42318]">
+                      <span className="text-[11px] font-bold uppercase tracking-wide text-[#8a1a1a]">
                         Before — fails
                       </span>
                     </figcaption>
@@ -4349,7 +4349,7 @@ function WcagToolDetails() {
                 <div>
                   <h3 className="text-sm font-bold text-[rgb(var(--c-hero-dark))] mb-1">{p.role}</h3>
                   <p className="text-[12.5px] text-gray-700 leading-relaxed mb-2">{p.use}</p>
-                  <span className="inline-block text-[10px] font-semibold tracking-wide uppercase px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-100">
+                  <span className="inline-block text-[10px] font-semibold tracking-wide uppercase px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-100">
                     {p.gain}
                   </span>
                 </div>
@@ -4399,7 +4399,7 @@ function WcagToolDetails() {
                   </p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <h4 className="text-[11px] font-bold uppercase tracking-wide text-emerald-700 mb-1.5">
+                      <h4 className="text-[11px] font-bold uppercase tracking-wide text-emerald-800 mb-1.5">
                         Goals
                       </h4>
                       <ul className="list-disc pl-4 space-y-1 m-0">
@@ -4411,7 +4411,7 @@ function WcagToolDetails() {
                       </ul>
                     </div>
                     <div>
-                      <h4 className="text-[11px] font-bold uppercase tracking-wide text-[#b42318] mb-1.5">
+                      <h4 className="text-[11px] font-bold uppercase tracking-wide text-[#8a1a1a] mb-1.5">
                         Frustrations
                       </h4>
                       <ul className="list-disc pl-4 space-y-1 m-0">
@@ -4749,7 +4749,7 @@ function WcagToolDetails() {
 
                       {/* WCAG needs */}
                       <div>
-                        <span className="text-[10px] font-bold uppercase tracking-wide text-emerald-700">
+                        <span className="text-[10px] font-bold uppercase tracking-wide text-emerald-800">
                           WCAG needs
                         </span>
                         <div className="flex flex-wrap gap-2 mt-2">
@@ -5368,8 +5368,8 @@ function CaseStudy({
                 key={m.label}
                 className="text-center py-3 bg-emerald-50/60 rounded-lg border border-emerald-100"
               >
-                <div className="text-2xl font-extrabold text-emerald-700">{m.value}</div>
-                <div className="text-xs text-emerald-700 font-medium mt-0.5">
+                <div className="text-2xl font-extrabold text-emerald-800">{m.value}</div>
+                <div className="text-xs text-emerald-800 font-medium mt-0.5">
                   {m.label}
                 </div>
               </div>
@@ -6583,7 +6583,7 @@ function Contact() {
   return (
     <div className="max-w-md mx-auto px-6 py-16">
       <FadeIn>
-        <div className="inline-flex items-center gap-2 mb-3 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-[11px] font-semibold text-emerald-700">
+        <div className="inline-flex items-center gap-2 mb-3 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-[11px] font-semibold text-emerald-800">
           <span aria-hidden="true" className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
           Available for new opportunities
         </div>
