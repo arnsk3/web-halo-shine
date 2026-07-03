@@ -1,3 +1,4 @@
+import { useState } from "react";
 type Skill = {
   name: string;
   level: number; // 1-5
