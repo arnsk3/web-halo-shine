@@ -750,18 +750,22 @@ type CaseFilter = (typeof CASE_FILTERS)[number];
 const IN_HOUSE_IDS: string[] = ["trustlens", "clinicalai", "sentinel", "lumen"];
 
 
+// Honest, selective tagging: each study is tagged only to the 1–2 categories
+// it genuinely represents as a primary subject. No category may equal the total.
+const CASE_CATEGORY_MAP: Record<string, CaseFilter[]> = {
+  wcagtool: ["Accessibility", "AI & Governance"],
+  trustlens: ["AI & Governance"],
+  clinicalai: ["AI & Governance"],
+  ge: ["Design Systems", "Accessibility"],
+  ssa: ["Design Systems", "Accessibility"],
+  bestbuy: ["Brand"],
+  samhsa: ["Federal & Enterprise"],
+  sentinel: ["AI & Governance"],
+  lumen: ["AI & Governance"],
+};
+
 function caseCategories(s: CaseStudyType): CaseFilter[] {
-  const t = `${s.tag} ${s.title} ${s.standards.join(" ")}`.toLowerCase();
-  const cats: CaseFilter[] = [];
-  if (/\bai\b|agentic|rag|governance|model|llm|nist|explainable/.test(t))
-    cats.push("AI & Governance");
-  if (/design system|component library|component system/.test(t))
-    cats.push("Design Systems");
-  if (/accessib|wcag|section 508|a11y/.test(t)) cats.push("Accessibility");
-  if (/consumer|brand|mobile-first|visual/.test(t)) cats.push("Brand");
-  if (/federal|government|portfolio|samhsa|hhs|enterprise/.test(t))
-    cats.push("Federal & Enterprise");
-  return cats;
+  return CASE_CATEGORY_MAP[s.id] ?? [];
 }
 
 
