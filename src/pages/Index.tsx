@@ -563,6 +563,161 @@ const CASE_STUDIES: CaseStudyType[] = [
        "7-year continuity — sustained leadership through changing administrations",
     ],
   },
+  {
+    id: "sentinel",
+    tag: "In-House AI Product · Agentic AI Safety · Red-Team Evaluation",
+    title: "Sentinel — Guardrails & Red-Team Console for Agentic AI",
+    subtitle:
+      "Designed and built a control console for autonomous AI agents — making tool-use, approvals, and failure modes visible so teams can deploy agents that take actions without losing human control.",
+    hero: "from-[rgb(var(--c-hero-mid))] via-[rgb(var(--c-primary))] to-[rgb(var(--c-accent))]",
+    image: caseSentinel,
+    role: "AI Product Designer · Builder",
+    timeline: "2025 – Present",
+    org: "BrainPulse (In-House)",
+    standards: ["NIST AI RMF", "OWASP LLM Top 10", "ISO/IEC 42001", "WCAG 2.2 AA"],
+    metrics: [
+      { value: "100%", label: "Agent Actions Logged" },
+      { value: "4", label: "Guardrail Tiers" },
+      { value: "Real-time", label: "Red-Team Alerts" },
+    ],
+    sections: [
+      {
+        heading: "Why I Built It",
+        content:
+          "Agentic AI changes the risk model entirely — a model that can call tools, browse, and execute actions can also be manipulated into doing the wrong thing through prompt injection or unsafe tool chains. Most teams ship agents with no way to see what the agent intended, what it actually did, or where a human should have intervened. I built Sentinel to make agent behavior legible and controllable before it reaches production.",
+      },
+      {
+        heading: "My Role",
+        content:
+          "I designed and built the console end-to-end: the guardrail taxonomy, the red-team workflow, the visualization system, and the React + TypeScript front end. I defined what 'safe to deploy' means as a concrete, passable checklist, designed the human-approval and kill-switch interactions, and built the adversarial scenario library so safety becomes something teams can demonstrate with evidence — not assert in a slide.",
+      },
+      {
+        heading: "What It Does",
+        content:
+          "Sentinel wraps any agent in a layered guardrail system: input filters catch prompt-injection and jailbreak patterns, an approval layer pauses high-impact tool calls for human confirmation, an action ledger records every step with its rationale and outcome, and a kill-switch returns the agent to a safe state. A red-team console lets evaluators run adversarial scenarios and watch guardrails fire in real time.",
+      },
+      {
+        heading: "Guardrail Tiers",
+        content:
+          "I codified four tiers mapped to action impact — observe (log only), confirm (human approval required), constrain (allowed within hard limits), and block (never permitted). Each tier has fixed UI, audit, and evaluation requirements, so the question 'is this agent safe to deploy?' becomes a checklist teams can pass rather than a judgment call.",
+      },
+      {
+        heading: "The Hardest Decisions",
+        content:
+          "Autonomy vs. control: teams want agents that move fast, but unbounded tool-use is where damage happens — I made high-impact actions require confirmation by default and earn autonomy only after they clear red-team evaluation. Alert fatigue vs. coverage: filtering everything would bury operators, so I tiered detections by severity and grouped low-risk events, keeping the approval queue focused on what truly matters. Trust vs. verification: rather than trusting a vendor's safety claim, I designed the red-team console so safety must be reproduced and proven before launch.",
+      },
+      {
+        heading: "Validation & Impact",
+        content:
+          "By making every agent action auditable and forcing high-impact steps through human approval, Sentinel turns 'we think it's safe' into demonstrable, evidence-backed readiness — the gate enterprises need before they let agents act in production. The four-tier checklist gives risk and engineering a shared deployment standard, shrinking back-and-forth review cycles and giving leadership the confidence to greenlight agentic features they'd otherwise block.",
+      },
+      {
+        heading: "Architecture & Approach",
+        content:
+          "Built the front end in React + TypeScript as reusable visualization components — action timelines, tool-call inspectors, guardrail status panels, and adversarial-test result views — on a single semantic design-token layer. Streaming agent telemetry is handled with predictable state so dense, fast-moving logs stay readable, and every panel is keyboard-operable and WCAG 2.2 AA conformant.",
+      },
+    ],
+    outcomes: [
+      "Made autonomous agent behavior fully auditable — every action logged with intent and outcome",
+      "Four-tier guardrail model turns agent safety into a passable, shared deployment checklist",
+      "Prompt-injection and jailbreak detection surfaced before actions execute",
+      "Red-team console lets evaluators reproduce and verify adversarial failures before launch",
+      "Severity-tiered alerts keep the human approval queue focused and fatigue-free",
+      "Reusable React + TypeScript visualization components on one token layer",
+      "Human-in-the-loop approvals keep humans in control of high-impact actions",
+    ],
+    artifacts: [
+      { label: "Agent action timeline", desc: "Step-by-step view of intent, tool calls, and outcomes for every agent run." },
+      { label: "Guardrail status panels", desc: "Live tier indicators showing what is observed, confirmed, constrained, or blocked." },
+      { label: "Tool-call inspector", desc: "Drill-in view of each tool invocation, its arguments, and the guardrail decision applied." },
+      { label: "Red-team scenario library", desc: "Reusable adversarial tests that exercise prompt injection and unsafe tool chains." },
+      { label: "Evaluation evidence export", desc: "Audit-ready records mapping agent behavior to NIST AI RMF and OWASP LLM controls." },
+    ],
+    hsi: [
+      "Human-in-the-loop oversight — approvals gate high-impact autonomous actions",
+      "Failure-mode design — kill-switch and safe-state recovery for runaway agents",
+      "NIST AI RMF — measure and manage agent risk with traceable evidence",
+      "OWASP LLM Top 10 — prompt-injection and tool-abuse defenses built in",
+    ],
+  },
+  {
+    id: "lumen",
+    tag: "In-House AI Product · RAG Transparency · Source-Grounding UX",
+    title: "Lumen — Source-Grounding & Transparency UX for Enterprise Knowledge AI",
+    subtitle:
+      "Designed the trust layer for retrieval-augmented generation — connecting every AI answer to its source evidence so users can verify, challenge, and rely on knowledge AI in high-stakes work.",
+    hero: "from-[#1b2a69] via-[rgb(var(--c-primary))] to-[rgb(var(--c-accent))]",
+    image: caseLumen,
+    role: "AI Interaction Designer · Builder",
+    timeline: "2025 – Present",
+    org: "BrainPulse (In-House)",
+    standards: ["NIST AI RMF", "WCAG 2.2 AA", "ISO/IEC 42001"],
+    metrics: [
+      { value: "100%", label: "Answers Source-Linked" },
+      { value: "3", label: "Confidence States" },
+      { value: "↓ Hallucination", label: "Risk Surfaced" },
+    ],
+    sections: [
+      {
+        heading: "Why I Built It",
+        content:
+          "Enterprise knowledge AI fails the moment users can't tell whether an answer is grounded in real documents or quietly invented. In regulated and high-stakes work, an unverifiable answer is worse than no answer. I designed Lumen as the transparency layer for retrieval-augmented generation — making the connection between answer and evidence the centerpiece of the experience, not a footnote.",
+      },
+      {
+        heading: "My Role",
+        content:
+          "I designed the trust layer and built the front end: the evidence-linking interaction model, the citation and confidence visual language, the accessible component system, and the React + TypeScript implementation. I defined how answers reconcile with their sources as they stream, how the UI behaves when evidence is thin, and how a user moves from answer to proof in a single step — the pattern that decides whether people actually rely on knowledge AI in serious work.",
+      },
+      {
+        heading: "What It Does",
+        content:
+          "Every claim in an answer is linked to the retrieved passages that support it, with inline citations users can expand to read the exact source. When retrieval is weak or sources conflict, Lumen says so explicitly rather than projecting false confidence. Users can challenge an answer, jump to source documents, and see why a passage was retrieved — turning a black-box response into a defensible, checkable result.",
+      },
+      {
+        heading: "Confidence & Hallucination Cues",
+        content:
+          "Confidence is shown as a meaningful, contextual signal grounded in retrieval quality and source agreement — not a raw model probability. When the system has thin or contradictory evidence, the UI down-weights the answer and surfaces the gap, so users calibrate trust appropriately and hallucination risk is made visible instead of hidden.",
+      },
+      {
+        heading: "The Hardest Decisions",
+        content:
+          "Fluency vs. honesty: a confident, well-written wrong answer is the most dangerous output a RAG system can produce, so I designed the UI to visibly down-weight answers with weak grounding even when the prose reads smoothly. Friction vs. trust: surfacing every citation risks clutter, so I used inline chips with on-demand source drawers — proof is always one interaction away without drowning the answer. Coverage vs. honesty about gaps: instead of always producing an answer, I designed an explicit 'insufficient evidence' state, because in regulated work admitting a gap beats inventing one.",
+      },
+      {
+        heading: "Validation & Impact",
+        content:
+          "By linking 100% of answers to their sources and making hallucination risk visible, Lumen converts a black-box assistant into a tool people can defend to an auditor or a regulator — the prerequisite for adoption in high-stakes domains. Grounding every claim and exposing weak evidence drives appropriate reliance: users trust answers faster when they can verify them in a click, and stop trusting confidently-wrong ones before they act, which is what moves knowledge AI from pilot to production.",
+      },
+      {
+        heading: "Architecture & Approach",
+        content:
+          "Built in React + TypeScript with reusable components for citation chips, source-passage drawers, evidence-linking lines, and confidence indicators — all on a single semantic design-token layer. Streaming responses are reconciled with their citations in predictable state, and the entire experience is keyboard-operable and screen-reader-first to WCAG 2.2 AA.",
+      },
+    ],
+    outcomes: [
+      "Linked 100% of AI answers to their source evidence for verifiable, defensible output",
+      "Surfaced hallucination risk explicitly when retrieval is weak or sources conflict",
+      "Explicit 'insufficient evidence' state prevents confident, well-written wrong answers",
+      "Confidence shown as calibrated, contextual signal — not raw model probability",
+      "Drove appropriate reliance — users verify in one click instead of trusting blindly",
+      "Reusable citation, source-drawer, and grounding components on one token layer",
+      "Screen-reader-first, keyboard-operable transparency UX to WCAG 2.2 AA",
+      "Gave users a defensible basis to trust or challenge knowledge-AI answers",
+    ],
+    artifacts: [
+      { label: "Inline citation system", desc: "Per-claim citation chips that expand to the exact supporting passage." },
+      { label: "Source-passage drawer", desc: "Side panel showing retrieved evidence and why each passage was selected." },
+      { label: "Confidence & gap indicators", desc: "Contextual signals that down-weight thin or conflicting evidence." },
+      { label: "Insufficient-evidence state", desc: "Explicit UI pattern that admits a gap instead of fabricating an answer." },
+      { label: "Grounding component library", desc: "Reusable React + TypeScript primitives for evidence-linked AI answers." },
+    ],
+    hsi: [
+      "Appropriate reliance — evidence linking lets users trust or challenge AI output",
+      "Explainability — every claim traces to its retrieved source passage",
+      "Error prevention — hallucination risk surfaced rather than hidden",
+      "NIST AI RMF — transparency and measurement built into the experience",
+    ],
+  },
 ];
 
 const CREDS = [
