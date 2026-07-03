@@ -217,7 +217,7 @@ function BrandCard({ p }: { p: BrandProject }) {
           <h3 id={`brand-${p.id}-name`} className="font-bold text-gray-900 text-base leading-snug">
             {p.descriptor}
           </h3>
-          <span className="text-[11px] font-semibold text-gray-500 whitespace-nowrap">{p.year}</span>
+          <span className="text-[11px] font-semibold text-gray-600 whitespace-nowrap">{p.year}</span>
         </div>
         <p className="text-[rgb(var(--c-accent-on-light))] text-xs font-semibold uppercase tracking-wide mb-3">
           {p.sector}
@@ -277,7 +277,7 @@ function GuidelinesSpread() {
           <p className="text-3xl font-black text-[rgb(var(--c-primary))] leading-none">Aa</p>
           <p className="text-lg font-bold text-gray-800 mt-1">Display · Bold</p>
           <p className="text-sm text-gray-600">Body · Regular 400</p>
-          <p className="text-xs text-gray-500 tracking-wide mt-1">CAPS · LETTERSPACED LABELS</p>
+          <p className="text-xs text-gray-600 tracking-wide mt-1">CAPS · LETTERSPACED LABELS</p>
         </div>
         {/* Color tokens */}
         <div className="rounded-xl border border-gray-100 bg-[rgb(var(--c-tint-50))] p-4">
@@ -324,14 +324,14 @@ function RefreshShowcase() {
       <div className="grid gap-4 sm:grid-cols-2">
         {/* Before */}
         <div className="rounded-xl border border-gray-200 bg-gray-50 p-6 text-center">
-          <span className="inline-block text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-4">Before</span>
+          <span className="inline-block text-[10px] font-bold uppercase tracking-widest text-gray-600 mb-4">Before</span>
           <div className="flex flex-col items-center gap-3">
             <svg viewBox="0 0 64 64" className="h-16 w-16" role="img" aria-label="Legacy mark, before refresh">
               <circle cx="32" cy="32" r="26" fill="none" stroke="#9ca3af" strokeWidth="8" />
               <path d="M14 40h36" stroke="#9ca3af" strokeWidth="6" />
             </svg>
-            <span className="text-2xl font-serif text-gray-500 tracking-wide">PULSE</span>
-            <span className="text-[11px] text-gray-500">Dated, low-contrast, portfolio fragmented</span>
+            <span className="text-2xl font-serif text-gray-600 tracking-wide">PULSE</span>
+            <span className="text-[11px] text-gray-600">Dated, low-contrast, portfolio fragmented</span>
           </div>
         </div>
         {/* After */}
