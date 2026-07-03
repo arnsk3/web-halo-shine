@@ -1153,11 +1153,7 @@ function Home({
                     />
                   )}
                   <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                  {IN_HOUSE_IDS.includes(s.id) && (
-                    <span className="absolute top-4 right-4 text-[10px] font-bold tracking-wide uppercase px-2.5 py-1 rounded-full bg-white/90 text-[rgb(var(--c-primary))]">
-                      In-House Product
-                    </span>
-                  )}
+
                   <span className="relative text-white text-[11px] font-semibold tracking-widest uppercase">
                     {s.tag}
                   </span>
