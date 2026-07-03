@@ -1254,7 +1254,7 @@ function Home({
               />
               <div>
                 <h2 id="brief-about-heading" className="font-bold text-gray-900 mb-1 text-base">
-                  Senthil Kumar Nagappan
+                  Senthil Nagappan
                 </h2>
                 <p className="text-gray-700 text-sm leading-relaxed mb-2">
                   Senior AI and Human Systems Integration leader with 18+ years building
@@ -5996,12 +5996,12 @@ function About() {
         <div className="flex flex-col sm:flex-row gap-6 items-start mb-10">
           <img
             src="/headshot.jpg"
-            alt="Portrait of Senthil Kumar Nagappan"
+            alt="Portrait of Senthil Nagappan"
             className="w-28 h-28 rounded-2xl object-cover flex-shrink-0 shadow-md"
           />
           <div>
             <h1 className="text-3xl font-extrabold text-gray-900 tracking-tight mb-1">
-              Senthil Kumar Nagappan
+              Senthil Nagappan
             </h1>
             <p className="text-[rgb(var(--c-accent-dark))] font-semibold text-sm mb-3">
               Senior UI/UX &amp; Visual Designer · AI Safety &amp; Human Systems Integration Leader
@@ -6440,7 +6440,7 @@ function Resume() {
           </summary>
           <div className="px-5 py-4 text-sm text-gray-800 leading-relaxed space-y-3">
             <p>
-              <strong>Senthil Kumar Nagappan</strong> — AI Safety &amp; Human Systems
+              <strong>Senthil Nagappan</strong> — AI Safety &amp; Human Systems
               Integration Leader. 18+ years building enterprise functions that deliver
               safe, compliant, AI-driven products across healthcare, federal, retail,
               and defense.
@@ -6806,7 +6806,7 @@ function Footer({
     <footer className="bg-[#111827] mt-16" role="contentinfo">
       <div className="max-w-5xl mx-auto px-6 py-10 flex flex-col sm:flex-row justify-between items-start gap-6">
         <div>
-          <p className="font-bold text-white text-sm">Senthil Kumar Nagappan</p>
+          <p className="font-bold text-white text-sm">Senthil Nagappan</p>
           <p className="text-white text-xs mt-1">
             AI Experience Design · Human Systems Integration · Accessibility
           </p>
@@ -6852,7 +6852,7 @@ const PAGE_TITLES: Record<PageId, string> = {
 };
 
 const PAGE_DESCRIPTIONS: Record<PageId, string> = {
-  home: "Senthil Kumar Nagappan: AI experience design and human systems integration — accessibility, design systems, and production front-end engineering for safe, human-centered AI in healthcare, federal, and enterprise environments.",
+  home: "Senthil Nagappan: AI experience design and human systems integration — accessibility, design systems, and production front-end engineering for safe, human-centered AI in healthcare, federal, and enterprise environments.",
   brand: "Design systems & brand-consistent visual systems by Senthil Nagappan — shared components, design tokens, and on-brand UI that scale across consumer, healthcare, and enterprise products.",
 
   about: "About Senthil Nagappan — 18+ years building AI-driven products in regulated healthcare, federal, retail, and defense environments.",
