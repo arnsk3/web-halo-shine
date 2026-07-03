@@ -56,14 +56,18 @@ const GROUPS: SkillGroup[] = [
 
 function LevelDots({ level }: { level: number }) {
   return (
-    <span className="inline-flex items-center gap-1" aria-hidden="true">
+    <span
+      className="inline-flex items-center gap-1"
+      role="img"
+      aria-label={`Proficiency: ${LEVEL_LABEL[level]}`}
+    >
       {[1, 2, 3, 4, 5].map((n) => (
         <span
           key={n}
           className={`h-1.5 w-3.5 rounded-full ${
             n <= level
-              ? "bg-[rgb(var(--c-accent))]"
-              : "bg-[rgb(var(--c-primary)/0.15)]"
+              ? "bg-[rgb(var(--c-accent-light))]"
+              : "bg-white/40"
           }`}
         />
       ))}
@@ -142,9 +146,11 @@ export default function AISkillsMatrix() {
               <li key={s.name}>
                 <div className="flex items-center justify-between gap-3">
                   <span className="text-sm font-semibold text-white leading-snug">{s.name}</span>
-                  <span className="shrink-0">
+                  <span className="shrink-0 inline-flex items-center gap-2">
                     <LevelDots level={s.level} />
-                    <span className="sr-only">{LEVEL_LABEL[s.level]}</span>
+                    <span className="text-[11px] font-semibold text-[rgb(var(--c-accent-on-dark))] w-16 text-right">
+                      {LEVEL_LABEL[s.level]}
+                    </span>
                   </span>
                 </div>
                 <p className="text-white/90 text-[12px] mt-0.5 leading-relaxed">{s.note}</p>
