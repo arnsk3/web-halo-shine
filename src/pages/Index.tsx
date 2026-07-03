@@ -114,6 +114,168 @@ const CASE_STUDIES: CaseStudyType[] = [
     ],
   },
   {
+    id: "trustlens",
+    tag: "In-House AI Product · NIST AI RMF · EU AI Act · Governance",
+    title: "TrustLens — AI Governance & Model-Risk Command Center",
+    subtitle:
+      "Conceived and built an in-house AI governance platform that gives Chief AI Officers a single pane of glass to monitor model risk, fairness, drift, and human-oversight decisions — turning abstract AI regulation into audit-ready, real-time evidence.",
+    hero: "from-[rgb(var(--c-hero-mid))] via-[rgb(var(--c-primary))] to-[rgb(var(--c-accent))]",
+    image: caseTrustlens,
+    role: "AI Product Owner · Governance Architect · Frontend Engineer",
+    timeline: "2024 – Present",
+    org: "BrainPulse (In-House Product)",
+    standards: ["NIST AI RMF", "EU AI Act", "ISO/IEC 42001", "WCAG 2.2 AA", "TEVV"],
+    metrics: [
+      { value: "8+", label: "Models Governed" },
+      { value: "4", label: "Risk Tiers" },
+      { value: "70%", label: "Faster Audit Prep" },
+    ],
+    sections: [
+      {
+        heading: "Why I Built It",
+        content:
+          "AI is being deployed faster than organizations can govern it. Teams ship models with no shared risk language, no oversight controls for high-stakes decisions, and no evidence trail when a regulator, board, or auditor comes asking. I built TrustLens to make AI governance operational rather than aspirational — a product that translates NIST AI RMF, the EU AI Act, and ISO/IEC 42001 into living dashboards instead of static PDFs.",
+      },
+      {
+        heading: "My Role",
+        content:
+          "I owned this product end-to-end: the governance framework, the information architecture, the visual design system, and the React + TypeScript front-end build. I defined the risk-tiering taxonomy, designed the human-oversight interaction models, built the reusable data-visualization component library, and shaped how compliance evidence is captured as a byproduct of everyday use. I worked the way I would embedded with a Chief AI Officer's team — translating regulation into screens stakeholders actually adopt.",
+      },
+      {
+        heading: "What It Does",
+        content:
+          "TrustLens ingests metadata from every AI/ML model an organization runs and renders a unified governance picture: model cards with training-data provenance and known limitations, fairness and bias panels, confidence-score distributions, and a TEVV reporting suite with drift detection and performance-degradation alerts. A risk-tiering engine classifies each model as Critical, High, Medium, or Low and routes high-risk decisions into configurable human-in-the-loop approval gates with override capture and full audit logging.",
+      },
+      {
+        heading: "AI Safety by Design",
+        content:
+          "The product encodes the recommend / act / alert interaction model directly into the UI, with explicit confidence thresholds and graceful-degradation states for when a model is uncertain or offline. Every AI-assisted decision is legible and reversible: clinicians, examiners, or operators can see why a model recommended an action, challenge it, and capture their override reasoning — making oversight meaningful instead of a rubber stamp.",
+      },
+      {
+        heading: "The Hardest Decisions",
+        content:
+          "Signal vs. noise: governance dashboards die when they fire too many alerts, so I tuned drift and bias thresholds to surface only material changes and routed the rest to a digest — keeping examiner attention where risk actually lives. Transparency vs. overwhelm: leadership wanted every metric on one screen; I pushed back and designed progressive disclosure — a calm executive overview that drills into deep TEVV evidence on demand. Speed vs. accountability: rather than auto-approving low-risk models to move faster, I made the approval gate one click but always logged — accountability without friction.",
+      },
+      {
+        heading: "Impact & Adoption",
+        content:
+          "By generating compliance evidence as a byproduct of normal monitoring, TrustLens cut the manual effort of assembling NIST AI RMF and EU AI Act audit packages by an estimated 70% — turning a multi-week fire drill into an export. The single-pane-of-glass overview drove cross-team adoption because each stakeholder — risk, legal, engineering, leadership — sees the same source of truth, replacing scattered spreadsheets and one-off model reviews with a shared operating picture.",
+      },
+      {
+        heading: "UI Architecture & React Engineering",
+        content:
+          "I architected and wrote the front end in React + TypeScript as a library of reusable, accessible data-visualization components — risk gauges, fairness charts, model cards, and audit timelines — driven by a single semantic design-token layer. Predictable state management keeps model status, filters, and oversight queues in sync across views, and the Vite build uses code-splitting and lazy loading so dense, data-heavy dashboards stay fast. Every chart is colorblind-safe and validated to WCAG 2.2 AA.",
+      },
+    ],
+    outcomes: [
+      "Single-pane-of-glass governance across 8+ AI models with real-time health monitoring",
+      "Cut audit-package preparation effort an estimated 70% by generating evidence as a byproduct of use",
+      "Risk-tiering engine with automated escalation and human-override controls for high-stakes decisions",
+      "TEVV suite with drift detection, bias monitoring, and performance-degradation alerts",
+      "Audit-ready NIST AI RMF and EU AI Act evidence packages generated on demand",
+      "AI Bill of Materials generator for model supply-chain transparency",
+      "Drove cross-team adoption by giving risk, legal, engineering, and leadership one shared source of truth",
+      "Reusable, colorblind-safe React + TypeScript visualization component library",
+      "Human-in-the-loop oversight patterns make every AI decision legible and reversible",
+    ],
+    artifacts: [
+      { label: "Model card component system", desc: "Interactive cards showing data provenance, performance benchmarks, fairness metrics, and known limitations." },
+      { label: "Risk-tiering & escalation engine", desc: "Visual classification of models into Critical/High/Medium/Low with automated oversight routing." },
+      { label: "TEVV monitoring dashboard", desc: "Drift, bias, and degradation panels with threshold-based alerting and digest grouping." },
+      { label: "Executive overview & drill-down", desc: "Progressive-disclosure layout — a calm leadership summary that expands into deep evidence on demand." },
+      { label: "Compliance evidence exporter", desc: "One-click NIST AI RMF / EU AI Act packages and AI Bill of Materials output." },
+    ],
+    hsi: [
+      "AI safety & trust calibration — recommend/act/alert model with explicit confidence and oversight",
+      "Human-in-the-loop control — approval gates, overrides, and audit capture for high-risk decisions",
+      "NIST AI RMF / EU AI Act / ISO 42001 — governance encoded as living, auditable UI",
+      "Accessible data visualization — colorblind-safe, WCAG 2.2 AA dashboards under cognitive load",
+    ],
+  },
+  {
+    id: "clinicalai",
+    tag: "In-House AI Product · Clinical Decision-Support · Explainable AI",
+    title: "Clarity — Explainable Clinical AI Decision-Support",
+    subtitle:
+      "Designed and prototyped an AI clinical decision-support product where getting it wrong isn't an option — surfacing model recommendations with confidence, evidence, and a human-in-the-loop override path so clinicians stay meaningfully in control.",
+    hero: "from-[rgb(var(--c-primary))] via-[rgb(var(--c-hero-mid))] to-[rgb(var(--c-accent))]",
+    image: caseClinicalAi,
+    role: "AI Product Designer · Human-AI Interaction Architect · Builder",
+    timeline: "2024 – Present",
+    org: "BrainPulse (In-House Product)",
+    standards: ["FDA / IEC 62366", "ISO 14971", "NIST AI RMF", "WCAG 2.2 AA"],
+    metrics: [
+      { value: "3", label: "Oversight Tiers" },
+      { value: "100%", label: "Decisions Auditable" },
+      { value: "AAA", label: "Contrast Targets" },
+    ],
+    sections: [
+      {
+        heading: "Why I Built It",
+        content:
+          "Clinical AI fails not when the model is wrong, but when the interface hides how confident it is, why it recommended something, or who is accountable for acting on it. After years designing safety-critical systems, I built Clarity to prove that AI decision-support can be powerful and safe at the same time — by treating explainability, confidence, and human oversight as primary UI, not footnotes.",
+      },
+      {
+        heading: "My Role",
+        content:
+          "I led design and built the working prototype: the human-AI interaction model, the explainability and confidence patterns, the accessible component system, and the React + TypeScript front end. I ran the failure-mode analysis, defined the graded oversight tiers, and designed the override-capture flow that turns clinician disagreement into auditable, model-improving signal — the way I'd partner with a clinical and regulatory team to ship something both safe and usable.",
+      },
+      {
+        heading: "What It Does",
+        content:
+          "Clarity presents an AI recommendation alongside a patient summary, a plain-language rationale, the evidence behind it, and a calibrated confidence score. Clinicians can accept, modify, or reject the recommendation, and every action — especially overrides — is captured with reasoning for the audit trail. High-uncertainty cases are visually flagged and escalated rather than silently auto-acted.",
+      },
+      {
+        heading: "Designing for Failure Modes",
+        content:
+          "I mapped the failure modes most teams ignore — automation bias, alert fatigue, silent model drift, and ambiguous accountability — and designed safe-state behaviors for each. The product uses graded oversight tiers (Model A recommends, B acts with confirmation, C alerts only), so the level of human control scales with clinical risk and matches FDA / IEC 62366 usability-engineering expectations.",
+      },
+      {
+        heading: "Trust Calibration & Explainability",
+        content:
+          "Confidence is shown as a meaningful, contextual signal — not a raw percentage — so clinicians know when to trust the model and when to dig deeper. Explainability panels connect each recommendation to the contributing factors and source data, giving clinicians a defensible basis to agree or challenge, which is the foundation of appropriate reliance on AI.",
+      },
+      {
+        heading: "The Hardest Decisions",
+        content:
+          "Confidence as number vs. signal: a raw 87% invites false precision and automation bias, so I designed contextual confidence bands tied to evidence strength instead of a bare percentage. Speed vs. explainability: leadership wanted instant recommendations, but explanation can't be an afterthought — I used layered disclosure so the recommendation lands immediately and the rationale is one interaction away. Autonomy vs. oversight: for the highest-risk decisions I refused full automation and codified a mandatory human checkpoint, scaling control to clinical risk rather than to engineering convenience.",
+      },
+      {
+        heading: "Validation & Impact",
+        content:
+          "I pressure-tested the interface against the cognitive conditions clinical AI actually fails in — time pressure, interruption, and ambiguous cases — and validated keyboard and screen-reader operability so the product holds up in real environments, not just demos. The result is a decision-support experience designed to reduce automation bias and over-reliance, shorten time-to-confident-decision through layered explainability, and keep 100% of decisions accountable — the trust foundation that gets clinical AI adopted instead of switched off.",
+      },
+      {
+        heading: "UI Architecture & React Engineering",
+        content:
+          "I built the prototype front end in React + TypeScript with a reusable, accessible component set — recommendation cards, confidence indicators, explainability drawers, and override-capture flows — on a single semantic design-token layer themed to AAA contrast targets. State management keeps recommendations, clinician actions, and audit events consistent, and the interface is fully keyboard-operable and screen-reader-first so it holds up in real clinical environments.",
+      },
+    ],
+    outcomes: [
+      "Graded human-in-the-loop oversight tiers matched to clinical risk (recommend / act-with-confirm / alert)",
+      "Every AI recommendation paired with confidence, rationale, and source evidence",
+      "100% of clinician decisions and overrides captured for the audit trail",
+      "Designed safe-state behaviors for automation bias, drift, and ambiguous accountability",
+      "Trust-calibration UX promotes appropriate reliance — not blind acceptance or dismissal",
+      "Layered explainability shortens time-to-confident-decision without hiding the rationale",
+      "Reusable, AAA-contrast React + TypeScript clinical component library",
+      "Keyboard-operable, screen-reader-first interface aligned to FDA / IEC 62366",
+    ],
+    artifacts: [
+      { label: "AI recommendation card system", desc: "Recommendation + confidence + rationale + evidence in a single legible, accessible unit." },
+      { label: "Explainability drawer", desc: "Connects each recommendation to contributing factors and source data on demand." },
+      { label: "Confidence-band visual language", desc: "Contextual confidence shown as evidence-tied bands rather than misleading raw percentages." },
+      { label: "Override capture flow", desc: "Structured reasoning capture that feeds the audit trail and model feedback loop." },
+      { label: "Oversight-tier interaction spec", desc: "Recommend/act/alert behaviors mapped to clinical risk and IEC 62366 criteria." },
+    ],
+    hsi: [
+      "Human-AI interaction for safety-critical decisions — legible, reversible, and accountable",
+      "Trust calibration & explainability — confidence shown as meaningful, contextual signal",
+      "Failure-mode design — safe states for automation bias, drift, and alert fatigue",
+      "FDA / IEC 62366 usability engineering — oversight tiers matched to clinical risk",
+    ],
+  },
+  {
     id: "ge",
     tag: "Design System · On-Brand · Accessible Experiences",
     title: "Evolving a Design System to Power Consistent, Accessible Digital Experiences",
