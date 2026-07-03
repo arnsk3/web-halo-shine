@@ -4307,7 +4307,7 @@ function WcagToolDetails() {
                   <figure className="m-0 p-5">
                     <figcaption className="flex items-center gap-2 mb-2">
                       <span className="w-2 h-2 rounded-full bg-[#12b76a]" aria-hidden="true" />
-                      <span className="text-[11px] font-bold uppercase tracking-wide text-[#067647]">
+                      <span className="text-[11px] font-bold uppercase tracking-wide text-[#055c37]">
                         After — passes
                       </span>
                     </figcaption>
