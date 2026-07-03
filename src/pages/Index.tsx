@@ -6783,22 +6783,34 @@ function Footer({
   setPage: (p: PageId) => void;
   currentPage: PageId;
 }) {
-  const labels: Record<PageId, string> = {
-    home: "Home",
-    brand: "Brand",
-    about: "About",
-    approach: "Approach",
-    resume: "Resume",
-    contact: "Contact",
-    case: "Case Study",
+  const goSection = (id: string) => {
+    setPage("home");
+    requestAnimationFrame(() =>
+      requestAnimationFrame(() =>
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })
+      )
+    );
   };
+  const sectionItems: { id: string; label: string }[] = [
+    { id: "cases", label: "Work" },
+    { id: "expertise", label: "Expertise" },
+  ];
+  const pageItems: { id: PageId; label: string }[] = [
+    { id: "about", label: "About" },
+    { id: "resume", label: "Résumé" },
+    { id: "contact", label: "Contact" },
+  ];
+  const linkClass = (active: boolean) =>
+    `text-xs underline-offset-4 hover:underline transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#111827] ${
+      active ? "text-white font-semibold underline" : "text-white hover:text-white"
+    }`;
   return (
     <footer className="bg-[#111827] mt-16" role="contentinfo">
       <div className="max-w-5xl mx-auto px-6 py-10 flex flex-col sm:flex-row justify-between items-start gap-6">
         <div>
           <p className="font-bold text-white text-sm">Senthil Kumar Nagappan</p>
           <p className="text-white text-xs mt-1">
-            AI Safety &amp; Human Systems Integration Leader
+            AI Experience Design · Human Systems Integration · Accessibility
           </p>
           <p className="text-white/90 text-xs mt-3">
             © 2026 · Designed &amp; built with accessibility in mind
@@ -6806,18 +6818,21 @@ function Footer({
         </div>
         <nav aria-label="Footer">
           <ul className="flex gap-5 flex-wrap list-none p-0 m-0">
-            {(["home", "about", "approach", "resume", "contact"] as PageId[]).map((p) => (
-              <li key={p}>
+            {sectionItems.map((l) => (
+              <li key={l.id}>
+                <button onClick={() => goSection(l.id)} className={linkClass(false)}>
+                  {l.label}
+                </button>
+              </li>
+            ))}
+            {pageItems.map((l) => (
+              <li key={l.id}>
                 <button
-                  onClick={() => setPage(p)}
-                  aria-current={currentPage === p ? "page" : undefined}
-                  className={`text-xs underline-offset-4 hover:underline transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#111827] ${
-                    currentPage === p
-                      ? "text-white font-semibold underline"
-                      : "text-white hover:text-white"
-                  }`}
+                  onClick={() => setPage(l.id)}
+                  aria-current={currentPage === l.id ? "page" : undefined}
+                  className={linkClass(currentPage === l.id)}
                 >
-                  {labels[p]}
+                  {l.label}
                 </button>
               </li>
             ))}
