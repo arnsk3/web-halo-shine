@@ -6844,7 +6844,7 @@ function Footer({
 }
 
 const PAGE_TITLES: Record<PageId, string> = {
-  home: "Senthil Nagappan — AI Safety & Human Systems Integration",
+  home: "Senthil Nagappan — AI Experience Design & Human Systems Integration",
   brand: "Brand Identity & Visual Systems — Senthil Nagappan",
   about: "About — Senthil Nagappan",
   approach: "Approach — Senthil Nagappan",
