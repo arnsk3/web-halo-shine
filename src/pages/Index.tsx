@@ -6813,6 +6813,9 @@ function Footer({
           <p className="text-white/90 text-xs mt-3">
             © 2026 · Designed &amp; built with accessibility in mind
           </p>
+          <p className="text-white/50 text-[10px] mt-1 font-mono">
+            Build {new Date(__BUILD_DATE__).toLocaleString()}
+          </p>
         </div>
         <nav aria-label="Footer">
           <ul className="flex gap-5 flex-wrap list-none p-0 m-0">
