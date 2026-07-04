@@ -223,12 +223,12 @@ function ExpertiseCard({ d, isLast }: { d: Domain; isLast: boolean }) {
           {d.impact.map((m) => (
             <div
               key={m.label}
-              className="rounded-lg bg-[rgb(var(--c-tint-50))] border border-[rgb(var(--c-primary)/0.1)] px-2 py-2.5 text-center"
+              className="rounded-md bg-[rgb(var(--c-tint-50))] border border-[rgb(var(--c-primary)/0.1)] px-1.5 py-2 text-center"
             >
-              <div className="text-base font-extrabold text-[rgb(var(--c-accent-on-light))] leading-tight">
+              <div className="text-sm font-extrabold text-[rgb(var(--c-accent-on-light))] leading-tight">
                 {m.value}
               </div>
-              <div className="text-[11px] text-gray-700 mt-0.5 leading-tight">{m.label}</div>
+              <div className="text-[11px] text-gray-700 mt-0 leading-tight">{m.label}</div>
             </div>
           ))}
         </div>
@@ -238,7 +238,7 @@ function ExpertiseCard({ d, isLast }: { d: Domain; isLast: boolean }) {
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
           aria-controls={detailId}
-          className="mt-auto inline-flex items-center gap-1.5 self-start rounded-md text-[13px] font-bold text-[rgb(var(--c-accent-on-light))] min-h-11 px-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
+          className="mt-auto inline-flex items-center gap-1 self-start rounded-md text-[13px] font-bold text-[rgb(var(--c-accent-on-light))] min-h-9 px-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
         >
           {open ? "Read less" : "Read more"}
           <span aria-hidden="true" className={`transition-transform ${open ? "rotate-180" : ""}`}>
