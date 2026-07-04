@@ -1,5 +1,12 @@
 import { useState } from "react";
 import type { JSX } from "react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
 
 type Domain = {
   id: string;
@@ -195,9 +202,85 @@ const DOMAINS: Domain[] = [
   },
 ];
 
-function ExpertiseCard({ d, isLast }: { d: Domain; isLast: boolean }) {
-  const [open, setOpen] = useState(false);
-  const detailId = `${d.id}-details`;
+function DomainModal({ domain, open, onClose }: { domain: Domain | null; open: boolean; onClose: () => void }) {
+  if (!domain) return null;
+  return (
+    <Dialog open={open} onOpenChange={(v) => !v && onClose()}>
+      <DialogContent className="max-w-xl p-0 gap-0 overflow-hidden border border-[rgb(var(--c-primary)/0.2)] bg-white">
+        <div className="flex items-start gap-3 p-5 border-b border-[rgb(var(--c-primary)/0.1)] bg-[rgb(var(--c-tint-50))]">
+          <span
+            aria-hidden="true"
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[rgb(var(--c-tint-100))] text-[rgb(var(--c-accent-on-light))]"
+          >
+            <span className="h-5 w-5 block">{domain.icon}</span>
+          </span>
+          <DialogHeader className="text-left space-y-1">
+            <DialogTitle className="text-lg font-bold text-gray-900 tracking-tight leading-snug">
+              {domain.title}
+            </DialogTitle>
+            <DialogDescription className="text-sm text-gray-700 leading-snug">
+              {domain.tagline}
+            </DialogDescription>
+          </DialogHeader>
+        </div>
+
+        <div className="p-5 space-y-4">
+          <p className="text-sm text-gray-700 leading-snug">{domain.summary}</p>
+
+          <div>
+            <p className="text-[11px] font-bold uppercase tracking-wide text-gray-700 mb-1.5">
+              What I bring
+            </p>
+            <ul className="list-none p-0 m-0 space-y-1">
+              {domain.capabilities.map((c) => (
+                <li key={c} className="flex items-start gap-2 text-sm text-gray-700">
+                  <span
+                    aria-hidden="true"
+                    className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[rgb(var(--c-accent))]"
+                  />
+                  <span className="leading-snug">{c}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <p className="text-[11px] font-bold uppercase tracking-wide text-gray-700 mb-1.5">
+              Live examples & impact
+            </p>
+            <ul className="list-none p-0 m-0 space-y-2">
+              {domain.examples.map((ex) => (
+                <li
+                  key={ex.title}
+                  className="rounded-md border-l-2 border-[rgb(var(--c-accent))] bg-[rgb(var(--c-tint-50))] pl-3 py-1.5 pr-3"
+                >
+                  <p className="font-semibold text-gray-900 text-sm leading-snug">{ex.title}</p>
+                  <p className="text-gray-700 text-[13px] mt-0.5 leading-snug">{ex.detail}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="grid grid-cols-3 gap-2 pt-2">
+            {domain.impact.map((m) => (
+              <div
+                key={m.label}
+                className="rounded-md bg-[rgb(var(--c-tint-50))] border border-[rgb(var(--c-primary)/0.1)] px-2 py-2 text-center"
+              >
+                <div className="text-sm font-extrabold text-[rgb(var(--c-accent-on-light))] leading-tight">
+                  {m.value}
+                </div>
+                <div className="text-[11px] text-gray-700 mt-0 leading-tight">{m.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </DialogContent>
+    </Dialog>
+  );
+}
+
+function ExpertiseCard({ d, isLast, onOpen }: { d: Domain; isLast: boolean; onOpen: () => void }) {
   return (
     <article
       aria-labelledby={`${d.id}-title`}
@@ -235,58 +318,32 @@ function ExpertiseCard({ d, isLast }: { d: Domain; isLast: boolean }) {
 
         <button
           type="button"
-          onClick={() => setOpen((v) => !v)}
-          aria-expanded={open}
-          aria-controls={detailId}
+          onClick={onOpen}
           className="mt-auto inline-flex items-center gap-1 self-start rounded-md text-[13px] font-bold text-[rgb(var(--c-accent-on-light))] min-h-9 px-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
         >
-          {open ? "Read less" : "Read more"}
-          <span aria-hidden="true" className={`transition-transform ${open ? "rotate-180" : ""}`}>
-            ↓
-          </span>
+          Read more
+          <span aria-hidden="true">→</span>
         </button>
-
-        {open && (
-          <div id={detailId} className="pt-3">
-            <p className="text-gray-700 text-sm leading-snug mb-3">{d.summary}</p>
-
-            <p className="text-[11px] font-bold uppercase tracking-wide text-gray-700 mb-1.5">
-              What I bring
-            </p>
-            <ul className="list-none p-0 m-0 mb-4 space-y-1">
-              {d.capabilities.map((c) => (
-                <li key={c} className="flex items-start gap-2 text-sm text-gray-700">
-                  <span
-                    aria-hidden="true"
-                    className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[rgb(var(--c-accent))]"
-                  />
-                  <span className="leading-snug">{c}</span>
-                </li>
-              ))}
-            </ul>
-
-            <p className="text-[11px] font-bold uppercase tracking-wide text-gray-700 mb-1.5">
-              Live examples & impact
-            </p>
-            <ul className="list-none p-0 m-0 space-y-2">
-              {d.examples.map((ex) => (
-                <li
-                  key={ex.title}
-                  className="rounded-md border-l-2 border-[rgb(var(--c-accent))] bg-[rgb(var(--c-tint-50))] pl-3 py-1.5 pr-3"
-                >
-                  <p className="font-semibold text-gray-900 text-sm leading-snug">{ex.title}</p>
-                  <p className="text-gray-700 text-[13px] mt-0.5 leading-snug">{ex.detail}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
       </div>
     </article>
   );
 }
 
 export default function ExpertiseSection() {
+  const [selectedDomain, setSelectedDomain] = useState<Domain | null>(null);
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const handleOpen = (domain: Domain) => {
+    setSelectedDomain(domain);
+    setModalOpen(true);
+  };
+
+  const handleClose = () => {
+    setModalOpen(false);
+    // clear after animation
+    setTimeout(() => setSelectedDomain(null), 300);
+  };
+
   return (
     <section
       id="expertise"
@@ -306,15 +363,17 @@ export default function ExpertiseSection() {
         <p className="text-gray-700 text-sm sm:text-base mb-6 max-w-2xl leading-snug">
           I work across the full arc of building responsible AI products — from the research
           that frames the problem, to the design and code that ships, to the governance that
-          keeps it safe and compliant. Expand any discipline for capabilities and live impact.
+          keeps it safe and compliant. Click any discipline for capabilities and live impact.
         </p>
 
         <div className="grid gap-4 items-start grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {DOMAINS.map((d, i) => (
-            <ExpertiseCard key={d.id} d={d} isLast={i === DOMAINS.length - 1} />
+            <ExpertiseCard key={d.id} d={d} isLast={i === DOMAINS.length - 1} onOpen={() => handleOpen(d)} />
           ))}
         </div>
       </div>
+
+      <DomainModal domain={selectedDomain} open={modalOpen} onClose={handleClose} />
     </section>
   );
 }
