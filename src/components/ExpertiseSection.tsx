@@ -247,35 +247,35 @@ function ExpertiseCard({ d, isLast }: { d: Domain; isLast: boolean }) {
         </button>
 
         {open && (
-          <div id={detailId} className="pt-4">
-            <p className="text-gray-700 text-sm leading-relaxed mb-4">{d.summary}</p>
+          <div id={detailId} className="pt-3">
+            <p className="text-gray-700 text-sm leading-snug mb-3">{d.summary}</p>
 
-            <p className="text-[11px] font-bold uppercase tracking-wide text-gray-700 mb-2">
+            <p className="text-[11px] font-bold uppercase tracking-wide text-gray-700 mb-1.5">
               What I bring
             </p>
-            <ul className="list-none p-0 m-0 mb-5 space-y-1.5">
+            <ul className="list-none p-0 m-0 mb-4 space-y-1">
               {d.capabilities.map((c) => (
                 <li key={c} className="flex items-start gap-2 text-sm text-gray-700">
                   <span
                     aria-hidden="true"
                     className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[rgb(var(--c-accent))]"
                   />
-                  <span className="leading-relaxed">{c}</span>
+                  <span className="leading-snug">{c}</span>
                 </li>
               ))}
             </ul>
 
-            <p className="text-[11px] font-bold uppercase tracking-wide text-gray-700 mb-2">
+            <p className="text-[11px] font-bold uppercase tracking-wide text-gray-700 mb-1.5">
               Live examples & impact
             </p>
-            <ul className="list-none p-0 m-0 space-y-3">
+            <ul className="list-none p-0 m-0 space-y-2">
               {d.examples.map((ex) => (
                 <li
                   key={ex.title}
-                  className="rounded-lg border-l-2 border-[rgb(var(--c-accent))] bg-[rgb(var(--c-tint-50))] pl-3 py-2 pr-3"
+                  className="rounded-md border-l-2 border-[rgb(var(--c-accent))] bg-[rgb(var(--c-tint-50))] pl-3 py-1.5 pr-3"
                 >
                   <p className="font-semibold text-gray-900 text-sm leading-snug">{ex.title}</p>
-                  <p className="text-gray-700 text-[13px] mt-0.5 leading-relaxed">{ex.detail}</p>
+                  <p className="text-gray-700 text-[13px] mt-0.5 leading-snug">{ex.detail}</p>
                 </li>
               ))}
             </ul>
