@@ -293,23 +293,23 @@ export default function ExpertiseSection() {
       aria-labelledby="expertise-heading"
       className="bg-[rgb(var(--c-tint-50))] border-y border-[rgb(var(--c-primary)/0.1)]"
     >
-      <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] pt-[clamp(1.5rem,2.5vw,2.5rem)] pb-[clamp(2rem,4vw,3.5rem)]">
-        <p className="text-[rgb(var(--c-accent-on-light))] text-xs font-semibold tracking-[2px] uppercase mb-3">
+      <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.25rem,4vw,4rem)] pt-6 pb-8">
+        <p className="text-[rgb(var(--c-accent-on-light))] text-xs font-semibold tracking-[2px] uppercase mb-2">
           Domain Expertise
         </p>
         <h2
           id="expertise-heading"
-          className="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-3 tracking-tight"
+          className="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-2 tracking-tight"
         >
           Four disciplines, one outcome: safe, compliant, human-centered AI
         </h2>
-        <p className="text-gray-700 text-sm sm:text-base mb-8 max-w-2xl leading-relaxed">
+        <p className="text-gray-700 text-sm sm:text-base mb-6 max-w-2xl leading-snug">
           I work across the full arc of building responsible AI products — from the research
           that frames the problem, to the design and code that ships, to the governance that
           keeps it safe and compliant. Expand any discipline for capabilities and live impact.
         </p>
 
-        <div className="grid gap-5 items-start grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 items-start grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {DOMAINS.map((d, i) => (
             <ExpertiseCard key={d.id} d={d} isLast={i === DOMAINS.length - 1} />
           ))}
