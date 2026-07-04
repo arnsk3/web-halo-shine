@@ -201,7 +201,7 @@ function ExpertiseCard({ d, isLast }: { d: Domain; isLast: boolean }) {
   return (
     <article
       aria-labelledby={`${d.id}-title`}
-      className={`flex h-full flex-col rounded-2xl border bg-white border-[rgb(var(--c-primary)/0.3)] shadow-lg ${isLast ? "md:col-span-2" : ""}`}
+      className={`flex h-full flex-col rounded-2xl border bg-white border-[rgb(var(--c-primary)/0.3)] shadow-lg ${isLast ? "md:col-span-2 lg:col-span-1" : ""}`}
     >
       <div className="flex w-full items-start gap-4 p-5 text-left">
         <span
@@ -309,7 +309,7 @@ export default function ExpertiseSection() {
           keeps it safe and compliant. Expand any discipline for capabilities and live impact.
         </p>
 
-        <div className="grid gap-5 items-start grid-cols-1 md:grid-cols-2">
+        <div className="grid gap-5 items-start grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {DOMAINS.map((d, i) => (
             <ExpertiseCard key={d.id} d={d} isLast={i === DOMAINS.length - 1} />
           ))}
