@@ -278,7 +278,7 @@ function DomainModalBody({ domain }: { domain: Domain }) {
   );
 }
 
-function ExpertiseCard({ d, isLast, onOpen }: { d: Domain; isLast: boolean; onOpen: () => void }) {
+function ExpertiseCard({ d, isLast, trigger }: { d: Domain; isLast: boolean; trigger: React.ReactNode }) {
   return (
     <article
       aria-labelledby={`${d.id}-title`}
@@ -314,14 +314,7 @@ function ExpertiseCard({ d, isLast, onOpen }: { d: Domain; isLast: boolean; onOp
           ))}
         </div>
 
-        <button
-          type="button"
-          onClick={onOpen}
-          className="mt-auto inline-flex items-center gap-1 self-start rounded-md text-[13px] font-bold text-[rgb(var(--c-accent-on-light))] min-h-9 px-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
-        >
-          Read more
-          <span aria-hidden="true">→</span>
-        </button>
+        <div className="mt-auto self-start">{trigger}</div>
       </div>
     </article>
   );
