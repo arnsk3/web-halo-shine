@@ -320,21 +320,32 @@ function ExpertiseCard({ d, isLast, trigger }: { d: Domain; isLast: boolean; tri
   );
 }
 
+function DomainDialog({ domain, isLast }: { domain: Domain; isLast: boolean }) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <Dialog open={open} onOpenChange={setOpen}>
+      <ExpertiseCard
+        d={domain}
+        isLast={isLast}
+        trigger={
+          <DialogTrigger asChild>
+            <button
+              type="button"
+              className="inline-flex items-center gap-1 rounded-md text-[13px] font-bold text-[rgb(var(--c-accent-on-light))] min-h-9 px-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
+            >
+              Read more
+              <span aria-hidden="true">→</span>
+            </button>
+          </DialogTrigger>
+        }
+      />
+      <DomainModalBody domain={domain} />
+    </Dialog>
+  );
+}
+
 export default function ExpertiseSection() {
-  const [selectedDomain, setSelectedDomain] = useState<Domain | null>(null);
-  const [modalOpen, setModalOpen] = useState(false);
-
-  const handleOpen = (domain: Domain) => {
-    setSelectedDomain(domain);
-    setModalOpen(true);
-  };
-
-  const handleClose = () => {
-    setModalOpen(false);
-    // clear after animation
-    setTimeout(() => setSelectedDomain(null), 300);
-  };
-
   return (
     <section
       id="expertise"
@@ -359,12 +370,10 @@ export default function ExpertiseSection() {
 
         <div className="grid gap-4 items-start grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {DOMAINS.map((d, i) => (
-            <ExpertiseCard key={d.id} d={d} isLast={i === DOMAINS.length - 1} onOpen={() => handleOpen(d)} />
+            <DomainDialog key={d.id} domain={d} isLast={i === DOMAINS.length - 1} />
           ))}
         </div>
       </div>
-
-      <DomainModal domain={selectedDomain} open={modalOpen} onClose={handleClose} />
     </section>
   );
 }
