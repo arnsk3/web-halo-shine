@@ -201,7 +201,7 @@ function ExpertiseCard({ d, isLast }: { d: Domain; isLast: boolean }) {
   return (
     <article
       aria-labelledby={`${d.id}-title`}
-      className={`flex h-full flex-col rounded-2xl border bg-white border-[rgb(var(--c-primary)/0.3)] shadow-lg ${isLast ? "md:col-span-2" : ""}`}
+      className={`flex h-full flex-col rounded-2xl border bg-white border-[rgb(var(--c-primary)/0.3)] shadow-lg ${isLast ? "md:col-span-2 lg:col-span-1" : ""}`}
     >
       <div className="flex w-full items-start gap-4 p-5 text-left">
         <span
