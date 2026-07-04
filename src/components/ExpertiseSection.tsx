@@ -206,20 +206,20 @@ function ExpertiseCard({ d, isLast }: { d: Domain; isLast: boolean }) {
       <div className="flex w-full items-start gap-3 p-4 text-left">
         <span
           aria-hidden="true"
-          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[rgb(var(--c-tint-100))] text-[rgb(var(--c-accent-on-light))]"
+          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[rgb(var(--c-tint-100))] text-[rgb(var(--c-accent-on-light))]"
         >
-          <span className="h-6 w-6 block">{d.icon}</span>
+          <span className="h-5 w-5 block">{d.icon}</span>
         </span>
         <div className="flex-1">
-          <h3 id={`${d.id}-title`} className="font-bold text-gray-900 text-lg leading-snug m-0">
+          <h3 id={`${d.id}-title`} className="font-bold text-gray-900 text-base leading-snug m-0">
             {d.title}
           </h3>
-          <p className="text-gray-700 text-sm mt-1 leading-relaxed">{d.tagline}</p>
+          <p className="text-gray-700 text-sm mt-0.5 leading-snug">{d.tagline}</p>
         </div>
       </div>
 
-      <div className="flex flex-1 flex-col px-5 pb-5">
-        <div className="grid grid-cols-3 gap-2 mb-4">
+      <div className="flex flex-1 flex-col px-4 pb-4">
+        <div className="grid grid-cols-3 gap-1.5 mb-3">
           {d.impact.map((m) => (
             <div
               key={m.label}
