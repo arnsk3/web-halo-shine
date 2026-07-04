@@ -309,7 +309,7 @@ export default function ExpertiseSection() {
           keeps it safe and compliant. Expand any discipline for capabilities and live impact.
         </p>
 
-        <div className="grid gap-5 items-start grid-cols-1 md:grid-cols-2">
+        <div className="grid gap-5 items-start grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {DOMAINS.map((d, i) => (
             <ExpertiseCard key={d.id} d={d} isLast={i === DOMAINS.length - 1} />
           ))}
