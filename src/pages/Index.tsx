@@ -6589,6 +6589,8 @@ function Resume() {
           <h2 className="text-xl font-extrabold text-gray-900 tracking-tight mb-4 text-center">Skills snapshot</h2>
           <div className="grid sm:grid-cols-2 gap-4">
             {[
+              { g: "Design Leadership", s: ["Player-coach leadership", "Mentorship & career growth", "Influence without authority", "Executive storytelling", "Cross-product systems thinking", "AI-in-the-design-process", "Design ops", "Culture of experimentation"] },
+              { g: "Healthcare & Revenue Cycle", s: ["Revenue cycle & reimbursement", "Medical coding (ICD-10 / CPT / HCPCS)", "Claims & denial management", "Clinical decision-support", "Intelligent automation", "HIPAA"] },
               { g: "AI Design & Governance", s: ["Human–AI interaction", "Explainability & confidence UX", "Human-in-the-loop oversight", "Agentic AI guardrails", "RAG / source-grounding UX", "NIST AI RMF", "EU AI Act", "ISO/IEC 42001", "Bias & drift monitoring", "Red-team / TEVV"] },
               { g: "AI Engineering", s: ["LLM integration (React + TS)", "AI data-viz components", "Llama / GPT-class models", "CI/CD AI quality gates", "Eval harness & telemetry UX"] },
               { g: "Design", s: ["Visual & brand design", "Design systems", "Figma & prototyping", "Data visualization"] },
