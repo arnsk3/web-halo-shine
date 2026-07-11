@@ -7071,6 +7071,7 @@ const PAGE_TITLES: Record<PageId, string> = {
   resume: "Resume — Senthil Nagappan",
   contact: "Contact — Senthil Nagappan",
   case: "Case Study — Senthil Nagappan",
+  lab: "In-House AI Product Lab — Senthil Nagappan",
 };
 
 const PAGE_DESCRIPTIONS: Record<PageId, string> = {
