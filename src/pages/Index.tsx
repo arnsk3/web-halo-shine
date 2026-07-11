@@ -7083,6 +7083,7 @@ const PAGE_DESCRIPTIONS: Record<PageId, string> = {
   resume: "Download or read Senthil Nagappan's resume — AI safety and human systems integration leadership.",
   contact: "Contact Senthil Nagappan for AI safety, human systems integration, and accessibility leadership engagements.",
   case: "Case study from Senthil Nagappan — AI safety, human systems integration, and accessibility work in regulated environments.",
+  lab: "In-house AI product concepts by Senthil Nagappan — TrustLens, Clarity, Sentinel, Lumen, and RevAssist: concise capsules of governance, clinical, agentic-safety, and revenue-cycle AI work.",
 };
 
 function upsertMeta(attr: "name" | "property", key: string, content: string) {
