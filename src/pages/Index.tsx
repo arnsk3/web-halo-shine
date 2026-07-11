@@ -6190,7 +6190,7 @@ function About() {
     { role: "AI + Human Systems Integration Lead", org: "GE HealthCare", period: "2025 – Present", desc: "Built the enterprise AI safety framework and evolved the design system for clinical decision-support across 10+ product teams." },
     { role: "Sr. UX & Accessibility Lead", org: "Leidos / Social Security Administration", period: "2022 – 2025", desc: "Led a data-driven design system unifying 50M+ user experiences and built SSA11y, saving $1.5M+ annually." },
     { role: "Inclusive Design & Accessibility Lead", org: "Best Buy Health", period: "2021 – 2022", desc: "Owned visual design and mobile-first brand experience for 1M+ consumers across 5 product lines." },
-    { role: "Sr. UX & Accessibility Program Manager", org: "Eagle Technologies / HHS / SAMHSA", period: "2014 – 2021", desc: "Directed a $130M behavioral health portfolio and led the AWS GovCloud migration of national TEDS datasets." },
+    { role: "Sr. UX & Accessibility Program Manager", org: "Eagle Technologies / HHS / SAMHSA", period: "2014 – 2021", desc: "Directed a $130M behavioral health portfolio, recruited and grew a cross-functional team to 15+, and mentored designers through seven years of change while leading the AWS GovCloud migration of national TEDS datasets." },
   ];
 
   return (
