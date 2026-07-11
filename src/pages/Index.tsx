@@ -1266,6 +1266,9 @@ function Home({
       {/* AI Skills Matrix */}
       <AISkillsMatrix />
 
+      {/* Design Leadership — player-coach, mentorship, cross-product, AI in the process */}
+      <DesignLeadership />
+
       {/* Case Studies */}
       <section id="cases" className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2rem,4vw,3.5rem)]" aria-labelledby="cases-heading">
         <FadeIn>
