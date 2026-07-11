@@ -6654,11 +6654,16 @@ function Resume() {
           </summary>
           <div className="px-5 py-4 text-sm text-gray-800 leading-relaxed space-y-3">
             <p>
-              <strong>Senthil Nagappan</strong> — AI Safety &amp; Human Systems
-              Integration Leader. 18+ years building enterprise functions that deliver
-              safe, compliant, AI-driven products across healthcare, federal, retail,
-              and defense.
+              <strong>Senthil Nagappan</strong> — UX Design Leader (player-coach) for AI-enabled,
+              regulated products, with deep focus on healthcare revenue cycle and reimbursement.
+              18+ years leading UX strategy and execution — setting the experience vision and
+              designing the hardest flows myself while mentoring designers, driving cross-functional
+              alignment, and bringing AI into how teams research, prototype, and ship. I reimagine
+              historically manual workflows — medical coding, documentation review, reimbursement
+              recommendations, exception handling, and claim management — with intelligent
+              assistance that keeps humans confident and in control.
             </p>
+
             <p>
               <strong>Current role:</strong> AI + Human Systems Integration Lead, GE
               HealthCare (2025 – Present). Built the enterprise AI safety framework
