@@ -723,9 +723,85 @@ const CASE_STUDIES: CaseStudyType[] = [
       "NIST AI RMF — transparency and measurement built into the experience",
     ],
   },
+  {
+    id: "revcycle",
+    tag: "In-House AI Product · Healthcare Revenue Cycle · Human-in-the-Loop",
+    title: "RevAssist — AI-Assisted Revenue Cycle & Reimbursement Workspace",
+    subtitle:
+      "Conceived and designed an intelligent revenue-cycle workspace that helps coders, billers, and denial specialists move claims from documentation to payment — using AI to suggest medical codes, flag reimbursement risk, and triage claim exceptions while keeping humans in control of every financial decision.",
+    hero: "from-[rgb(var(--c-hero-mid))] via-[rgb(var(--c-primary))] to-[rgb(var(--c-accent))]",
+    image: caseRevcycle,
+    role: "Design Lead (Player-Coach) · AI Interaction Designer · Front-End Architect",
+    timeline: "2024 – Present",
+    org: "BrainPulse (In-House Product)",
+    standards: ["HIPAA", "CMS / ICD-10-CM · CPT · HCPCS", "X12 837/835", "NIST AI RMF", "WCAG 2.2 AA"],
+    metrics: [
+      { value: "40%", label: "Less manual coding effort" },
+      { value: "3", label: "Claim workflows unified" },
+      { value: "100%", label: "AI codes traced to source" },
+    ],
+    sections: [
+      {
+        heading: "Why I Built It",
+        content:
+          "Revenue cycle is the money side of healthcare, and it is still mostly manual: coders read charts line by line, billers chase missing documentation, and denial specialists rework claims one rejection at a time. It is slow, error-prone, and expensive — and it is exactly the kind of high-volume, rules-heavy work AI can transform, if the experience keeps humans confident and in control. I built RevAssist as an in-house concept to show how intelligent assistance, automation, and human oversight can work together to reduce administrative burden and improve financial outcomes without turning specialists into rubber-stampers.",
+      },
+      {
+        heading: "My Role — Player-Coach",
+        content:
+          "I led this the way a design director leads in practice: hands-on and coaching at the same time. I set the experience vision and interaction principles, then designed the hardest flows myself — the AI coding assistant, the denial-triage queue, and the reimbursement-risk explanation model. In parallel I ran design critiques, paired with junior designers on the exception-handling patterns, and wrote the AI interaction guidelines the rest of the work followed. I partnered directly with product, engineering, and revenue-cycle SMEs to align on scope, feasibility, and clinical/financial edge cases — driving alignment without owning the org chart.",
+      },
+      {
+        heading: "Reimagining the Workflow, Not Digitizing It",
+        content:
+          "The easy path is to digitize the existing process — put the same manual steps on a screen. Instead I re-sequenced the work around where AI adds leverage: AI reads the documentation and proposes ICD-10-CM / CPT / HCPCS codes with rationale; it flags claims likely to be denied before submission; and it clusters incoming denials so a specialist fixes a whole pattern at once instead of one claim at a time. Historically manual tasks — coding, documentation review, reimbursement recommendations, exception handling, and claim management — become AI-augmented, but every dollar-affecting action still routes through a person.",
+      },
+      {
+        heading: "Trust, Transparency & Control by Design",
+        content:
+          "AI in reimbursement is high-stakes: a wrong code is a compliance risk or lost revenue. So every AI suggestion is explainable and reversible. Each proposed code links back to the exact passage in the documentation that supports it, shows a calibrated confidence signal (not a bare percentage), and offers accept / modify / reject with one-tap reason capture. Low-confidence or high-dollar claims are escalated, never silently auto-submitted. The result is appropriate reliance — specialists trust the fast, well-supported suggestions and scrutinize the uncertain ones.",
+      },
+      {
+        heading: "The Hardest Decisions",
+        content:
+          "Automation vs. accountability: finance wanted straight-through auto-coding for 'obvious' claims, but auto-submitting codes invites automation bias and audit exposure — I made one-click acceptance the default fast path while keeping every action logged and attributable. Speed vs. explainability: leadership wanted instant code suggestions, but a suggestion no coder can defend is worthless — I used layered disclosure so the code lands immediately and its source rationale is one interaction away. Coverage vs. noise: surfacing every possible denial risk would bury billers, so I tiered alerts by dollar impact and likelihood and grouped the rest into a digest.",
+      },
+      {
+        heading: "One Experience Across Products & Roles",
+        content:
+          "Revenue cycle spans coding, billing, and denials — historically three disconnected tools with three mental models. I designed RevAssist as one cohesive system across those workflows: shared AI interaction patterns (suggest / explain / escalate), a shared claim object that carries context from coding through payment, and a reusable component library on a single design-token layer so the experience feels integrated regardless of the underlying stack. This is the cross-product systems thinking a portfolio-level design leader has to bring.",
+      },
+      {
+        heading: "Architecture & Approach",
+        content:
+          "I architected the front end in React + TypeScript as a token-driven component library — claim tables, the AI suggestion drawer, the confidence/source inspector, and the denial-triage queue are reusable primitives. State is managed with Context and reducer patterns so a claim's status, AI suggestions, and human overrides stay in sync across the coding, billing, and denial views. Every AI-assisted action is captured as auditable evidence, giving compliance a defensible trail and giving the design team a telemetry loop to improve suggestion quality over time.",
+      },
+    ],
+    outcomes: [
+      "Unified medical coding, claim billing, and denial management into one cohesive AI-assisted workspace",
+      "AI code suggestions traced 100% to the supporting documentation — defensible for audit and appeals",
+      "Estimated ~40% reduction in manual coding effort by turning chart review into review-and-confirm",
+      "Pre-submission reimbursement-risk flags catch likely denials before they cost a rework cycle",
+      "Denial-triage queue clusters rejections so specialists fix patterns, not one claim at a time",
+      "Human-in-the-loop by design — every dollar-affecting action is confirmable, reversible, and logged",
+      "Reusable React + TypeScript component library on a single token layer, consistent across roles",
+      "Player-coach delivery: set the vision, designed the hardest flows, and coached the team on the rest",
+    ],
+    artifacts: [
+      { label: "AI coding assistant", desc: "Proposes ICD-10-CM / CPT / HCPCS codes with source-linked rationale and confidence." },
+      { label: "Reimbursement-risk flags", desc: "Pre-submission signals that predict and explain likely denials." },
+      { label: "Denial-triage queue", desc: "Clusters rejections by root cause so specialists fix patterns at scale." },
+      { label: "Source & confidence inspector", desc: "Opens the exact documentation passage supporting each suggested code." },
+      { label: "AI interaction guidelines", desc: "The suggest / explain / escalate patterns the whole team designed against." },
+    ],
+    hsi: [
+      "Appropriate reliance — source-linked suggestions let specialists trust or challenge each AI code",
+      "Explainability — every code and denial flag traces to the documentation and rule that produced it",
+      "Human oversight — high-dollar and low-confidence claims escalate rather than auto-submit",
+      "NIST AI RMF — measurement, transparency, and evidence built into the reimbursement workflow",
+    ],
+  },
 ];
-
-const CREDS = [
   "CPACC + WAS",
   "CUA",
   "CSM",
