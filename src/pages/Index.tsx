@@ -6575,7 +6575,7 @@ function Resume() {
             { v: "18+ yrs", l: "Leading human-centered design across healthcare, federal, and regulated environments" },
             { v: "$1.5M+", l: "Annual savings from SSA11y — AI-driven continuous accessibility validation" },
             { v: "50M+", l: "Citizens served by SSA11y accessibility platform and design system" },
-            { v: "10+", l: "Teams led on human factors & HSI for clinical AI at GE HealthCare" },
+            { v: "Player-coach", l: "Lead the vision and design the hardest flows while mentoring and growing designers" },
           ].map((h) => (
             <div key={h.l} className="rounded-xl border border-gray-200 bg-white p-5">
               <div className="text-2xl font-extrabold text-[rgb(var(--c-primary))] mb-1">{h.v}</div>
