@@ -6251,12 +6251,21 @@ function About() {
             device usability engineering, and MBSE/SysML for tracing human performance
             requirements through system architecture.
           </p>
-          <p className="text-gray-700 leading-[1.9]">
+          <p className="text-gray-700 leading-[1.9] mb-4">
             Whether the system is a clinical diagnostic tool or a government case
             processing platform, I apply the same disciplined approach: analyze the human
             in the system, design to validated criteria, test with representative
             operators, and document the evidence trail that proves the design works.
           </p>
+          <p className="text-gray-700 leading-[1.9]">
+            I lead as a player-coach — setting the experience vision and designing the
+            hardest flows myself while mentoring designers, driving cross-functional
+            alignment without authority, and bringing AI into how the team researches,
+            prototypes, and ships. My recent focus is healthcare's money side: reimagining
+            revenue-cycle and reimbursement workflows — medical coding, claims, and denials —
+            with AI that reduces manual burden while keeping humans in control.
+          </p>
+
         </div>
       </FadeIn>
 
