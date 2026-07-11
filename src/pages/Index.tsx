@@ -7395,6 +7395,15 @@ const Index = () => {
         {page === "approach" && <Approach />}
         {page === "resume" && <Resume />}
         {page === "contact" && <Contact />}
+        {page === "lab" && (
+          <InHouseLab
+            setPage={navigate}
+            setCase={(c) => {
+              setActiveCase(c);
+              setPage("case");
+            }}
+          />
+        )}
       </main>
       <Footer setPage={navigate} currentPage={page} />
       <ThemeSwitcher />
