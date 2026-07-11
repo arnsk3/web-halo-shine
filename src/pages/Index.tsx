@@ -1188,6 +1188,26 @@ function Home({
   const visibleCases =
     caseFilter === "All" && !showAll ? featuredCases : filtered;
 
+  // Collapse all in-house AI product concepts into a single grouped card that
+  // opens the Lab page. The first in-house case in view becomes the group card;
+  // the rest are folded into it.
+  type RenderItem =
+    | { kind: "case"; case: CaseStudyType }
+    | { kind: "group" };
+  const renderItems: RenderItem[] = [];
+  let groupInserted = false;
+  visibleCases.forEach((s) => {
+    if (isInHouse(s)) {
+      if (!groupInserted) {
+        renderItems.push({ kind: "group" });
+        groupInserted = true;
+      }
+    } else {
+      renderItems.push({ kind: "case", case: s });
+    }
+  });
+  const inHouseCount = inHouseCases().length;
+
   return (
     <div>
       {/* Hero */}
