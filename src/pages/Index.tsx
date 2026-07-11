@@ -7192,6 +7192,111 @@ function upsertCanonical(href: string) {
   el.setAttribute("href", href);
 }
 
+function InHouseLab({
+  setPage,
+  setCase,
+}: {
+  setPage: (p: PageId) => void;
+  setCase: (c: CaseStudyType) => void;
+}) {
+  const cases = inHouseCases();
+  return (
+    <div>
+      <header className="relative overflow-hidden bg-gradient-to-br from-[rgb(var(--c-hero-dark))] via-[rgb(var(--c-primary))] to-[rgb(var(--c-accent))] text-white">
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 opacity-[0.05]"
+          style={{
+            backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
+            backgroundSize: "30px 30px",
+          }}
+        />
+        <div className="max-w-3xl mx-auto px-6 py-16 sm:py-20 text-center relative">
+          <button
+            onClick={() => setPage("home")}
+            className="inline-flex items-center gap-1.5 text-white/85 text-xs font-semibold mb-5 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))] rounded"
+          >
+            <span aria-hidden="true">←</span> Back to work
+          </button>
+          <p className="inline-flex items-center gap-2 text-[rgb(var(--c-accent-on-dark))] text-xs font-semibold tracking-[3px] uppercase mb-5 rounded-full border border-white/15 bg-white/5 backdrop-blur px-4 py-1.5">
+            In-House AI Product Concepts
+          </p>
+          <h1 className="font-display text-3xl sm:text-4xl font-extrabold leading-[1.15] mb-4 tracking-tight">
+            In-House AI Product Lab
+          </h1>
+          <p className="text-white/90 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+            {cases.length} self-initiated concepts exploring how safe, explainable,
+            human-in-the-loop AI should feel — from model-risk governance to clinical
+            decision-support, agentic guardrails, source-grounding UX, and revenue-cycle
+            reimbursement. Open any capsule for the full case study.
+          </p>
+        </div>
+      </header>
+
+      <section
+        aria-label="In-house AI product concepts"
+        className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2rem,4vw,3.5rem)]"
+      >
+        <div className="grid gap-6 [grid-template-columns:repeat(auto-fit,minmax(min(100%,26rem),1fr))]">
+          {cases.map((s, i) => (
+            <FadeIn key={s.id} delay={i * 0.06} className="h-full">
+              <article className="group h-full flex flex-col rounded-xl overflow-hidden bg-white border border-gray-200 transition-all duration-300 hover:border-[rgb(var(--c-primary)/0.3)] hover:shadow-lg hover:-translate-y-0.5">
+                <div className={`relative h-32 bg-gradient-to-br ${s.hero} flex items-end p-4 overflow-hidden`}>
+                  {s.image && (
+                    <img
+                      src={s.image}
+                      alt=""
+                      aria-hidden="true"
+                      loading="lazy"
+                      width={1024}
+                      height={640}
+                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  )}
+                  <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                  <span className="relative text-white text-[10px] font-semibold tracking-widest uppercase">
+                    {s.tag.split(" · ")[1] ?? "AI Product"}
+                  </span>
+                </div>
+                <div className="flex-1 flex flex-col p-5">
+                  <h2 className="font-bold text-gray-900 text-base mb-2 leading-snug">
+                    {s.title}
+                  </h2>
+                  <p className="text-gray-700 text-[13px] mb-3 leading-relaxed line-clamp-4">
+                    {s.subtitle}
+                  </p>
+                  <div className="flex gap-1.5 flex-wrap mb-4">
+                    {s.metrics.slice(0, 3).map((m) => (
+                      <span
+                        key={m.label}
+                        className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-100"
+                      >
+                        {m.value} {m.label}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="mt-auto pt-3">
+                    <button
+                      onClick={() => setCase(s)}
+                      aria-label={`View full case study: ${s.title}`}
+                      className="group/btn inline-flex items-center gap-1.5 text-xs font-semibold px-4 py-2 rounded-lg bg-[rgb(var(--c-primary))] text-white hover:bg-[rgb(var(--c-accent-dark))] focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2 transition-colors"
+                    >
+                      View full case study
+                      <span aria-hidden="true" className="transition-transform group-hover/btn:translate-x-0.5">→</span>
+                    </button>
+                  </div>
+                </div>
+              </article>
+            </FadeIn>
+          ))}
+        </div>
+      </section>
+    </div>
+  );
+}
+
+
+
 const Index = () => {
   const [page, setPage] = useState<PageId>("home");
   const [activeCase, setActiveCase] = useState<CaseStudyType | null>(null);
