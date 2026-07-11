@@ -22,6 +22,7 @@ import caseTrustlens from "@/assets/case-trustlens.jpg";
 import caseClinicalAi from "@/assets/case-clinicalai.jpg";
 import caseSentinel from "@/assets/case-sentinel.jpg";
 import caseLumen from "@/assets/case-lumen.jpg";
+import caseRevcycle from "@/assets/case-revcycle.jpg";
 
 /* ═══════════════════════════════════════════
    SENTHIL KUMAR NAGAPPAN — PORTFOLIO SITE
