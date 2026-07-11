@@ -5308,6 +5308,19 @@ const AI_FRAMEWORKS: Record<string, FrameworkConfig> = {
     ],
     loop: "Verification + source-quality signals refine retrieval — continuous grounding loop",
   },
+  revcycle: {
+    title: "AI-Assisted Reimbursement Pipeline — Documentation to Payment",
+    headerLeft: "ICD-10-CM · CPT · HCPCS · X12 837/835",
+    headerRight: "No dollar moves without a human",
+    stages: [
+      { n: "01", title: "Ingest & Read", desc: "AI parses the encounter documentation and surfaces the clinical facts that drive coding.", std: "Documentation" },
+      { n: "02", title: "Suggest Codes", desc: "Propose ICD-10-CM / CPT / HCPCS codes with source-linked rationale and calibrated confidence.", std: "Coding" },
+      { n: "03", title: "Human Confirm", desc: "Coder accepts / modifies / rejects each code with one-tap reason capture — the fast path stays accountable.", std: "Oversight" },
+      { n: "04", title: "Risk-Check & Submit", desc: "Pre-submission flags predict likely denials; clean claims file, risky ones route to review.", std: "Reimbursement" },
+      { n: "05", title: "Triage Denials", desc: "Rejections cluster by root cause so specialists fix patterns and resubmit at scale.", std: "Exceptions" },
+    ],
+    loop: "Denial outcomes and overrides feed back into suggestion quality — continuous revenue-cycle loop",
+  },
 };
 
 function AIFramework({ id }: { id: string }) {
