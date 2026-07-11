@@ -818,6 +818,7 @@ const CREDS = [
 const CASE_FILTERS = [
   "All",
   "AI & Governance",
+  "Healthcare AI",
   "Design Systems",
   "Accessibility",
   "Brand",
@@ -832,7 +833,8 @@ type CaseFilter = (typeof CASE_FILTERS)[number];
 const CASE_CATEGORY_MAP: Record<string, CaseFilter[]> = {
   wcagtool: ["Accessibility", "AI & Governance"],
   trustlens: ["AI & Governance"],
-  clinicalai: ["AI & Governance"],
+  clinicalai: ["AI & Governance", "Healthcare AI"],
+  revcycle: ["Healthcare AI", "AI & Governance"],
   ge: ["Design Systems", "Accessibility"],
   ssa: ["Design Systems", "Accessibility"],
   bestbuy: ["Brand"],
