@@ -5594,11 +5594,55 @@ function CaseStudy({
           </>
         )}
         <div className="relative w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2rem,4vw,3.5rem)]">
+          <nav aria-label="Breadcrumb" className="mb-5">
+            <ol className="flex flex-wrap items-center gap-2 text-sm text-white/85">
+              <li>
+                <button
+                  onClick={() => setPage("home")}
+                  className="hover:text-white underline underline-offset-2 decoration-white/30 hover:decoration-white/80 transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
+                >
+                  Home
+                </button>
+              </li>
+              <li aria-hidden="true">/</li>
+              {isInHouse(study) ? (
+                <>
+                  <li>
+                    <button
+                      onClick={() => setPage("lab")}
+                      className="hover:text-white underline underline-offset-2 decoration-white/30 hover:decoration-white/80 transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
+                    >
+                      In-House Lab
+                    </button>
+                  </li>
+                  <li aria-hidden="true">/</li>
+                </>
+              ) : (
+                <>
+                  <li>
+                    <button
+                      onClick={() => setPage("home")}
+                      className="hover:text-white underline underline-offset-2 decoration-white/30 hover:decoration-white/80 transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
+                    >
+                      Work
+                    </button>
+                  </li>
+                  <li aria-hidden="true">/</li>
+                </>
+              )}
+              <li>
+                <span className="text-white/95 font-medium" aria-current="page">
+                  {study.title}
+                </span>
+              </li>
+            </ol>
+          </nav>
           <button
-            onClick={() => setPage("home")}
-            className="text-white/85 text-sm hover:text-white mb-6 inline-block transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
+            onClick={() => setPage(isInHouse(study) ? "lab" : "home")}
+            className="text-white/85 text-sm hover:text-white mb-6 inline-flex items-center gap-1.5 transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
           >
-            <span aria-hidden="true">←</span> Back to Case Studies
+            <span aria-hidden="true">←</span>
+            {isInHouse(study) ? "Back to In-House Lab" : "Back to Case Studies"}
           </button>
           <p className="text-[rgb(var(--c-accent-on-dark))] text-xs font-semibold tracking-[2px] uppercase mb-3">
             {study.tag}
