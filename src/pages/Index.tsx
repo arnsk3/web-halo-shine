@@ -847,6 +847,15 @@ function caseCategories(s: CaseStudyType): CaseFilter[] {
   return CASE_CATEGORY_MAP[s.id] ?? [];
 }
 
+// In-house AI product concepts — collapsed into one grouped card that opens the Lab page.
+const IN_HOUSE_IDS = ["revcycle", "clinicalai", "trustlens", "sentinel", "lumen"];
+const isInHouse = (s: CaseStudyType) => IN_HOUSE_IDS.includes(s.id);
+function inHouseCases(): CaseStudyType[] {
+  return IN_HOUSE_IDS.map((id) => CASE_STUDIES.find((s) => s.id === id)).filter(
+    (s): s is CaseStudyType => Boolean(s),
+  );
+}
+
 
 
 
@@ -895,7 +904,7 @@ function FadeIn({ children, delay = 0, className = "" }: FadeInProps) {
   );
 }
 
-type PageId = "home" | "brand" | "about" | "approach" | "resume" | "contact" | "case";
+type PageId = "home" | "brand" | "about" | "approach" | "resume" | "contact" | "case" | "lab";
 
 function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) {
   // Curated 5-item nav. "Work" and "Expertise" scroll to landing sections;
@@ -1179,6 +1188,26 @@ function Home({
   const visibleCases =
     caseFilter === "All" && !showAll ? featuredCases : filtered;
 
+  // Collapse all in-house AI product concepts into a single grouped card that
+  // opens the Lab page. The first in-house case in view becomes the group card;
+  // the rest are folded into it.
+  type RenderItem =
+    | { kind: "case"; case: CaseStudyType }
+    | { kind: "group" };
+  const renderItems: RenderItem[] = [];
+  let groupInserted = false;
+  visibleCases.forEach((s) => {
+    if (isInHouse(s)) {
+      if (!groupInserted) {
+        renderItems.push({ kind: "group" });
+        groupInserted = true;
+      }
+    } else {
+      renderItems.push({ kind: "case", case: s });
+    }
+  });
+  const inHouseCount = inHouseCases().length;
+
   return (
     <div>
       {/* Hero */}
@@ -1313,7 +1342,64 @@ function Home({
         </FadeIn>
 
         <div className="grid gap-8 items-stretch [grid-template-columns:repeat(auto-fit,minmax(min(100%,30rem),1fr))]">
-          {visibleCases.map((s, i) => {
+          {renderItems.map((item, i) => {
+            if (item.kind === "group") {
+              return (
+                <FadeIn key="inhouse-group" delay={i * 0.08} className="h-full">
+                  <article className="group h-full flex flex-col rounded-xl overflow-hidden bg-white border border-gray-200 transition-all duration-300 hover:border-[rgb(var(--c-primary)/0.3)] hover:shadow-xl hover:-translate-y-1">
+                    <div className="relative h-44 bg-gradient-to-br from-[rgb(var(--c-hero-dark))] via-[rgb(var(--c-primary))] to-[rgb(var(--c-accent))] flex items-end p-5 overflow-hidden">
+                      <div
+                        aria-hidden="true"
+                        className="absolute inset-0 opacity-[0.06]"
+                        style={{
+                          backgroundImage:
+                            "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
+                          backgroundSize: "22px 22px",
+                        }}
+                      />
+                      <span className="relative text-white text-[11px] font-semibold tracking-widest uppercase">
+                        In-House AI Product Concepts
+                      </span>
+                    </div>
+                    <div className="flex-1 flex flex-col p-6">
+                      <h3 className="font-bold text-gray-900 text-lg mb-1.5 leading-snug">
+                        In-House AI Product Lab
+                      </h3>
+                      <p className="text-gray-600 text-[12px] mb-3 font-medium">
+                        Self-directed concepts · Governance · Clinical · Agentic safety · Revenue cycle
+                      </p>
+                      <p className="text-gray-700 text-sm mb-4 leading-relaxed">
+                        {inHouseCount} self-initiated AI product concepts that show how I design safe,
+                        explainable, human-in-the-loop AI — from model-risk governance to clinical
+                        decision-support, agentic guardrails, source-grounding UX, and revenue-cycle
+                        reimbursement.
+                      </p>
+                      <ul className="flex flex-wrap gap-1.5 list-none p-0 m-0 mb-4">
+                        {inHouseCases().map((c) => (
+                          <li
+                            key={c.id}
+                            className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-[rgb(var(--c-tint-50))] text-[rgb(var(--c-primary))] border border-[rgb(var(--c-primary)/0.2)]"
+                          >
+                            {c.title.split(" — ")[0]}
+                          </li>
+                        ))}
+                      </ul>
+                      <div className="mt-auto pt-4 flex flex-wrap gap-2">
+                        <button
+                          onClick={() => setPage("lab")}
+                          aria-label={`View all ${inHouseCount} in-house AI product concepts`}
+                          className="group/btn inline-flex items-center gap-1.5 text-xs font-semibold px-4 py-2 rounded-lg bg-[rgb(var(--c-primary))] text-white hover:bg-[rgb(var(--c-accent-dark))] focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2 transition-colors"
+                        >
+                          Explore the AI Product Lab
+                          <span aria-hidden="true" className="transition-transform group-hover/btn:translate-x-0.5">→</span>
+                        </button>
+                      </div>
+                    </div>
+                  </article>
+                </FadeIn>
+              );
+            }
+            const s = item.case;
             return (
             <FadeIn key={s.id} delay={i * 0.08} className="h-full">
               <article className="group h-full flex flex-col rounded-xl overflow-hidden bg-white border border-gray-200 transition-all duration-300 hover:border-[rgb(var(--c-primary)/0.3)] hover:shadow-xl hover:-translate-y-1">
@@ -7071,6 +7157,7 @@ const PAGE_TITLES: Record<PageId, string> = {
   resume: "Resume — Senthil Nagappan",
   contact: "Contact — Senthil Nagappan",
   case: "Case Study — Senthil Nagappan",
+  lab: "In-House AI Product Lab — Senthil Nagappan",
 };
 
 const PAGE_DESCRIPTIONS: Record<PageId, string> = {
@@ -7082,6 +7169,7 @@ const PAGE_DESCRIPTIONS: Record<PageId, string> = {
   resume: "Download or read Senthil Nagappan's resume — AI safety and human systems integration leadership.",
   contact: "Contact Senthil Nagappan for AI safety, human systems integration, and accessibility leadership engagements.",
   case: "Case study from Senthil Nagappan — AI safety, human systems integration, and accessibility work in regulated environments.",
+  lab: "In-house AI product concepts by Senthil Nagappan — TrustLens, Clarity, Sentinel, Lumen, and RevAssist: concise capsules of governance, clinical, agentic-safety, and revenue-cycle AI work.",
 };
 
 function upsertMeta(attr: "name" | "property", key: string, content: string) {
@@ -7103,6 +7191,111 @@ function upsertCanonical(href: string) {
   }
   el.setAttribute("href", href);
 }
+
+function InHouseLab({
+  setPage,
+  setCase,
+}: {
+  setPage: (p: PageId) => void;
+  setCase: (c: CaseStudyType) => void;
+}) {
+  const cases = inHouseCases();
+  return (
+    <div>
+      <header className="relative overflow-hidden bg-gradient-to-br from-[rgb(var(--c-hero-dark))] via-[rgb(var(--c-primary))] to-[rgb(var(--c-accent))] text-white">
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 opacity-[0.05]"
+          style={{
+            backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
+            backgroundSize: "30px 30px",
+          }}
+        />
+        <div className="max-w-3xl mx-auto px-6 py-16 sm:py-20 text-center relative">
+          <button
+            onClick={() => setPage("home")}
+            className="inline-flex items-center gap-1.5 text-white/85 text-xs font-semibold mb-5 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))] rounded"
+          >
+            <span aria-hidden="true">←</span> Back to work
+          </button>
+          <p className="inline-flex items-center gap-2 text-[rgb(var(--c-accent-on-dark))] text-xs font-semibold tracking-[3px] uppercase mb-5 rounded-full border border-white/15 bg-white/5 backdrop-blur px-4 py-1.5">
+            In-House AI Product Concepts
+          </p>
+          <h1 className="font-display text-3xl sm:text-4xl font-extrabold leading-[1.15] mb-4 tracking-tight">
+            In-House AI Product Lab
+          </h1>
+          <p className="text-white/90 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+            {cases.length} self-initiated concepts exploring how safe, explainable,
+            human-in-the-loop AI should feel — from model-risk governance to clinical
+            decision-support, agentic guardrails, source-grounding UX, and revenue-cycle
+            reimbursement. Open any capsule for the full case study.
+          </p>
+        </div>
+      </header>
+
+      <section
+        aria-label="In-house AI product concepts"
+        className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2rem,4vw,3.5rem)]"
+      >
+        <div className="grid gap-6 [grid-template-columns:repeat(auto-fit,minmax(min(100%,26rem),1fr))]">
+          {cases.map((s, i) => (
+            <FadeIn key={s.id} delay={i * 0.06} className="h-full">
+              <article className="group h-full flex flex-col rounded-xl overflow-hidden bg-white border border-gray-200 transition-all duration-300 hover:border-[rgb(var(--c-primary)/0.3)] hover:shadow-lg hover:-translate-y-0.5">
+                <div className={`relative h-32 bg-gradient-to-br ${s.hero} flex items-end p-4 overflow-hidden`}>
+                  {s.image && (
+                    <img
+                      src={s.image}
+                      alt=""
+                      aria-hidden="true"
+                      loading="lazy"
+                      width={1024}
+                      height={640}
+                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  )}
+                  <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                  <span className="relative text-white text-[10px] font-semibold tracking-widest uppercase">
+                    {s.tag.split(" · ")[1] ?? "AI Product"}
+                  </span>
+                </div>
+                <div className="flex-1 flex flex-col p-5">
+                  <h2 className="font-bold text-gray-900 text-base mb-2 leading-snug">
+                    {s.title}
+                  </h2>
+                  <p className="text-gray-700 text-[13px] mb-3 leading-relaxed line-clamp-4">
+                    {s.subtitle}
+                  </p>
+                  <div className="flex gap-1.5 flex-wrap mb-4">
+                    {s.metrics.slice(0, 3).map((m) => (
+                      <span
+                        key={m.label}
+                        className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-100"
+                      >
+                        {m.value} {m.label}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="mt-auto pt-3">
+                    <button
+                      onClick={() => setCase(s)}
+                      aria-label={`View full case study: ${s.title}`}
+                      className="group/btn inline-flex items-center gap-1.5 text-xs font-semibold px-4 py-2 rounded-lg bg-[rgb(var(--c-primary))] text-white hover:bg-[rgb(var(--c-accent-dark))] focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2 transition-colors"
+                    >
+                      View full case study
+                      <span aria-hidden="true" className="transition-transform group-hover/btn:translate-x-0.5">→</span>
+                    </button>
+                  </div>
+                </div>
+              </article>
+            </FadeIn>
+          ))}
+        </div>
+      </section>
+    </div>
+  );
+}
+
+
 
 const Index = () => {
   const [page, setPage] = useState<PageId>("home");
@@ -7202,6 +7395,15 @@ const Index = () => {
         {page === "approach" && <Approach />}
         {page === "resume" && <Resume />}
         {page === "contact" && <Contact />}
+        {page === "lab" && (
+          <InHouseLab
+            setPage={navigate}
+            setCase={(c) => {
+              setActiveCase(c);
+              setPage("case");
+            }}
+          />
+        )}
       </main>
       <Footer setPage={navigate} currentPage={page} />
       <ThemeSwitcher />
