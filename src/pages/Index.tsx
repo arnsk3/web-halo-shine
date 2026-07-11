@@ -1342,7 +1342,64 @@ function Home({
         </FadeIn>
 
         <div className="grid gap-8 items-stretch [grid-template-columns:repeat(auto-fit,minmax(min(100%,30rem),1fr))]">
-          {visibleCases.map((s, i) => {
+          {renderItems.map((item, i) => {
+            if (item.kind === "group") {
+              return (
+                <FadeIn key="inhouse-group" delay={i * 0.08} className="h-full">
+                  <article className="group h-full flex flex-col rounded-xl overflow-hidden bg-white border border-gray-200 transition-all duration-300 hover:border-[rgb(var(--c-primary)/0.3)] hover:shadow-xl hover:-translate-y-1">
+                    <div className="relative h-44 bg-gradient-to-br from-[rgb(var(--c-hero-dark))] via-[rgb(var(--c-primary))] to-[rgb(var(--c-accent))] flex items-end p-5 overflow-hidden">
+                      <div
+                        aria-hidden="true"
+                        className="absolute inset-0 opacity-[0.06]"
+                        style={{
+                          backgroundImage:
+                            "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
+                          backgroundSize: "22px 22px",
+                        }}
+                      />
+                      <span className="relative text-white text-[11px] font-semibold tracking-widest uppercase">
+                        In-House AI Product Concepts
+                      </span>
+                    </div>
+                    <div className="flex-1 flex flex-col p-6">
+                      <h3 className="font-bold text-gray-900 text-lg mb-1.5 leading-snug">
+                        In-House AI Product Lab
+                      </h3>
+                      <p className="text-gray-600 text-[12px] mb-3 font-medium">
+                        Self-directed concepts · Governance · Clinical · Agentic safety · Revenue cycle
+                      </p>
+                      <p className="text-gray-700 text-sm mb-4 leading-relaxed">
+                        {inHouseCount} self-initiated AI product concepts that show how I design safe,
+                        explainable, human-in-the-loop AI — from model-risk governance to clinical
+                        decision-support, agentic guardrails, source-grounding UX, and revenue-cycle
+                        reimbursement.
+                      </p>
+                      <ul className="flex flex-wrap gap-1.5 list-none p-0 m-0 mb-4">
+                        {inHouseCases().map((c) => (
+                          <li
+                            key={c.id}
+                            className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-[rgb(var(--c-tint-50))] text-[rgb(var(--c-primary))] border border-[rgb(var(--c-primary)/0.2)]"
+                          >
+                            {c.title.split(" — ")[0]}
+                          </li>
+                        ))}
+                      </ul>
+                      <div className="mt-auto pt-4 flex flex-wrap gap-2">
+                        <button
+                          onClick={() => setPage("lab")}
+                          aria-label={`View all ${inHouseCount} in-house AI product concepts`}
+                          className="group/btn inline-flex items-center gap-1.5 text-xs font-semibold px-4 py-2 rounded-lg bg-[rgb(var(--c-primary))] text-white hover:bg-[rgb(var(--c-accent-dark))] focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2 transition-colors"
+                        >
+                          Explore the AI Product Lab
+                          <span aria-hidden="true" className="transition-transform group-hover/btn:translate-x-0.5">→</span>
+                        </button>
+                      </div>
+                    </div>
+                  </article>
+                </FadeIn>
+              );
+            }
+            const s = item.case;
             return (
             <FadeIn key={s.id} delay={i * 0.08} className="h-full">
               <article className="group h-full flex flex-col rounded-xl overflow-hidden bg-white border border-gray-200 transition-all duration-300 hover:border-[rgb(var(--c-primary)/0.3)] hover:shadow-xl hover:-translate-y-1">
