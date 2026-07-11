@@ -802,6 +802,8 @@ const CASE_STUDIES: CaseStudyType[] = [
     ],
   },
 ];
+
+const CREDS = [
   "CPACC + WAS",
   "CUA",
   "CSM",
