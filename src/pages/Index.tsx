@@ -847,6 +847,15 @@ function caseCategories(s: CaseStudyType): CaseFilter[] {
   return CASE_CATEGORY_MAP[s.id] ?? [];
 }
 
+// In-house AI product concepts — collapsed into one grouped card that opens the Lab page.
+const IN_HOUSE_IDS = ["revcycle", "clinicalai", "trustlens", "sentinel", "lumen"];
+const isInHouse = (s: CaseStudyType) => IN_HOUSE_IDS.includes(s.id);
+function inHouseCases(): CaseStudyType[] {
+  return IN_HOUSE_IDS.map((id) => CASE_STUDIES.find((s) => s.id === id)).filter(
+    (s): s is CaseStudyType => Boolean(s),
+  );
+}
+
 
 
 
