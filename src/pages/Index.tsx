@@ -970,6 +970,102 @@ function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) 
 }
 
 
+function DesignLeadership() {
+  const pillars = [
+    {
+      icon: "🧭",
+      title: "Player-coach leadership",
+      body:
+        "I lead by doing and developing at once — setting the experience vision and designing the hardest flows myself, then coaching designers through critique, pairing, and written interaction guidelines. I hold a high bar for craft while moving fast through ambiguity.",
+      tags: ["Set the vision", "Design the hard flows", "Critique & pairing", "High craft bar"],
+    },
+    {
+      icon: "🌱",
+      title: "Mentorship & team growth",
+      body:
+        "I grow designers through structured feedback, career-path conversations, and stretch opportunities on real, high-stakes work. At SAMHSA I recruited and grew a cross-functional team to 15+ and mentored through seven years of change.",
+      tags: ["Career growth", "Structured feedback", "Grew team to 15+", "Design critique culture"],
+    },
+    {
+      icon: "🔗",
+      title: "Cross-product systems thinking",
+      body:
+        "I design experiences that feel cohesive across many products, roles, and tech stacks — shared components, design tokens, and AI interaction patterns that scale. RevAssist unifies coding, billing, and denials; SSA's system unified 50M+ user experiences across modules.",
+      tags: ["Multi-product", "Design tokens", "Reusable patterns", "Integrated UX"],
+    },
+    {
+      icon: "🧠",
+      title: "Executive influence",
+      body:
+        "I drive alignment without authority — translating research and design decisions into the trade-offs leadership actually decides on. From the SSA11y build-vs-buy case to AI oversight gates, I use data-informed storytelling to win cross-functional buy-in.",
+      tags: ["Influence w/o authority", "Data-informed storytelling", "Stakeholder alignment", "Trade-off framing"],
+    },
+    {
+      icon: "🤖",
+      title: "AI in the design process",
+      body:
+        "I bring AI into how the team works, not just what it ships — accelerating research synthesis, ideation, content generation, and rapid prototyping, while protecting design judgment and quality. I establish responsible-experimentation norms so teams adopt AI without cutting corners.",
+      tags: ["AI-assisted research", "Rapid prototyping", "Content generation", "Design ops"],
+    },
+    {
+      icon: "🧪",
+      title: "Culture of experimentation",
+      body:
+        "I make prototyping, testing, and iterating a repeatable practice — small bets validated with real users before scaling. New AI interaction models earn their way into the design system through evidence, not opinion.",
+      tags: ["Prototype → test → iterate", "Evidence over opinion", "Validated interaction models"],
+    },
+  ];
+  return (
+    <section
+      id="leadership"
+      aria-labelledby="leadership-heading"
+      className="bg-[rgb(var(--c-tint-50))] border-y border-gray-100"
+    >
+      <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2rem,4vw,3.5rem)]">
+        <FadeIn>
+          <p className="text-[rgb(var(--c-accent-on-light))] text-xs font-semibold tracking-[2px] uppercase mb-3">
+            Design Leadership
+          </p>
+          <h2
+            id="leadership-heading"
+            className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 mb-2 tracking-tight"
+          >
+            A player-coach who leads through execution and mentorship
+          </h2>
+          <p className="text-gray-700 text-sm sm:text-base leading-relaxed mb-8 max-w-2xl">
+            I set the pace for both design excellence and modern ways of working — shipping the
+            hardest experiences hands-on, growing the designers around me, and bringing AI into
+            how the team designs, not just what it delivers.
+          </p>
+        </FadeIn>
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {pillars.map((p, i) => (
+            <FadeIn key={p.title} delay={0.04 * i}>
+              <article className="h-full rounded-2xl border border-gray-200 bg-white p-5 transition-all hover:border-[rgb(var(--c-primary)/0.3)] hover:shadow-md hover:-translate-y-0.5">
+                <div className="flex items-center gap-2 mb-2">
+                  <span aria-hidden="true" className="text-lg">{p.icon}</span>
+                  <h3 className="font-bold text-gray-900 text-sm">{p.title}</h3>
+                </div>
+                <p className="text-[13px] text-gray-700 leading-relaxed mb-3">{p.body}</p>
+                <ul className="flex flex-wrap gap-1.5 list-none p-0 m-0">
+                  {p.tags.map((t) => (
+                    <li
+                      key={t}
+                      className="text-[11px] px-2.5 py-1 rounded-full bg-gray-100 text-gray-800 border border-gray-200"
+                    >
+                      {t}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            </FadeIn>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function BrandTeaser({ onOpen }: { onOpen: () => void }) {
   return (
     <section
