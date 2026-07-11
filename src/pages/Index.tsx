@@ -6174,6 +6174,16 @@ function About() {
       icon: "🛡️",
       skills: ["Human-in-the-loop models", "FMEA / URRA", "FDA / IEC 62366", "ISO 14971", "MIL-STD-1472H", "DoDI 5000.95 HSI", "AI risk & evaluation frameworks"],
     },
+    {
+      title: "Design Leadership",
+      icon: "🧭",
+      skills: ["Player-coach leadership", "Mentorship & career growth", "Design critique culture", "Influence without authority", "Executive storytelling", "Cross-product systems thinking", "AI-in-the-design-process", "Culture of experimentation"],
+    },
+    {
+      title: "Healthcare & Revenue Cycle",
+      icon: "🏥",
+      skills: ["Revenue cycle workflows", "Medical coding (ICD-10 / CPT / HCPCS)", "Claims & denial management", "Reimbursement UX", "Clinical decision-support", "HIPAA", "Intelligent automation"],
+    },
   ];
 
   const timeline = [
