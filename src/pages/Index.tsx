@@ -895,7 +895,7 @@ function FadeIn({ children, delay = 0, className = "" }: FadeInProps) {
   );
 }
 
-type PageId = "home" | "brand" | "about" | "approach" | "resume" | "contact" | "case";
+type PageId = "home" | "brand" | "about" | "approach" | "resume" | "contact" | "case" | "lab";
 
 function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) {
   // Curated 5-item nav. "Work" and "Expertise" scroll to landing sections;
