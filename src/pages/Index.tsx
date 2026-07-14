@@ -1304,9 +1304,14 @@ function Home({
           <h2 id="cases-heading" className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2 tracking-tight">
             Selected Work
           </h2>
-          <p className="text-gray-700 text-base mb-6">
+          <p className="text-gray-700 text-base mb-3">
             A curated set of the strongest case studies — enterprise design systems, data-driven
             design, accessibility, and AI products that drove adoption and trust at scale.
+          </p>
+          <p className="text-gray-600 text-[13px] mb-6 max-w-2xl">
+            <span className="font-semibold text-gray-700">A note on metrics:</span> figures reflect
+            team and program outcomes; my individual contribution is described within each case. I&apos;m
+            happy to walk through how any number was measured in an interview.
           </p>
 
         </FadeIn>
@@ -1384,6 +1389,27 @@ function Home({
                           </li>
                         ))}
                       </ul>
+                      <div className="mb-2 pt-4 border-t border-gray-100">
+                        <p className="text-[11px] font-bold uppercase tracking-wide text-gray-700 mb-2">
+                          What these concepts demonstrate
+                        </p>
+                        <ul className="list-none p-0 m-0 space-y-1.5">
+                          {[
+                            "Human-in-the-loop patterns for high-stakes AI decisions",
+                            "Governance mapped to NIST AI RMF, EU AI Act & ISO 42001",
+                            "Explainability, confidence & source-grounding UX",
+                            "Production-grade, WCAG-accessible React front-ends",
+                          ].map((o) => (
+                            <li key={o} className="flex items-start gap-2 text-[13px] text-gray-700">
+                              <span
+                                aria-hidden="true"
+                                className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[rgb(var(--c-accent))]"
+                              />
+                              <span className="leading-relaxed">{o}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                       <div className="mt-auto pt-4 flex flex-wrap gap-2">
                         <button
                           onClick={() => setPage("lab")}
@@ -1538,6 +1564,50 @@ function Home({
             </div>
           </div>
         </FadeIn>
+      </section>
+
+      {/* Closing CTA band */}
+      <section
+        aria-labelledby="closing-cta-heading"
+        className="relative overflow-hidden bg-gradient-to-br from-[rgb(var(--c-hero-dark))] via-[rgb(var(--c-primary))] to-[rgb(var(--c-accent))] text-white"
+      >
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 opacity-[0.05]"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
+            backgroundSize: "28px 28px",
+          }}
+        />
+        <div className="max-w-3xl mx-auto px-6 py-16 text-center relative">
+          <FadeIn>
+            <h2 id="closing-cta-heading" className="font-display text-3xl sm:text-4xl font-extrabold leading-tight mb-4 tracking-tight">
+              Let&apos;s build safe, human-centered AI together.
+            </h2>
+            <p className="text-white/85 text-base max-w-xl mx-auto mb-8 leading-relaxed">
+              Open to director-level and principal AI experience design, human systems integration,
+              and accessibility leadership roles. Let&apos;s talk about your team&apos;s hardest problems.
+            </p>
+            <div className="flex gap-3 justify-center flex-wrap">
+              <button
+                onClick={() => setPage("contact")}
+                className="group inline-flex items-center justify-center gap-2 min-h-11 bg-white text-[rgb(var(--c-primary))] px-6 py-2.5 rounded-lg font-semibold text-sm shadow-lg shadow-black/10 hover:-translate-y-0.5 hover:shadow-xl hover:bg-[rgb(var(--c-accent-on-light))] hover:text-white transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
+              >
+                Get in touch <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
+              </button>
+              <a
+                href="/Senthil_Nagappan_Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center justify-center gap-2 min-h-11 bg-white/10 border border-white/40 text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-white/20 hover:-translate-y-0.5 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
+              >
+                Download résumé (PDF)
+                <span aria-hidden="true" className="transition-transform group-hover:translate-y-0.5">↓</span>
+              </a>
+            </div>
+          </FadeIn>
+        </div>
       </section>
     </div>
   );
