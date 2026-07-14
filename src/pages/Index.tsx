@@ -1565,6 +1565,50 @@ function Home({
           </div>
         </FadeIn>
       </section>
+
+      {/* Closing CTA band */}
+      <section
+        aria-labelledby="closing-cta-heading"
+        className="relative overflow-hidden bg-gradient-to-br from-[rgb(var(--c-hero-dark))] via-[rgb(var(--c-primary))] to-[rgb(var(--c-accent))] text-white"
+      >
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 opacity-[0.05]"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
+            backgroundSize: "28px 28px",
+          }}
+        />
+        <div className="max-w-3xl mx-auto px-6 py-16 text-center relative">
+          <FadeIn>
+            <h2 id="closing-cta-heading" className="font-display text-3xl sm:text-4xl font-extrabold leading-tight mb-4 tracking-tight">
+              Let&apos;s build safe, human-centered AI together.
+            </h2>
+            <p className="text-white/85 text-base max-w-xl mx-auto mb-8 leading-relaxed">
+              Open to director-level and principal AI experience design, human systems integration,
+              and accessibility leadership roles. Let&apos;s talk about your team&apos;s hardest problems.
+            </p>
+            <div className="flex gap-3 justify-center flex-wrap">
+              <button
+                onClick={() => setPage("contact")}
+                className="group inline-flex items-center justify-center gap-2 min-h-11 bg-white text-[rgb(var(--c-primary))] px-6 py-2.5 rounded-lg font-semibold text-sm shadow-lg shadow-black/10 hover:-translate-y-0.5 hover:shadow-xl hover:bg-[rgb(var(--c-accent-on-light))] hover:text-white transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
+              >
+                Get in touch <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
+              </button>
+              <a
+                href="/Senthil_Nagappan_Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center justify-center gap-2 min-h-11 bg-white/10 border border-white/40 text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-white/20 hover:-translate-y-0.5 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
+              >
+                Download résumé (PDF)
+                <span aria-hidden="true" className="transition-transform group-hover:translate-y-0.5">↓</span>
+              </a>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
     </div>
   );
 }
