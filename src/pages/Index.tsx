@@ -1389,6 +1389,27 @@ function Home({
                           </li>
                         ))}
                       </ul>
+                      <div className="mb-2 pt-4 border-t border-gray-100">
+                        <p className="text-[11px] font-bold uppercase tracking-wide text-gray-700 mb-2">
+                          What these concepts demonstrate
+                        </p>
+                        <ul className="list-none p-0 m-0 space-y-1.5">
+                          {[
+                            "Human-in-the-loop patterns for high-stakes AI decisions",
+                            "Governance mapped to NIST AI RMF, EU AI Act & ISO 42001",
+                            "Explainability, confidence & source-grounding UX",
+                            "Production-grade, WCAG-accessible React front-ends",
+                          ].map((o) => (
+                            <li key={o} className="flex items-start gap-2 text-[13px] text-gray-700">
+                              <span
+                                aria-hidden="true"
+                                className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[rgb(var(--c-accent))]"
+                              />
+                              <span className="leading-relaxed">{o}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                       <div className="mt-auto pt-4 flex flex-wrap gap-2">
                         <button
                           onClick={() => setPage("lab")}
