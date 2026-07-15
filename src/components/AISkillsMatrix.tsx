@@ -17,6 +17,7 @@ const GROUPS: SkillGroup[] = [
   {
     id: "ai-product",
     title: "AI Product & Interaction Design",
+    short: "Product & Interaction",
     blurb: "Designing the surface where people and models meet — legible, controllable, trustworthy.",
     skills: [
       { name: "Human–AI interaction patterns", level: 5, note: "recommend / act / alert oversight models" },
