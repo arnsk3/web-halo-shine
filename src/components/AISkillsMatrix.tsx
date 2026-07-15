@@ -8,6 +8,7 @@ type Skill = {
 type SkillGroup = {
   id: string;
   title: string;
+  short: string;
   blurb: string;
   skills: Skill[];
 };
