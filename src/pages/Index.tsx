@@ -1565,6 +1565,61 @@ function Home({
         </FadeIn>
       </section>
 
+      {/* Testimonials */}
+      <section
+        aria-labelledby="testimonials-heading"
+        className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2.5rem,4vw,3.5rem)]"
+      >
+        <FadeIn>
+          <div className="mb-8 max-w-2xl">
+            <p className="inline-flex items-center gap-2 text-[rgb(var(--c-accent-on-light))] text-xs font-semibold tracking-[2px] uppercase mb-3 rounded-full border border-[rgb(var(--c-primary)/0.2)] bg-[rgb(var(--c-tint-50))] px-3 py-1.5">
+              <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-[rgb(var(--c-accent))]" />
+              What collaborators say
+            </p>
+            <h2 id="testimonials-heading" className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-2">
+              Trusted by engineering, clinical, and program leaders.
+            </h2>
+            <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
+              Selected reflections from partners across federal, healthcare, and enterprise programs.
+              Full attribution and references available on request.
+            </p>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2">
+            {[
+              {
+                quote:
+                  "Senthil is the rare designer who can sit with regulators, clinicians, and engineers in the same room and leave everyone aligned. His governance work turned accessibility from a checklist into how we build.",
+                who: "Engineering Director",
+                context: "Federal behavioral-health program · reference available",
+              },
+              {
+                quote:
+                  "He raised the bar for how we frame AI decisions to clinicians — confidence, evidence, and override became first-class parts of the product, not afterthoughts. Adoption followed.",
+                who: "Clinical Product Lead",
+                context: "Healthcare AI decision-support · reference available",
+              },
+            ].map((t) => (
+              <figure
+                key={t.who}
+                className="rounded-2xl border border-gray-200 bg-white p-6 sm:p-7 shadow-sm hover:shadow-md transition-shadow flex flex-col"
+              >
+                <span aria-hidden="true" className="font-display text-5xl leading-none text-[rgb(var(--c-accent))]/40 mb-2">
+                  &ldquo;
+                </span>
+                <blockquote className="text-gray-800 text-[15px] sm:text-base leading-relaxed mb-5">
+                  {t.quote}
+                </blockquote>
+                <figcaption className="mt-auto pt-4 border-t border-gray-100">
+                  <p className="text-sm font-bold text-gray-900">{t.who}</p>
+                  <p className="text-[12px] text-gray-600 mt-0.5">{t.context}</p>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </FadeIn>
+      </section>
+
+
       {/* Closing CTA band */}
       <section
         aria-labelledby="closing-cta-heading"
