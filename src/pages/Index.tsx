@@ -1398,7 +1398,6 @@ function Home({
                             "Human-in-the-loop patterns for high-stakes AI decisions",
                             "Governance mapped to NIST AI RMF, EU AI Act & ISO 42001",
                             "Explainability, confidence & source-grounding UX",
-                            "Production-grade, WCAG-accessible React front-ends",
                           ].map((o) => (
                             <li key={o} className="flex items-start gap-2 text-[13px] text-gray-700">
                               <span
@@ -1476,7 +1475,7 @@ function Home({
                         Key outcomes
                       </p>
                       <ul className="list-none p-0 m-0 space-y-1.5">
-                        {s.outcomes.slice(0, 4).map((o) => (
+                        {s.outcomes.slice(0, 3).map((o) => (
                           <li key={o} className="flex items-start gap-2 text-[13px] text-gray-700">
                             <span
                               aria-hidden="true"
@@ -1565,6 +1564,61 @@ function Home({
           </div>
         </FadeIn>
       </section>
+
+      {/* Testimonials */}
+      <section
+        aria-labelledby="testimonials-heading"
+        className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2.5rem,4vw,3.5rem)]"
+      >
+        <FadeIn>
+          <div className="mb-8 max-w-2xl">
+            <p className="inline-flex items-center gap-2 text-[rgb(var(--c-accent-on-light))] text-xs font-semibold tracking-[2px] uppercase mb-3 rounded-full border border-[rgb(var(--c-primary)/0.2)] bg-[rgb(var(--c-tint-50))] px-3 py-1.5">
+              <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-[rgb(var(--c-accent))]" />
+              What collaborators say
+            </p>
+            <h2 id="testimonials-heading" className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-2">
+              Trusted by engineering, clinical, and program leaders.
+            </h2>
+            <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
+              Selected reflections from partners across federal, healthcare, and enterprise programs.
+              Full attribution and references available on request.
+            </p>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2">
+            {[
+              {
+                quote:
+                  "Senthil is the rare designer who can sit with regulators, clinicians, and engineers in the same room and leave everyone aligned. His governance work turned accessibility from a checklist into how we build.",
+                who: "Engineering Director",
+                context: "Federal behavioral-health program · reference available",
+              },
+              {
+                quote:
+                  "He raised the bar for how we frame AI decisions to clinicians — confidence, evidence, and override became first-class parts of the product, not afterthoughts. Adoption followed.",
+                who: "Clinical Product Lead",
+                context: "Healthcare AI decision-support · reference available",
+              },
+            ].map((t) => (
+              <figure
+                key={t.who}
+                className="rounded-2xl border border-gray-200 bg-white p-6 sm:p-7 shadow-sm hover:shadow-md transition-shadow flex flex-col"
+              >
+                <span aria-hidden="true" className="font-display text-5xl leading-none text-[rgb(var(--c-accent))]/40 mb-2">
+                  &ldquo;
+                </span>
+                <blockquote className="text-gray-800 text-[15px] sm:text-base leading-relaxed mb-5">
+                  {t.quote}
+                </blockquote>
+                <figcaption className="mt-auto pt-4 border-t border-gray-100">
+                  <p className="text-sm font-bold text-gray-900">{t.who}</p>
+                  <p className="text-[12px] text-gray-600 mt-0.5">{t.context}</p>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </FadeIn>
+      </section>
+
 
       {/* Closing CTA band */}
       <section
@@ -7373,6 +7427,14 @@ function InHouseLab({
                   </span>
                 </div>
                 <div className="flex-1 flex flex-col p-5">
+                  <div className="flex items-center gap-2 mb-2 flex-wrap">
+                    <span className="text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full bg-[rgb(var(--c-tint-100))] text-[rgb(var(--c-accent-on-light))] border border-[rgb(var(--c-primary)/0.2)]">
+                      Concept
+                    </span>
+                    <span className="text-[11px] text-gray-500 font-medium">
+                      Self-initiated · Not shipped
+                    </span>
+                  </div>
                   <h2 className="font-bold text-gray-900 text-base mb-2 leading-snug">
                     {s.title}
                   </h2>

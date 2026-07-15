@@ -8,6 +8,7 @@ type Skill = {
 type SkillGroup = {
   id: string;
   title: string;
+  short: string;
   blurb: string;
   skills: Skill[];
 };
@@ -16,6 +17,7 @@ const GROUPS: SkillGroup[] = [
   {
     id: "ai-product",
     title: "AI Product & Interaction Design",
+    short: "Product & Interaction",
     blurb: "Designing the surface where people and models meet — legible, controllable, trustworthy.",
     skills: [
       { name: "Human–AI interaction patterns", level: 5, note: "recommend / act / alert oversight models" },
@@ -29,6 +31,7 @@ const GROUPS: SkillGroup[] = [
   {
     id: "ai-frameworks",
     title: "Governance Frameworks & Standards",
+    short: "Frameworks & Standards",
     blurb: "Translating dense AI, medical, and federal standards into enforceable design and delivery criteria.",
     skills: [
       { name: "NIST AI RMF 1.0", level: 5, note: "govern / map / measure / manage" },
@@ -42,6 +45,7 @@ const GROUPS: SkillGroup[] = [
   {
     id: "ai-operations",
     title: "Operational Governance & Evaluation",
+    short: "Governance & Evaluation",
     blurb: "Making compliance a built-in property — oversight tiers, audit evidence, and quality gates.",
     skills: [
       { name: "Model risk & oversight tiers", level: 5, note: "Model A/B/C governance at design intake" },
@@ -55,6 +59,7 @@ const GROUPS: SkillGroup[] = [
   {
     id: "ai-regulated",
     title: "Regulated-Domain Expertise",
+    short: "Regulated Domains",
     blurb: "Governing safety-critical AI where getting it wrong isn't an option — healthcare, federal, accessibility.",
     skills: [
       { name: "Clinical decision-support AI", level: 5, note: "1,200+ clinicians, oversight-tiered design" },
@@ -69,6 +74,7 @@ const GROUPS: SkillGroup[] = [
   {
     id: "ai-engineering",
     title: "AI Engineering & Delivery",
+    short: "Engineering & Delivery",
     blurb: "Building the front end that makes AI systems usable — accessible, performant, shipped.",
     skills: [
       { name: "AI data-viz component systems", level: 5, note: "risk gauges, model cards, audit timelines" },
@@ -155,7 +161,7 @@ export default function AISkillsMatrix() {
                     : "border border-white/25 text-white hover:bg-white/10"
                 }`}
               >
-                {grp.title}
+                {grp.short}
               </button>
             );
           })}
