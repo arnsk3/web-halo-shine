@@ -1398,7 +1398,6 @@ function Home({
                             "Human-in-the-loop patterns for high-stakes AI decisions",
                             "Governance mapped to NIST AI RMF, EU AI Act & ISO 42001",
                             "Explainability, confidence & source-grounding UX",
-                            "Production-grade, WCAG-accessible React front-ends",
                           ].map((o) => (
                             <li key={o} className="flex items-start gap-2 text-[13px] text-gray-700">
                               <span
