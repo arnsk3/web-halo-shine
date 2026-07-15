@@ -7372,6 +7372,14 @@ function InHouseLab({
                   </span>
                 </div>
                 <div className="flex-1 flex flex-col p-5">
+                  <div className="flex items-center gap-2 mb-2 flex-wrap">
+                    <span className="text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full bg-[rgb(var(--c-tint-100))] text-[rgb(var(--c-accent-on-light))] border border-[rgb(var(--c-primary)/0.2)]">
+                      Concept
+                    </span>
+                    <span className="text-[11px] text-gray-500 font-medium">
+                      Self-initiated · Not shipped
+                    </span>
+                  </div>
                   <h2 className="font-bold text-gray-900 text-base mb-2 leading-snug">
                     {s.title}
                   </h2>
