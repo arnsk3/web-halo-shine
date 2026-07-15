@@ -59,6 +59,7 @@ const GROUPS: SkillGroup[] = [
   {
     id: "ai-regulated",
     title: "Regulated-Domain Expertise",
+    short: "Regulated Domains",
     blurb: "Governing safety-critical AI where getting it wrong isn't an option — healthcare, federal, accessibility.",
     skills: [
       { name: "Clinical decision-support AI", level: 5, note: "1,200+ clinicians, oversight-tiered design" },
