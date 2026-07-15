@@ -161,7 +161,7 @@ export default function AISkillsMatrix() {
                     : "border border-white/25 text-white hover:bg-white/10"
                 }`}
               >
-                {grp.title}
+                {grp.short}
               </button>
             );
           })}
