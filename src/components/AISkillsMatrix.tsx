@@ -31,6 +31,7 @@ const GROUPS: SkillGroup[] = [
   {
     id: "ai-frameworks",
     title: "Governance Frameworks & Standards",
+    short: "Frameworks & Standards",
     blurb: "Translating dense AI, medical, and federal standards into enforceable design and delivery criteria.",
     skills: [
       { name: "NIST AI RMF 1.0", level: 5, note: "govern / map / measure / manage" },
