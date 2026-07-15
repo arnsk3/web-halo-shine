@@ -74,6 +74,7 @@ const GROUPS: SkillGroup[] = [
   {
     id: "ai-engineering",
     title: "AI Engineering & Delivery",
+    short: "Engineering & Delivery",
     blurb: "Building the front end that makes AI systems usable — accessible, performant, shipped.",
     skills: [
       { name: "AI data-viz component systems", level: 5, note: "risk gauges, model cards, audit timelines" },
