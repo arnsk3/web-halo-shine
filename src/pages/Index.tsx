@@ -1475,7 +1475,7 @@ function Home({
                         Key outcomes
                       </p>
                       <ul className="list-none p-0 m-0 space-y-1.5">
-                        {s.outcomes.slice(0, 4).map((o) => (
+                        {s.outcomes.slice(0, 3).map((o) => (
                           <li key={o} className="flex items-start gap-2 text-[13px] text-gray-700">
                             <span
                               aria-hidden="true"
