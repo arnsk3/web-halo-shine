@@ -45,6 +45,7 @@ const GROUPS: SkillGroup[] = [
   {
     id: "ai-operations",
     title: "Operational Governance & Evaluation",
+    short: "Governance & Evaluation",
     blurb: "Making compliance a built-in property — oversight tiers, audit evidence, and quality gates.",
     skills: [
       { name: "Model risk & oversight tiers", level: 5, note: "Model A/B/C governance at design intake" },
