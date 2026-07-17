@@ -1,0 +1,117 @@
+{
+  "version": 1,
+  "sdk_version": "0.23.0",
+  "path": "/functions/v1/mcp",
+  "auth": {
+    "type": "none"
+  },
+  "mcp": {
+    "server": {
+      "name": "senthil-nagappan-portfolio",
+      "version": "0.1.0",
+      "title": "Senthil Nagappan · Portfolio"
+    },
+    "tools": [
+      {
+        "name": "get_case_studies",
+        "title": "Get case studies",
+        "description": "Return public portfolio case studies for Senthil Nagappan. Pass an optional id to fetch a single case, or a category to filter. Each case includes title, role, summary, outcomes, and a link to the full write-up.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "Optional case id. One of: ssa, clinicalai, ge, trustlens, bestbuy, samhsa, wcagtool, sentinel, lumen, revcycle."
+            },
+            "category": {
+              "type": "string",
+              "description": "Optional category filter, e.g. 'AI Experience Design', 'Design Systems', 'AI Governance', 'AI Safety'. Case-insensitive substring match."
+            },
+            "in_house_lab_only": {
+              "type": "boolean",
+              "description": "If true, return only self-initiated In-House AI Product Lab concepts."
+            }
+          },
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_skills_matrix",
+        "title": "Get AI skills matrix",
+        "description": "Return Senthil Nagappan's AI skills matrix. Groups cover AI product & interaction design, governance frameworks, operational governance, regulated-domain expertise, and AI engineering. Levels are 1–5 (Aware → Expert). Optionally filter to a single group.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "group_id": {
+              "type": "string",
+              "description": "Optional group id: ai-product, ai-frameworks, ai-operations, ai-regulated, ai-engineering."
+            }
+          },
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_about",
+        "title": "Get about / positioning",
+        "description": "Return the public 'about' summary for Senthil Nagappan — positioning, disciplines, and leadership pillars — for hiring managers or AI assistants asking who he is and what he does.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_resume",
+        "title": "Get résumé",
+        "description": "Return the public download URL for Senthil Nagappan's résumé (PDF) along with a short profile summary.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_contact_info",
+        "title": "Get contact info",
+        "description": "Return public ways to contact Senthil Nagappan: portfolio site, contact section, and résumé link. Use this when a caller asks how to reach out, book a call, or hire.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
