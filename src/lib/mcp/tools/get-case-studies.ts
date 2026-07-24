@@ -14,7 +14,7 @@ type Case = {
 
 const BASE = "https://www.senthilnagappan.com";
 
-const CASES: Case[] = [
+export const CASES: Case[] = [
   {
     id: "ssa",
     title: "A Data-Driven Design System That Unified 50M+ User Experiences",
