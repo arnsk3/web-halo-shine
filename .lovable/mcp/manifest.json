@@ -43,6 +43,37 @@
         "outputSchema": null
       },
       {
+        "name": "search_case_studies",
+        "title": "Search case studies",
+        "description": "Search Senthil Nagappan's portfolio case studies by keyword. Matches against title, summary, category, role, and outcomes (case-insensitive). Returns matching titles, summaries, and URLs.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Keyword or phrase to search for across case study title, summary, category, role, and outcomes."
+            },
+            "limit": {
+              "type": "integer",
+              "exclusiveMinimum": 0,
+              "description": "Optional maximum number of results to return."
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      },
+      {
         "name": "get_skills_matrix",
         "title": "Get AI skills matrix",
         "description": "Return Senthil Nagappan's AI skills matrix. Groups cover AI product & interaction design, governance frameworks, operational governance, regulated-domain expertise, and AI engineering. Levels are 1–5 (Aware → Expert). Optionally filter to a single group.",
