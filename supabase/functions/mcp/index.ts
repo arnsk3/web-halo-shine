@@ -361,13 +361,57 @@ var get_skills_matrix_default = defineTool5({
   }
 });
 
+// src/lib/mcp/tools/search-case-studies.ts
+import { defineTool as defineTool6 } from "npm:@lovable.dev/mcp-js@0.23.0";
+import { z as z3 } from "npm:zod@^3.25.76";
+var search_case_studies_default = defineTool6({
+  name: "search_case_studies",
+  title: "Search case studies",
+  description: "Search Senthil Nagappan's portfolio case studies by keyword. Matches against title, summary, category, role, and outcomes (case-insensitive). Returns matching titles, summaries, and URLs.",
+  inputSchema: {
+    query: z3.string().min(1).describe("Keyword or phrase to search for across case study title, summary, category, role, and outcomes."),
+    limit: z3.number().int().positive().optional().describe("Optional maximum number of results to return.")
+  },
+  annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
+  handler: ({ query, limit }) => {
+    const q = query.toLowerCase().trim();
+    const matches = CASES.filter((c) => {
+      const haystack = [
+        c.title,
+        c.summary,
+        c.category,
+        c.role,
+        ...c.outcomes ?? []
+      ].join(" \n ").toLowerCase();
+      return haystack.includes(q);
+    }).map((c) => ({
+      id: c.id,
+      title: c.title,
+      summary: c.summary,
+      url: c.url,
+      category: c.category,
+      inHouseLab: c.inHouseLab ?? false
+    }));
+    const results = typeof limit === "number" ? matches.slice(0, limit) : matches;
+    return {
+      content: [
+        {
+          type: "text",
+          text: results.length === 0 ? `No case studies matched "${query}".` : JSON.stringify(results, null, 2)
+        }
+      ],
+      structuredContent: { query, count: results.length, results }
+    };
+  }
+});
+
 // src/lib/mcp/index.ts
 var mcp_default = defineMcp({
   name: "senthil-nagappan-portfolio",
   title: "Senthil Nagappan \xB7 Portfolio",
   version: "0.1.0",
-  instructions: "Public read-only tools exposing Senthil Nagappan's portfolio: case studies, AI skills matrix, r\xE9sum\xE9 link, contact info, and about/positioning. All data is already public on senthilnagappan.com. Use these to answer hiring-manager questions, summarize experience, or link back to full write-ups.",
-  tools: [get_case_studies_default, get_skills_matrix_default, get_about_default, get_resume_default, get_contact_info_default]
+  instructions: "Public read-only tools exposing Senthil Nagappan's portfolio: case studies, keyword search, AI skills matrix, r\xE9sum\xE9 link, contact info, and about/positioning. All data is already public on senthilnagappan.com. Use these to answer hiring-manager questions, summarize experience, or link back to full write-ups.",
+  tools: [get_case_studies_default, search_case_studies_default, get_skills_matrix_default, get_about_default, get_resume_default, get_contact_info_default]
 });
 
 // lovable-mcp-supabase-entry.ts
