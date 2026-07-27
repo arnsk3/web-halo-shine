@@ -285,13 +285,13 @@ const CASE_STUDIES: CaseStudyType[] = [
     tag: "Design System · Unified Visual Language · Accessible Experiences",
     title: "Evolving a Design System to Power Consistent, Accessible Digital Experiences",
     subtitle:
-      "Advocated for and evolved the design system and best practices at GE HealthCare so multiple product teams could ship a unified visual language across accessible digital experiences — from shared components and design tokens to high-fidelity Figma mockups and accessible color/contrast systems.",
+      "Led Human Factors and Human Systems Integration for GE HealthCare, then translated human-performance insights into a shared design system and accessible visual language that 10+ product teams adopted across digital platforms.",
     hero: "from-[rgb(var(--c-hero-dark))] via-[rgb(var(--c-primary))] to-[rgb(var(--c-accent))]",
     image: caseGe,
-    role: "Senior UI/UX & Visual Designer",
+    role: "Human Factors Engineer · Human Systems Integration Lead · Design Systems Contributor",
     timeline: "2025 – Present",
     org: "GE HealthCare",
-    standards: ["Design System", "Design Tokens", "Figma", "Accessibility", "Cross-Functional"],
+    standards: ["Human Factors Engineering", "Human Systems Integration", "Design Systems", "Design Tokens", "Figma", "Accessibility", "Cross-Functional"],
     metrics: [
       { value: "10+", label: "Teams Aligned" },
       { value: "1", label: "Shared System" },
@@ -301,12 +301,12 @@ const CASE_STUDIES: CaseStudyType[] = [
       {
         heading: "The Challenge",
         content:
-          "Multiple product teams needed a unified visual language across accessible experiences across digital platforms. Without a shared design system, each team built UI its own way — inconsistent components, drifting brand, and accessibility handled ad hoc — slowing delivery and weakening the experience for clinicians who depend on clarity under pressure.",
+          "Multiple product teams needed a unified visual language across accessible experiences across digital platforms. Without a shared design system, each team built UI its own way — inconsistent components, drifting brand, and accessibility handled ad hoc — slowing delivery and weakening the experience for clinicians who depend on clarity under pressure. The deeper risk was human performance: clinicians under time pressure and cognitive load cannot afford ambiguous controls, unclear alerts, or inconsistent workflows.",
       },
       {
         heading: "My Role",
         content:
-          "As Senior UI/UX & Visual Designer I advocated for and evolved the design system and best practices. I owned the component library and design tokens, produced high-fidelity Figma mockups, defined accessible color/contrast systems, and partnered cross-functionally — presenting work and aligning engineering, clinical, and regulatory teams around one unified visual language and accessible standard.",
+          "As Human Factors Engineer and Human Systems Integration Lead I owned the human performance, safety, and usability risk of clinical workflows first, then applied those insights to evolve the design system and best practices. I led cognitive task analysis, use-error analysis, and human-in-the-loop decision modeling, and translated those findings into a shared component library, design tokens, high-fidelity Figma mockups, and accessible color/contrast systems. I partnered cross-functionally — presenting work and aligning engineering, clinical, and regulatory teams around one unified visual language and human-centered standard.",
       },
       {
         heading: "The Governance Framework",
