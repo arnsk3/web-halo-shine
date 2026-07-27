@@ -77,12 +77,13 @@ var CASES = [
   {
     id: "ge",
     title: "Evolving a Design System to Power Consistent, Accessible Digital Experiences",
-    category: "Design Systems",
-    role: "Senior design systems contributor (GE HealthCare program scope)",
-    summary: "Evolved a healthcare design system for cross-product consistency, accessibility, and faster shipping across a large product portfolio.",
+    category: "Human Factors \xB7 Design Systems",
+    role: "Human Factors & Human Systems Integration Lead (primary) \xB7 Design Systems Contributor (secondary) \u2014 GE HealthCare program scope",
+    summary: "Led Human Factors and Human Systems Integration for GE HealthCare clinical workflows, then translated those insights into a shared, accessible design system adopted across 10+ product teams.",
     outcomes: [
-      "Shared token + component foundation across product teams",
-      "Accessibility built into the system, not bolted on",
+      "Human-performance and safety risks addressed as a design-system input, not an afterthought",
+      "Shared token + component foundation adopted across 10+ product teams",
+      "Accessibility and human-in-the-loop decision standards built into the system",
       "Faster time-to-ship for new product surfaces"
     ],
     url: `${BASE2}/#case-ge`
@@ -104,13 +105,14 @@ var CASES = [
   {
     id: "bestbuy",
     title: "Driving Engagement for 1M+ Consumers Through Cohesive Digital Brand Experiences",
-    category: "Brand & Experience",
-    role: "Experience designer (Best Buy program scope)",
-    summary: "Cohesive digital brand experience work for a national retail audience, driving engagement across acquisition and loyalty surfaces.",
+    category: "Human Factors \xB7 Brand & Experience",
+    role: "Human Factors & Human Systems Integration Lead (primary) \xB7 Senior Visual & Experience Designer (secondary) \u2014 Best Buy Health program scope",
+    summary: "Led Human Factors and Human Systems Integration for Best Buy Health aging-population products, then applied those insights to a cohesive, mobile-first digital brand experience for 1M+ consumers across 5 product lines.",
     outcomes: [
-      "Unified brand expression across web and app",
+      "MIL-STD-1472H and FDA/IEC 62366 principles applied to reduce real-world use error",
+      "Unified brand expression and cohesive UI system across web, mobile, and in-device",
       "Improved engagement for 1M+ consumers in program scope",
-      "Reusable patterns adopted across marketing surfaces"
+      "Reusable patterns adopted across 5 product lines"
     ],
     url: `${BASE2}/#case-bestbuy`
   },

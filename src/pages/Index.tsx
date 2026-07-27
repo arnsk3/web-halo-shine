@@ -285,13 +285,13 @@ const CASE_STUDIES: CaseStudyType[] = [
     tag: "Design System · Unified Visual Language · Accessible Experiences",
     title: "Evolving a Design System to Power Consistent, Accessible Digital Experiences",
     subtitle:
-      "Advocated for and evolved the design system and best practices at GE HealthCare so multiple product teams could ship a unified visual language across accessible digital experiences — from shared components and design tokens to high-fidelity Figma mockups and accessible color/contrast systems.",
+      "Led Human Factors and Human Systems Integration for GE HealthCare, then translated human-performance insights into a shared design system and accessible visual language that 10+ product teams adopted across digital platforms.",
     hero: "from-[rgb(var(--c-hero-dark))] via-[rgb(var(--c-primary))] to-[rgb(var(--c-accent))]",
     image: caseGe,
-    role: "Senior UI/UX & Visual Designer",
+    role: "Human Factors Engineer · Human Systems Integration Lead · Design Systems Contributor",
     timeline: "2025 – Present",
     org: "GE HealthCare",
-    standards: ["Design System", "Design Tokens", "Figma", "Accessibility", "Cross-Functional"],
+    standards: ["Human Factors Engineering", "Human Systems Integration", "Design Systems", "Design Tokens", "Figma", "Accessibility", "Cross-Functional"],
     metrics: [
       { value: "10+", label: "Teams Aligned" },
       { value: "1", label: "Shared System" },
@@ -301,12 +301,12 @@ const CASE_STUDIES: CaseStudyType[] = [
       {
         heading: "The Challenge",
         content:
-          "Multiple product teams needed a unified visual language across accessible experiences across digital platforms. Without a shared design system, each team built UI its own way — inconsistent components, drifting brand, and accessibility handled ad hoc — slowing delivery and weakening the experience for clinicians who depend on clarity under pressure.",
+          "Multiple product teams needed a unified visual language across accessible experiences across digital platforms. Without a shared design system, each team built UI its own way — inconsistent components, drifting brand, and accessibility handled ad hoc — slowing delivery and weakening the experience for clinicians who depend on clarity under pressure. The deeper risk was human performance: clinicians under time pressure and cognitive load cannot afford ambiguous controls, unclear alerts, or inconsistent workflows.",
       },
       {
         heading: "My Role",
         content:
-          "As Senior UI/UX & Visual Designer I advocated for and evolved the design system and best practices. I owned the component library and design tokens, produced high-fidelity Figma mockups, defined accessible color/contrast systems, and partnered cross-functionally — presenting work and aligning engineering, clinical, and regulatory teams around one unified visual language and accessible standard.",
+          "As Human Factors Engineer and Human Systems Integration Lead I owned the human performance, safety, and usability risk of clinical workflows first, then applied those insights to evolve the design system and best practices. I led cognitive task analysis, use-error analysis, and human-in-the-loop decision modeling, and translated those findings into a shared component library, design tokens, high-fidelity Figma mockups, and accessible color/contrast systems. I partnered cross-functionally — presenting work and aligning engineering, clinical, and regulatory teams around one unified visual language and human-centered standard.",
       },
       {
         heading: "The Governance Framework",
@@ -418,16 +418,16 @@ const CASE_STUDIES: CaseStudyType[] = [
   },
   {
     id: "bestbuy",
-    tag: "Consumer · Digital Brand Experience · Mobile-First",
+    tag: "Consumer · Human Factors · Digital Brand Experience · Mobile-First",
     title: "Driving Engagement for 1M+ Consumers Through Cohesive Digital Brand Experiences",
     subtitle:
-      "Owned the visual design, brand consistency, and mobile-first digital experience for Best Buy Health (Lively, Jitterbug) — engaging 1M+ consumers across 5 product lines with one cohesive UI system spanning web, mobile, and in-device.",
+      "Led Human Factors and Human Systems Integration for Best Buy Health (Lively, Jitterbug), then applied those insights to the visual design, brand consistency, and mobile-first digital experience across 5 product lines and 1M+ consumers.",
     hero: "from-[#2d1b69] via-[#11998e] to-[#38ef7d]",
     image: caseBestbuy,
-    role: "Senior Visual & Experience Designer",
+    role: "Human Factors Engineer · Human Systems Integration Lead · Senior Visual & Experience Designer",
     timeline: "2021 – 2022",
     org: "Best Buy Health",
-    standards: ["Design System", "Mobile-First", "Cohesive UI System", "WCAG 2.2 AA", "MIL-STD-1472H"],
+    standards: ["Human Factors Engineering", "Human Systems Integration", "Design System", "Mobile-First", "Cohesive UI System", "WCAG 2.2 AA", "MIL-STD-1472H"],
     metrics: [
       { value: "30-40%", label: "Lower Drop-Off" },
       { value: "1M+", label: "Consumers Engaged" },
@@ -437,12 +437,12 @@ const CASE_STUDIES: CaseStudyType[] = [
       {
         heading: "The Challenge",
         content:
-          "Best Buy Health needed to engage 1M+ consumers across 5 product lines (Lively, Jitterbug) with a cohesive UI system spanning web, mobile, and in-device touchpoints. Visual experiences were fragmented across product lines, critical user flows leaked engagement through drop-off, and there was no shared design system to keep the experience cohesive or conversion-ready at scale.",
+          "Best Buy Health needed to engage 1M+ consumers across 5 product lines (Lively, Jitterbug) with a cohesive UI system spanning web, mobile, and in-device touchpoints. The user population was older adults with reduced dexterity, low vision, hearing loss, and high stress in medical emergencies — a classic Human Factors problem. Visual experiences were fragmented, critical user flows leaked engagement through drop-off, and there was no shared design system to keep the experience cohesive, safe, or conversion-ready at scale.",
       },
       {
         heading: "My Role",
         content:
-          "As Senior Visual & Experience Designer I owned the visual design, UI cohesion, and customer-focused digital experience across every consumer touchpoint. I led a mobile-first redesign, built the cohesive component system and style guide, and drove design decisions that lifted engagement and task completion — partnering with product, content, and engineering to ship a cohesive UI system.",
+          "As Human Factors Engineer and Human Systems Integration Lead I owned the human performance, safety, and accessibility of consumer health products for aging populations, then applied those findings to the visual design and mobile-first digital experience across every consumer touchpoint. I applied MIL-STD-1472H and FDA/IEC 62366 principles to reduce real-world use error, led a mobile-first redesign, built the cohesive component system and style guide, and drove design decisions that lifted engagement and task completion — partnering with product, content, and engineering to ship a cohesive UI system.",
       },
       {
         heading: "Military Standards for Civilian Safety",
