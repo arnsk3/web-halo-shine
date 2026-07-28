@@ -13,6 +13,7 @@ import ThemeSwitcher from "@/components/ThemeSwitcher";
 import ExpertiseSection from "@/components/ExpertiseSection";
 import BrandIdentitySection from "@/components/BrandIdentitySection";
 import AISkillsMatrix from "@/components/AISkillsMatrix";
+import SectionIndex from "@/components/SectionIndex";
 import caseWcagtool from "@/assets/case-wcagtool.jpg";
 import caseGe from "@/assets/case-ge.jpg";
 import caseSsa from "@/assets/case-ssa.jpg";
