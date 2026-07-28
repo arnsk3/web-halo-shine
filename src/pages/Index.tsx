@@ -876,14 +876,27 @@ function FadeIn({ children, delay = 0, className = "" }: FadeInProps) {
       setVis(true);
       return;
     }
+    const el = ref.current;
+    if (!el) {
+      setVis(true);
+      return;
+    }
+    // If the element is already in (or above) the viewport at mount, reveal now.
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight) setVis(true);
     const obs = new IntersectionObserver(
       ([e]) => {
         if (e.isIntersecting) setVis(true);
       },
-      { threshold: 0.1 }
+      { threshold: 0, rootMargin: "0px 0px -8% 0px" }
     );
-    if (ref.current) obs.observe(ref.current);
-    return () => obs.disconnect();
+    obs.observe(el);
+    // Safety net: never leave content permanently hidden.
+    const t = window.setTimeout(() => setVis(true), 1500);
+    return () => {
+      obs.disconnect();
+      window.clearTimeout(t);
+    };
   }, [reduced]);
   return (
     <div
