@@ -1046,9 +1046,7 @@ function DesignLeadership() {
     >
       <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2rem,4vw,3.5rem)]">
         <FadeIn>
-          <p className="text-[rgb(var(--c-accent-on-light))] text-xs font-semibold tracking-[2px] uppercase mb-3">
-            Design Leadership
-          </p>
+          <SectionIndex n="04" label="Design Leadership" />
           <h2
             id="leadership-heading"
             className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 mb-2 tracking-tight"
