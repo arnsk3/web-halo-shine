@@ -1696,10 +1696,7 @@ function Home({
       >
         <FadeIn>
           <div className="mb-8 max-w-2xl">
-            <p className="inline-flex items-center gap-2 text-[rgb(var(--c-accent-on-light))] text-xs font-semibold tracking-[2px] uppercase mb-3 rounded-full border border-[rgb(var(--c-primary)/0.2)] bg-[rgb(var(--c-tint-50))] px-3 py-1.5">
-              <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-[rgb(var(--c-accent))]" />
-              What collaborators say
-            </p>
+            <SectionIndex n="06" label="Signals" />
             <h2 id="testimonials-heading" className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-2">
               Trusted by engineering, clinical, and program leaders.
             </h2>
