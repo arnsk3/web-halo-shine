@@ -8,6 +8,7 @@ import {
   DialogDescription,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import SectionIndex from "@/components/SectionIndex";
 
 type Domain = {
   id: string;
