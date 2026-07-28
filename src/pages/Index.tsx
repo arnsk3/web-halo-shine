@@ -1676,6 +1676,21 @@ function Home({
         )}
       </section>
 
+      {/* Domain Expertise */}
+      <ExpertiseSection />
+
+      {/* AI Skills Matrix */}
+      <AISkillsMatrix />
+
+      {/* Design Leadership */}
+      <DesignLeadership />
+
+      {/* Brand Identity & Visual Systems — teaser card linking to the dedicated page */}
+      <BrandTeaser onOpen={() => setPage("brand")} />
+
+      {/* Trade-offs — the judgment layer */}
+      <TradeOffs />
+
 
       {/* Brief About */}
       <section className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2rem,4vw,3.5rem)]" aria-labelledby="brief-about-heading">
