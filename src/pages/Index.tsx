@@ -13,6 +13,7 @@ import ThemeSwitcher from "@/components/ThemeSwitcher";
 import ExpertiseSection from "@/components/ExpertiseSection";
 import BrandIdentitySection from "@/components/BrandIdentitySection";
 import AISkillsMatrix from "@/components/AISkillsMatrix";
+import SectionIndex from "@/components/SectionIndex";
 import caseWcagtool from "@/assets/case-wcagtool.jpg";
 import caseGe from "@/assets/case-ge.jpg";
 import caseSsa from "@/assets/case-ssa.jpg";
@@ -876,14 +877,27 @@ function FadeIn({ children, delay = 0, className = "" }: FadeInProps) {
       setVis(true);
       return;
     }
+    const el = ref.current;
+    if (!el) {
+      setVis(true);
+      return;
+    }
+    // If the element is already in (or above) the viewport at mount, reveal now.
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight) setVis(true);
     const obs = new IntersectionObserver(
       ([e]) => {
         if (e.isIntersecting) setVis(true);
       },
-      { threshold: 0.1 }
+      { threshold: 0, rootMargin: "0px 0px -8% 0px" }
     );
-    if (ref.current) obs.observe(ref.current);
-    return () => obs.disconnect();
+    obs.observe(el);
+    // Safety net: never leave content permanently hidden.
+    const t = window.setTimeout(() => setVis(true), 1500);
+    return () => {
+      obs.disconnect();
+      window.clearTimeout(t);
+    };
   }, [reduced]);
   return (
     <div
@@ -1032,9 +1046,7 @@ function DesignLeadership() {
     >
       <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2rem,4vw,3.5rem)]">
         <FadeIn>
-          <p className="text-[rgb(var(--c-accent-on-light))] text-xs font-semibold tracking-[2px] uppercase mb-3">
-            Design Leadership
-          </p>
+          <SectionIndex n="04" label="Design Leadership" />
           <h2
             id="leadership-heading"
             className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 mb-2 tracking-tight"
@@ -1165,6 +1177,99 @@ function BrandTeaser({ onOpen }: { onOpen: () => void }) {
   );
 }
 
+
+
+// ─────────────────────────────────────────────────────────────
+// Trade-offs: the judgment layer most portfolios omit.
+// ─────────────────────────────────────────────────────────────
+const TRADE_OFFS = [
+  {
+    tension: "Automation vs. oversight",
+    chose: "Kept a human approval gate on every Model-A decision, even though full automation tested faster.",
+    cost: "Slower throughput and an extra click per high-risk action.",
+    why: "In a regulated setting, an unreviewable decision is an unusable decision. Overrides became the audit trail that made approval possible.",
+  },
+  {
+    tension: "Explainability vs. clinician time",
+    chose: "Recommendation first, rationale on demand — layered rather than exhaustive explanation.",
+    cost: "Some stakeholders wanted full feature attribution visible by default.",
+    why: "A 40-second explanation nobody reads is worse than an 8-second one they do. Rationale-open rate rose on exactly the high-stakes reads that matter.",
+  },
+  {
+    tension: "Design-system consistency vs. team velocity",
+    chose: "Shipped a smaller, governed component set with CI gates instead of a large ungoverned library.",
+    cost: "Teams waited on a few components in the first two quarters.",
+    why: "Ungoverned libraries fork within a year. Enforcing accessibility at commit removed a whole class of downstream rework.",
+  },
+  {
+    tension: "AAA accessibility vs. brand expression",
+    chose: "Rebuilt the palette around measured contrast rather than tuning brand colors after the fact.",
+    cost: "Lost a couple of favored accent tones.",
+    why: "Contrast is a constraint, not a finishing step. Designing inside it produced a more ownable palette, not a weaker one.",
+  },
+];
+
+function TradeOffs() {
+  return (
+    <section
+      aria-labelledby="tradeoffs-heading"
+      className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2.5rem,4vw,3.5rem)]"
+    >
+      <FadeIn>
+        <SectionIndex n="05" label="Judgment" />
+        <div className="max-w-2xl mb-8">
+          <h2
+            id="tradeoffs-heading"
+            className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-2"
+          >
+            Trade-offs I&apos;ve actually made.
+          </h2>
+          <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
+            Outcomes are easy to list. What they cost is more useful. Four decisions where I
+            chose one good thing over another — and what it bought.
+          </p>
+        </div>
+        <div className="grid gap-5 md:grid-cols-2">
+          {TRADE_OFFS.map((t) => (
+            <article
+              key={t.tension}
+              className="relative rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow"
+            >
+              <span
+                aria-hidden="true"
+                className="absolute left-0 top-6 bottom-6 w-[3px] rounded-full bg-[rgb(var(--c-accent))]"
+              />
+              <h3 className="font-display text-base font-bold text-gray-900 mb-3 pl-3">
+                {t.tension}
+              </h3>
+              <dl className="pl-3 space-y-2.5 text-sm">
+                <div>
+                  <dt className="font-mono text-[10px] uppercase tracking-[0.18em] text-[rgb(var(--c-accent-on-light))] font-bold mb-0.5">
+                    Chose
+                  </dt>
+                  <dd className="text-gray-800 leading-relaxed">{t.chose}</dd>
+                </div>
+                <div>
+                  <dt className="font-mono text-[10px] uppercase tracking-[0.18em] text-gray-600 font-bold mb-0.5">
+                    Cost
+                  </dt>
+                  <dd className="text-gray-700 leading-relaxed">{t.cost}</dd>
+                </div>
+                <div>
+                  <dt className="font-mono text-[10px] uppercase tracking-[0.18em] text-gray-600 font-bold mb-0.5">
+                    Why it held
+                  </dt>
+                  <dd className="text-gray-700 leading-relaxed">{t.why}</dd>
+                </div>
+              </dl>
+            </article>
+          ))}
+        </div>
+      </FadeIn>
+    </section>
+  );
+}
+
 function Home({
   setPage,
   setCase,
@@ -1223,49 +1328,63 @@ function Home({
         {/* Floating gradient orbs */}
         <div aria-hidden="true" className="pointer-events-none absolute -top-24 -left-24 h-80 w-80 rounded-full bg-[rgb(var(--c-accent))] opacity-25 blur-3xl animate-float-slow" />
         <div aria-hidden="true" className="pointer-events-none absolute -bottom-32 -right-16 h-96 w-96 rounded-full bg-[rgb(var(--c-accent-light))] opacity-20 blur-3xl animate-float-slower" />
-        <div className="max-w-3xl mx-auto px-6 py-24 text-center relative">
+        <div className="max-w-3xl mx-auto px-6 py-[clamp(3.5rem,8vw,5.5rem)] text-center relative">
           <FadeIn>
-            <p className="inline-flex items-center gap-2 text-[rgb(var(--c-accent-on-dark))] text-xs font-semibold tracking-[3px] uppercase mb-5 rounded-full border border-white/15 bg-white/5 backdrop-blur px-4 py-1.5">
+            <p className="inline-flex items-center gap-2 text-[rgb(var(--c-accent-on-dark))] text-[11px] sm:text-xs font-semibold tracking-[2.5px] uppercase mb-5 rounded-full border border-white/15 bg-white/5 backdrop-blur px-4 py-1.5">
               <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-[rgb(var(--c-accent-light))] animate-pulse" />
-              AI Experience Design · Human Factors · Accessibility · Design Systems
+              AI Experience Design · Human Factors · Accessibility
             </p>
           </FadeIn>
           <FadeIn delay={0.1}>
-            <h1 className="text-4xl sm:text-5xl font-extrabold leading-[1.1] mb-5 tracking-tight">
+            <h1 className="text-4xl sm:text-5xl font-extrabold leading-[1.08] mb-5 tracking-tight">
               Designing safe, human-centered AI
               <span className="bg-gradient-to-r from-[rgb(var(--c-accent-light))] to-[rgb(var(--c-accent-on-dark))] bg-clip-text text-transparent"> for regulated environments.</span>
             </h1>
           </FadeIn>
           <FadeIn delay={0.15}>
-            <p className="text-white text-base sm:text-lg font-semibold mb-3 max-w-2xl mx-auto leading-relaxed">
-              18+ years designing the interface between people and AI — where getting it wrong
-              isn&apos;t an option.
+            <p className="text-white text-base sm:text-lg mb-7 max-w-2xl mx-auto leading-relaxed">
+              18+ years on the interface between people and AI — clinical decision support,
+              federal programs, and enterprise design systems where getting it wrong isn&apos;t
+              an option.
             </p>
           </FadeIn>
           <FadeIn delay={0.2}>
-            <p className="text-white/85 text-base mb-8 max-w-xl mx-auto leading-relaxed">
-              I pair AI experience design and governance with accessibility leadership, design
-              systems, and production front-end engineering — across healthcare, federal, and
-              enterprise.
-            </p>
-          </FadeIn>
-          <FadeIn delay={0.3}>
-            <div className="flex gap-3 justify-center flex-wrap">
+            <div className="flex gap-3 justify-center flex-wrap mb-9">
               <button
                 onClick={() => document.getElementById("cases")?.scrollIntoView({ behavior: "smooth" })}
                 className="group inline-flex items-center justify-center gap-2 min-h-11 bg-white text-[rgb(var(--c-primary))] px-6 py-2.5 rounded-lg font-semibold text-sm shadow-lg shadow-black/10 hover:-translate-y-0.5 hover:shadow-xl hover:bg-[rgb(var(--c-accent-on-light))] hover:text-white transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
               >
-                View Case Studies <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
+                View the work <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
               </button>
               <button
-                onClick={() => setPage("about")}
+                onClick={() => setPage("contact")}
                 className="group inline-flex items-center justify-center gap-2 min-h-11 bg-white/10 border border-white/40 text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-white/20 hover:-translate-y-0.5 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
               >
-                About Me <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
+                Get in touch <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
               </button>
             </div>
           </FadeIn>
+          <FadeIn delay={0.25}>
+            <dl className="grid grid-cols-3 gap-px max-w-xl mx-auto rounded-xl overflow-hidden border border-white/15 bg-white/10 backdrop-blur">
+              {[
+                { v: "1,200+", l: "clinicians supported" },
+                { v: "18+ yrs", l: "regulated-domain design" },
+                { v: "AAA", l: "accessibility conformance" },
+              ].map((s) => (
+                <div key={s.l} className="bg-white/[0.06] px-3 py-4">
+                  <dt className="sr-only">{s.l}</dt>
+                  <dd>
+                    <span className="block font-display text-xl sm:text-2xl font-extrabold text-white tabular-nums">
+                      {s.v}
+                    </span>
+                    <span className="block text-[11px] text-white/85 mt-1 leading-snug">{s.l}</span>
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </FadeIn>
         </div>
+
 
       </header>
 
@@ -1286,22 +1405,12 @@ function Home({
         </ul>
       </section>
 
-      {/* Brand Identity & Visual Systems — teaser card linking to the dedicated page */}
-      <BrandTeaser onOpen={() => setPage("brand")} />
-
-      {/* Domain Expertise */}
-      <ExpertiseSection />
-
-      {/* AI Skills Matrix */}
-      <AISkillsMatrix />
-
-      {/* Design Leadership — player-coach, mentorship, cross-product, AI in the process */}
-      <DesignLeadership />
-
-      {/* Case Studies */}
+      {/* Case Studies — work leads the page */}
       <section id="cases" className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2rem,4vw,3.5rem)]" aria-labelledby="cases-heading">
         <FadeIn>
+          <SectionIndex n="01" label="Selected Work" />
           <h2 id="cases-heading" className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2 tracking-tight">
+
             Selected Work
           </h2>
           <p className="text-gray-700 text-base mb-3">
@@ -1531,6 +1640,21 @@ function Home({
         )}
       </section>
 
+      {/* Domain Expertise */}
+      <ExpertiseSection />
+
+      {/* AI Skills Matrix */}
+      <AISkillsMatrix />
+
+      {/* Design Leadership */}
+      <DesignLeadership />
+
+      {/* Brand Identity & Visual Systems — teaser card linking to the dedicated page */}
+      <BrandTeaser onOpen={() => setPage("brand")} />
+
+      {/* Trade-offs — the judgment layer */}
+      <TradeOffs />
+
 
       {/* Brief About */}
       <section className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2rem,4vw,3.5rem)]" aria-labelledby="brief-about-heading">
@@ -1572,10 +1696,7 @@ function Home({
       >
         <FadeIn>
           <div className="mb-8 max-w-2xl">
-            <p className="inline-flex items-center gap-2 text-[rgb(var(--c-accent-on-light))] text-xs font-semibold tracking-[2px] uppercase mb-3 rounded-full border border-[rgb(var(--c-primary)/0.2)] bg-[rgb(var(--c-tint-50))] px-3 py-1.5">
-              <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-[rgb(var(--c-accent))]" />
-              What collaborators say
-            </p>
+            <SectionIndex n="06" label="Signals" />
             <h2 id="testimonials-heading" className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-2">
               Trusted by engineering, clinical, and program leaders.
             </h2>
