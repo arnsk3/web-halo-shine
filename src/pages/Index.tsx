@@ -1178,6 +1178,134 @@ function BrandTeaser({ onOpen }: { onOpen: () => void }) {
   );
 }
 
+// ─────────────────────────────────────────────────────────────
+// Signature visual device: a numbered "evidence rail" marker that
+// heads every landing section — monospace index, hairline, label.
+// ─────────────────────────────────────────────────────────────
+function SectionIndex({
+  n,
+  label,
+  tone = "light",
+}: {
+  n: string;
+  label: string;
+  tone?: "light" | "dark";
+}) {
+  const isDark = tone === "dark";
+  return (
+    <div className="flex items-center gap-3 mb-4" aria-hidden="true">
+      <span
+        className={`font-mono text-[11px] font-bold tabular-nums tracking-[0.18em] ${
+          isDark ? "text-[rgb(var(--c-accent-on-dark))]" : "text-[rgb(var(--c-accent-on-light))]"
+        }`}
+      >
+        {n}
+      </span>
+      <span
+        className={`h-px w-8 ${isDark ? "bg-white/30" : "bg-[rgb(var(--c-primary)/0.3)]"}`}
+      />
+      <span
+        className={`font-mono text-[11px] font-semibold uppercase tracking-[0.22em] ${
+          isDark ? "text-white/80" : "text-gray-600"
+        }`}
+      >
+        {label}
+      </span>
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────
+// Trade-offs: the judgment layer most portfolios omit.
+// ─────────────────────────────────────────────────────────────
+const TRADE_OFFS = [
+  {
+    tension: "Automation vs. oversight",
+    chose: "Kept a human approval gate on every Model-A decision, even though full automation tested faster.",
+    cost: "Slower throughput and an extra click per high-risk action.",
+    why: "In a regulated setting, an unreviewable decision is an unusable decision. Overrides became the audit trail that made approval possible.",
+  },
+  {
+    tension: "Explainability vs. clinician time",
+    chose: "Recommendation first, rationale on demand — layered rather than exhaustive explanation.",
+    cost: "Some stakeholders wanted full feature attribution visible by default.",
+    why: "A 40-second explanation nobody reads is worse than an 8-second one they do. Rationale-open rate rose on exactly the high-stakes reads that matter.",
+  },
+  {
+    tension: "Design-system consistency vs. team velocity",
+    chose: "Shipped a smaller, governed component set with CI gates instead of a large ungoverned library.",
+    cost: "Teams waited on a few components in the first two quarters.",
+    why: "Ungoverned libraries fork within a year. Enforcing accessibility at commit removed a whole class of downstream rework.",
+  },
+  {
+    tension: "AAA accessibility vs. brand expression",
+    chose: "Rebuilt the palette around measured contrast rather than tuning brand colors after the fact.",
+    cost: "Lost a couple of favored accent tones.",
+    why: "Contrast is a constraint, not a finishing step. Designing inside it produced a more ownable palette, not a weaker one.",
+  },
+];
+
+function TradeOffs() {
+  return (
+    <section
+      aria-labelledby="tradeoffs-heading"
+      className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2.5rem,4vw,3.5rem)]"
+    >
+      <FadeIn>
+        <SectionIndex n="05" label="Judgment" />
+        <div className="max-w-2xl mb-8">
+          <h2
+            id="tradeoffs-heading"
+            className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-2"
+          >
+            Trade-offs I&apos;ve actually made.
+          </h2>
+          <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
+            Outcomes are easy to list. What they cost is more useful. Four decisions where I
+            chose one good thing over another — and what it bought.
+          </p>
+        </div>
+        <div className="grid gap-5 md:grid-cols-2">
+          {TRADE_OFFS.map((t) => (
+            <article
+              key={t.tension}
+              className="relative rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow"
+            >
+              <span
+                aria-hidden="true"
+                className="absolute left-0 top-6 bottom-6 w-[3px] rounded-full bg-[rgb(var(--c-accent))]"
+              />
+              <h3 className="font-display text-base font-bold text-gray-900 mb-3 pl-3">
+                {t.tension}
+              </h3>
+              <dl className="pl-3 space-y-2.5 text-sm">
+                <div>
+                  <dt className="font-mono text-[10px] uppercase tracking-[0.18em] text-[rgb(var(--c-accent-on-light))] font-bold mb-0.5">
+                    Chose
+                  </dt>
+                  <dd className="text-gray-800 leading-relaxed">{t.chose}</dd>
+                </div>
+                <div>
+                  <dt className="font-mono text-[10px] uppercase tracking-[0.18em] text-gray-600 font-bold mb-0.5">
+                    Cost
+                  </dt>
+                  <dd className="text-gray-700 leading-relaxed">{t.cost}</dd>
+                </div>
+                <div>
+                  <dt className="font-mono text-[10px] uppercase tracking-[0.18em] text-gray-600 font-bold mb-0.5">
+                    Why it held
+                  </dt>
+                  <dd className="text-gray-700 leading-relaxed">{t.why}</dd>
+                </div>
+              </dl>
+            </article>
+          ))}
+        </div>
+      </FadeIn>
+    </section>
+  );
+}
+
 function Home({
   setPage,
   setCase,
