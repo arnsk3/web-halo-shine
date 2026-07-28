@@ -1364,49 +1364,63 @@ function Home({
         {/* Floating gradient orbs */}
         <div aria-hidden="true" className="pointer-events-none absolute -top-24 -left-24 h-80 w-80 rounded-full bg-[rgb(var(--c-accent))] opacity-25 blur-3xl animate-float-slow" />
         <div aria-hidden="true" className="pointer-events-none absolute -bottom-32 -right-16 h-96 w-96 rounded-full bg-[rgb(var(--c-accent-light))] opacity-20 blur-3xl animate-float-slower" />
-        <div className="max-w-3xl mx-auto px-6 py-24 text-center relative">
+        <div className="max-w-3xl mx-auto px-6 py-[clamp(3.5rem,8vw,5.5rem)] text-center relative">
           <FadeIn>
-            <p className="inline-flex items-center gap-2 text-[rgb(var(--c-accent-on-dark))] text-xs font-semibold tracking-[3px] uppercase mb-5 rounded-full border border-white/15 bg-white/5 backdrop-blur px-4 py-1.5">
+            <p className="inline-flex items-center gap-2 text-[rgb(var(--c-accent-on-dark))] text-[11px] sm:text-xs font-semibold tracking-[2.5px] uppercase mb-5 rounded-full border border-white/15 bg-white/5 backdrop-blur px-4 py-1.5">
               <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-[rgb(var(--c-accent-light))] animate-pulse" />
-              AI Experience Design · Human Factors · Accessibility · Design Systems
+              AI Experience Design · Human Factors · Accessibility
             </p>
           </FadeIn>
           <FadeIn delay={0.1}>
-            <h1 className="text-4xl sm:text-5xl font-extrabold leading-[1.1] mb-5 tracking-tight">
+            <h1 className="text-4xl sm:text-5xl font-extrabold leading-[1.08] mb-5 tracking-tight">
               Designing safe, human-centered AI
               <span className="bg-gradient-to-r from-[rgb(var(--c-accent-light))] to-[rgb(var(--c-accent-on-dark))] bg-clip-text text-transparent"> for regulated environments.</span>
             </h1>
           </FadeIn>
           <FadeIn delay={0.15}>
-            <p className="text-white text-base sm:text-lg font-semibold mb-3 max-w-2xl mx-auto leading-relaxed">
-              18+ years designing the interface between people and AI — where getting it wrong
-              isn&apos;t an option.
+            <p className="text-white text-base sm:text-lg mb-7 max-w-2xl mx-auto leading-relaxed">
+              18+ years on the interface between people and AI — clinical decision support,
+              federal programs, and enterprise design systems where getting it wrong isn&apos;t
+              an option.
             </p>
           </FadeIn>
           <FadeIn delay={0.2}>
-            <p className="text-white/85 text-base mb-8 max-w-xl mx-auto leading-relaxed">
-              I pair AI experience design and governance with accessibility leadership, design
-              systems, and production front-end engineering — across healthcare, federal, and
-              enterprise.
-            </p>
-          </FadeIn>
-          <FadeIn delay={0.3}>
-            <div className="flex gap-3 justify-center flex-wrap">
+            <div className="flex gap-3 justify-center flex-wrap mb-9">
               <button
                 onClick={() => document.getElementById("cases")?.scrollIntoView({ behavior: "smooth" })}
                 className="group inline-flex items-center justify-center gap-2 min-h-11 bg-white text-[rgb(var(--c-primary))] px-6 py-2.5 rounded-lg font-semibold text-sm shadow-lg shadow-black/10 hover:-translate-y-0.5 hover:shadow-xl hover:bg-[rgb(var(--c-accent-on-light))] hover:text-white transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
               >
-                View Case Studies <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
+                View the work <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
               </button>
               <button
-                onClick={() => setPage("about")}
+                onClick={() => setPage("contact")}
                 className="group inline-flex items-center justify-center gap-2 min-h-11 bg-white/10 border border-white/40 text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-white/20 hover:-translate-y-0.5 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
               >
-                About Me <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
+                Get in touch <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
               </button>
             </div>
           </FadeIn>
+          <FadeIn delay={0.25}>
+            <dl className="grid grid-cols-3 gap-px max-w-xl mx-auto rounded-xl overflow-hidden border border-white/15 bg-white/10 backdrop-blur">
+              {[
+                { v: "1,200+", l: "clinicians supported" },
+                { v: "18+ yrs", l: "regulated-domain design" },
+                { v: "AAA", l: "accessibility conformance" },
+              ].map((s) => (
+                <div key={s.l} className="bg-white/[0.06] px-3 py-4">
+                  <dt className="sr-only">{s.l}</dt>
+                  <dd>
+                    <span className="block font-display text-xl sm:text-2xl font-extrabold text-white tabular-nums">
+                      {s.v}
+                    </span>
+                    <span className="block text-[11px] text-white/85 mt-1 leading-snug">{s.l}</span>
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </FadeIn>
         </div>
+
 
       </header>
 
