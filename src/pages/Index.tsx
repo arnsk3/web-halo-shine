@@ -1441,22 +1441,12 @@ function Home({
         </ul>
       </section>
 
-      {/* Brand Identity & Visual Systems — teaser card linking to the dedicated page */}
-      <BrandTeaser onOpen={() => setPage("brand")} />
-
-      {/* Domain Expertise */}
-      <ExpertiseSection />
-
-      {/* AI Skills Matrix */}
-      <AISkillsMatrix />
-
-      {/* Design Leadership — player-coach, mentorship, cross-product, AI in the process */}
-      <DesignLeadership />
-
-      {/* Case Studies */}
+      {/* Case Studies — work leads the page */}
       <section id="cases" className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2rem,4vw,3.5rem)]" aria-labelledby="cases-heading">
         <FadeIn>
+          <SectionIndex n="01" label="Selected Work" />
           <h2 id="cases-heading" className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2 tracking-tight">
+
             Selected Work
           </h2>
           <p className="text-gray-700 text-base mb-3">
