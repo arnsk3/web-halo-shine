@@ -1,4 +1,5 @@
 import { useState } from "react";
+import SectionIndex from "@/components/SectionIndex";
 type Skill = {
   name: string;
   level: number; // 1-5
@@ -10,12 +11,14 @@ type SkillGroup = {
   title: string;
   short: string;
   blurb: string;
+  evidence: string[];
   skills: Skill[];
 };
 
 const GROUPS: SkillGroup[] = [
   {
     id: "ai-product",
+    evidence: ["Clarity — layered explainability for clinicians", "TrustLens — recommend / act / alert oversight models", "Lumen — source-grounding and citation UX"],
     title: "AI Product & Interaction Design",
     short: "Product & Interaction",
     blurb: "Designing the surface where people and models meet — legible, controllable, trustworthy.",
@@ -30,6 +33,7 @@ const GROUPS: SkillGroup[] = [
   },
   {
     id: "ai-frameworks",
+    evidence: ["SSA — Section 508 & WCAG 2.2 AAA program", "GE HealthCare — IEC 62366 human-factors work", "TrustLens — NIST AI RMF control mapping"],
     title: "Governance Frameworks & Standards",
     short: "Frameworks & Standards",
     blurb: "Translating dense AI, medical, and federal standards into enforceable design and delivery criteria.",
@@ -44,6 +48,7 @@ const GROUPS: SkillGroup[] = [
   },
   {
     id: "ai-operations",
+    evidence: ["TrustLens — Model A/B/C oversight tiers & audit evidence", "Sentinel — red-team & guardrail evaluation console", "SSA11y — CI/CD accessibility quality gates"],
     title: "Operational Governance & Evaluation",
     short: "Governance & Evaluation",
     blurb: "Making compliance a built-in property — oversight tiers, audit evidence, and quality gates.",
@@ -58,6 +63,7 @@ const GROUPS: SkillGroup[] = [
   },
   {
     id: "ai-regulated",
+    evidence: ["Clarity — 1,200+ clinicians on decision support", "SAMHSA — national behavioral-health program", "GE HealthCare — safety-critical device workflows"],
     title: "Regulated-Domain Expertise",
     short: "Regulated Domains",
     blurb: "Governing safety-critical AI where getting it wrong isn't an option — healthcare, federal, accessibility.",
@@ -73,6 +79,7 @@ const GROUPS: SkillGroup[] = [
 
   {
     id: "ai-engineering",
+    evidence: ["SSA11y — Llama-assisted remediation tooling", "TrustLens — risk gauges, model cards, audit timelines", "Lumen — streaming RAG interfaces in React + TS"],
     title: "AI Engineering & Delivery",
     short: "Engineering & Delivery",
     blurb: "Building the front end that makes AI systems usable — accessible, performant, shipped.",
@@ -125,6 +132,7 @@ export default function AISkillsMatrix() {
           <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-[rgb(var(--c-accent-light))] animate-pulse" />
           AI as a primary skill
         </p>
+        <SectionIndex n="03" label="Skills Matrix" tone="dark" />
         <h2
           id="ai-skills-heading"
           className="text-2xl sm:text-3xl font-extrabold mb-3 tracking-tight"
@@ -173,7 +181,22 @@ export default function AISkillsMatrix() {
           aria-labelledby={`tab-${g.id}`}
           className="rounded-2xl border border-white/12 bg-white/[0.04] backdrop-blur p-5 sm:p-6"
         >
-          <p className="text-white text-[13px] sm:text-sm mb-5 leading-relaxed max-w-2xl">{g.blurb}</p>
+          <p className="text-white text-[13px] sm:text-sm mb-4 leading-relaxed max-w-2xl">{g.blurb}</p>
+          <div className="mb-5">
+            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[rgb(var(--c-accent-on-dark))] font-bold mb-2">
+              Where it shows up
+            </p>
+            <ul className="flex flex-wrap gap-1.5 list-none p-0 m-0">
+              {g.evidence.map((e) => (
+                <li
+                  key={e}
+                  className="text-[11px] font-medium px-2.5 py-1 rounded-full border border-white/20 bg-white/[0.07] text-white"
+                >
+                  {e}
+                </li>
+              ))}
+            </ul>
+          </div>
           <ul className="list-none p-0 m-0 grid gap-x-8 gap-y-3 sm:grid-cols-2">
             {g.skills.map((s) => (
               <li key={s.name}>
