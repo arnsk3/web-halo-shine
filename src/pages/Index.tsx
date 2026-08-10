@@ -1721,8 +1721,9 @@ function Home({
               Trusted by engineering, clinical, and program leaders.
             </h2>
             <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
-              Selected reflections from partners across federal, healthcare, and enterprise programs.
-              Full attribution and references available on request.
+              Paraphrased reflections from partners across federal, healthcare, and enterprise
+              programs, shared without names for client-confidentiality reasons. Named references
+              available on request.
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-2">
@@ -7427,7 +7428,7 @@ function Footer({
           <p className="text-white/90 text-xs mt-3">
             © 2026 · Designed &amp; built with accessibility in mind
           </p>
-          <p className="text-white/50 text-[10px] mt-1 font-mono">
+          <p className="text-white/70 text-[11px] mt-1">
             Last updated {new Date(__BUILD_DATE__).toLocaleDateString("en-US", { month: "long", year: "numeric" })}
           </p>
         </div>
