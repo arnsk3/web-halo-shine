@@ -997,42 +997,42 @@ function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) 
 function DesignLeadership() {
   const pillars = [
     {
-      icon: "🧭",
+      icon: Compass,
       title: "Player-coach leadership",
       body:
         "I lead by doing and developing at once — setting the experience vision and designing the hardest flows myself, then coaching designers through critique, pairing, and written interaction guidelines. I hold a high bar for craft while moving fast through ambiguity.",
       tags: ["Set the vision", "Design the hard flows", "Critique & pairing", "High craft bar"],
     },
     {
-      icon: "🌱",
+      icon: Sprout,
       title: "Mentorship & team growth",
       body:
         "I grow designers through structured feedback, career-path conversations, and stretch opportunities on real, high-stakes work. At SAMHSA I recruited and grew a cross-functional team to 15+ and mentored through seven years of change.",
       tags: ["Career growth", "Structured feedback", "Grew team to 15+", "Design critique culture"],
     },
     {
-      icon: "🔗",
+      icon: Network,
       title: "Cross-product systems thinking",
       body:
         "I design experiences that feel cohesive across many products, roles, and tech stacks — shared components, design tokens, and AI interaction patterns that scale. RevAssist unifies coding, billing, and denials; SSA's system unified 50M+ user experiences across modules.",
       tags: ["Multi-product", "Design tokens", "Reusable patterns", "Integrated UX"],
     },
     {
-      icon: "🧠",
+      icon: Brain,
       title: "Executive influence",
       body:
         "I drive alignment without authority — translating research and design decisions into the trade-offs leadership actually decides on. From the SSA11y build-vs-buy case to AI oversight gates, I use data-informed storytelling to win cross-functional buy-in.",
       tags: ["Influence w/o authority", "Data-informed storytelling", "Stakeholder alignment", "Trade-off framing"],
     },
     {
-      icon: "🤖",
+      icon: Bot,
       title: "AI in the design process",
       body:
         "I bring AI into how the team works, not just what it ships — accelerating research synthesis, ideation, content generation, and rapid prototyping, while protecting design judgment and quality. I establish responsible-experimentation norms so teams adopt AI without cutting corners.",
       tags: ["AI-assisted research", "Rapid prototyping", "Content generation", "Design ops"],
     },
     {
-      icon: "🧪",
+      icon: FlaskConical,
       title: "Culture of experimentation",
       body:
         "I make prototyping, testing, and iterating a repeatable practice — small bets validated with real users before scaling. New AI interaction models earn their way into the design system through evidence, not opinion.",
@@ -1065,7 +1065,9 @@ function DesignLeadership() {
             <FadeIn key={p.title} delay={0.04 * i}>
               <article className="h-full rounded-2xl border border-gray-200 bg-white p-5 transition-all hover:border-[rgb(var(--c-primary)/0.3)] hover:shadow-md hover:-translate-y-0.5">
                 <div className="flex items-center gap-2 mb-2">
-                  <span aria-hidden="true" className="text-lg">{p.icon}</span>
+                  <span aria-hidden="true" className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[rgb(var(--c-primary)/0.08)] text-[rgb(var(--c-accent-on-light))]">
+                    <p.icon size={16} strokeWidth={2} />
+                  </span>
                   <h3 className="font-bold text-gray-900 text-sm">{p.title}</h3>
                 </div>
                 <p className="text-[13px] text-gray-700 leading-relaxed mb-3">{p.body}</p>
@@ -7426,7 +7428,7 @@ function Footer({
             © 2026 · Designed &amp; built with accessibility in mind
           </p>
           <p className="text-white/50 text-[10px] mt-1 font-mono">
-            Build {new Date(__BUILD_DATE__).toLocaleString()}
+            Last updated {new Date(__BUILD_DATE__).toLocaleDateString("en-US", { month: "long", year: "numeric" })}
           </p>
         </div>
         <nav aria-label="Footer">
