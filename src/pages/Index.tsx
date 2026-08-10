@@ -14,6 +14,7 @@ import ExpertiseSection from "@/components/ExpertiseSection";
 import BrandIdentitySection from "@/components/BrandIdentitySection";
 import AISkillsMatrix from "@/components/AISkillsMatrix";
 import SectionIndex from "@/components/SectionIndex";
+import { Compass, Sprout, Network, Brain, Bot, FlaskConical } from "lucide-react";
 import caseWcagtool from "@/assets/case-wcagtool.jpg";
 import caseGe from "@/assets/case-ge.jpg";
 import caseSsa from "@/assets/case-ssa.jpg";
@@ -996,42 +997,42 @@ function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) 
 function DesignLeadership() {
   const pillars = [
     {
-      icon: "🧭",
+      icon: Compass,
       title: "Player-coach leadership",
       body:
         "I lead by doing and developing at once — setting the experience vision and designing the hardest flows myself, then coaching designers through critique, pairing, and written interaction guidelines. I hold a high bar for craft while moving fast through ambiguity.",
       tags: ["Set the vision", "Design the hard flows", "Critique & pairing", "High craft bar"],
     },
     {
-      icon: "🌱",
+      icon: Sprout,
       title: "Mentorship & team growth",
       body:
         "I grow designers through structured feedback, career-path conversations, and stretch opportunities on real, high-stakes work. At SAMHSA I recruited and grew a cross-functional team to 15+ and mentored through seven years of change.",
       tags: ["Career growth", "Structured feedback", "Grew team to 15+", "Design critique culture"],
     },
     {
-      icon: "🔗",
+      icon: Network,
       title: "Cross-product systems thinking",
       body:
         "I design experiences that feel cohesive across many products, roles, and tech stacks — shared components, design tokens, and AI interaction patterns that scale. RevAssist unifies coding, billing, and denials; SSA's system unified 50M+ user experiences across modules.",
       tags: ["Multi-product", "Design tokens", "Reusable patterns", "Integrated UX"],
     },
     {
-      icon: "🧠",
+      icon: Brain,
       title: "Executive influence",
       body:
         "I drive alignment without authority — translating research and design decisions into the trade-offs leadership actually decides on. From the SSA11y build-vs-buy case to AI oversight gates, I use data-informed storytelling to win cross-functional buy-in.",
       tags: ["Influence w/o authority", "Data-informed storytelling", "Stakeholder alignment", "Trade-off framing"],
     },
     {
-      icon: "🤖",
+      icon: Bot,
       title: "AI in the design process",
       body:
         "I bring AI into how the team works, not just what it ships — accelerating research synthesis, ideation, content generation, and rapid prototyping, while protecting design judgment and quality. I establish responsible-experimentation norms so teams adopt AI without cutting corners.",
       tags: ["AI-assisted research", "Rapid prototyping", "Content generation", "Design ops"],
     },
     {
-      icon: "🧪",
+      icon: FlaskConical,
       title: "Culture of experimentation",
       body:
         "I make prototyping, testing, and iterating a repeatable practice — small bets validated with real users before scaling. New AI interaction models earn their way into the design system through evidence, not opinion.",
@@ -1064,7 +1065,9 @@ function DesignLeadership() {
             <FadeIn key={p.title} delay={0.04 * i}>
               <article className="h-full rounded-2xl border border-gray-200 bg-white p-5 transition-all hover:border-[rgb(var(--c-primary)/0.3)] hover:shadow-md hover:-translate-y-0.5">
                 <div className="flex items-center gap-2 mb-2">
-                  <span aria-hidden="true" className="text-lg">{p.icon}</span>
+                  <span aria-hidden="true" className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[rgb(var(--c-primary)/0.08)] text-[rgb(var(--c-accent-on-light))]">
+                    <p.icon size={16} strokeWidth={2} />
+                  </span>
                   <h3 className="font-bold text-gray-900 text-sm">{p.title}</h3>
                 </div>
                 <p className="text-[13px] text-gray-700 leading-relaxed mb-3">{p.body}</p>
@@ -1281,7 +1284,7 @@ function Home({
   const [showAll, setShowAll] = useState(false);
   // Curated landing selection: strongest 5, interleaving named-employer work
   // with in-house products so enterprise credibility frames the concepts.
-  const FEATURED_ORDER = ["revcycle", "ssa", "clinicalai", "trustlens", "ge"];
+  const FEATURED_ORDER = ["revcycle", "ssa", "clinicalai", "trustlens", "ge", "bestbuy"];
   const featuredCases = FEATURED_ORDER
     .map((id) => CASE_STUDIES.find((s) => s.id === id))
     .filter((s): s is CaseStudyType => Boolean(s));
@@ -1382,6 +1385,23 @@ function Home({
                 </div>
               ))}
             </dl>
+          </FadeIn>
+          <FadeIn delay={0.3}>
+            <div className="mt-8">
+              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/70 mb-3">
+                Delivered for
+              </p>
+              <ul className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 list-none p-0 m-0">
+                {["GE HealthCare", "Social Security Administration", "SAMHSA", "Best Buy"].map((o) => (
+                  <li
+                    key={o}
+                    className="font-display text-[13px] sm:text-sm font-bold tracking-tight text-white/80"
+                  >
+                    {o}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </FadeIn>
         </div>
 
@@ -1701,8 +1721,9 @@ function Home({
               Trusted by engineering, clinical, and program leaders.
             </h2>
             <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
-              Selected reflections from partners across federal, healthcare, and enterprise programs.
-              Full attribution and references available on request.
+              Paraphrased reflections from partners across federal, healthcare, and enterprise
+              programs, shared without names for client-confidentiality reasons. Named references
+              available on request.
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-2">
@@ -7407,8 +7428,8 @@ function Footer({
           <p className="text-white/90 text-xs mt-3">
             © 2026 · Designed &amp; built with accessibility in mind
           </p>
-          <p className="text-white/50 text-[10px] mt-1 font-mono">
-            Build {new Date(__BUILD_DATE__).toLocaleString()}
+          <p className="text-white/70 text-[11px] mt-1">
+            Last updated {new Date(__BUILD_DATE__).toLocaleDateString("en-US", { month: "long", year: "numeric" })}
           </p>
         </div>
         <nav aria-label="Footer">
