@@ -1383,6 +1383,23 @@ function Home({
               ))}
             </dl>
           </FadeIn>
+          <FadeIn delay={0.3}>
+            <div className="mt-8">
+              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/70 mb-3">
+                Delivered for
+              </p>
+              <ul className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 list-none p-0 m-0">
+                {["GE HealthCare", "Social Security Administration", "SAMHSA", "Best Buy"].map((o) => (
+                  <li
+                    key={o}
+                    className="font-display text-[13px] sm:text-sm font-bold tracking-tight text-white/80"
+                  >
+                    {o}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </FadeIn>
         </div>
 
 
