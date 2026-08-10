@@ -1281,7 +1281,7 @@ function Home({
   const [showAll, setShowAll] = useState(false);
   // Curated landing selection: strongest 5, interleaving named-employer work
   // with in-house products so enterprise credibility frames the concepts.
-  const FEATURED_ORDER = ["revcycle", "ssa", "clinicalai", "trustlens", "ge"];
+  const FEATURED_ORDER = ["revcycle", "ssa", "clinicalai", "trustlens", "ge", "bestbuy"];
   const featuredCases = FEATURED_ORDER
     .map((id) => CASE_STUDIES.find((s) => s.id === id))
     .filter((s): s is CaseStudyType => Boolean(s));
