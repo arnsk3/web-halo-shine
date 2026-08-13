@@ -1754,12 +1754,189 @@ function Home({
         </FadeIn>
       </section>
 
-      {/* Testimonials */}
+      {/* Operating model — how I work / first 90 days */}
+      <section
+        aria-labelledby="operating-model-heading"
+        className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2.5rem,4vw,3.5rem)]"
+      >
+        <FadeIn>
+          <div className="mb-8 max-w-2xl">
+            <SectionIndex n="06" label="Operating Model" />
+            <h2
+              id="operating-model-heading"
+              className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-2"
+            >
+              How I&apos;d work with your team — the first 90 days.
+            </h2>
+            <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
+              Directors are hired for an operating model, not artifacts. Here&apos;s the one I bring
+              to an AI product organization, and how I partner with product and engineering.
+            </p>
+          </div>
+          <ol className="grid gap-5 md:grid-cols-3 list-none p-0 m-0">
+            {[
+              {
+                k: "Days 0–30",
+                t: "Listen, map, baseline",
+                items: [
+                  "Shadow clinicians/operators and the eng + PM rituals already in place",
+                  "Map the AI surface area: model risk, failure modes, oversight gaps",
+                  "Baseline accessibility, design-system health, and research debt",
+                ],
+              },
+              {
+                k: "Days 31–60",
+                t: "Prove the model on one hard surface",
+                items: [
+                  "Pick the highest-risk AI workflow and ship an oversight-tiered redesign",
+                  "Stand up human-in-the-loop and evidence-capture patterns as reusable components",
+                  "Agree measurable definitions of done with product, eng, legal, and QA",
+                ],
+              },
+              {
+                k: "Days 61–90",
+                t: "Systematize and scale",
+                items: [
+                  "Turn the proven patterns into governed system components and guidance",
+                  "Install the review cadence: design QA, accessibility gates, model-risk sign-off",
+                  "Publish a 12-month roadmap with hiring, mentorship, and research plan",
+                ],
+              },
+            ].map((p) => (
+              <li
+                key={p.k}
+                className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow"
+              >
+                <p className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-[rgb(var(--c-accent-on-light))] mb-2">
+                  {p.k}
+                </p>
+                <h3 className="font-display text-base font-bold text-gray-900 mb-3 leading-snug">{p.t}</h3>
+                <ul className="list-none p-0 m-0 space-y-2">
+                  {p.items.map((it) => (
+                    <li key={it} className="flex items-start gap-2 text-[13px] text-gray-700">
+                      <span
+                        aria-hidden="true"
+                        className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[rgb(var(--c-accent))]"
+                      />
+                      <span className="leading-relaxed">{it}</span>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            ))}
+          </ol>
+          <div className="mt-6 rounded-2xl border border-gray-200 bg-[rgb(var(--c-tint-50))] p-6">
+            <p className="text-[11px] font-bold uppercase tracking-wide text-gray-700 mb-2">
+              How I partner with PM &amp; engineering
+            </p>
+            <ul className="grid gap-2 sm:grid-cols-2 list-none p-0 m-0">
+              {[
+                "Design owns the oversight model; PM owns the bet; eng owns feasibility — decided together, written down.",
+                "Every AI decision surface ships with a documented failure mode and a human-override path.",
+                "Accessibility and model-risk checks run in the same PR review as visual QA.",
+                "Prototypes in production code where possible, so hand-off is a merge, not a translation.",
+              ].map((x) => (
+                <li key={x} className="flex items-start gap-2 text-[13px] text-gray-800">
+                  <span aria-hidden="true" className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[rgb(var(--c-primary))]" />
+                  <span className="leading-relaxed">{x}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </FadeIn>
+      </section>
+
+      {/* Writing — thought leadership + discoverability */}
+      <section
+        id="writing"
+        aria-labelledby="writing-heading"
+        className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2.5rem,4vw,3.5rem)]"
+      >
+        <FadeIn>
+          <div className="mb-8 max-w-2xl">
+            <SectionIndex n="07" label="Writing" />
+            <h2
+              id="writing-heading"
+              className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-2"
+            >
+              Notes on AI governance UX and human systems integration.
+            </h2>
+            <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
+              Short essays on the problems I keep meeting in regulated AI work — written for design,
+              product, and risk leaders.
+            </p>
+          </div>
+          <div className="grid gap-5 md:grid-cols-3">
+            {[
+              {
+                t: "Oversight tiers beat confidence scores",
+                d: "Why exposing a raw probability to a clinician is a design failure, and how recommend / act / alert tiers map model risk to human authority.",
+                tag: "AI Experience Design",
+              },
+              {
+                t: "Designing the audit trail before the interface",
+                d: "NIST AI RMF and the EU AI Act ask for evidence, not screenshots. Capturing overrides and rationale as a first-class product surface.",
+                tag: "AI Governance",
+              },
+              {
+                t: "Human systems integration for AI teams",
+                d: "What IEC 62366 and MIL-STD-1472H still teach us about use error when the system that errs is a model, not a mechanism.",
+                tag: "Human Factors",
+              },
+            ].map((a) => (
+              <article
+                key={a.t}
+                className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col"
+              >
+                <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[rgb(var(--c-accent-on-light))] mb-2">
+                  {a.tag}
+                </p>
+                <h3 className="font-display text-base font-bold text-gray-900 mb-2 leading-snug">{a.t}</h3>
+                <p className="text-[13px] text-gray-700 leading-relaxed">{a.d}</p>
+                <p className="mt-auto pt-4 text-[12px] text-gray-600">
+                  Full essay available on request — happy to walk through it in an interview.
+                </p>
+              </article>
+            ))}
+          </div>
+        </FadeIn>
+      </section>
+
+      {/* Signals — verifiable credentials + paraphrased references */}
       <section
         aria-labelledby="testimonials-heading"
         className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2.5rem,4vw,3.5rem)]"
       >
         <FadeIn>
+          <div className="mb-8 max-w-2xl">
+            <SectionIndex n="08" label="Signals" />
+            <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-2">
+              Verifiable signals.
+            </h2>
+            <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
+              Credentials and standards you can check, plus paraphrased reflections from program
+              partners. Named references available on request.
+            </p>
+          </div>
+          <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 list-none p-0 m-0 mb-10">
+            {[
+              { t: "CPACC", d: "IAAP Certified Professional in Accessibility Core Competencies" },
+              { t: "WCAG 2.2 AAA", d: "Conformance practice across federal and healthcare surfaces" },
+              { t: "NIST AI RMF · EU AI Act", d: "Governance frameworks applied to model-risk UX" },
+              { t: "IEC 62366 · MIL-STD-1472H", d: "Usability engineering and human-factors standards" },
+            ].map((c) => (
+              <li key={c.t} className="rounded-xl border border-gray-200 bg-white p-5">
+                <p className="font-display text-sm font-bold text-gray-900 mb-1">{c.t}</p>
+                <p className="text-[12px] text-gray-700 leading-relaxed">{c.d}</p>
+              </li>
+            ))}
+          </ul>
+          <h3
+            id="testimonials-heading"
+            className="font-display text-lg font-bold text-gray-900 mb-4"
+          >
+            Paraphrased reflections from program partners
+          </h3>
           <div className="mb-8 max-w-2xl">
             <SectionIndex n="06" label="Signals" />
             <h2 id="testimonials-heading" className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-2">
