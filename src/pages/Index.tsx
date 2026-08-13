@@ -987,6 +987,18 @@ function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) 
               </button>
             </li>
           ))}
+          <li>
+            <a
+              href="/Senthil_Nagappan_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 min-h-11 px-3 py-1.5 rounded-md text-sm font-semibold bg-[rgb(var(--c-primary))] text-white hover:bg-[rgb(var(--c-accent-dark))] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
+            >
+              <span className="hidden sm:inline">Download</span> PDF
+              <span aria-hidden="true">↓</span>
+              <span className="sr-only">résumé PDF (opens in a new tab)</span>
+            </a>
+          </li>
         </ul>
       </div>
     </nav>
