@@ -1616,7 +1616,7 @@ function Home({
                   <p className="text-gray-700 text-sm mb-4 leading-relaxed">
                     {s.subtitle}
                   </p>
-                  <div className="flex gap-2 flex-wrap mb-4">
+                  <div className="flex gap-2 flex-wrap mb-1.5">
                     {s.metrics.map((m) => (
                       <span
                         key={m.label}
@@ -1626,6 +1626,11 @@ function Home({
                       </span>
                     ))}
                   </div>
+                  <p className="text-[11px] text-gray-600 mb-4 leading-snug">
+                    {isInHouse(s)
+                      ? "Illustrative reference scenario · self-initiated concept, not a shipped product"
+                      : `Program scope · my contribution: ${s.role}`}
+                  </p>
 
                   {s.outcomes?.length > 0 && (
                     <div className="mb-2 pt-4 border-t border-gray-100">
