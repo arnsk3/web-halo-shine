@@ -1345,10 +1345,18 @@ function Home({
             </h1>
           </FadeIn>
           <FadeIn delay={0.15}>
-            <p className="text-white text-base sm:text-lg mb-7 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-white text-base sm:text-lg mb-4 max-w-2xl mx-auto leading-relaxed">
               18+ years on the interface between people and AI — clinical decision support,
               federal programs, and enterprise design systems where getting it wrong isn&apos;t
               an option.
+            </p>
+          </FadeIn>
+          <FadeIn delay={0.18}>
+            <p className="mb-7 max-w-2xl mx-auto text-[13px] sm:text-sm font-semibold text-white/90">
+              <span className="text-[rgb(var(--c-accent-on-dark))]">
+                Director / Principal — AI Experience Design &amp; Human Systems Integration.
+              </span>{" "}
+              Open to Director-level roles · US remote · available now.
             </p>
           </FadeIn>
           <FadeIn delay={0.2}>
@@ -1359,6 +1367,15 @@ function Home({
               >
                 View the work <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
               </button>
+              <a
+                href="/Senthil_Nagappan_Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center justify-center gap-2 min-h-11 bg-white/10 border border-white/40 text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-white/20 hover:-translate-y-0.5 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
+              >
+                Download résumé (PDF)
+                <span aria-hidden="true" className="transition-transform group-hover:translate-y-0.5">↓</span>
+              </a>
               <button
                 onClick={() => setPage("contact")}
                 className="group inline-flex items-center justify-center gap-2 min-h-11 bg-white/10 border border-white/40 text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-white/20 hover:-translate-y-0.5 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
