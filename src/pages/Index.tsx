@@ -1315,17 +1315,17 @@ function Home({
     | { kind: "case"; case: CaseStudyType }
     | { kind: "group" };
   const renderItems: RenderItem[] = [];
-  let groupInserted = false;
+  // Shipped client work leads; the in-house concept lab is folded into a single
+  // group card placed last so the "shipped in production" band reads honestly.
+  let hasInHouse = false;
   visibleCases.forEach((s) => {
     if (isInHouse(s)) {
-      if (!groupInserted) {
-        renderItems.push({ kind: "group" });
-        groupInserted = true;
-      }
+      hasInHouse = true;
     } else {
       renderItems.push({ kind: "case", case: s });
     }
   });
+  if (hasInHouse) renderItems.push({ kind: "group" });
   const inHouseCount = inHouseCases().length;
 
   return (
