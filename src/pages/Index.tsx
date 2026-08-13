@@ -1937,17 +1937,9 @@ function Home({
           >
             Paraphrased reflections from program partners
           </h3>
-          <div className="mb-8 max-w-2xl">
-            <SectionIndex n="06" label="Signals" />
-            <h2 id="testimonials-heading" className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-2">
-              Trusted by engineering, clinical, and program leaders.
-            </h2>
-            <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
-              Paraphrased reflections from partners across federal, healthcare, and enterprise
-              programs, shared without names for client-confidentiality reasons. Named references
-              available on request.
-            </p>
-          </div>
+          <p className="text-gray-700 text-sm leading-relaxed mb-5 max-w-2xl">
+            Shared without names for client-confidentiality reasons.
+          </p>
           <div className="grid gap-6 md:grid-cols-2">
             {[
               {
