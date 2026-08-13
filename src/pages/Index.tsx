@@ -1504,7 +1504,18 @@ function Home({
           </div>
         </FadeIn>
 
+        <div className="mb-5 flex flex-wrap items-center gap-3 border-t border-gray-200 pt-5">
+          <span className="inline-flex items-center gap-2 rounded-full bg-emerald-50 border border-emerald-200 px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-emerald-800">
+            Shipped in production
+          </span>
+          <p className="text-[13px] text-gray-700">
+            Client programs delivered at GE HealthCare, SSA, SAMHSA and Best Buy Health. The
+            In-House AI Product Lab card below is clearly separated: those are concepts — thinking
+            samples showing how I&apos;d approach problems teams face today.
+          </p>
+        </div>
         <div className="grid gap-8 items-stretch [grid-template-columns:repeat(auto-fit,minmax(min(100%,30rem),1fr))]">
+
           {renderItems.map((item, i) => {
             if (item.kind === "group") {
               return (
