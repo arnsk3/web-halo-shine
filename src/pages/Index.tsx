@@ -5814,7 +5814,7 @@ function DeepResearchDossier({ id }: { id: string }) {
           <h4 className="text-sm font-bold text-[rgb(var(--c-primary))] mb-3 uppercase tracking-wide">
             {d.journeyTitle}
           </h4>
-          <div className="overflow-x-auto mb-8">
+          <div className="overflow-x-auto mb-8" tabIndex={0} role="region" aria-label="Scrollable table">
             <table
               className="w-full text-left text-sm border-collapse"
               aria-label={d.journeyTitle}
@@ -6079,7 +6079,7 @@ function CaseStudy({
               <li>
                 <button
                   onClick={() => setPage("home")}
-                  className="hover:text-white underline underline-offset-2 decoration-white/30 hover:decoration-white/80 transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
+                  className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] px-1 hover:text-white underline underline-offset-2 decoration-white/30 hover:decoration-white/80 transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
                 >
                   Home
                 </button>
@@ -6090,7 +6090,7 @@ function CaseStudy({
                   <li>
                     <button
                       onClick={() => setPage("lab")}
-                      className="hover:text-white underline underline-offset-2 decoration-white/30 hover:decoration-white/80 transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
+                      className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] px-1 hover:text-white underline underline-offset-2 decoration-white/30 hover:decoration-white/80 transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
                     >
                       In-House Lab
                     </button>
@@ -6102,7 +6102,7 @@ function CaseStudy({
                   <li>
                     <button
                       onClick={() => setPage("home")}
-                      className="hover:text-white underline underline-offset-2 decoration-white/30 hover:decoration-white/80 transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
+                      className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] px-1 hover:text-white underline underline-offset-2 decoration-white/30 hover:decoration-white/80 transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
                     >
                       Work
                     </button>
@@ -6119,7 +6119,7 @@ function CaseStudy({
           </nav>
           <button
             onClick={() => setPage(isInHouse(study) ? "lab" : "home")}
-            className="text-white/85 text-sm hover:text-white mb-6 inline-flex items-center gap-1.5 transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
+            className="text-white/85 text-sm hover:text-white mb-6 inline-flex items-center min-h-[44px] gap-1.5 transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
           >
             <span aria-hidden="true">←</span>
             {isInHouse(study) ? "Back to In-House Lab" : "Back to Case Studies"}
