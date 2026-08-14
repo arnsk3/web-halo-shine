@@ -58,7 +58,7 @@ var CASES = [
       "AAA-oriented accessible components adopted org-wide",
       "30\u201340% fewer UI defects reported downstream"
     ],
-    url: `${BASE2}/#case-ssa`
+    url: `${BASE2}/work/ssa`
   },
   {
     id: "clinicalai",
@@ -71,7 +71,7 @@ var CASES = [
       "Confidence and rationale surfaced instead of raw probabilities",
       "Every override captured as regulator-ready evidence"
     ],
-    url: `${BASE2}/#case-clinicalai`,
+    url: `${BASE2}/work/clinicalai`,
     inHouseLab: true
   },
   {
@@ -86,7 +86,7 @@ var CASES = [
       "Accessibility and human-in-the-loop decision standards built into the system",
       "Faster time-to-ship for new product surfaces"
     ],
-    url: `${BASE2}/#case-ge`
+    url: `${BASE2}/work/ge`
   },
   {
     id: "trustlens",
@@ -99,7 +99,7 @@ var CASES = [
       "Drift and bias monitoring surfaced at portfolio level",
       "Audit packages assembled as an export, not a fire drill"
     ],
-    url: `${BASE2}/#case-trustlens`,
+    url: `${BASE2}/work/trustlens`,
     inHouseLab: true
   },
   {
@@ -114,7 +114,7 @@ var CASES = [
       "Improved engagement for 1M+ consumers in program scope",
       "Reusable patterns adopted across 5 product lines"
     ],
-    url: `${BASE2}/#case-bestbuy`
+    url: `${BASE2}/work/bestbuy`
   },
   {
     id: "samhsa",
@@ -127,7 +127,7 @@ var CASES = [
       "AAA accessibility across the primary user surfaces",
       "Federal data-submitter workflows redesigned for clarity"
     ],
-    url: `${BASE2}/#case-samhsa`
+    url: `${BASE2}/work/samhsa`
   },
   {
     id: "wcagtool",
@@ -140,7 +140,7 @@ var CASES = [
       "AI suggestions grounded in WCAG success criteria",
       "Suggested fixes surfaced with visual before/after cues"
     ],
-    url: `${BASE2}/#case-wcagtool`,
+    url: `${BASE2}/work/wcagtool`,
     inHouseLab: true
   },
   {
@@ -154,7 +154,7 @@ var CASES = [
       "High-impact actions pause for human approval",
       "Prompt-injection scenarios caught and contained"
     ],
-    url: `${BASE2}/#case-sentinel`,
+    url: `${BASE2}/work/sentinel`,
     inHouseLab: true
   },
   {
@@ -168,7 +168,7 @@ var CASES = [
       "Source inspector for evidence verification",
       "Explicit 'insufficient evidence' state to prevent hallucination"
     ],
-    url: `${BASE2}/#case-lumen`,
+    url: `${BASE2}/work/lumen`,
     inHouseLab: true
   },
   {
@@ -182,7 +182,7 @@ var CASES = [
       "Denial risk surfaced before submission",
       "Human review as the default for high-impact edits"
     ],
-    url: `${BASE2}/#case-revcycle`,
+    url: `${BASE2}/work/revcycle`,
     inHouseLab: true
   }
 ];

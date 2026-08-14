@@ -27,7 +27,7 @@ export const CASES: Case[] = [
       "AAA-oriented accessible components adopted org-wide",
       "30–40% fewer UI defects reported downstream",
     ],
-    url: `${BASE}/#case-ssa`,
+    url: `${BASE}/work/ssa`,
   },
   {
     id: "clinicalai",
@@ -41,7 +41,7 @@ export const CASES: Case[] = [
       "Confidence and rationale surfaced instead of raw probabilities",
       "Every override captured as regulator-ready evidence",
     ],
-    url: `${BASE}/#case-clinicalai`,
+    url: `${BASE}/work/clinicalai`,
     inHouseLab: true,
   },
   {
@@ -57,7 +57,7 @@ export const CASES: Case[] = [
       "Accessibility and human-in-the-loop decision standards built into the system",
       "Faster time-to-ship for new product surfaces",
     ],
-    url: `${BASE}/#case-ge`,
+    url: `${BASE}/work/ge`,
   },
   {
     id: "trustlens",
@@ -71,7 +71,7 @@ export const CASES: Case[] = [
       "Drift and bias monitoring surfaced at portfolio level",
       "Audit packages assembled as an export, not a fire drill",
     ],
-    url: `${BASE}/#case-trustlens`,
+    url: `${BASE}/work/trustlens`,
     inHouseLab: true,
   },
   {
@@ -87,7 +87,7 @@ export const CASES: Case[] = [
       "Improved engagement for 1M+ consumers in program scope",
       "Reusable patterns adopted across 5 product lines",
     ],
-    url: `${BASE}/#case-bestbuy`,
+    url: `${BASE}/work/bestbuy`,
   },
   {
     id: "samhsa",
@@ -101,7 +101,7 @@ export const CASES: Case[] = [
       "AAA accessibility across the primary user surfaces",
       "Federal data-submitter workflows redesigned for clarity",
     ],
-    url: `${BASE}/#case-samhsa`,
+    url: `${BASE}/work/samhsa`,
   },
   {
     id: "wcagtool",
@@ -115,7 +115,7 @@ export const CASES: Case[] = [
       "AI suggestions grounded in WCAG success criteria",
       "Suggested fixes surfaced with visual before/after cues",
     ],
-    url: `${BASE}/#case-wcagtool`,
+    url: `${BASE}/work/wcagtool`,
     inHouseLab: true,
   },
   {
@@ -130,7 +130,7 @@ export const CASES: Case[] = [
       "High-impact actions pause for human approval",
       "Prompt-injection scenarios caught and contained",
     ],
-    url: `${BASE}/#case-sentinel`,
+    url: `${BASE}/work/sentinel`,
     inHouseLab: true,
   },
   {
@@ -145,7 +145,7 @@ export const CASES: Case[] = [
       "Source inspector for evidence verification",
       "Explicit 'insufficient evidence' state to prevent hallucination",
     ],
-    url: `${BASE}/#case-lumen`,
+    url: `${BASE}/work/lumen`,
     inHouseLab: true,
   },
   {
@@ -160,7 +160,7 @@ export const CASES: Case[] = [
       "Denial risk surfaced before submission",
       "Human review as the default for high-impact edits",
     ],
-    url: `${BASE}/#case-revcycle`,
+    url: `${BASE}/work/revcycle`,
     inHouseLab: true,
   },
 ];

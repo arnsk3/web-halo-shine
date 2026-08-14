@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, ReactNode } from "react";
+import { Navigate, useLocation, useNavigate as useRouterNavigate } from "react-router-dom";
 import personaDeveloper from "@/assets/persona-developer.jpg";
 import personaQa from "@/assets/persona-qa.jpg";
 import personaSme from "@/assets/persona-sme.jpg";
@@ -1904,13 +1905,13 @@ function Home({
 
       {/* Signals — verifiable credentials + paraphrased references */}
       <section
-        aria-labelledby="testimonials-heading"
+        aria-labelledby="signals-heading"
         className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2.5rem,4vw,3.5rem)]"
       >
         <FadeIn>
           <div className="mb-8 max-w-2xl">
             <SectionIndex n="08" label="Signals" />
-            <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-2">
+            <h2 id="signals-heading" className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-2">
               Verifiable signals.
             </h2>
             <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
@@ -6556,9 +6557,9 @@ function CaseStudy({
           </FadeIn>
         ) : study.id === "wcagtool" ? (
           <FadeIn>
-            <figure className="my-8" aria-labelledby="wcag-process-title">
+            <figure className="my-8" aria-labelledby="wcag-pipeline-title">
               <figcaption
-                id="wcag-process-title"
+                id="wcag-pipeline-title"
                 className="text-xs font-semibold tracking-wide uppercase text-gray-700 mb-3 text-center"
               >
                 WCAG AI Remediation Suite — Detection-to-Remediation Pipeline
@@ -7829,11 +7830,33 @@ function InHouseLab({
 
 
 
+const SITE_URL = "https://www.senthilnagappan.com";
+
+const PAGE_PATHS: Record<Exclude<PageId, "case">, string> = {
+  home: "/",
+  brand: "/brand",
+  about: "/about",
+  approach: "/approach",
+  resume: "/resume",
+  contact: "/contact",
+  lab: "/lab",
+};
+
 const Index = () => {
-  const [page, setPage] = useState<PageId>("home");
-  const [activeCase, setActiveCase] = useState<CaseStudyType | null>(null);
+  const location = useLocation();
+  const routerNavigate = useRouterNavigate();
   const [routeAnnouncement, setRouteAnnouncement] = useState("");
   const mainRef = useRef<HTMLElement | null>(null);
+
+  const path = location.pathname.replace(/\/+$/, "") || "/";
+  const caseSlug = path.startsWith("/work/") ? path.slice("/work/".length) : null;
+  const activeCase = caseSlug ? CASE_STUDIES.find((c) => c.id === caseSlug) ?? null : null;
+  const page: PageId = activeCase
+    ? "case"
+    : ((Object.keys(PAGE_PATHS) as Exclude<PageId, "case">[]).find(
+        (k) => PAGE_PATHS[k] === path,
+      ) ?? "home");
+
 
   // Update document title, metadata, and announce route changes (WCAG 2.4.2, 4.1.3)
   useEffect(() => {
@@ -7843,11 +7866,7 @@ const Index = () => {
     const description = isCase
       ? `${activeCase!.title} — ${activeCase!.subtitle}`.slice(0, 158)
       : PAGE_DESCRIPTIONS[page];
-    const slug = isCase ? `case-${activeCase!.id}` : page;
-    const canonical =
-      page === "home"
-        ? "https://web-halo-shine.lovable.app/"
-        : `https://web-halo-shine.lovable.app/#${slug}`;
+    const canonical = `${SITE_URL}${isCase ? `/work/${activeCase!.id}` : PAGE_PATHS[page as Exclude<PageId, "case">]}`;
 
     document.title = title;
     upsertMeta("name", "description", description);
@@ -7861,15 +7880,27 @@ const Index = () => {
     setRouteAnnouncement(`Navigated to ${title}`);
   }, [page, activeCase]);
 
-  const navigate = (p: PageId) => {
-    setPage(p);
-    if (p !== "case") setActiveCase(null);
+  const focusMain = () => {
     window.scrollTo({ top: 0 });
     // Move keyboard focus to main landmark so SR users start at new content
     requestAnimationFrame(() => {
       mainRef.current?.focus();
     });
   };
+
+  const navigate = (p: PageId) => {
+    if (p === "case") return;
+    routerNavigate(PAGE_PATHS[p]);
+    focusMain();
+  };
+
+  const openCase = (c: CaseStudyType) => {
+    routerNavigate(`/work/${c.id}`);
+    focusMain();
+  };
+
+  if (caseSlug && !activeCase) return <Navigate to="/lab" replace />;
+
 
   return (
     <div className="min-h-dvh bg-[#fafbfc]">
@@ -7893,10 +7924,7 @@ const Index = () => {
         {page === "home" && (
           <Home
             setPage={navigate}
-            setCase={(c) => {
-              setActiveCase(c);
-              setPage("case");
-            }}
+            setCase={openCase}
           />
         )}
         {page === "case" && activeCase && (
@@ -7930,10 +7958,7 @@ const Index = () => {
         {page === "lab" && (
           <InHouseLab
             setPage={navigate}
-            setCase={(c) => {
-              setActiveCase(c);
-              setPage("case");
-            }}
+            setCase={openCase}
           />
         )}
       </main>
