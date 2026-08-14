@@ -52,7 +52,7 @@ const NotFound = () => {
       <main
         id="notfound-main"
         tabIndex={-1}
-        className="flex min-h-screen items-center justify-center bg-[#fafbfc] focus:outline-none"
+        className="flex min-h-dvh items-center justify-center bg-[#fafbfc] focus:outline-none"
       >
         <div className="text-center px-6 max-w-lg">
           <p
