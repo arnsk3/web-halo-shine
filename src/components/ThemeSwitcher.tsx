@@ -83,7 +83,7 @@ export default function ThemeSwitcher() {
                   role="menuitemradio"
                   aria-checked={active === t.id}
                   onClick={() => select(t.id)}
-                  className={`flex w-full items-center gap-3 rounded-xl px-2.5 py-2 text-left text-sm transition-colors min-h-11 ${
+                  className={`flex w-full items-center gap-3 rounded-xl px-2.5 py-2 text-left text-sm transition-colors min-h-[44px] ${
                     active === t.id
                       ? "bg-gray-100 font-semibold text-gray-900"
                       : "text-gray-700 hover:bg-gray-50"

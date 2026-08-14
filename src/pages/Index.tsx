@@ -942,7 +942,7 @@ function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) 
     );
   };
   const linkClass = (active: boolean) =>
-    `inline-flex items-center min-h-11 px-2.5 sm:px-3 py-1.5 rounded-md text-sm transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2 ${
+    `inline-flex items-center min-h-[44px] px-2.5 sm:px-3 py-1.5 rounded-md text-sm transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2 ${
       active
         ? "bg-[rgb(var(--c-primary)/0.1)] text-[rgb(var(--c-primary))] font-semibold"
         : "text-gray-700 hover:text-gray-900 hover:bg-gray-100"
@@ -956,7 +956,7 @@ function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) 
         <button
           onClick={() => setPage("home")}
           aria-label="Senthil Nagappan — go to home"
-          className="flex items-center gap-2.5 min-h-11 group rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
+          className="flex items-center gap-2.5 min-h-[44px] group rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
         >
           <span
             aria-hidden="true"
@@ -992,7 +992,7 @@ function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) 
               href="/Senthil_Nagappan_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 min-h-11 px-3 py-1.5 rounded-md text-sm font-semibold bg-[rgb(var(--c-primary))] text-white hover:bg-[rgb(var(--c-accent-dark))] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
+              className="inline-flex items-center gap-1.5 min-h-[44px] px-3 py-1.5 rounded-md text-sm font-semibold bg-[rgb(var(--c-primary))] text-white hover:bg-[rgb(var(--c-accent-dark))] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
             >
               <span className="hidden sm:inline">Download</span> PDF
               <span aria-hidden="true">↓</span>
@@ -1140,7 +1140,7 @@ function BrandTeaser({ onOpen }: { onOpen: () => void }) {
 
               <button
                 onClick={onOpen}
-                className="group/btn inline-flex items-center justify-center gap-2 min-h-11 bg-[rgb(var(--c-primary))] text-white px-6 py-2.5 rounded-lg font-semibold text-sm shadow-sm hover:-translate-y-0.5 hover:shadow-lg transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
+                className="group/btn inline-flex items-center justify-center gap-2 min-h-[44px] bg-[rgb(var(--c-primary))] text-white px-6 py-2.5 rounded-lg font-semibold text-sm shadow-sm hover:-translate-y-0.5 hover:shadow-lg transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
               >
                 View brand work
                 <span aria-hidden="true" className="transition-transform group-hover/btn:translate-x-0.5">→</span>
@@ -1375,7 +1375,7 @@ function Home({
             <div className="flex gap-3 justify-center flex-wrap mb-9">
               <button
                 onClick={() => document.getElementById("cases")?.scrollIntoView({ behavior: "smooth" })}
-                className="group inline-flex items-center justify-center gap-2 min-h-11 bg-white text-[rgb(var(--c-primary))] px-6 py-2.5 rounded-lg font-semibold text-sm shadow-lg shadow-black/10 hover:-translate-y-0.5 hover:shadow-xl hover:bg-[rgb(var(--c-accent-on-light))] hover:text-white transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
+                className="group inline-flex items-center justify-center gap-2 min-h-[44px] bg-white text-[rgb(var(--c-primary))] px-6 py-2.5 rounded-lg font-semibold text-sm shadow-lg shadow-black/10 hover:-translate-y-0.5 hover:shadow-xl hover:bg-[rgb(var(--c-accent-on-light))] hover:text-white transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
               >
                 View the work <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
               </button>
@@ -1383,14 +1383,14 @@ function Home({
                 href="/Senthil_Nagappan_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center justify-center gap-2 min-h-11 bg-white/10 border border-white/40 text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-white/20 hover:-translate-y-0.5 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
+                className="group inline-flex items-center justify-center gap-2 min-h-[44px] bg-white/10 border border-white/40 text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-white/20 hover:-translate-y-0.5 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
               >
                 Download résumé (PDF)
                 <span aria-hidden="true" className="transition-transform group-hover:translate-y-0.5">↓</span>
               </a>
               <button
                 onClick={() => setPage("contact")}
-                className="group inline-flex items-center justify-center gap-2 min-h-11 bg-white/10 border border-white/40 text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-white/20 hover:-translate-y-0.5 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
+                className="group inline-flex items-center justify-center gap-2 min-h-[44px] bg-white/10 border border-white/40 text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-white/20 hover:-translate-y-0.5 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
               >
                 Get in touch <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
               </button>
@@ -1488,7 +1488,7 @@ function Home({
                   type="button"
                   onClick={() => setCaseFilter(f)}
                   aria-pressed={active}
-                  className={`inline-flex items-center gap-1.5 min-h-11 text-xs font-semibold px-3.5 py-2 rounded-full border transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2 ${
+                  className={`inline-flex items-center gap-1.5 min-h-[44px] text-xs font-semibold px-3.5 py-2 rounded-full border transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2 ${
                     active
                       ? "bg-[rgb(var(--c-primary))] text-white border-[rgb(var(--c-primary))]"
                       : "bg-white text-gray-700 border-gray-200 hover:border-[rgb(var(--c-primary)/0.4)] hover:text-[rgb(var(--c-primary))]"
@@ -1582,7 +1582,7 @@ function Home({
                         <button
                           onClick={() => setPage("lab")}
                           aria-label={`View all ${inHouseCount} in-house AI product concepts`}
-                          className="group/btn inline-flex items-center gap-1.5 min-h-11 text-xs font-semibold px-4 py-2 rounded-lg bg-[rgb(var(--c-primary))] text-white hover:bg-[rgb(var(--c-accent-dark))] focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2 transition-colors"
+                          className="group/btn inline-flex items-center gap-1.5 min-h-[44px] text-xs font-semibold px-4 py-2 rounded-lg bg-[rgb(var(--c-primary))] text-white hover:bg-[rgb(var(--c-accent-dark))] focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2 transition-colors"
                         >
                           Explore the AI Product Lab
                           <span aria-hidden="true" className="transition-transform group-hover/btn:translate-x-0.5">→</span>
@@ -1666,7 +1666,7 @@ function Home({
                     <button
                       onClick={() => setCase(s)}
                       aria-label={`View full case study: ${s.title}`}
-                      className="group/btn inline-flex items-center gap-1.5 min-h-11 text-xs font-semibold px-4 py-2 rounded-lg bg-[rgb(var(--c-primary))] text-white hover:bg-[rgb(var(--c-accent-dark))] focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2 transition-colors"
+                      className="group/btn inline-flex items-center gap-1.5 min-h-[44px] text-xs font-semibold px-4 py-2 rounded-lg bg-[rgb(var(--c-primary))] text-white hover:bg-[rgb(var(--c-accent-dark))] focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2 transition-colors"
                     >
                       View full case study
                       <span aria-hidden="true" className="transition-transform group-hover/btn:translate-x-0.5">→</span>
@@ -1694,7 +1694,7 @@ function Home({
               type="button"
               onClick={() => setShowAll((v) => !v)}
               aria-expanded={showAll}
-              className="group inline-flex items-center gap-2 min-h-11 px-6 py-2.5 rounded-lg border border-[rgb(var(--c-primary)/0.3)] text-[rgb(var(--c-primary))] font-semibold text-sm hover:bg-[rgb(var(--c-tint-50))] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
+              className="group inline-flex items-center gap-2 min-h-[44px] px-6 py-2.5 rounded-lg border border-[rgb(var(--c-primary)/0.3)] text-[rgb(var(--c-primary))] font-semibold text-sm hover:bg-[rgb(var(--c-tint-50))] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
             >
               {showAll ? "Show fewer" : `View all work (${CASE_STUDIES.length})`}
               <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">
@@ -1743,7 +1743,7 @@ function Home({
                 </p>
                 <button
                   onClick={() => setPage("about")}
-                  className="inline-flex items-center min-h-11 text-[rgb(var(--c-primary))] text-sm font-semibold hover:text-[rgb(var(--c-accent-on-light))] transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
+                  className="inline-flex items-center min-h-[44px] text-[rgb(var(--c-primary))] text-sm font-semibold hover:text-[rgb(var(--c-accent-on-light))] transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
                 >
                   Read full story <span aria-hidden="true">→</span>
                   <span className="sr-only">about Senthil Nagappan</span>
@@ -2002,7 +2002,7 @@ function Home({
             <div className="flex gap-3 justify-center flex-wrap">
               <button
                 onClick={() => setPage("contact")}
-                className="group inline-flex items-center justify-center gap-2 min-h-11 bg-white text-[rgb(var(--c-primary))] px-6 py-2.5 rounded-lg font-semibold text-sm shadow-lg shadow-black/10 hover:-translate-y-0.5 hover:shadow-xl hover:bg-[rgb(var(--c-accent-on-light))] hover:text-white transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
+                className="group inline-flex items-center justify-center gap-2 min-h-[44px] bg-white text-[rgb(var(--c-primary))] px-6 py-2.5 rounded-lg font-semibold text-sm shadow-lg shadow-black/10 hover:-translate-y-0.5 hover:shadow-xl hover:bg-[rgb(var(--c-accent-on-light))] hover:text-white transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
               >
                 Get in touch <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
               </button>
@@ -2010,7 +2010,7 @@ function Home({
                 href="/Senthil_Nagappan_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center justify-center gap-2 min-h-11 bg-white/10 border border-white/40 text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-white/20 hover:-translate-y-0.5 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
+                className="group inline-flex items-center justify-center gap-2 min-h-[44px] bg-white/10 border border-white/40 text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-white/20 hover:-translate-y-0.5 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
               >
                 Download résumé (PDF)
                 <span aria-hidden="true" className="transition-transform group-hover:translate-y-0.5">↓</span>
@@ -7628,7 +7628,7 @@ function Footer({
     { id: "contact", label: "Contact" },
   ];
   const linkClass = (active: boolean) =>
-    `inline-flex items-center justify-center min-h-11 min-w-11 px-3 text-xs underline-offset-4 hover:underline transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#111827] ${
+    `inline-flex items-center justify-center min-h-[44px] min-w-[44px] px-3 text-xs underline-offset-4 hover:underline transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#111827] ${
       active ? "text-white font-semibold underline" : "text-white hover:text-white"
     }`;
   return (
@@ -7811,7 +7811,7 @@ function InHouseLab({
                     <button
                       onClick={() => setCase(s)}
                       aria-label={`View full case study: ${s.title}`}
-                      className="group/btn inline-flex items-center gap-1.5 min-h-11 text-xs font-semibold px-4 py-2 rounded-lg bg-[rgb(var(--c-primary))] text-white hover:bg-[rgb(var(--c-accent-dark))] focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2 transition-colors"
+                      className="group/btn inline-flex items-center gap-1.5 min-h-[44px] text-xs font-semibold px-4 py-2 rounded-lg bg-[rgb(var(--c-primary))] text-white hover:bg-[rgb(var(--c-accent-dark))] focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2 transition-colors"
                     >
                       View full case study
                       <span aria-hidden="true" className="transition-transform group-hover/btn:translate-x-0.5">→</span>

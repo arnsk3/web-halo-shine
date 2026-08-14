@@ -163,7 +163,7 @@ export default function AISkillsMatrix() {
                 aria-selected={selected}
                 aria-controls={`panel-${grp.id}`}
                 onClick={() => setActive(grp.id)}
-                className={`inline-flex items-center min-h-11 rounded-full px-4 py-2 text-sm font-semibold transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-hero-dark))] ${
+                className={`inline-flex items-center min-h-[44px] rounded-full px-4 py-2 text-sm font-semibold transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-hero-dark))] ${
                   selected
                     ? "bg-white text-[rgb(var(--c-hero-dark))]"
                     : "border border-white/25 text-white hover:bg-white/10"
