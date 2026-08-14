@@ -177,6 +177,7 @@ export default function AISkillsMatrix() {
 
         <div
           role="tabpanel"
+          tabIndex={0}
           id={`panel-${g.id}`}
           aria-labelledby={`tab-${g.id}`}
           className="rounded-2xl border border-white/12 bg-white/[0.04] backdrop-blur p-5 sm:p-6"
