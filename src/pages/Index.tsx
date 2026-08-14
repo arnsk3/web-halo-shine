@@ -7628,7 +7628,7 @@ function Footer({
     { id: "contact", label: "Contact" },
   ];
   const linkClass = (active: boolean) =>
-    `inline-flex items-center min-h-11 px-1 text-xs underline-offset-4 hover:underline transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#111827] ${
+    `inline-flex items-center justify-center min-h-11 min-w-11 px-3 text-xs underline-offset-4 hover:underline transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#111827] ${
       active ? "text-white font-semibold underline" : "text-white hover:text-white"
     }`;
   return (
