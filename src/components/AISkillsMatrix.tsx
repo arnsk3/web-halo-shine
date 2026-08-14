@@ -163,7 +163,7 @@ export default function AISkillsMatrix() {
                 aria-selected={selected}
                 aria-controls={`panel-${grp.id}`}
                 onClick={() => setActive(grp.id)}
-                className={`inline-flex items-center min-h-11 rounded-full px-4 py-2 text-sm font-semibold transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-hero-dark))] ${
+                className={`inline-flex items-center min-h-[44px] rounded-full px-4 py-2 text-sm font-semibold transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-hero-dark))] ${
                   selected
                     ? "bg-white text-[rgb(var(--c-hero-dark))]"
                     : "border border-white/25 text-white hover:bg-white/10"
@@ -175,8 +175,9 @@ export default function AISkillsMatrix() {
           })}
         </div>
 
-        <article
+        <div
           role="tabpanel"
+          tabIndex={0}
           id={`panel-${g.id}`}
           aria-labelledby={`tab-${g.id}`}
           className="rounded-2xl border border-white/12 bg-white/[0.04] backdrop-blur p-5 sm:p-6"
@@ -213,7 +214,7 @@ export default function AISkillsMatrix() {
               </li>
             ))}
           </ul>
-        </article>
+        </div>
       </div>
     </section>
   );

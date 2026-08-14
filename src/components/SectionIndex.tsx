@@ -24,7 +24,7 @@ export default function SectionIndex({
       <span className={`h-px w-8 ${isDark ? "bg-white/30" : "bg-[rgb(var(--c-primary)/0.3)]"}`} />
       <span
         className={`font-mono text-[11px] font-semibold uppercase tracking-[0.22em] ${
-          isDark ? "text-white/80" : "text-gray-600"
+          isDark ? "text-white/80" : "text-gray-700"
         }`}
       >
         {label}
