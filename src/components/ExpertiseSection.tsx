@@ -333,7 +333,8 @@ function DomainDialog({ domain, isLast }: { domain: Domain; isLast: boolean }) {
           <DialogTrigger asChild>
             <button
               type="button"
-              className="inline-flex items-center gap-1 rounded-md text-[13px] font-bold text-[rgb(var(--c-accent-on-light))] min-h-9 px-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
+              aria-label={`Read more about ${domain.title}`}
+              className="inline-flex items-center gap-1 rounded-md text-[13px] font-bold text-[rgb(var(--c-accent-on-light))] min-h-11 px-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
             >
               Read more
               <span aria-hidden="true">→</span>
