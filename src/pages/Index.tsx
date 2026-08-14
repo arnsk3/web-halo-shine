@@ -7851,11 +7851,12 @@ const Index = () => {
   const path = location.pathname.replace(/\/+$/, "") || "/";
   const caseSlug = path.startsWith("/work/") ? path.slice("/work/".length) : null;
   const activeCase = caseSlug ? CASE_STUDIES.find((c) => c.id === caseSlug) ?? null : null;
-  const page: PageId = caseSlug
+  const page: PageId = activeCase
     ? "case"
     : ((Object.keys(PAGE_PATHS) as Exclude<PageId, "case">[]).find(
         (k) => PAGE_PATHS[k] === path,
       ) ?? "home");
+
 
   // Update document title, metadata, and announce route changes (WCAG 2.4.2, 4.1.3)
   useEffect(() => {
