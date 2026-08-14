@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, ReactNode } from "react";
+import { useLocation, useNavigate as useRouterNavigate } from "react-router-dom";
 import personaDeveloper from "@/assets/persona-developer.jpg";
 import personaQa from "@/assets/persona-qa.jpg";
 import personaSme from "@/assets/persona-sme.jpg";
@@ -6556,9 +6557,9 @@ function CaseStudy({
           </FadeIn>
         ) : study.id === "wcagtool" ? (
           <FadeIn>
-            <figure className="my-8" aria-labelledby="wcag-process-title">
+            <figure className="my-8" aria-labelledby="wcag-pipeline-title">
               <figcaption
-                id="wcag-process-title"
+                id="wcag-pipeline-title"
                 className="text-xs font-semibold tracking-wide uppercase text-gray-700 mb-3 text-center"
               >
                 WCAG AI Remediation Suite — Detection-to-Remediation Pipeline
@@ -7920,10 +7921,7 @@ const Index = () => {
         {page === "home" && (
           <Home
             setPage={navigate}
-            setCase={(c) => {
-              setActiveCase(c);
-              setPage("case");
-            }}
+            setCase={openCase}
           />
         )}
         {page === "case" && activeCase && (
@@ -7957,10 +7955,7 @@ const Index = () => {
         {page === "lab" && (
           <InHouseLab
             setPage={navigate}
-            setCase={(c) => {
-              setActiveCase(c);
-              setPage("case");
-            }}
+            setCase={openCase}
           />
         )}
       </main>
