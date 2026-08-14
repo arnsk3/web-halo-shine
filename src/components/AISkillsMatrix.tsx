@@ -175,7 +175,7 @@ export default function AISkillsMatrix() {
           })}
         </div>
 
-        <article
+        <div
           role="tabpanel"
           id={`panel-${g.id}`}
           aria-labelledby={`tab-${g.id}`}
@@ -213,7 +213,7 @@ export default function AISkillsMatrix() {
               </li>
             ))}
           </ul>
-        </article>
+        </div>
       </div>
     </section>
   );
