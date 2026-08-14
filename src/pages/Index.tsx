@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, ReactNode } from "react";
-import { useLocation, useNavigate as useRouterNavigate } from "react-router-dom";
+import { Navigate, useLocation, useNavigate as useRouterNavigate } from "react-router-dom";
 import personaDeveloper from "@/assets/persona-developer.jpg";
 import personaQa from "@/assets/persona-qa.jpg";
 import personaSme from "@/assets/persona-sme.jpg";
@@ -1905,13 +1905,13 @@ function Home({
 
       {/* Signals — verifiable credentials + paraphrased references */}
       <section
-        aria-labelledby="testimonials-heading"
+        aria-labelledby="signals-heading"
         className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2.5rem,4vw,3.5rem)]"
       >
         <FadeIn>
           <div className="mb-8 max-w-2xl">
             <SectionIndex n="08" label="Signals" />
-            <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-2">
+            <h2 id="signals-heading" className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-2">
               Verifiable signals.
             </h2>
             <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
@@ -7898,6 +7898,8 @@ const Index = () => {
     routerNavigate(`/work/${c.id}`);
     focusMain();
   };
+
+  if (caseSlug && !activeCase) return <Navigate to="/lab" replace />;
 
 
   return (
