@@ -956,7 +956,7 @@ function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) 
         <button
           onClick={() => setPage("home")}
           aria-label="Senthil Nagappan — go to home"
-          className="flex items-center gap-2.5 min-h-[44px] group rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
+          className="flex items-center justify-center sm:justify-start gap-2.5 min-h-[44px] min-w-[44px] group rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
         >
           <span
             aria-hidden="true"
