@@ -7829,11 +7829,32 @@ function InHouseLab({
 
 
 
+const SITE_URL = "https://www.senthilnagappan.com";
+
+const PAGE_PATHS: Record<Exclude<PageId, "case">, string> = {
+  home: "/",
+  brand: "/brand",
+  about: "/about",
+  approach: "/approach",
+  resume: "/resume",
+  contact: "/contact",
+  lab: "/lab",
+};
+
 const Index = () => {
-  const [page, setPage] = useState<PageId>("home");
-  const [activeCase, setActiveCase] = useState<CaseStudyType | null>(null);
+  const location = useLocation();
+  const routerNavigate = useRouterNavigate();
   const [routeAnnouncement, setRouteAnnouncement] = useState("");
   const mainRef = useRef<HTMLElement | null>(null);
+
+  const path = location.pathname.replace(/\/+$/, "") || "/";
+  const caseSlug = path.startsWith("/work/") ? path.slice("/work/".length) : null;
+  const activeCase = caseSlug ? CASE_STUDIES.find((c) => c.id === caseSlug) ?? null : null;
+  const page: PageId = caseSlug
+    ? "case"
+    : ((Object.keys(PAGE_PATHS) as Exclude<PageId, "case">[]).find(
+        (k) => PAGE_PATHS[k] === path,
+      ) ?? "home");
 
   // Update document title, metadata, and announce route changes (WCAG 2.4.2, 4.1.3)
   useEffect(() => {
@@ -7843,11 +7864,7 @@ const Index = () => {
     const description = isCase
       ? `${activeCase!.title} — ${activeCase!.subtitle}`.slice(0, 158)
       : PAGE_DESCRIPTIONS[page];
-    const slug = isCase ? `case-${activeCase!.id}` : page;
-    const canonical =
-      page === "home"
-        ? "https://web-halo-shine.lovable.app/"
-        : `https://web-halo-shine.lovable.app/#${slug}`;
+    const canonical = `${SITE_URL}${isCase ? `/work/${activeCase!.id}` : PAGE_PATHS[page as Exclude<PageId, "case">]}`;
 
     document.title = title;
     upsertMeta("name", "description", description);
@@ -7861,15 +7878,25 @@ const Index = () => {
     setRouteAnnouncement(`Navigated to ${title}`);
   }, [page, activeCase]);
 
-  const navigate = (p: PageId) => {
-    setPage(p);
-    if (p !== "case") setActiveCase(null);
+  const focusMain = () => {
     window.scrollTo({ top: 0 });
     // Move keyboard focus to main landmark so SR users start at new content
     requestAnimationFrame(() => {
       mainRef.current?.focus();
     });
   };
+
+  const navigate = (p: PageId) => {
+    if (p === "case") return;
+    routerNavigate(PAGE_PATHS[p]);
+    focusMain();
+  };
+
+  const openCase = (c: CaseStudyType) => {
+    routerNavigate(`/work/${c.id}`);
+    focusMain();
+  };
+
 
   return (
     <div className="min-h-dvh bg-[#fafbfc]">
