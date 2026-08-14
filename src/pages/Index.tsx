@@ -7265,56 +7265,54 @@ function Resume() {
           </summary>
           <div className="px-5 py-4 text-sm text-gray-800 leading-relaxed space-y-3">
             <p>
-              <strong>Senthil Nagappan</strong> — UX Design Leader (player-coach) for AI-enabled,
-              regulated products, with deep focus on healthcare revenue cycle and reimbursement.
-              18+ years leading UX strategy and execution — setting the experience vision and
-              designing the hardest flows myself while mentoring designers, driving cross-functional
-              alignment, and bringing AI into how teams research, prototype, and ship. I reimagine
-              historically manual workflows — medical coding, documentation review, reimbursement
-              recommendations, exception handling, and claim management — with intelligent
-              assistance that keeps humans confident and in control.
+              <strong>Senthil Nagappan</strong> — AI Experience Design &amp; Human Systems
+              Integration. 18+ years pairing accessibility leadership, design systems, and
+              production front-end engineering to deliver safe, human-centered AI across
+              healthcare, federal, and enterprise environments. I design the experiences and
+              the strategic logic that let human-centered empathy govern intelligent,
+              non-deterministic systems — building trust, transparency, and control into
+              agentic and data-rich products, then prototyping and shipping them in real code.
             </p>
 
             <p>
-              <strong>Current role:</strong> AI + Human Systems Integration Lead, GE
-              HealthCare (2025 – Present). Built the enterprise AI safety framework
-              for clinical decision-support systems.
+              <strong>Current role:</strong> AI Experience Designer &amp; HSI Lead — GE
+              HealthCare (Brain Pulse Inc), Mar 2025 – Present. Agentic clinical workflows,
+              human–AI trust and explainability, design-to-code prototyping in React/TypeScript,
+              and design-system components adopted across 10+ teams.
             </p>
             <p>
-              <strong>Prior roles:</strong> Senior UX &amp; Accessibility Lead — SSA11y
-              at Leidos / Social Security Administration (2022 – 2025) — built SSA11y, an
-              AI-driven (Llama2) accessibility platform on the Disability Case Processing
-              System serving 50M+ citizens and saving $1.5M+ annually. UX &amp; Human Factors
-              Lead — Connected Health at Best Buy Health (2021 – 2022). Senior UX Designer &amp;
-              Program Lead — TEDS &amp; Behavioral Health at HHS / SAMHSA (Eagle Technologies,
-              2014 – 2021), directing a $130M behavioral-health portfolio.
+              <strong>Prior roles:</strong> Sr. UX &amp; Accessibility Lead — Social Security
+              Administration (Leidos), Oct 2022 – Feb 2025 — enterprise design system across 15+
+              modules serving 50M+ users; traced 65% of interaction issues to 8 reused components,
+              saving $1.5M+ annually; WCAG 2.2 AA / Section 508 across 40+ monthly releases.
+              Sr. UX &amp; Inclusive Design Lead — Best Buy Health, Sep 2021 – Sep 2022 —
+              connected medical-device experiences for 1M+ users, summative validation feeding
+              510(k) human-factors evidence, BRIX design system. Sr. UX &amp; Program Lead —
+              HHS / SAMHSA (Eagle Technologies), Mar 2014 – May 2021 — behavioral-health data
+              platforms and visualization for 2M+ users. Earlier: AAMC, CareFirst BCBS,
+              JPMorgan Chase, Morgan Stanley.
             </p>
             <p>
-              <strong>Certifications:</strong> CPACC and WAS (IAAP), CUA (HFI), CSM
-              (Scrum Alliance), DAU HSI in progress.
+              <strong>Selected AI &amp; prototyping work:</strong> Full-stack AI visual-assistance
+              PWA for blind and low-vision users (Vite + React with serverless AI proxy) featuring
+              real-time scene description, OCR reading, and product identification; an enterprise
+              AI-experience pattern library (explainability, trust calibration, agentic hand-off,
+              human-in-the-loop); and interactive design-system and data-visualization prototypes.
             </p>
             <p>
-              <strong>UI architecture &amp; engineering:</strong> Define and build
-              scalable front-end architecture in React + TypeScript — reusable,
-              token-driven component systems, state management with Redux/Context API,
-              Vite/Webpack/Babel build tooling, and REST API integration. Lead UI
-              efforts with established coding standards, design guidelines, code
-              reviews, and mentoring of junior developers, partnering with UX and
-              backend teams to ship high-performance, accessible interfaces.
+              <strong>Education &amp; certifications:</strong> B.E., Electronics &amp;
+              Communication Engineering (HCI / human-factors focus), Madurai Kamaraj University,
+              1999. IAAP CPACC + WAS (CPWA) · CUA · CSM · Salesforce Certified UX Designer
+              (in progress).
             </p>
             <p>
-              <strong>AI design &amp; governance:</strong> Design and build AI products
-              for safety-critical, regulated environments — human–AI interaction models
-              (recommend / act / alert), explainability and calibrated-confidence UX,
-              human-in-the-loop oversight, agentic-AI guardrails, and RAG source-grounding.
-              Operationalize NIST AI RMF, the EU AI Act, and ISO/IEC 42001 into model-risk
-              tiers, bias/drift monitoring, red-team / TEVV evaluation, and audit-ready
-              evidence. Engineer the front end with LLM integration, AI data-visualization
-              component systems, and CI/CD AI quality gates (SSA11y, built on Llama).
+              <strong>Standards:</strong> WCAG 2.2 AA, Section 508, ADA, FDA HFE / IEC 62366,
+              ISO 14971, MIL-STD-1472H, MBSE/SysML, DoDI 5000.95, NIST AI RMF.
             </p>
             <p>
-              <strong>Standards:</strong> MIL-STD-1472H, FDA, IEC 62366, ISO 14971,
-              MBSE/SysML, WCAG 2.2 AA, Section 508, ADA Title II, DoDI 5000.95.
+              <strong>Leadership &amp; community:</strong> Vice President, Texas Astronomical
+              Society (500+ member nonprofit); Cubmaster &amp; Assistant Scoutmaster, Scouting
+              America (Wood Badge trained, Spark Plug Award 2025); Lead Coach, FIRST LEGO League.
             </p>
             <p>
               <strong>Contact:</strong>{" "}
@@ -7324,8 +7322,9 @@ function Resume() {
               >
                 arnsk3@gmail.com
               </a>{" "}
-              · 571-403-0835 · Vienna, VA &amp; Frisco, TX.
+              · 571-403-0835 · Frisco, TX (DFW) — remote / open to relocation.
             </p>
+
           </div>
         </details>
       </FadeIn>
