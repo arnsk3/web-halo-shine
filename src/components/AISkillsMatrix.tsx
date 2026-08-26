@@ -68,9 +68,16 @@ const GROUPS: SkillGroup[] = [
       { name: "Human-in-the-loop approval gates", level: 5, note: "override capture, full audit logging" },
       { name: "Audit-ready evidence packages", level: 5, note: "traceable proof captured as a byproduct" },
       { name: "Bias, fairness & drift monitoring", level: 4, note: "material-change alerts, fairness charts" },
-      { name: "GRC, data & model tooling", level: 3, note: "ServiceNow/Archer, Collibra/Alation, model registries" },
+      { name: "AI inventory & use-case registry", level: 5, note: "intake → risk tier → owner → lifecycle → evidence links" },
+      { name: "Third-party & vendor AI risk", level: 4, note: "procurement questionnaires, model supply chain, sub-processor disclosure" },
+      { name: "Shadow-AI discovery & remediation", level: 4, note: "unsanctioned tool discovery paired with a sanctioned path" },
+      { name: "AI incident response & post-market monitoring", level: 4, note: "incident taxonomy, severity thresholds, EU AI Act Art. 73 reporting clocks" },
+      { name: "Agentic AI governance", level: 4, note: "autonomy tiers, tool-use permissioning, HITL thresholds, agent audit trails" },
+      { name: "AI literacy & change management", level: 4, note: "layered enablement satisfying EU AI Act Art. 4" },
+      { name: "GRC & AI governance tooling", level: 3, note: "OneTrust, Credo AI, IBM watsonx.governance, ServiceNow, Vanta/Drata, Collibra, MLflow" },
       { name: "TEVV & red-team evaluation", level: 4, note: "test, evaluation, verification, validation" },
       { name: "CI/CD compliance quality gates", level: 4, note: "checks at commit, not post-deploy" },
+
     ],
   },
   {
