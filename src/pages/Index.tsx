@@ -18,7 +18,7 @@ import GovernanceEngagements from "@/components/GovernanceEngagements";
 import AIGovernanceSection from "@/components/AIGovernanceSection";
 import AIGovernanceCaseStudy from "@/pages/AIGovernanceCaseStudy";
 import SectionIndex from "@/components/SectionIndex";
-import { Compass, Sprout, Network, Brain, Bot, FlaskConical } from "lucide-react";
+import { Compass, Sprout, Network, Brain, Bot, FlaskConical, ShieldCheck, Scale, Accessibility, Handshake, Microscope, Layers, Code2, Palette, HeartPulse } from "lucide-react";
 import caseWcagtool from "@/assets/case-wcagtool.jpg";
 import caseGe from "@/assets/case-ge.jpg";
 import caseSsa from "@/assets/case-ssa.jpg";
@@ -1384,11 +1384,16 @@ function Home({
             </p>
           </FadeIn>
           <FadeIn delay={0.18}>
-            <p className="mb-7 max-w-2xl mx-auto text-[13px] sm:text-sm font-semibold text-white/90">
+            <p className="mb-2 max-w-2xl mx-auto text-[13px] sm:text-sm font-semibold text-white/90">
               <span className="text-[rgb(var(--c-accent-on-dark))]">
                 Director / Principal — AI Experience Design &amp; Human Systems Integration.
               </span>{" "}
               Open to Director-level roles · US remote · available now.
+            </p>
+            <p className="mb-7 max-w-2xl mx-auto text-[12px] sm:text-[13px] text-white/85 leading-relaxed">
+              7+ years in compliance, risk management, and advisory roles with client-facing
+              delivery — leading a $130M federal program portfolio and scaling a cross-functional
+              team to 15+.
             </p>
           </FadeIn>
           <FadeIn delay={0.2}>
@@ -1417,10 +1422,11 @@ function Home({
             </div>
           </FadeIn>
           <FadeIn delay={0.25}>
-            <dl className="grid grid-cols-3 gap-px max-w-xl mx-auto rounded-xl overflow-hidden border border-white/15 bg-white/10 backdrop-blur">
+            <dl className="grid grid-cols-2 sm:grid-cols-4 gap-px max-w-3xl mx-auto rounded-xl overflow-hidden border border-white/15 bg-white/10 backdrop-blur">
               {[
-                { v: "1,200+", l: "clinicians supported" },
                 { v: "18+ yrs", l: "regulated-domain design" },
+                { v: "7+ yrs", l: "compliance, risk & advisory delivery" },
+                { v: "1,200+", l: "clinicians supported" },
                 { v: "AAA", l: "accessibility conformance" },
               ].map((s) => (
                 <div key={s.l} className="bg-white/[0.06] px-3 py-4">
@@ -6818,43 +6824,58 @@ function About() {
 
   const skillGroups = [
     {
-      title: "Visual & Brand Design",
-      icon: "🎨",
-      skills: ["Brand systems", "Visual identity", "Hi-fi UI design", "Figma", "Typography & color", "Iconography", "Marketing & campaign creative", "Data visualization"],
+      title: "AI Governance & Responsible AI",
+      icon: ShieldCheck,
+      skills: ["NIST AI RMF (Govern/Map/Measure/Manage)", "EU AI Act", "ISO/IEC 42001 & 23894", "SR 11-7 model risk", "U.S. AI policy (EO 14179, OMB M-25-21/22)", "Control taxonomy & acceptance criteria", "AI assurance & audit readiness", "Governance operating models"],
+    },
+    {
+      title: "AI Product & Interaction Design",
+      icon: Bot,
+      skills: ["Human–AI interaction patterns", "Explainability & confidence UX", "Trust & transparency patterns", "Human-in-the-loop & escalation", "Agentic AI & tool-use UX", "RAG & source-grounding UX", "Prompt & conversation design"],
+    },
+    {
+      title: "Human Factors & Safety Engineering",
+      icon: Scale,
+      skills: ["Human-in-the-loop models", "FMEA / URRA", "FDA / IEC 62366", "ISO 14971", "MIL-STD-1472H", "DoDI 5000.95 HSI", "Cognitive task analysis", "Use-error & harm analysis"],
+    },
+    {
+      title: "Advisory & Client Delivery",
+      icon: Handshake,
+      skills: ["Client engagement leadership", "Assessment → roadmap → delivery", "Sales enablement & proposal shaping", "Stakeholder workshops & adoption", "Executive & regulator readouts", "Budget, timeline & vendor management", "Cross-functional coordination (privacy, security, risk, legal)"],
+    },
+    {
+      title: "Accessibility",
+      icon: Accessibility,
+      skills: ["WCAG 2.2 A/AA/AAA", "Section 508", "ARIA & semantics", "Screen-reader testing", "CI/CD a11y automation", "WCAG-EM audits", "Inclusive design"],
+    },
+    {
+      title: "UX Research & Strategy",
+      icon: Microscope,
+      skills: ["Mixed-methods research", "Journey mapping", "Personas", "Usability testing", "Information architecture", "MBSE / SysML traceability", "Service design"],
     },
     {
       title: "Design Systems",
-      icon: "🧩",
+      icon: Layers,
       skills: ["Component libraries", "Design tokens", "Theming at runtime", "Style guides", "Pattern governance", "Accessible color systems", "Documentation"],
     },
     {
       title: "UI Architecture & Engineering",
-      icon: "⚛️",
+      icon: Code2,
       skills: ["React", "TypeScript", "Tailwind CSS", "Redux & Context API", "Vite / Webpack / Babel", "REST API integration", "Git workflows", "Performance optimization", "Code reviews & mentoring"],
     },
     {
-      title: "UX Research & Strategy",
-      icon: "🔬",
-      skills: ["Mixed-methods research", "Journey mapping", "Personas", "Usability testing", "Information architecture", "MBSE / SysML traceability", "Service design"],
-    },
-    {
-      title: "Accessibility",
-      icon: "♿",
-      skills: ["WCAG 2.2 A/AA/AAA", "Section 508", "ARIA & semantics", "Screen-reader testing", "CI/CD a11y automation", "WCAG-EM audits", "Inclusive design"],
-    },
-    {
-      title: "AI Safety & Governance",
-      icon: "🛡️",
-      skills: ["Human-in-the-loop models", "FMEA / URRA", "FDA / IEC 62366", "ISO 14971", "MIL-STD-1472H", "DoDI 5000.95 HSI", "AI risk & evaluation frameworks"],
-    },
-    {
       title: "Design Leadership",
-      icon: "🧭",
+      icon: Compass,
       skills: ["Player-coach leadership", "Mentorship & career growth", "Design critique culture", "Influence without authority", "Executive storytelling", "Cross-product systems thinking", "AI-in-the-design-process", "Culture of experimentation"],
     },
     {
+      title: "Visual & Brand Design",
+      icon: Palette,
+      skills: ["Brand systems", "Visual identity", "Hi-fi UI design", "Figma", "Typography & color", "Iconography", "Marketing & campaign creative", "Data visualization"],
+    },
+    {
       title: "Healthcare & Revenue Cycle",
-      icon: "🏥",
+      icon: HeartPulse,
       skills: ["Revenue cycle workflows", "Medical coding (ICD-10 / CPT / HCPCS)", "Claims & denial management", "Reimbursement UX", "Clinical decision-support", "HIPAA", "Intelligent automation"],
     },
   ];
@@ -6880,7 +6901,7 @@ function About() {
               Senthil Nagappan
             </h1>
             <p className="text-[rgb(var(--c-accent-dark))] font-semibold text-sm mb-3">
-              Senior UI/UX &amp; Visual Designer · AI Safety &amp; Human Systems Integration Leader
+              AI Experience Design &amp; Human Systems Integration · AI Governance &amp; Responsible AI Leader
             </p>
             <p className="text-gray-700 text-sm leading-relaxed mb-3">
               18+ years building enterprise functions that deliver safe, compliant,
@@ -6907,6 +6928,19 @@ function About() {
               <div className="text-[11px] font-medium opacity-90 mt-0.5 leading-tight">{s.label}</div>
             </div>
           ))}
+        </div>
+      </FadeIn>
+
+      {/* Compliance & advisory claim — the combined JD signal, stated explicitly */}
+      <FadeIn delay={0.08}>
+        <div className="rounded-xl border-l-4 border-[rgb(var(--c-primary))] bg-[rgb(var(--c-tint-50))] px-5 py-4 mb-12">
+          <p className="text-sm text-gray-800 leading-relaxed">
+            <strong className="text-gray-900">7+ years in compliance, risk management, and advisory roles</strong>{" "}
+            with client-facing delivery and team leadership — directing a $130M federal program
+            portfolio, running Section 508 / WCAG governance as organizational policy, delivering
+            financial-services model-risk work at JPMorgan Chase and Morgan Stanley, and scaling a
+            cross-functional team to 15+.
+          </p>
         </div>
       </FadeIn>
 
@@ -6953,7 +6987,9 @@ function About() {
               className="group rounded-xl bg-white border border-gray-200 p-5 transition-all hover:border-[rgb(var(--c-primary)/0.35)] hover:shadow-md hover:-translate-y-0.5"
             >
               <div className="flex items-center gap-2 mb-3">
-                <span aria-hidden="true" className="text-lg">{g.icon}</span>
+                <span aria-hidden="true" className="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-[rgb(var(--c-primary)/0.08)]">
+                  <g.icon className="h-4 w-4 text-[rgb(var(--c-primary))]" />
+                </span>
                 <h3 className="font-bold text-gray-900 text-sm">{g.title}</h3>
               </div>
               <ul className="flex gap-1.5 flex-wrap list-none p-0 m-0">
@@ -7330,7 +7366,10 @@ function Resume() {
               <strong>Senthil Nagappan</strong> — AI Experience Design &amp; Human Systems
               Integration. 18+ years pairing AI governance, accessibility leadership, design
               systems, and production front-end engineering to deliver safe, human-centered AI
-              across healthcare, federal, financial-services, and enterprise environments. I
+              across healthcare, federal, financial-services, and enterprise environments —
+              including 7+ years in compliance, risk management, and advisory roles with
+              client-facing delivery and team leadership (a $130M federal program portfolio,
+              cross-functional team scaled to 15+). I
               design the experiences and the strategic logic that let human-centered empathy
               govern intelligent, non-deterministic systems — building trust, transparency, and
               control into agentic and data-rich products, then prototyping and shipping them in
@@ -7491,8 +7530,8 @@ function Contact() {
           Get in Touch
         </h1>
         <p className="text-gray-700 text-sm mb-6 text-center">
-          Open to Senior UI/UX &amp; Visual Designer, Design Systems, and AI safety /
-          human-factors leadership roles — full-time, contract, or advisory.
+          Open to Director / Principal roles in AI Experience Design, AI Governance &amp;
+          Responsible AI, and Human Systems Integration — full-time, contract, or advisory.
         </p>
 
         {/* What to expect */}
