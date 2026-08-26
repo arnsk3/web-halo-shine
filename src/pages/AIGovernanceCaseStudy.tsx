@@ -40,12 +40,152 @@ const CONTROLS = [
   ["Accessibility", "Require every oversight path to remain operable across assistive technologies."],
 ] as const;
 
+const CROSSWALK = [
+  {
+    control: "AI governance accountability & ownership",
+    iso: "42001 §5.3 · A.3 roles",
+    nist: "GOVERN 2.1 / 3.2",
+    eu: "Art. 17 quality management system",
+  },
+  {
+    control: "AI system inventory & risk classification",
+    iso: "42001 A.4 · A.5 impact assessment",
+    nist: "MAP 1.1–1.5",
+    eu: "Art. 6 + Annex III classification",
+  },
+  {
+    control: "Data governance & training-data quality",
+    iso: "42001 A.7 data for AI systems",
+    nist: "MAP 2.3 / MEASURE 2.8",
+    eu: "Art. 10 data & data governance",
+  },
+  {
+    control: "Technical documentation & model records",
+    iso: "42001 A.6.2 system documentation",
+    nist: "GOVERN 1.4 / MAP 4.1",
+    eu: "Art. 11 + Annex IV technical documentation",
+  },
+  {
+    control: "Transparency & user disclosure",
+    iso: "42001 A.8 information for interested parties",
+    nist: "MEASURE 2.9 / MANAGE 4.1",
+    eu: "Art. 13 transparency · Art. 50 disclosure",
+  },
+  {
+    control: "Human oversight & override",
+    iso: "42001 A.9.2 human oversight",
+    nist: "GOVERN 3.2 / MANAGE 2.3",
+    eu: "Art. 14 human oversight",
+  },
+  {
+    control: "Accuracy, robustness & security testing",
+    iso: "42001 A.6.2.4 verification & validation",
+    nist: "MEASURE 2.5–2.7",
+    eu: "Art. 15 accuracy, robustness, cybersecurity",
+  },
+  {
+    control: "Post-market monitoring & incident reporting",
+    iso: "42001 §9 performance evaluation",
+    nist: "MANAGE 4.1–4.3",
+    eu: "Art. 72 monitoring · Art. 73 serious incidents",
+  },
+  {
+    control: "Third-party / GPAI supply-chain assurance",
+    iso: "42001 A.10 third-party relationships",
+    nist: "GOVERN 6.1–6.2",
+    eu: "Art. 25 value-chain · Art. 53 GPAI providers",
+  },
+  {
+    control: "AI literacy & workforce training",
+    iso: "42001 §7.2 competence",
+    nist: "GOVERN 2.2 / 4.1",
+    eu: "Art. 4 AI literacy",
+  },
+] as const;
+
+const EU_TIERS = [
+  ["Prohibited", "Social scoring, manipulative techniques, untargeted scraping for facial recognition, emotion inference at work or school. Screened out at intake — no design work proceeds."],
+  ["High-risk (Annex III)", "Employment and worker management, credit and essential services, education, biometrics, critical infrastructure, healthcare adjacency. Triggers the full Art. 9–15 control set, conformity assessment, and registration."],
+  ["Limited risk", "Chat, generative, and emotion-recognition surfaces where Art. 50 disclosure and synthetic-content marking apply. Governed primarily through interface controls."],
+  ["Minimal risk", "Everything else. Voluntary controls, still inventoried and re-triaged on material change."],
+] as const;
+
+const EU_DUTIES = [
+  { role: "As provider", items: ["Risk management system (Art. 9)", "Data governance (Art. 10)", "Technical documentation, Annex IV (Art. 11)", "Logging and traceability (Art. 12)", "Conformity assessment, CE marking, EU database registration"] },
+  { role: "As deployer", items: ["Use per instructions and assign competent human oversight (Art. 26)", "Input-data relevance checks and log retention", "Fundamental Rights Impact Assessment where required (Art. 27)", "Worker and affected-person notification", "Serious-incident reporting to the provider and authority"] },
+];
+
+const REGISTRY_FIELDS = [
+  ["Intake", "Requesting team, business purpose, intended and prohibited uses, affected populations, go-live target."],
+  ["Classification", "EU AI Act tier, internal Model A/B/C oversight tier, autonomy level, data sensitivity, jurisdiction exposure."],
+  ["Ownership", "Accountable executive, product owner, model owner, validator (2nd line), audit contact (3rd line)."],
+  ["Lifecycle", "Status from proposed → in development → validated → deployed → monitored → retired, with material-change re-triage triggers."],
+  ["Evidence", "Links to model card, evaluation results, FRIA/DPIA, red-team report, approval record, and monitoring dashboard."],
+  ["Review cadence", "Next scheduled review, open findings, exceptions with expiry dates, and incident history."],
+] as const;
+
+const THIRD_PARTY = [
+  ["Procurement questionnaire", "A standard AI addendum covering training-data provenance, evaluation results, fine-tuning rights, retention, sub-processors, and model-change notification."],
+  ["Supply-chain classification", "Distinguish foundation-model provider, hosted API, embedded AI feature, and reseller — each carries different provider/deployer duties under Art. 25 and 53."],
+  ["Contractual controls", "Right to audit, evaluation-evidence delivery, incident notification clocks, deprecation notice periods, and indemnity for IP and output claims."],
+  ["Shadow-AI discovery", "Network and SaaS telemetry, expense review, and browser-extension inventory to surface unsanctioned tools, paired with an easy sanctioned path so discovery does not become punishment."],
+  ["Continuous monitoring", "Re-attestation on model version change, quarterly vendor risk refresh, and a kill-switch runbook for provider incidents."],
+] as const;
+
+const LITERACY = [
+  ["Baseline (all staff)", "What the policy covers, how to classify a use case, disclosure obligations, and where shadow AI creates exposure. Satisfies the EU AI Act Art. 4 literacy duty."],
+  ["Practitioner (product, data, engineering)", "Control-by-control walkthroughs, evaluation expectations, documentation templates, and how to fail an intake gracefully."],
+  ["Oversight (reviewers, risk, legal)", "How to challenge a model result, when to escalate, evidence sufficiency, and what regulators will ask for."],
+  ["Executive & board", "Portfolio risk posture, exception trends, incident summaries, and the questions to ask before approving a high-risk launch."],
+] as const;
+
+const INCIDENT = [
+  ["Taxonomy", "Harm-type classification: unsafe recommendation, bias or disparate impact, privacy leakage, hallucinated fact acted upon, prompt injection or jailbreak, agent action outside authority, availability or degradation."],
+  ["Severity thresholds", "Sev-1 through Sev-4 defined by affected population, reversibility, regulatory exposure, and whether a human caught the error before impact."],
+  ["Clocks", "Internal triage within hours, provider notification per contract, and regulator notification aligned to EU AI Act Art. 73 serious-incident timelines."],
+  ["Post-market monitoring", "Drift, override-rate spikes, complaint signals, and evaluation regression tracked against pre-launch baselines rather than reviewed ad hoc."],
+  ["Learning loop", "Every incident produces either a new control, a changed threshold, a training update, or a documented accepted risk — never a closed ticket alone."],
+] as const;
+
+const TOOLING = [
+  ["AI governance platforms", "Credo AI, IBM watsonx.governance, Holistic AI — use-case registries, policy packs, and control attestation."],
+  ["Privacy & GRC suites", "OneTrust, ServiceNow (Risk / AI Governance), Archer, Vanta, Drata — assessment workflows, control evidence, and continuous compliance."],
+  ["Data & model catalogs", "Collibra, Alation, MLflow, model registries — lineage, ownership, and version traceability."],
+  ["Evaluation & safety", "Red-team harnesses, guardrail services, bias and drift monitors, and eval pipelines wired into CI/CD."],
+] as const;
+
+const STATE_LAWS = [
+  ["Colorado AI Act (SB 24-205)", "Duty of reasonable care for developers and deployers of high-risk AI in consequential decisions; impact assessments, disclosure, and AG notification."],
+  ["Texas TRAIGA (HB 149)", "Intent-based prohibitions, government-use constraints, and a regulatory sandbox — relevant to public-sector and healthcare deployments."],
+  ["NYC Local Law 144", "Annual bias audits and candidate notice for automated employment decision tools."],
+  ["California (ADMT / SB 942 / CPPA rules)", "Automated decision-making technology access and opt-out rights, plus AI content-provenance disclosure."],
+  ["Illinois, Utah, and sectoral rules", "Biometric and AI-video interview consent, generative-AI disclosure in regulated professions."],
+] as const;
+
+const AGENTIC = [
+  ["Autonomy tiers", "Suggest → draft-with-approval → act-with-review → act-autonomously. Tier is assigned at intake and cannot be raised without re-review."],
+  ["Tool-use permissioning", "Least-privilege scopes per tool, explicit allowlists for write and financial actions, and per-action spend or blast-radius caps."],
+  ["Human-in-the-loop thresholds", "Named conditions — irreversibility, monetary value, protected-class impact, low confidence — that force a human decision before execution."],
+  ["Agent audit trails", "Full trace of plan, tool calls, inputs, outputs, and the human who approved, retained as evidence and replayable during investigation."],
+  ["Containment", "Session timeouts, loop detection, rollback paths, and a documented kill switch with a tested owner."],
+] as const;
+
+const PROGRAM_SCOPE = [
+  ["24", "control statements in the reference library"],
+  ["4", "oversight tiers from suggest to autonomous"],
+  ["3", "regimes crosswalked to one control set"],
+  ["10", "intake fields required before design starts"],
+] as const;
+
 const OUTCOMES = [
   "A reusable governance engagement model from intake and assessment through run-state operations",
   "A control library that connects policy language to product behavior, owners, tests, and evidence",
+  "A three-regime crosswalk so one control set answers ISO/IEC 42001, NIST AI RMF, and EU AI Act reviewers",
+  "An AI inventory and registry schema that makes portfolio risk reportable rather than anecdotal",
   "A shared vocabulary for product, engineering, legal, privacy, security, risk, and audit teams",
   "An interview-ready, NDA-safe demonstration of how governance becomes an operating system—not a document",
 ] as const;
+
 
 export default function AIGovernanceCaseStudy({ onHome }: { onHome: () => void }) {
   return (
