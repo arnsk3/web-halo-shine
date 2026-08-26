@@ -18,7 +18,7 @@ import GovernanceEngagements from "@/components/GovernanceEngagements";
 import AIGovernanceSection from "@/components/AIGovernanceSection";
 import AIGovernanceCaseStudy from "@/pages/AIGovernanceCaseStudy";
 import SectionIndex from "@/components/SectionIndex";
-import { Compass, Sprout, Network, Brain, Bot, FlaskConical } from "lucide-react";
+import { Compass, Sprout, Network, Brain, Bot, FlaskConical, ShieldCheck, Scale, Accessibility, Handshake, Microscope, Layers, Code2, Palette, HeartPulse } from "lucide-react";
 import caseWcagtool from "@/assets/case-wcagtool.jpg";
 import caseGe from "@/assets/case-ge.jpg";
 import caseSsa from "@/assets/case-ssa.jpg";
@@ -6824,43 +6824,58 @@ function About() {
 
   const skillGroups = [
     {
-      title: "Visual & Brand Design",
-      icon: "🎨",
-      skills: ["Brand systems", "Visual identity", "Hi-fi UI design", "Figma", "Typography & color", "Iconography", "Marketing & campaign creative", "Data visualization"],
+      title: "AI Governance & Responsible AI",
+      icon: ShieldCheck,
+      skills: ["NIST AI RMF (Govern/Map/Measure/Manage)", "EU AI Act", "ISO/IEC 42001 & 23894", "SR 11-7 model risk", "U.S. AI policy (EO 14179, OMB M-25-21/22)", "Control taxonomy & acceptance criteria", "AI assurance & audit readiness", "Governance operating models"],
+    },
+    {
+      title: "AI Product & Interaction Design",
+      icon: Bot,
+      skills: ["Human–AI interaction patterns", "Explainability & confidence UX", "Trust & transparency patterns", "Human-in-the-loop & escalation", "Agentic AI & tool-use UX", "RAG & source-grounding UX", "Prompt & conversation design"],
+    },
+    {
+      title: "Human Factors & Safety Engineering",
+      icon: Scale,
+      skills: ["Human-in-the-loop models", "FMEA / URRA", "FDA / IEC 62366", "ISO 14971", "MIL-STD-1472H", "DoDI 5000.95 HSI", "Cognitive task analysis", "Use-error & harm analysis"],
+    },
+    {
+      title: "Advisory & Client Delivery",
+      icon: Handshake,
+      skills: ["Client engagement leadership", "Assessment → roadmap → delivery", "Sales enablement & proposal shaping", "Stakeholder workshops & adoption", "Executive & regulator readouts", "Budget, timeline & vendor management", "Cross-functional coordination (privacy, security, risk, legal)"],
+    },
+    {
+      title: "Accessibility",
+      icon: Accessibility,
+      skills: ["WCAG 2.2 A/AA/AAA", "Section 508", "ARIA & semantics", "Screen-reader testing", "CI/CD a11y automation", "WCAG-EM audits", "Inclusive design"],
+    },
+    {
+      title: "UX Research & Strategy",
+      icon: Microscope,
+      skills: ["Mixed-methods research", "Journey mapping", "Personas", "Usability testing", "Information architecture", "MBSE / SysML traceability", "Service design"],
     },
     {
       title: "Design Systems",
-      icon: "🧩",
+      icon: Layers,
       skills: ["Component libraries", "Design tokens", "Theming at runtime", "Style guides", "Pattern governance", "Accessible color systems", "Documentation"],
     },
     {
       title: "UI Architecture & Engineering",
-      icon: "⚛️",
+      icon: Code2,
       skills: ["React", "TypeScript", "Tailwind CSS", "Redux & Context API", "Vite / Webpack / Babel", "REST API integration", "Git workflows", "Performance optimization", "Code reviews & mentoring"],
     },
     {
-      title: "UX Research & Strategy",
-      icon: "🔬",
-      skills: ["Mixed-methods research", "Journey mapping", "Personas", "Usability testing", "Information architecture", "MBSE / SysML traceability", "Service design"],
-    },
-    {
-      title: "Accessibility",
-      icon: "♿",
-      skills: ["WCAG 2.2 A/AA/AAA", "Section 508", "ARIA & semantics", "Screen-reader testing", "CI/CD a11y automation", "WCAG-EM audits", "Inclusive design"],
-    },
-    {
-      title: "AI Safety & Governance",
-      icon: "🛡️",
-      skills: ["Human-in-the-loop models", "FMEA / URRA", "FDA / IEC 62366", "ISO 14971", "MIL-STD-1472H", "DoDI 5000.95 HSI", "AI risk & evaluation frameworks"],
-    },
-    {
       title: "Design Leadership",
-      icon: "🧭",
+      icon: Compass,
       skills: ["Player-coach leadership", "Mentorship & career growth", "Design critique culture", "Influence without authority", "Executive storytelling", "Cross-product systems thinking", "AI-in-the-design-process", "Culture of experimentation"],
     },
     {
+      title: "Visual & Brand Design",
+      icon: Palette,
+      skills: ["Brand systems", "Visual identity", "Hi-fi UI design", "Figma", "Typography & color", "Iconography", "Marketing & campaign creative", "Data visualization"],
+    },
+    {
       title: "Healthcare & Revenue Cycle",
-      icon: "🏥",
+      icon: HeartPulse,
       skills: ["Revenue cycle workflows", "Medical coding (ICD-10 / CPT / HCPCS)", "Claims & denial management", "Reimbursement UX", "Clinical decision-support", "HIPAA", "Intelligent automation"],
     },
   ];
