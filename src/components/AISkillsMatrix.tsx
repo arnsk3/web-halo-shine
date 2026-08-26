@@ -25,6 +25,7 @@ const GROUPS: SkillGroup[] = [
     skills: [
       { name: "Human–AI interaction patterns", level: 5, note: "recommend / act / alert oversight models" },
       { name: "Explainability & confidence UX", level: 5, note: "calibrated trust, not raw percentages" },
+      { name: "Trust & transparency patterns", level: 5, note: "plain-language AI disclosure at the moment of use" },
       { name: "Human-in-the-loop & escalation", level: 5, note: "graceful degradation, safe states" },
       { name: "Agentic AI & tool-use UX", level: 4, note: "guardrails, approvals, action transparency" },
       { name: "RAG & source-grounding UX", level: 4, note: "citations, evidence linking, hallucination cues" },
@@ -39,6 +40,8 @@ const GROUPS: SkillGroup[] = [
     blurb: "Translating dense AI, financial-services, medical, and federal standards into enforceable design and delivery criteria.",
     skills: [
       { name: "NIST AI RMF 1.0", level: 5, note: "govern / map / measure / manage" },
+      { name: "Responsible AI program design", level: 5, note: "policy → controls → operating model → metrics" },
+      { name: "AI assurance & audit readiness", level: 4, note: "control testing, readiness audits, evidence packs" },
       { name: "EU AI Act", level: 4, note: "risk tiers, prohibited & high-risk obligations" },
       { name: "ISO/IEC 42001 & 23894", level: 4, note: "AI management systems, risk guidance" },
       { name: "U.S. AI policy landscape", level: 4, note: "EO 14179 & the 2025–26 federal framework, OMB M-25-21/22, state AI laws (CO/TX/CA)" },
@@ -55,6 +58,7 @@ const GROUPS: SkillGroup[] = [
     short: "Governance & Evaluation",
     blurb: "Making compliance a built-in property — oversight tiers, audit evidence, and quality gates.",
     skills: [
+      { name: "AI risk assessment & control design", level: 5, note: "harm analysis, oversight controls, guardrails" },
       { name: "Model risk & oversight tiers", level: 5, note: "Model A/B/C governance at design intake" },
       { name: "GenAI risk controls", level: 4, note: "prompt/data controls, evaluation, monitoring" },
       { name: "Model documentation & testing", level: 4, note: "model cards, validation evidence, test practices" },
@@ -153,7 +157,7 @@ export default function AISkillsMatrix() {
           <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-[rgb(var(--c-accent-light))] animate-pulse" />
           AI as a primary skill
         </p>
-        <SectionIndex n="04" label="Skills Matrix" tone="dark" />
+        <SectionIndex n="05" label="Skills Matrix" tone="dark" />
         <h2
           id="ai-skills-heading"
           className="text-2xl sm:text-3xl font-extrabold mb-3 tracking-tight"

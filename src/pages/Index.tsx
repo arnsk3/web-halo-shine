@@ -7871,6 +7871,12 @@ function InHouseLab({
                   <p className="text-gray-700 text-[13px] mb-3 leading-relaxed line-clamp-4">
                     {s.subtitle}
                   </p>
+                  {LAB_GOVERNANCE_FUNCTION[s.id] && (
+                    <p className="text-[12px] text-gray-700 leading-relaxed mb-3">
+                      <span className="font-semibold text-gray-900">Governance function:</span>{" "}
+                      {LAB_GOVERNANCE_FUNCTION[s.id]}
+                    </p>
+                  )}
                   <div className="flex gap-1.5 flex-wrap mb-4">
                     {s.metrics.slice(0, 3).map((m) => (
                       <span
