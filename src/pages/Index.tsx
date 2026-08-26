@@ -7366,7 +7366,10 @@ function Resume() {
               <strong>Senthil Nagappan</strong> — AI Experience Design &amp; Human Systems
               Integration. 18+ years pairing AI governance, accessibility leadership, design
               systems, and production front-end engineering to deliver safe, human-centered AI
-              across healthcare, federal, financial-services, and enterprise environments. I
+              across healthcare, federal, financial-services, and enterprise environments —
+              including 7+ years in compliance, risk management, and advisory roles with
+              client-facing delivery and team leadership (a $130M federal program portfolio,
+              cross-functional team scaled to 15+). I
               design the experiences and the strategic logic that let human-centered empathy
               govern intelligent, non-deterministic systems — building trust, transparency, and
               control into agentic and data-rich products, then prototyping and shipping them in
@@ -7527,8 +7530,8 @@ function Contact() {
           Get in Touch
         </h1>
         <p className="text-gray-700 text-sm mb-6 text-center">
-          Open to Senior UI/UX &amp; Visual Designer, Design Systems, and AI safety /
-          human-factors leadership roles — full-time, contract, or advisory.
+          Open to Director / Principal roles in AI Experience Design, AI Governance &amp;
+          Responsible AI, and Human Systems Integration — full-time, contract, or advisory.
         </p>
 
         {/* What to expect */}
