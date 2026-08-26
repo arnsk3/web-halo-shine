@@ -255,6 +255,7 @@ var get_resume_default = defineTool4({
       resume_pdf_url: `${BASE4}/Senthil_Nagappan_Resume.pdf`,
       portfolio_url: BASE4,
       credentials: [
+        "AIGP \u2014 in progress (IAPP)",
         "CPACC",
         "WCAG 2.2 AAA",
         "NIST AI RMF",
