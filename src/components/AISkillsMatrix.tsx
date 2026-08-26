@@ -109,7 +109,7 @@ const GROUPS: SkillGroup[] = [
     blurb: "Professional-services delivery for risk, regulatory, and AI governance engagements — from assessment to operating model.",
     skills: [
       { name: "Client engagement leadership", level: 5, note: "assessment → roadmap → delivery for regulated clients" },
-      { name: "AIGP — AI Governance Professional (IAPP)", level: 4, note: "AI governance, privacy & risk credential" },
+      { name: "AIGP — AI Governance Professional (IAPP) (in progress)", level: 4, note: "AI governance, privacy & risk credential pursuit" },
       { name: "Financial-services risk & regulatory", level: 4, note: "model risk, compliance & technology engagements" },
       { name: "Cross-functional coordination", level: 5, note: "privacy, security, risk, legal & engineering alignment" },
       { name: "AI governance program design", level: 5, note: "policy, control taxonomy, oversight operating models" },

@@ -815,7 +815,7 @@ const CASE_STUDIES: CaseStudyType[] = [
 ];
 
 const CREDS = [
-  "AIGP (IAPP)",
+  "AIGP — in progress (IAPP)",
   "CPACC + WAS",
   "CUA",
   "CSM",
@@ -1981,7 +1981,7 @@ function Home({
           </div>
           <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 list-none p-0 m-0 mb-10">
             {[
-              { t: "AIGP · IAPP", d: "Artificial Intelligence Governance Professional — AI governance, privacy & risk" },
+              { t: "AIGP · IAPP", d: "Artificial Intelligence Governance Professional — in progress; AI governance, privacy & risk" },
               { t: "CPACC", d: "IAAP Certified Professional in Accessibility Core Competencies" },
               { t: "WCAG 2.2 AAA", d: "Conformance practice across federal and healthcare surfaces" },
               { t: "NIST AI RMF · EU AI Act", d: "Governance frameworks applied to model-risk UX" },
@@ -7373,8 +7373,8 @@ function Resume() {
             <p>
               <strong>Education &amp; certifications:</strong> B.E., Electronics &amp;
               Communication Engineering (HCI / human-factors focus), Madurai Kamaraj University,
-              1999. AIGP — AI Governance Professional (IAPP) · IAAP CPACC + WAS (CPWA) · CUA ·
-              CSM · Salesforce Certified UX Designer (in progress).
+              1999. AIGP — AI Governance Professional (IAPP) (in progress) · IAAP CPACC + WAS
+              (CPWA) · CUA · CSM · Salesforce Certified UX Designer (in progress).
             </p>
             <p>
               <strong>Standards:</strong> WCAG 2.2 AA, Section 508, ADA, FDA HFE / IEC 62366,

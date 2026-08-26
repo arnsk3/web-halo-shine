@@ -255,6 +255,7 @@ var get_resume_default = defineTool4({
       resume_pdf_url: `${BASE4}/Senthil_Nagappan_Resume.pdf`,
       portfolio_url: BASE4,
       credentials: [
+        "AIGP \u2014 in progress (IAPP)",
         "CPACC",
         "WCAG 2.2 AAA",
         "NIST AI RMF",
@@ -342,6 +343,20 @@ var GROUPS = [
       { name: "Accessible AI interfaces", level: 5, note: "WCAG 2.2 AA/AAA, colorblind-safe charts" },
       { name: "Eval harness & telemetry UX", level: 4, note: "dashboards for model behavior over time" }
     ]
+  },
+  {
+    id: "ai-consulting",
+    title: "Consulting & Engagement Leadership",
+    blurb: "Professional-services delivery for risk, regulatory, and AI governance engagements \u2014 from assessment to operating model.",
+    skills: [
+      { name: "Client engagement leadership", level: 5, note: "assessment \u2192 roadmap \u2192 delivery for regulated clients" },
+      { name: "AIGP \u2014 AI Governance Professional (IAPP) (in progress)", level: 4, note: "AI governance, privacy & risk credential pursuit" },
+      { name: "Financial-services risk & regulatory", level: 4, note: "model risk, compliance & technology engagements" },
+      { name: "Cross-functional coordination", level: 5, note: "privacy, security, risk, legal & engineering alignment" },
+      { name: "AI governance program design", level: 5, note: "policy, control taxonomy, oversight operating models" },
+      { name: "Executive & regulator readouts", level: 4, note: "board-ready reporting and audit evidence narratives" },
+      { name: "Stakeholder workshops & adoption", level: 4, note: "facilitation that turns frameworks into practice" }
+    ]
   }
 ];
 var get_skills_matrix_default = defineTool5({
@@ -350,7 +365,7 @@ var get_skills_matrix_default = defineTool5({
   description: "Return Senthil Nagappan's AI skills matrix. Groups cover AI product & interaction design, governance frameworks, operational governance, regulated-domain expertise, and AI engineering. Levels are 1\u20135 (Aware \u2192 Expert). Optionally filter to a single group.",
   inputSchema: {
     group_id: z2.string().optional().describe(
-      "Optional group id: ai-product, ai-frameworks, ai-operations, ai-regulated, ai-engineering."
+      "Optional group id: ai-product, ai-frameworks, ai-operations, ai-regulated, ai-engineering, ai-consulting."
     )
   },
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },

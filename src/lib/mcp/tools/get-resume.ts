@@ -17,6 +17,7 @@ export default defineTool({
       resume_pdf_url: `${BASE}/Senthil_Nagappan_Resume.pdf`,
       portfolio_url: BASE,
       credentials: [
+        "AIGP — in progress (IAPP)",
         "CPACC",
         "WCAG 2.2 AAA",
         "NIST AI RMF",
