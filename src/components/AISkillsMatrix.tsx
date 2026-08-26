@@ -42,13 +42,16 @@ const GROUPS: SkillGroup[] = [
       { name: "NIST AI RMF 1.0", level: 5, note: "govern / map / measure / manage" },
       { name: "Responsible AI program design", level: 5, note: "policy → controls → operating model → metrics" },
       { name: "AI assurance & audit readiness", level: 4, note: "control testing, readiness audits, evidence packs" },
-      { name: "EU AI Act", level: 4, note: "risk tiers, prohibited & high-risk obligations" },
+      { name: "EU AI Act", level: 4, note: "risk classification, Annex III high-risk, GPAI, provider vs deployer duties, conformity assessment" },
       { name: "ISO/IEC 42001 & 23894", level: 4, note: "AI management systems, risk guidance" },
-      { name: "U.S. AI policy landscape", level: 4, note: "EO 14179 & the 2025–26 federal framework, OMB M-25-21/22, state AI laws (CO/TX/CA)" },
+      { name: "Framework crosswalk design", level: 5, note: "one control set mapped to ISO 42001 ↔ NIST AI RMF ↔ EU AI Act" },
+      { name: "U.S. AI policy landscape", level: 4, note: "EO 14179 & the 2025–26 federal framework, OMB M-25-21/22" },
+      { name: "U.S. state AI patchwork", level: 4, note: "Colorado SB 24-205, Texas TRAIGA, NYC LL144, CA ADMT/SB 942" },
       { name: "SR 11-7 model risk management", level: 4, note: "Fed/OCC model risk, validation & inventory discipline" },
       { name: "FDA / IEC 62366 usability", level: 5, note: "medical-device human-factors engineering" },
       { name: "WCAG 2.2 & Section 508", level: 5, note: "AA/AAA accessibility conformance" },
       { name: "DoDI 5000.95 & MIL-STD-1472H", level: 4, note: "Human Systems Integration standards" },
+
     ],
   },
   {
