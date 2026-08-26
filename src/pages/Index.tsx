@@ -15,6 +15,8 @@ import ExpertiseSection from "@/components/ExpertiseSection";
 import BrandIdentitySection from "@/components/BrandIdentitySection";
 import AISkillsMatrix from "@/components/AISkillsMatrix";
 import GovernanceEngagements from "@/components/GovernanceEngagements";
+import AIGovernanceSection from "@/components/AIGovernanceSection";
+import AIGovernanceCaseStudy from "@/pages/AIGovernanceCaseStudy";
 import SectionIndex from "@/components/SectionIndex";
 import { Compass, Sprout, Network, Brain, Bot, FlaskConical } from "lucide-react";
 import caseWcagtool from "@/assets/case-wcagtool.jpg";
@@ -928,12 +930,13 @@ function FadeIn({ children, delay = 0, className = "" }: FadeInProps) {
   );
 }
 
-type PageId = "home" | "brand" | "about" | "approach" | "resume" | "contact" | "case" | "lab";
+type PageId = "home" | "brand" | "about" | "approach" | "resume" | "contact" | "case" | "lab" | "governance";
 
 function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) {
   // Curated 5-item nav. "Work" and "Expertise" scroll to landing sections;
   // Brand lives as a filter inside Work, not a top-level item.
   const sectionLinks: { id: string; label: string }[] = [
+    { id: "ai-governance", label: "AI Governance" },
     { id: "cases", label: "Work" },
     { id: "expertise", label: "Expertise" },
   ];
@@ -1068,7 +1071,7 @@ function DesignLeadership() {
     >
       <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2rem,4vw,3.5rem)]">
         <FadeIn>
-          <SectionIndex n="05" label="Design Leadership" />
+          <SectionIndex n="06" label="Design Leadership" />
           <h2
             id="leadership-heading"
             className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 mb-2 tracking-tight"
@@ -1240,7 +1243,7 @@ function TradeOffs() {
       className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2.5rem,4vw,3.5rem)]"
     >
       <FadeIn>
-        <SectionIndex n="06" label="Judgment" />
+        <SectionIndex n="07" label="Judgment" />
         <div className="max-w-2xl mb-8">
           <h2
             id="tradeoffs-heading"
@@ -1367,9 +1370,9 @@ function Home({
           </FadeIn>
           <FadeIn delay={0.15}>
             <p className="text-white text-base sm:text-lg mb-4 max-w-2xl mx-auto leading-relaxed">
-              18+ years on the interface between people and AI — clinical decision support,
-              federal programs, and enterprise design systems where getting it wrong isn&apos;t
-              an option.
+              Pairing accessibility leadership, design systems, and production front-end
+              engineering with AI governance and risk discipline — for safe, human-centered AI
+              in healthcare, federal, and enterprise environments.
             </p>
           </FadeIn>
           <FadeIn delay={0.18}>
@@ -1463,10 +1466,13 @@ function Home({
         </ul>
       </section>
 
+      {/* AI Governance & Responsible AI — peer section, immediately after hero */}
+      <AIGovernanceSection />
+
       {/* Case Studies — work leads the page */}
       <section id="cases" className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2rem,4vw,3.5rem)]" aria-labelledby="cases-heading">
         <FadeIn>
-          <SectionIndex n="01" label="Selected Work" />
+          <SectionIndex n="02" label="Selected Work" />
           <h2 id="cases-heading" className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2 tracking-tight">
 
             Selected Work
@@ -1773,7 +1779,7 @@ function Home({
       >
         <FadeIn>
           <div className="mb-8 max-w-2xl">
-            <SectionIndex n="07" label="Operating Model" />
+            <SectionIndex n="08" label="Operating Model" />
             <h2
               id="operating-model-heading"
               className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-2"
@@ -1866,7 +1872,7 @@ function Home({
       >
         <FadeIn>
           <div className="mb-8 max-w-2xl">
-            <SectionIndex n="08" label="Writing" />
+            <SectionIndex n="09" label="Writing" />
             <h2
               id="writing-heading"
               className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-2"
@@ -1921,7 +1927,7 @@ function Home({
       >
         <FadeIn>
           <div className="mb-8 max-w-2xl">
-            <SectionIndex n="09" label="Signals" />
+            <SectionIndex n="10" label="Signals" />
             <h2 id="signals-heading" className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-2">
               Verifiable signals.
             </h2>
