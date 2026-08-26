@@ -962,7 +962,7 @@ function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) 
     );
   };
   const linkClass = (active: boolean) =>
-    `inline-flex items-center min-h-[44px] px-2.5 sm:px-3 py-1.5 rounded-md text-sm transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2 ${
+    `inline-flex items-center whitespace-nowrap min-h-[44px] px-2.5 sm:px-3 py-1.5 rounded-md text-sm transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2 ${
       active
         ? "bg-[rgb(var(--c-primary)/0.1)] text-[rgb(var(--c-primary))] font-semibold"
         : "text-gray-700 hover:text-gray-900 hover:bg-gray-100"
@@ -988,7 +988,7 @@ function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) 
             Senthil Nagappan
           </span>
         </button>
-        <ul className="flex flex-wrap justify-end gap-0.5 sm:gap-1 list-none m-0 p-0">
+        <ul className="flex flex-nowrap sm:flex-wrap overflow-x-auto sm:overflow-visible justify-start sm:justify-end gap-0.5 sm:gap-1 list-none m-0 p-0 max-w-full [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
           {sectionLinks.map((l) => (
             <li key={l.id}>
               <button onClick={() => goSection(l.id)} className={linkClass(false)}>
@@ -1385,16 +1385,15 @@ function Home({
             </p>
           </FadeIn>
           <FadeIn delay={0.18}>
-            <p className="mb-2 max-w-2xl mx-auto text-[13px] sm:text-sm font-semibold text-white/90">
-              <span className="text-[rgb(var(--c-accent-on-dark))]">
+            <p className="mb-7 max-w-2xl mx-auto text-[13px] sm:text-sm text-white/90 leading-relaxed">
+              <span className="font-semibold text-[rgb(var(--c-accent-on-dark))]">
                 Director / Principal — AI Experience Design &amp; Human Systems Integration.
               </span>{" "}
-              Open to Director-level roles · US remote · available now.
-            </p>
-            <p className="mb-7 max-w-2xl mx-auto text-[12px] sm:text-[13px] text-white/85 leading-relaxed">
-              7+ years in compliance, risk management, and advisory roles with client-facing
-              delivery — leading a $130M federal program portfolio and scaling a cross-functional
-              team to 15+.
+              7+ years in compliance, risk &amp; advisory delivery — leading a $130M federal
+              program portfolio and scaling a cross-functional team to 15+.{" "}
+              <span className="font-semibold">
+                Open to Director-level roles · US remote · available now.
+              </span>
             </p>
           </FadeIn>
           <FadeIn delay={0.2}>
@@ -1895,7 +1894,7 @@ function Home({
               partners. Named references available on request.
             </p>
           </div>
-          <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 list-none p-0 m-0 mb-10">
+          <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 list-none p-0 m-0 mb-10">
             {[
               { t: "AIGP · IAPP", d: "Artificial Intelligence Governance Professional — in progress; AI governance, privacy & risk" },
               { t: "CPACC", d: "IAAP Certified Professional in Accessibility Core Competencies" },
