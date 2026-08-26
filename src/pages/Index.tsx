@@ -1384,11 +1384,16 @@ function Home({
             </p>
           </FadeIn>
           <FadeIn delay={0.18}>
-            <p className="mb-7 max-w-2xl mx-auto text-[13px] sm:text-sm font-semibold text-white/90">
+            <p className="mb-2 max-w-2xl mx-auto text-[13px] sm:text-sm font-semibold text-white/90">
               <span className="text-[rgb(var(--c-accent-on-dark))]">
                 Director / Principal — AI Experience Design &amp; Human Systems Integration.
               </span>{" "}
               Open to Director-level roles · US remote · available now.
+            </p>
+            <p className="mb-7 max-w-2xl mx-auto text-[12px] sm:text-[13px] text-white/85 leading-relaxed">
+              7+ years in compliance, risk management, and advisory roles with client-facing
+              delivery — leading a $130M federal program portfolio and scaling a cross-functional
+              team to 15+.
             </p>
           </FadeIn>
           <FadeIn delay={0.2}>
@@ -1417,10 +1422,11 @@ function Home({
             </div>
           </FadeIn>
           <FadeIn delay={0.25}>
-            <dl className="grid grid-cols-3 gap-px max-w-xl mx-auto rounded-xl overflow-hidden border border-white/15 bg-white/10 backdrop-blur">
+            <dl className="grid grid-cols-2 sm:grid-cols-4 gap-px max-w-3xl mx-auto rounded-xl overflow-hidden border border-white/15 bg-white/10 backdrop-blur">
               {[
-                { v: "1,200+", l: "clinicians supported" },
                 { v: "18+ yrs", l: "regulated-domain design" },
+                { v: "7+ yrs", l: "compliance, risk & advisory delivery" },
+                { v: "1,200+", l: "clinicians supported" },
                 { v: "AAA", l: "accessibility conformance" },
               ].map((s) => (
                 <div key={s.l} className="bg-white/[0.06] px-3 py-4">
