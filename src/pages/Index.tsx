@@ -7376,7 +7376,7 @@ function Resume() {
               >
                 arnsk3@gmail.com
               </a>{" "}
-              · 571-403-0835 · Frisco, TX (DFW) — remote / open to relocation.
+              · 571-403-0835 · Vienna, VA (DMV) | Frisco, TX (DFW) — remote / open to relocation.
             </p>
 
           </div>
