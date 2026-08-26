@@ -284,8 +284,123 @@ export default function AIGovernanceCaseStudy({ onHome }: { onHome: () => void }
             </dl>
           </section>
 
+          <section aria-labelledby="aigc-crosswalk">
+            <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[rgb(var(--c-accent-on-light))] mb-2">05 · Framework crosswalk</p>
+            <h2 id="aigc-crosswalk" className="font-display text-2xl font-extrabold text-gray-900 mb-3">One control set, three regimes.</h2>
+            <p className="text-gray-700 leading-relaxed mb-6">ISO/IEC 42001, the NIST AI RMF, and the EU AI Act overlap heavily. Rather than running three parallel compliance efforts, I map a single control library to all three so one piece of evidence satisfies multiple reviewers. This is the artifact that shortens audits.</p>
+            <div className="overflow-x-auto rounded-lg border border-gray-200">
+              <table className="w-full min-w-[720px] border-collapse text-left text-sm">
+                <caption className="sr-only">Crosswalk of internal AI controls to ISO/IEC 42001, NIST AI RMF, and EU AI Act requirements</caption>
+                <thead>
+                  <tr className="bg-[rgb(var(--c-primary))] text-white">
+                    <th scope="col" className="px-4 py-3 font-semibold">Control</th>
+                    <th scope="col" className="px-4 py-3 font-semibold">ISO/IEC 42001</th>
+                    <th scope="col" className="px-4 py-3 font-semibold">NIST AI RMF</th>
+                    <th scope="col" className="px-4 py-3 font-semibold">EU AI Act</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {CROSSWALK.map((row, i) => (
+                    <tr key={row.control} className={i % 2 ? "bg-[rgb(var(--c-tint-50))]" : "bg-white"}>
+                      <th scope="row" className="px-4 py-3 align-top font-semibold text-gray-900">{row.control}</th>
+                      <td className="px-4 py-3 align-top text-gray-700">{row.iso}</td>
+                      <td className="px-4 py-3 align-top text-gray-700">{row.nist}</td>
+                      <td className="px-4 py-3 align-top text-gray-700">{row.eu}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section aria-labelledby="aigc-euaia">
+            <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[rgb(var(--c-accent-on-light))] mb-2">06 · EU AI Act readiness</p>
+            <h2 id="aigc-euaia" className="font-display text-2xl font-extrabold text-gray-900 mb-3">Classification first, obligations second.</h2>
+            <p className="text-gray-700 leading-relaxed mb-6">Every use case is triaged into a risk class at intake, because the class determines the entire downstream obligation set. High-risk application dates land across 2026–27, so classification decisions made now determine whether a product ships or stalls.</p>
+            <DefGrid items={EU_TIERS} />
+            <div className="mt-6 grid gap-4 sm:grid-cols-2">
+              {EU_DUTIES.map((d) => (
+                <div key={d.role} className="rounded-lg border border-gray-200 bg-white p-5">
+                  <h3 className="font-display text-lg font-bold text-gray-900 mb-3">{d.role}</h3>
+                  <ul className="space-y-2 list-none p-0 m-0">
+                    {d.items.map((i) => (
+                      <li key={i} className="flex gap-2 text-sm text-gray-700 leading-relaxed"><span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[rgb(var(--c-accent))]" />{i}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section aria-labelledby="aigc-registry">
+            <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[rgb(var(--c-accent-on-light))] mb-2">07 · Inventory &amp; registry</p>
+            <h2 id="aigc-registry" className="font-display text-2xl font-extrabold text-gray-900 mb-3">You cannot govern what you have not inventoried.</h2>
+            <p className="text-gray-700 leading-relaxed mb-6">The registry is the backbone of the program: intake creates the record, classification sets the obligations, and every later artifact links back to it. It is also what turns board reporting from anecdote into portfolio data.</p>
+            <DefGrid items={REGISTRY_FIELDS} />
+          </section>
+
+          <section aria-labelledby="aigc-thirdparty">
+            <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[rgb(var(--c-accent-on-light))] mb-2">08 · Third-party &amp; shadow AI</p>
+            <h2 id="aigc-thirdparty" className="font-display text-2xl font-extrabold text-gray-900 mb-3">Most AI risk now arrives through procurement.</h2>
+            <p className="text-gray-700 leading-relaxed mb-6">Organizations rarely train their own models. Risk enters through vendors, embedded AI features, and tools staff adopt without approval. Governing the supply chain and the unsanctioned edge is where run-state programs succeed or quietly fail.</p>
+            <DefGrid items={THIRD_PARTY} />
+          </section>
+
+          <section aria-labelledby="aigc-literacy">
+            <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[rgb(var(--c-accent-on-light))] mb-2">09 · AI literacy &amp; enablement</p>
+            <h2 id="aigc-literacy" className="font-display text-2xl font-extrabold text-gray-900 mb-3">Controls only hold if people understand them.</h2>
+            <p className="text-gray-700 leading-relaxed mb-6">EU AI Act Article 4 makes AI literacy an explicit duty, and every governance program I have seen stall did so from a change-management failure rather than a technical one. Training is layered by decision authority, not delivered as one generic course.</p>
+            <DefGrid items={LITERACY} />
+          </section>
+
+          <section aria-labelledby="aigc-incident">
+            <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[rgb(var(--c-accent-on-light))] mb-2">10 · Incidents &amp; post-market monitoring</p>
+            <h2 id="aigc-incident" className="font-display text-2xl font-extrabold text-gray-900 mb-3">Launch is the start of the obligation, not the end.</h2>
+            <p className="text-gray-700 leading-relaxed mb-6">Post-market monitoring and serious-incident reporting are explicit regulatory duties. The workflow has to be defined before the first incident, with named owners, thresholds, and clocks that a regulator can inspect.</p>
+            <DefGrid items={INCIDENT} />
+          </section>
+
+          <section aria-labelledby="aigc-state">
+            <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[rgb(var(--c-accent-on-light))] mb-2">11 · U.S. state patchwork</p>
+            <h2 id="aigc-state" className="font-display text-2xl font-extrabold text-gray-900 mb-3">Federal posture is not the whole map.</h2>
+            <p className="text-gray-700 instrumentation leading-relaxed mb-6">Alongside the 2025–26 federal framework and OMB M-25-21/22 for agency use, state law drives concrete product requirements. Multi-state deployers need the strictest-common-denominator control set rather than fifty variants.</p>
+            <DefGrid items={STATE_LAWS} />
+          </section>
+
+          <section aria-labelledby="aigc-agentic">
+            <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[rgb(var(--c-accent-on-light))] mb-2">12 · Agentic AI governance</p>
+            <h2 id="aigc-agentic" className="font-display text-2xl font-extrabold text-gray-900 mb-3">Autonomy is the new risk variable.</h2>
+            <p className="text-gray-700 leading-relaxed mb-6">When a system can take action rather than recommend one, the governing question shifts from "is the output correct?" to "what is this system permitted to do, and who can stop it?" These controls are prototyped in the Sentinel concept.</p>
+            <DefGrid items={AGENTIC} />
+          </section>
+
+          <section aria-labelledby="aigc-tooling">
+            <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[rgb(var(--c-accent-on-light))] mb-2">13 · Tooling</p>
+            <h2 id="aigc-tooling" className="font-display text-2xl font-extrabold text-gray-900 mb-3">Platform-literate, platform-agnostic.</h2>
+            <p className="text-gray-700 leading-relaxed mb-6">Tooling should encode the operating model, not define it. I design the control set first, then evaluate which platform can carry the registry, assessments, evidence, and reporting with the least manual overhead.</p>
+            <DefGrid items={TOOLING} />
+          </section>
+
+          <section aria-labelledby="aigc-scope">
+            <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[rgb(var(--c-accent-on-light))] mb-2">14 · Program scope</p>
+            <h2 id="aigc-scope" className="font-display text-2xl font-extrabold text-gray-900 mb-4">Reference framework, by the numbers.</h2>
+            <dl className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {PROGRAM_SCOPE.map(([n, label]) => (
+                <div key={label} className="rounded-lg border border-gray-200 bg-[rgb(var(--c-tint-50))] p-5">
+                  <dt className="sr-only">{label}</dt>
+                  <dd>
+                    <span className="block font-display text-3xl font-extrabold text-[rgb(var(--c-accent-on-light))]">{n}</span>
+                    <span className="mt-1 block text-sm text-gray-700 leading-snug">{label}</span>
+                  </dd>
+                </div>
+              ))}
+            </dl>
+            <p className="mt-4 text-sm text-gray-600">These describe the size of the reference framework itself, not client outcomes.</p>
+          </section>
+
           <section aria-labelledby="aigc-outcome">
-            <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[rgb(var(--c-accent-on-light))] mb-2">05 · Outcome</p>
+            <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[rgb(var(--c-accent-on-light))] mb-2">15 · Outcome</p>
+
             <h2 id="aigc-outcome" className="font-display text-2xl font-extrabold text-gray-900 mb-4">A governance system teams can operate.</h2>
             <ul className="space-y-3 list-none p-0 m-0">
               {OUTCOMES.map((outcome) => <li key={outcome} className="flex gap-3 text-gray-700 leading-relaxed"><span aria-hidden="true" className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[rgb(var(--c-accent))]" />{outcome}</li>)}
