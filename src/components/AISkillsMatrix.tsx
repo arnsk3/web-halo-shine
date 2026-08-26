@@ -41,7 +41,7 @@ const GROUPS: SkillGroup[] = [
       { name: "NIST AI RMF 1.0", level: 5, note: "govern / map / measure / manage" },
       { name: "EU AI Act", level: 4, note: "risk tiers, prohibited & high-risk obligations" },
       { name: "ISO/IEC 42001 & 23894", level: 4, note: "AI management systems, risk guidance" },
-      { name: "U.S. AI policy landscape", level: 4, note: "EO 14110 & successors, OMB M-24-10, state AI laws" },
+      { name: "U.S. AI policy landscape", level: 4, note: "EO 14179 & the 2025–26 federal framework, OMB M-25-21/22, state AI laws (CO/TX/CA)" },
       { name: "SR 11-7 model risk management", level: 4, note: "Fed/OCC model risk, validation & inventory discipline" },
       { name: "FDA / IEC 62366 usability", level: 5, note: "medical-device human-factors engineering" },
       { name: "WCAG 2.2 & Section 508", level: 5, note: "AA/AAA accessibility conformance" },
@@ -105,6 +105,7 @@ const GROUPS: SkillGroup[] = [
     blurb: "Professional-services delivery for risk, regulatory, and AI governance engagements — from assessment to operating model.",
     skills: [
       { name: "Client engagement leadership", level: 5, note: "assessment → roadmap → delivery for regulated clients" },
+      { name: "AIGP — AI Governance Professional (IAPP)", level: 4, note: "AI governance, privacy & risk credential" },
       { name: "Financial-services risk & regulatory", level: 4, note: "model risk, compliance & technology engagements" },
       { name: "Cross-functional coordination", level: 5, note: "privacy, security, risk, legal & engineering alignment" },
       { name: "AI governance program design", level: 5, note: "policy, control taxonomy, oversight operating models" },
@@ -152,7 +153,7 @@ export default function AISkillsMatrix() {
           <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-[rgb(var(--c-accent-light))] animate-pulse" />
           AI as a primary skill
         </p>
-        <SectionIndex n="03" label="Skills Matrix" tone="dark" />
+        <SectionIndex n="04" label="Skills Matrix" tone="dark" />
         <h2
           id="ai-skills-heading"
           className="text-2xl sm:text-3xl font-extrabold mb-3 tracking-tight"

@@ -14,6 +14,7 @@ import ThemeSwitcher from "@/components/ThemeSwitcher";
 import ExpertiseSection from "@/components/ExpertiseSection";
 import BrandIdentitySection from "@/components/BrandIdentitySection";
 import AISkillsMatrix from "@/components/AISkillsMatrix";
+import GovernanceEngagements from "@/components/GovernanceEngagements";
 import SectionIndex from "@/components/SectionIndex";
 import { Compass, Sprout, Network, Brain, Bot, FlaskConical } from "lucide-react";
 import caseWcagtool from "@/assets/case-wcagtool.jpg";
@@ -148,6 +149,11 @@ const CASE_STUDIES: CaseStudyType[] = [
         heading: "My Role",
         content:
           "I owned this product end-to-end: the governance framework, the information architecture, the visual design system, and the React + TypeScript front-end build. I defined the risk-tiering taxonomy, designed the human-oversight interaction models, built the reusable data-visualization component library, and shaped how compliance evidence is captured as a byproduct of everyday use. I worked the way I would embedded with a Chief AI Officer's team — translating regulation into screens stakeholders actually adopt.",
+      },
+      {
+        heading: "Coordinating Across Functions",
+        content:
+          "I ran governance as a cross-functional program, not a design exercise: privacy owned data-handling review, security owned model-access and prompt-injection controls, risk & compliance owned the control taxonomy and acceptance criteria, legal validated the regulatory mappings, and engineering owned the telemetry and evidence pipelines. I chaired the weekly governance cadence, kept a single decision log every function could trust, and translated between vocabularies — so a control specified by risk actually shipped in engineering's sprint and stood up to legal's read of the regulation.",
       },
       {
         heading: "What It Does",
@@ -807,9 +813,11 @@ const CASE_STUDIES: CaseStudyType[] = [
 ];
 
 const CREDS = [
+  "AIGP (IAPP)",
   "CPACC + WAS",
   "CUA",
   "CSM",
+  "ISO/IEC 42001",
   "FDA / IEC 62366",
   "WCAG 2.2 AA",
   "MIL-STD-1472H",
