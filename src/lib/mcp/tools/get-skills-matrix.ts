@@ -108,7 +108,7 @@ export default defineTool({
       .string()
       .optional()
       .describe(
-        "Optional group id: ai-product, ai-frameworks, ai-operations, ai-regulated, ai-engineering.",
+        "Optional group id: ai-product, ai-frameworks, ai-operations, ai-regulated, ai-engineering, ai-consulting.",
       ),
   },
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },

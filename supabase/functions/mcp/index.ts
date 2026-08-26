@@ -364,7 +364,7 @@ var get_skills_matrix_default = defineTool5({
   description: "Return Senthil Nagappan's AI skills matrix. Groups cover AI product & interaction design, governance frameworks, operational governance, regulated-domain expertise, and AI engineering. Levels are 1\u20135 (Aware \u2192 Expert). Optionally filter to a single group.",
   inputSchema: {
     group_id: z2.string().optional().describe(
-      "Optional group id: ai-product, ai-frameworks, ai-operations, ai-regulated, ai-engineering."
+      "Optional group id: ai-product, ai-frameworks, ai-operations, ai-regulated, ai-engineering, ai-consulting."
     )
   },
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
