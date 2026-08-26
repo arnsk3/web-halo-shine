@@ -962,7 +962,7 @@ function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) 
     );
   };
   const linkClass = (active: boolean) =>
-    `inline-flex items-center min-h-[44px] px-2.5 sm:px-3 py-1.5 rounded-md text-sm transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2 ${
+    `inline-flex items-center whitespace-nowrap min-h-[44px] px-2.5 sm:px-3 py-1.5 rounded-md text-sm transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2 ${
       active
         ? "bg-[rgb(var(--c-primary)/0.1)] text-[rgb(var(--c-primary))] font-semibold"
         : "text-gray-700 hover:text-gray-900 hover:bg-gray-100"
