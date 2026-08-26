@@ -363,7 +363,7 @@ export default function AIGovernanceCaseStudy({ onHome }: { onHome: () => void }
           <section aria-labelledby="aigc-state">
             <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[rgb(var(--c-accent-on-light))] mb-2">11 · U.S. state patchwork</p>
             <h2 id="aigc-state" className="font-display text-2xl font-extrabold text-gray-900 mb-3">Federal posture is not the whole map.</h2>
-            <p className="text-gray-700 instrumentation leading-relaxed mb-6">Alongside the 2025–26 federal framework and OMB M-25-21/22 for agency use, state law drives concrete product requirements. Multi-state deployers need the strictest-common-denominator control set rather than fifty variants.</p>
+            <p className="text-gray-700 leading-relaxed mb-6">Alongside the 2025–26 federal framework and OMB M-25-21/22 for agency use, state law drives concrete product requirements. Multi-state deployers need the strictest-common-denominator control set rather than fifty variants.</p>
             <DefGrid items={STATE_LAWS} />
           </section>
 
