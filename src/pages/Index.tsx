@@ -6974,7 +6974,9 @@ function About() {
               className="group rounded-xl bg-white border border-gray-200 p-5 transition-all hover:border-[rgb(var(--c-primary)/0.35)] hover:shadow-md hover:-translate-y-0.5"
             >
               <div className="flex items-center gap-2 mb-3">
-                <span aria-hidden="true" className="text-lg">{g.icon}</span>
+                <span aria-hidden="true" className="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-[rgb(var(--c-primary)/0.08)]">
+                  <g.icon className="h-4 w-4 text-[rgb(var(--c-primary))]" />
+                </span>
                 <h3 className="font-bold text-gray-900 text-sm">{g.title}</h3>
               </div>
               <ul className="flex gap-1.5 flex-wrap list-none p-0 m-0">
