@@ -1414,12 +1414,11 @@ function Home({
             </div>
           </FadeIn>
           <FadeIn delay={0.25}>
-            <dl className="grid grid-cols-2 sm:grid-cols-4 gap-px max-w-3xl mx-auto rounded-xl overflow-hidden border border-white/15 bg-white/10 backdrop-blur">
+            <dl className="grid grid-cols-1 sm:grid-cols-3 gap-px max-w-2xl mx-auto rounded-xl overflow-hidden border border-white/15 bg-white/10 backdrop-blur">
               {[
                 { v: "18+ yrs", l: "regulated-domain design" },
                 { v: "7+ yrs", l: "compliance, risk & advisory delivery" },
                 { v: "1,200+", l: "clinicians supported" },
-                { v: "AAA", l: "accessibility conformance" },
               ].map((s) => (
                 <div key={s.l} className="bg-white/[0.06] px-3 py-4">
                   <dt className="sr-only">{s.l}</dt>
