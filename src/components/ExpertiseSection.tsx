@@ -330,15 +330,13 @@ function DomainDialog({ domain, isLast }: { domain: Domain; isLast: boolean }) {
         d={domain}
         isLast={isLast}
         trigger={
-          <DialogTrigger asChild>
-            <button
-              type="button"
-              aria-label={`Read more about ${domain.title}`}
-              className="inline-flex items-center gap-1 rounded-md text-[13px] font-bold text-[rgb(var(--c-accent-on-light))] min-h-[44px] px-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
-            >
-              Read more
-              <span aria-hidden="true">→</span>
-            </button>
+          <DialogTrigger
+            type="button"
+            aria-label={`Read more about ${domain.title}`}
+            className="inline-flex items-center gap-1 rounded-md text-[13px] font-bold text-[rgb(var(--c-accent-on-light))] min-h-[44px] px-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
+          >
+            Read more
+            <span aria-hidden="true">→</span>
           </DialogTrigger>
         }
       />

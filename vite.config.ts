@@ -1,7 +1,6 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
-import { componentTagger } from "lovable-tagger";
 import { mcpPlugin } from "@lovable.dev/mcp-js/stacks/supabase/vite";
 
 
@@ -14,7 +13,9 @@ export default defineConfig(({ mode }) => ({
       overlay: false,
     },
   },
-  plugins: [react(), mode === "development" && componentTagger(), mcpPlugin()].filter(Boolean),
+  // The legacy component tagger injects refs into function components under
+  // React 18, generating misleading forwardRef warnings across the app.
+  plugins: [react(), mcpPlugin()],
   define: {
     __BUILD_DATE__: JSON.stringify(new Date().toISOString()),
   },

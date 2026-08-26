@@ -1131,6 +1131,7 @@ function BrandTeaser({ onOpen }: { onOpen: () => void }) {
     >
       <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] pt-[clamp(2rem,4vw,3.5rem)] pb-[clamp(1rem,2vw,2rem)]">
         <FadeIn>
+          <SectionIndex n="07" label="Visual Systems" />
           <article className="group grid gap-8 md:grid-cols-[1.2fr_1fr] items-center rounded-2xl border border-gray-200 bg-[rgb(var(--c-tint-50))] overflow-hidden shadow-sm transition-all duration-300 hover:shadow-xl hover:border-[rgb(var(--c-primary)/0.3)]">
             <div className="p-8 sm:p-10">
               <p className="text-[rgb(var(--c-accent-on-light))] text-xs font-semibold tracking-[2px] uppercase mb-3">
@@ -1251,7 +1252,7 @@ function TradeOffs() {
       className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2.5rem,4vw,3.5rem)]"
     >
       <FadeIn>
-        <SectionIndex n="07" label="Judgment" />
+        <SectionIndex n="08" label="Judgment" />
         <div className="max-w-2xl mb-8">
           <h2
             id="tradeoffs-heading"
@@ -1404,15 +1405,6 @@ function Home({
               >
                 View the work <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
               </button>
-              <a
-                href="/Senthil_Nagappan_Resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center justify-center gap-2 min-h-[44px] bg-white/10 border border-white/40 text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-white/20 hover:-translate-y-0.5 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
-              >
-                Download résumé (PDF)
-                <span aria-hidden="true" className="transition-transform group-hover:translate-y-0.5">↓</span>
-              </a>
               <button
                 onClick={() => setPage("contact")}
                 className="group inline-flex items-center justify-center gap-2 min-h-[44px] bg-white/10 border border-white/40 text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-white/20 hover:-translate-y-0.5 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
@@ -1441,44 +1433,10 @@ function Home({
               ))}
             </dl>
           </FadeIn>
-          <FadeIn delay={0.3}>
-            <div className="mt-8">
-              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/70 mb-3">
-                Delivered for
-              </p>
-              <ul className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 list-none p-0 m-0">
-                {["GE HealthCare", "Social Security Administration", "SAMHSA", "Best Buy"].map((o) => (
-                  <li
-                    key={o}
-                    className="font-display text-[13px] sm:text-sm font-bold tracking-tight text-white/80"
-                  >
-                    {o}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </FadeIn>
         </div>
 
 
       </header>
-
-      {/* Credentials */}
-      <section
-        aria-label="Professional certifications and standards"
-        className="bg-[#fafbfc] border-b border-gray-100 py-4"
-      >
-        <ul className="max-w-4xl mx-auto flex justify-center gap-2 flex-wrap px-4 list-none p-0 m-0">
-          {CREDS.map((c) => (
-            <li
-              key={c}
-              className="text-[10px] sm:text-xs px-3 py-1 rounded-full border border-[rgb(var(--c-primary)/0.3)] text-[rgb(var(--c-primary))] font-medium bg-white"
-            >
-              {c}
-            </li>
-          ))}
-        </ul>
-      </section>
 
       {/* AI Governance & Responsible AI — peer section, immediately after hero */}
       <AIGovernanceSection />
@@ -1793,7 +1751,7 @@ function Home({
       >
         <FadeIn>
           <div className="mb-8 max-w-2xl">
-            <SectionIndex n="08" label="Operating Model" />
+            <SectionIndex n="09" label="Operating Model" />
             <h2
               id="operating-model-heading"
               className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-2"
@@ -1886,7 +1844,7 @@ function Home({
       >
         <FadeIn>
           <div className="mb-8 max-w-2xl">
-            <SectionIndex n="09" label="Writing" />
+            <SectionIndex n="10" label="Writing" />
             <h2
               id="writing-heading"
               className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-2"
@@ -1914,20 +1872,6 @@ function Home({
                 t: "Human systems integration for AI teams",
                 d: "What IEC 62366 and MIL-STD-1472H still teach us about use error when the system that errs is a model, not a mechanism.",
                 tag: "Human Factors",
-              },
-              {
-                t: "Why Human-in-the-Loop Controls Fail",
-                d: "Placeholder — abstract to be added.",
-                tag: "AI Governance",
-                date: "TBD",
-                draft: true,
-              },
-              {
-                t: "Explainability Is an Interface Problem",
-                d: "Placeholder — abstract to be added.",
-                tag: "AI Experience Design",
-                date: "TBD",
-                draft: true,
               },
             ] as { t: string; d: string; tag: string; date?: string; href?: string; draft?: boolean }[]).map((a) => (
               <article
@@ -1976,7 +1920,7 @@ function Home({
       >
         <FadeIn>
           <div className="mb-8 max-w-2xl">
-            <SectionIndex n="10" label="Signals" />
+            <SectionIndex n="11" label="Signals" />
             <h2 id="signals-heading" className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-2">
               Verifiable signals.
             </h2>
