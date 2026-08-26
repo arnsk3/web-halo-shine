@@ -80,7 +80,7 @@ const ENGAGEMENTS: Engagement[] = [
 ];
 
 const FUNCTIONS = [
-  { f: "Privacy", d: "data-handling review & AI/privacy overlap (AIGP lens)" },
+  { f: "Privacy", d: "data-handling review & AI/privacy overlap (AIGP / privacy lens)" },
   { f: "Security", d: "model-access, prompt-injection & data-leak controls" },
   { f: "Risk & Compliance", d: "control taxonomy, acceptance criteria, SR 11-7 discipline" },
   { f: "Legal", d: "regulatory mapping — EU AI Act, state AI laws, federal framework" },
