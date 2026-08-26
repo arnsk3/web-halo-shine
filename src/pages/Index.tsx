@@ -6901,7 +6901,7 @@ function About() {
               Senthil Nagappan
             </h1>
             <p className="text-[rgb(var(--c-accent-dark))] font-semibold text-sm mb-3">
-              Senior UI/UX &amp; Visual Designer · AI Safety &amp; Human Systems Integration Leader
+              AI Experience Design &amp; Human Systems Integration · AI Governance &amp; Responsible AI Leader
             </p>
             <p className="text-gray-700 text-sm leading-relaxed mb-3">
               18+ years building enterprise functions that deliver safe, compliant,
@@ -6928,6 +6928,19 @@ function About() {
               <div className="text-[11px] font-medium opacity-90 mt-0.5 leading-tight">{s.label}</div>
             </div>
           ))}
+        </div>
+      </FadeIn>
+
+      {/* Compliance & advisory claim — the combined JD signal, stated explicitly */}
+      <FadeIn delay={0.08}>
+        <div className="rounded-xl border-l-4 border-[rgb(var(--c-primary))] bg-[rgb(var(--c-tint-50))] px-5 py-4 mb-12">
+          <p className="text-sm text-gray-800 leading-relaxed">
+            <strong className="text-gray-900">7+ years in compliance, risk management, and advisory roles</strong>{" "}
+            with client-facing delivery and team leadership — directing a $130M federal program
+            portfolio, running Section 508 / WCAG governance as organizational policy, delivering
+            financial-services model-risk work at JPMorgan Chase and Morgan Stanley, and scaling a
+            cross-functional team to 15+.
+          </p>
         </div>
       </FadeIn>
 
