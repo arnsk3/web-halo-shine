@@ -187,6 +187,19 @@ const OUTCOMES = [
 ] as const;
 
 
+function DefGrid({ items }: { items: readonly (readonly [string, string])[] }) {
+  return (
+    <dl className="grid gap-px overflow-hidden rounded-lg border border-gray-200 bg-gray-200 sm:grid-cols-2">
+      {items.map(([term, description]) => (
+        <div key={term} className="bg-white p-5">
+          <dt className="font-bold text-gray-900 mb-1">{term}</dt>
+          <dd className="text-sm text-gray-700 leading-relaxed">{description}</dd>
+        </div>
+      ))}
+    </dl>
+  );
+}
+
 export default function AIGovernanceCaseStudy({ onHome }: { onHome: () => void }) {
   return (
     <div>
