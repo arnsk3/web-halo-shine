@@ -988,7 +988,7 @@ function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) 
             Senthil Nagappan
           </span>
         </button>
-        <ul className="flex flex-wrap justify-end gap-0.5 sm:gap-1 list-none m-0 p-0">
+        <ul className="flex flex-nowrap sm:flex-wrap overflow-x-auto sm:overflow-visible justify-start sm:justify-end gap-0.5 sm:gap-1 list-none m-0 p-0 max-w-full [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
           {sectionLinks.map((l) => (
             <li key={l.id}>
               <button onClick={() => goSection(l.id)} className={linkClass(false)}>
