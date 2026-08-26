@@ -1955,6 +1955,38 @@ function Home({
         </FadeIn>
       </section>
 
+      {/* Brief About — teaser placed after the numbered sequence so 01–11 run uninterrupted */}
+      <section className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2rem,4vw,3.5rem)]" aria-labelledby="brief-about-heading">
+        <FadeIn>
+          <div className="max-w-3xl mx-auto">
+            <div className="flex gap-5 items-start bg-white border border-gray-200 rounded-xl p-6">
+              <img
+                src="/headshot.jpg"
+                alt=""
+                aria-hidden="true"
+                className="w-16 h-16 rounded-full object-cover flex-shrink-0"
+              />
+              <div>
+                <h2 id="brief-about-heading" className="font-bold text-gray-900 mb-1 text-base">
+                  Senthil Nagappan
+                </h2>
+                <p className="text-gray-700 text-sm leading-relaxed mb-2">
+                  Senior AI and Human Systems Integration leader with 18+ years building
+                  enterprise functions that deliver safe, compliant, AI-driven products in
+                  regulated environments.
+                </p>
+                <button
+                  onClick={() => setPage("about")}
+                  className="inline-flex items-center min-h-[44px] text-[rgb(var(--c-primary))] text-sm font-semibold hover:text-[rgb(var(--c-accent-on-light))] transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
+                >
+                  Read full story <span aria-hidden="true">→</span>
+                  <span className="sr-only">about Senthil Nagappan</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </FadeIn>
+      </section>
 
       {/* Closing CTA band */}
       <section
