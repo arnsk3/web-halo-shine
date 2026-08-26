@@ -1068,7 +1068,7 @@ function DesignLeadership() {
     >
       <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2rem,4vw,3.5rem)]">
         <FadeIn>
-          <SectionIndex n="04" label="Design Leadership" />
+          <SectionIndex n="05" label="Design Leadership" />
           <h2
             id="leadership-heading"
             className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 mb-2 tracking-tight"
@@ -1240,7 +1240,7 @@ function TradeOffs() {
       className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2.5rem,4vw,3.5rem)]"
     >
       <FadeIn>
-        <SectionIndex n="05" label="Judgment" />
+        <SectionIndex n="06" label="Judgment" />
         <div className="max-w-2xl mb-8">
           <h2
             id="tradeoffs-heading"
@@ -1714,6 +1714,9 @@ function Home({
         )}
       </section>
 
+      {/* AI Governance Engagements */}
+      <GovernanceEngagements />
+
       {/* Domain Expertise */}
       <ExpertiseSection />
 
@@ -1770,7 +1773,7 @@ function Home({
       >
         <FadeIn>
           <div className="mb-8 max-w-2xl">
-            <SectionIndex n="06" label="Operating Model" />
+            <SectionIndex n="07" label="Operating Model" />
             <h2
               id="operating-model-heading"
               className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-2"
@@ -1863,7 +1866,7 @@ function Home({
       >
         <FadeIn>
           <div className="mb-8 max-w-2xl">
-            <SectionIndex n="07" label="Writing" />
+            <SectionIndex n="08" label="Writing" />
             <h2
               id="writing-heading"
               className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-2"
@@ -1918,7 +1921,7 @@ function Home({
       >
         <FadeIn>
           <div className="mb-8 max-w-2xl">
-            <SectionIndex n="08" label="Signals" />
+            <SectionIndex n="09" label="Signals" />
             <h2 id="signals-heading" className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-2">
               Verifiable signals.
             </h2>
@@ -1929,9 +1932,11 @@ function Home({
           </div>
           <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 list-none p-0 m-0 mb-10">
             {[
+              { t: "AIGP · IAPP", d: "Artificial Intelligence Governance Professional — AI governance, privacy & risk" },
               { t: "CPACC", d: "IAAP Certified Professional in Accessibility Core Competencies" },
               { t: "WCAG 2.2 AAA", d: "Conformance practice across federal and healthcare surfaces" },
               { t: "NIST AI RMF · EU AI Act", d: "Governance frameworks applied to model-risk UX" },
+              { t: "ISO/IEC 42001", d: "AI management-systems standard applied to program design" },
               { t: "IEC 62366 · MIL-STD-1472H", d: "Usability engineering and human-factors standards" },
             ].map((c) => (
               <li key={c.t} className="rounded-xl border border-gray-200 bg-white p-5">
@@ -7210,7 +7215,7 @@ function Resume() {
             {[
               { g: "Design Leadership", s: ["Player-coach leadership", "Mentorship & career growth", "Influence without authority", "Executive storytelling", "Cross-product systems thinking", "AI-in-the-design-process", "Design ops", "Culture of experimentation"] },
               { g: "Healthcare & Revenue Cycle", s: ["Revenue cycle & reimbursement", "Medical coding (ICD-10 / CPT / HCPCS)", "Claims & denial management", "Clinical decision-support", "Intelligent automation", "HIPAA"] },
-              { g: "AI Design & Governance", s: ["Human–AI interaction", "Explainability & confidence UX", "Human-in-the-loop oversight", "Agentic AI guardrails", "RAG / source-grounding UX", "NIST AI RMF", "EU AI Act", "ISO/IEC 42001", "Bias & drift monitoring", "Red-team / TEVV"] },
+              { g: "AI Design & Governance", s: ["Human–AI interaction", "Explainability & confidence UX", "Human-in-the-loop oversight", "Agentic AI guardrails", "RAG / source-grounding UX", "NIST AI RMF", "EU AI Act", "ISO/IEC 42001", "SR 11-7 model risk", "GenAI risk controls (prompt / data / eval / monitoring)", "GRC tooling (ServiceNow / Archer)", "Collibra / Alation & model registries", "Bias & drift monitoring", "Red-team / TEVV"] },
               { g: "AI Engineering", s: ["LLM integration (React + TS)", "AI data-viz components", "Llama / GPT-class models", "CI/CD AI quality gates", "Eval harness & telemetry UX"] },
               { g: "Design", s: ["Visual & brand design", "Design systems", "Figma & prototyping", "Data visualization"] },
               { g: "Engineering", s: ["React", "TypeScript", "Tailwind CSS", "Redux / Context", "Vite / Webpack", "REST APIs"] },
@@ -7274,12 +7279,21 @@ function Resume() {
           <div className="px-5 py-4 text-sm text-gray-800 leading-relaxed space-y-3">
             <p>
               <strong>Senthil Nagappan</strong> — AI Experience Design &amp; Human Systems
-              Integration. 18+ years pairing accessibility leadership, design systems, and
-              production front-end engineering to deliver safe, human-centered AI across
-              healthcare, federal, and enterprise environments. I design the experiences and
-              the strategic logic that let human-centered empathy govern intelligent,
-              non-deterministic systems — building trust, transparency, and control into
-              agentic and data-rich products, then prototyping and shipping them in real code.
+              Integration. 18+ years pairing AI governance, accessibility leadership, design
+              systems, and production front-end engineering to deliver safe, human-centered AI
+              across healthcare, federal, financial-services, and enterprise environments. I
+              design the experiences and the strategic logic that let human-centered empathy
+              govern intelligent, non-deterministic systems — building trust, transparency, and
+              control into agentic and data-rich products, then prototyping and shipping them in
+              real code.
+            </p>
+            <p>
+              <strong>AI governance &amp; model risk:</strong> governance program design mapped to
+              NIST AI RMF, the EU AI Act, ISO/IEC 42001, and SR 11-7 model-risk discipline; genAI
+              risk controls (prompt &amp; data controls, evaluation harnesses, monitoring); model
+              documentation &amp; testing practices; GRC, data &amp; model tooling — ServiceNow GRC
+              / Archer, Collibra / Alation, model registries &amp; ML platforms. Earlier
+              financial-services delivery at JPMorgan Chase and Morgan Stanley.
             </p>
 
             <p>
@@ -7310,8 +7324,8 @@ function Resume() {
             <p>
               <strong>Education &amp; certifications:</strong> B.E., Electronics &amp;
               Communication Engineering (HCI / human-factors focus), Madurai Kamaraj University,
-              1999. IAAP CPACC + WAS (CPWA) · CUA · CSM · Salesforce Certified UX Designer
-              (in progress).
+              1999. AIGP — AI Governance Professional (IAPP) · IAAP CPACC + WAS (CPWA) · CUA ·
+              CSM · Salesforce Certified UX Designer (in progress).
             </p>
             <p>
               <strong>Standards:</strong> WCAG 2.2 AA, Section 508, ADA, FDA HFE / IEC 62366,
