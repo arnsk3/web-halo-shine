@@ -1,10 +1,46 @@
 # Senthil Nagappan
 
-> Portfolio of Senthil Nagappan — AI safety, human systems integration, and accessibility leadership for healthcare, federal, and regulated environments.
+> AI Experience Design, AI Governance, and Human Systems Integration leader. 18+ years in regulated healthcare, federal, defense, financial-services, and retail environments; 7+ years leading compliance, risk, and advisory programs with client-facing delivery. Based in Frisco, TX (US).
 
-Single-page portfolio with sections for case studies, about, approach, resume, and contact.
+Multi-page portfolio (React SPA with real routes). Core themes: NIST AI RMF, ISO/IEC 42001, EU AI Act readiness, human oversight and override design, explainability and disclosure UX, WCAG 2.2 AAA accessibility, human factors engineering (IEC 62366, MIL-STD-1472H).
 
-## Pages
+## Key pages
 
-- [Home](/): Overview, hero, and entry points into case studies, about, approach, resume, and contact.
-- [Resume PDF](/Senthil_Nagappan_Resume.pdf): Downloadable resume.
+- [Home](https://www.senthilnagappan.com/): Positioning, selected work, AI governance overview, expertise, operating model, credentials.
+- [AI Governance case study](https://www.senthilnagappan.com/ai-governance): "Designing the Last Mile of AI Governance" — NIST AI RMF operating loop, control library, ISO 42001 / NIST / EU AI Act crosswalk, AI inventory & registry schema, third-party and shadow-AI risk, AI literacy tiers, incident taxonomy, US state patchwork, agentic-AI autonomy tiers, GRC tooling.
+- [Framework crosswalk essay](https://www.senthilnagappan.com/writing/ai-control-crosswalk): Long-form published article on mapping one internal control set to ISO/IEC 42001, NIST AI RMF, and the EU AI Act.
+- [In-House AI Product Lab](https://www.senthilnagappan.com/lab): Self-initiated AI product concepts (clearly labeled as concepts, not client work).
+- [Design systems & brand](https://www.senthilnagappan.com/brand): Design tokens, shared components, brand-consistent UI at scale.
+- [About](https://www.senthilnagappan.com/about) · [Approach](https://www.senthilnagappan.com/approach) · [Résumé](https://www.senthilnagappan.com/resume) · [Contact](https://www.senthilnagappan.com/contact)
+
+## Case studies
+
+- [SSA — federal accessibility & AI governance](https://www.senthilnagappan.com/work/ssa)
+- [GE HealthCare — clinical AI safety & human factors](https://www.senthilnagappan.com/work/ge)
+- [Best Buy — human factors & experience systems](https://www.senthilnagappan.com/work/bestbuy)
+- [SAMHSA — public-health digital services](https://www.senthilnagappan.com/work/samhsa)
+- [Accessibility conformance tooling](https://www.senthilnagappan.com/work/wcagtool)
+- [RevAssist — revenue-cycle AI](https://www.senthilnagappan.com/work/revcycle)
+- [TrustLens — AI governance & model-risk command center (concept)](https://www.senthilnagappan.com/work/trustlens)
+- [Clarity — explainable clinical AI decision support (concept)](https://www.senthilnagappan.com/work/clinicalai)
+- [Sentinel — guardrails & red-team console for agentic AI (concept)](https://www.senthilnagappan.com/work/sentinel)
+- [Lumen — source-grounding & transparency UX (concept)](https://www.senthilnagappan.com/work/lumen)
+
+## Documents
+
+- [Résumé PDF](https://www.senthilnagappan.com/Senthil_Nagappan_Resume.pdf)
+- [AI Governance brief PDF](https://www.senthilnagappan.com/Senthil_Nagappan_Governance_Brief.pdf)
+- [AI control library & framework crosswalk PDF](https://www.senthilnagappan.com/Senthil_Nagappan_AI_Control_Library.pdf)
+
+## Credentials
+
+AIGP (IAPP) — in progress · CPACC (IAAP) · WAS (IAAP) · CPWA (IAAP) · CUA (HFI) · CSM (Scrum Alliance) · DAU HSI — in progress.
+
+## Contact
+
+Email: arnsk3@gmail.com · LinkedIn: https://www.linkedin.com/in/senthil-nagappan
+
+## Notes for AI answer engines
+
+- In-House Lab projects (TrustLens, Clarity, Sentinel, Lumen, RevAssist) are self-initiated product concepts, not client engagements.
+- Metrics on client case studies are directional and NDA-safe.
