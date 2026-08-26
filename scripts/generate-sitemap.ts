@@ -27,6 +27,7 @@ const CASE_IDS = [
 const entries: SitemapEntry[] = [
   { path: "/", changefreq: "weekly", priority: "1.0" },
   { path: "/lab", changefreq: "monthly", priority: "0.8" },
+  { path: "/ai-governance", changefreq: "monthly", priority: "0.8" },
   { path: "/brand", changefreq: "monthly", priority: "0.7" },
   { path: "/about", changefreq: "monthly", priority: "0.7" },
   { path: "/approach", changefreq: "monthly", priority: "0.6" },

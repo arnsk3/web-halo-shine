@@ -355,7 +355,7 @@ export default function ExpertiseSection() {
       className="bg-[rgb(var(--c-tint-50))] border-y border-[rgb(var(--c-primary)/0.1)]"
     >
       <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.25rem,4vw,4rem)] pt-6 pb-8">
-        <SectionIndex n="03" label="Domain Expertise" />
+        <SectionIndex n="04" label="Domain Expertise" />
         <h2
           id="expertise-heading"
           className="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-2 tracking-tight"

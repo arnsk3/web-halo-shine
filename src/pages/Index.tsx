@@ -15,6 +15,8 @@ import ExpertiseSection from "@/components/ExpertiseSection";
 import BrandIdentitySection from "@/components/BrandIdentitySection";
 import AISkillsMatrix from "@/components/AISkillsMatrix";
 import GovernanceEngagements from "@/components/GovernanceEngagements";
+import AIGovernanceSection from "@/components/AIGovernanceSection";
+import AIGovernanceCaseStudy from "@/pages/AIGovernanceCaseStudy";
 import SectionIndex from "@/components/SectionIndex";
 import { Compass, Sprout, Network, Brain, Bot, FlaskConical } from "lucide-react";
 import caseWcagtool from "@/assets/case-wcagtool.jpg";
@@ -860,6 +862,14 @@ function caseCategories(s: CaseStudyType): CaseFilter[] {
 
 // In-house AI product concepts — collapsed into one grouped card that opens the Lab page.
 const IN_HOUSE_IDS = ["revcycle", "clinicalai", "trustlens", "sentinel", "lumen"];
+// NIST AI RMF function each lab concept primarily serves (shown on Lab cards).
+const LAB_GOVERNANCE_FUNCTION: Record<string, string> = {
+  trustlens: "Govern — operating model, oversight tiers & audit evidence",
+  clinicalai: "Manage — oversight & explainability controls at the point of care",
+  sentinel: "Measure — red-team evaluation of agentic guardrails",
+  lumen: "Manage — source-grounding & transparency controls",
+  revcycle: "Manage — payment-integrity oversight with human review",
+};
 const isInHouse = (s: CaseStudyType) => IN_HOUSE_IDS.includes(s.id);
 function inHouseCases(): CaseStudyType[] {
   return IN_HOUSE_IDS.map((id) => CASE_STUDIES.find((s) => s.id === id)).filter(
@@ -928,12 +938,13 @@ function FadeIn({ children, delay = 0, className = "" }: FadeInProps) {
   );
 }
 
-type PageId = "home" | "brand" | "about" | "approach" | "resume" | "contact" | "case" | "lab";
+type PageId = "home" | "brand" | "about" | "approach" | "resume" | "contact" | "case" | "lab" | "governance";
 
 function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) {
   // Curated 5-item nav. "Work" and "Expertise" scroll to landing sections;
   // Brand lives as a filter inside Work, not a top-level item.
   const sectionLinks: { id: string; label: string }[] = [
+    { id: "ai-governance", label: "AI Governance" },
     { id: "cases", label: "Work" },
     { id: "expertise", label: "Expertise" },
   ];
@@ -1068,7 +1079,7 @@ function DesignLeadership() {
     >
       <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2rem,4vw,3.5rem)]">
         <FadeIn>
-          <SectionIndex n="05" label="Design Leadership" />
+          <SectionIndex n="06" label="Design Leadership" />
           <h2
             id="leadership-heading"
             className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 mb-2 tracking-tight"
@@ -1240,7 +1251,7 @@ function TradeOffs() {
       className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2.5rem,4vw,3.5rem)]"
     >
       <FadeIn>
-        <SectionIndex n="06" label="Judgment" />
+        <SectionIndex n="07" label="Judgment" />
         <div className="max-w-2xl mb-8">
           <h2
             id="tradeoffs-heading"
@@ -1367,9 +1378,9 @@ function Home({
           </FadeIn>
           <FadeIn delay={0.15}>
             <p className="text-white text-base sm:text-lg mb-4 max-w-2xl mx-auto leading-relaxed">
-              18+ years on the interface between people and AI — clinical decision support,
-              federal programs, and enterprise design systems where getting it wrong isn&apos;t
-              an option.
+              Pairing accessibility leadership, design systems, and production front-end
+              engineering with AI governance and risk discipline — for safe, human-centered AI
+              in healthcare, federal, and enterprise environments.
             </p>
           </FadeIn>
           <FadeIn delay={0.18}>
@@ -1463,10 +1474,13 @@ function Home({
         </ul>
       </section>
 
+      {/* AI Governance & Responsible AI — peer section, immediately after hero */}
+      <AIGovernanceSection />
+
       {/* Case Studies — work leads the page */}
       <section id="cases" className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2rem,4vw,3.5rem)]" aria-labelledby="cases-heading">
         <FadeIn>
-          <SectionIndex n="01" label="Selected Work" />
+          <SectionIndex n="02" label="Selected Work" />
           <h2 id="cases-heading" className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2 tracking-tight">
 
             Selected Work
@@ -1773,7 +1787,7 @@ function Home({
       >
         <FadeIn>
           <div className="mb-8 max-w-2xl">
-            <SectionIndex n="07" label="Operating Model" />
+            <SectionIndex n="08" label="Operating Model" />
             <h2
               id="operating-model-heading"
               className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-2"
@@ -1866,7 +1880,7 @@ function Home({
       >
         <FadeIn>
           <div className="mb-8 max-w-2xl">
-            <SectionIndex n="08" label="Writing" />
+            <SectionIndex n="09" label="Writing" />
             <h2
               id="writing-heading"
               className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-2"
@@ -1879,7 +1893,7 @@ function Home({
             </p>
           </div>
           <div className="grid gap-5 md:grid-cols-3">
-            {[
+            {([
               {
                 t: "Oversight tiers beat confidence scores",
                 d: "Why exposing a raw probability to a clinician is a design failure, and how recommend / act / alert tiers map model risk to human authority.",
@@ -1895,18 +1909,53 @@ function Home({
                 d: "What IEC 62366 and MIL-STD-1472H still teach us about use error when the system that errs is a model, not a mechanism.",
                 tag: "Human Factors",
               },
-            ].map((a) => (
+              {
+                t: "Why Human-in-the-Loop Controls Fail",
+                d: "Placeholder — abstract to be added.",
+                tag: "AI Governance",
+                date: "TBD",
+                draft: true,
+              },
+              {
+                t: "Explainability Is an Interface Problem",
+                d: "Placeholder — abstract to be added.",
+                tag: "AI Experience Design",
+                date: "TBD",
+                draft: true,
+              },
+            ] as { t: string; d: string; tag: string; date?: string; href?: string; draft?: boolean }[]).map((a) => (
               <article
                 key={a.t}
                 className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col"
               >
-                <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[rgb(var(--c-accent-on-light))] mb-2">
-                  {a.tag}
-                </p>
+                <div className="flex items-center justify-between gap-2 mb-2">
+                  <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[rgb(var(--c-accent-on-light))]">
+                    {a.tag}
+                  </p>
+                  {a.date && (
+                    <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-gray-600">
+                      {a.draft ? "Draft · " : ""}{a.date}
+                    </p>
+                  )}
+                </div>
                 <h3 className="font-display text-base font-bold text-gray-900 mb-2 leading-snug">{a.t}</h3>
                 <p className="text-[13px] text-gray-700 leading-relaxed">{a.d}</p>
                 <p className="mt-auto pt-4 text-[12px] text-gray-600">
-                  Full essay available on request — happy to walk through it in an interview.
+                  {a.href ? (
+                    <a
+                      href={a.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center min-h-[44px] font-semibold text-[rgb(var(--c-primary))] underline hover:text-[rgb(var(--c-accent-on-light))] rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
+                    >
+                      Read the full essay: {a.t}
+                      <span className="sr-only"> (opens in a new tab)</span>
+                    </a>
+                  ) : a.draft ? (
+                    "Draft in progress — external link coming soon."
+                  ) : (
+                    "Full essay available on request — happy to walk through it in an interview."
+                  )}
                 </p>
               </article>
             ))}
@@ -1921,7 +1970,7 @@ function Home({
       >
         <FadeIn>
           <div className="mb-8 max-w-2xl">
-            <SectionIndex n="09" label="Signals" />
+            <SectionIndex n="10" label="Signals" />
             <h2 id="signals-heading" className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-2">
               Verifiable signals.
             </h2>
@@ -7215,7 +7264,7 @@ function Resume() {
             {[
               { g: "Design Leadership", s: ["Player-coach leadership", "Mentorship & career growth", "Influence without authority", "Executive storytelling", "Cross-product systems thinking", "AI-in-the-design-process", "Design ops", "Culture of experimentation"] },
               { g: "Healthcare & Revenue Cycle", s: ["Revenue cycle & reimbursement", "Medical coding (ICD-10 / CPT / HCPCS)", "Claims & denial management", "Clinical decision-support", "Intelligent automation", "HIPAA"] },
-              { g: "AI Design & Governance", s: ["Human–AI interaction", "Explainability & confidence UX", "Human-in-the-loop oversight", "Agentic AI guardrails", "RAG / source-grounding UX", "NIST AI RMF", "EU AI Act", "ISO/IEC 42001", "SR 11-7 model risk", "GenAI risk controls (prompt / data / eval / monitoring)", "GRC tooling (ServiceNow / Archer)", "Collibra / Alation & model registries", "Bias & drift monitoring", "Red-team / TEVV"] },
+              { g: "AI Design & Governance", s: ["AI Governance", "Responsible AI", "Human–AI interaction", "Explainability & confidence UX", "Trust & transparency", "Human-in-the-loop oversight", "Agentic AI guardrails", "RAG / source-grounding UX", "NIST AI RMF", "EU AI Act", "ISO/IEC 42001", "SR 11-7 model risk", "AI risk assessment", "Control design", "Model oversight", "AI assurance", "Regulatory compliance", "Audit readiness", "GenAI risk controls (prompt / data / eval / monitoring)", "GRC tooling (ServiceNow / Archer)", "Collibra / Alation & model registries", "Bias & drift monitoring", "Red-team / TEVV"] },
               { g: "AI Engineering", s: ["LLM integration (React + TS)", "AI data-viz components", "Llama / GPT-class models", "CI/CD AI quality gates", "Eval harness & telemetry UX"] },
               { g: "Design", s: ["Visual & brand design", "Design systems", "Figma & prototyping", "Data visualization"] },
               { g: "Engineering", s: ["React", "TypeScript", "Tailwind CSS", "Redux / Context", "Vite / Webpack", "REST APIs"] },
@@ -7641,6 +7690,7 @@ function Footer({
     );
   };
   const sectionItems: { id: string; label: string }[] = [
+    { id: "ai-governance", label: "AI Governance" },
     { id: "cases", label: "Work" },
     { id: "expertise", label: "Expertise" },
   ];
@@ -7704,10 +7754,11 @@ const PAGE_TITLES: Record<PageId, string> = {
   contact: "Contact — Senthil Nagappan",
   case: "Case Study — Senthil Nagappan",
   lab: "In-House AI Product Lab — Senthil Nagappan",
+  governance: "Designing the Last Mile of AI Governance",
 };
 
 const PAGE_DESCRIPTIONS: Record<PageId, string> = {
-  home: "Senthil Nagappan: AI experience design and human systems integration — accessibility, design systems, and production front-end engineering for safe, human-centered AI in healthcare, federal, and enterprise environments.",
+  home: "Senthil Nagappan: AI experience design, AI governance, and human systems integration — designing the disclosure, explainability, and human oversight controls that make responsible AI real in regulated environments.",
   brand: "Design systems & brand-consistent visual systems by Senthil Nagappan — shared components, design tokens, and on-brand UI that scale across consumer, healthcare, and enterprise products.",
 
   about: "About Senthil Nagappan — 18+ years building AI-driven products in regulated healthcare, federal, retail, and defense environments.",
@@ -7716,6 +7767,7 @@ const PAGE_DESCRIPTIONS: Record<PageId, string> = {
   contact: "Contact Senthil Nagappan for AI safety, human systems integration, and accessibility leadership engagements.",
   case: "Case study from Senthil Nagappan — AI safety, human systems integration, and accessibility work in regulated environments.",
   lab: "In-house AI product concepts by Senthil Nagappan — TrustLens, Clarity, Sentinel, Lumen, and RevAssist: concise capsules of governance, clinical, agentic-safety, and revenue-cycle AI work.",
+  governance: "Designing the Last Mile of AI Governance — how disclosure, explainability, oversight, and correction controls turn NIST AI RMF requirements into real product behavior.",
 };
 
 function upsertMeta(attr: "name" | "property", key: string, content: string) {
@@ -7819,6 +7871,12 @@ function InHouseLab({
                   <p className="text-gray-700 text-[13px] mb-3 leading-relaxed line-clamp-4">
                     {s.subtitle}
                   </p>
+                  {LAB_GOVERNANCE_FUNCTION[s.id] && (
+                    <p className="text-[12px] text-gray-700 leading-relaxed mb-3">
+                      <span className="font-semibold text-gray-900">Governance function:</span>{" "}
+                      {LAB_GOVERNANCE_FUNCTION[s.id]}
+                    </p>
+                  )}
                   <div className="flex gap-1.5 flex-wrap mb-4">
                     {s.metrics.slice(0, 3).map((m) => (
                       <span
@@ -7861,6 +7919,7 @@ const PAGE_PATHS: Record<Exclude<PageId, "case">, string> = {
   resume: "/resume",
   contact: "/contact",
   lab: "/lab",
+  governance: "/ai-governance",
 };
 
 const Index = () => {
@@ -7981,6 +8040,9 @@ const Index = () => {
             setPage={navigate}
             setCase={openCase}
           />
+        )}
+        {page === "governance" && (
+          <AIGovernanceCaseStudy onHome={() => navigate("home")} />
         )}
       </main>
       <Footer setPage={navigate} currentPage={page} />
