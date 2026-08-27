@@ -7739,6 +7739,7 @@ const PAGE_TITLES: Record<PageId, string> = {
   case: "Case Study — Senthil Nagappan",
   lab: "In-House AI Product Lab — Senthil Nagappan",
   governance: "Designing the Last Mile of AI Governance",
+  writing: "One control set, three frameworks — AI governance crosswalk",
 };
 
 const PAGE_DESCRIPTIONS: Record<PageId, string> = {
@@ -7752,6 +7753,7 @@ const PAGE_DESCRIPTIONS: Record<PageId, string> = {
   case: "Case study from Senthil Nagappan — AI safety, human systems integration, and accessibility work in regulated environments.",
   lab: "In-house AI product concepts by Senthil Nagappan — TrustLens, Clarity, Sentinel, Lumen, and RevAssist: concise capsules of governance, clinical, agentic-safety, and revenue-cycle AI work.",
   governance: "Designing the Last Mile of AI Governance — how disclosure, explainability, oversight, and correction controls turn NIST AI RMF requirements into real product behavior.",
+  writing: "Mapping one internal AI control library to ISO/IEC 42001, the NIST AI Risk Management Framework, and the EU AI Act — so one piece of evidence answers several obligations.",
 };
 
 function upsertMeta(attr: "name" | "property", key: string, content: string) {
@@ -7904,6 +7906,7 @@ const PAGE_PATHS: Record<Exclude<PageId, "case">, string> = {
   contact: "/contact",
   lab: "/lab",
   governance: "/ai-governance",
+  writing: "/writing/ai-control-crosswalk",
 };
 
 const Index = () => {
@@ -8028,6 +8031,7 @@ const Index = () => {
         {page === "governance" && (
           <AIGovernanceCaseStudy onHome={() => navigate("home")} />
         )}
+        {page === "writing" && <CrosswalkEssay onHome={() => navigate("home")} />}
       </main>
       <Footer setPage={navigate} currentPage={page} />
       <ThemeSwitcher />
