@@ -7961,6 +7961,50 @@ const Index = () => {
     upsertMeta("name", "twitter:description", description);
     upsertCanonical(canonical);
 
+    // Per-route BreadcrumbList + CreativeWork structured data
+    if (page === "home") {
+      upsertRouteJsonLd(null);
+    } else {
+      const parent =
+        isCase
+          ? { name: inHouseCases().some((c) => c.id === activeCase!.id) ? "In-House AI Product Lab" : "Work", url: `${SITE_URL}/lab` }
+          : page === "writing"
+            ? { name: "Writing", url: `${SITE_URL}/#writing` }
+            : null;
+      const crumbs = [
+        { name: "Home", url: `${SITE_URL}/` },
+        ...(parent ? [parent] : []),
+        { name: title, url: canonical },
+      ];
+      upsertRouteJsonLd([
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: crumbs.map((c, i) => ({
+            "@type": "ListItem",
+            position: i + 1,
+            name: c.name,
+            item: c.url,
+          })),
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": isCase || page === "writing" ? (page === "writing" ? "Article" : "CreativeWork") : "WebPage",
+          headline: title,
+          name: title,
+          description,
+          url: canonical,
+          inLanguage: "en",
+          author: {
+            "@type": "Person",
+            name: "Senthil Nagappan",
+            url: `${SITE_URL}/`,
+          },
+          ...(page === "writing" ? { datePublished: "2026-08-01" } : {}),
+        },
+      ]);
+    }
+
     setRouteAnnouncement(`Navigated to ${title}`);
   }, [page, activeCase]);
 
