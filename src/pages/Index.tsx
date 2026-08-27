@@ -1856,29 +1856,25 @@ function Home({
                   </p>
                   {a.date && (
                     <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-gray-600">
-                      {a.draft ? "Draft · " : ""}{a.date}
+                      {a.date}
                     </p>
                   )}
                 </div>
                 <h3 className="font-display text-base font-bold text-gray-900 mb-2 leading-snug">{a.t}</h3>
                 <p className="text-[13px] text-gray-700 leading-relaxed">{a.d}</p>
                 <p className="mt-auto pt-4 text-[12px] text-gray-600">
-                  {a.href ? (
-                    <a
-                      href={a.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                  {a.to ? (
+                    <Link
+                      to={a.to}
                       className="inline-flex items-center min-h-[44px] font-semibold text-[rgb(var(--c-primary))] underline hover:text-[rgb(var(--c-accent-on-light))] rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
                     >
                       Read the full essay: {a.t}
-                      <span className="sr-only"> (opens in a new tab)</span>
-                    </a>
-                  ) : a.draft ? (
-                    "Draft in progress — external link coming soon."
+                    </Link>
                   ) : (
-                    "Full essay available on request — happy to walk through it in an interview."
+                    "Planned essay — not yet written. Happy to talk through the argument in an interview."
                   )}
                 </p>
+
               </article>
             ))}
           </div>
