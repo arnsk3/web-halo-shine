@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, ReactNode } from "react";
-import { Navigate, useLocation, useNavigate as useRouterNavigate } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate as useRouterNavigate } from "react-router-dom";
 import personaDeveloper from "@/assets/persona-developer.jpg";
 import personaQa from "@/assets/persona-qa.jpg";
 import personaSme from "@/assets/persona-sme.jpg";
@@ -17,6 +17,7 @@ import AISkillsMatrix from "@/components/AISkillsMatrix";
 import GovernanceEngagements from "@/components/GovernanceEngagements";
 import AIGovernanceSection from "@/components/AIGovernanceSection";
 import AIGovernanceCaseStudy from "@/pages/AIGovernanceCaseStudy";
+import CrosswalkEssay from "@/pages/CrosswalkEssay";
 import SectionIndex from "@/components/SectionIndex";
 import { Compass, Sprout, Network, Brain, Bot, FlaskConical, ShieldCheck, Scale, Accessibility, Handshake, Microscope, Layers, Code2, Palette, HeartPulse } from "lucide-react";
 import caseWcagtool from "@/assets/case-wcagtool.jpg";
@@ -938,7 +939,7 @@ function FadeIn({ children, delay = 0, className = "" }: FadeInProps) {
   );
 }
 
-type PageId = "home" | "brand" | "about" | "approach" | "resume" | "contact" | "case" | "lab" | "governance";
+type PageId = "home" | "brand" | "about" | "approach" | "resume" | "contact" | "case" | "lab" | "governance" | "writing";
 
 function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) {
   // Curated 5-item nav. "Work" and "Expertise" scroll to landing sections;
@@ -1824,21 +1825,28 @@ function Home({
           <div className="grid gap-5 md:grid-cols-3">
             {([
               {
+                t: "One control set, three frameworks",
+                d: "How to map a single internal AI control library to ISO/IEC 42001, the NIST AI RMF, and the EU AI Act — so one piece of evidence answers several obligations.",
+                tag: "AI Governance",
+                date: "August 2026",
+                to: "/writing/ai-control-crosswalk",
+              },
+              {
                 t: "Oversight tiers beat confidence scores",
                 d: "Why exposing a raw probability to a clinician is a design failure, and how recommend / act / alert tiers map model risk to human authority.",
                 tag: "AI Experience Design",
-              },
-              {
-                t: "Designing the audit trail before the interface",
-                d: "NIST AI RMF and the EU AI Act ask for evidence, not screenshots. Capturing overrides and rationale as a first-class product surface.",
-                tag: "AI Governance",
+                date: "Planned",
+                planned: true,
               },
               {
                 t: "Human systems integration for AI teams",
                 d: "What IEC 62366 and MIL-STD-1472H still teach us about use error when the system that errs is a model, not a mechanism.",
                 tag: "Human Factors",
+                date: "Planned",
+                planned: true,
               },
-            ] as { t: string; d: string; tag: string; date?: string; href?: string; draft?: boolean }[]).map((a) => (
+            ] as { t: string; d: string; tag: string; date?: string; to?: string; planned?: boolean }[]).map((a) => (
+
               <article
                 key={a.t}
                 className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col"
@@ -1849,29 +1857,25 @@ function Home({
                   </p>
                   {a.date && (
                     <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-gray-600">
-                      {a.draft ? "Draft · " : ""}{a.date}
+                      {a.date}
                     </p>
                   )}
                 </div>
                 <h3 className="font-display text-base font-bold text-gray-900 mb-2 leading-snug">{a.t}</h3>
                 <p className="text-[13px] text-gray-700 leading-relaxed">{a.d}</p>
                 <p className="mt-auto pt-4 text-[12px] text-gray-600">
-                  {a.href ? (
-                    <a
-                      href={a.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                  {a.to ? (
+                    <Link
+                      to={a.to}
                       className="inline-flex items-center min-h-[44px] font-semibold text-[rgb(var(--c-primary))] underline hover:text-[rgb(var(--c-accent-on-light))] rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
                     >
                       Read the full essay: {a.t}
-                      <span className="sr-only"> (opens in a new tab)</span>
-                    </a>
-                  ) : a.draft ? (
-                    "Draft in progress — external link coming soon."
+                    </Link>
                   ) : (
-                    "Full essay available on request — happy to walk through it in an interview."
+                    "Planned essay — not yet written. Happy to talk through the argument in an interview."
                   )}
                 </p>
+
               </article>
             ))}
           </div>
@@ -6063,10 +6067,15 @@ function AIFramework({ id }: { id: string }) {
 function CaseStudy({
   study,
   setPage,
+  setCase,
 }: {
   study: CaseStudyType;
   setPage: (p: PageId) => void;
+  setCase: (c: CaseStudyType) => void;
 }) {
+  const idx = CASE_STUDIES.findIndex((c) => c.id === study.id);
+  const prev = idx > 0 ? CASE_STUDIES[idx - 1] : null;
+  const next = idx >= 0 && idx < CASE_STUDIES.length - 1 ? CASE_STUDIES[idx + 1] : null;
   return (
     <div>
       {/* Hero */}
@@ -6750,6 +6759,45 @@ function CaseStudy({
             </div>
           </details>
         </FadeIn>
+
+        {/* Previous / next case study */}
+        {(prev || next) && (
+          <FadeIn>
+            <nav
+              aria-label="Case study navigation"
+              className="mt-10 border-t border-gray-200 pt-6 grid gap-4 sm:grid-cols-2"
+            >
+              {prev ? (
+                <button
+                  onClick={() => setCase(prev)}
+                  className="group text-left rounded-xl border border-gray-200 bg-white p-5 min-h-[44px] hover:border-[rgb(var(--c-primary)/0.4)] hover:shadow-md transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
+                >
+                  <span className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[rgb(var(--c-accent-on-light))]">
+                    <span aria-hidden="true">←</span> Previous case study
+                  </span>
+                  <span className="mt-2 block font-display text-sm font-bold text-gray-900 leading-snug">
+                    {prev.title}
+                  </span>
+                </button>
+              ) : (
+                <span aria-hidden="true" />
+              )}
+              {next && (
+                <button
+                  onClick={() => setCase(next)}
+                  className="group text-left sm:text-right rounded-xl border border-gray-200 bg-white p-5 min-h-[44px] hover:border-[rgb(var(--c-primary)/0.4)] hover:shadow-md transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
+                >
+                  <span className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[rgb(var(--c-accent-on-light))]">
+                    Next case study <span aria-hidden="true">→</span>
+                  </span>
+                  <span className="mt-2 block font-display text-sm font-bold text-gray-900 leading-snug">
+                    {next.title}
+                  </span>
+                </button>
+              )}
+            </nav>
+          </FadeIn>
+        )}
       </div>
     </div>
   );
@@ -7735,6 +7783,7 @@ const PAGE_TITLES: Record<PageId, string> = {
   case: "Case Study — Senthil Nagappan",
   lab: "In-House AI Product Lab — Senthil Nagappan",
   governance: "Designing the Last Mile of AI Governance",
+  writing: "One control set, three frameworks — AI governance crosswalk",
 };
 
 const PAGE_DESCRIPTIONS: Record<PageId, string> = {
@@ -7748,6 +7797,7 @@ const PAGE_DESCRIPTIONS: Record<PageId, string> = {
   case: "Case study from Senthil Nagappan — AI safety, human systems integration, and accessibility work in regulated environments.",
   lab: "In-house AI product concepts by Senthil Nagappan — TrustLens, Clarity, Sentinel, Lumen, and RevAssist: concise capsules of governance, clinical, agentic-safety, and revenue-cycle AI work.",
   governance: "Designing the Last Mile of AI Governance — how disclosure, explainability, oversight, and correction controls turn NIST AI RMF requirements into real product behavior.",
+  writing: "Mapping one internal AI control library to ISO/IEC 42001, the NIST AI Risk Management Framework, and the EU AI Act — so one piece of evidence answers several obligations.",
 };
 
 function upsertMeta(attr: "name" | "property", key: string, content: string) {
@@ -7768,6 +7818,23 @@ function upsertCanonical(href: string) {
     document.head.appendChild(el);
   }
   el.setAttribute("href", href);
+}
+
+const ROUTE_JSONLD_ID = "route-jsonld";
+
+function upsertRouteJsonLd(data: unknown | null) {
+  let el = document.head.querySelector<HTMLScriptElement>(`script#${ROUTE_JSONLD_ID}`);
+  if (!data) {
+    el?.remove();
+    return;
+  }
+  if (!el) {
+    el = document.createElement("script");
+    el.type = "application/ld+json";
+    el.id = ROUTE_JSONLD_ID;
+    document.head.appendChild(el);
+  }
+  el.textContent = JSON.stringify(data);
 }
 
 function InHouseLab({
@@ -7900,6 +7967,7 @@ const PAGE_PATHS: Record<Exclude<PageId, "case">, string> = {
   contact: "/contact",
   lab: "/lab",
   governance: "/ai-governance",
+  writing: "/writing/ai-control-crosswalk",
 };
 
 const Index = () => {
@@ -7936,6 +8004,50 @@ const Index = () => {
     upsertMeta("name", "twitter:title", title);
     upsertMeta("name", "twitter:description", description);
     upsertCanonical(canonical);
+
+    // Per-route BreadcrumbList + CreativeWork structured data
+    if (page === "home") {
+      upsertRouteJsonLd(null);
+    } else {
+      const parent =
+        isCase
+          ? { name: inHouseCases().some((c) => c.id === activeCase!.id) ? "In-House AI Product Lab" : "Work", url: `${SITE_URL}/lab` }
+          : page === "writing"
+            ? { name: "Writing", url: `${SITE_URL}/#writing` }
+            : null;
+      const crumbs = [
+        { name: "Home", url: `${SITE_URL}/` },
+        ...(parent ? [parent] : []),
+        { name: title, url: canonical },
+      ];
+      upsertRouteJsonLd([
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: crumbs.map((c, i) => ({
+            "@type": "ListItem",
+            position: i + 1,
+            name: c.name,
+            item: c.url,
+          })),
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": isCase || page === "writing" ? (page === "writing" ? "Article" : "CreativeWork") : "WebPage",
+          headline: title,
+          name: title,
+          description,
+          url: canonical,
+          inLanguage: "en",
+          author: {
+            "@type": "Person",
+            name: "Senthil Nagappan",
+            url: `${SITE_URL}/`,
+          },
+          ...(page === "writing" ? { datePublished: "2026-08-01" } : {}),
+        },
+      ]);
+    }
 
     setRouteAnnouncement(`Navigated to ${title}`);
   }, [page, activeCase]);
@@ -7988,7 +8100,7 @@ const Index = () => {
           />
         )}
         {page === "case" && activeCase && (
-          <CaseStudy study={activeCase} setPage={navigate} />
+          <CaseStudy study={activeCase} setPage={navigate} setCase={openCase} />
         )}
         {page === "brand" && (
           <div>
@@ -8024,6 +8136,7 @@ const Index = () => {
         {page === "governance" && (
           <AIGovernanceCaseStudy onHome={() => navigate("home")} />
         )}
+        {page === "writing" && <CrosswalkEssay onHome={() => navigate("home")} />}
       </main>
       <Footer setPage={navigate} currentPage={page} />
       <ThemeSwitcher />
