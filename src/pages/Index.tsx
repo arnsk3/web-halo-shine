@@ -6067,10 +6067,15 @@ function AIFramework({ id }: { id: string }) {
 function CaseStudy({
   study,
   setPage,
+  setCase,
 }: {
   study: CaseStudyType;
   setPage: (p: PageId) => void;
+  setCase: (c: CaseStudyType) => void;
 }) {
+  const idx = CASE_STUDIES.findIndex((c) => c.id === study.id);
+  const prev = idx > 0 ? CASE_STUDIES[idx - 1] : null;
+  const next = idx >= 0 && idx < CASE_STUDIES.length - 1 ? CASE_STUDIES[idx + 1] : null;
   return (
     <div>
       {/* Hero */}
@@ -6754,6 +6759,45 @@ function CaseStudy({
             </div>
           </details>
         </FadeIn>
+
+        {/* Previous / next case study */}
+        {(prev || next) && (
+          <FadeIn>
+            <nav
+              aria-label="Case study navigation"
+              className="mt-10 border-t border-gray-200 pt-6 grid gap-4 sm:grid-cols-2"
+            >
+              {prev ? (
+                <button
+                  onClick={() => setCase(prev)}
+                  className="group text-left rounded-xl border border-gray-200 bg-white p-5 min-h-[44px] hover:border-[rgb(var(--c-primary)/0.4)] hover:shadow-md transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
+                >
+                  <span className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[rgb(var(--c-accent-on-light))]">
+                    <span aria-hidden="true">←</span> Previous case study
+                  </span>
+                  <span className="mt-2 block font-display text-sm font-bold text-gray-900 leading-snug">
+                    {prev.title}
+                  </span>
+                </button>
+              ) : (
+                <span aria-hidden="true" />
+              )}
+              {next && (
+                <button
+                  onClick={() => setCase(next)}
+                  className="group text-left sm:text-right rounded-xl border border-gray-200 bg-white p-5 min-h-[44px] hover:border-[rgb(var(--c-primary)/0.4)] hover:shadow-md transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
+                >
+                  <span className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[rgb(var(--c-accent-on-light))]">
+                    Next case study <span aria-hidden="true">→</span>
+                  </span>
+                  <span className="mt-2 block font-display text-sm font-bold text-gray-900 leading-snug">
+                    {next.title}
+                  </span>
+                </button>
+              )}
+            </nav>
+          </FadeIn>
+        )}
       </div>
     </div>
   );
@@ -8056,7 +8100,7 @@ const Index = () => {
           />
         )}
         {page === "case" && activeCase && (
-          <CaseStudy study={activeCase} setPage={navigate} />
+          <CaseStudy study={activeCase} setPage={navigate} setCase={openCase} />
         )}
         {page === "brand" && (
           <div>
