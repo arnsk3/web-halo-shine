@@ -1824,21 +1824,28 @@ function Home({
           <div className="grid gap-5 md:grid-cols-3">
             {([
               {
+                t: "One control set, three frameworks",
+                d: "How to map a single internal AI control library to ISO/IEC 42001, the NIST AI RMF, and the EU AI Act — so one piece of evidence answers several obligations.",
+                tag: "AI Governance",
+                date: "August 2026",
+                to: "/writing/ai-control-crosswalk",
+              },
+              {
                 t: "Oversight tiers beat confidence scores",
                 d: "Why exposing a raw probability to a clinician is a design failure, and how recommend / act / alert tiers map model risk to human authority.",
                 tag: "AI Experience Design",
-              },
-              {
-                t: "Designing the audit trail before the interface",
-                d: "NIST AI RMF and the EU AI Act ask for evidence, not screenshots. Capturing overrides and rationale as a first-class product surface.",
-                tag: "AI Governance",
+                date: "Planned",
+                planned: true,
               },
               {
                 t: "Human systems integration for AI teams",
                 d: "What IEC 62366 and MIL-STD-1472H still teach us about use error when the system that errs is a model, not a mechanism.",
                 tag: "Human Factors",
+                date: "Planned",
+                planned: true,
               },
-            ] as { t: string; d: string; tag: string; date?: string; href?: string; draft?: boolean }[]).map((a) => (
+            ] as { t: string; d: string; tag: string; date?: string; to?: string; planned?: boolean }[]).map((a) => (
+
               <article
                 key={a.t}
                 className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col"
