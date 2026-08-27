@@ -200,6 +200,24 @@ function DefGrid({ items }: { items: readonly (readonly [string, string])[] }) {
   );
 }
 
+const TOC = [
+  { id: "aigc-problem", label: "01 · Problem" },
+  { id: "aigc-context", label: "02 · Context" },
+  { id: "aigc-approach", label: "03 · Approach" },
+  { id: "aigc-controls", label: "04 · Controls" },
+  { id: "aigc-crosswalk", label: "05 · Framework crosswalk" },
+  { id: "aigc-euaia", label: "06 · EU AI Act readiness" },
+  { id: "aigc-registry", label: "07 · Inventory & registry" },
+  { id: "aigc-thirdparty", label: "08 · Third-party & shadow AI" },
+  { id: "aigc-literacy", label: "09 · AI literacy" },
+  { id: "aigc-incident", label: "10 · Incident response" },
+  { id: "aigc-state", label: "11 · US state patchwork" },
+  { id: "aigc-agentic", label: "12 · Agentic AI" },
+  { id: "aigc-tooling", label: "13 · GRC tooling" },
+  { id: "aigc-scope", label: "14 · Program scope" },
+  { id: "aigc-outcome", label: "15 · Outcome" },
+];
+
 export default function AIGovernanceCaseStudy({ onHome }: { onHome: () => void }) {
   return (
     <div>
@@ -243,6 +261,7 @@ export default function AIGovernanceCaseStudy({ onHome }: { onHome: () => void }
       </header>
 
       <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2.5rem,5vw,4.5rem)]">
+        <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_17rem] lg:gap-12">
         <div className="max-w-4xl space-y-14">
           <section aria-labelledby="aigc-problem">
             <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[rgb(var(--c-accent-on-light))] mb-2">01 · Problem</p>
@@ -429,6 +448,57 @@ export default function AIGovernanceCaseStudy({ onHome }: { onHome: () => void }
               <button onClick={onHome} className="inline-flex min-h-[44px] items-center rounded-md border border-white/50 px-4 py-2 text-sm font-semibold text-white hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))]">Back to AI Governance</button>
             </div>
           </section>
+
+          <section aria-labelledby="aigc-artifact" className="rounded-lg border border-gray-200 bg-[rgb(var(--c-tint-50))] p-6 sm:p-8">
+            <h2 id="aigc-artifact" className="font-display text-xl font-extrabold text-gray-900 mb-2">
+              Take the control library with you
+            </h2>
+            <p className="text-gray-700 leading-relaxed mb-5 max-w-2xl">
+              The twelve-control library and its ISO/IEC 42001, NIST AI RMF, and EU AI Act mapping,
+              as a one-page PDF you can bring into a review.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <a
+                href="/Senthil_Nagappan_AI_Control_Library.pdf"
+                download
+                className="inline-flex min-h-[44px] items-center rounded-md bg-[rgb(var(--c-primary))] px-4 py-2 text-sm font-semibold text-white hover:bg-[rgb(var(--c-accent-dark))] focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
+              >
+                Download the AI control library (PDF)
+              </a>
+              <Link
+                to="/writing/ai-control-crosswalk"
+                className="inline-flex min-h-[44px] items-center rounded-md border border-[rgb(var(--c-primary)/0.4)] px-4 py-2 text-sm font-semibold text-[rgb(var(--c-primary))] hover:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
+              >
+                Read the crosswalk essay
+              </Link>
+            </div>
+            <p className="mt-5 text-sm text-gray-700">
+              Last reviewed: August 2026. Regulatory references are maintained on a quarterly review
+              cadence; this page is a framework synthesis and is not legal advice.
+            </p>
+          </section>
+        </div>
+
+        <nav aria-labelledby="aigc-toc-heading" className="mt-12 lg:mt-0 lg:sticky lg:top-24 lg:self-start">
+          <h2
+            id="aigc-toc-heading"
+            className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[rgb(var(--c-accent-on-light))] mb-3"
+          >
+            On this page
+          </h2>
+          <ol className="space-y-1 list-none p-0 m-0 border-l border-gray-200">
+            {TOC.map((t) => (
+              <li key={t.id}>
+                <a
+                  href={`#${t.id}`}
+                  className="flex min-h-[44px] items-center border-l-2 border-transparent -ml-px pl-4 text-[13px] font-medium text-gray-800 hover:border-[rgb(var(--c-primary))] hover:text-[rgb(var(--c-primary))] rounded-r focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))]"
+                >
+                  {t.label}
+                </a>
+              </li>
+            ))}
+          </ol>
+        </nav>
         </div>
       </div>
     </div>
