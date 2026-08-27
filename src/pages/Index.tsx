@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, ReactNode } from "react";
-import { Navigate, useLocation, useNavigate as useRouterNavigate } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate as useRouterNavigate } from "react-router-dom";
 import personaDeveloper from "@/assets/persona-developer.jpg";
 import personaQa from "@/assets/persona-qa.jpg";
 import personaSme from "@/assets/persona-sme.jpg";
