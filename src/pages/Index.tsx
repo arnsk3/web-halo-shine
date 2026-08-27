@@ -7776,6 +7776,23 @@ function upsertCanonical(href: string) {
   el.setAttribute("href", href);
 }
 
+const ROUTE_JSONLD_ID = "route-jsonld";
+
+function upsertRouteJsonLd(data: unknown | null) {
+  let el = document.head.querySelector<HTMLScriptElement>(`script#${ROUTE_JSONLD_ID}`);
+  if (!data) {
+    el?.remove();
+    return;
+  }
+  if (!el) {
+    el = document.createElement("script");
+    el.type = "application/ld+json";
+    el.id = ROUTE_JSONLD_ID;
+    document.head.appendChild(el);
+  }
+  el.textContent = JSON.stringify(data);
+}
+
 function InHouseLab({
   setPage,
   setCase,
