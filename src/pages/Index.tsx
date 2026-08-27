@@ -17,6 +17,7 @@ import AISkillsMatrix from "@/components/AISkillsMatrix";
 import GovernanceEngagements from "@/components/GovernanceEngagements";
 import AIGovernanceSection from "@/components/AIGovernanceSection";
 import AIGovernanceCaseStudy from "@/pages/AIGovernanceCaseStudy";
+import CrosswalkEssay from "@/pages/CrosswalkEssay";
 import SectionIndex from "@/components/SectionIndex";
 import { Compass, Sprout, Network, Brain, Bot, FlaskConical, ShieldCheck, Scale, Accessibility, Handshake, Microscope, Layers, Code2, Palette, HeartPulse } from "lucide-react";
 import caseWcagtool from "@/assets/case-wcagtool.jpg";
