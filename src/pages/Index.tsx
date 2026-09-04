@@ -7205,6 +7205,130 @@ function Approach() {
       </FadeIn>
 
       <FadeIn>
+        <section aria-labelledby="approach-operating" className="mb-12">
+          <h2 id="approach-operating" className="text-xl font-extrabold text-gray-900 tracking-tight mb-2">
+            How I run an engagement
+          </h2>
+          <p className="text-sm text-gray-700 mb-6 max-w-2xl">
+            Governance and design work fails when it arrives as a document nobody has to use. My
+            operating model puts a decision, an owner, and a piece of evidence at the end of every
+            phase — so the programme keeps moving after I leave.
+          </p>
+          <ol className="list-none p-0 m-0 grid sm:grid-cols-2 gap-4">
+            {[
+              {
+                n: "01",
+                t: "Frame the risk, not the tool",
+                d: "Start from the decision the AI influences and who is accountable for it. Inventory the use cases, classify them (EU AI Act role and risk tier, NIST AI RMF MAP), and agree what 'unacceptable' looks like before anything is designed.",
+                o: "Use-case inventory · risk classification memo",
+              },
+              {
+                n: "02",
+                t: "Design the control and the interface together",
+                d: "Every control needs a place a human can see and act on it. I write the control and the UI pattern in the same pass — oversight tier, override path, disclosure, escalation — so the control is testable in the product, not only on paper.",
+                o: "Control set mapped to ISO/IEC 42001 + NIST AI RMF · interaction specs",
+              },
+              {
+                n: "03",
+                t: "Prototype in real code",
+                d: "I build the flow in React and TypeScript against real or realistic data. Non-deterministic systems only reveal their failure modes when you can hammer them — static mockups hide exactly the behaviour that matters.",
+                o: "Working prototype · failure-mode log",
+              },
+              {
+                n: "04",
+                t: "Test with the people who bear the risk",
+                d: "Clinicians, adjudicators, reviewers, analysts. Mixed-methods: task-based usability with error and override capture, plus red-team scenarios for agentic behaviour and adversarial prompts.",
+                o: "Usability + TEVV findings · residual-risk statement",
+              },
+              {
+                n: "05",
+                t: "Instrument for evidence",
+                d: "Oversight that leaves no trace can't be audited. Overrides, disclosures, escalations, and model versions are logged as a by-product of normal use, so audit readiness is continuous rather than a quarterly scramble.",
+                o: "Evidence schema · monitoring and incident taxonomy",
+              },
+              {
+                n: "06",
+                t: "Hand over an operating capability",
+                d: "Templates, review cadence, RACI, literacy tiers by role, and a run-state playbook. Success is the client's own team running the next release without me.",
+                o: "Playbook · training · run-state model",
+              },
+            ].map((s) => (
+              <li key={s.n} className="rounded-xl border border-gray-200 bg-white p-5">
+                <span className="text-[11px] font-bold text-[rgb(var(--c-accent-on-light))]">{s.n}</span>
+                <h3 className="font-bold text-gray-900 text-sm mt-1 mb-2">{s.t}</h3>
+                <p className="text-[13px] text-gray-800 leading-relaxed mb-3">{s.d}</p>
+                <p className="text-[11px] text-gray-700">
+                  <span className="font-semibold text-gray-900">Leaves behind:</span> {s.o}
+                </p>
+              </li>
+            ))}
+          </ol>
+        </section>
+      </FadeIn>
+
+      <FadeIn>
+        <section aria-labelledby="approach-shapes" className="mb-12">
+          <h2 id="approach-shapes" className="text-xl font-extrabold text-gray-900 tracking-tight mb-6">
+            Engagement shapes
+          </h2>
+          <div className="grid sm:grid-cols-3 gap-4">
+            {[
+              {
+                t: "Assessment",
+                len: "4–6 weeks",
+                d: "Where are you against ISO/IEC 42001, the NIST AI RMF, and the EU AI Act — and which gaps actually matter for the systems you have in production?",
+                out: "Gap analysis, prioritised roadmap, board-ready summary.",
+              },
+              {
+                t: "Build",
+                len: "3–6 months",
+                d: "Stand up the control library, the AI inventory, the review gates, and the oversight interfaces for a first wave of use cases.",
+                out: "Working programme, instrumented product surfaces, trained reviewers.",
+              },
+              {
+                t: "Run-state",
+                len: "Ongoing",
+                d: "Keep the programme alive as models, vendors, and regulations change: monitoring, incident handling, re-review triggers, and literacy refreshes.",
+                out: "Cadence, metrics, and a team that owns it.",
+              },
+            ].map((e) => (
+              <div key={e.t} className="rounded-xl border border-gray-200 bg-white p-5">
+                <h3 className="font-bold text-gray-900 text-sm">{e.t}</h3>
+                <p className="text-[11px] font-semibold text-[rgb(var(--c-accent-on-light))] mb-2">{e.len}</p>
+                <p className="text-[13px] text-gray-800 leading-relaxed mb-3">{e.d}</p>
+                <p className="text-[11px] text-gray-700">
+                  <span className="font-semibold text-gray-900">Outcome:</span> {e.out}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+      </FadeIn>
+
+      <FadeIn>
+        <section aria-labelledby="approach-principles" className="mb-12">
+          <h2 id="approach-principles" className="text-xl font-extrabold text-gray-900 tracking-tight mb-6">
+            Principles I actually apply
+          </h2>
+          <ul className="list-none p-0 m-0 space-y-3">
+            {[
+              ["Governance that can't be seen in the product isn't governance.", "If a control has no interface, no log, and no owner, it exists only in the policy document."],
+              ["Match human authority to model risk, not model confidence.", "A confidence score is not a decision rule. Oversight tiers — recommend, act, alert — give people an authority level they can reason about."],
+              ["Design for the override, not the happy path.", "The interesting moment is when the human disagrees with the model. That path deserves the most design attention and produces the most valuable evidence."],
+              ["One control, several obligations.", "A single well-written control should satisfy ISO/IEC 42001, the NIST AI RMF, and the EU AI Act at once. Duplicated evidence is how programmes die."],
+              ["Accessibility is a safety property.", "In regulated, high-stakes systems an interface a person can't perceive or operate is a use-related hazard, not a compliance checkbox."],
+            ].map(([t, d]) => (
+              <li key={t} className="rounded-xl border border-gray-200 bg-white p-5">
+                <p className="font-bold text-gray-900 text-sm mb-1">{t}</p>
+                <p className="text-[13px] text-gray-800 leading-relaxed">{d}</p>
+              </li>
+            ))}
+          </ul>
+        </section>
+      </FadeIn>
+
+
+      <FadeIn>
         <div className="bg-[rgb(var(--c-primary))] rounded-xl p-6 text-center">
           <h2 className="text-white font-bold mb-2">Where My Domains Converge</h2>
           <p className="text-white text-xs mb-5 max-w-md mx-auto opacity-95">
