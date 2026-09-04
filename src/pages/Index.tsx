@@ -18,6 +18,7 @@ import GovernanceEngagements from "@/components/GovernanceEngagements";
 import AIGovernanceSection from "@/components/AIGovernanceSection";
 import AIGovernanceCaseStudy from "@/pages/AIGovernanceCaseStudy";
 import CrosswalkEssay from "@/pages/CrosswalkEssay";
+import OversightTiersEssay from "@/pages/OversightTiersEssay";
 import SectionIndex from "@/components/SectionIndex";
 import { Compass, Sprout, Network, Brain, Bot, FlaskConical, ShieldCheck, Scale, Accessibility, Handshake, Microscope, Layers, Code2, Palette, HeartPulse } from "lucide-react";
 import caseWcagtool from "@/assets/case-wcagtool.jpg";
@@ -939,7 +940,7 @@ function FadeIn({ children, delay = 0, className = "" }: FadeInProps) {
   );
 }
 
-type PageId = "home" | "brand" | "about" | "approach" | "resume" | "contact" | "case" | "lab" | "governance" | "writing";
+type PageId = "home" | "brand" | "about" | "approach" | "resume" | "contact" | "case" | "lab" | "governance" | "writing" | "oversight";
 
 function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) {
   // Curated 5-item nav. "Work" and "Expertise" scroll to landing sections;
@@ -1835,8 +1836,8 @@ function Home({
                 t: "Oversight tiers beat confidence scores",
                 d: "Why exposing a raw probability to a clinician is a design failure, and how recommend / act / alert tiers map model risk to human authority.",
                 tag: "AI Experience Design",
-                date: "Planned",
-                planned: true,
+                date: "August 2026",
+                to: "/writing/oversight-tiers",
               },
               {
                 t: "Human systems integration for AI teams",
@@ -7784,6 +7785,7 @@ const PAGE_TITLES: Record<PageId, string> = {
   lab: "In-House AI Product Lab — Senthil Nagappan",
   governance: "Designing the Last Mile of AI Governance",
   writing: "One control set, three frameworks — AI governance crosswalk",
+  oversight: "Oversight tiers beat confidence scores — AI experience design",
 };
 
 const PAGE_DESCRIPTIONS: Record<PageId, string> = {
@@ -7797,6 +7799,7 @@ const PAGE_DESCRIPTIONS: Record<PageId, string> = {
   case: "Case study from Senthil Nagappan — AI safety, human systems integration, and accessibility work in regulated environments.",
   lab: "In-house AI product concepts by Senthil Nagappan — TrustLens, Clarity, Sentinel, Lumen, and RevAssist: concise capsules of governance, clinical, agentic-safety, and revenue-cycle AI work.",
   governance: "Designing the Last Mile of AI Governance — how disclosure, explainability, oversight, and correction controls turn NIST AI RMF requirements into real product behavior.",
+  oversight: "Why showing a clinician a raw confidence score is a design failure, and how recommend / act / alert oversight tiers map model risk to human authority — with the evidence each tier produces for EU AI Act Article 14 and NIST AI RMF MANAGE 2.3.",
   writing: "Mapping one internal AI control library to ISO/IEC 42001, the NIST AI Risk Management Framework, and the EU AI Act — so one piece of evidence answers several obligations.",
 };
 
@@ -7968,6 +7971,7 @@ const PAGE_PATHS: Record<Exclude<PageId, "case">, string> = {
   lab: "/lab",
   governance: "/ai-governance",
   writing: "/writing/ai-control-crosswalk",
+  oversight: "/writing/oversight-tiers",
 };
 
 const Index = () => {
@@ -8012,7 +8016,7 @@ const Index = () => {
       const parent =
         isCase
           ? { name: inHouseCases().some((c) => c.id === activeCase!.id) ? "In-House AI Product Lab" : "Work", url: `${SITE_URL}/lab` }
-          : page === "writing"
+          : page === "writing" || page === "oversight"
             ? { name: "Writing", url: `${SITE_URL}/#writing` }
             : null;
       const crumbs = [
@@ -8033,7 +8037,7 @@ const Index = () => {
         },
         {
           "@context": "https://schema.org",
-          "@type": isCase || page === "writing" ? (page === "writing" ? "Article" : "CreativeWork") : "WebPage",
+          "@type": page === "writing" || page === "oversight" ? "Article" : isCase ? "CreativeWork" : "WebPage",
           headline: title,
           name: title,
           description,
@@ -8044,7 +8048,7 @@ const Index = () => {
             name: "Senthil Nagappan",
             url: `${SITE_URL}/`,
           },
-          ...(page === "writing" ? { datePublished: "2026-08-01" } : {}),
+          ...(page === "writing" || page === "oversight" ? { datePublished: "2026-08-01" } : {}),
         },
       ]);
     }
@@ -8137,6 +8141,7 @@ const Index = () => {
           <AIGovernanceCaseStudy onHome={() => navigate("home")} />
         )}
         {page === "writing" && <CrosswalkEssay onHome={() => navigate("home")} />}
+        {page === "oversight" && <OversightTiersEssay onHome={() => navigate("home")} />}
       </main>
       <Footer setPage={navigate} currentPage={page} />
       <ThemeSwitcher />
