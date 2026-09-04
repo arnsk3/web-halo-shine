@@ -7243,19 +7243,19 @@ function Resume() {
           Resume
         </h1>
         <p className="text-gray-700 text-sm mb-8">
-          Download the PDF or view it inline below. An accessible{" "}
+          The complete résumé is on this page —{" "}
           <button
             type="button"
             onClick={() => {
-              const e = document.getElementById("resume-text-summary");
+              const e = document.getElementById("resume-full");
               e?.scrollIntoView({ behavior: "smooth", block: "start" });
-              (e?.querySelector("summary") as HTMLElement | null)?.focus();
+              (e?.querySelector("h2") as HTMLElement | null)?.focus();
             }}
             className="text-[rgb(var(--c-primary))] underline font-semibold rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
           >
-            text summary
+            read it below
           </button>{" "}
-          is also provided.
+          or download the PDF.
         </p>
         <a
           href="/Senthil_Nagappan_Resume.pdf"
