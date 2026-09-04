@@ -7313,8 +7313,202 @@ function Resume() {
 
 
 
+        {/* Full résumé rendered as HTML — indexable, screen-reader native, and
+            readable without downloading the PDF (Section 508 / WCAG 1.1.1). */}
+        <section id="resume-full" aria-labelledby="resume-full-h" className="mt-12 text-left">
+          <h2 id="resume-full-h" className="text-xl font-extrabold text-gray-900 tracking-tight mb-2 text-center">
+            Full résumé
+          </h2>
+          <p className="text-[13px] text-gray-700 text-center mb-6">
+            The complete résumé, in full, below — identical to the PDF.
+          </p>
+
+          <div className="rounded-xl border border-gray-200 bg-white p-6 sm:p-8 space-y-8">
+            <div>
+              <h3 className="font-display text-lg font-bold text-gray-900 mb-1">Senthil Nagappan</h3>
+              <p className="text-sm font-semibold text-[rgb(var(--c-accent-on-light))] mb-2">
+                AI Experience Design &amp; Human Systems Integration
+              </p>
+              <p className="text-[13px] text-gray-700">
+                <a
+                  href="mailto:arnsk3@gmail.com"
+                  className="text-[rgb(var(--c-primary))] underline rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
+                >
+                  arnsk3@gmail.com
+                </a>{" "}
+                · 571-403-0835 · Frisco, TX (DFW) &amp; Vienna, VA (DMV) — remote / open to relocation ·{" "}
+                <a
+                  href="https://www.linkedin.com/in/senthil-nagappan"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[rgb(var(--c-primary))] underline rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
+                >
+                  LinkedIn<span className="sr-only"> (opens in a new tab)</span>
+                </a>
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-[11px] font-bold uppercase tracking-wide text-[rgb(var(--c-accent-dark))] mb-2">
+                Professional summary
+              </h3>
+              <p className="text-sm text-gray-800 leading-relaxed">
+                18+ years pairing AI governance, accessibility leadership, design systems, and
+                production front-end engineering to deliver safe, human-centered AI across
+                healthcare, federal, financial-services, and enterprise environments — including 7+
+                years in compliance, risk management, and advisory roles with client-facing delivery
+                and team leadership (a $130M federal program portfolio; cross-functional team scaled
+                to 15+). I design the experiences and the strategic logic that let human-centered
+                empathy govern intelligent, non-deterministic systems — building trust,
+                transparency, and control into agentic and data-rich products, then prototyping and
+                shipping them in real code.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-[11px] font-bold uppercase tracking-wide text-[rgb(var(--c-accent-dark))] mb-2">
+                AI governance &amp; model risk
+              </h3>
+              <p className="text-sm text-gray-800 leading-relaxed">
+                Governance program design mapped to the NIST AI RMF, the EU AI Act, ISO/IEC 42001,
+                and SR 11-7 model-risk discipline; genAI risk controls (prompt &amp; data controls,
+                evaluation harnesses, monitoring); model documentation and testing practices; AI
+                inventory and registry design; third-party and shadow-AI risk; incident response and
+                post-market monitoring taxonomies; GRC, data, and model tooling — ServiceNow GRC /
+                Archer, Collibra / Alation, model registries and ML platforms.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-[11px] font-bold uppercase tracking-wide text-[rgb(var(--c-accent-dark))] mb-4">
+                Experience
+              </h3>
+              <ol className="list-none p-0 m-0 space-y-6">
+                {[
+                  {
+                    role: "AI Experience Designer & HSI Lead",
+                    org: "GE HealthCare (Brain Pulse Inc)",
+                    dates: "Mar 2025 – Present",
+                    bullets: [
+                      "Design agentic clinical workflows where the model recommends and the clinician decides — oversight tiers, override paths, and disclosure built into the interaction, not bolted on afterwards.",
+                      "Lead human–AI trust and explainability patterns: source grounding, contrary-evidence display, and known-limits surfacing for decision-support surfaces.",
+                      "Prototype in production React and TypeScript so design decisions are validated in running code, not static mockups.",
+                      "Ship design-system components adopted across 10+ teams, with accessibility and AI-disclosure behaviour encoded in the components themselves.",
+                      "Map product behaviour to NIST AI RMF functions and IEC 62366 usability engineering so oversight evidence is a by-product of normal use.",
+                    ],
+                  },
+                  {
+                    role: "Sr. UX & Accessibility Lead",
+                    org: "Social Security Administration (Leidos)",
+                    dates: "Oct 2022 – Feb 2025",
+                    bullets: [
+                      "Built and governed an enterprise design system across 15+ modules serving 50M+ citizens.",
+                      "Traced 65% of interaction issues to 8 reused components; fixing them at the source saved an estimated $1.5M+ annually.",
+                      "Drove WCAG 2.2 AA / Section 508 conformance across 40+ monthly releases, with automated accessibility gates in CI/CD (SSA11y).",
+                      "Advised program leadership on accessibility policy, remediation prioritisation, and audit evidence across a $130M program portfolio.",
+                      "Scaled and mentored a cross-functional design and accessibility team to 15+.",
+                    ],
+                  },
+                  {
+                    role: "Human Factors Engineer · Sr. UX & Inclusive Design Lead",
+                    org: "Best Buy Health",
+                    dates: "Sep 2021 – Sep 2022",
+                    bullets: [
+                      "Led human factors for connected medical-device experiences reaching 1M+ users.",
+                      "Ran summative usability validation feeding 510(k) human-factors evidence under FDA HFE guidance and IEC 62366.",
+                      "Applied use-related risk analysis (URRA) and ISO 14971 risk controls to interface design decisions.",
+                      "Contributed the BRIX design system and its accessible component patterns.",
+                    ],
+                  },
+                  {
+                    role: "Sr. UX & Program Lead",
+                    org: "HHS / SAMHSA (Eagle Technologies)",
+                    dates: "Mar 2014 – May 2021",
+                    bullets: [
+                      "Led design for behavioral-health data platforms and public data visualization serving 2M+ users.",
+                      "Owned client-facing delivery: discovery, roadmap, stakeholder alignment, and release governance across multi-year federal contracts.",
+                    ],
+                  },
+                  {
+                    role: "Earlier roles",
+                    org: "AAMC · CareFirst BCBS · JPMorgan Chase · Morgan Stanley",
+                    dates: "2007 – 2014",
+                    bullets: [
+                      "Enterprise UX and front-end delivery across association, health-insurance, and financial-services environments — the origin of the model-risk and regulated-delivery discipline I now apply to AI.",
+                    ],
+                  },
+                ].map((j) => (
+                  <li key={j.role + j.org} className="border-l-2 border-[rgb(var(--c-accent)/0.3)] pl-4">
+                    <h4 className="font-bold text-gray-900 text-sm">{j.role}</h4>
+                    <p className="text-[13px] text-gray-700 mb-2">
+                      {j.org} · {j.dates}
+                    </p>
+                    <ul className="list-disc pl-5 space-y-1.5 text-[13px] text-gray-800 leading-relaxed">
+                      {j.bullets.map((b) => (
+                        <li key={b}>{b}</li>
+                      ))}
+                    </ul>
+                  </li>
+                ))}
+              </ol>
+            </div>
+
+            <div>
+              <h3 className="text-[11px] font-bold uppercase tracking-wide text-[rgb(var(--c-accent-dark))] mb-2">
+                Selected AI &amp; prototyping work
+              </h3>
+              <p className="text-sm text-gray-800 leading-relaxed">
+                A full-stack AI visual-assistance PWA for blind and low-vision users (Vite + React
+                with a serverless AI proxy) featuring real-time scene description, OCR reading, and
+                product identification; an enterprise AI-experience pattern library (explainability,
+                trust calibration, agentic hand-off, human-in-the-loop); and the self-initiated
+                In-House AI Product Lab concepts — TrustLens, Clarity, Sentinel, Lumen, and
+                RevAssist.
+              </p>
+            </div>
+
+            <div className="grid sm:grid-cols-2 gap-6">
+              <div>
+                <h3 className="text-[11px] font-bold uppercase tracking-wide text-[rgb(var(--c-accent-dark))] mb-2">
+                  Education &amp; certifications
+                </h3>
+                <ul className="list-disc pl-5 space-y-1.5 text-[13px] text-gray-800 leading-relaxed">
+                  <li>B.E., Electronics &amp; Communication Engineering (HCI / human-factors focus), Madurai Kamaraj University, 1999</li>
+                  <li>AIGP — AI Governance Professional (IAPP) — in progress</li>
+                  <li>IAAP CPACC + WAS (CPWA)</li>
+                  <li>CUA — Certified Usability Analyst (HFI)</li>
+                  <li>CSM — Certified ScrumMaster</li>
+                  <li>Salesforce Certified UX Designer — in progress</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-[11px] font-bold uppercase tracking-wide text-[rgb(var(--c-accent-dark))] mb-2">
+                  Standards
+                </h3>
+                <ul className="list-disc pl-5 space-y-1.5 text-[13px] text-gray-800 leading-relaxed">
+                  <li>NIST AI RMF · EU AI Act · ISO/IEC 42001 · SR 11-7</li>
+                  <li>WCAG 2.2 AA/AAA · Section 508 · ADA</li>
+                  <li>FDA HFE / IEC 62366 · ISO 14971</li>
+                  <li>MIL-STD-1472H · MBSE / SysML · DoDI 5000.95</li>
+                </ul>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-[11px] font-bold uppercase tracking-wide text-[rgb(var(--c-accent-dark))] mb-2">
+                Leadership &amp; community
+              </h3>
+              <p className="text-sm text-gray-800 leading-relaxed">
+                Vice President, Texas Astronomical Society (500+ member nonprofit); Cubmaster &amp;
+                Assistant Scoutmaster, Scouting America (Wood Badge trained, Spark Plug Award 2025);
+                Lead Coach, FIRST LEGO League.
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* PDF preview — hidden from AT because the same content is provided as
-            HTML below in the accessible text summary (avoids duplicate reading). */}
+            HTML above in the full résumé (avoids duplicate reading). */}
         <div
           aria-hidden="true"
           className="mt-10 w-full bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hidden md:block"
@@ -7327,7 +7521,6 @@ function Resume() {
           />
         </div>
 
-        {/* Always-visible fallback link — works on mobile/older browsers and for SR users */}
         <p className="mt-4 text-sm text-gray-700 md:sr-only">
           Inline PDF preview is not shown on small screens.{" "}
           <a
@@ -7341,92 +7534,6 @@ function Resume() {
           </a>
           .
         </p>
-
-        {/* Accessible plain-text summary — keeps content reachable to screen
-            readers and assistive tech that can't render PDFs (Section 508 / WCAG 1.1.1). */}
-        <details
-          id="resume-text-summary"
-          className="mt-10 text-left border border-gray-200 rounded-xl bg-white"
-        >
-          <summary className="cursor-pointer px-5 py-3 text-sm font-semibold text-[rgb(var(--c-primary))] bg-[rgb(var(--c-primary)/0.05)] hover:bg-[rgb(var(--c-primary)/0.1)] rounded-t-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-inset">
-            Accessible text summary of resume
-          </summary>
-          <div className="px-5 py-4 text-sm text-gray-800 leading-relaxed space-y-3">
-            <p>
-              <strong>Senthil Nagappan</strong> — AI Experience Design &amp; Human Systems
-              Integration. 18+ years pairing AI governance, accessibility leadership, design
-              systems, and production front-end engineering to deliver safe, human-centered AI
-              across healthcare, federal, financial-services, and enterprise environments —
-              including 7+ years in compliance, risk management, and advisory roles with
-              client-facing delivery and team leadership (a $130M federal program portfolio,
-              cross-functional team scaled to 15+). I
-              design the experiences and the strategic logic that let human-centered empathy
-              govern intelligent, non-deterministic systems — building trust, transparency, and
-              control into agentic and data-rich products, then prototyping and shipping them in
-              real code.
-            </p>
-            <p>
-              <strong>AI governance &amp; model risk:</strong> governance program design mapped to
-              NIST AI RMF, the EU AI Act, ISO/IEC 42001, and SR 11-7 model-risk discipline; genAI
-              risk controls (prompt &amp; data controls, evaluation harnesses, monitoring); model
-              documentation &amp; testing practices; GRC, data &amp; model tooling — ServiceNow GRC
-              / Archer, Collibra / Alation, model registries &amp; ML platforms. Earlier
-              financial-services delivery at JPMorgan Chase and Morgan Stanley.
-            </p>
-
-            <p>
-              <strong>Current role:</strong> AI Experience Designer &amp; HSI Lead — GE
-              HealthCare (Brain Pulse Inc), Mar 2025 – Present. Agentic clinical workflows,
-              human–AI trust and explainability, design-to-code prototyping in React/TypeScript,
-              and design-system components adopted across 10+ teams.
-            </p>
-            <p>
-              <strong>Prior roles:</strong> Sr. UX &amp; Accessibility Lead — Social Security
-              Administration (Leidos), Oct 2022 – Feb 2025 — enterprise design system across 15+
-              modules serving 50M+ users; traced 65% of interaction issues to 8 reused components,
-              saving $1.5M+ annually; WCAG 2.2 AA / Section 508 across 40+ monthly releases.
-              Sr. UX &amp; Inclusive Design Lead — Best Buy Health, Sep 2021 – Sep 2022 —
-              connected medical-device experiences for 1M+ users, summative validation feeding
-              510(k) human-factors evidence, BRIX design system. Sr. UX &amp; Program Lead —
-              HHS / SAMHSA (Eagle Technologies), Mar 2014 – May 2021 — behavioral-health data
-              platforms and visualization for 2M+ users. Earlier: AAMC, CareFirst BCBS,
-              JPMorgan Chase, Morgan Stanley.
-            </p>
-            <p>
-              <strong>Selected AI &amp; prototyping work:</strong> Full-stack AI visual-assistance
-              PWA for blind and low-vision users (Vite + React with serverless AI proxy) featuring
-              real-time scene description, OCR reading, and product identification; an enterprise
-              AI-experience pattern library (explainability, trust calibration, agentic hand-off,
-              human-in-the-loop); and interactive design-system and data-visualization prototypes.
-            </p>
-            <p>
-              <strong>Education &amp; certifications:</strong> B.E., Electronics &amp;
-              Communication Engineering (HCI / human-factors focus), Madurai Kamaraj University,
-              1999. AIGP — AI Governance Professional (IAPP) (in progress) · IAAP CPACC + WAS
-              (CPWA) · CUA · CSM · Salesforce Certified UX Designer (in progress).
-            </p>
-            <p>
-              <strong>Standards:</strong> WCAG 2.2 AA, Section 508, ADA, FDA HFE / IEC 62366,
-              ISO 14971, MIL-STD-1472H, MBSE/SysML, DoDI 5000.95, NIST AI RMF.
-            </p>
-            <p>
-              <strong>Leadership &amp; community:</strong> Vice President, Texas Astronomical
-              Society (500+ member nonprofit); Cubmaster &amp; Assistant Scoutmaster, Scouting
-              America (Wood Badge trained, Spark Plug Award 2025); Lead Coach, FIRST LEGO League.
-            </p>
-            <p>
-              <strong>Contact:</strong>{" "}
-              <a
-                href="mailto:arnsk3@gmail.com"
-                className="text-[rgb(var(--c-primary))] underline rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
-              >
-                arnsk3@gmail.com
-              </a>{" "}
-              · 571-403-0835 · Vienna, VA (DMV) | Frisco, TX (DFW) — remote / open to relocation.
-            </p>
-
-          </div>
-        </details>
       </FadeIn>
     </div>
   );
