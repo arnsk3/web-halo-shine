@@ -117,11 +117,9 @@ export function AIDeploymentSection() {
         AI Deployment
       </h2>
       <p className="text-gray-700 text-base leading-relaxed max-w-3xl mb-8">
-        Most AI programs fail at the last mile — the gap between what a platform can do and
-        what a person can actually use, trust, and be accountable for. I work that last mile:
-        embedded in complex, regulated production environments, I own the experience,
-        oversight, and accessibility layers that decide whether an intelligent system gets
-        adopted or abandoned. I partner with engineering; I don&rsquo;t replace it.
+        AI programs fail at the last mile — the gap between what a platform can do and what a
+        person can actually use, trust, and be accountable for. Embedded with engineering in
+        regulated production environments, I own that layer.
       </p>
 
       <ul className="grid gap-6 list-none p-0 m-0 [grid-template-columns:repeat(auto-fit,minmax(min(100%,20rem),1fr))]">
@@ -226,9 +224,7 @@ export function HumanAISystemsSection() {
         How I Design AI in Real Systems
       </h2>
       <p className="text-gray-700 text-base leading-relaxed max-w-3xl mb-8">
-        These are the patterns I design so AI stays understandable, controllable, and safe in
-        production — the interaction layer that decides whether people can supervise a model
-        rather than defer to it.
+        The patterns that let people supervise a model rather than defer to it.
       </p>
       <ul className="grid gap-5 list-none p-0 m-0 [grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr))]">
         {PATTERNS.map((p) => {
@@ -291,8 +287,8 @@ export function GovernanceAccessibilitySection() {
         Accessible <span className="text-[rgb(var(--c-accent-on-light))]">and</span> governable
       </h2>
       <p className="text-gray-700 text-base leading-relaxed max-w-3xl mb-8">
-        My rarest combination: I make AI both accessible and governable — the two things most
-        AI-deployment work treats as afterthoughts.
+        I make AI both accessible and governable — the two things most AI deployments treat as
+        afterthoughts.
       </p>
       <ul className="grid gap-6 list-none p-0 m-0 [grid-template-columns:repeat(auto-fit,minmax(min(100%,19rem),1fr))]">
         {GOV_BLOCKS.map((b) => {

@@ -1630,18 +1630,16 @@ function Home({
         <FadeIn>
           <SectionIndex n="02" label="Selected Work" />
           <h2 id="cases-heading" className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2 tracking-tight">
-
             Selected Work
           </h2>
-          <p className="text-gray-700 text-base mb-3">
-            A curated set of the strongest case studies — enterprise design systems, data-driven
-            design, accessibility, and AI products that drove adoption and trust at scale.
+          <p className="text-gray-700 text-base mb-3 max-w-3xl">
+            Design systems, accessibility, and AI products that drove adoption and trust at scale.
           </p>
           <p className="text-gray-600 text-[13px] mb-6 max-w-2xl">
-            <span className="font-semibold text-gray-700">A note on metrics:</span> figures reflect
-            team and program outcomes; my individual contribution is described within each case. I&apos;m
-            happy to walk through how any number was measured in an interview.
+            <span className="font-semibold text-gray-700">A note on metrics:</span> figures are team
+            and program outcomes; my own contribution is described inside each case.
           </p>
+
 
         </FadeIn>
         <FadeIn delay={0.05}>
