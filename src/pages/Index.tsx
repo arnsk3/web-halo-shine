@@ -8121,13 +8121,14 @@ function InHouseLab({
             <span aria-hidden="true">←</span> Back to work
           </button>
           <p className="inline-flex items-center gap-2 text-[rgb(var(--c-accent-on-dark))] text-xs font-semibold tracking-[3px] uppercase mb-5 rounded-full border border-white/15 bg-white/5 backdrop-blur px-4 py-1.5">
-            In-House AI Product Concepts
+            AI Concepts · Non-Deployed
           </p>
           <h1 className="font-display text-3xl sm:text-4xl font-extrabold leading-[1.15] mb-4 tracking-tight">
-            In-House AI Product Lab
+            AI Concepts (Non-Deployed)
           </h1>
           <p className="text-white/90 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-            {cases.length} self-initiated concepts exploring how safe, explainable,
+            Exploratory concepts — clearly distinguished from the deployed, in-production work.
+            {" "}{cases.length} self-initiated concepts exploring how safe, explainable,
             human-in-the-loop AI should feel — from model-risk governance to clinical
             decision-support, agentic guardrails, source-grounding UX, and revenue-cycle
             reimbursement. Open any capsule for the full case study.
