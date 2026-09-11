@@ -1540,15 +1540,16 @@ function Home({
                         }}
                       />
                       <span className="relative text-white text-[11px] font-semibold tracking-widest uppercase">
-                        In-House AI Product Concepts
+                        AI Concepts · Non-Deployed
                       </span>
                     </div>
                     <div className="flex-1 flex flex-col p-6">
                       <h3 className="font-bold text-gray-900 text-lg mb-1.5 leading-snug">
-                        In-House AI Product Lab
+                        AI Concepts (Non-Deployed)
                       </h3>
                       <p className="text-gray-600 text-[12px] mb-3 font-medium">
-                        Self-directed concepts · Governance · Clinical · Agentic safety · Revenue cycle
+                        Exploratory concepts — clearly distinguished from the deployed,
+                        in-production work above.
                       </p>
                       <p className="text-gray-700 text-sm mb-4 leading-relaxed">
                         {inHouseCount} self-initiated AI product concepts that show how I design safe,
