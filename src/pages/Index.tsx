@@ -7975,11 +7975,13 @@ function Footer({
     );
   };
   const sectionItems: { id: string; label: string }[] = [
-    { id: "ai-governance", label: "AI Governance" },
-    { id: "cases", label: "Work" },
-    { id: "expertise", label: "Expertise" },
+    { id: "ai-deployment", label: "AI Deployment" },
+    { id: "human-ai-design", label: "Human-AI Design" },
+    { id: "governance-accessibility", label: "Governance & Accessibility" },
+    { id: "deployment-model", label: "Deployment Model" },
   ];
   const pageItems: { id: PageId; label: string }[] = [
+    { id: "lab", label: "AI Concepts" },
     { id: "about", label: "About" },
     { id: "resume", label: "Résumé" },
     { id: "contact", label: "Contact" },
@@ -7994,8 +7996,38 @@ function Footer({
         <div>
           <p className="font-bold text-white text-sm">Senthil Nagappan</p>
           <p className="text-white text-xs mt-1">
-            AI Experience Design · Human Systems Integration · Accessibility
+            Forward-Deployed AI Experience &amp; Human Factors Leader
           </p>
+          <ul className="flex flex-wrap gap-4 list-none p-0 m-0 mt-3">
+            <li>
+              <a
+                href="/Senthil_Nagappan_Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center min-h-[44px] text-xs font-semibold text-white underline underline-offset-4 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#111827]"
+              >
+                Download résumé (PDF)<span className="sr-only"> — opens in a new tab</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="mailto:arnsk3@gmail.com"
+                className="inline-flex items-center min-h-[44px] text-xs text-white underline underline-offset-4 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#111827]"
+              >
+                Email Senthil Nagappan
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.linkedin.com/in/senthil-nagappan"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center min-h-[44px] text-xs text-white underline underline-offset-4 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#111827]"
+              >
+                Senthil Nagappan on LinkedIn<span className="sr-only"> — opens in a new tab</span>
+              </a>
+            </li>
+          </ul>
           <p className="text-white/90 text-xs mt-3">
             © 2026 · Designed &amp; built with accessibility in mind
           </p>
