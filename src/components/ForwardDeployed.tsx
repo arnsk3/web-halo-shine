@@ -356,6 +356,29 @@ const STEPS = [
   },
 ];
 
+const WEEK = [
+  {
+    d: "Mon — standing with the team",
+    b: "In backlog refinement and architecture discussion, not a separate design review. I hear the constraint before it becomes a rewrite.",
+  },
+  {
+    d: "Tue — in the field",
+    b: "Sessions with the people who actually use the system — caseworkers, clinicians, agents. Recorded friction goes straight back to the sprint, same week.",
+  },
+  {
+    d: "Wed — at the whiteboard with engineers",
+    b: "We resolve the hard trade-off together: what the model may decide, what it must escalate, and what the interface has to disclose. I bring the oversight requirement; they bring what is feasible in the pipeline.",
+  },
+  {
+    d: "Thu — prototype in real fidelity",
+    b: "A working prototype in code or a real component, tested against the actual workflow — so the decision is validated before anyone commits build effort.",
+  },
+  {
+    d: "Fri — into the release",
+    b: "Acceptance criteria, component updates, and audit evidence land in the release train. Nothing waits for a separate design phase.",
+  },
+];
+
 export function ForwardDeploymentModel() {
   return (
     <section id="deployment-model" className={SECTION} aria-labelledby="deployment-model-heading">
@@ -381,6 +404,99 @@ export function ForwardDeploymentModel() {
           </li>
         ))}
       </ol>
+
+      <div className="mt-8 rounded-2xl border border-[rgb(var(--c-primary)/0.25)] bg-[rgb(var(--c-tint-50))] p-6 sm:p-8">
+        <h3 className="font-display text-xl font-extrabold text-gray-900 mb-1.5">
+          How I actually work with engineering — one week, embedded
+        </h3>
+        <p className="text-sm text-gray-700 leading-relaxed mb-5 max-w-3xl">
+          A representative week on a regulated delivery program. I sit inside the delivery
+          rhythm rather than reviewing it from outside — and I partner with engineering,
+          I don&rsquo;t replace it.
+        </p>
+        <ol className="grid gap-4 list-none p-0 m-0 [grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr))]">
+          {WEEK.map((w) => (
+            <li key={w.d} className="h-full">
+              <article className="h-full rounded-xl bg-white border border-gray-200 p-4">
+                <p className="font-display text-[11px] font-extrabold uppercase tracking-[1.5px] text-[rgb(var(--c-accent-on-light))] mb-1.5">
+                  {w.d}
+                </p>
+                <p className="text-sm text-gray-700 leading-relaxed">{w.b}</p>
+              </article>
+            </li>
+          ))}
+        </ol>
+        <p className="text-[13px] text-gray-800 leading-relaxed mt-5 max-w-3xl">
+          <span className="font-semibold">What engineering gets from me:</span> decisions made
+          in their sprint, not after it — oversight and accessibility requirements written as
+          acceptance criteria, prototypes they can build against, and a named person who owns
+          the human-side trade-off so it never stalls a release.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------------------- Intro clip ------------------------------ */
+
+/** Set to a public MP4/YouTube URL (or an audio file) to show the intro
+ *  player. While empty, only the written 60-second intro renders. */
+const INTRO_MEDIA_URL = "";
+
+export function IntroClip() {
+  return (
+    <section id="intro" className={SECTION} aria-labelledby="intro-heading">
+      <div className="rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 grid gap-6 lg:grid-cols-[minmax(0,1fr)_20rem] items-start">
+        <div>
+          <p className="text-[11px] font-bold uppercase tracking-[2px] text-[rgb(var(--c-accent-on-light))] mb-2">
+            In my own words
+          </p>
+          <h2
+            id="intro-heading"
+            className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-3 tracking-tight"
+          >
+            Sixty seconds on what I do
+          </h2>
+          <p className="text-gray-700 leading-relaxed mb-3">
+            Most AI programs don&rsquo;t fail on the model. They fail at the last mile — the
+            point where a real person in a regulated job has to understand the output, decide
+            whether to trust it, override it when it&rsquo;s wrong, and stand behind that
+            decision in an audit.
+          </p>
+          <p className="text-gray-700 leading-relaxed">
+            That last mile is my work. I embed with engineering and delivery teams, design the
+            disclosure, confidence, override, and escalation behaviour, make it accessible to
+            everyone who has to use it, and wire the oversight evidence into the release itself
+            — so the system is adopted rather than quietly abandoned.
+          </p>
+        </div>
+        <div className="rounded-xl border border-[rgb(var(--c-primary)/0.25)] bg-[rgb(var(--c-tint-50))] p-5">
+          {INTRO_MEDIA_URL ? (
+            <video
+              controls
+              preload="none"
+              src={INTRO_MEDIA_URL}
+              className="w-full rounded-lg"
+              aria-label="Intro clip: Senthil Nagappan on forward-deployed AI experience work"
+            >
+              Your browser does not support embedded video.
+            </video>
+          ) : (
+            <>
+              <p className="text-sm font-bold text-gray-900 mb-1.5">Prefer a conversation?</p>
+              <p className="text-sm text-gray-700 leading-relaxed mb-3">
+                Happy to walk through any of this live, or send a short recorded intro.
+              </p>
+              <a
+                href="mailto:arnsk3@gmail.com"
+                className="inline-flex items-center min-h-[44px] px-4 py-2 rounded-lg text-sm font-semibold bg-[rgb(var(--c-primary))] text-white hover:bg-[rgb(var(--c-accent-dark))] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
+              >
+                Get in touch
+              </a>
+            </>
+          )}
+        </div>
+      </div>
     </section>
   );
 }

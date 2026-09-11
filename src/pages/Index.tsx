@@ -26,6 +26,7 @@ import {
   HumanAISystemsSection,
   GovernanceAccessibilitySection,
   ForwardDeploymentModel,
+  IntroClip,
 } from "@/components/ForwardDeployed";
 import SectionIndex from "@/components/SectionIndex";
 import { Compass, Sprout, Network, Brain, Bot, FlaskConical, ShieldCheck, Scale, Accessibility, Handshake, Microscope, Layers, Code2, Palette, HeartPulse } from "lucide-react";
@@ -1451,6 +1452,9 @@ function Home({
       {/* Impact strip — stats directly under the hero */}
       <ImpactStrip />
 
+      {/* Sixty-second intro in my own words */}
+      <IntroClip />
+
       {/* Forward-deployed work leads the page */}
       <AIDeploymentSection />
 
@@ -1558,36 +1562,16 @@ function Home({
                         decision-support, agentic guardrails, source-grounding UX, and revenue-cycle
                         reimbursement.
                       </p>
-                      <ul className="flex flex-wrap gap-1.5 list-none p-0 m-0 mb-4">
+                      <ul className="list-none p-0 m-0 mb-2 space-y-1.5">
                         {inHouseCases().map((c) => (
-                          <li
-                            key={c.id}
-                            className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-[rgb(var(--c-tint-50))] text-[rgb(var(--c-primary))] border border-[rgb(var(--c-primary)/0.2)]"
-                          >
-                            {c.title.split(" — ")[0]}
+                          <li key={c.id} className="text-[13px] text-gray-700 leading-snug">
+                            <span className="font-semibold text-gray-900">
+                              {c.title.split(" — ")[0]}
+                            </span>
+                            {c.title.split(" — ")[1] ? ` — ${c.title.split(" — ")[1]}` : ""}
                           </li>
                         ))}
                       </ul>
-                      <div className="mb-2 pt-4 border-t border-gray-100">
-                        <p className="text-[11px] font-bold uppercase tracking-wide text-gray-700 mb-2">
-                          What these concepts demonstrate
-                        </p>
-                        <ul className="list-none p-0 m-0 space-y-1.5">
-                          {[
-                            "Human-in-the-loop patterns for high-stakes AI decisions",
-                            "Governance mapped to NIST AI RMF, EU AI Act & ISO 42001",
-                            "Explainability, confidence & source-grounding UX",
-                          ].map((o) => (
-                            <li key={o} className="flex items-start gap-2 text-[13px] text-gray-700">
-                              <span
-                                aria-hidden="true"
-                                className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[rgb(var(--c-accent))]"
-                              />
-                              <span className="leading-relaxed">{o}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
                       <div className="mt-auto pt-4 flex flex-wrap gap-2">
                         <button
                           onClick={() => setPage("lab")}
