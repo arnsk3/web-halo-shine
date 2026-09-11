@@ -1091,7 +1091,7 @@ function DesignLeadership() {
     >
       <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2rem,4vw,3.5rem)]">
         <FadeIn>
-          <SectionIndex n="06" label="Design Leadership" />
+          
           <h2
             id="leadership-heading"
             className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 mb-2 tracking-tight"
@@ -1264,7 +1264,7 @@ function TradeOffs() {
       className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2.5rem,4vw,3.5rem)]"
     >
       <FadeIn>
-        <SectionIndex n="08" label="Judgment" />
+        
         <div className="max-w-2xl mb-8">
           <h2
             id="tradeoffs-heading"
@@ -7058,6 +7058,9 @@ function About() {
           </p>
         </div>
       </FadeIn>
+      <IntroClip />
+
+      <Signals />
     </div>
   );
 }
@@ -7350,6 +7353,17 @@ function Approach() {
           </ul>
         </div>
       </FadeIn>
+      <ForwardDeploymentModel />
+
+      <OperatingModel />
+
+      <TradeOffs />
+
+      <GovernanceEngagements />
+
+      <AISkillsMatrix />
+
+      <DesignLeadership />
     </div>
   );
 }
