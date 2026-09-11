@@ -431,30 +431,12 @@ export function ForwardDeploymentModel() {
 
 /* ---------------------------- Intro clip ------------------------------ */
 
-/**
- * Recorded intro. Fill `url` with the hosted MP4 (and ideally `poster` +
- * `captions`) and the block switches from the written intro to the player.
- * The same values feed the VideoObject structured data and the sitemap
- * video entry, so this is the single place to update.
- */
-export const INTRO_VIDEO = {
-  url: "",
-  poster: "/headshot.jpg",
-  captions: "",
-  name: "Sixty seconds on what I do — Senthil Nagappan",
-  description:
-    "Senthil Nagappan on forward-deployed AI experience and human factors work: designing the last mile where AI meets real users in regulated production environments.",
-  uploadDate: "2026-09-11",
-  duration: "PT1M",
-};
-
 const TRANSCRIPT = [
   "Most AI programs don\u2019t fail on the model. They fail at the last mile — the point where a real person in a regulated job has to understand the output, decide whether to trust it, override it when it\u2019s wrong, and stand behind that decision in an audit.",
   "That last mile is my work. I embed with engineering and delivery teams, design the disclosure, confidence, override, and escalation behaviour, make it accessible to everyone who has to use it, and wire the oversight evidence into the release itself — so the system is adopted rather than quietly abandoned.",
 ];
 
 export function IntroClip() {
-  const hasVideo = Boolean(INTRO_VIDEO.url);
   return (
     <section id="intro" className={SECTION} aria-labelledby="intro-heading">
       <div className="rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 grid gap-6 lg:grid-cols-[minmax(0,1fr)_22rem] items-start">
@@ -468,47 +450,11 @@ export function IntroClip() {
           >
             Sixty seconds on what I do
           </h2>
-
-          {hasVideo ? (
-            <>
-              <video
-                controls
-                preload="none"
-                playsInline
-                src={INTRO_VIDEO.url}
-                poster={INTRO_VIDEO.poster}
-                className="w-full rounded-xl border border-gray-200 bg-black"
-                aria-label={INTRO_VIDEO.name}
-              >
-                {INTRO_VIDEO.captions && (
-                  <track
-                    kind="captions"
-                    src={INTRO_VIDEO.captions}
-                    srcLang="en"
-                    label="English captions"
-                    default
-                  />
-                )}
-                Your browser does not support embedded video.
-              </video>
-              <details className="mt-4 rounded-xl border border-gray-200 bg-[rgb(var(--c-tint-50))] p-4">
-                <summary className="cursor-pointer min-h-[44px] flex items-center text-sm font-semibold text-[rgb(var(--c-primary))] rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2">
-                  Read the transcript
-                </summary>
-                {TRANSCRIPT.map((t) => (
-                  <p key={t.slice(0, 24)} className="text-gray-700 leading-relaxed mt-3">
-                    {t}
-                  </p>
-                ))}
-              </details>
-            </>
-          ) : (
-            TRANSCRIPT.map((t) => (
-              <p key={t.slice(0, 24)} className="text-gray-700 leading-relaxed mb-3">
-                {t}
-              </p>
-            ))
-          )}
+          {TRANSCRIPT.map((t) => (
+            <p key={t.slice(0, 24)} className="text-gray-700 leading-relaxed mb-3">
+              {t}
+            </p>
+          ))}
         </div>
 
         <div className="rounded-xl border border-[rgb(var(--c-primary)/0.25)] bg-[rgb(var(--c-tint-50))] p-5">
