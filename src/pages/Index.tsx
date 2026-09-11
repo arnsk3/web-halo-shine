@@ -1591,10 +1591,10 @@ function Home({
                       <div className="mt-auto pt-4 flex flex-wrap gap-2">
                         <button
                           onClick={() => setPage("lab")}
-                          aria-label={`View all ${inHouseCount} in-house AI product concepts`}
+                          aria-label={`View all ${inHouseCount} non-deployed AI concepts`}
                           className="group/btn inline-flex items-center gap-1.5 min-h-[44px] text-xs font-semibold px-4 py-2 rounded-lg bg-[rgb(var(--c-primary))] text-white hover:bg-[rgb(var(--c-accent-dark))] focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2 transition-colors"
                         >
-                          Explore the AI Product Lab
+                          Explore the AI concepts
                           <span aria-hidden="true" className="transition-transform group-hover/btn:translate-x-0.5">→</span>
                         </button>
                       </div>
@@ -8063,7 +8063,7 @@ function Footer({
 }
 
 const PAGE_TITLES: Record<PageId, string> = {
-  home: "Senthil Nagappan — AI Experience Design & Human Systems Integration",
+  home: "Senthil Nagappan — Forward-Deployed AI Experience & Human Factors Leader",
   brand: "Brand Identity & Visual Systems — Senthil Nagappan",
   about: "About — Senthil Nagappan",
   approach: "Approach — Senthil Nagappan",
@@ -8078,7 +8078,7 @@ const PAGE_TITLES: Record<PageId, string> = {
 };
 
 const PAGE_DESCRIPTIONS: Record<PageId, string> = {
-  home: "Senthil Nagappan: AI experience design, AI governance, and human systems integration — designing the disclosure, explainability, and human oversight controls that make responsible AI real in regulated environments.",
+  home: "Senthil Nagappan — Forward-Deployed AI Experience & Human Factors Leader. I design the human-in-the-loop controls, explainability, accessibility, and governance that make AI usable, safe, and deployable in regulated environments.",
   brand: "Design systems & brand-consistent visual systems by Senthil Nagappan — shared components, design tokens, and on-brand UI that scale across consumer, healthcare, and enterprise products.",
 
   about: "About Senthil Nagappan — 18+ years building AI-driven products in regulated healthcare, federal, retail, and defense environments.",
