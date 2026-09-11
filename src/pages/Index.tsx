@@ -1447,7 +1447,19 @@ function Home({
 
       </header>
 
-      {/* AI Governance & Responsible AI — peer section, immediately after hero */}
+      {/* Impact strip — stats directly under the hero */}
+      <ImpactStrip />
+
+      {/* Forward-deployed work leads the page */}
+      <AIDeploymentSection />
+
+      {/* Human-AI systems design patterns */}
+      <HumanAISystemsSection />
+
+      {/* Governance & accessibility */}
+      <GovernanceAccessibilitySection />
+
+      {/* AI Governance & Responsible AI — peer section */}
       <AIGovernanceSection />
 
       {/* Case Studies — work leads the page */}
