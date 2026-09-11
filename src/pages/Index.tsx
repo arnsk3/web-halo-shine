@@ -26,6 +26,7 @@ import {
   HumanAISystemsSection,
   GovernanceAccessibilitySection,
   ForwardDeploymentModel,
+  IntroClip,
 } from "@/components/ForwardDeployed";
 import SectionIndex from "@/components/SectionIndex";
 import { Compass, Sprout, Network, Brain, Bot, FlaskConical, ShieldCheck, Scale, Accessibility, Handshake, Microscope, Layers, Code2, Palette, HeartPulse } from "lucide-react";
@@ -1450,6 +1451,9 @@ function Home({
 
       {/* Impact strip — stats directly under the hero */}
       <ImpactStrip />
+
+      {/* Sixty-second intro in my own words */}
+      <IntroClip />
 
       {/* Forward-deployed work leads the page */}
       <AIDeploymentSection />
