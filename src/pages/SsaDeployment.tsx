@@ -1,11 +1,63 @@
 import { Link } from "react-router-dom";
 
 const SECTIONS = [
+  { id: "walkthrough", label: "Walkthrough: One Defect, End to End" },
   { id: "context", label: "The Deployment Context" },
   { id: "problem", label: "The Problem" },
   { id: "integration", label: "AI + Workflow Integration" },
   { id: "architecture", label: "System Architecture" },
+  { id: "evaluation", label: "How It Was Measured" },
   { id: "impact", label: "Operational Impact" },
+];
+
+const WALKTHROUGH = [
+  {
+    screen: "Build pipeline — release candidate check",
+    decision:
+      "Automated validation flags a contrast and focus-order failure on a shared form control, with the offending component named rather than the 14 screens it appears on.",
+    outcome: "Reviewers see one root cause instead of fourteen duplicate tickets.",
+  },
+  {
+    screen: "Triage queue — expert review",
+    decision:
+      "A specialist confirms the contrast failure as deterministic (auto-accept) and routes the focus-order case to human judgment, because sequence depends on the caseworker's task, not the markup.",
+    outcome: "Machine handles conformance; people keep the context-dependent call.",
+  },
+  {
+    screen: "Component library — source fix",
+    decision:
+      "The fix lands in the governed shared component, with a note on what changed and why, so downstream teams inherit it rather than re-solving it.",
+    outcome: "One change propagates across every consuming team.",
+  },
+  {
+    screen: "Audit record — evidence generated",
+    decision:
+      "The check, the human decision, the reviewer, and the remediation are captured as a byproduct of the pipeline run — not written up later from memory.",
+    outcome: "Audit prep becomes retrieval instead of reconstruction.",
+  },
+];
+
+const EVALUATION = [
+  {
+    h: "Study design",
+    b: "Pre/post comparison across the same delivery teams and the same release cadence — baseline captured from manual audit cycles before integration, then measured against equivalent post-integration releases. Component-level defect attribution ran alongside, so improvement could be traced to a cause rather than inferred from a total.",
+  },
+  {
+    h: "Sample and instrumentation",
+    b: "Measured across 40+ monthly releases and the full shared component inventory, with moderated usability sessions and expert review sessions on the workflows caseworkers used most. Defects were tagged by originating component, severity, and whether they were caught automatically or by a person.",
+  },
+  {
+    h: "What we tracked",
+    b: "Manual audit hours per release; defect volume and recurrence; share of defects attributable to reused components; false-positive rate on automated checks; and whether release velocity moved at all.",
+  },
+  {
+    h: "What failed, and what we changed",
+    b: "The first pass over-trusted automation: teams began treating a clean automated result as a passed accessibility review, and nuanced failures — focus order, meaningful sequence, error recovery — slipped through. Early rule tuning also produced enough false positives that reviewers started dismissing flags in bulk. We narrowed automated scope to deterministic checks only, made human review an explicit required gate rather than an optional follow-up, and labelled every finding with its confidence and origin so nobody could mistake machine output for a full review.",
+  },
+  {
+    h: "Honest limits",
+    b: "This was operational measurement inside a live federal program, not a controlled experiment. Figures are program-reported and rounded; there was no holdout group, and delivery-process changes ran concurrently. The direction and the component-level attribution are well supported; precise causal attribution to the AI-assisted layer alone is not claimed.",
+  },
 ];
 
 const IMPACT = [
@@ -71,6 +123,39 @@ export default function SsaDeployment({ onHome }: { onHome: () => void }) {
         </nav>
 
         <article className="max-w-3xl">
+          <section id="walkthrough" aria-labelledby="ssa-walk-h" className="scroll-mt-24 mb-10">
+            <h2 id="ssa-walk-h" className="text-2xl font-extrabold text-gray-900 mb-3">
+              Walkthrough: One Defect, End to End
+            </h2>
+            <p className="text-gray-700 leading-relaxed mb-5">
+              What the system actually does, step by step — the moment a check fires, the decision
+              a person makes, and what changes as a result.
+            </p>
+            <ol className="list-none p-0 m-0 space-y-3">
+              {WALKTHROUGH.map((w, i) => (
+                <li
+                  key={w.screen}
+                  className="rounded-xl border border-gray-200 bg-white p-5"
+                >
+                  <p className="font-display text-xs font-extrabold text-[rgb(var(--c-accent-on-light))] mb-1 tabular-nums">
+                    Step {i + 1} · {w.screen}
+                  </p>
+                  <p className="text-sm text-gray-700 leading-relaxed mb-2">
+                    <span className="font-semibold text-gray-900">Decision: </span>
+                    {w.decision}
+                  </p>
+                  <p className="text-sm text-gray-800 leading-relaxed">
+                    <span className="font-semibold text-gray-900">Outcome: </span>
+                    {w.outcome}
+                  </p>
+                </li>
+              ))}
+            </ol>
+            <p className="text-[13px] text-gray-700 mt-3 italic">
+              Described generically — no proprietary screens, code, or federal system detail.
+            </p>
+          </section>
+
           <section id="context" aria-labelledby="ssa-context-h" className="scroll-mt-24 mb-10">
             <h2 id="ssa-context-h" className="text-2xl font-extrabold text-gray-900 mb-3">
               The Deployment Context
@@ -142,6 +227,20 @@ export default function SsaDeployment({ onHome }: { onHome: () => void }) {
             <p className="text-[13px] text-gray-700 mt-3 italic">
               Conceptual only — no proprietary implementation, code, or federal system detail.
             </p>
+          </section>
+
+          <section id="evaluation" aria-labelledby="ssa-eval-h" className="scroll-mt-24 mb-10">
+            <h2 id="ssa-eval-h" className="text-2xl font-extrabold text-gray-900 mb-3">
+              How It Was Measured
+            </h2>
+            <dl className="space-y-4">
+              {EVALUATION.map((e) => (
+                <div key={e.h} className="rounded-xl border border-gray-200 bg-white p-5">
+                  <dt className="font-bold text-gray-900 mb-1.5">{e.h}</dt>
+                  <dd className="text-sm text-gray-700 leading-relaxed m-0">{e.b}</dd>
+                </div>
+              ))}
+            </dl>
           </section>
 
           <section id="impact" aria-labelledby="ssa-impact-h" className="scroll-mt-24 mb-10">
