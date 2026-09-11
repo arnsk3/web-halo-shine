@@ -1729,6 +1729,8 @@ function Home({
       <BrandTeaser onOpen={() => setPage("brand")} />
 
       {/* Trade-offs — the judgment layer */}
+      <ForwardDeploymentModel />
+
       <TradeOffs />
 
 
