@@ -948,17 +948,18 @@ function FadeIn({ children, delay = 0, className = "" }: FadeInProps) {
   );
 }
 
-type PageId = "home" | "brand" | "about" | "approach" | "resume" | "contact" | "case" | "lab" | "governance" | "writing" | "oversight";
+type PageId = "home" | "brand" | "about" | "approach" | "resume" | "contact" | "case" | "lab" | "governance" | "writing" | "oversight" | "ssadeploy";
 
 function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) {
-  // Curated 5-item nav. "Work" and "Expertise" scroll to landing sections;
-  // Brand lives as a filter inside Work, not a top-level item.
+  // Top-level sections follow the forward-deployed narrative order.
   const sectionLinks: { id: string; label: string }[] = [
-    { id: "ai-governance", label: "AI Governance" },
-    { id: "cases", label: "Work" },
-    { id: "expertise", label: "Expertise" },
+    { id: "ai-deployment", label: "AI Deployment" },
+    { id: "human-ai-design", label: "Human-AI Design" },
+    { id: "governance-accessibility", label: "Governance & Accessibility" },
+    { id: "deployment-model", label: "Deployment Model" },
   ];
   const tailLinks: { id: PageId; label: string }[] = [
+    { id: "lab", label: "AI Concepts" },
     { id: "about", label: "About" },
     { id: "resume", label: "Résumé" },
     { id: "contact", label: "Contact" },
