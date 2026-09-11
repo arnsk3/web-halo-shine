@@ -1649,6 +1649,9 @@ function Home({
       {/* Impact strip — stats directly under the hero */}
       <ImpactStrip />
 
+      {/* Recorded intro — video with written transcript fallback */}
+      <IntroClip />
+
       {/* 01 — Forward-deployed work leads the page */}
       <AIDeploymentSection />
 
@@ -1978,7 +1981,10 @@ function Home({
         </FadeIn>
       </section>
 
-      {/* Brief About — teaser placed after the numbered sequence so 01–11 run uninterrupted */}
+      {/* 09 — Testimonials */}
+      <Testimonials />
+
+      {/* Brief About — teaser placed after the numbered sequence so 01–09 run uninterrupted */}
       <section className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2rem,4vw,3.5rem)]" aria-labelledby="brief-about-heading">
         <FadeIn>
           <div className="max-w-3xl mx-auto">
@@ -7083,7 +7089,6 @@ function About() {
           </p>
         </div>
       </FadeIn>
-      <IntroClip />
 
       <Signals />
     </div>
