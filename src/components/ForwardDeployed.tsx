@@ -431,14 +431,33 @@ export function ForwardDeploymentModel() {
 
 /* ---------------------------- Intro clip ------------------------------ */
 
-/** Set to a public MP4/YouTube URL (or an audio file) to show the intro
- *  player. While empty, only the written 60-second intro renders. */
-const INTRO_MEDIA_URL = "";
+/**
+ * Recorded intro. Fill `url` with the hosted MP4 (and ideally `poster` +
+ * `captions`) and the block switches from the written intro to the player.
+ * The same values feed the VideoObject structured data and the sitemap
+ * video entry, so this is the single place to update.
+ */
+export const INTRO_VIDEO = {
+  url: "",
+  poster: "/headshot.jpg",
+  captions: "",
+  name: "Sixty seconds on what I do — Senthil Nagappan",
+  description:
+    "Senthil Nagappan on forward-deployed AI experience and human factors work: designing the last mile where AI meets real users in regulated production environments.",
+  uploadDate: "2026-09-11",
+  duration: "PT1M",
+};
+
+const TRANSCRIPT = [
+  "Most AI programs don\u2019t fail on the model. They fail at the last mile — the point where a real person in a regulated job has to understand the output, decide whether to trust it, override it when it\u2019s wrong, and stand behind that decision in an audit.",
+  "That last mile is my work. I embed with engineering and delivery teams, design the disclosure, confidence, override, and escalation behaviour, make it accessible to everyone who has to use it, and wire the oversight evidence into the release itself — so the system is adopted rather than quietly abandoned.",
+];
 
 export function IntroClip() {
+  const hasVideo = Boolean(INTRO_VIDEO.url);
   return (
     <section id="intro" className={SECTION} aria-labelledby="intro-heading">
-      <div className="rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 grid gap-6 lg:grid-cols-[minmax(0,1fr)_20rem] items-start">
+      <div className="rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 grid gap-6 lg:grid-cols-[minmax(0,1fr)_22rem] items-start">
         <div>
           <p className="text-[11px] font-bold uppercase tracking-[2px] text-[rgb(var(--c-accent-on-light))] mb-2">
             In my own words
@@ -449,44 +468,60 @@ export function IntroClip() {
           >
             Sixty seconds on what I do
           </h2>
-          <p className="text-gray-700 leading-relaxed mb-3">
-            Most AI programs don&rsquo;t fail on the model. They fail at the last mile — the
-            point where a real person in a regulated job has to understand the output, decide
-            whether to trust it, override it when it&rsquo;s wrong, and stand behind that
-            decision in an audit.
-          </p>
-          <p className="text-gray-700 leading-relaxed">
-            That last mile is my work. I embed with engineering and delivery teams, design the
-            disclosure, confidence, override, and escalation behaviour, make it accessible to
-            everyone who has to use it, and wire the oversight evidence into the release itself
-            — so the system is adopted rather than quietly abandoned.
-          </p>
-        </div>
-        <div className="rounded-xl border border-[rgb(var(--c-primary)/0.25)] bg-[rgb(var(--c-tint-50))] p-5">
-          {INTRO_MEDIA_URL ? (
-            <video
-              controls
-              preload="none"
-              src={INTRO_MEDIA_URL}
-              className="w-full rounded-lg"
-              aria-label="Intro clip: Senthil Nagappan on forward-deployed AI experience work"
-            >
-              Your browser does not support embedded video.
-            </video>
-          ) : (
+
+          {hasVideo ? (
             <>
-              <p className="text-sm font-bold text-gray-900 mb-1.5">Prefer a conversation?</p>
-              <p className="text-sm text-gray-700 leading-relaxed mb-3">
-                Happy to walk through any of this live, or send a short recorded intro.
-              </p>
-              <a
-                href="mailto:arnsk3@gmail.com"
-                className="inline-flex items-center min-h-[44px] px-4 py-2 rounded-lg text-sm font-semibold bg-[rgb(var(--c-primary))] text-white hover:bg-[rgb(var(--c-accent-dark))] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
+              <video
+                controls
+                preload="none"
+                playsInline
+                src={INTRO_VIDEO.url}
+                poster={INTRO_VIDEO.poster}
+                className="w-full rounded-xl border border-gray-200 bg-black"
+                aria-label={INTRO_VIDEO.name}
               >
-                Get in touch
-              </a>
+                {INTRO_VIDEO.captions && (
+                  <track
+                    kind="captions"
+                    src={INTRO_VIDEO.captions}
+                    srcLang="en"
+                    label="English captions"
+                    default
+                  />
+                )}
+                Your browser does not support embedded video.
+              </video>
+              <details className="mt-4 rounded-xl border border-gray-200 bg-[rgb(var(--c-tint-50))] p-4">
+                <summary className="cursor-pointer min-h-[44px] flex items-center text-sm font-semibold text-[rgb(var(--c-primary))] rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2">
+                  Read the transcript
+                </summary>
+                {TRANSCRIPT.map((t) => (
+                  <p key={t.slice(0, 24)} className="text-gray-700 leading-relaxed mt-3">
+                    {t}
+                  </p>
+                ))}
+              </details>
             </>
+          ) : (
+            TRANSCRIPT.map((t) => (
+              <p key={t.slice(0, 24)} className="text-gray-700 leading-relaxed mb-3">
+                {t}
+              </p>
+            ))
           )}
+        </div>
+
+        <div className="rounded-xl border border-[rgb(var(--c-primary)/0.25)] bg-[rgb(var(--c-tint-50))] p-5">
+          <p className="text-sm font-bold text-gray-900 mb-1.5">Prefer a conversation?</p>
+          <p className="text-sm text-gray-700 leading-relaxed mb-3">
+            Happy to walk through any of this live.
+          </p>
+          <a
+            href="mailto:arnsk3@gmail.com"
+            className="inline-flex items-center min-h-[44px] px-4 py-2 rounded-lg text-sm font-semibold bg-[rgb(var(--c-primary))] text-white hover:bg-[rgb(var(--c-accent-dark))] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
+          >
+            Get in touch
+          </a>
         </div>
       </div>
     </section>
