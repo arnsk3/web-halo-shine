@@ -1378,28 +1378,29 @@ function Home({
           <FadeIn>
             <p className="inline-flex items-center gap-2 text-[rgb(var(--c-accent-on-dark))] text-[11px] sm:text-xs font-semibold tracking-[2.5px] uppercase mb-5 rounded-full border border-white/15 bg-white/5 backdrop-blur px-4 py-1.5">
               <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-[rgb(var(--c-accent-light))] animate-pulse" />
-              AI Experience Design · Human Factors · Accessibility
+              Human Factors · Accessibility · Design Systems · AI Governance
             </p>
           </FadeIn>
           <FadeIn delay={0.1}>
             <h1 className="text-4xl sm:text-5xl font-extrabold leading-[1.08] mb-5 tracking-tight">
-              Designing safe, human-centered AI
-              <span className="bg-gradient-to-r from-[rgb(var(--c-accent-light))] to-[rgb(var(--c-accent-on-dark))] bg-clip-text text-transparent"> for regulated environments.</span>
+              Senthil Nagappan
+              <span className="block mt-3 text-2xl sm:text-3xl font-extrabold bg-gradient-to-r from-[rgb(var(--c-accent-light))] to-[rgb(var(--c-accent-on-dark))] bg-clip-text text-transparent">
+                Forward-Deployed AI Experience &amp; Human Factors Leader
+              </span>
             </h1>
           </FadeIn>
           <FadeIn delay={0.15}>
             <p className="text-white text-base sm:text-lg mb-4 max-w-2xl mx-auto leading-relaxed">
-              Pairing accessibility leadership, design systems, and production front-end
-              engineering with AI governance and risk discipline — for safe, human-centered AI
-              in healthcare, federal, and enterprise environments.
+              I work the last mile where AI meets real users in regulated production
+              environments — embedded with engineering, not replacing it.
             </p>
           </FadeIn>
           <FadeIn delay={0.18}>
             <p className="mb-7 max-w-2xl mx-auto text-[13px] sm:text-sm text-white/90 leading-relaxed">
               <span className="font-semibold text-[rgb(var(--c-accent-on-dark))]">
-                Director / Principal — AI Experience Design &amp; Human Systems Integration.
+                Human Factors · Accessibility · Design Systems · AI Governance
               </span>{" "}
-              7+ years in compliance, risk &amp; advisory delivery — leading a $130M federal
+              — 7+ years in compliance, risk &amp; advisory delivery, leading a $130M federal
               program portfolio and scaling a cross-functional team to 15+.{" "}
               <span className="font-semibold">
                 Open to Director-level roles · US remote · available now.
