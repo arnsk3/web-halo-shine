@@ -1446,54 +1446,21 @@ function Signals() {
             </li>
           ))}
         </ul>
-      </FadeIn>
-    </section>
-  );
-}
-
-// 09 — Testimonials. Quotes are paraphrased and unattributed until named,
-// approved wording is supplied by the client contacts.
-const TESTIMONIALS = [
-  {
-    quote:
-      "Senthil is the rare designer who can sit with regulators, engineers, and program leadership in the same room and leave everyone aligned. His accessibility work turned conformance from a checklist into how we build.",
-    who: "Engineering Director",
-    context: "Federal behavioral-health program · reference available",
-    approved: false,
-  },
-  {
-    quote:
-      "He raised the bar for how we frame AI decisions to clinicians — confidence, evidence, and override became first-class parts of the product, not afterthoughts. Adoption followed.",
-    who: "Clinical Product Lead",
-    context: "Healthcare AI decision-support · reference available",
-    approved: false,
-  },
-];
-
-function Testimonials() {
-  return (
-    <section
-      id="testimonials"
-      aria-labelledby="testimonials-heading"
-      className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2.5rem,4vw,3.5rem)]"
-    >
-      <FadeIn>
-        <div className="mb-8 max-w-2xl">
-          <SectionIndex n="09" label="Testimonials" />
-          <h2
-            id="testimonials-heading"
-            className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-2"
-          >
-            What partners say about the work.
-          </h2>
-          <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
-            Reflections from program partners on the federal accessibility and AI oversight work.
-            Paraphrased and shared without names for client-confidentiality reasons; named
-            references available on request.
-          </p>
-        </div>
         <div className="grid gap-6 md:grid-cols-2">
-          {TESTIMONIALS.map((t) => (
+          {[
+            {
+              quote:
+                "Senthil is the rare designer who can sit with regulators, engineers, and program leadership in the same room and leave everyone aligned. His accessibility work turned conformance from a checklist into how we build.",
+              who: "Engineering Director",
+              context: "Federal behavioral-health program · reference available",
+            },
+            {
+              quote:
+                "He raised the bar for how we frame AI decisions to clinicians — confidence, evidence, and override became first-class parts of the product, not afterthoughts. Adoption followed.",
+              who: "Clinical Product Lead",
+              context: "Healthcare AI decision-support · reference available",
+            },
+          ].map((t) => (
             <figure
               key={t.who}
               className="rounded-2xl border border-gray-200 bg-white p-6 sm:p-7 shadow-sm hover:shadow-md transition-shadow flex flex-col"
@@ -1982,8 +1949,6 @@ function Home({
         </FadeIn>
       </section>
 
-      {/* 09 — Testimonials */}
-      <Testimonials />
 
       {/* Brief About — teaser placed after the numbered sequence so 01–09 run uninterrupted */}
       <section className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2rem,4vw,3.5rem)]" aria-labelledby="brief-about-heading">
@@ -8318,25 +8283,7 @@ const Index = () => {
 
     // Per-route BreadcrumbList + CreativeWork structured data
     if (page === "home") {
-      // Recorded intro gets its own VideoObject once a hosted URL is set.
-      upsertRouteJsonLd(
-        INTRO_VIDEO.url
-          ? [
-              {
-                "@context": "https://schema.org",
-                "@type": "VideoObject",
-                name: INTRO_VIDEO.name,
-                description: INTRO_VIDEO.description,
-                contentUrl: INTRO_VIDEO.url.startsWith("http")
-                  ? INTRO_VIDEO.url
-                  : `${SITE_URL}${INTRO_VIDEO.url}`,
-                thumbnailUrl: `${SITE_URL}${INTRO_VIDEO.poster}`,
-                uploadDate: INTRO_VIDEO.uploadDate,
-                duration: INTRO_VIDEO.duration,
-              },
-            ]
-          : null,
-      );
+      upsertRouteJsonLd(null);
     } else {
       const parent =
         isCase
