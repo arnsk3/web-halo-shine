@@ -356,6 +356,29 @@ const STEPS = [
   },
 ];
 
+const WEEK = [
+  {
+    d: "Mon — standing with the team",
+    b: "In backlog refinement and architecture discussion, not a separate design review. I hear the constraint before it becomes a rewrite.",
+  },
+  {
+    d: "Tue — in the field",
+    b: "Sessions with the people who actually use the system — caseworkers, clinicians, agents. Recorded friction goes straight back to the sprint, same week.",
+  },
+  {
+    d: "Wed — at the whiteboard with engineers",
+    b: "We resolve the hard trade-off together: what the model may decide, what it must escalate, and what the interface has to disclose. I bring the oversight requirement; they bring what is feasible in the pipeline.",
+  },
+  {
+    d: "Thu — prototype in real fidelity",
+    b: "A working prototype in code or a real component, tested against the actual workflow — so the decision is validated before anyone commits build effort.",
+  },
+  {
+    d: "Fri — into the release",
+    b: "Acceptance criteria, component updates, and audit evidence land in the release train. Nothing waits for a separate design phase.",
+  },
+];
+
 export function ForwardDeploymentModel() {
   return (
     <section id="deployment-model" className={SECTION} aria-labelledby="deployment-model-heading">
@@ -381,6 +404,35 @@ export function ForwardDeploymentModel() {
           </li>
         ))}
       </ol>
+
+      <div className="mt-8 rounded-2xl border border-[rgb(var(--c-primary)/0.25)] bg-[rgb(var(--c-tint-50))] p-6 sm:p-8">
+        <h3 className="font-display text-xl font-extrabold text-gray-900 mb-1.5">
+          How I actually work with engineering — one week, embedded
+        </h3>
+        <p className="text-sm text-gray-700 leading-relaxed mb-5 max-w-3xl">
+          A representative week on a regulated delivery program. I sit inside the delivery
+          rhythm rather than reviewing it from outside — and I partner with engineering,
+          I don&rsquo;t replace it.
+        </p>
+        <ol className="grid gap-4 list-none p-0 m-0 [grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr))]">
+          {WEEK.map((w) => (
+            <li key={w.d} className="h-full">
+              <article className="h-full rounded-xl bg-white border border-gray-200 p-4">
+                <p className="font-display text-[11px] font-extrabold uppercase tracking-[1.5px] text-[rgb(var(--c-accent-on-light))] mb-1.5">
+                  {w.d}
+                </p>
+                <p className="text-sm text-gray-700 leading-relaxed">{w.b}</p>
+              </article>
+            </li>
+          ))}
+        </ol>
+        <p className="text-[13px] text-gray-800 leading-relaxed mt-5 max-w-3xl">
+          <span className="font-semibold">What engineering gets from me:</span> decisions made
+          in their sprint, not after it — oversight and accessibility requirements written as
+          acceptance criteria, prototypes they can build against, and a named person who owns
+          the human-side trade-off so it never stalls a release.
+        </p>
+      </div>
     </section>
   );
 }
