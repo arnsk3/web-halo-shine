@@ -16,6 +16,8 @@ import {
    Shared building blocks used on the home page. Deep-teal tokens only.
    ------------------------------------------------------------------ */
 
+import SectionIndex from "@/components/SectionIndex";
+
 const SECTION =
   "w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2rem,4vw,3.5rem)]";
 
@@ -107,9 +109,7 @@ const DEPLOYMENTS: Deployment[] = [
 export function AIDeploymentSection() {
   return (
     <section id="ai-deployment" className={SECTION} aria-labelledby="ai-deployment-heading">
-      <p className="text-[11px] font-bold uppercase tracking-[2px] text-[rgb(var(--c-accent-on-light))] mb-2">
-        Forward-Deployed Work
-      </p>
+      <SectionIndex n="01" label="AI Deployment" />
       <h2
         id="ai-deployment-heading"
         className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 tracking-tight"
@@ -117,11 +117,9 @@ export function AIDeploymentSection() {
         AI Deployment
       </h2>
       <p className="text-gray-700 text-base leading-relaxed max-w-3xl mb-8">
-        Most AI programs fail at the last mile — the gap between what a platform can do and
-        what a person can actually use, trust, and be accountable for. I work that last mile:
-        embedded in complex, regulated production environments, I own the experience,
-        oversight, and accessibility layers that decide whether an intelligent system gets
-        adopted or abandoned. I partner with engineering; I don&rsquo;t replace it.
+        AI programs fail at the last mile — the gap between what a platform can do and what a
+        person can actually use, trust, and be accountable for. Embedded with engineering in
+        regulated production environments, I own that layer.
       </p>
 
       <ul className="grid gap-6 list-none p-0 m-0 [grid-template-columns:repeat(auto-fit,minmax(min(100%,20rem),1fr))]">
@@ -218,9 +216,7 @@ const PATTERNS = [
 export function HumanAISystemsSection() {
   return (
     <section id="human-ai-design" className={SECTION} aria-labelledby="human-ai-heading">
-      <p className="text-[11px] font-bold uppercase tracking-[2px] text-[rgb(var(--c-accent-on-light))] mb-2">
-        Human-AI Systems Design
-      </p>
+      <SectionIndex n="03" label="Human-AI Design" />
       <h2
         id="human-ai-heading"
         className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 tracking-tight"
@@ -228,9 +224,7 @@ export function HumanAISystemsSection() {
         How I Design AI in Real Systems
       </h2>
       <p className="text-gray-700 text-base leading-relaxed max-w-3xl mb-8">
-        These are the patterns I design so AI stays understandable, controllable, and safe in
-        production — the interaction layer that decides whether people can supervise a model
-        rather than defer to it.
+        The patterns that let people supervise a model rather than defer to it.
       </p>
       <ul className="grid gap-5 list-none p-0 m-0 [grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr))]">
         {PATTERNS.map((p) => {
@@ -285,9 +279,7 @@ export function GovernanceAccessibilitySection() {
       className={SECTION}
       aria-labelledby="gov-access-heading"
     >
-      <p className="text-[11px] font-bold uppercase tracking-[2px] text-[rgb(var(--c-accent-on-light))] mb-2">
-        Governance &amp; Accessibility
-      </p>
+      <SectionIndex n="04" label="Governance & Accessibility" />
       <h2
         id="gov-access-heading"
         className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 tracking-tight"
@@ -295,8 +287,8 @@ export function GovernanceAccessibilitySection() {
         Accessible <span className="text-[rgb(var(--c-accent-on-light))]">and</span> governable
       </h2>
       <p className="text-gray-700 text-base leading-relaxed max-w-3xl mb-8">
-        My rarest combination: I make AI both accessible and governable — the two things most
-        AI-deployment work treats as afterthoughts.
+        I make AI both accessible and governable — the two things most AI deployments treat as
+        afterthoughts.
       </p>
       <ul className="grid gap-6 list-none p-0 m-0 [grid-template-columns:repeat(auto-fit,minmax(min(100%,19rem),1fr))]">
         {GOV_BLOCKS.map((b) => {

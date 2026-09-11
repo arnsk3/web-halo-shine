@@ -1,5 +1,4 @@
 import { useState } from "react";
-import SectionIndex from "@/components/SectionIndex";
 type Skill = {
   name: string;
   level: number; // 1-5
@@ -167,7 +166,6 @@ export default function AISkillsMatrix() {
           <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-[rgb(var(--c-accent-light))] animate-pulse" />
           AI as a primary skill
         </p>
-        <SectionIndex n="05" label="Skills Matrix" tone="dark" />
         <h2
           id="ai-skills-heading"
           className="text-2xl sm:text-3xl font-extrabold mb-3 tracking-tight"

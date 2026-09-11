@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import SectionIndex from "@/components/SectionIndex";
 
 /**
  * AI Governance Engagements — consulting-shaped proof for AI Governance /
@@ -95,7 +94,6 @@ export default function GovernanceEngagements() {
       className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2.5rem,4vw,3.5rem)] border-t border-gray-100"
     >
       <div className="mb-8 max-w-3xl">
-        <SectionIndex n="03" label="Governance Engagements" />
         <h2
           id="governance-heading"
           className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-2"
