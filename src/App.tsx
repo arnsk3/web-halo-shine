@@ -17,6 +17,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/work/:slug" element={<Index />} />
+          <Route path="/ai-deployment-ssa" element={<Index />} />
           <Route path="/ai-governance" element={<Index />} />
           <Route path="/writing/ai-control-crosswalk" element={<Index />} />
           <Route path="/writing/oversight-tiers" element={<Index />} />

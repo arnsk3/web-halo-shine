@@ -19,6 +19,14 @@ import AIGovernanceSection from "@/components/AIGovernanceSection";
 import AIGovernanceCaseStudy from "@/pages/AIGovernanceCaseStudy";
 import CrosswalkEssay from "@/pages/CrosswalkEssay";
 import OversightTiersEssay from "@/pages/OversightTiersEssay";
+import SsaDeployment from "@/pages/SsaDeployment";
+import {
+  ImpactStrip,
+  AIDeploymentSection,
+  HumanAISystemsSection,
+  GovernanceAccessibilitySection,
+  ForwardDeploymentModel,
+} from "@/components/ForwardDeployed";
 import SectionIndex from "@/components/SectionIndex";
 import { Compass, Sprout, Network, Brain, Bot, FlaskConical, ShieldCheck, Scale, Accessibility, Handshake, Microscope, Layers, Code2, Palette, HeartPulse } from "lucide-react";
 import caseWcagtool from "@/assets/case-wcagtool.jpg";
@@ -940,17 +948,18 @@ function FadeIn({ children, delay = 0, className = "" }: FadeInProps) {
   );
 }
 
-type PageId = "home" | "brand" | "about" | "approach" | "resume" | "contact" | "case" | "lab" | "governance" | "writing" | "oversight";
+type PageId = "home" | "brand" | "about" | "approach" | "resume" | "contact" | "case" | "lab" | "governance" | "writing" | "oversight" | "ssadeploy";
 
 function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) {
-  // Curated 5-item nav. "Work" and "Expertise" scroll to landing sections;
-  // Brand lives as a filter inside Work, not a top-level item.
+  // Top-level sections follow the forward-deployed narrative order.
   const sectionLinks: { id: string; label: string }[] = [
-    { id: "ai-governance", label: "AI Governance" },
-    { id: "cases", label: "Work" },
-    { id: "expertise", label: "Expertise" },
+    { id: "ai-deployment", label: "AI Deployment" },
+    { id: "human-ai-design", label: "Human-AI Design" },
+    { id: "governance-accessibility", label: "Governance & Accessibility" },
+    { id: "deployment-model", label: "Deployment Model" },
   ];
   const tailLinks: { id: PageId; label: string }[] = [
+    { id: "lab", label: "AI Concepts" },
     { id: "about", label: "About" },
     { id: "resume", label: "Résumé" },
     { id: "contact", label: "Contact" },
@@ -1370,28 +1379,29 @@ function Home({
           <FadeIn>
             <p className="inline-flex items-center gap-2 text-[rgb(var(--c-accent-on-dark))] text-[11px] sm:text-xs font-semibold tracking-[2.5px] uppercase mb-5 rounded-full border border-white/15 bg-white/5 backdrop-blur px-4 py-1.5">
               <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-[rgb(var(--c-accent-light))] animate-pulse" />
-              AI Experience Design · Human Factors · Accessibility
+              Human Factors · Accessibility · Design Systems · AI Governance
             </p>
           </FadeIn>
           <FadeIn delay={0.1}>
             <h1 className="text-4xl sm:text-5xl font-extrabold leading-[1.08] mb-5 tracking-tight">
-              Designing safe, human-centered AI
-              <span className="bg-gradient-to-r from-[rgb(var(--c-accent-light))] to-[rgb(var(--c-accent-on-dark))] bg-clip-text text-transparent"> for regulated environments.</span>
+              Senthil Nagappan
+              <span className="block mt-3 text-2xl sm:text-3xl font-extrabold bg-gradient-to-r from-[rgb(var(--c-accent-light))] to-[rgb(var(--c-accent-on-dark))] bg-clip-text text-transparent">
+                Forward-Deployed AI Experience &amp; Human Factors Leader
+              </span>
             </h1>
           </FadeIn>
           <FadeIn delay={0.15}>
             <p className="text-white text-base sm:text-lg mb-4 max-w-2xl mx-auto leading-relaxed">
-              Pairing accessibility leadership, design systems, and production front-end
-              engineering with AI governance and risk discipline — for safe, human-centered AI
-              in healthcare, federal, and enterprise environments.
+              I work the last mile where AI meets real users in regulated production
+              environments — embedded with engineering, not replacing it.
             </p>
           </FadeIn>
           <FadeIn delay={0.18}>
             <p className="mb-7 max-w-2xl mx-auto text-[13px] sm:text-sm text-white/90 leading-relaxed">
               <span className="font-semibold text-[rgb(var(--c-accent-on-dark))]">
-                Director / Principal — AI Experience Design &amp; Human Systems Integration.
+                Human Factors · Accessibility · Design Systems · AI Governance
               </span>{" "}
-              7+ years in compliance, risk &amp; advisory delivery — leading a $130M federal
+              — 7+ years in compliance, risk &amp; advisory delivery, leading a $130M federal
               program portfolio and scaling a cross-functional team to 15+.{" "}
               <span className="font-semibold">
                 Open to Director-level roles · US remote · available now.
@@ -1401,7 +1411,7 @@ function Home({
           <FadeIn delay={0.2}>
             <div className="flex gap-3 justify-center flex-wrap mb-9">
               <button
-                onClick={() => document.getElementById("cases")?.scrollIntoView({ behavior: "smooth" })}
+                onClick={() => document.getElementById("ai-deployment")?.scrollIntoView({ behavior: "smooth" })}
                 className="group inline-flex items-center justify-center gap-2 min-h-[44px] bg-white text-[rgb(var(--c-primary))] px-6 py-2.5 rounded-lg font-semibold text-sm shadow-lg shadow-black/10 hover:-translate-y-0.5 hover:shadow-xl hover:bg-[rgb(var(--c-accent-on-light))] hover:text-white transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
               >
                 View the work <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
@@ -1438,7 +1448,19 @@ function Home({
 
       </header>
 
-      {/* AI Governance & Responsible AI — peer section, immediately after hero */}
+      {/* Impact strip — stats directly under the hero */}
+      <ImpactStrip />
+
+      {/* Forward-deployed work leads the page */}
+      <AIDeploymentSection />
+
+      {/* Human-AI systems design patterns */}
+      <HumanAISystemsSection />
+
+      {/* Governance & accessibility */}
+      <GovernanceAccessibilitySection />
+
+      {/* AI Governance & Responsible AI — peer section */}
       <AIGovernanceSection />
 
       {/* Case Studies — work leads the page */}
@@ -1519,15 +1541,16 @@ function Home({
                         }}
                       />
                       <span className="relative text-white text-[11px] font-semibold tracking-widest uppercase">
-                        In-House AI Product Concepts
+                        AI Concepts · Non-Deployed
                       </span>
                     </div>
                     <div className="flex-1 flex flex-col p-6">
                       <h3 className="font-bold text-gray-900 text-lg mb-1.5 leading-snug">
-                        In-House AI Product Lab
+                        AI Concepts (Non-Deployed)
                       </h3>
                       <p className="text-gray-600 text-[12px] mb-3 font-medium">
-                        Self-directed concepts · Governance · Clinical · Agentic safety · Revenue cycle
+                        Exploratory concepts — clearly distinguished from the deployed,
+                        in-production work above.
                       </p>
                       <p className="text-gray-700 text-sm mb-4 leading-relaxed">
                         {inHouseCount} self-initiated AI product concepts that show how I design safe,
@@ -1568,10 +1591,10 @@ function Home({
                       <div className="mt-auto pt-4 flex flex-wrap gap-2">
                         <button
                           onClick={() => setPage("lab")}
-                          aria-label={`View all ${inHouseCount} in-house AI product concepts`}
+                          aria-label={`View all ${inHouseCount} non-deployed AI concepts`}
                           className="group/btn inline-flex items-center gap-1.5 min-h-[44px] text-xs font-semibold px-4 py-2 rounded-lg bg-[rgb(var(--c-primary))] text-white hover:bg-[rgb(var(--c-accent-dark))] focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2 transition-colors"
                         >
-                          Explore the AI Product Lab
+                          Explore the AI concepts
                           <span aria-hidden="true" className="transition-transform group-hover/btn:translate-x-0.5">→</span>
                         </button>
                       </div>
@@ -1708,6 +1731,8 @@ function Home({
       <BrandTeaser onOpen={() => setPage("brand")} />
 
       {/* Trade-offs — the judgment layer */}
+      <ForwardDeploymentModel />
+
       <TradeOffs />
 
 
@@ -7950,11 +7975,13 @@ function Footer({
     );
   };
   const sectionItems: { id: string; label: string }[] = [
-    { id: "ai-governance", label: "AI Governance" },
-    { id: "cases", label: "Work" },
-    { id: "expertise", label: "Expertise" },
+    { id: "ai-deployment", label: "AI Deployment" },
+    { id: "human-ai-design", label: "Human-AI Design" },
+    { id: "governance-accessibility", label: "Governance & Accessibility" },
+    { id: "deployment-model", label: "Deployment Model" },
   ];
   const pageItems: { id: PageId; label: string }[] = [
+    { id: "lab", label: "AI Concepts" },
     { id: "about", label: "About" },
     { id: "resume", label: "Résumé" },
     { id: "contact", label: "Contact" },
@@ -7969,8 +7996,38 @@ function Footer({
         <div>
           <p className="font-bold text-white text-sm">Senthil Nagappan</p>
           <p className="text-white text-xs mt-1">
-            AI Experience Design · Human Systems Integration · Accessibility
+            Forward-Deployed AI Experience &amp; Human Factors Leader
           </p>
+          <ul className="flex flex-wrap gap-4 list-none p-0 m-0 mt-3">
+            <li>
+              <a
+                href="/Senthil_Nagappan_Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center min-h-[44px] text-xs font-semibold text-white underline underline-offset-4 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#111827]"
+              >
+                Download résumé (PDF)<span className="sr-only"> — opens in a new tab</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="mailto:arnsk3@gmail.com"
+                className="inline-flex items-center min-h-[44px] text-xs text-white underline underline-offset-4 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#111827]"
+              >
+                Email Senthil Nagappan
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.linkedin.com/in/senthil-nagappan"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center min-h-[44px] text-xs text-white underline underline-offset-4 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#111827]"
+              >
+                Senthil Nagappan on LinkedIn<span className="sr-only"> — opens in a new tab</span>
+              </a>
+            </li>
+          </ul>
           <p className="text-white/90 text-xs mt-3">
             © 2026 · Designed &amp; built with accessibility in mind
           </p>
@@ -8006,21 +8063,22 @@ function Footer({
 }
 
 const PAGE_TITLES: Record<PageId, string> = {
-  home: "Senthil Nagappan — AI Experience Design & Human Systems Integration",
+  home: "Senthil Nagappan — Forward-Deployed AI Experience & Human Factors Leader",
   brand: "Brand Identity & Visual Systems — Senthil Nagappan",
   about: "About — Senthil Nagappan",
   approach: "Approach — Senthil Nagappan",
   resume: "Resume — Senthil Nagappan",
   contact: "Contact — Senthil Nagappan",
   case: "Case Study — Senthil Nagappan",
-  lab: "In-House AI Product Lab — Senthil Nagappan",
+  lab: "AI Concepts (Non-Deployed) — Senthil Nagappan",
+  ssadeploy: "Deploying AI-Assisted Accessibility Into a Federal System at National Scale",
   governance: "Designing the Last Mile of AI Governance",
   writing: "One control set, three frameworks — AI governance crosswalk",
   oversight: "Oversight tiers beat confidence scores — AI experience design",
 };
 
 const PAGE_DESCRIPTIONS: Record<PageId, string> = {
-  home: "Senthil Nagappan: AI experience design, AI governance, and human systems integration — designing the disclosure, explainability, and human oversight controls that make responsible AI real in regulated environments.",
+  home: "Senthil Nagappan — Forward-Deployed AI Experience & Human Factors Leader. I design the human-in-the-loop controls, explainability, accessibility, and governance that make AI usable, safe, and deployable in regulated environments.",
   brand: "Design systems & brand-consistent visual systems by Senthil Nagappan — shared components, design tokens, and on-brand UI that scale across consumer, healthcare, and enterprise products.",
 
   about: "About Senthil Nagappan — 18+ years building AI-driven products in regulated healthcare, federal, retail, and defense environments.",
@@ -8028,6 +8086,7 @@ const PAGE_DESCRIPTIONS: Record<PageId, string> = {
   resume: "Download or read Senthil Nagappan's resume — AI safety and human systems integration leadership.",
   contact: "Contact Senthil Nagappan for AI safety, human systems integration, and accessibility leadership engagements.",
   case: "Case study from Senthil Nagappan — AI safety, human systems integration, and accessibility work in regulated environments.",
+  ssadeploy: "How AI-assisted accessibility validation was deployed into a live, audited federal system used by caseworkers in all 50 states — human-in-the-loop by design, embedded in CI/CD, ~30% less manual audit effort.",
   lab: "In-house AI product concepts by Senthil Nagappan — TrustLens, Clarity, Sentinel, Lumen, and RevAssist: concise capsules of governance, clinical, agentic-safety, and revenue-cycle AI work.",
   governance: "Designing the Last Mile of AI Governance — how disclosure, explainability, oversight, and correction controls turn NIST AI RMF requirements into real product behavior.",
   oversight: "Why showing a clinician a raw confidence score is a design failure, and how recommend / act / alert oversight tiers map model risk to human authority — with the evidence each tier produces for EU AI Act Article 14 and NIST AI RMF MANAGE 2.3.",
@@ -8098,13 +8157,14 @@ function InHouseLab({
             <span aria-hidden="true">←</span> Back to work
           </button>
           <p className="inline-flex items-center gap-2 text-[rgb(var(--c-accent-on-dark))] text-xs font-semibold tracking-[3px] uppercase mb-5 rounded-full border border-white/15 bg-white/5 backdrop-blur px-4 py-1.5">
-            In-House AI Product Concepts
+            AI Concepts · Non-Deployed
           </p>
           <h1 className="font-display text-3xl sm:text-4xl font-extrabold leading-[1.15] mb-4 tracking-tight">
-            In-House AI Product Lab
+            AI Concepts (Non-Deployed)
           </h1>
           <p className="text-white/90 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-            {cases.length} self-initiated concepts exploring how safe, explainable,
+            Exploratory concepts — clearly distinguished from the deployed, in-production work.
+            {" "}{cases.length} self-initiated concepts exploring how safe, explainable,
             human-in-the-loop AI should feel — from model-risk governance to clinical
             decision-support, agentic guardrails, source-grounding UX, and revenue-cycle
             reimbursement. Open any capsule for the full case study.
@@ -8200,6 +8260,7 @@ const PAGE_PATHS: Record<Exclude<PageId, "case">, string> = {
   resume: "/resume",
   contact: "/contact",
   lab: "/lab",
+  ssadeploy: "/ai-deployment-ssa",
   governance: "/ai-governance",
   writing: "/writing/ai-control-crosswalk",
   oversight: "/writing/oversight-tiers",
@@ -8371,6 +8432,7 @@ const Index = () => {
         {page === "governance" && (
           <AIGovernanceCaseStudy onHome={() => navigate("home")} />
         )}
+        {page === "ssadeploy" && <SsaDeployment onHome={() => navigate("home")} />}
         {page === "writing" && <CrosswalkEssay onHome={() => navigate("home")} />}
         {page === "oversight" && <OversightTiersEssay onHome={() => navigate("home")} />}
       </main>
