@@ -8038,7 +8038,8 @@ const PAGE_TITLES: Record<PageId, string> = {
   resume: "Resume — Senthil Nagappan",
   contact: "Contact — Senthil Nagappan",
   case: "Case Study — Senthil Nagappan",
-  lab: "In-House AI Product Lab — Senthil Nagappan",
+  lab: "AI Concepts (Non-Deployed) — Senthil Nagappan",
+  ssadeploy: "Deploying AI-Assisted Accessibility Into a Federal System at National Scale",
   governance: "Designing the Last Mile of AI Governance",
   writing: "One control set, three frameworks — AI governance crosswalk",
   oversight: "Oversight tiers beat confidence scores — AI experience design",
@@ -8053,6 +8054,7 @@ const PAGE_DESCRIPTIONS: Record<PageId, string> = {
   resume: "Download or read Senthil Nagappan's resume — AI safety and human systems integration leadership.",
   contact: "Contact Senthil Nagappan for AI safety, human systems integration, and accessibility leadership engagements.",
   case: "Case study from Senthil Nagappan — AI safety, human systems integration, and accessibility work in regulated environments.",
+  ssadeploy: "How AI-assisted accessibility validation was deployed into a live, audited federal system used by caseworkers in all 50 states — human-in-the-loop by design, embedded in CI/CD, ~30% less manual audit effort.",
   lab: "In-house AI product concepts by Senthil Nagappan — TrustLens, Clarity, Sentinel, Lumen, and RevAssist: concise capsules of governance, clinical, agentic-safety, and revenue-cycle AI work.",
   governance: "Designing the Last Mile of AI Governance — how disclosure, explainability, oversight, and correction controls turn NIST AI RMF requirements into real product behavior.",
   oversight: "Why showing a clinician a raw confidence score is a design failure, and how recommend / act / alert oversight tiers map model risk to human authority — with the evidence each tier produces for EU AI Act Article 14 and NIST AI RMF MANAGE 2.3.",
@@ -8226,6 +8228,7 @@ const PAGE_PATHS: Record<Exclude<PageId, "case">, string> = {
   resume: "/resume",
   contact: "/contact",
   lab: "/lab",
+  ssadeploy: "/ai-deployment-ssa",
   governance: "/ai-governance",
   writing: "/writing/ai-control-crosswalk",
   oversight: "/writing/oversight-tiers",
@@ -8397,6 +8400,7 @@ const Index = () => {
         {page === "governance" && (
           <AIGovernanceCaseStudy onHome={() => navigate("home")} />
         )}
+        {page === "ssadeploy" && <SsaDeployment onHome={() => navigate("home")} />}
         {page === "writing" && <CrosswalkEssay onHome={() => navigate("home")} />}
         {page === "oversight" && <OversightTiersEssay onHome={() => navigate("home")} />}
       </main>
