@@ -955,11 +955,11 @@ function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) 
   // Top-level sections follow the forward-deployed narrative order.
   const sectionLinks: { id: string; label: string }[] = [
     { id: "ai-deployment", label: "AI Deployment" },
-    { id: "human-ai-design", label: "Human-AI Design" },
-    { id: "governance-accessibility", label: "Governance & Accessibility" },
-    { id: "deployment-model", label: "Deployment Model" },
+    { id: "cases", label: "Work" },
+    { id: "governance-accessibility", label: "Governance" },
   ];
   const tailLinks: { id: PageId; label: string }[] = [
+    { id: "approach", label: "Approach" },
     { id: "lab", label: "AI Concepts" },
     { id: "about", label: "About" },
     { id: "resume", label: "Résumé" },
@@ -1318,6 +1318,176 @@ function TradeOffs() {
   );
 }
 
+// Operating model — lives on the Approach page.
+function OperatingModel() {
+  return (
+    <section
+      aria-labelledby="operating-model-heading"
+      className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2.5rem,4vw,3.5rem)]"
+    >
+      <FadeIn>
+        <div className="mb-8 max-w-2xl">
+          <h2
+            id="operating-model-heading"
+            className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-2"
+          >
+            How I&apos;d work with your team — the first 90 days.
+          </h2>
+          <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
+            Directors are hired for an operating model, not artifacts. Here&apos;s the one I bring
+            to an AI product organization.
+          </p>
+        </div>
+        <ol className="grid gap-5 md:grid-cols-3 list-none p-0 m-0">
+          {[
+            {
+              k: "Days 0–30",
+              t: "Listen, map, baseline",
+              items: [
+                "Shadow clinicians/operators and the eng + PM rituals already in place",
+                "Map the AI surface area: model risk, failure modes, oversight gaps",
+                "Baseline accessibility, design-system health, and research debt",
+              ],
+            },
+            {
+              k: "Days 31–60",
+              t: "Prove the model on one hard surface",
+              items: [
+                "Pick the highest-risk AI workflow and ship an oversight-tiered redesign",
+                "Stand up human-in-the-loop and evidence-capture patterns as reusable components",
+                "Agree measurable definitions of done with product, eng, legal, and QA",
+              ],
+            },
+            {
+              k: "Days 61–90",
+              t: "Systematize and scale",
+              items: [
+                "Turn the proven patterns into governed system components and guidance",
+                "Install the review cadence: design QA, accessibility gates, model-risk sign-off",
+                "Publish a 12-month roadmap with hiring, mentorship, and research plan",
+              ],
+            },
+          ].map((p) => (
+            <li
+              key={p.k}
+              className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow"
+            >
+              <p className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-[rgb(var(--c-accent-on-light))] mb-2">
+                {p.k}
+              </p>
+              <h3 className="font-display text-base font-bold text-gray-900 mb-3 leading-snug">{p.t}</h3>
+              <ul className="list-none p-0 m-0 space-y-2">
+                {p.items.map((it) => (
+                  <li key={it} className="flex items-start gap-2 text-[13px] text-gray-700">
+                    <span
+                      aria-hidden="true"
+                      className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[rgb(var(--c-accent))]"
+                    />
+                    <span className="leading-relaxed">{it}</span>
+                  </li>
+                ))}
+              </ul>
+            </li>
+          ))}
+        </ol>
+        <div className="mt-6 rounded-2xl border border-gray-200 bg-[rgb(var(--c-tint-50))] p-6">
+          <p className="text-[11px] font-bold uppercase tracking-wide text-gray-700 mb-2">
+            How I partner with PM &amp; engineering
+          </p>
+          <ul className="grid gap-2 sm:grid-cols-2 list-none p-0 m-0">
+            {[
+              "Design owns the oversight model; PM owns the bet; eng owns feasibility — decided together, written down.",
+              "Every AI decision surface ships with a documented failure mode and a human-override path.",
+              "Accessibility and model-risk checks run in the same PR review as visual QA.",
+              "Prototypes in production code where possible, so hand-off is a merge, not a translation.",
+            ].map((x) => (
+              <li key={x} className="flex items-start gap-2 text-[13px] text-gray-800">
+                <span aria-hidden="true" className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[rgb(var(--c-primary))]" />
+                <span className="leading-relaxed">{x}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </FadeIn>
+    </section>
+  );
+}
+
+// Verifiable credentials + paraphrased references — lives on the About page.
+function Signals() {
+  return (
+    <section
+      aria-labelledby="signals-heading"
+      className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2.5rem,4vw,3.5rem)]"
+    >
+      <FadeIn>
+        <div className="mb-8 max-w-2xl">
+          <h2 id="signals-heading" className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-2">
+            Verifiable signals.
+          </h2>
+          <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
+            Credentials and standards you can check, plus paraphrased reflections from program
+            partners. Named references available on request.
+          </p>
+        </div>
+        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 list-none p-0 m-0 mb-10">
+          {[
+            { t: "AIGP · IAPP", d: "Artificial Intelligence Governance Professional — in progress; AI governance, privacy & risk" },
+            { t: "CPACC", d: "IAAP Certified Professional in Accessibility Core Competencies" },
+            { t: "WCAG 2.2 AAA", d: "Conformance practice across federal and healthcare surfaces" },
+            { t: "NIST AI RMF · EU AI Act", d: "Governance frameworks applied to model-risk UX" },
+            { t: "ISO/IEC 42001", d: "AI management-systems standard applied to program design" },
+            { t: "IEC 62366 · MIL-STD-1472H", d: "Usability engineering and human-factors standards" },
+          ].map((c) => (
+            <li key={c.t} className="rounded-xl border border-gray-200 bg-white p-5">
+              <p className="font-display text-sm font-bold text-gray-900 mb-1">{c.t}</p>
+              <p className="text-[12px] text-gray-700 leading-relaxed">{c.d}</p>
+            </li>
+          ))}
+        </ul>
+        <h3 id="testimonials-heading" className="font-display text-lg font-bold text-gray-900 mb-4">
+          Paraphrased reflections from program partners
+        </h3>
+        <p className="text-gray-700 text-sm leading-relaxed mb-5 max-w-2xl">
+          Shared without names for client-confidentiality reasons.
+        </p>
+        <div className="grid gap-6 md:grid-cols-2">
+          {[
+            {
+              quote:
+                "Senthil is the rare designer who can sit with regulators, clinicians, and engineers in the same room and leave everyone aligned. His governance work turned accessibility from a checklist into how we build.",
+              who: "Engineering Director",
+              context: "Federal behavioral-health program · reference available",
+            },
+            {
+              quote:
+                "He raised the bar for how we frame AI decisions to clinicians — confidence, evidence, and override became first-class parts of the product, not afterthoughts. Adoption followed.",
+              who: "Clinical Product Lead",
+              context: "Healthcare AI decision-support · reference available",
+            },
+          ].map((t) => (
+            <figure
+              key={t.who}
+              className="rounded-2xl border border-gray-200 bg-white p-6 sm:p-7 shadow-sm hover:shadow-md transition-shadow flex flex-col"
+            >
+              <span aria-hidden="true" className="font-display text-5xl leading-none text-[rgb(var(--c-accent))]/40 mb-2">
+                &ldquo;
+              </span>
+              <blockquote className="text-gray-800 text-[15px] sm:text-base leading-relaxed mb-5">
+                {t.quote}
+              </blockquote>
+              <figcaption className="mt-auto pt-4 border-t border-gray-100">
+                <p className="text-sm font-bold text-gray-900">{t.who}</p>
+                <p className="text-[12px] text-gray-600 mt-0.5">{t.context}</p>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </FadeIn>
+    </section>
+  );
+}
+
 function Home({
   setPage,
   setCase,
@@ -1452,20 +1622,8 @@ function Home({
       {/* Impact strip — stats directly under the hero */}
       <ImpactStrip />
 
-      {/* Sixty-second intro in my own words */}
-      <IntroClip />
-
-      {/* Forward-deployed work leads the page */}
+      {/* 01 — Forward-deployed work leads the page */}
       <AIDeploymentSection />
-
-      {/* Human-AI systems design patterns */}
-      <HumanAISystemsSection />
-
-      {/* Governance & accessibility */}
-      <GovernanceAccessibilitySection />
-
-      {/* AI Governance & Responsible AI — peer section */}
-      <AIGovernanceSection />
 
       {/* Case Studies — work leads the page */}
       <section id="cases" className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2rem,4vw,3.5rem)]" aria-labelledby="cases-heading">
@@ -1699,118 +1857,21 @@ function Home({
         )}
       </section>
 
-      {/* AI Governance Engagements */}
-      <GovernanceEngagements />
+      {/* 03 — Human-AI systems design patterns */}
+      <HumanAISystemsSection />
 
-      {/* Domain Expertise */}
+      {/* 04 — Governance & accessibility */}
+      <GovernanceAccessibilitySection />
+
+      {/* 05 — AI Governance & Responsible AI */}
+      <AIGovernanceSection />
+
+      {/* 06 — Domain Expertise */}
       <ExpertiseSection />
 
-      {/* AI Skills Matrix */}
-      <AISkillsMatrix />
-
-      {/* Design Leadership */}
-      <DesignLeadership />
-
-      {/* Brand Identity & Visual Systems — teaser card linking to the dedicated page */}
+      {/* 07 — Brand Identity & Visual Systems teaser */}
       <BrandTeaser onOpen={() => setPage("brand")} />
 
-      {/* Trade-offs — the judgment layer */}
-      <ForwardDeploymentModel />
-
-      <TradeOffs />
-
-
-      {/* Operating model — how I work / first 90 days */}
-      <section
-        aria-labelledby="operating-model-heading"
-        className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2.5rem,4vw,3.5rem)]"
-      >
-        <FadeIn>
-          <div className="mb-8 max-w-2xl">
-            <SectionIndex n="09" label="Operating Model" />
-            <h2
-              id="operating-model-heading"
-              className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-2"
-            >
-              How I&apos;d work with your team — the first 90 days.
-            </h2>
-            <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
-              Directors are hired for an operating model, not artifacts. Here&apos;s the one I bring
-              to an AI product organization, and how I partner with product and engineering.
-            </p>
-          </div>
-          <ol className="grid gap-5 md:grid-cols-3 list-none p-0 m-0">
-            {[
-              {
-                k: "Days 0–30",
-                t: "Listen, map, baseline",
-                items: [
-                  "Shadow clinicians/operators and the eng + PM rituals already in place",
-                  "Map the AI surface area: model risk, failure modes, oversight gaps",
-                  "Baseline accessibility, design-system health, and research debt",
-                ],
-              },
-              {
-                k: "Days 31–60",
-                t: "Prove the model on one hard surface",
-                items: [
-                  "Pick the highest-risk AI workflow and ship an oversight-tiered redesign",
-                  "Stand up human-in-the-loop and evidence-capture patterns as reusable components",
-                  "Agree measurable definitions of done with product, eng, legal, and QA",
-                ],
-              },
-              {
-                k: "Days 61–90",
-                t: "Systematize and scale",
-                items: [
-                  "Turn the proven patterns into governed system components and guidance",
-                  "Install the review cadence: design QA, accessibility gates, model-risk sign-off",
-                  "Publish a 12-month roadmap with hiring, mentorship, and research plan",
-                ],
-              },
-            ].map((p) => (
-              <li
-                key={p.k}
-                className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow"
-              >
-                <p className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-[rgb(var(--c-accent-on-light))] mb-2">
-                  {p.k}
-                </p>
-                <h3 className="font-display text-base font-bold text-gray-900 mb-3 leading-snug">{p.t}</h3>
-                <ul className="list-none p-0 m-0 space-y-2">
-                  {p.items.map((it) => (
-                    <li key={it} className="flex items-start gap-2 text-[13px] text-gray-700">
-                      <span
-                        aria-hidden="true"
-                        className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[rgb(var(--c-accent))]"
-                      />
-                      <span className="leading-relaxed">{it}</span>
-                    </li>
-                  ))}
-                </ul>
-              </li>
-            ))}
-          </ol>
-          <div className="mt-6 rounded-2xl border border-gray-200 bg-[rgb(var(--c-tint-50))] p-6">
-            <p className="text-[11px] font-bold uppercase tracking-wide text-gray-700 mb-2">
-              How I partner with PM &amp; engineering
-            </p>
-            <ul className="grid gap-2 sm:grid-cols-2 list-none p-0 m-0">
-              {[
-                "Design owns the oversight model; PM owns the bet; eng owns feasibility — decided together, written down.",
-                "Every AI decision surface ships with a documented failure mode and a human-override path.",
-                "Accessibility and model-risk checks run in the same PR review as visual QA.",
-                "Prototypes in production code where possible, so hand-off is a merge, not a translation.",
-              ].map((x) => (
-                <li key={x} className="flex items-start gap-2 text-[13px] text-gray-800">
-                  <span aria-hidden="true" className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[rgb(var(--c-primary))]" />
-                  <span className="leading-relaxed">{x}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </FadeIn>
-      </section>
 
       {/* Writing — thought leadership + discoverability */}
       <section
@@ -1820,7 +1881,7 @@ function Home({
       >
         <FadeIn>
           <div className="mb-8 max-w-2xl">
-            <SectionIndex n="10" label="Writing" />
+            <SectionIndex n="08" label="Writing" />
             <h2
               id="writing-heading"
               className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-2"
@@ -1887,81 +1948,6 @@ function Home({
                 </p>
 
               </article>
-            ))}
-          </div>
-        </FadeIn>
-      </section>
-
-      {/* Signals — verifiable credentials + paraphrased references */}
-      <section
-        aria-labelledby="signals-heading"
-        className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2.5rem,4vw,3.5rem)]"
-      >
-        <FadeIn>
-          <div className="mb-8 max-w-2xl">
-            <SectionIndex n="11" label="Signals" />
-            <h2 id="signals-heading" className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-2">
-              Verifiable signals.
-            </h2>
-            <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
-              Credentials and standards you can check, plus paraphrased reflections from program
-              partners. Named references available on request.
-            </p>
-          </div>
-          <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 list-none p-0 m-0 mb-10">
-            {[
-              { t: "AIGP · IAPP", d: "Artificial Intelligence Governance Professional — in progress; AI governance, privacy & risk" },
-              { t: "CPACC", d: "IAAP Certified Professional in Accessibility Core Competencies" },
-              { t: "WCAG 2.2 AAA", d: "Conformance practice across federal and healthcare surfaces" },
-              { t: "NIST AI RMF · EU AI Act", d: "Governance frameworks applied to model-risk UX" },
-              { t: "ISO/IEC 42001", d: "AI management-systems standard applied to program design" },
-              { t: "IEC 62366 · MIL-STD-1472H", d: "Usability engineering and human-factors standards" },
-            ].map((c) => (
-              <li key={c.t} className="rounded-xl border border-gray-200 bg-white p-5">
-                <p className="font-display text-sm font-bold text-gray-900 mb-1">{c.t}</p>
-                <p className="text-[12px] text-gray-700 leading-relaxed">{c.d}</p>
-              </li>
-            ))}
-          </ul>
-          <h3
-            id="testimonials-heading"
-            className="font-display text-lg font-bold text-gray-900 mb-4"
-          >
-            Paraphrased reflections from program partners
-          </h3>
-          <p className="text-gray-700 text-sm leading-relaxed mb-5 max-w-2xl">
-            Shared without names for client-confidentiality reasons.
-          </p>
-          <div className="grid gap-6 md:grid-cols-2">
-            {[
-              {
-                quote:
-                  "Senthil is the rare designer who can sit with regulators, clinicians, and engineers in the same room and leave everyone aligned. His governance work turned accessibility from a checklist into how we build.",
-                who: "Engineering Director",
-                context: "Federal behavioral-health program · reference available",
-              },
-              {
-                quote:
-                  "He raised the bar for how we frame AI decisions to clinicians — confidence, evidence, and override became first-class parts of the product, not afterthoughts. Adoption followed.",
-                who: "Clinical Product Lead",
-                context: "Healthcare AI decision-support · reference available",
-              },
-            ].map((t) => (
-              <figure
-                key={t.who}
-                className="rounded-2xl border border-gray-200 bg-white p-6 sm:p-7 shadow-sm hover:shadow-md transition-shadow flex flex-col"
-              >
-                <span aria-hidden="true" className="font-display text-5xl leading-none text-[rgb(var(--c-accent))]/40 mb-2">
-                  &ldquo;
-                </span>
-                <blockquote className="text-gray-800 text-[15px] sm:text-base leading-relaxed mb-5">
-                  {t.quote}
-                </blockquote>
-                <figcaption className="mt-auto pt-4 border-t border-gray-100">
-                  <p className="text-sm font-bold text-gray-900">{t.who}</p>
-                  <p className="text-[12px] text-gray-600 mt-0.5">{t.context}</p>
-                </figcaption>
-              </figure>
             ))}
           </div>
         </FadeIn>
