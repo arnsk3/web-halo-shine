@@ -8317,7 +8317,25 @@ const Index = () => {
 
     // Per-route BreadcrumbList + CreativeWork structured data
     if (page === "home") {
-      upsertRouteJsonLd(null);
+      // Recorded intro gets its own VideoObject once a hosted URL is set.
+      upsertRouteJsonLd(
+        INTRO_VIDEO.url
+          ? [
+              {
+                "@context": "https://schema.org",
+                "@type": "VideoObject",
+                name: INTRO_VIDEO.name,
+                description: INTRO_VIDEO.description,
+                contentUrl: INTRO_VIDEO.url.startsWith("http")
+                  ? INTRO_VIDEO.url
+                  : `${SITE_URL}${INTRO_VIDEO.url}`,
+                thumbnailUrl: `${SITE_URL}${INTRO_VIDEO.poster}`,
+                uploadDate: INTRO_VIDEO.uploadDate,
+                duration: INTRO_VIDEO.duration,
+              },
+            ]
+          : null,
+      );
     } else {
       const parent =
         isCase
