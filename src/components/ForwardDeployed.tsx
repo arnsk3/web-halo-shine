@@ -158,12 +158,20 @@ export function AIDeploymentSection() {
       >
         Forward-Deployed Experience
       </h2>
-      <p className="text-gray-700 text-base leading-relaxed max-w-3xl mb-8">
-        Forward deployment is how I have worked across my career, not a historical job title.
-        Unlike handoff-based consulting, I embed inside client engineering and delivery teams,
-        share their release cadence, and own the last mile between what a platform can do and what
-        a person can safely use, trust, and defend.
+      <p className="text-gray-700 text-base leading-relaxed max-w-3xl mb-5">
+        I own the full arc of a deployment: discover the real problem on site, prototype against
+        the client&rsquo;s own data and systems, integrate through their auth and legacy services,
+        ship inside their release train, prove it with evals and telemetry, then harden and hand it
+        to their team. Success is the workflow changing — not the pull request merging.
       </p>
+      <p className="text-gray-700 text-base leading-relaxed max-w-3xl mb-8">
+        <span className="font-semibold text-gray-900">What I add to a standard FDE profile: </span>
+        the deployments that stall in healthcare, federal, and other regulated environments rarely
+        stall on the model. They stall on oversight evidence, use-related risk, accessibility
+        obligations, and the security and audit review nobody scoped. I carry those constraints as
+        engineering requirements from week one instead of discovering them at launch.
+      </p>
+
 
       <ul className="grid gap-6 list-none p-0 m-0 [grid-template-columns:repeat(auto-fit,minmax(min(100%,20rem),1fr))]">
         {DEPLOYMENTS.map((d) => (
