@@ -109,17 +109,18 @@ const DEPLOYMENTS: Deployment[] = [
 export function AIDeploymentSection() {
   return (
     <section id="ai-deployment" className={SECTION} aria-labelledby="ai-deployment-heading">
-      <SectionIndex n="01" label="AI Deployment" />
+      <SectionIndex n="03" label="Forward-Deployed Experience" />
       <h2
         id="ai-deployment-heading"
         className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 tracking-tight"
       >
-        AI Deployment
+        Forward-Deployed Experience
       </h2>
       <p className="text-gray-700 text-base leading-relaxed max-w-3xl mb-8">
-        AI programs fail at the last mile — the gap between what a platform can do and what a
-        person can actually use, trust, and be accountable for. Embedded with engineering in
-        regulated production environments, I own that layer.
+        Forward deployment is how I have worked across my career, not a title — embedded inside
+        client engineering and delivery teams in regulated production environments, owning the
+        last mile between what a platform can do and what a person can actually use, trust, and
+        be accountable for.
       </p>
 
       <ul className="grid gap-6 list-none p-0 m-0 [grid-template-columns:repeat(auto-fit,minmax(min(100%,20rem),1fr))]">
@@ -216,7 +217,7 @@ const PATTERNS = [
 export function HumanAISystemsSection() {
   return (
     <section id="human-ai-design" className={SECTION} aria-labelledby="human-ai-heading">
-      <SectionIndex n="03" label="Human-AI Design" />
+      <SectionIndex n="04" label="Human-AI Design" />
       <h2
         id="human-ai-heading"
         className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 tracking-tight"
@@ -279,7 +280,7 @@ export function GovernanceAccessibilitySection() {
       className={SECTION}
       aria-labelledby="gov-access-heading"
     >
-      <SectionIndex n="04" label="Governance & Accessibility" />
+      <SectionIndex n="05" label="Governance & Accessibility" />
       <h2
         id="gov-access-heading"
         className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 tracking-tight"
