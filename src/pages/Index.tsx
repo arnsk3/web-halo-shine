@@ -1620,7 +1620,13 @@ function Home({
       {/* Recorded intro — video with written transcript fallback */}
       <IntroClip />
 
-      {/* 01 — AI governance & responsible AI leads the page */}
+      {/* 01 — Forward-deployed experience leads the page */}
+      <AIDeploymentSection />
+
+      {/* 02 — The forward-deployment process itself */}
+      <ForwardDeploymentModel />
+
+      {/* 03 — AI governance & responsible AI */}
       <AIGovernanceSection />
 
       {/* Case Studies — work leads the page */}
