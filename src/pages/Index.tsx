@@ -1957,8 +1957,7 @@ function Home({
             <div className="flex gap-5 items-start bg-white border border-gray-200 rounded-xl p-6">
               <img
                 src="/headshot.jpg"
-                alt=""
-                aria-hidden="true"
+                alt="Portrait of Senthil Nagappan"
                 className="w-16 h-16 rounded-full object-cover flex-shrink-0"
               />
               <div>
