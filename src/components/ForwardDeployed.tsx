@@ -69,7 +69,10 @@ type Deployment = {
   role: string;
   context: string;
   contribution: string;
+  constraints: string;
+  ttv: string;
   outcome: string;
+  handoff: string;
   to: string;
 };
 
@@ -83,8 +86,13 @@ const DEPLOYMENTS: Deployment[] = [
       "Disability Case Processing System — federal caseworkers in all 50 states, continuous release cadence.",
     contribution:
       "Worked inside program delivery with engineers, accessibility specialists, and product leaders; translated recurring field defects into shared components and release gates.",
+    constraints:
+      "Federal ATO boundary, legacy case-management services, Section 508 audit obligations, and a release train that could not be paused for a design phase.",
+    ttv: "First automated check in the pipeline in ~3 weeks; full release gate in one quarter.",
     outcome:
       "AI-assisted accessibility validation embedded in CI/CD across 40+ monthly releases — ~30% less manual audit effort.",
+    handoff:
+      "Rules, components, and gate criteria owned by the program's own engineering and accessibility staff.",
     to: "/ai-deployment-ssa",
   },
   {
@@ -95,8 +103,13 @@ const DEPLOYMENTS: Deployment[] = [
       "Clinical imaging and care-workflow software used by clinicians in live hospital environments.",
     contribution:
       "Embedded with product and engineering to turn clinical risk, human oversight, and accessibility requirements into testable interaction behavior.",
+    constraints:
+      "Regulated change control, 10+ product teams on different stacks, PHI handling limits, and clinical validation evidence required before release.",
+    ttv: "Risk-to-interaction pattern set agreed in ~6 weeks; adopted team by team thereafter.",
     outcome:
       "Safety-critical interaction and oversight design under IEC 62366 and ISO 14971, supporting 1,200+ clinicians.",
+    handoff:
+      "Patterns absorbed into the enterprise design system so teams apply them without me in the room.",
     to: "/work/ge",
   },
   {
@@ -107,8 +120,13 @@ const DEPLOYMENTS: Deployment[] = [
       "Connected health and remote-monitoring services used by older adults and care agents at consumer scale.",
     contribution:
       "Brought field research and use-related risk analysis directly into product decisions, prototypes, and validation with delivery teams.",
+    constraints:
+      "Device and telephony integrations outside our control, vulnerable-user consent limits, and 24/7 agent operations that could not absorb retraining.",
+    ttv: "Escalation prototype tested with real agents inside the first month.",
     outcome:
       "Accessible, escalation-aware interaction patterns carried from research into shipped product.",
+    handoff:
+      "Escalation criteria written into agent tooling and training material owned by operations.",
     to: "/work/bestbuy",
   },
   {
@@ -119,8 +137,13 @@ const DEPLOYMENTS: Deployment[] = [
       "National behavioral-health data products delivered across a multi-year federal program portfolio.",
     contribution:
       "Worked directly with client stakeholders and a cross-functional team to connect research, roadmap decisions, accessibility, and release governance.",
+    constraints:
+      "Public data-release review, multiple upstream data owners with inconsistent schemas, and fixed federal reporting deadlines.",
+    ttv: "Working data-product prototype in front of stakeholders within the first sprint cycle.",
     outcome:
       "Public-health data services supporting 2M+ users, with a delivery capability scaled to 15+ team members.",
+    handoff:
+      "Team grown to 15+ and standards documented so delivery continued independent of any one lead.",
     to: "/work/samhsa",
   },
 ];
