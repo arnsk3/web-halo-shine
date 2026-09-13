@@ -238,10 +238,76 @@ export function AIDeploymentSection() {
           on-screen content for blind and low-vision users — designed, built, and released
           end-to-end. Personal project — built end-to-end, no client IP.
         </p>
+        <p className="text-sm text-gray-700 leading-relaxed max-w-3xl mt-3">
+          <span className="font-semibold text-gray-900">Built with: </span>
+          multimodal vision model API, streaming responses, offline-capable PWA shell, on-device
+          camera capture, latency and cost budgeting per request, and screen-reader-first
+          interaction tested with assistive technology.
+        </p>
         <p className="text-[13px] text-gray-700 mt-3">
           Live app and source repository links are being finalised and will be linked here.
         </p>
       </article>
+
+      {/* Evals & measurement */}
+      <div className="mt-8 rounded-2xl border border-gray-200 bg-white p-6 sm:p-8">
+        <h3 className="font-display text-xl font-extrabold text-gray-900 mb-2">
+          How I prove a deployment actually worked
+        </h3>
+        <p className="text-sm text-gray-700 leading-relaxed max-w-3xl mb-5">
+          Most enterprise AI pilots never show measurable impact. I define what &ldquo;working&rdquo;
+          means before build starts, and instrument it so the answer survives a procurement or
+          audit conversation.
+        </p>
+        <ul className="grid gap-4 list-none p-0 m-0 [grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr))]">
+          {[
+            {
+              t: "Baseline first",
+              d: "Measure the current manual workflow — time, error rate, rework, audit effort — before anything ships, so improvement is arguable with numbers.",
+            },
+            {
+              t: "Golden sets & behaviour evals",
+              d: "A curated set of real cases, including the hard and harmful ones, run against every change so model or prompt updates cannot silently regress.",
+            },
+            {
+              t: "Human-oversight telemetry",
+              d: "Override rate, correction rate, escalation rate, and time-to-decision — the signals that show whether people are supervising the model or rubber-stamping it.",
+            },
+            {
+              t: "Outcome metric, not usage",
+              d: "Tied to the client's own number: cases cleared, audit effort removed, defects prevented, releases unblocked.",
+            },
+          ].map((e) => (
+            <li key={e.t} className="h-full">
+              <article className="h-full rounded-xl border border-gray-200 bg-[rgb(var(--c-tint-50))] p-5">
+                <h4 className="font-bold text-gray-900 text-[15px] mb-1.5">{e.t}</h4>
+                <p className="text-sm text-gray-700 leading-relaxed">{e.d}</p>
+              </article>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* What did not work */}
+      <div className="mt-8 rounded-2xl border border-gray-200 bg-white p-6 sm:p-8">
+        <h3 className="font-display text-xl font-extrabold text-gray-900 mb-2">
+          A deployment that stalled — and what changed after
+        </h3>
+        <p className="text-sm text-gray-700 leading-relaxed max-w-3xl mb-3">
+          On an early automated-validation effort, the tooling was technically correct and almost
+          nobody used it. The checks ran outside the delivery pipeline, so results arrived as a
+          report after the work was already merged, and teams treated it as someone else&rsquo;s
+          backlog. Adoption stayed near zero for two release cycles.
+        </p>
+        <p className="text-sm text-gray-700 leading-relaxed max-w-3xl">
+          <span className="font-semibold text-gray-900">What I changed: </span>
+          I stopped shipping findings and started shipping gates — the same checks moved into CI,
+          failures surfaced in the pull request with the fix location, and the recurring issues
+          were fixed once in shared components rather than reported many times. That single
+          relocation, from report to release path, is now how I sequence every deployment:
+          integration before insight.
+        </p>
+      </div>
     </section>
   );
 }
