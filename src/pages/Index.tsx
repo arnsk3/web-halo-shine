@@ -954,7 +954,7 @@ type PageId = "home" | "brand" | "about" | "approach" | "resume" | "contact" | "
 function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) {
   // Top-level sections follow the forward-deployed narrative order.
   const sectionLinks: { id: string; label: string }[] = [
-    { id: "ai-deployment", label: "AI Deployment" },
+    { id: "ai-deployment", label: "Forward-Deployed Experience" },
     { id: "cases", label: "Work" },
     { id: "governance-accessibility", label: "Governance" },
   ];
@@ -1551,14 +1551,15 @@ function Home({
             <h1 className="text-4xl sm:text-5xl font-extrabold leading-[1.08] mb-5 tracking-tight">
               Senthil Nagappan
               <span className="block mt-3 text-2xl sm:text-3xl font-extrabold bg-gradient-to-r from-[rgb(var(--c-accent-light))] to-[rgb(var(--c-accent-on-dark))] bg-clip-text text-transparent">
-                Forward-Deployed AI Experience &amp; Human Factors Leader
+                AI Experience Design &amp; Human Systems Integration Leader
               </span>
             </h1>
           </FadeIn>
           <FadeIn delay={0.15}>
             <p className="text-white text-base sm:text-lg mb-4 max-w-2xl mx-auto leading-relaxed">
-              I work the last mile where AI meets real users in regulated production
-              environments — embedded with engineering, not replacing it.
+              I design AI governance, oversight, and accessibility into the products people
+              actually use in regulated production environments — working forward-deployed,
+              embedded with engineering rather than reviewing from outside.
             </p>
           </FadeIn>
           <FadeIn delay={0.18}>
@@ -1619,8 +1620,8 @@ function Home({
       {/* Recorded intro — video with written transcript fallback */}
       <IntroClip />
 
-      {/* 01 — Forward-deployed work leads the page */}
-      <AIDeploymentSection />
+      {/* 01 — AI governance & responsible AI leads the page */}
+      <AIGovernanceSection />
 
       {/* Case Studies — work leads the page */}
       <section id="cases" className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2rem,4vw,3.5rem)]" aria-labelledby="cases-heading">
@@ -1852,14 +1853,14 @@ function Home({
         )}
       </section>
 
-      {/* 03 — Human-AI systems design patterns */}
+      {/* 03 — Forward-deployed delivery experience */}
+      <AIDeploymentSection />
+
+      {/* 04 — Human-AI systems design patterns */}
       <HumanAISystemsSection />
 
-      {/* 04 — Governance & accessibility */}
+      {/* 05 — Governance & accessibility */}
       <GovernanceAccessibilitySection />
-
-      {/* 05 — AI Governance & Responsible AI */}
-      <AIGovernanceSection />
 
       {/* 06 — Domain Expertise */}
       <ExpertiseSection />
@@ -1956,8 +1957,7 @@ function Home({
             <div className="flex gap-5 items-start bg-white border border-gray-200 rounded-xl p-6">
               <img
                 src="/headshot.jpg"
-                alt=""
-                aria-hidden="true"
+                alt="Portrait of Senthil Nagappan"
                 className="w-16 h-16 rounded-full object-cover flex-shrink-0"
               />
               <div>
@@ -6862,7 +6862,7 @@ function About() {
   ];
 
   const timeline = [
-    { role: "AI + Human Systems Integration Lead", org: "GE HealthCare", period: "2025 – Present", desc: "Built the enterprise AI safety framework and evolved the design system for clinical decision-support across 10+ product teams." },
+    { role: "AI + Human Systems Integration Lead (Forward-Deployed)", org: "GE HealthCare", period: "2025 – Present", desc: "Embedded with engineering as a forward-deployed designer: built the enterprise AI safety framework and evolved the design system for clinical decision-support across 10+ product teams." },
     { role: "Sr. UX & Accessibility Lead", org: "Leidos / Social Security Administration", period: "2022 – 2025", desc: "Led a data-driven design system unifying 50M+ user experiences and built SSA11y, saving $1.5M+ annually." },
     { role: "Inclusive Design & Accessibility Lead", org: "Best Buy Health", period: "2021 – 2022", desc: "Owned visual design and mobile-first brand experience for 1M+ consumers across 5 product lines." },
     { role: "Sr. UX & Accessibility Program Manager", org: "Eagle Technologies / HHS / SAMHSA", period: "2014 – 2021", desc: "Directed a $130M behavioral health portfolio, recruited and grew a cross-functional team to 15+, and mentored designers through seven years of change while leading the AWS GovCloud migration of national TEDS datasets." },
@@ -7514,7 +7514,7 @@ function Resume() {
               <ol className="list-none p-0 m-0 space-y-6">
                 {[
                   {
-                    role: "AI Experience Designer & HSI Lead",
+                    role: "AI Experience Designer & HSI Lead (Forward-Deployed)",
                     org: "GE HealthCare (Brain Pulse Inc)",
                     dates: "Mar 2025 – Present",
                     bullets: [
@@ -7745,24 +7745,74 @@ function Contact() {
   ];
 
   return (
-    <div className="max-w-md mx-auto px-6 py-16">
+    <div className="max-w-3xl mx-auto px-6 py-16">
       <FadeIn>
         <div className="inline-flex items-center gap-2 mb-3 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-[11px] font-semibold text-emerald-800">
           <span aria-hidden="true" className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
           Available for new opportunities
         </div>
-        <h1 className="text-3xl font-extrabold text-gray-900 tracking-tight mb-2 text-center">
+        <h1 className="text-3xl font-extrabold text-gray-900 tracking-tight mb-2">
           Get in Touch
         </h1>
-        <p className="text-gray-700 text-sm mb-6 text-center">
+        <p className="text-gray-700 text-base leading-relaxed mb-8 max-w-2xl">
           Open to Director / Principal roles in AI Experience Design, AI Governance &amp;
-          Responsible AI, and Human Systems Integration — full-time, contract, or advisory.
+          Responsible AI, and Human Systems Integration — full-time, contract, or advisory. I
+          work forward-deployed: embedded with your engineering and delivery teams, shipping
+          inside your release cadence rather than reviewing from the outside.
         </p>
 
+        <div className="grid gap-6 mb-10 [grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr))]">
+          <section
+            aria-labelledby="contact-roles-heading"
+            className="rounded-xl border border-gray-200 bg-white p-5"
+          >
+            <h2 id="contact-roles-heading" className="font-bold text-gray-900 text-base mb-3">
+              Roles I&rsquo;m a fit for
+            </h2>
+            <ul className="list-none p-0 m-0 space-y-2">
+              {[
+                "Director / Principal, AI Experience Design",
+                "AI Governance & Responsible AI lead or consulting manager",
+                "Human Systems Integration / human factors leadership",
+                "Head of Accessibility or design-systems leadership in regulated delivery",
+              ].map((x) => (
+                <li key={x} className="text-[13px] text-gray-700 leading-relaxed flex gap-2">
+                  <span aria-hidden="true" className="mt-[3px] h-1.5 w-1.5 shrink-0 rounded-full bg-[rgb(var(--c-primary))]" />
+                  {x}
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <section
+            aria-labelledby="contact-help-heading"
+            className="rounded-xl border border-gray-200 bg-white p-5"
+          >
+            <h2 id="contact-help-heading" className="font-bold text-gray-900 text-base mb-3">
+              What I can help with
+            </h2>
+            <ul className="list-none p-0 m-0 space-y-2">
+              {[
+                "Standing up an AI governance program against NIST AI RMF, ISO/IEC 42001, and the EU AI Act",
+                "Designing human oversight, disclosure, and override behaviour into live AI products",
+                "Embedding WCAG 2.2 AA/AAA and Section 508 conformance into design systems and CI/CD",
+                "Human factors and usability evidence for regulated medical and federal delivery",
+              ].map((x) => (
+                <li key={x} className="text-[13px] text-gray-700 leading-relaxed flex gap-2">
+                  <span aria-hidden="true" className="mt-[3px] h-1.5 w-1.5 shrink-0 rounded-full bg-[rgb(var(--c-primary))]" />
+                  {x}
+                </li>
+              ))}
+            </ul>
+          </section>
+        </div>
+
         {/* What to expect */}
-        <ul className="mb-8 grid gap-2 list-none p-0 m-0">
+        <h2 className="font-bold text-gray-900 text-base mb-3">What to expect</h2>
+        <ul className="mb-10 grid gap-2 list-none p-0 m-0 [grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr))]">
           {[
             "I reply within 1–2 business days",
+            "A 30-minute call to understand the program and where the friction actually is",
             "Happy to share work samples, references, and a portfolio walkthrough",
             "Open to remote, hybrid (DMV / DFW), or relocation for the right team",
           ].map((x) => (
@@ -7772,6 +7822,28 @@ function Contact() {
             </li>
           ))}
         </ul>
+
+        <div className="mb-8 flex flex-wrap gap-3">
+          <a
+            href="/Senthil_Nagappan_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center min-h-[44px] px-4 py-2 rounded-lg text-sm font-semibold bg-[rgb(var(--c-primary))] text-white hover:bg-[rgb(var(--c-accent-dark))] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
+          >
+            Download résumé (PDF)<span className="sr-only"> — opens in a new tab</span>
+          </a>
+          <a
+            href="/Senthil_Nagappan_AI_Control_Library.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center min-h-[44px] px-4 py-2 rounded-lg text-sm font-semibold border border-[rgb(var(--c-primary)/0.4)] text-[rgb(var(--c-primary))] bg-white hover:bg-[rgb(var(--c-tint-50))] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
+          >
+            AI control library (PDF)<span className="sr-only"> — opens in a new tab</span>
+          </a>
+        </div>
+
+        <h2 className="font-bold text-gray-900 text-base mb-3">Send a message</h2>
+
 
         {submitted ? (
           <div
@@ -7954,7 +8026,7 @@ function Footer({
     );
   };
   const sectionItems: { id: string; label: string }[] = [
-    { id: "ai-deployment", label: "AI Deployment" },
+    { id: "ai-deployment", label: "Forward-Deployed Experience" },
     { id: "human-ai-design", label: "Human-AI Design" },
     { id: "governance-accessibility", label: "Governance & Accessibility" },
     { id: "deployment-model", label: "Deployment Model" },
@@ -7975,7 +8047,7 @@ function Footer({
         <div>
           <p className="font-bold text-white text-sm">Senthil Nagappan</p>
           <p className="text-white text-xs mt-1">
-            Forward-Deployed AI Experience &amp; Human Factors Leader
+            AI Experience Design &amp; Human Systems Integration Leader
           </p>
           <ul className="flex flex-wrap gap-4 list-none p-0 m-0 mt-3">
             <li>
@@ -8042,7 +8114,7 @@ function Footer({
 }
 
 const PAGE_TITLES: Record<PageId, string> = {
-  home: "Senthil Nagappan — Forward-Deployed AI Experience & Human Factors Leader",
+  home: "Senthil Nagappan — AI Experience Design & Human Systems Integration Leader",
   brand: "Brand Identity & Visual Systems — Senthil Nagappan",
   about: "About — Senthil Nagappan",
   approach: "Approach — Senthil Nagappan",
@@ -8057,7 +8129,7 @@ const PAGE_TITLES: Record<PageId, string> = {
 };
 
 const PAGE_DESCRIPTIONS: Record<PageId, string> = {
-  home: "Senthil Nagappan — Forward-Deployed AI Experience & Human Factors Leader. I design the human-in-the-loop controls, explainability, accessibility, and governance that make AI usable, safe, and deployable in regulated environments.",
+  home: "Senthil Nagappan — AI Experience Design & Human Systems Integration Leader. Forward-deployed with engineering teams, I design the AI governance, human-in-the-loop oversight, explainability, and accessibility controls that make AI usable, safe, and deployable in regulated environments.",
   brand: "Design systems & brand-consistent visual systems by Senthil Nagappan — shared components, design tokens, and on-brand UI that scale across consumer, healthcare, and enterprise products.",
 
   about: "About Senthil Nagappan — 18+ years building AI-driven products in regulated healthcare, federal, retail, and defense environments.",
