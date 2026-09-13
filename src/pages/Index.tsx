@@ -954,7 +954,7 @@ type PageId = "home" | "brand" | "about" | "approach" | "resume" | "contact" | "
 function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) {
   // Top-level sections follow the forward-deployed narrative order.
   const sectionLinks: { id: string; label: string }[] = [
-    { id: "ai-deployment", label: "Forward-Deployed Experience" },
+    { id: "ai-deployment", label: "Forward-Deployed" },
     { id: "cases", label: "Work" },
     { id: "governance-accessibility", label: "Governance" },
   ];
@@ -1544,28 +1544,28 @@ function Home({
           <FadeIn>
             <p className="inline-flex items-center gap-2 text-[rgb(var(--c-accent-on-dark))] text-[11px] sm:text-xs font-semibold tracking-[2.5px] uppercase mb-5 rounded-full border border-white/15 bg-white/5 backdrop-blur px-4 py-1.5">
               <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-[rgb(var(--c-accent-light))] animate-pulse" />
-              Human Factors · Accessibility · Design Systems · AI Governance
+              Forward-Deployed AI · Regulated Systems · Human Outcomes
             </p>
           </FadeIn>
           <FadeIn delay={0.1}>
             <h1 className="text-4xl sm:text-5xl font-extrabold leading-[1.08] mb-5 tracking-tight">
               Senthil Nagappan
               <span className="block mt-3 text-2xl sm:text-3xl font-extrabold bg-gradient-to-r from-[rgb(var(--c-accent-light))] to-[rgb(var(--c-accent-on-dark))] bg-clip-text text-transparent">
-                AI Experience Design &amp; Human Systems Integration Leader
+                Forward-Deployed AI Experience &amp; Human Systems Integration Leader
               </span>
             </h1>
           </FadeIn>
           <FadeIn delay={0.15}>
             <p className="text-white text-base sm:text-lg mb-4 max-w-2xl mx-auto leading-relaxed">
-              I design AI governance, oversight, and accessibility into the products people
-              actually use in regulated production environments — working forward-deployed,
-              embedded with engineering rather than reviewing from outside.
+              I embed with users, engineering, product, and risk teams to move regulated AI from
+              ambiguity to production — making the last mile safe, usable, accessible, and
+              accountable.
             </p>
           </FadeIn>
           <FadeIn delay={0.18}>
             <p className="mb-7 max-w-2xl mx-auto text-[13px] sm:text-sm text-white/90 leading-relaxed">
               <span className="font-semibold text-[rgb(var(--c-accent-on-dark))]">
-                Human Factors · Accessibility · Design Systems · AI Governance
+                Field immersion · Product framing · Production prototyping · Governance
               </span>{" "}
               — 7+ years in compliance, risk &amp; advisory delivery, leading a $130M federal
               program portfolio and scaling a cross-functional team to 15+.{" "}
@@ -1580,7 +1580,7 @@ function Home({
                 onClick={() => document.getElementById("ai-deployment")?.scrollIntoView({ behavior: "smooth" })}
                 className="group inline-flex items-center justify-center gap-2 min-h-[44px] bg-white text-[rgb(var(--c-primary))] px-6 py-2.5 rounded-lg font-semibold text-sm shadow-lg shadow-black/10 hover:-translate-y-0.5 hover:shadow-xl hover:bg-[rgb(var(--c-accent-on-light))] hover:text-white transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
               >
-                View the work <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
+                See forward-deployed work <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
               </button>
               <button
                 onClick={() => setPage("contact")}
@@ -1588,6 +1588,21 @@ function Home({
               >
                 Get in touch <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
               </button>
+            </div>
+          </FadeIn>
+          <FadeIn delay={0.23}>
+            <div className="mb-8" aria-label="Forward-deployed operating model">
+              <p className="text-[11px] font-bold uppercase tracking-[2px] text-[rgb(var(--c-accent-on-dark))] mb-2">
+                Operating model
+              </p>
+              <ol className="flex flex-wrap items-center justify-center gap-2 list-none p-0 m-0 text-xs font-semibold text-white">
+                {["Embed", "Frame", "Prototype", "Deploy", "Validate"].map((step, index, steps) => (
+                  <li key={step} className="inline-flex items-center gap-2">
+                    <span className="inline-flex min-h-[32px] items-center rounded-md border border-white/30 bg-white/10 px-3">{step}</span>
+                    {index < steps.length - 1 && <span aria-hidden="true" className="text-[rgb(var(--c-accent-on-dark))]">→</span>}
+                  </li>
+                ))}
+              </ol>
             </div>
           </FadeIn>
           <FadeIn delay={0.25}>
@@ -1616,9 +1631,6 @@ function Home({
 
       {/* Impact strip — stats directly under the hero */}
       <ImpactStrip />
-
-      {/* Recorded intro — video with written transcript fallback */}
-      <IntroClip />
 
       {/* 01 — Forward-deployed experience leads the page */}
       <AIDeploymentSection />
@@ -6808,6 +6820,11 @@ function About() {
 
   const skillGroups = [
     {
+      title: "Forward-Deployed AI & Experience Leadership",
+      icon: Network,
+      skills: ["Field immersion", "Embedded engineering partnership", "Cross-functional problem framing", "Production-fidelity prototyping", "Release-cadence delivery", "Deployment instrumentation", "Client & executive leadership"],
+    },
+    {
       title: "AI Governance & Responsible AI",
       icon: ShieldCheck,
       skills: ["NIST AI RMF (Govern/Map/Measure/Manage)", "EU AI Act", "ISO/IEC 42001 & 23894", "SR 11-7 model risk", "U.S. AI policy (EO 14179, OMB M-25-21/22)", "Control taxonomy & acceptance criteria", "AI assurance & audit readiness", "Governance operating models"],
@@ -6885,12 +6902,11 @@ function About() {
               Senthil Nagappan
             </h1>
             <p className="text-[rgb(var(--c-accent-dark))] font-semibold text-sm mb-3">
-              AI Experience Design &amp; Human Systems Integration · AI Governance &amp; Responsible AI Leader
+              Forward-Deployed AI Experience &amp; Human Systems Integration Leader
             </p>
             <p className="text-gray-700 text-sm leading-relaxed mb-3">
-              18+ years building enterprise functions that deliver safe, compliant,
-              AI-driven products in regulated environments across healthcare, federal,
-              retail, and defense sectors.
+              18+ years embedded with users, engineering, product, and client teams to deliver
+              safe, compliant systems across healthcare, federal, retail, and defense sectors.
             </p>
             <div className="flex gap-2 flex-wrap">
               {["Vienna, VA (DMV)", "Frisco, TX (DFW)", "Open to remote"].map((l) => (
@@ -6931,10 +6947,10 @@ function About() {
       <FadeIn delay={0.1}>
         <div className="prose prose-sm max-w-none mb-12">
           <p className="text-gray-700 leading-[1.9] mb-4">
-            I'm a designer-engineer who works across the full arc of a product — from brand
-            and visual design, to the design system and front-end code that ships it, to the
-            governance that keeps it safe and compliant. I make complex, regulated experiences
-            feel clear, on-brand, and accessible to everyone.
+            I'm a forward-deployed design and human-systems leader: I work inside the delivery
+            team, from field research and product framing through production code, release
+            governance, and continuous validation. I make complex, regulated AI experiences
+            clear, accountable, and accessible to everyone.
           </p>
           <p className="text-gray-700 leading-[1.9] mb-4">
             My methodology is grounded in structured engineering standards: MIL-STD-1472H
@@ -7129,17 +7145,17 @@ function Approach() {
     <div className="max-w-3xl mx-auto px-6 py-16">
       <FadeIn>
         <h1 className="text-3xl font-extrabold text-gray-900 tracking-tight mb-2">
-          My Approach
+          My Forward-Deployed Approach
         </h1>
         <p className="text-gray-700 text-sm mb-12 max-w-lg">
-          How I take a product from research to a polished, on-brand, accessible
-          experience — safe and compliant from requirements through deployment.
+          How I embed with users and delivery teams to take a regulated AI product from ambiguity
+          to a safe, accessible, measurable production outcome.
         </p>
       </FadeIn>
 
       {/* Process stepper */}
       <FadeIn delay={0.05}>
-        <h2 className="text-xl font-extrabold text-gray-900 tracking-tight mb-1">From insight to shipped product</h2>
+        <h2 className="text-xl font-extrabold text-gray-900 tracking-tight mb-1">From field insight to deployed product</h2>
         <p className="text-gray-600 text-sm mb-6">A repeatable, evidence-driven process I run end to end.</p>
         <ol className="relative list-none p-0 m-0 mb-12 border-l-2 border-[rgb(var(--c-accent)/0.3)] ml-3">
           {process.map((p, i) => (
@@ -7458,7 +7474,7 @@ function Resume() {
             <div>
               <h3 className="font-display text-lg font-bold text-gray-900 mb-1">Senthil Nagappan</h3>
               <p className="text-sm font-semibold text-[rgb(var(--c-accent-on-light))] mb-2">
-                AI Experience Design &amp; Human Systems Integration
+                Forward-Deployed AI Experience &amp; Human Systems Integration Leader
               </p>
               <p className="text-[13px] text-gray-700">
                 <a
@@ -7484,12 +7500,12 @@ function Resume() {
                 Professional summary
               </h3>
               <p className="text-sm text-gray-800 leading-relaxed">
-                18+ years pairing AI governance, accessibility leadership, design systems, and
-                production front-end engineering to deliver safe, human-centered AI across
+                Forward-deployed AI experience and human-systems leader with 18+ years pairing AI
+                governance, accessibility, design systems, and production front-end engineering across
                 healthcare, federal, financial-services, and enterprise environments — including 7+
-                years in compliance, risk management, and advisory roles with client-facing delivery
+                years in compliance, risk management, and advisory roles with embedded client delivery
                 and team leadership (a $130M federal program portfolio; cross-functional team scaled
-                to 15+). I design the experiences and the strategic logic that let human-centered
+                to 15+). I work inside user, engineering, product, and risk teams to design the experiences and strategic logic that let human-centered
                 empathy govern intelligent, non-deterministic systems — building trust,
                 transparency, and control into agentic and data-rich products, then prototyping and
                 shipping them in real code.
@@ -7758,10 +7774,10 @@ function Contact() {
           Get in Touch
         </h1>
         <p className="text-gray-700 text-base leading-relaxed mb-8 max-w-2xl">
-          Open to Director / Principal roles in AI Experience Design, AI Governance &amp;
-          Responsible AI, and Human Systems Integration — full-time, contract, or advisory. I
-          work forward-deployed: embedded with your engineering and delivery teams, shipping
-          inside your release cadence rather than reviewing from the outside.
+           Open to Director / Principal roles in Forward-Deployed AI Experience, AI Governance &amp;
+           Responsible AI, and Human Systems Integration — full-time, contract, or advisory. I
+           embed with users, engineering, product, and risk teams, shipping inside the release
+           cadence rather than reviewing from the outside.
         </p>
 
         <div className="grid gap-6 mb-10 [grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr))]">
@@ -7774,7 +7790,7 @@ function Contact() {
             </h2>
             <ul className="list-none p-0 m-0 space-y-2">
               {[
-                "Director / Principal, AI Experience Design",
+                "Director / Principal, Forward-Deployed AI Experience",
                 "AI Governance & Responsible AI lead or consulting manager",
                 "Human Systems Integration / human factors leadership",
                 "Head of Accessibility or design-systems leadership in regulated delivery",
@@ -8029,7 +8045,7 @@ function Footer({
     );
   };
   const sectionItems: { id: string; label: string }[] = [
-    { id: "ai-deployment", label: "Forward-Deployed Experience" },
+    { id: "ai-deployment", label: "Forward-Deployed" },
     { id: "human-ai-design", label: "Human-AI Design" },
     { id: "governance-accessibility", label: "Governance & Accessibility" },
     { id: "deployment-model", label: "Deployment Model" },
@@ -8050,7 +8066,7 @@ function Footer({
         <div>
           <p className="font-bold text-white text-sm">Senthil Nagappan</p>
           <p className="text-white text-xs mt-1">
-            AI Experience Design &amp; Human Systems Integration Leader
+             Forward-Deployed AI Experience &amp; Human Systems Integration Leader
           </p>
           <ul className="flex flex-wrap gap-4 list-none p-0 m-0 mt-3">
             <li>
@@ -8117,7 +8133,7 @@ function Footer({
 }
 
 const PAGE_TITLES: Record<PageId, string> = {
-  home: "Senthil Nagappan — AI Experience Design & Human Systems Integration Leader",
+  home: "Senthil Nagappan — Forward-Deployed AI Leader",
   brand: "Brand Identity & Visual Systems — Senthil Nagappan",
   about: "About — Senthil Nagappan",
   approach: "Approach — Senthil Nagappan",
@@ -8135,10 +8151,10 @@ const PAGE_DESCRIPTIONS: Record<PageId, string> = {
   home: "Senthil Nagappan — AI Experience Design & Human Systems Integration Leader. Forward-deployed with engineering teams, I design the AI governance, human-in-the-loop oversight, explainability, and accessibility controls that make AI usable, safe, and deployable in regulated environments.",
   brand: "Design systems & brand-consistent visual systems by Senthil Nagappan — shared components, design tokens, and on-brand UI that scale across consumer, healthcare, and enterprise products.",
 
-  about: "About Senthil Nagappan — 18+ years building AI-driven products in regulated healthcare, federal, retail, and defense environments.",
-  approach: "How Senthil Nagappan ensures AI-driven systems are safe, accessible, and compliant — from requirements through deployment.",
-  resume: "Download or read Senthil Nagappan's resume — AI safety and human systems integration leadership.",
-  contact: "Contact Senthil Nagappan for AI safety, human systems integration, and accessibility leadership engagements.",
+  about: "About Senthil Nagappan — a forward-deployed AI experience and human systems leader with 18+ years across regulated environments.",
+  approach: "Senthil Nagappan's forward-deployed model: embed, frame, prototype, deploy, and validate safe AI with delivery teams.",
+  resume: "Read or download Senthil Nagappan's résumé — forward-deployed AI experience and human systems integration leadership.",
+  contact: "Contact Senthil Nagappan for forward-deployed AI experience, governance, human systems, and accessibility leadership.",
   case: "Case study from Senthil Nagappan — AI safety, human systems integration, and accessibility work in regulated environments.",
   ssadeploy: "How AI-assisted accessibility validation was deployed into a live, audited federal system used by caseworkers in all 50 states — human-in-the-loop by design, embedded in CI/CD, ~30% less manual audit effort.",
   lab: "In-house AI product concepts by Senthil Nagappan — TrustLens, Clarity, Sentinel, Lumen, and RevAssist: concise capsules of governance, clinical, agentic-safety, and revenue-cycle AI work.",
