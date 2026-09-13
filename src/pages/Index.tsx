@@ -1632,7 +1632,7 @@ function Home({
       {/* Case Studies — work leads the page */}
       <section id="cases" className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2rem,4vw,3.5rem)]" aria-labelledby="cases-heading">
         <FadeIn>
-          <SectionIndex n="02" label="Selected Work" />
+          <SectionIndex n="04" label="Selected Work" />
           <h2 id="cases-heading" className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2 tracking-tight">
             Selected Work
           </h2>
