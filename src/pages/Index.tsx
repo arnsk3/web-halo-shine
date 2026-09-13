@@ -1859,19 +1859,16 @@ function Home({
         )}
       </section>
 
-      {/* 03 — Forward-deployed delivery experience */}
-      <AIDeploymentSection />
-
-      {/* 04 — Human-AI systems design patterns */}
+      {/* 05 — Human-AI systems design patterns */}
       <HumanAISystemsSection />
 
-      {/* 05 — Governance & accessibility */}
+      {/* 06 — Governance & accessibility */}
       <GovernanceAccessibilitySection />
 
-      {/* 06 — Domain Expertise */}
+      {/* 07 — Domain Expertise */}
       <ExpertiseSection />
 
-      {/* 07 — Brand Identity & Visual Systems teaser */}
+      {/* 08 — Brand Identity & Visual Systems teaser */}
       <BrandTeaser onOpen={() => setPage("brand")} />
 
 
