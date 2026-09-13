@@ -280,7 +280,7 @@ export function GovernanceAccessibilitySection() {
       className={SECTION}
       aria-labelledby="gov-access-heading"
     >
-      <SectionIndex n="05" label="Governance & Accessibility" />
+      <SectionIndex n="06" label="Governance & Accessibility" />
       <h2
         id="gov-access-heading"
         className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 tracking-tight"
