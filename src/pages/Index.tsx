@@ -954,7 +954,7 @@ type PageId = "home" | "brand" | "about" | "approach" | "resume" | "contact" | "
 function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) {
   // Top-level sections follow the forward-deployed narrative order.
   const sectionLinks: { id: string; label: string }[] = [
-    { id: "ai-deployment", label: "AI Deployment" },
+    { id: "ai-deployment", label: "Forward-Deployed Experience" },
     { id: "cases", label: "Work" },
     { id: "governance-accessibility", label: "Governance" },
   ];
@@ -7955,7 +7955,7 @@ function Footer({
     );
   };
   const sectionItems: { id: string; label: string }[] = [
-    { id: "ai-deployment", label: "AI Deployment" },
+    { id: "ai-deployment", label: "Forward-Deployed Experience" },
     { id: "human-ai-design", label: "Human-AI Design" },
     { id: "governance-accessibility", label: "Governance & Accessibility" },
     { id: "deployment-model", label: "Deployment Model" },
