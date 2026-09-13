@@ -12,7 +12,7 @@ type Case = {
   inHouseLab?: boolean;
 };
 
-const BASE = "https://www.senthilnagappan.com";
+const BASE = "https://web-halo-shine.lovable.app";
 
 export const CASES: Case[] = [
   {

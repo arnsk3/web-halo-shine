@@ -46,7 +46,7 @@ var get_about_default = defineTool({
 // src/lib/mcp/tools/get-case-studies.ts
 import { defineTool as defineTool2 } from "npm:@lovable.dev/mcp-js@0.23.0";
 import { z } from "npm:zod@^3.25.76";
-var BASE2 = "https://www.senthilnagappan.com";
+var BASE2 = "https://web-halo-shine.lovable.app";
 var CASES = [
   {
     id: "ssa",
@@ -217,7 +217,7 @@ var get_case_studies_default = defineTool2({
 
 // src/lib/mcp/tools/get-contact-info.ts
 import { defineTool as defineTool3 } from "npm:@lovable.dev/mcp-js@0.23.0";
-var BASE3 = "https://www.senthilnagappan.com";
+var BASE3 = "https://web-halo-shine.lovable.app";
 var get_contact_info_default = defineTool3({
   name: "get_contact_info",
   title: "Get contact info",
