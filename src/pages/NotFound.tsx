@@ -7,8 +7,8 @@ const NotFound = () => {
   useEffect(() => {
     const title = "Page not found (404) — Senthil Nagappan";
     const description =
-      "The page you're looking for can't be found. Return to senthilnagappan.com for AI safety, human systems integration, and accessibility work.";
-    const canonical = `https://www.senthilnagappan.com${location.pathname}`;
+      "The page you're looking for can't be found. Return to Senthil Nagappan's portfolio for forward-deployed AI experience and human systems work.";
+    const canonical = `https://web-halo-shine.lovable.app${location.pathname}`;
 
     document.title = title;
 
