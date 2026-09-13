@@ -109,7 +109,7 @@ const DEPLOYMENTS: Deployment[] = [
 export function AIDeploymentSection() {
   return (
     <section id="ai-deployment" className={SECTION} aria-labelledby="ai-deployment-heading">
-      <SectionIndex n="03" label="Forward-Deployed Experience" />
+      <SectionIndex n="01" label="Forward-Deployed Experience" />
       <h2
         id="ai-deployment-heading"
         className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 tracking-tight"
