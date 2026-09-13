@@ -1624,7 +1624,7 @@ function Home({
       <AIDeploymentSection />
 
       {/* 02 — The forward-deployment process itself */}
-      <ForwardDeploymentModel />
+      <ForwardDeploymentModel n="02" />
 
       {/* 03 — AI governance & responsible AI */}
       <AIGovernanceSection />
