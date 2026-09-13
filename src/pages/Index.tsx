@@ -26,7 +26,6 @@ import {
   HumanAISystemsSection,
   GovernanceAccessibilitySection,
   ForwardDeploymentModel,
-  IntroClip,
 } from "@/components/ForwardDeployed";
 import SectionIndex from "@/components/SectionIndex";
 import { Compass, Sprout, Network, Brain, Bot, FlaskConical, ShieldCheck, Scale, Accessibility, Handshake, Microscope, Layers, Code2, Palette, HeartPulse } from "lucide-react";
@@ -6882,7 +6881,7 @@ function About() {
   ];
 
   const timeline = [
-    { role: "AI + Human Systems Integration Lead (Forward-Deployed)", org: "GE HealthCare", period: "2025 – Present", desc: "Embedded with engineering as a forward-deployed designer: built the enterprise AI safety framework and evolved the design system for clinical decision-support across 10+ product teams." },
+    { role: "AI + Human Systems Integration Lead", org: "GE HealthCare", period: "2025 – Present", desc: "Forward-deployed with engineering: built the enterprise AI safety framework and evolved the design system for clinical decision-support across 10+ product teams." },
     { role: "Sr. UX & Accessibility Lead", org: "Leidos / Social Security Administration", period: "2022 – 2025", desc: "Led a data-driven design system unifying 50M+ user experiences and built SSA11y, saving $1.5M+ annually." },
     { role: "Inclusive Design & Accessibility Lead", org: "Best Buy Health", period: "2021 – 2022", desc: "Owned visual design and mobile-first brand experience for 1M+ consumers across 5 product lines." },
     { role: "Sr. UX & Accessibility Program Manager", org: "Eagle Technologies / HHS / SAMHSA", period: "2014 – 2021", desc: "Directed a $130M behavioral health portfolio, recruited and grew a cross-functional team to 15+, and mentored designers through seven years of change while leading the AWS GovCloud migration of national TEDS datasets." },
@@ -7435,6 +7434,7 @@ function Resume() {
           <h2 className="text-xl font-extrabold text-gray-900 tracking-tight mb-4 text-center">Skills snapshot</h2>
           <div className="grid sm:grid-cols-2 gap-4">
             {[
+              { g: "Forward-Deployed AI & Experience Leadership", s: ["Field immersion", "Embedded engineering partnership", "Cross-functional problem framing", "Production-fidelity prototyping", "Release-cadence delivery", "Deployment instrumentation", "Client & executive delivery"] },
               { g: "Design Leadership", s: ["Player-coach leadership", "Mentorship & career growth", "Influence without authority", "Executive storytelling", "Cross-product systems thinking", "AI-in-the-design-process", "Design ops", "Culture of experimentation"] },
               { g: "Healthcare & Revenue Cycle", s: ["Revenue cycle & reimbursement", "Medical coding (ICD-10 / CPT / HCPCS)", "Claims & denial management", "Clinical decision-support", "Intelligent automation", "HIPAA"] },
               { g: "AI Design & Governance", s: ["AI Governance", "Responsible AI", "Human–AI interaction", "Explainability & confidence UX", "Trust & transparency", "Human-in-the-loop oversight", "Agentic AI guardrails", "RAG / source-grounding UX", "NIST AI RMF", "EU AI Act", "ISO/IEC 42001", "SR 11-7 model risk", "AI risk assessment", "Control design", "Model oversight", "AI assurance", "Regulatory compliance", "Audit readiness", "GenAI risk controls (prompt / data / eval / monitoring)", "GRC tooling (ServiceNow / Archer)", "Collibra / Alation & model registries", "Bias & drift monitoring", "Red-team / TEVV"] },
@@ -7533,10 +7533,11 @@ function Resume() {
               <ol className="list-none p-0 m-0 space-y-6">
                 {[
                   {
-                    role: "AI Experience Designer & HSI Lead (Forward-Deployed)",
+                    role: "AI Experience Designer & HSI Lead",
                     org: "GE HealthCare (Brain Pulse Inc)",
                     dates: "Mar 2025 – Present",
                     bullets: [
+                      "Work forward-deployed with product and engineering teams, translating field context, clinical risk, and governance requirements into release-ready product behavior.",
                       "Design agentic clinical workflows where the model recommends and the clinician decides — oversight tiers, override paths, and disclosure built into the interaction, not bolted on afterwards.",
                       "Lead human–AI trust and explainability patterns: source grounding, contrary-evidence display, and known-limits surfacing for decision-support surfaces.",
                       "Prototype in production React and TypeScript so design decisions are validated in running code, not static mockups.",
@@ -7549,6 +7550,7 @@ function Resume() {
                     org: "Social Security Administration (Leidos)",
                     dates: "Oct 2022 – Feb 2025",
                     bullets: [
+                      "Worked forward-deployed inside federal program delivery, connecting caseworker needs, engineering constraints, accessibility policy, and monthly releases.",
                       "Built and governed an enterprise design system across 15+ modules serving 50M+ citizens.",
                       "Traced 65% of interaction issues to 8 reused components; fixing them at the source saved an estimated $1.5M+ annually.",
                       "Drove WCAG 2.2 AA / Section 508 conformance across 40+ monthly releases, with automated accessibility gates in CI/CD (SSA11y).",
@@ -7561,6 +7563,7 @@ function Resume() {
                     org: "Best Buy Health",
                     dates: "Sep 2021 – Sep 2022",
                     bullets: [
+                      "Embedded field research and use-related risk analysis into product, engineering, and validation decisions for connected care workflows.",
                       "Led human factors for connected medical-device experiences reaching 1M+ users.",
                       "Ran summative usability validation feeding 510(k) human-factors evidence under FDA HFE guidance and IEC 62366.",
                       "Applied use-related risk analysis (URRA) and ISO 14971 risk controls to interface design decisions.",
@@ -7572,6 +7575,7 @@ function Resume() {
                     org: "HHS / SAMHSA (Eagle Technologies)",
                     dates: "Mar 2014 – May 2021",
                     bullets: [
+                      "Led a forward-deployed client-delivery model spanning discovery, roadmap, stakeholder alignment, team growth, and release governance.",
                       "Led design for behavioral-health data platforms and public data visualization serving 2M+ users.",
                       "Owned client-facing delivery: discovery, roadmap, stakeholder alignment, and release governance across multi-year federal contracts.",
                     ],
@@ -8141,7 +8145,7 @@ const PAGE_TITLES: Record<PageId, string> = {
   contact: "Contact — Senthil Nagappan",
   case: "Case Study — Senthil Nagappan",
   lab: "AI Concepts (Non-Deployed) — Senthil Nagappan",
-  ssadeploy: "Deploying AI-Assisted Accessibility Into a Federal System at National Scale",
+  ssadeploy: "Forward-Deployed AI Accessibility at National Scale",
   governance: "Designing the Last Mile of AI Governance",
   writing: "One control set, three frameworks — AI governance crosswalk",
   oversight: "Oversight tiers beat confidence scores — AI experience design",

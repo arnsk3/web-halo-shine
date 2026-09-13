@@ -1,8 +1,8 @@
 # Senthil Nagappan
 
-> AI Experience Design, AI Governance, and Human Systems Integration leader. 18+ years in regulated healthcare, federal, defense, financial-services, and retail environments; 7+ years leading compliance, risk, and advisory programs with client-facing delivery. Based in Frisco, TX (US).
+> Forward-Deployed AI Experience, AI Governance, and Human Systems Integration leader. Embedded with users, engineering, product, and risk teams to move regulated AI from ambiguity to production. 18+ years in regulated healthcare, federal, defense, financial-services, and retail environments; 7+ years leading compliance, risk, and advisory programs with client-facing delivery. Based in Frisco, TX (US).
 
-Multi-page portfolio (React SPA with real routes). Core themes: NIST AI RMF, ISO/IEC 42001, EU AI Act readiness, human oversight and override design, explainability and disclosure UX, WCAG 2.2 AAA accessibility, human factors engineering (IEC 62366, MIL-STD-1472H).
+Multi-page portfolio (React SPA with real routes). Primary operating model: forward-deployed delivery through field immersion, problem framing, production-fidelity prototyping, live deployment, and continuous validation. Core themes: NIST AI RMF, ISO/IEC 42001, EU AI Act readiness, human oversight and override design, explainability and disclosure UX, WCAG 2.2 AAA accessibility, human factors engineering (IEC 62366, MIL-STD-1472H).
 
 ## Key pages
 
