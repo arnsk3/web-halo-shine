@@ -16,6 +16,21 @@ type SkillGroup = {
 
 const GROUPS: SkillGroup[] = [
   {
+    id: "forward-deployed",
+    evidence: ["SSA — release-embedded accessibility governance", "GE HealthCare — engineering-partnered clinical AI delivery", "SAMHSA — client-facing federal program leadership"],
+    title: "Forward-Deployed AI & Experience Leadership",
+    short: "Forward-Deployed",
+    blurb: "Embedding with users, engineering, product, and risk teams to move regulated AI from ambiguity to measurable production outcomes.",
+    skills: [
+      { name: "Field immersion & workflow discovery", level: 5, note: "work alongside the people who use and operate the system" },
+      { name: "Cross-functional problem framing", level: 5, note: "align user need, technical feasibility, risk, and outcome" },
+      { name: "Production-fidelity prototyping", level: 5, note: "validate hard interaction decisions in running code" },
+      { name: "Embedded engineering partnership", level: 5, note: "acceptance criteria, components, and decisions inside the sprint" },
+      { name: "Deployment instrumentation", level: 4, note: "adoption, override, correction, and audit signals" },
+      { name: "Executive and client delivery", level: 5, note: "roadmaps, trade-offs, evidence, and accountable outcomes" },
+    ],
+  },
+  {
     id: "ai-product",
     evidence: ["Clarity — layered explainability for clinicians", "TrustLens — recommend / act / alert oversight models", "Lumen — source-grounding and citation UX"],
     title: "AI Product & Interaction Design",
@@ -164,7 +179,7 @@ export default function AISkillsMatrix() {
       <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2rem,4vw,3.5rem)] relative">
         <p className="inline-flex items-center gap-2 text-[rgb(var(--c-accent-on-dark))] text-xs font-semibold tracking-[2px] uppercase mb-3 rounded-full border border-white/15 bg-white/5 backdrop-blur px-3 py-1.5">
           <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-[rgb(var(--c-accent-light))] animate-pulse" />
-          AI as a primary skill
+          Forward-deployed AI capabilities
         </p>
         <h2
           id="ai-skills-heading"

@@ -13,7 +13,7 @@ export default defineTool({
     const payload = {
       name: "Senthil Nagappan",
       headline:
-        "AI Experience Design & Human Systems Integration for regulated environments",
+        "Forward-Deployed AI Experience & Human Systems Integration Leader",
       resume_pdf_url: `${BASE}/Senthil_Nagappan_Resume.pdf`,
       portfolio_url: BASE,
       credentials: [

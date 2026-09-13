@@ -68,6 +68,7 @@ type Deployment = {
   flagship?: boolean;
   role: string;
   context: string;
+  contribution: string;
   outcome: string;
   to: string;
 };
@@ -80,6 +81,8 @@ const DEPLOYMENTS: Deployment[] = [
     role: "Experience, accessibility & human-factors lead",
     context:
       "Disability Case Processing System — federal caseworkers in all 50 states, continuous release cadence.",
+    contribution:
+      "Worked inside program delivery with engineers, accessibility specialists, and product leaders; translated recurring field defects into shared components and release gates.",
     outcome:
       "AI-assisted accessibility validation embedded in CI/CD across 40+ monthly releases — ~30% less manual audit effort.",
     to: "/ai-deployment-ssa",
@@ -90,6 +93,8 @@ const DEPLOYMENTS: Deployment[] = [
     role: "Human factors engineer · Human systems integration lead",
     context:
       "Clinical imaging and care-workflow software used by clinicians in live hospital environments.",
+    contribution:
+      "Embedded with product and engineering to turn clinical risk, human oversight, and accessibility requirements into testable interaction behavior.",
     outcome:
       "Safety-critical interaction and oversight design under IEC 62366 and ISO 14971, supporting 1,200+ clinicians.",
     to: "/work/ge",
@@ -100,9 +105,23 @@ const DEPLOYMENTS: Deployment[] = [
     role: "Human factors engineer · Experience lead",
     context:
       "Connected health and remote-monitoring services used by older adults and care agents at consumer scale.",
+    contribution:
+      "Brought field research and use-related risk analysis directly into product decisions, prototypes, and validation with delivery teams.",
     outcome:
       "Accessible, escalation-aware interaction patterns carried from research into shipped product.",
     to: "/work/bestbuy",
+  },
+  {
+    id: "samhsa",
+    title: "HHS / SAMHSA",
+    role: "Senior UX & program lead",
+    context:
+      "National behavioral-health data products delivered across a multi-year federal program portfolio.",
+    contribution:
+      "Worked directly with client stakeholders and a cross-functional team to connect research, roadmap decisions, accessibility, and release governance.",
+    outcome:
+      "Public-health data services supporting 2M+ users, with a delivery capability scaled to 15+ team members.",
+    to: "/work/samhsa",
   },
 ];
 
@@ -117,10 +136,10 @@ export function AIDeploymentSection() {
         Forward-Deployed Experience
       </h2>
       <p className="text-gray-700 text-base leading-relaxed max-w-3xl mb-8">
-        Forward deployment is how I have worked across my career, not a title — embedded inside
-        client engineering and delivery teams in regulated production environments, owning the
-        last mile between what a platform can do and what a person can actually use, trust, and
-        be accountable for.
+        Forward deployment is how I have worked across my career, not a historical job title.
+        Unlike handoff-based consulting, I embed inside client engineering and delivery teams,
+        share their release cadence, and own the last mile between what a platform can do and what
+        a person can safely use, trust, and defend.
       </p>
 
       <ul className="grid gap-6 list-none p-0 m-0 [grid-template-columns:repeat(auto-fit,minmax(min(100%,20rem),1fr))]">
@@ -137,8 +156,12 @@ export function AIDeploymentSection() {
               </h3>
               <p className="text-[12px] font-medium text-gray-700 mb-3">{d.role}</p>
               <p className="text-sm text-gray-700 leading-relaxed mb-3">
-                <span className="font-semibold text-gray-900">Deployment context: </span>
+                <span className="font-semibold text-gray-900">Field context: </span>
                 {d.context}
+              </p>
+              <p className="text-sm text-gray-700 leading-relaxed mb-3">
+                <span className="font-semibold text-gray-900">Embedded contribution: </span>
+                {d.contribution}
               </p>
               <p className="text-sm text-gray-700 leading-relaxed">
                 <span className="font-semibold text-gray-900">Outcome: </span>
