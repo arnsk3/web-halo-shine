@@ -6,8 +6,8 @@ Multi-page portfolio (React SPA with real routes). Primary operating model: forw
 
 ## Key pages
 
-- [Home](https://www.senthilnagappan.com/): Positioning, selected work, AI governance overview, expertise, operating model, credentials.
-- [AI Governance case study](https://www.senthilnagappan.com/ai-governance): "Designing the Last Mile of AI Governance" — NIST AI RMF operating loop, control library, ISO 42001 / NIST / EU AI Act crosswalk, AI inventory & registry schema, third-party and shadow-AI risk, AI literacy tiers, incident taxonomy, US state patchwork, agentic-AI autonomy tiers, GRC tooling.
+- [Home](https://web-halo-shine.lovable.app/): Forward-deployed positioning, selected work, AI governance overview, expertise, operating model, credentials.
+- [AI Governance case study](https://web-halo-shine.lovable.app/ai-governance): "Designing the Last Mile of AI Governance" — NIST AI RMF operating loop, control library, ISO 42001 / NIST / EU AI Act crosswalk, AI inventory & registry schema, third-party and shadow-AI risk, AI literacy tiers, incident taxonomy, US state patchwork, agentic-AI autonomy tiers, GRC tooling.
 - [Framework crosswalk essay](https://www.senthilnagappan.com/writing/ai-control-crosswalk): Long-form published article on mapping one internal control set to ISO/IEC 42001, NIST AI RMF, and the EU AI Act.
 - [In-House AI Product Lab](https://www.senthilnagappan.com/lab): Self-initiated AI product concepts (clearly labeled as concepts, not client work).
 - [Design systems & brand](https://www.senthilnagappan.com/brand): Design tokens, shared components, brand-consistent UI at scale.
