@@ -372,18 +372,26 @@ const WEEK = [
   },
 ];
 
-export function ForwardDeploymentModel() {
+export function ForwardDeploymentModel({ n }: { n?: string } = {}) {
   return (
     <section id="deployment-model" className={SECTION} aria-labelledby="deployment-model-heading">
-      <p className="text-[11px] font-bold uppercase tracking-[2px] text-[rgb(var(--c-accent-on-light))] mb-2">
-        Forward Deployment Model
-      </p>
+      {n ? (
+        <SectionIndex n={n} label="Deployment Model" />
+      ) : (
+        <p className="text-[11px] font-bold uppercase tracking-[2px] text-[rgb(var(--c-accent-on-light))] mb-2">
+          Forward Deployment Model
+        </p>
+      )}
       <h2
         id="deployment-model-heading"
-        className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-8 tracking-tight"
+        className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 tracking-tight"
       >
-        My Forward Deployment Model
+        Forward deployment, applied as a process
       </h2>
+      <p className="text-gray-700 text-base leading-relaxed max-w-3xl mb-8">
+        The same five-step method runs through every engagement on this site — governance,
+        accessibility, clinical safety, and design systems all go through it.
+      </p>
       <ol className="grid gap-5 list-none p-0 m-0 [grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr))]">
         {STEPS.map((s, i) => (
           <li key={s.t} className="h-full">
