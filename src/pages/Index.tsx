@@ -8152,7 +8152,7 @@ const PAGE_TITLES: Record<PageId, string> = {
 };
 
 const PAGE_DESCRIPTIONS: Record<PageId, string> = {
-  home: "Senthil Nagappan — AI Experience Design & Human Systems Integration Leader. Forward-deployed with engineering teams, I design the AI governance, human-in-the-loop oversight, explainability, and accessibility controls that make AI usable, safe, and deployable in regulated environments.",
+  home: "Senthil Nagappan — Forward-Deployed AI Experience & Human Systems Integration Leader. Embedded with users and engineering to move regulated AI safely from ambiguity to production.",
   brand: "Design systems & brand-consistent visual systems by Senthil Nagappan — shared components, design tokens, and on-brand UI that scale across consumer, healthcare, and enterprise products.",
 
   about: "About Senthil Nagappan — a forward-deployed AI experience and human systems leader with 18+ years across regulated environments.",
