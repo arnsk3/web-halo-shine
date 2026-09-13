@@ -194,10 +194,23 @@ export function AIDeploymentSection() {
                 <span className="font-semibold text-gray-900">Embedded contribution: </span>
                 {d.contribution}
               </p>
-              <p className="text-sm text-gray-700 leading-relaxed">
+              <p className="text-sm text-gray-700 leading-relaxed mb-3">
+                <span className="font-semibold text-gray-900">Integration reality: </span>
+                {d.constraints}
+              </p>
+              <p className="text-sm text-gray-700 leading-relaxed mb-3">
+                <span className="font-semibold text-gray-900">Time to first value: </span>
+                {d.ttv}
+              </p>
+              <p className="text-sm text-gray-700 leading-relaxed mb-3">
                 <span className="font-semibold text-gray-900">Outcome: </span>
                 {d.outcome}
               </p>
+              <p className="text-sm text-gray-700 leading-relaxed">
+                <span className="font-semibold text-gray-900">Hand-off: </span>
+                {d.handoff}
+              </p>
+
               <p className="mt-auto pt-5">
                 <Link
                   to={d.to}
