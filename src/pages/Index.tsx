@@ -7746,24 +7746,74 @@ function Contact() {
   ];
 
   return (
-    <div className="max-w-md mx-auto px-6 py-16">
+    <div className="max-w-3xl mx-auto px-6 py-16">
       <FadeIn>
         <div className="inline-flex items-center gap-2 mb-3 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-[11px] font-semibold text-emerald-800">
           <span aria-hidden="true" className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
           Available for new opportunities
         </div>
-        <h1 className="text-3xl font-extrabold text-gray-900 tracking-tight mb-2 text-center">
+        <h1 className="text-3xl font-extrabold text-gray-900 tracking-tight mb-2">
           Get in Touch
         </h1>
-        <p className="text-gray-700 text-sm mb-6 text-center">
+        <p className="text-gray-700 text-base leading-relaxed mb-8 max-w-2xl">
           Open to Director / Principal roles in AI Experience Design, AI Governance &amp;
-          Responsible AI, and Human Systems Integration — full-time, contract, or advisory.
+          Responsible AI, and Human Systems Integration — full-time, contract, or advisory. I
+          work forward-deployed: embedded with your engineering and delivery teams, shipping
+          inside your release cadence rather than reviewing from the outside.
         </p>
 
+        <div className="grid gap-6 mb-10 [grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr))]">
+          <section
+            aria-labelledby="contact-roles-heading"
+            className="rounded-xl border border-gray-200 bg-white p-5"
+          >
+            <h2 id="contact-roles-heading" className="font-bold text-gray-900 text-base mb-3">
+              Roles I&rsquo;m a fit for
+            </h2>
+            <ul className="list-none p-0 m-0 space-y-2">
+              {[
+                "Director / Principal, AI Experience Design",
+                "AI Governance & Responsible AI lead or consulting manager",
+                "Human Systems Integration / human factors leadership",
+                "Head of Accessibility or design-systems leadership in regulated delivery",
+              ].map((x) => (
+                <li key={x} className="text-[13px] text-gray-700 leading-relaxed flex gap-2">
+                  <span aria-hidden="true" className="mt-[3px] h-1.5 w-1.5 shrink-0 rounded-full bg-[rgb(var(--c-primary))]" />
+                  {x}
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <section
+            aria-labelledby="contact-help-heading"
+            className="rounded-xl border border-gray-200 bg-white p-5"
+          >
+            <h2 id="contact-help-heading" className="font-bold text-gray-900 text-base mb-3">
+              What I can help with
+            </h2>
+            <ul className="list-none p-0 m-0 space-y-2">
+              {[
+                "Standing up an AI governance program against NIST AI RMF, ISO/IEC 42001, and the EU AI Act",
+                "Designing human oversight, disclosure, and override behaviour into live AI products",
+                "Embedding WCAG 2.2 AA/AAA and Section 508 conformance into design systems and CI/CD",
+                "Human factors and usability evidence for regulated medical and federal delivery",
+              ].map((x) => (
+                <li key={x} className="text-[13px] text-gray-700 leading-relaxed flex gap-2">
+                  <span aria-hidden="true" className="mt-[3px] h-1.5 w-1.5 shrink-0 rounded-full bg-[rgb(var(--c-primary))]" />
+                  {x}
+                </li>
+              ))}
+            </ul>
+          </section>
+        </div>
+
         {/* What to expect */}
-        <ul className="mb-8 grid gap-2 list-none p-0 m-0">
+        <h2 className="font-bold text-gray-900 text-base mb-3">What to expect</h2>
+        <ul className="mb-10 grid gap-2 list-none p-0 m-0 [grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr))]">
           {[
             "I reply within 1–2 business days",
+            "A 30-minute call to understand the program and where the friction actually is",
             "Happy to share work samples, references, and a portfolio walkthrough",
             "Open to remote, hybrid (DMV / DFW), or relocation for the right team",
           ].map((x) => (
@@ -7773,6 +7823,28 @@ function Contact() {
             </li>
           ))}
         </ul>
+
+        <div className="mb-8 flex flex-wrap gap-3">
+          <a
+            href="/Senthil_Nagappan_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center min-h-[44px] px-4 py-2 rounded-lg text-sm font-semibold bg-[rgb(var(--c-primary))] text-white hover:bg-[rgb(var(--c-accent-dark))] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
+          >
+            Download résumé (PDF)<span className="sr-only"> — opens in a new tab</span>
+          </a>
+          <a
+            href="/Senthil_Nagappan_AI_Control_Library.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center min-h-[44px] px-4 py-2 rounded-lg text-sm font-semibold border border-[rgb(var(--c-primary)/0.4)] text-[rgb(var(--c-primary))] bg-white hover:bg-[rgb(var(--c-tint-50))] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
+          >
+            AI control library (PDF)<span className="sr-only"> — opens in a new tab</span>
+          </a>
+        </div>
+
+        <h2 className="font-bold text-gray-900 text-base mb-3">Send a message</h2>
+
 
         {submitted ? (
           <div
