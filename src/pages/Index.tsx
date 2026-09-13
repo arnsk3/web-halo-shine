@@ -1143,7 +1143,7 @@ function BrandTeaser({ onOpen }: { onOpen: () => void }) {
     >
       <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] pt-[clamp(2rem,4vw,3.5rem)] pb-[clamp(1rem,2vw,2rem)]">
         <FadeIn>
-          <SectionIndex n="07" label="Visual Systems" />
+          <SectionIndex n="08" label="Visual Systems" />
           <article className="group grid gap-8 md:grid-cols-[1.2fr_1fr] items-center rounded-2xl border border-gray-200 bg-[rgb(var(--c-tint-50))] overflow-hidden shadow-sm transition-all duration-300 hover:shadow-xl hover:border-[rgb(var(--c-primary)/0.3)]">
             <div className="p-8 sm:p-10">
               <p className="text-[rgb(var(--c-accent-on-light))] text-xs font-semibold tracking-[2px] uppercase mb-3">
@@ -1620,13 +1620,19 @@ function Home({
       {/* Recorded intro — video with written transcript fallback */}
       <IntroClip />
 
-      {/* 01 — AI governance & responsible AI leads the page */}
+      {/* 01 — Forward-deployed experience leads the page */}
+      <AIDeploymentSection />
+
+      {/* 02 — The forward-deployment process itself */}
+      <ForwardDeploymentModel n="02" />
+
+      {/* 03 — AI governance & responsible AI */}
       <AIGovernanceSection />
 
       {/* Case Studies — work leads the page */}
       <section id="cases" className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2rem,4vw,3.5rem)]" aria-labelledby="cases-heading">
         <FadeIn>
-          <SectionIndex n="02" label="Selected Work" />
+          <SectionIndex n="04" label="Selected Work" />
           <h2 id="cases-heading" className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2 tracking-tight">
             Selected Work
           </h2>
@@ -1853,19 +1859,16 @@ function Home({
         )}
       </section>
 
-      {/* 03 — Forward-deployed delivery experience */}
-      <AIDeploymentSection />
-
-      {/* 04 — Human-AI systems design patterns */}
+      {/* 05 — Human-AI systems design patterns */}
       <HumanAISystemsSection />
 
-      {/* 05 — Governance & accessibility */}
+      {/* 06 — Governance & accessibility */}
       <GovernanceAccessibilitySection />
 
-      {/* 06 — Domain Expertise */}
+      {/* 07 — Domain Expertise */}
       <ExpertiseSection />
 
-      {/* 07 — Brand Identity & Visual Systems teaser */}
+      {/* 08 — Brand Identity & Visual Systems teaser */}
       <BrandTeaser onOpen={() => setPage("brand")} />
 
 
@@ -1877,7 +1880,7 @@ function Home({
       >
         <FadeIn>
           <div className="mb-8 max-w-2xl">
-            <SectionIndex n="08" label="Writing" />
+            <SectionIndex n="09" label="Writing" />
             <h2
               id="writing-heading"
               className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-2"
