@@ -93,7 +93,7 @@ export default function SsaDeployment({ onHome }: { onHome: () => void }) {
             Forward-Deployed Work · Flagship
           </p>
           <h1 className="font-display text-3xl sm:text-4xl font-extrabold leading-[1.15] mb-4 tracking-tight">
-            Deploying AI-Assisted Accessibility Into a Federal System at National Scale
+            Forward-Deployed AI Accessibility at National Scale
           </h1>
           <p className="text-white/90 text-base sm:text-lg leading-relaxed">
             Experience, accessibility, and human-factors leadership of an AI-assisted validation

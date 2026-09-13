@@ -7,7 +7,7 @@ import { defineMcp } from "npm:@lovable.dev/mcp-js@0.23.0";
 
 // src/lib/mcp/tools/get-about.ts
 import { defineTool } from "npm:@lovable.dev/mcp-js@0.23.0";
-var BASE = "https://www.senthilnagappan.com";
+var BASE = "https://web-halo-shine.lovable.app";
 var get_about_default = defineTool({
   name: "get_about",
   title: "Get about / positioning",
@@ -17,8 +17,9 @@ var get_about_default = defineTool({
   handler: () => {
     const payload = {
       name: "Senthil Nagappan",
-      primary_positioning: "AI Experience Design & Human Systems Integration for regulated environments (healthcare, federal, accessibility).",
+      primary_positioning: "Forward-Deployed AI Experience & Human Systems Integration leadership for regulated environments (healthcare, federal, accessibility).",
       disciplines: [
+        "Forward-deployed delivery (field immersion, embedded engineering partnership, live deployment, continuous validation)",
         "AI experience design (human\u2013AI interaction, explainability, HITL)",
         "AI governance & model-risk UX (NIST AI RMF, EU AI Act, ISO 42001)",
         "Design systems at scale (50M+ users in program scope)",
@@ -45,7 +46,7 @@ var get_about_default = defineTool({
 // src/lib/mcp/tools/get-case-studies.ts
 import { defineTool as defineTool2 } from "npm:@lovable.dev/mcp-js@0.23.0";
 import { z } from "npm:zod@^3.25.76";
-var BASE2 = "https://www.senthilnagappan.com";
+var BASE2 = "https://web-halo-shine.lovable.app";
 var CASES = [
   {
     id: "ssa",
@@ -216,7 +217,7 @@ var get_case_studies_default = defineTool2({
 
 // src/lib/mcp/tools/get-contact-info.ts
 import { defineTool as defineTool3 } from "npm:@lovable.dev/mcp-js@0.23.0";
-var BASE3 = "https://www.senthilnagappan.com";
+var BASE3 = "https://web-halo-shine.lovable.app";
 var get_contact_info_default = defineTool3({
   name: "get_contact_info",
   title: "Get contact info",
@@ -241,7 +242,7 @@ var get_contact_info_default = defineTool3({
 
 // src/lib/mcp/tools/get-resume.ts
 import { defineTool as defineTool4 } from "npm:@lovable.dev/mcp-js@0.23.0";
-var BASE4 = "https://www.senthilnagappan.com";
+var BASE4 = "https://web-halo-shine.lovable.app";
 var get_resume_default = defineTool4({
   name: "get_resume",
   title: "Get r\xE9sum\xE9",
@@ -251,7 +252,7 @@ var get_resume_default = defineTool4({
   handler: () => {
     const payload = {
       name: "Senthil Nagappan",
-      headline: "AI Experience Design & Human Systems Integration for regulated environments",
+      headline: "Forward-Deployed AI Experience & Human Systems Integration Leader",
       resume_pdf_url: `${BASE4}/Senthil_Nagappan_Resume.pdf`,
       portfolio_url: BASE4,
       credentials: [
@@ -275,6 +276,18 @@ import { defineTool as defineTool5 } from "npm:@lovable.dev/mcp-js@0.23.0";
 import { z as z2 } from "npm:zod@^3.25.76";
 var LEVEL_LABEL = ["", "Aware", "Working", "Proficient", "Advanced", "Expert"];
 var GROUPS = [
+  {
+    id: "forward-deployed",
+    title: "Forward-Deployed AI & Experience Leadership",
+    blurb: "Embedding with users, engineering, product, and risk teams to move regulated AI from ambiguity to measurable production outcomes.",
+    skills: [
+      { name: "Field immersion & workflow discovery", level: 5, note: "work alongside users and operators" },
+      { name: "Cross-functional problem framing", level: 5, note: "align need, feasibility, risk, and outcome" },
+      { name: "Production-fidelity prototyping", level: 5, note: "validate decisions in running code" },
+      { name: "Embedded engineering partnership", level: 5, note: "ship inside the release cadence" },
+      { name: "Deployment instrumentation", level: 4, note: "adoption, override, correction, and audit signals" }
+    ]
+  },
   {
     id: "ai-product",
     title: "AI Product & Interaction Design",
@@ -365,7 +378,7 @@ var get_skills_matrix_default = defineTool5({
   description: "Return Senthil Nagappan's AI skills matrix. Groups cover AI product & interaction design, governance frameworks, operational governance, regulated-domain expertise, and AI engineering. Levels are 1\u20135 (Aware \u2192 Expert). Optionally filter to a single group.",
   inputSchema: {
     group_id: z2.string().optional().describe(
-      "Optional group id: ai-product, ai-frameworks, ai-operations, ai-regulated, ai-engineering, ai-consulting."
+      "Optional group id: forward-deployed, ai-product, ai-frameworks, ai-operations, ai-regulated, ai-engineering, ai-consulting."
     )
   },
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },

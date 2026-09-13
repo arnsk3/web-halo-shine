@@ -1,6 +1,6 @@
 import { defineTool } from "@lovable.dev/mcp-js";
 
-const BASE = "https://www.senthilnagappan.com";
+const BASE = "https://web-halo-shine.lovable.app";
 
 export default defineTool({
   name: "get_about",
@@ -13,8 +13,9 @@ export default defineTool({
     const payload = {
       name: "Senthil Nagappan",
       primary_positioning:
-        "AI Experience Design & Human Systems Integration for regulated environments (healthcare, federal, accessibility).",
+        "Forward-Deployed AI Experience & Human Systems Integration leadership for regulated environments (healthcare, federal, accessibility).",
       disciplines: [
+        "Forward-deployed delivery (field immersion, embedded engineering partnership, live deployment, continuous validation)",
         "AI experience design (human–AI interaction, explainability, HITL)",
         "AI governance & model-risk UX (NIST AI RMF, EU AI Act, ISO 42001)",
         "Design systems at scale (50M+ users in program scope)",

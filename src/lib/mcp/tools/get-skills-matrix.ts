@@ -8,6 +8,18 @@ const LEVEL_LABEL = ["", "Aware", "Working", "Proficient", "Advanced", "Expert"]
 
 const GROUPS: Group[] = [
   {
+    id: "forward-deployed",
+    title: "Forward-Deployed AI & Experience Leadership",
+    blurb: "Embedding with users, engineering, product, and risk teams to move regulated AI from ambiguity to measurable production outcomes.",
+    skills: [
+      { name: "Field immersion & workflow discovery", level: 5, note: "work alongside users and operators" },
+      { name: "Cross-functional problem framing", level: 5, note: "align need, feasibility, risk, and outcome" },
+      { name: "Production-fidelity prototyping", level: 5, note: "validate decisions in running code" },
+      { name: "Embedded engineering partnership", level: 5, note: "ship inside the release cadence" },
+      { name: "Deployment instrumentation", level: 4, note: "adoption, override, correction, and audit signals" },
+    ],
+  },
+  {
     id: "ai-product",
     title: "AI Product & Interaction Design",
     blurb:
@@ -108,7 +120,7 @@ export default defineTool({
       .string()
       .optional()
       .describe(
-        "Optional group id: ai-product, ai-frameworks, ai-operations, ai-regulated, ai-engineering, ai-consulting.",
+        "Optional group id: forward-deployed, ai-product, ai-frameworks, ai-operations, ai-regulated, ai-engineering, ai-consulting.",
       ),
   },
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
