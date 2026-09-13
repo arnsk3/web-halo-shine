@@ -1539,30 +1539,30 @@ function Home({
         {/* Floating gradient orbs */}
         <div aria-hidden="true" className="pointer-events-none absolute -top-24 -left-24 h-80 w-80 rounded-full bg-[rgb(var(--c-accent))] opacity-25 blur-3xl animate-float-slow" />
         <div aria-hidden="true" className="pointer-events-none absolute -bottom-32 -right-16 h-96 w-96 rounded-full bg-[rgb(var(--c-accent-light))] opacity-20 blur-3xl animate-float-slower" />
-        <div className="max-w-3xl mx-auto px-6 py-[clamp(3.5rem,8vw,5.5rem)] text-center relative">
+        <div className="max-w-3xl mx-auto px-6 py-8 sm:py-[clamp(3.5rem,8vw,5.5rem)] text-center relative">
           <FadeIn>
-            <p className="inline-flex items-center gap-2 text-[rgb(var(--c-accent-on-dark))] text-[11px] sm:text-xs font-semibold tracking-[2.5px] uppercase mb-5 rounded-full border border-white/15 bg-white/5 backdrop-blur px-4 py-1.5">
+            <p className="inline-flex items-center gap-2 text-[rgb(var(--c-accent-on-dark))] text-[11px] sm:text-xs font-semibold tracking-[2.5px] uppercase mb-3 sm:mb-5 rounded-full border border-white/15 bg-white/5 backdrop-blur px-4 py-1.5">
               <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-[rgb(var(--c-accent-light))] animate-pulse" />
               Forward-Deployed AI · Regulated Systems · Human Outcomes
             </p>
           </FadeIn>
           <FadeIn delay={0.1}>
-            <h1 className="text-4xl sm:text-5xl font-extrabold leading-[1.08] mb-5 tracking-tight">
+            <h1 className="text-3xl sm:text-5xl font-extrabold leading-[1.08] mb-3 sm:mb-5 tracking-tight">
               Senthil Nagappan
-              <span className="block mt-3 text-2xl sm:text-3xl font-extrabold bg-gradient-to-r from-[rgb(var(--c-accent-light))] to-[rgb(var(--c-accent-on-dark))] bg-clip-text text-transparent">
+              <span className="block mt-2 sm:mt-3 text-xl sm:text-3xl font-extrabold bg-gradient-to-r from-[rgb(var(--c-accent-light))] to-[rgb(var(--c-accent-on-dark))] bg-clip-text text-transparent">
                 Forward-Deployed AI Experience &amp; Human Systems Integration Leader
               </span>
             </h1>
           </FadeIn>
           <FadeIn delay={0.15}>
-            <p className="text-white text-base sm:text-lg mb-4 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-white text-sm sm:text-lg mb-2 sm:mb-4 max-w-2xl mx-auto leading-relaxed">
               I embed with users, engineering, product, and risk teams to move regulated AI from
               ambiguity to production — making the last mile safe, usable, accessible, and
               accountable.
             </p>
           </FadeIn>
           <FadeIn delay={0.18}>
-            <p className="mb-7 max-w-2xl mx-auto text-[13px] sm:text-sm text-white/90 leading-relaxed">
+            <p className="mb-4 sm:mb-7 max-w-2xl mx-auto text-xs sm:text-sm text-white/90 leading-relaxed">
               <span className="font-semibold text-[rgb(var(--c-accent-on-dark))]">
                 Field immersion · Product framing · Production prototyping · Governance
               </span>{" "}
@@ -1574,7 +1574,7 @@ function Home({
             </p>
           </FadeIn>
           <FadeIn delay={0.2}>
-            <div className="flex gap-3 justify-center flex-wrap mb-9">
+            <div className="flex gap-2 sm:gap-3 justify-center flex-wrap mb-5 sm:mb-9">
               <button
                 onClick={() => document.getElementById("ai-deployment")?.scrollIntoView({ behavior: "smooth" })}
                 className="group inline-flex items-center justify-center gap-2 min-h-[44px] bg-white text-[rgb(var(--c-primary))] px-6 py-2.5 rounded-lg font-semibold text-sm shadow-lg shadow-black/10 hover:-translate-y-0.5 hover:shadow-xl hover:bg-[rgb(var(--c-accent-on-light))] hover:text-white transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
@@ -1590,14 +1590,14 @@ function Home({
             </div>
           </FadeIn>
           <FadeIn delay={0.23}>
-            <div className="mb-8" aria-label="Forward-deployed operating model">
+            <div className="mb-5 sm:mb-8" aria-label="Forward-deployed operating model">
               <p className="text-[11px] font-bold uppercase tracking-[2px] text-[rgb(var(--c-accent-on-dark))] mb-2">
                 Operating model
               </p>
-              <ol className="flex flex-wrap items-center justify-center gap-2 list-none p-0 m-0 text-xs font-semibold text-white">
+              <ol className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 list-none p-0 m-0 text-[11px] sm:text-xs font-semibold text-white">
                 {["Embed", "Frame", "Prototype", "Deploy", "Validate"].map((step, index, steps) => (
                   <li key={step} className="inline-flex items-center gap-2">
-                    <span className="inline-flex min-h-[32px] items-center rounded-md border border-white/30 bg-white/10 px-3">{step}</span>
+                    <span className="inline-flex min-h-[30px] items-center rounded-md border border-white/30 bg-white/10 px-2.5 sm:px-3">{step}</span>
                     {index < steps.length - 1 && <span aria-hidden="true" className="text-[rgb(var(--c-accent-on-dark))]">→</span>}
                   </li>
                 ))}
@@ -1605,7 +1605,7 @@ function Home({
             </div>
           </FadeIn>
           <FadeIn delay={0.25}>
-            <dl className="grid grid-cols-1 sm:grid-cols-3 gap-px max-w-2xl mx-auto rounded-xl overflow-hidden border border-white/15 bg-white/10 backdrop-blur">
+            <dl className="grid grid-cols-3 gap-px max-w-2xl mx-auto rounded-xl overflow-hidden border border-white/15 bg-white/10 backdrop-blur">
               {[
                 { v: "18+ yrs", l: "regulated-domain design" },
                 { v: "7+ yrs", l: "compliance, risk & advisory delivery" },
