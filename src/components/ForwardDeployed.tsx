@@ -69,7 +69,10 @@ type Deployment = {
   role: string;
   context: string;
   contribution: string;
+  constraints: string;
+  ttv: string;
   outcome: string;
+  handoff: string;
   to: string;
 };
 
@@ -83,8 +86,13 @@ const DEPLOYMENTS: Deployment[] = [
       "Disability Case Processing System — federal caseworkers in all 50 states, continuous release cadence.",
     contribution:
       "Worked inside program delivery with engineers, accessibility specialists, and product leaders; translated recurring field defects into shared components and release gates.",
+    constraints:
+      "Federal ATO boundary, legacy case-management services, Section 508 audit obligations, and a release train that could not be paused for a design phase.",
+    ttv: "First automated check in the pipeline in ~3 weeks; full release gate in one quarter.",
     outcome:
       "AI-assisted accessibility validation embedded in CI/CD across 40+ monthly releases — ~30% less manual audit effort.",
+    handoff:
+      "Rules, components, and gate criteria owned by the program's own engineering and accessibility staff.",
     to: "/ai-deployment-ssa",
   },
   {
@@ -95,8 +103,13 @@ const DEPLOYMENTS: Deployment[] = [
       "Clinical imaging and care-workflow software used by clinicians in live hospital environments.",
     contribution:
       "Embedded with product and engineering to turn clinical risk, human oversight, and accessibility requirements into testable interaction behavior.",
+    constraints:
+      "Regulated change control, 10+ product teams on different stacks, PHI handling limits, and clinical validation evidence required before release.",
+    ttv: "Risk-to-interaction pattern set agreed in ~6 weeks; adopted team by team thereafter.",
     outcome:
       "Safety-critical interaction and oversight design under IEC 62366 and ISO 14971, supporting 1,200+ clinicians.",
+    handoff:
+      "Patterns absorbed into the enterprise design system so teams apply them without me in the room.",
     to: "/work/ge",
   },
   {
@@ -107,8 +120,13 @@ const DEPLOYMENTS: Deployment[] = [
       "Connected health and remote-monitoring services used by older adults and care agents at consumer scale.",
     contribution:
       "Brought field research and use-related risk analysis directly into product decisions, prototypes, and validation with delivery teams.",
+    constraints:
+      "Device and telephony integrations outside our control, vulnerable-user consent limits, and 24/7 agent operations that could not absorb retraining.",
+    ttv: "Escalation prototype tested with real agents inside the first month.",
     outcome:
       "Accessible, escalation-aware interaction patterns carried from research into shipped product.",
+    handoff:
+      "Escalation criteria written into agent tooling and training material owned by operations.",
     to: "/work/bestbuy",
   },
   {
@@ -119,8 +137,13 @@ const DEPLOYMENTS: Deployment[] = [
       "National behavioral-health data products delivered across a multi-year federal program portfolio.",
     contribution:
       "Worked directly with client stakeholders and a cross-functional team to connect research, roadmap decisions, accessibility, and release governance.",
+    constraints:
+      "Public data-release review, multiple upstream data owners with inconsistent schemas, and fixed federal reporting deadlines.",
+    ttv: "Working data-product prototype in front of stakeholders within the first sprint cycle.",
     outcome:
       "Public-health data services supporting 2M+ users, with a delivery capability scaled to 15+ team members.",
+    handoff:
+      "Team grown to 15+ and standards documented so delivery continued independent of any one lead.",
     to: "/work/samhsa",
   },
 ];
@@ -135,12 +158,20 @@ export function AIDeploymentSection() {
       >
         Forward-Deployed Experience
       </h2>
-      <p className="text-gray-700 text-base leading-relaxed max-w-3xl mb-8">
-        Forward deployment is how I have worked across my career, not a historical job title.
-        Unlike handoff-based consulting, I embed inside client engineering and delivery teams,
-        share their release cadence, and own the last mile between what a platform can do and what
-        a person can safely use, trust, and defend.
+      <p className="text-gray-700 text-base leading-relaxed max-w-3xl mb-5">
+        I own the full arc of a deployment: discover the real problem on site, prototype against
+        the client&rsquo;s own data and systems, integrate through their auth and legacy services,
+        ship inside their release train, prove it with evals and telemetry, then harden and hand it
+        to their team. Success is the workflow changing — not the pull request merging.
       </p>
+      <p className="text-gray-700 text-base leading-relaxed max-w-3xl mb-8">
+        <span className="font-semibold text-gray-900">What I add to a standard FDE profile: </span>
+        the deployments that stall in healthcare, federal, and other regulated environments rarely
+        stall on the model. They stall on oversight evidence, use-related risk, accessibility
+        obligations, and the security and audit review nobody scoped. I carry those constraints as
+        engineering requirements from week one instead of discovering them at launch.
+      </p>
+
 
       <ul className="grid gap-6 list-none p-0 m-0 [grid-template-columns:repeat(auto-fit,minmax(min(100%,20rem),1fr))]">
         {DEPLOYMENTS.map((d) => (
@@ -163,10 +194,23 @@ export function AIDeploymentSection() {
                 <span className="font-semibold text-gray-900">Embedded contribution: </span>
                 {d.contribution}
               </p>
-              <p className="text-sm text-gray-700 leading-relaxed">
+              <p className="text-sm text-gray-700 leading-relaxed mb-3">
+                <span className="font-semibold text-gray-900">Integration reality: </span>
+                {d.constraints}
+              </p>
+              <p className="text-sm text-gray-700 leading-relaxed mb-3">
+                <span className="font-semibold text-gray-900">Time to first value: </span>
+                {d.ttv}
+              </p>
+              <p className="text-sm text-gray-700 leading-relaxed mb-3">
                 <span className="font-semibold text-gray-900">Outcome: </span>
                 {d.outcome}
               </p>
+              <p className="text-sm text-gray-700 leading-relaxed">
+                <span className="font-semibold text-gray-900">Hand-off: </span>
+                {d.handoff}
+              </p>
+
               <p className="mt-auto pt-5">
                 <Link
                   to={d.to}
@@ -194,10 +238,76 @@ export function AIDeploymentSection() {
           on-screen content for blind and low-vision users — designed, built, and released
           end-to-end. Personal project — built end-to-end, no client IP.
         </p>
+        <p className="text-sm text-gray-700 leading-relaxed max-w-3xl mt-3">
+          <span className="font-semibold text-gray-900">Built with: </span>
+          multimodal vision model API, streaming responses, offline-capable PWA shell, on-device
+          camera capture, latency and cost budgeting per request, and screen-reader-first
+          interaction tested with assistive technology.
+        </p>
         <p className="text-[13px] text-gray-700 mt-3">
           Live app and source repository links are being finalised and will be linked here.
         </p>
       </article>
+
+      {/* Evals & measurement */}
+      <div className="mt-8 rounded-2xl border border-gray-200 bg-white p-6 sm:p-8">
+        <h3 className="font-display text-xl font-extrabold text-gray-900 mb-2">
+          How I prove a deployment actually worked
+        </h3>
+        <p className="text-sm text-gray-700 leading-relaxed max-w-3xl mb-5">
+          Most enterprise AI pilots never show measurable impact. I define what &ldquo;working&rdquo;
+          means before build starts, and instrument it so the answer survives a procurement or
+          audit conversation.
+        </p>
+        <ul className="grid gap-4 list-none p-0 m-0 [grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr))]">
+          {[
+            {
+              t: "Baseline first",
+              d: "Measure the current manual workflow — time, error rate, rework, audit effort — before anything ships, so improvement is arguable with numbers.",
+            },
+            {
+              t: "Golden sets & behaviour evals",
+              d: "A curated set of real cases, including the hard and harmful ones, run against every change so model or prompt updates cannot silently regress.",
+            },
+            {
+              t: "Human-oversight telemetry",
+              d: "Override rate, correction rate, escalation rate, and time-to-decision — the signals that show whether people are supervising the model or rubber-stamping it.",
+            },
+            {
+              t: "Outcome metric, not usage",
+              d: "Tied to the client's own number: cases cleared, audit effort removed, defects prevented, releases unblocked.",
+            },
+          ].map((e) => (
+            <li key={e.t} className="h-full">
+              <article className="h-full rounded-xl border border-gray-200 bg-[rgb(var(--c-tint-50))] p-5">
+                <h4 className="font-bold text-gray-900 text-[15px] mb-1.5">{e.t}</h4>
+                <p className="text-sm text-gray-700 leading-relaxed">{e.d}</p>
+              </article>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* What did not work */}
+      <div className="mt-8 rounded-2xl border border-gray-200 bg-white p-6 sm:p-8">
+        <h3 className="font-display text-xl font-extrabold text-gray-900 mb-2">
+          A deployment that stalled — and what changed after
+        </h3>
+        <p className="text-sm text-gray-700 leading-relaxed max-w-3xl mb-3">
+          On an early automated-validation effort, the tooling was technically correct and almost
+          nobody used it. The checks ran outside the delivery pipeline, so results arrived as a
+          report after the work was already merged, and teams treated it as someone else&rsquo;s
+          backlog. Adoption stayed near zero for two release cycles.
+        </p>
+        <p className="text-sm text-gray-700 leading-relaxed max-w-3xl">
+          <span className="font-semibold text-gray-900">What I changed: </span>
+          I stopped shipping findings and started shipping gates — the same checks moved into CI,
+          failures surfaced in the pull request with the fix location, and the recurring issues
+          were fixed once in shared components rather than reported many times. That single
+          relocation, from report to release path, is now how I sequence every deployment:
+          integration before insight.
+        </p>
+      </div>
     </section>
   );
 }
