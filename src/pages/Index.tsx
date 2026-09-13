@@ -1551,14 +1551,15 @@ function Home({
             <h1 className="text-4xl sm:text-5xl font-extrabold leading-[1.08] mb-5 tracking-tight">
               Senthil Nagappan
               <span className="block mt-3 text-2xl sm:text-3xl font-extrabold bg-gradient-to-r from-[rgb(var(--c-accent-light))] to-[rgb(var(--c-accent-on-dark))] bg-clip-text text-transparent">
-                Forward-Deployed AI Experience &amp; Human Factors Leader
+                AI Experience Design &amp; Human Systems Integration Leader
               </span>
             </h1>
           </FadeIn>
           <FadeIn delay={0.15}>
             <p className="text-white text-base sm:text-lg mb-4 max-w-2xl mx-auto leading-relaxed">
-              I work the last mile where AI meets real users in regulated production
-              environments — embedded with engineering, not replacing it.
+              I design AI governance, oversight, and accessibility into the products people
+              actually use in regulated production environments — working forward-deployed,
+              embedded with engineering rather than reviewing from outside.
             </p>
           </FadeIn>
           <FadeIn delay={0.18}>
@@ -1619,8 +1620,8 @@ function Home({
       {/* Recorded intro — video with written transcript fallback */}
       <IntroClip />
 
-      {/* 01 — Forward-deployed work leads the page */}
-      <AIDeploymentSection />
+      {/* 01 — AI governance & responsible AI leads the page */}
+      <AIGovernanceSection />
 
       {/* Case Studies — work leads the page */}
       <section id="cases" className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2rem,4vw,3.5rem)]" aria-labelledby="cases-heading">
@@ -1852,14 +1853,14 @@ function Home({
         )}
       </section>
 
-      {/* 03 — Human-AI systems design patterns */}
+      {/* 03 — Forward-deployed delivery experience */}
+      <AIDeploymentSection />
+
+      {/* 04 — Human-AI systems design patterns */}
       <HumanAISystemsSection />
 
-      {/* 04 — Governance & accessibility */}
+      {/* 05 — Governance & accessibility */}
       <GovernanceAccessibilitySection />
-
-      {/* 05 — AI Governance & Responsible AI */}
-      <AIGovernanceSection />
 
       {/* 06 — Domain Expertise */}
       <ExpertiseSection />
@@ -6862,7 +6863,7 @@ function About() {
   ];
 
   const timeline = [
-    { role: "AI + Human Systems Integration Lead", org: "GE HealthCare", period: "2025 – Present", desc: "Built the enterprise AI safety framework and evolved the design system for clinical decision-support across 10+ product teams." },
+    { role: "AI + Human Systems Integration Lead (Forward-Deployed)", org: "GE HealthCare", period: "2025 – Present", desc: "Embedded with engineering as a forward-deployed designer: built the enterprise AI safety framework and evolved the design system for clinical decision-support across 10+ product teams." },
     { role: "Sr. UX & Accessibility Lead", org: "Leidos / Social Security Administration", period: "2022 – 2025", desc: "Led a data-driven design system unifying 50M+ user experiences and built SSA11y, saving $1.5M+ annually." },
     { role: "Inclusive Design & Accessibility Lead", org: "Best Buy Health", period: "2021 – 2022", desc: "Owned visual design and mobile-first brand experience for 1M+ consumers across 5 product lines." },
     { role: "Sr. UX & Accessibility Program Manager", org: "Eagle Technologies / HHS / SAMHSA", period: "2014 – 2021", desc: "Directed a $130M behavioral health portfolio, recruited and grew a cross-functional team to 15+, and mentored designers through seven years of change while leading the AWS GovCloud migration of national TEDS datasets." },
@@ -7514,7 +7515,7 @@ function Resume() {
               <ol className="list-none p-0 m-0 space-y-6">
                 {[
                   {
-                    role: "AI Experience Designer & HSI Lead",
+                    role: "AI Experience Designer & HSI Lead (Forward-Deployed)",
                     org: "GE HealthCare (Brain Pulse Inc)",
                     dates: "Mar 2025 – Present",
                     bullets: [
@@ -7975,7 +7976,7 @@ function Footer({
         <div>
           <p className="font-bold text-white text-sm">Senthil Nagappan</p>
           <p className="text-white text-xs mt-1">
-            Forward-Deployed AI Experience &amp; Human Factors Leader
+            AI Experience Design &amp; Human Systems Integration Leader
           </p>
           <ul className="flex flex-wrap gap-4 list-none p-0 m-0 mt-3">
             <li>
@@ -8042,7 +8043,7 @@ function Footer({
 }
 
 const PAGE_TITLES: Record<PageId, string> = {
-  home: "Senthil Nagappan — Forward-Deployed AI Experience & Human Factors Leader",
+  home: "Senthil Nagappan — AI Experience Design & Human Systems Integration Leader",
   brand: "Brand Identity & Visual Systems — Senthil Nagappan",
   about: "About — Senthil Nagappan",
   approach: "Approach — Senthil Nagappan",
@@ -8057,7 +8058,7 @@ const PAGE_TITLES: Record<PageId, string> = {
 };
 
 const PAGE_DESCRIPTIONS: Record<PageId, string> = {
-  home: "Senthil Nagappan — Forward-Deployed AI Experience & Human Factors Leader. I design the human-in-the-loop controls, explainability, accessibility, and governance that make AI usable, safe, and deployable in regulated environments.",
+  home: "Senthil Nagappan — AI Experience Design & Human Systems Integration Leader. Forward-deployed with engineering teams, I design the AI governance, human-in-the-loop oversight, explainability, and accessibility controls that make AI usable, safe, and deployable in regulated environments.",
   brand: "Design systems & brand-consistent visual systems by Senthil Nagappan — shared components, design tokens, and on-brand UI that scale across consumer, healthcare, and enterprise products.",
 
   about: "About Senthil Nagappan — 18+ years building AI-driven products in regulated healthcare, federal, retail, and defense environments.",
