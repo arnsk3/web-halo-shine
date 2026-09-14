@@ -451,7 +451,7 @@ const CASE_STUDIES: CaseStudyType[] = [
   {
     id: "bestbuy",
     tag: "Consumer · Human Factors · Digital Brand Experience · Mobile-First",
-    title: "Driving Engagement for 1M+ Consumers Through Cohesive Digital Brand Experiences",
+    title: "Production Human Systems Engineering for a Consumer Health & Safety Platform (1M+ Users)",
     subtitle:
       "Led Human Factors and Human Systems Integration for Best Buy Health (Lively, Jitterbug), then applied those insights to the visual design, brand consistency, and mobile-first digital experience across 5 product lines and 1M+ consumers.",
     hero: "from-[#2d1b69] via-[#11998e] to-[#38ef7d]",
