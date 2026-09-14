@@ -1604,25 +1604,6 @@ function Home({
               </ol>
             </div>
           </FadeIn>
-          <FadeIn delay={0.25}>
-            <dl className="grid grid-cols-3 gap-px max-w-2xl mx-auto rounded-xl overflow-hidden border border-white/15 bg-white/10 backdrop-blur">
-              {[
-                { v: "18+ yrs", l: "regulated-domain design" },
-                { v: "7+ yrs", l: "compliance, risk & advisory delivery" },
-                { v: "1,200+", l: "clinicians supported" },
-              ].map((s) => (
-                <div key={s.l} className="bg-white/[0.06] px-3 py-4">
-                  <dt className="sr-only">{s.l}</dt>
-                  <dd>
-                    <span className="block font-display text-xl sm:text-2xl font-extrabold text-white tabular-nums">
-                      {s.v}
-                    </span>
-                    <span className="block text-[11px] text-white/85 mt-1 leading-snug">{s.l}</span>
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          </FadeIn>
         </div>
 
 
@@ -1903,7 +1884,7 @@ function Home({
               product, and risk leaders.
             </p>
           </div>
-          <div className="grid gap-5 md:grid-cols-3">
+          <div className="grid gap-5 md:grid-cols-2">
             {([
               {
                 t: "One control set, three frameworks",
@@ -1918,13 +1899,6 @@ function Home({
                 tag: "AI Experience Design",
                 date: "August 2026",
                 to: "/writing/oversight-tiers",
-              },
-              {
-                t: "Human systems integration for AI teams",
-                d: "What IEC 62366 and MIL-STD-1472H still teach us about use error when the system that errs is a model, not a mechanism.",
-                tag: "Human Factors",
-                date: "Planned",
-                planned: true,
               },
             ] as { t: string; d: string; tag: string; date?: string; to?: string; planned?: boolean }[]).map((a) => (
 
