@@ -6972,7 +6972,7 @@ function About() {
               Senthil Nagappan
             </h1>
             <p className="text-[rgb(var(--c-accent-dark))] font-semibold text-sm mb-3">
-              Forward-Deployed AI Experience &amp; Human Systems Integration Leader
+              Forward Deployed AI &amp; Human Systems Engineer
             </p>
             <p className="text-gray-700 text-sm leading-relaxed mb-3">
               18+ years embedded with users, engineering, product, and client teams to deliver
@@ -7545,7 +7545,7 @@ function Resume() {
             <div>
               <h3 className="font-display text-lg font-bold text-gray-900 mb-1">Senthil Nagappan</h3>
               <p className="text-sm font-semibold text-[rgb(var(--c-accent-on-light))] mb-2">
-                Forward-Deployed AI Experience &amp; Human Systems Integration Leader
+                Forward Deployed AI &amp; Human Systems Engineer
               </p>
               <p className="text-[13px] text-gray-700">
                 <a
@@ -8141,7 +8141,7 @@ function Footer({
         <div>
           <p className="font-bold text-white text-sm">Senthil Nagappan</p>
           <p className="text-white text-xs mt-1">
-             Forward-Deployed AI Experience &amp; Human Systems Integration Leader
+             Forward Deployed AI &amp; Human Systems Engineer
           </p>
           <ul className="flex flex-wrap gap-4 list-none p-0 m-0 mt-3">
             <li>
