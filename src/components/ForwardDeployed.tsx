@@ -70,6 +70,7 @@ type Deployment = {
   context: string;
   contribution: string;
   constraints: string;
+  load: string;
   ttv: string;
   outcome: string;
   handoff: string;
@@ -88,6 +89,8 @@ const DEPLOYMENTS: Deployment[] = [
       "Worked inside program delivery with engineers, accessibility specialists, and product leaders; translated recurring field defects into shared components and release gates.",
     constraints:
       "Federal ATO boundary, legacy case-management services, Section 508 audit obligations, and a release train that could not be paused for a design phase.",
+    load:
+      "Caseworkers were drowning in low-value findings. Checks were tuned and deduplicated so only actionable, fix-at-source issues surfaced — alert volume down, trust in the signal up.",
     ttv: "First automated check in the pipeline in ~3 weeks; full release gate in one quarter.",
     outcome:
       "AI-assisted accessibility validation embedded in CI/CD across 40+ monthly releases — ~30% less manual audit effort.",
@@ -105,6 +108,8 @@ const DEPLOYMENTS: Deployment[] = [
       "Embedded with product and engineering to turn clinical risk, human oversight, and accessibility requirements into testable interaction behavior.",
     constraints:
       "Regulated change control, 10+ product teams on different stacks, PHI handling limits, and clinical validation evidence required before release.",
+    load:
+      "Alert fatigue is a patient-safety risk, not a UX annoyance. Alerts were tiered by clinical consequence, non-actionable prompts removed, and interruption budgets set per workflow stage.",
     ttv: "Risk-to-interaction pattern set agreed in ~6 weeks; adopted team by team thereafter.",
     outcome:
       "Safety-critical interaction and oversight design under IEC 62366 and ISO 14971, supporting 1,200+ clinicians.",
@@ -122,6 +127,8 @@ const DEPLOYMENTS: Deployment[] = [
       "Brought field research and use-related risk analysis directly into product decisions, prototypes, and validation with delivery teams.",
     constraints:
       "Device and telephony integrations outside our control, vulnerable-user consent limits, and 24/7 agent operations that could not absorb retraining.",
+    load:
+      "Agents handle distressed callers under time pressure. Screens were restructured so the next decision is the most salient element, with escalation cues that survive divided attention.",
     ttv: "Escalation prototype tested with real agents inside the first month.",
     outcome:
       "Accessible, escalation-aware interaction patterns carried from research into shipped product.",
@@ -139,6 +146,8 @@ const DEPLOYMENTS: Deployment[] = [
       "Worked directly with client stakeholders and a cross-functional team to connect research, roadmap decisions, accessibility, and release governance.",
     constraints:
       "Public data-release review, multiple upstream data owners with inconsistent schemas, and fixed federal reporting deadlines.",
+    load:
+      "Data submitters were making errors late at night against deadlines. Validation moved inline with plain-language messages, cutting rework cycles and support volume.",
     ttv: "Working data-product prototype in front of stakeholders within the first sprint cycle.",
     outcome:
       "Public-health data services supporting 2M+ users, with a delivery capability scaled to 15+ team members.",
@@ -197,6 +206,10 @@ export function AIDeploymentSection() {
               <p className="text-sm text-gray-700 leading-relaxed mb-3">
                 <span className="font-semibold text-gray-900">Integration reality: </span>
                 {d.constraints}
+              </p>
+              <p className="text-sm text-gray-700 leading-relaxed mb-3">
+                <span className="font-semibold text-gray-900">Cognitive load &amp; alert fatigue: </span>
+                {d.load}
               </p>
               <p className="text-sm text-gray-700 leading-relaxed mb-3">
                 <span className="font-semibold text-gray-900">Time to first value: </span>
@@ -286,6 +299,95 @@ export function AIDeploymentSection() {
             </li>
           ))}
         </ul>
+      </div>
+
+      {/* Situational accessibility */}
+      <div className="mt-8 rounded-2xl border border-[rgb(var(--c-primary)/0.25)] bg-[rgb(var(--c-tint-50))] p-6 sm:p-8">
+        <h3 className="font-display text-xl font-extrabold text-gray-900 mb-2">
+          Situational accessibility — designing for the environment, not the lab
+        </h3>
+        <p className="text-sm text-gray-700 leading-relaxed max-w-3xl mb-5">
+          Conformance is the floor. The deployments I work on fail in conditions no audit
+          simulates: gloved hands, glare, noise, one-handed use, exhaustion at hour eleven, and a
+          network that drops mid-task. I treat those conditions as engineering requirements, which
+          is where human factors and forward deployment stop being two disciplines.
+        </p>
+        <ul className="grid gap-4 list-none p-0 m-0 [grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr))]">
+          {[
+            {
+              t: "Hands, gloves & motor constraints",
+              d: "Clinical gloves, cold hands, and vehicle vibration break small targets. Target size, spacing, and confirmation gestures sized to the real hand and the real posture.",
+            },
+            {
+              t: "Light, glare & noise",
+              d: "Ward lighting, sunlight on a field device, and noisy call floors defeat low-contrast UI and audio-only alerts. Contrast and redundant signalling assumed hostile conditions.",
+            },
+            {
+              t: "Bandwidth & degraded state",
+              d: "When the model call is slow or offline, the interface must say so and keep the human workflow usable — never silently show stale or partial AI output as fact.",
+            },
+            {
+              t: "Fatigue & divided attention",
+              d: "Late-shift, interrupted, and high-stress users are the design case, not the edge case. Critical decisions stay recoverable and reversible under distraction.",
+            },
+          ].map((s) => (
+            <li key={s.t} className="h-full">
+              <article className="h-full rounded-xl border border-gray-200 bg-white p-5">
+                <h4 className="font-bold text-gray-900 text-[15px] mb-1.5">{s.t}</h4>
+                <p className="text-sm text-gray-700 leading-relaxed">{s.d}</p>
+              </article>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Explainability & drift pipeline */}
+      <div className="mt-8 rounded-2xl border border-gray-200 bg-white p-6 sm:p-8">
+        <h3 className="font-display text-xl font-extrabold text-gray-900 mb-2">
+          One deployment, end to end: explainability and drift as a shipped pipeline
+        </h3>
+        <p className="text-sm text-gray-700 leading-relaxed max-w-3xl mb-5">
+          The SSA accessibility-validation work is the clearest example of the full loop — a
+          model-assisted system whose explanations, oversight, and degradation signals were built
+          into the release path rather than reported around it.
+        </p>
+        <ol className="grid gap-4 list-none p-0 m-0 [grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr))]">
+          {[
+            {
+              t: "1 · Data lineage",
+              d: "Every finding traced to the source rule, the component, and the commit that introduced it — so an auditor can reconstruct why the system said what it said.",
+            },
+            {
+              t: "2 · Explanation at point of use",
+              d: "Results surfaced in the pull request with the failing criterion, the exact location, and the suggested fix — not a score a developer has to interpret.",
+            },
+            {
+              t: "3 · Human override captured",
+              d: "Suppressions and disagreements recorded with a reason, turning override into evidence rather than an invisible bypass.",
+            },
+            {
+              t: "4 · Drift & degradation telemetry",
+              d: "False-positive rate, suppression rate, and per-rule precision tracked release over release; a rule that starts producing noise is retuned or retired.",
+            },
+            {
+              t: "5 · Feedback into the source",
+              d: "Recurring findings routed to shared components so the defect class disappears instead of being detected forever.",
+            },
+          ].map((s) => (
+            <li key={s.t} className="h-full">
+              <article className="h-full rounded-xl border border-gray-200 bg-[rgb(var(--c-tint-50))] p-5">
+                <h4 className="font-bold text-gray-900 text-[15px] mb-1.5">{s.t}</h4>
+                <p className="text-sm text-gray-700 leading-relaxed">{s.d}</p>
+              </article>
+            </li>
+          ))}
+        </ol>
+        <p className="text-sm text-gray-700 leading-relaxed max-w-3xl mt-5">
+          <span className="font-semibold text-gray-900">Why it matters: </span>
+          this is the same shape a bias-and-drift monitoring program takes in finance or clinical
+          AI — lineage, explanation, override capture, monitoring, and remediation at the source.
+          I have shipped it inside a federal release train, not drawn it on a slide.
+        </p>
       </div>
 
       {/* What did not work */}
