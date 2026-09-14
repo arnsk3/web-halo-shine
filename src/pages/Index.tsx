@@ -1666,6 +1666,9 @@ function Home({
       {/* Impact strip — stats directly under the hero */}
       <ImpactStrip />
 
+      {/* Forward Deployed Engineering positioning band */}
+      <FdeBand />
+
       {/* 01 — What I do: FDE practice, pillars, operating model */}
       <FdePractice n="01" />
 
