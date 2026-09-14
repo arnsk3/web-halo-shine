@@ -34,7 +34,7 @@ export default function AIGovernanceSection() {
       className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2.5rem,4vw,3.5rem)]"
     >
       <div className="mb-8 max-w-3xl">
-        <SectionIndex n="05" label="AI Governance" />
+        <SectionIndex n="06" label="AI Governance" />
         <h2
           id="ai-governance-heading"
           className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-3"

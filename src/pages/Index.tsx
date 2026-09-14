@@ -18,6 +18,8 @@ import GovernanceEngagements from "@/components/GovernanceEngagements";
 import AIGovernanceSection from "@/components/AIGovernanceSection";
 import FdeSystems from "@/components/FdeSystems";
 import FdePractice from "@/components/FdePractice";
+import FlagshipSystems from "@/components/FlagshipSystems";
+import SystemsCapabilities from "@/components/SystemsCapabilities";
 import AIGovernanceCaseStudy from "@/pages/AIGovernanceCaseStudy";
 import CrosswalkEssay from "@/pages/CrosswalkEssay";
 import OversightTiersEssay from "@/pages/OversightTiersEssay";
@@ -1144,7 +1146,7 @@ function BrandTeaser({ onOpen }: { onOpen: () => void }) {
     >
       <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] pt-[clamp(2rem,4vw,3.5rem)] pb-[clamp(1rem,2vw,2rem)]">
         <FadeIn>
-          <SectionIndex n="10" label="Visual Systems" />
+          <SectionIndex n="11" label="Visual Systems" />
           <article className="group grid gap-8 md:grid-cols-[1.2fr_1fr] items-center rounded-2xl border border-gray-200 bg-[rgb(var(--c-tint-50))] overflow-hidden shadow-sm transition-all duration-300 hover:shadow-xl hover:border-[rgb(var(--c-primary)/0.3)]">
             <div className="p-8 sm:p-10">
               <p className="text-[rgb(var(--c-accent-on-light))] text-xs font-semibold tracking-[2px] uppercase mb-3">
@@ -1581,16 +1583,16 @@ function Home({
           <FadeIn delay={0.2}>
             <div className="flex gap-2 sm:gap-3 justify-center flex-wrap mb-5 sm:mb-9">
               <button
-                onClick={() => document.getElementById("systems")?.scrollIntoView({ behavior: "smooth" })}
+                onClick={() => document.getElementById("flagship-systems")?.scrollIntoView({ behavior: "smooth" })}
                 className="group inline-flex items-center justify-center gap-2 min-h-[44px] bg-white text-[rgb(var(--c-primary))] px-6 py-2.5 rounded-lg font-semibold text-sm shadow-lg shadow-black/10 hover:-translate-y-0.5 hover:shadow-xl hover:bg-[rgb(var(--c-accent-on-light))] hover:text-white transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
               >
-                View systems work <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
+                View deployed systems <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
               </button>
               <button
-                onClick={() => document.getElementById("cases")?.scrollIntoView({ behavior: "smooth" })}
+                onClick={() => document.getElementById("practice")?.scrollIntoView({ behavior: "smooth" })}
                 className="group inline-flex items-center justify-center gap-2 min-h-[44px] bg-white/10 border border-white/40 text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-white/20 hover:-translate-y-0.5 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
               >
-                View FDE case studies <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
+                Operating model <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
               </button>
             </div>
           </FadeIn>
@@ -1629,13 +1631,16 @@ function Home({
       {/* 04 — System stack + ambiguity operating cadence */}
       <FdeSystems n="04" />
 
-      {/* 04 — AI governance & responsible AI */}
+      {/* 05 — Three flagship deployments */}
+      <FlagshipSystems n="05" />
+
+      {/* 06 — AI governance & responsible AI */}
       <AIGovernanceSection />
 
       {/* Case Studies — work leads the page */}
       <section id="cases" className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2rem,4vw,3.5rem)]" aria-labelledby="cases-heading">
         <FadeIn>
-          <SectionIndex n="06" label="Forward Deployed Systems" />
+          <SectionIndex n="07" label="Forward Deployed Systems" />
           <h2 id="cases-heading" className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2 tracking-tight">
             Forward Deployed Systems
           </h2>
@@ -1885,7 +1890,7 @@ function Home({
       >
         <FadeIn>
           <div className="mb-8 max-w-2xl">
-            <SectionIndex n="11" label="Field Notes" />
+            <SectionIndex n="12" label="Field Notes" />
             <h2
               id="writing-heading"
               className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-2"
@@ -1950,6 +1955,9 @@ function Home({
         </FadeIn>
       </section>
 
+
+      {/* 13 — Systems & engineering capabilities */}
+      <SystemsCapabilities n="13" />
 
       {/* Brief About — teaser placed after the numbered sequence so 01–09 run uninterrupted */}
       <section className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2rem,4vw,3.5rem)]" aria-labelledby="brief-about-heading">
