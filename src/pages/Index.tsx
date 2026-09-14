@@ -17,6 +17,7 @@ import AISkillsMatrix from "@/components/AISkillsMatrix";
 import GovernanceEngagements from "@/components/GovernanceEngagements";
 import AIGovernanceSection from "@/components/AIGovernanceSection";
 import FdeSystems from "@/components/FdeSystems";
+import FdePractice from "@/components/FdePractice";
 import AIGovernanceCaseStudy from "@/pages/AIGovernanceCaseStudy";
 import CrosswalkEssay from "@/pages/CrosswalkEssay";
 import OversightTiersEssay from "@/pages/OversightTiersEssay";
@@ -1143,7 +1144,7 @@ function BrandTeaser({ onOpen }: { onOpen: () => void }) {
     >
       <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] pt-[clamp(2rem,4vw,3.5rem)] pb-[clamp(1rem,2vw,2rem)]">
         <FadeIn>
-          <SectionIndex n="09" label="Visual Systems" />
+          <SectionIndex n="10" label="Visual Systems" />
           <article className="group grid gap-8 md:grid-cols-[1.2fr_1fr] items-center rounded-2xl border border-gray-200 bg-[rgb(var(--c-tint-50))] overflow-hidden shadow-sm transition-all duration-300 hover:shadow-xl hover:border-[rgb(var(--c-primary)/0.3)]">
             <div className="p-8 sm:p-10">
               <p className="text-[rgb(var(--c-accent-on-light))] text-xs font-semibold tracking-[2px] uppercase mb-3">
@@ -1557,9 +1558,9 @@ function Home({
           </FadeIn>
           <FadeIn delay={0.15}>
             <p className="text-white text-sm sm:text-lg mb-2 sm:mb-4 max-w-2xl mx-auto leading-relaxed">
-              I go on site, find where the real workflow breaks, build the thing that fixes it, and
-              stay until it runs in production. Regulated environments — federal, clinical,
-              enterprise — where the AI has to be correct, auditable and actually used.
+              I embed with teams to design, build, and deploy AI systems in complex, regulated
+              environments where human decisions, risk, and scale matter. I go on site, find where
+              the real workflow breaks, build the fix, and stay until it runs in production.
             </p>
           </FadeIn>
           <FadeIn delay={0.18}>
@@ -1580,16 +1581,16 @@ function Home({
           <FadeIn delay={0.2}>
             <div className="flex gap-2 sm:gap-3 justify-center flex-wrap mb-5 sm:mb-9">
               <button
-                onClick={() => document.getElementById("ai-deployment")?.scrollIntoView({ behavior: "smooth" })}
+                onClick={() => document.getElementById("systems")?.scrollIntoView({ behavior: "smooth" })}
                 className="group inline-flex items-center justify-center gap-2 min-h-[44px] bg-white text-[rgb(var(--c-primary))] px-6 py-2.5 rounded-lg font-semibold text-sm shadow-lg shadow-black/10 hover:-translate-y-0.5 hover:shadow-xl hover:bg-[rgb(var(--c-accent-on-light))] hover:text-white transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
               >
-                See forward-deployed work <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
+                View systems work <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
               </button>
               <button
-                onClick={() => setPage("contact")}
+                onClick={() => document.getElementById("cases")?.scrollIntoView({ behavior: "smooth" })}
                 className="group inline-flex items-center justify-center gap-2 min-h-[44px] bg-white/10 border border-white/40 text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-white/20 hover:-translate-y-0.5 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
               >
-                Get in touch <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
+                View FDE case studies <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
               </button>
             </div>
           </FadeIn>
@@ -1616,14 +1617,17 @@ function Home({
       {/* Impact strip — stats directly under the hero */}
       <ImpactStrip />
 
-      {/* 01 — Forward-deployed experience leads the page */}
+      {/* 01 — What I do: FDE practice, pillars, operating model */}
+      <FdePractice n="01" />
+
+      {/* 02 — Forward-deployed experience */}
       <AIDeploymentSection />
 
-      {/* 02 — The forward-deployment process itself */}
-      <ForwardDeploymentModel n="02" />
+      {/* 03 — The forward-deployment process itself */}
+      <ForwardDeploymentModel n="03" />
 
-      {/* 03 — System stack + ambiguity operating cadence */}
-      <FdeSystems n="03" />
+      {/* 04 — System stack + ambiguity operating cadence */}
+      <FdeSystems n="04" />
 
       {/* 04 — AI governance & responsible AI */}
       <AIGovernanceSection />
@@ -1631,12 +1635,13 @@ function Home({
       {/* Case Studies — work leads the page */}
       <section id="cases" className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2rem,4vw,3.5rem)]" aria-labelledby="cases-heading">
         <FadeIn>
-          <SectionIndex n="05" label="Selected Work" />
+          <SectionIndex n="06" label="Forward Deployed Systems" />
           <h2 id="cases-heading" className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2 tracking-tight">
-            Selected Work
+            Forward Deployed Systems
           </h2>
           <p className="text-gray-700 text-base mb-3 max-w-3xl">
-            Design systems, accessibility, and AI products that drove adoption and trust at scale.
+            Problem → build → deploy → outcome. Systems shipped into federal, clinical, and
+            enterprise environments, plus production-adjacent prototypes.
           </p>
           <p className="text-gray-700 text-[13px] mb-6 max-w-2xl">
             <span className="font-semibold text-gray-700">A note on metrics:</span> figures are team
@@ -1704,22 +1709,23 @@ function Home({
                         }}
                       />
                       <span className="relative text-white text-[11px] font-semibold tracking-widest uppercase">
-                        AI Concepts · Non-Deployed
+                        AI Systems · Production-Adjacent
                       </span>
                     </div>
                     <div className="flex-1 flex flex-col p-6">
                       <h3 className="font-bold text-gray-900 text-lg mb-1.5 leading-snug">
-                        AI Concepts (Non-Deployed)
+                        AI Systems &amp; Prototypes (Production-Adjacent)
                       </h3>
                       <p className="text-gray-700 text-[12px] mb-3 font-medium">
-                        Exploratory concepts — clearly distinguished from the deployed,
-                        in-production work above.
+                        Self-initiated systems built to production fidelity — architecture,
+                        workflow and integration points included. Not deployed with a client.
                       </p>
                       <p className="text-gray-700 text-sm mb-4 leading-relaxed">
-                        {inHouseCount} self-initiated AI product concepts that show how I design safe,
-                        explainable, human-in-the-loop AI — from model-risk governance to clinical
-                        decision-support, agentic guardrails, source-grounding UX, and revenue-cycle
-                        reimbursement.
+                        {inHouseCount} self-initiated AI systems showing the architecture I build for
+                        safe, explainable, human-in-the-loop deployment — model-risk governance,
+                        clinical decision support, agentic guardrails, source-grounded retrieval, and
+                        revenue-cycle automation. Each includes the system diagram, workflow, and
+                        integration points.
                       </p>
                       <ul className="list-none p-0 m-0 mb-2 space-y-1.5">
                         {inHouseCases().map((c) => (
@@ -1734,10 +1740,10 @@ function Home({
                       <div className="mt-auto pt-4 flex flex-wrap gap-2">
                         <button
                           onClick={() => setPage("lab")}
-                          aria-label={`View all ${inHouseCount} non-deployed AI concepts`}
+                          aria-label={`View all ${inHouseCount} production-adjacent AI systems`}
                           className="group/btn inline-flex items-center gap-1.5 min-h-[44px] text-xs font-semibold px-4 py-2 rounded-lg bg-[rgb(var(--c-primary))] text-white hover:bg-[rgb(var(--c-accent-dark))] focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2 transition-colors"
                         >
-                          Explore the AI concepts
+                          Explore the AI systems
                           <span aria-hidden="true" className="transition-transform group-hover/btn:translate-x-0.5">→</span>
                         </button>
                       </div>
@@ -1879,16 +1885,16 @@ function Home({
       >
         <FadeIn>
           <div className="mb-8 max-w-2xl">
-            <SectionIndex n="10" label="Writing" />
+            <SectionIndex n="11" label="Field Notes" />
             <h2
               id="writing-heading"
               className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-2"
             >
-              Notes on AI governance UX and human systems integration.
+              Field notes: AI + human systems.
             </h2>
             <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
-              Short essays on the problems I keep meeting in regulated AI work — written for design,
-              product, and risk leaders.
+              Practical notes from deploying AI into regulated environments — written for
+              engineering, product, and risk leaders, not for a design audience.
             </p>
           </div>
           <div className="grid gap-5 md:grid-cols-2">

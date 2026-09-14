@@ -161,7 +161,7 @@ const DEPLOYMENTS: Deployment[] = [
 export function AIDeploymentSection() {
   return (
     <section id="ai-deployment" className={SECTION} aria-labelledby="ai-deployment-heading">
-      <SectionIndex n="01" label="Forward-Deployed Experience" />
+      <SectionIndex n="02" label="Forward-Deployed Experience" />
       <h2
         id="ai-deployment-heading"
         className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 tracking-tight"
@@ -453,7 +453,7 @@ const PATTERNS = [
 export function HumanAISystemsSection() {
   return (
     <section id="human-ai-design" className={SECTION} aria-labelledby="human-ai-heading">
-      <SectionIndex n="06" label="Human-AI Design" />
+      <SectionIndex n="07" label="Human-AI Design" />
       <h2
         id="human-ai-heading"
         className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 tracking-tight"
@@ -516,7 +516,7 @@ export function GovernanceAccessibilitySection() {
       className={SECTION}
       aria-labelledby="gov-access-heading"
     >
-      <SectionIndex n="07" label="Governance & Accessibility" />
+      <SectionIndex n="08" label="Governance & Accessibility" />
       <h2
         id="gov-access-heading"
         className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 tracking-tight"
