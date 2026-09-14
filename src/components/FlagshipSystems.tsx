@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import SectionIndex from "@/components/SectionIndex";
+import SystemDiagram, { type DiagramStage } from "@/components/SystemDiagram";
 
 /**
  * Flagship Forward Deployed Systems — three deployments told in
@@ -15,6 +16,7 @@ type Flagship = {
   deployment: string[];
   impact: string[];
   insight: string;
+  diagram: { title: string; stages: DiagramStage[]; loop: string };
   to?: string;
   cta?: string;
 };
