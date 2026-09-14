@@ -361,7 +361,7 @@ export default function ExpertiseSection() {
           Forward-deployed expertise for safe, compliant, human-centered AI
         </h2>
         <p className="text-gray-700 text-sm sm:text-base mb-6 max-w-2xl leading-snug">
-          These four disciplines are the toolkit I bring inside delivery teams — from the research
+          These five disciplines are the toolkit I bring inside delivery teams — from the research
           that frames the problem, to the design and code that ships, to the governance that
           keeps it safe and compliant. Click any discipline for capabilities and live impact.
         </p>
