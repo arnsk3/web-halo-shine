@@ -25,6 +25,9 @@ const GROUPS: { h: string; items: string[] }[] = [
     items: [
       "Applied AI engineering",
       "AI systems engineering",
+      "AI Systems Implementation",
+      "Human-in-the-loop AI systems",
+      "Systems architecture for AI products",
       "LLM application design",
       "RAG pipelines",
       "AI copilots & assistants",
