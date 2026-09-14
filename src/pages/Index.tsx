@@ -8132,7 +8132,7 @@ const PAGE_TITLES: Record<PageId, string> = {
   contact: "Contact — Senthil Nagappan",
   case: "Case Study — Senthil Nagappan",
   lab: "AI Concepts (Non-Deployed) — Senthil Nagappan",
-  ssadeploy: "Shipping AI-Assisted Accessibility Into a Live Federal Pipeline",
+  ssadeploy: "AI-Powered Accessibility & Compliance System at Enterprise Scale (SSA)",
   governance: "Designing the Last Mile of AI Governance",
   writing: "One control set, three frameworks — AI governance crosswalk",
   oversight: "Oversight tiers beat confidence scores — AI experience design",
