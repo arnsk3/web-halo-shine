@@ -41,7 +41,7 @@ export function ImpactStrip() {
         <h2 id="impact-strip-heading" className="sr-only">
           Impact at a glance
         </h2>
-        <dl className="flex flex-wrap gap-x-8 gap-y-5 justify-between">
+        <dl className="grid gap-x-6 gap-y-5 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7">
           {IMPACT.map((s) => (
             <div key={s.l} className="min-w-[9rem] flex-1 flex flex-col-reverse">
               <dt className="block text-[13px] text-gray-700 mt-1 leading-snug">
