@@ -479,6 +479,11 @@ const CASE_STUDIES: CaseStudyType[] = [
           "Best Buy Health needed to engage 1M+ consumers across 5 product lines (Lively, Jitterbug) with a cohesive UI system spanning web, mobile, and in-device touchpoints. The user population was older adults with reduced dexterity, low vision, hearing loss, and high stress in medical emergencies — a classic Human Factors problem. Visual experiences were fragmented, critical user flows leaked engagement through drop-off, and there was no shared design system to keep the experience cohesive, safe, or conversion-ready at scale.",
       },
       {
+        heading: "Constraints",
+        content:
+          "Hardware in the field: device firmware release cycles are slow and irreversible once shipped, so anything device-side had to be right the first time. Emergency flows could not add a single blocking step — latency and failure behavior were safety issues, not UX issues. The user population had reduced dexterity, low vision, and hearing loss, so target sizes, contrast, and audio fallbacks were hard requirements rather than preferences. Five product lines shared partially overlapping backends, so the component and content system had to absorb API differences instead of forcing a backend rewrite.",
+      },
+      {
         heading: "My Role",
         content:
           "As Human Factors Engineer and Human Systems Integration Lead I owned the human performance, safety, and accessibility of consumer health products for aging populations, then applied those findings to the visual design and mobile-first digital experience across every consumer touchpoint. I applied MIL-STD-1472H and FDA/IEC 62366 principles to reduce real-world use error, led a mobile-first redesign, built the cohesive component system and style guide, and drove design decisions that lifted engagement and task completion — partnering with product, content, and engineering to ship a cohesive UI system.",
