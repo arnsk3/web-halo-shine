@@ -6,13 +6,15 @@ import SectionIndex from "@/components/SectionIndex";
  */
 const GROUPS: { h: string; items: string[] }[] = [
   {
-    h: "Forward Deployed Engineering",
+    h: "Forward Deployed Engineering (FDE)",
     items: [
-      "Forward Deployed Engineering",
-      "Forward Deployed Engineer (FDE)",
-      "Solutions Engineering",
+      "Forward Deployed Engineering (FDE)",
+      "Forward Deployed Engineer",
+      "Solutions Engineering (AI / Data / Platforms)",
+      "Implementation Engineering",
       "Customer-facing engineering",
       "Field engineering",
+      "Enterprise AI deployment",
       "Production deployment",
       "Embedded delivery teams",
       "Stakeholder & executive communication",
@@ -45,12 +47,13 @@ const GROUPS: { h: string; items: string[] }[] = [
     ],
   },
   {
-    h: "Human factors & safety-critical systems",
+    h: "Human Systems Integration & safety-critical systems",
     items: [
       "Human Systems Integration (HSI)",
       "Human factors engineering",
       "Cognitive workload analysis",
-      "Safety-critical UX",
+      "Safety-critical UX engineering",
+      "Accessibility Engineering (WCAG 2.2 / Section 508)",
       "Risk reduction systems",
       "Decision support systems",
       "IEC 62366 · MIL-STD-1472H",
