@@ -501,6 +501,11 @@ const CASE_STUDIES: CaseStudyType[] = [
         content:
           "Beyond product fixes, I built organizational infrastructure: accessibility governance framework adopted across all 5 product lines, approved at executive level. Shifted accessibility from 'audit and fix' to 'design and verify.' Created design checklists mapped to WCAG 2.2 AA, Section 508, and MIL-STD-1472H. Integrated accessibility review into the design approval process. Trained product teams on inclusive design for aging populations.",
       },
+      {
+        heading: "System Integration & Deployment",
+        content:
+          "The work shipped across three surfaces — native mobile apps, web, and the in-device (Jitterbug/Lively) firmware experience — so every interaction change had to hold against three different implementation stacks and release trains. I delivered the component system as shared specs and tokens implemented in each client, wrote the emergency-activation behavior as a state contract (press → hold → confirm, with multi-modal feedback) against the alerting and operator-connection services, and defined the escalation path to a live human operator including failure and degraded-network states. Deployment constraints were regulatory and operational: FDA/IEC 62366 usability evidence, MIL-STD-1472H control criteria, carrier and device certification cycles, and an accessibility review gate added to the release approval process across all five product lines.",
+      },
     ],
     outcomes: [
       "Reduced drop-off in critical user flows by 30–40% through mobile-first visual design",
