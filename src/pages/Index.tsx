@@ -426,6 +426,11 @@ const CASE_STUDIES: CaseStudyType[] = [
         content:
           "Phase 1 (Months 1–3): Built SSA11y prototype, designed and tested 8 core components with assistive technology users, created developer documentation. Phase 2 (Months 4–6): Deployed on 3 pilot modules, measured violation reduction and adoption, trained development teams. Phase 3 (Months 7–12): Expanded to all 15+ modules across 40+ monthly releases, completed component migration, SSA11y integrated as mandatory CI/CD gate. Phase 4 (Ongoing): Continuous compliance — every commit, every module, monthly automated reports.",
       },
+      {
+        heading: "System Integration & Deployment",
+        content:
+          "SSA11y runs as a mandatory CI/CD quality gate, not a report. It hooks the build pipeline, scans committed source rather than rendered pages, returns severity-ranked findings and suggested code fixes to the pull request, and blocks promotion to staging when a blocking violation is present. The LLM layer (Llama 2) is wrapped with deterministic rule checks so a model suggestion never becomes the sole basis for a pass/fail decision, and every finding carries a rule reference for audit. The component library shipped as a versioned package consumed by 15+ module teams across 40+ monthly releases; migration ran module by module behind feature flags to avoid a big-bang release. Constraints were federal: ATO-bound environments, Section 508 reporting obligations, government release cadence, and human review retained on every AI-suggested remediation.",
+      },
     ],
     outcomes: [
       "Used behavioral data to drive a system-wide redesign — improving engagement across 50M+ user experiences",
