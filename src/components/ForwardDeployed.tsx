@@ -43,16 +43,16 @@ export function ImpactStrip() {
         </h2>
         <dl className="flex flex-wrap gap-x-8 gap-y-5 justify-between">
           {IMPACT.map((s) => (
-            <div key={s.l} className="min-w-[9rem] flex-1">
-              <dd className="order-1">
+            <div key={s.l} className="min-w-[9rem] flex-1 flex flex-col-reverse">
+              <dt className="block text-[13px] text-gray-700 mt-1 leading-snug">
+                {s.l}
+              </dt>
+              <dd className="m-0">
                 <span className="block font-display text-2xl font-extrabold text-[rgb(var(--c-primary))] tabular-nums">
                   {s.v}{" "}
                   <span className="text-sm font-semibold text-gray-700">{s.u}</span>
                 </span>
               </dd>
-              <dt className="block text-[13px] text-gray-700 mt-1 leading-snug">
-                {s.l}
-              </dt>
             </div>
           ))}
         </dl>
