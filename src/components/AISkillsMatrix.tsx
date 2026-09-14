@@ -246,7 +246,7 @@ export default function AISkillsMatrix() {
               ))}
             </ul>
           </div>
-          <ul className="list-none p-0 m-0 grid gap-x-8 gap-y-3 sm:grid-cols-2">
+          <ul className="list-none p-0 m-0 grid gap-x-8 gap-y-3 sm:grid-cols-2 xl:grid-cols-3">
             {g.skills.map((s) => (
               <li key={s.name}>
                 <div className="flex items-center justify-between gap-3">

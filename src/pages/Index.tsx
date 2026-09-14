@@ -1103,7 +1103,7 @@ function DesignLeadership() {
             how the team designs, not just what it delivers.
           </p>
         </FadeIn>
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
           {pillars.map((p, i) => (
             <FadeIn key={p.title} delay={0.04 * i}>
               <article className="h-full rounded-2xl border border-gray-200 bg-white p-5 transition-all hover:border-[rgb(var(--c-primary)/0.3)] hover:shadow-md hover:-translate-y-0.5">
@@ -1276,7 +1276,7 @@ function TradeOffs() {
             chose one good thing over another — and what it bought.
           </p>
         </div>
-        <div className="grid gap-5 md:grid-cols-2">
+        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
           {TRADE_OFFS.map((t) => (
             <article
               key={t.tension}
@@ -6888,7 +6888,7 @@ function About() {
   ];
 
   return (
-    <div className="max-w-3xl mx-auto px-6 py-16">
+    <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2rem,4vw,3.5rem)]">
       <FadeIn>
         <div className="flex flex-col sm:flex-row gap-6 items-start mb-10">
           <img
@@ -6944,7 +6944,7 @@ function About() {
       </FadeIn>
 
       <FadeIn delay={0.1}>
-        <div className="prose prose-sm max-w-none mb-12">
+        <div className="prose prose-sm max-w-none mb-12 md:columns-2 xl:columns-3 md:gap-10 [&>p]:break-inside-avoid">
           <p className="text-gray-700 leading-[1.9] mb-4">
             I'm a forward-deployed design and human-systems leader: I work inside the delivery
             team, from field research and product framing through production code, release
@@ -6979,7 +6979,7 @@ function About() {
       <FadeIn delay={0.12}>
         <h2 className="text-xl font-extrabold text-gray-900 tracking-tight mb-1">Skills &amp; Capabilities</h2>
         <p className="text-gray-600 text-sm mb-6">The full toolkit I bring across design, engineering, and governance.</p>
-        <div className="grid sm:grid-cols-2 gap-4 mb-12">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-12">
           {skillGroups.map((g) => (
             <div
               key={g.title}
@@ -7141,7 +7141,7 @@ function Approach() {
   ];
 
   return (
-    <div className="max-w-3xl mx-auto px-6 py-16">
+    <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2rem,4vw,3.5rem)]">
       <FadeIn>
         <h1 className="text-3xl font-extrabold text-gray-900 tracking-tight mb-2">
           My Forward-Deployed Approach
@@ -7156,10 +7156,10 @@ function Approach() {
       <FadeIn delay={0.05}>
         <h2 className="text-xl font-extrabold text-gray-900 tracking-tight mb-1">From field insight to deployed product</h2>
         <p className="text-gray-600 text-sm mb-6">A repeatable, evidence-driven process I run end to end.</p>
-        <ol className="relative list-none p-0 m-0 mb-12 border-l-2 border-[rgb(var(--c-accent)/0.3)] ml-3">
+        <ol className="list-none p-0 m-0 mb-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           {process.map((p, i) => (
-            <li key={p.step} className="relative pl-7 pb-6 last:pb-0">
-              <span aria-hidden="true" className="absolute -left-[15px] top-0 h-7 w-7 rounded-full bg-[rgb(var(--c-primary))] text-white text-xs font-bold flex items-center justify-center ring-4 ring-white">
+            <li key={p.step} className="rounded-xl border border-gray-200 bg-white p-5">
+              <span aria-hidden="true" className="mb-2 h-7 w-7 rounded-full bg-[rgb(var(--c-primary))] text-white text-xs font-bold flex items-center justify-center">
                 {i + 1}
               </span>
               <h3 className="font-bold text-gray-900 text-sm mb-0.5">{p.step}</h3>
@@ -7172,7 +7172,7 @@ function Approach() {
       <FadeIn delay={0.08}>
         <h2 className="text-xl font-extrabold text-gray-900 tracking-tight mb-6">Governing frameworks</h2>
       </FadeIn>
-      <div className="space-y-4 mb-12">
+      <div className="grid gap-4 mb-12 md:grid-cols-2 xl:grid-cols-4">
         {frameworks.map((f, i) => (
           <FadeIn key={f.title} delay={i * 0.06}>
             <div
@@ -7225,7 +7225,7 @@ function Approach() {
             operating model puts a decision, an owner, and a piece of evidence at the end of every
             phase — so the programme keeps moving after I leave.
           </p>
-          <ol className="list-none p-0 m-0 grid sm:grid-cols-2 gap-4">
+          <ol className="list-none p-0 m-0 grid sm:grid-cols-2 xl:grid-cols-3 gap-4">
             {[
               {
                 n: "01",
@@ -7321,7 +7321,7 @@ function Approach() {
           <h2 id="approach-principles" className="text-xl font-extrabold text-gray-900 tracking-tight mb-6">
             Principles I actually apply
           </h2>
-          <ul className="list-none p-0 m-0 space-y-3">
+          <ul className="list-none p-0 m-0 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
             {[
               ["Governance that can't be seen in the product isn't governance.", "If a control has no interface, no log, and no owner, it exists only in the policy document."],
               ["Match human authority to model risk, not model confidence.", "A confidence score is not a decision rule. Oversight tiers — recommend, act, alert — give people an authority level they can reason about."],
@@ -7383,7 +7383,7 @@ function Approach() {
 
 function Resume() {
   return (
-    <div className="max-w-3xl mx-auto px-6 py-16 text-center">
+    <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2rem,4vw,3.5rem)] text-center">
       <FadeIn>
         <h1 className="text-3xl font-extrabold text-gray-900 tracking-tight mb-2">
           Resume
@@ -7768,7 +7768,7 @@ function Contact() {
   ];
 
   return (
-    <div className="max-w-3xl mx-auto px-6 py-16">
+    <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2rem,4vw,3.5rem)]">
       <FadeIn>
         <div className="inline-flex items-center gap-2 mb-3 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-[11px] font-semibold text-emerald-800">
           <span aria-hidden="true" className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
