@@ -1598,7 +1598,7 @@ function Home({
                 Operating model
               </p>
               <ol className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 list-none p-0 m-0 text-[11px] sm:text-xs font-semibold text-white">
-                {["Embed", "Frame", "Prototype", "Deploy", "Validate"].map((step, index, steps) => (
+                {["Embed", "Diagnose", "Build", "Integrate", "Measure"].map((step, index, steps) => (
                   <li key={step} className="inline-flex items-center gap-2">
                     <span className="inline-flex min-h-[30px] items-center rounded-md border border-white/30 bg-white/10 px-2.5 sm:px-3">{step}</span>
                     {index < steps.length - 1 && <span aria-hidden="true" className="text-[rgb(var(--c-accent-on-dark))]">→</span>}
