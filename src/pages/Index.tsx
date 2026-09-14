@@ -1103,7 +1103,7 @@ function DesignLeadership() {
             how the team designs, not just what it delivers.
           </p>
         </FadeIn>
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
           {pillars.map((p, i) => (
             <FadeIn key={p.title} delay={0.04 * i}>
               <article className="h-full rounded-2xl border border-gray-200 bg-white p-5 transition-all hover:border-[rgb(var(--c-primary)/0.3)] hover:shadow-md hover:-translate-y-0.5">
@@ -1276,7 +1276,7 @@ function TradeOffs() {
             chose one good thing over another — and what it bought.
           </p>
         </div>
-        <div className="grid gap-5 md:grid-cols-2">
+        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
           {TRADE_OFFS.map((t) => (
             <article
               key={t.tension}
