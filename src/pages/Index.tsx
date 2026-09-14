@@ -23,6 +23,7 @@ import FlagshipSystems from "@/components/FlagshipSystems";
 import SystemsCapabilities from "@/components/SystemsCapabilities";
 import FieldNotes from "@/components/FieldNotes";
 import AtsKeywords from "@/components/AtsKeywords";
+import FailureModes from "@/components/FailureModes";
 import AIGovernanceCaseStudy from "@/pages/AIGovernanceCaseStudy";
 import CrosswalkEssay from "@/pages/CrosswalkEssay";
 import OversightTiersEssay from "@/pages/OversightTiersEssay";
@@ -2012,8 +2013,11 @@ function Home({
       {/* 14 — Field notes: short operator entries */}
       <FieldNotes n="14" />
 
-      {/* 15 — Skills & keywords index */}
-      <AtsKeywords n="15" />
+      {/* 15 — Systems thinking & failure modes */}
+      <FailureModes n="15" />
+
+      {/* 16 — Skills & keywords index */}
+      <AtsKeywords n="16" />
 
       {/* Brief About — teaser placed after the numbered sequence so 01–09 run uninterrupted */}
       <section className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2rem,4vw,3.5rem)]" aria-labelledby="brief-about-heading">
