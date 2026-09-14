@@ -1581,7 +1581,7 @@ function Home({
           <FadeIn delay={0.2}>
             <div className="flex gap-2 sm:gap-3 justify-center flex-wrap mb-5 sm:mb-9">
               <button
-                onClick={() => document.getElementById("ai-deployment")?.scrollIntoView({ behavior: "smooth" })}
+                onClick={() => document.getElementById("systems")?.scrollIntoView({ behavior: "smooth" })}
                 className="group inline-flex items-center justify-center gap-2 min-h-[44px] bg-white text-[rgb(var(--c-primary))] px-6 py-2.5 rounded-lg font-semibold text-sm shadow-lg shadow-black/10 hover:-translate-y-0.5 hover:shadow-xl hover:bg-[rgb(var(--c-accent-on-light))] hover:text-white transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
               >
                 View systems work <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
