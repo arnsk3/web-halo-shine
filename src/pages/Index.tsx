@@ -1558,9 +1558,9 @@ function Home({
           </FadeIn>
           <FadeIn delay={0.15}>
             <p className="text-white text-sm sm:text-lg mb-2 sm:mb-4 max-w-2xl mx-auto leading-relaxed">
-              I go on site, find where the real workflow breaks, build the thing that fixes it, and
-              stay until it runs in production. Regulated environments — federal, clinical,
-              enterprise — where the AI has to be correct, auditable and actually used.
+              I embed with teams to design, build, and deploy AI systems in complex, regulated
+              environments where human decisions, risk, and scale matter. I go on site, find where
+              the real workflow breaks, build the fix, and stay until it runs in production.
             </p>
           </FadeIn>
           <FadeIn delay={0.18}>
@@ -1584,13 +1584,13 @@ function Home({
                 onClick={() => document.getElementById("ai-deployment")?.scrollIntoView({ behavior: "smooth" })}
                 className="group inline-flex items-center justify-center gap-2 min-h-[44px] bg-white text-[rgb(var(--c-primary))] px-6 py-2.5 rounded-lg font-semibold text-sm shadow-lg shadow-black/10 hover:-translate-y-0.5 hover:shadow-xl hover:bg-[rgb(var(--c-accent-on-light))] hover:text-white transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
               >
-                See forward-deployed work <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
+                View systems work <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
               </button>
               <button
-                onClick={() => setPage("contact")}
+                onClick={() => document.getElementById("cases")?.scrollIntoView({ behavior: "smooth" })}
                 className="group inline-flex items-center justify-center gap-2 min-h-[44px] bg-white/10 border border-white/40 text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-white/20 hover:-translate-y-0.5 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
               >
-                Get in touch <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
+                View FDE case studies <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
               </button>
             </div>
           </FadeIn>
@@ -1709,22 +1709,23 @@ function Home({
                         }}
                       />
                       <span className="relative text-white text-[11px] font-semibold tracking-widest uppercase">
-                        AI Concepts · Non-Deployed
+                        AI Systems · Production-Adjacent
                       </span>
                     </div>
                     <div className="flex-1 flex flex-col p-6">
                       <h3 className="font-bold text-gray-900 text-lg mb-1.5 leading-snug">
-                        AI Concepts (Non-Deployed)
+                        AI Systems &amp; Prototypes (Production-Adjacent)
                       </h3>
                       <p className="text-gray-700 text-[12px] mb-3 font-medium">
-                        Exploratory concepts — clearly distinguished from the deployed,
-                        in-production work above.
+                        Self-initiated systems built to production fidelity — architecture,
+                        workflow and integration points included. Not deployed with a client.
                       </p>
                       <p className="text-gray-700 text-sm mb-4 leading-relaxed">
-                        {inHouseCount} self-initiated AI product concepts that show how I design safe,
-                        explainable, human-in-the-loop AI — from model-risk governance to clinical
-                        decision-support, agentic guardrails, source-grounding UX, and revenue-cycle
-                        reimbursement.
+                        {inHouseCount} self-initiated AI systems showing the architecture I build for
+                        safe, explainable, human-in-the-loop deployment — model-risk governance,
+                        clinical decision support, agentic guardrails, source-grounded retrieval, and
+                        revenue-cycle automation. Each includes the system diagram, workflow, and
+                        integration points.
                       </p>
                       <ul className="list-none p-0 m-0 mb-2 space-y-1.5">
                         {inHouseCases().map((c) => (
@@ -1739,10 +1740,10 @@ function Home({
                       <div className="mt-auto pt-4 flex flex-wrap gap-2">
                         <button
                           onClick={() => setPage("lab")}
-                          aria-label={`View all ${inHouseCount} non-deployed AI concepts`}
+                          aria-label={`View all ${inHouseCount} production-adjacent AI systems`}
                           className="group/btn inline-flex items-center gap-1.5 min-h-[44px] text-xs font-semibold px-4 py-2 rounded-lg bg-[rgb(var(--c-primary))] text-white hover:bg-[rgb(var(--c-accent-dark))] focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2 transition-colors"
                         >
-                          Explore the AI concepts
+                          Explore the AI systems
                           <span aria-hidden="true" className="transition-transform group-hover/btn:translate-x-0.5">→</span>
                         </button>
                       </div>
