@@ -976,9 +976,10 @@ type PageId = "home" | "brand" | "about" | "approach" | "resume" | "contact" | "
 function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) {
   // Top-level sections follow the forward-deployed narrative order.
   const sectionLinks: { id: string; label: string }[] = [
-    { id: "ai-deployment", label: "Forward-Deployed" },
-    { id: "cases", label: "Work" },
-    { id: "governance-accessibility", label: "Governance" },
+    { id: "fde-experience", label: "FDE Experience" },
+    { id: "flagship-systems", label: "Systems" },
+    { id: "cases", label: "Deployments" },
+    { id: "failure-modes", label: "Failure Modes" },
   ];
   const tailLinks: { id: PageId; label: string }[] = [
     { id: "approach", label: "Approach" },
@@ -1573,20 +1574,20 @@ function Home({
             <h1 className="text-3xl sm:text-5xl font-extrabold leading-[1.08] mb-3 sm:mb-5 tracking-tight">
               Senthil Nagappan
               <span className="block mt-2 sm:mt-3 text-xl sm:text-3xl font-extrabold bg-gradient-to-r from-[rgb(var(--c-accent-light))] to-[rgb(var(--c-accent-on-dark))] bg-clip-text text-transparent">
-                Forward Deployed Engineer (FDE) — AI Systems &amp; Human Factors Leader
+                Forward Deployed AI &amp; Human Systems Engineer
               </span>
               <span className="block mt-2 text-sm sm:text-base font-semibold text-white/90">
-                Production AI Deployment · Human Systems Integration (HSI) · Enterprise Systems
-                Integration
+                Production AI Deployment · LLM &amp; RAG Pipelines · APIs &amp; CI/CD Integration ·
+                System Architecture · Human Systems Integration (HSI)
               </span>
             </h1>
           </FadeIn>
           <FadeIn delay={0.15}>
             <p className="text-white text-sm sm:text-lg mb-2 sm:mb-4 max-w-2xl mx-auto leading-relaxed">
-              I embed with enterprise and federal teams to build, integrate, and deploy applied AI
-              systems in safety-critical, regulated environments. Customer-facing engineering from
-              ambiguous problem to production: I go on site, find where the real workflow breaks,
-              build the fix, wire it into their pipeline, and stay until it runs and is measured.
+              I build and deploy AI-driven systems in regulated environments where decisions affect
+              millions of users. Embedded with customer engineering, product, and operations teams:
+              I find where the real workflow breaks, build the service, wire it into their APIs and
+              CI/CD, instrument it, and stay until it runs in production and is measured.
             </p>
           </FadeIn>
           <FadeIn delay={0.18}>
@@ -8104,10 +8105,10 @@ function Footer({
     );
   };
   const sectionItems: { id: string; label: string }[] = [
-    { id: "ai-deployment", label: "Forward-Deployed" },
-    { id: "human-ai-design", label: "Human-AI Design" },
-    { id: "governance-accessibility", label: "Governance & Accessibility" },
-    { id: "deployment-model", label: "Deployment Model" },
+    { id: "fde-experience", label: "FDE Experience" },
+    { id: "flagship-systems", label: "Systems" },
+    { id: "capabilities", label: "Capabilities" },
+    { id: "failure-modes", label: "Failure Modes" },
   ];
   const pageItems: { id: PageId; label: string }[] = [
     { id: "lab", label: "AI Concepts" },
