@@ -135,7 +135,7 @@ export default function GovernanceEngagements() {
               className={`inline-flex self-start items-center rounded-full px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.14em] border mb-4 ${
                 e.chip === "Shipped in production"
                   ? "bg-emerald-50 border-emerald-200 text-emerald-800"
-                  : "bg-amber-50 border-amber-200 text-amber-800"
+                  : "bg-amber-50 border-amber-300 text-amber-900"
               }`}
             >
               {e.chip}

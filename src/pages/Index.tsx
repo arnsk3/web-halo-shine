@@ -8276,7 +8276,7 @@ function InHouseLab({
                     <span className="text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full bg-[rgb(var(--c-tint-100))] text-[rgb(var(--c-accent-on-light))] border border-[rgb(var(--c-primary)/0.2)]">
                       Concept
                     </span>
-                    <span className="text-[11px] text-gray-500 font-medium">
+                    <span className="text-[11px] text-gray-700 font-medium">
                       Self-initiated · Not shipped
                     </span>
                   </div>
