@@ -16,6 +16,7 @@ import BrandIdentitySection from "@/components/BrandIdentitySection";
 import AISkillsMatrix from "@/components/AISkillsMatrix";
 import GovernanceEngagements from "@/components/GovernanceEngagements";
 import AIGovernanceSection from "@/components/AIGovernanceSection";
+import FdeSystems from "@/components/FdeSystems";
 import AIGovernanceCaseStudy from "@/pages/AIGovernanceCaseStudy";
 import CrosswalkEssay from "@/pages/CrosswalkEssay";
 import OversightTiersEssay from "@/pages/OversightTiersEssay";
@@ -1142,7 +1143,7 @@ function BrandTeaser({ onOpen }: { onOpen: () => void }) {
     >
       <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] pt-[clamp(2rem,4vw,3.5rem)] pb-[clamp(1rem,2vw,2rem)]">
         <FadeIn>
-          <SectionIndex n="08" label="Visual Systems" />
+          <SectionIndex n="09" label="Visual Systems" />
           <article className="group grid gap-8 md:grid-cols-[1.2fr_1fr] items-center rounded-2xl border border-gray-200 bg-[rgb(var(--c-tint-50))] overflow-hidden shadow-sm transition-all duration-300 hover:shadow-xl hover:border-[rgb(var(--c-primary)/0.3)]">
             <div className="p-8 sm:p-10">
               <p className="text-[rgb(var(--c-accent-on-light))] text-xs font-semibold tracking-[2px] uppercase mb-3">
@@ -1543,36 +1544,39 @@ function Home({
           <FadeIn>
             <p className="inline-flex items-center gap-2 text-[rgb(var(--c-accent-on-dark))] text-[11px] sm:text-xs font-semibold tracking-[2.5px] uppercase mb-3 sm:mb-5 rounded-full border border-white/15 bg-white/5 backdrop-blur px-4 py-1.5">
               <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-[rgb(var(--c-accent-light))] animate-pulse" />
-              Forward-Deployed AI · Regulated Systems · Human Outcomes
+              Deployed in the field · Regulated AI · Shipped outcomes
             </p>
           </FadeIn>
           <FadeIn delay={0.1}>
             <h1 className="text-3xl sm:text-5xl font-extrabold leading-[1.08] mb-3 sm:mb-5 tracking-tight">
               Senthil Nagappan
               <span className="block mt-2 sm:mt-3 text-xl sm:text-3xl font-extrabold bg-gradient-to-r from-[rgb(var(--c-accent-light))] to-[rgb(var(--c-accent-on-dark))] bg-clip-text text-transparent">
-                Forward-Deployed AI Experience &amp; Human Systems Integration Leader
+                Forward Deployed AI &amp; Human Systems Engineer
               </span>
             </h1>
           </FadeIn>
           <FadeIn delay={0.15}>
             <p className="text-white text-sm sm:text-lg mb-2 sm:mb-4 max-w-2xl mx-auto leading-relaxed">
-              I embed with users, engineering, product, and risk teams to move regulated AI from
-              ambiguity to production — making the last mile safe, usable, accessible, and
-              accountable.
+              I go on site, find where the real workflow breaks, build the thing that fixes it, and
+              stay until it runs in production. Regulated environments — federal, clinical,
+              enterprise — where the AI has to be correct, auditable and actually used.
             </p>
           </FadeIn>
           <FadeIn delay={0.18}>
             <p className="mb-4 sm:mb-7 max-w-2xl mx-auto text-xs sm:text-sm text-white/90 leading-relaxed">
               <span className="font-semibold text-[rgb(var(--c-accent-on-dark))]">
-                Field immersion · Product framing · Production prototyping · Governance
+                Ambiguous problem → working prototype in weeks → integrated into their pipeline →
+                measured in production.
               </span>{" "}
-              — 7+ years in compliance, risk &amp; advisory delivery, leading a $130M federal
-              program portfolio and scaling a cross-functional team to 15+.{" "}
+              Shipped into 40+ monthly federal releases, cut $1.5M+ of annual rework, and stood up
+              the human-oversight layer that let clinical AI reach 1,200+ users. 18+ years, 7+ of
+              them client-facing under audit.{" "}
               <span className="font-semibold">
-                Open to Director-level roles · US remote · available now.
+                Open to Forward Deployed / Director-level roles · US remote · available now.
               </span>
             </p>
           </FadeIn>
+
           <FadeIn delay={0.2}>
             <div className="flex gap-2 sm:gap-3 justify-center flex-wrap mb-5 sm:mb-9">
               <button
@@ -1595,7 +1599,7 @@ function Home({
                 Operating model
               </p>
               <ol className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 list-none p-0 m-0 text-[11px] sm:text-xs font-semibold text-white">
-                {["Embed", "Frame", "Prototype", "Deploy", "Validate"].map((step, index, steps) => (
+                {["Embed", "Diagnose", "Build", "Integrate", "Measure"].map((step, index, steps) => (
                   <li key={step} className="inline-flex items-center gap-2">
                     <span className="inline-flex min-h-[30px] items-center rounded-md border border-white/30 bg-white/10 px-2.5 sm:px-3">{step}</span>
                     {index < steps.length - 1 && <span aria-hidden="true" className="text-[rgb(var(--c-accent-on-dark))]">→</span>}
@@ -1618,13 +1622,16 @@ function Home({
       {/* 02 — The forward-deployment process itself */}
       <ForwardDeploymentModel n="02" />
 
-      {/* 03 — AI governance & responsible AI */}
+      {/* 03 — System stack + ambiguity operating cadence */}
+      <FdeSystems n="03" />
+
+      {/* 04 — AI governance & responsible AI */}
       <AIGovernanceSection />
 
       {/* Case Studies — work leads the page */}
       <section id="cases" className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2rem,4vw,3.5rem)]" aria-labelledby="cases-heading">
         <FadeIn>
-          <SectionIndex n="04" label="Selected Work" />
+          <SectionIndex n="05" label="Selected Work" />
           <h2 id="cases-heading" className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2 tracking-tight">
             Selected Work
           </h2>
@@ -1872,7 +1879,7 @@ function Home({
       >
         <FadeIn>
           <div className="mb-8 max-w-2xl">
-            <SectionIndex n="09" label="Writing" />
+            <SectionIndex n="10" label="Writing" />
             <h2
               id="writing-heading"
               className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-2"
@@ -8111,7 +8118,7 @@ function Footer({
 }
 
 const PAGE_TITLES: Record<PageId, string> = {
-  home: "Senthil Nagappan — Forward-Deployed AI Leader",
+  home: "Senthil Nagappan — Forward Deployed AI & Human Systems Engineer",
   brand: "Brand Identity & Visual Systems — Senthil Nagappan",
   about: "About — Senthil Nagappan",
   approach: "Approach — Senthil Nagappan",
@@ -8119,14 +8126,14 @@ const PAGE_TITLES: Record<PageId, string> = {
   contact: "Contact — Senthil Nagappan",
   case: "Case Study — Senthil Nagappan",
   lab: "AI Concepts (Non-Deployed) — Senthil Nagappan",
-  ssadeploy: "Forward-Deployed AI Accessibility at National Scale",
+  ssadeploy: "Shipping AI-Assisted Accessibility Into a Live Federal Pipeline",
   governance: "Designing the Last Mile of AI Governance",
   writing: "One control set, three frameworks — AI governance crosswalk",
   oversight: "Oversight tiers beat confidence scores — AI experience design",
 };
 
 const PAGE_DESCRIPTIONS: Record<PageId, string> = {
-  home: "Senthil Nagappan — Forward-Deployed AI Experience & Human Systems Integration Leader. Embedded with users and engineering to move regulated AI safely from ambiguity to production.",
+  home: "Senthil Nagappan — Forward Deployed AI & Human Systems Engineer. I embed with customers, find what's actually broken, build it, integrate it into their pipeline, and prove the outcome in regulated production.",
   brand: "Design systems & brand-consistent visual systems by Senthil Nagappan — shared components, design tokens, and on-brand UI that scale across consumer, healthcare, and enterprise products.",
 
   about: "About Senthil Nagappan — a forward-deployed AI experience and human systems leader with 18+ years across regulated environments.",
@@ -8134,7 +8141,7 @@ const PAGE_DESCRIPTIONS: Record<PageId, string> = {
   resume: "Read or download Senthil Nagappan's résumé — forward-deployed AI experience and human systems integration leadership.",
   contact: "Contact Senthil Nagappan for forward-deployed AI experience, governance, human systems, and accessibility leadership.",
   case: "Case study from Senthil Nagappan — AI safety, human systems integration, and accessibility work in regulated environments.",
-  ssadeploy: "How AI-assisted accessibility validation was deployed into a live, audited federal system used by caseworkers in all 50 states — human-in-the-loop by design, embedded in CI/CD, ~30% less manual audit effort.",
+  ssadeploy: "Flagship forward-deployed case study: an ambiguous federal complaint turned into an AI-assisted validation gate inside live CI/CD — component-level attribution, human oversight, $1.5M+ annual rework avoided.",
   lab: "In-house AI product concepts by Senthil Nagappan — TrustLens, Clarity, Sentinel, Lumen, and RevAssist: concise capsules of governance, clinical, agentic-safety, and revenue-cycle AI work.",
   governance: "Designing the Last Mile of AI Governance — how disclosure, explainability, oversight, and correction controls turn NIST AI RMF requirements into real product behavior.",
   oversight: "Why showing a clinician a raw confidence score is a design failure, and how recommend / act / alert oversight tiers map model risk to human authority — with the evidence each tier produces for EU AI Act Article 14 and NIST AI RMF MANAGE 2.3.",
