@@ -1,20 +1,22 @@
 import { Link } from "react-router-dom";
 
 const SECTIONS = [
-  { id: "walkthrough", label: "Walkthrough: One Defect, End to End" },
-  { id: "context", label: "The Deployment Context" },
-  { id: "problem", label: "The Problem" },
-  { id: "integration", label: "AI + Workflow Integration" },
-  { id: "architecture", label: "System Architecture" },
-  { id: "evaluation", label: "How It Was Measured" },
-  { id: "impact", label: "Operational Impact" },
+  { id: "brief", label: "The Brief (as received)" },
+  { id: "problem", label: "Problem: what was actually broken" },
+  { id: "build", label: "Build: what I shipped" },
+  { id: "system", label: "System: data, APIs, workflow" },
+  { id: "deploy", label: "Deploy: getting it into production" },
+  { id: "evaluation", label: "Evidence: how it was measured" },
+  { id: "outcome", label: "Outcome: business impact" },
+  { id: "failure", label: "What broke, and what I changed" },
+  { id: "handoff", label: "Handoff & scale" },
 ];
 
 const WALKTHROUGH = [
   {
     screen: "Build pipeline — release candidate check",
     decision:
-      "Automated validation flags a contrast and focus-order failure on a shared form control, with the offending component named rather than the 14 screens it appears on.",
+      "Automated validation flags a contrast and focus-order failure on a shared form control, and attributes it to the component rather than the 14 screens it renders on.",
     outcome: "Reviewers see one root cause instead of fourteen duplicate tickets.",
   },
   {
@@ -26,33 +28,52 @@ const WALKTHROUGH = [
   {
     screen: "Component library — source fix",
     decision:
-      "The fix lands in the governed shared component, with a note on what changed and why, so downstream teams inherit it rather than re-solving it.",
+      "The fix lands in the governed shared component with a change note, so downstream teams inherit it rather than re-solving it.",
     outcome: "One change propagates across every consuming team.",
   },
   {
     screen: "Audit record — evidence generated",
     decision:
-      "The check, the human decision, the reviewer, and the remediation are captured as a byproduct of the pipeline run — not written up later from memory.",
+      "The check, the human decision, the reviewer identity, and the remediation are captured as a byproduct of the pipeline run — not written up later from memory.",
     outcome: "Audit prep becomes retrieval instead of reconstruction.",
+  },
+];
+
+const SYSTEM = [
+  {
+    h: "Inputs & data",
+    b: "Rendered DOM and component metadata emitted per release candidate, joined against the shared component inventory so every finding carries a component ID, an owning team, and a blast radius. Before any of that worked, I had to establish that the inventory itself was incomplete — roughly a fifth of in-use components were undocumented.",
+  },
+  {
+    h: "Decision layer",
+    b: "Deterministic conformance checks run automatically with a tuned false-positive budget; anything context-dependent (meaningful sequence, error recovery, task-relevant focus order) is routed to expert review with the evidence attached. Confidence and origin are stamped on every finding so machine output can never be mistaken for a completed review.",
+  },
+  {
+    h: "Integration surface",
+    b: "Wired into the CI/CD release gate rather than bolted on as a separate dashboard: pipeline hook in, findings out to the triage queue and the ticketing system, remediation written back to the governed component library. Teams never had to open a new tool to participate.",
+  },
+  {
+    h: "Oversight & audit",
+    b: "Human review is a required gate, not an optional follow-up. Every decision — automated or human — is logged with reviewer, timestamp, rationale, and lineage back to the originating component, producing the 508 evidence trail continuously instead of at audit time.",
+  },
+  {
+    h: "Telemetry",
+    b: "Dismissal and override rates per rule, recurrence per component, and share of defects caught pre-merge versus post-release. When reviewers start bulk-dismissing a rule, that rule is wrong — the telemetry says so before anyone complains.",
   },
 ];
 
 const EVALUATION = [
   {
     h: "Study design",
-    b: "Pre/post comparison across the same delivery teams and the same release cadence — baseline captured from manual audit cycles before integration, then measured against equivalent post-integration releases. Component-level defect attribution ran alongside, so improvement could be traced to a cause rather than inferred from a total.",
+    b: "Pre/post comparison across the same delivery teams and release cadence — baseline captured from manual audit cycles before integration, then measured against equivalent post-integration releases. Component-level defect attribution ran alongside, so improvement could be traced to a cause rather than inferred from a total.",
   },
   {
     h: "Sample and instrumentation",
-    b: "Measured across 40+ monthly releases and the full shared component inventory, with moderated usability sessions and expert review sessions on the workflows caseworkers used most. Defects were tagged by originating component, severity, and whether they were caught automatically or by a person.",
+    b: "Measured across 40+ monthly releases and the full shared component inventory, with moderated usability sessions and expert review on the workflows caseworkers used most. Defects were tagged by originating component, severity, and whether they were caught automatically or by a person.",
   },
   {
     h: "What we tracked",
     b: "Manual audit hours per release; defect volume and recurrence; share of defects attributable to reused components; false-positive rate on automated checks; and whether release velocity moved at all.",
-  },
-  {
-    h: "What failed, and what we changed",
-    b: "The first pass over-trusted automation: teams began treating a clean automated result as a passed accessibility review, and nuanced failures — focus order, meaningful sequence, error recovery — slipped through. Early rule tuning also produced enough false positives that reviewers started dismissing flags in bulk. We narrowed automated scope to deterministic checks only, made human review an explicit required gate rather than an optional follow-up, and labelled every finding with its confidence and origin so nobody could mistake machine output for a full review.",
   },
   {
     h: "Honest limits",
@@ -61,11 +82,21 @@ const EVALUATION = [
 ];
 
 const IMPACT = [
-  "Reduced manual accessibility audit effort ~30%",
-  "Cut usability/interaction defects 30–40% by remediating at the component source",
-  "Traced 65% of defects to 8 reused components — saved $1.5M+ annually",
-  "Shipped continuously across 40+ monthly releases without slowing delivery",
-  "Established structural audit readiness for federal 508 compliance",
+  { v: "~30%", l: "less manual accessibility audit effort per release" },
+  { v: "30–40%", l: "fewer usability/interaction defects, fixed at the component source" },
+  { v: "65%", l: "of defects traced to 8 reused components" },
+  { v: "$1.5M+", l: "annual rework and audit cost avoided" },
+  { v: "40+", l: "monthly releases shipped with no velocity loss" },
+  { v: "0", l: "new tools delivery teams had to adopt" },
+];
+
+const OWNED = [
+  "Framed the problem on site with caseworkers and delivery teams — the original ask was 'more audits', which would not have worked",
+  "Defined what the model was allowed to decide alone and what had to reach a human",
+  "Designed the triage queue, evidence presentation, and override capture",
+  "Paired with engineering on the pipeline hook and the component-attribution join",
+  "Set the false-positive budget and rewrote rules that reviewers kept dismissing",
+  "Wrote the runbooks and trained the teams who now run it without me",
 ];
 
 export default function SsaDeployment({ onHome }: { onHome: () => void }) {
@@ -90,15 +121,16 @@ export default function SsaDeployment({ onHome }: { onHome: () => void }) {
             </ol>
           </nav>
           <p className="inline-flex items-center gap-2 text-[rgb(var(--c-accent-on-dark))] text-xs font-semibold tracking-[3px] uppercase mb-5 rounded-full border border-white/15 bg-white/5 backdrop-blur px-4 py-1.5">
-            Forward-Deployed Work · Flagship
+            Flagship Forward-Deployed Case Study
           </p>
           <h1 className="font-display text-3xl sm:text-4xl font-extrabold leading-[1.15] mb-4 tracking-tight">
-            Forward-Deployed AI Accessibility at National Scale
+            Shipping AI-Assisted Accessibility Into a Live Federal Pipeline
           </h1>
           <p className="text-white/90 text-base sm:text-lg leading-relaxed">
-            Experience, accessibility, and human-factors leadership of an AI-assisted validation
-            capability taken from concept into live, audited federal production — designed and
-            integrated alongside engineering.
+            Embedded with federal delivery teams on a platform serving 50M+ citizens. Took an
+            AI-assisted validation capability from an ambiguous complaint to a required gate in
+            production CI/CD — with the oversight, telemetry, and audit trail that made it legal to
+            keep running.
           </p>
         </div>
       </header>
@@ -123,20 +155,52 @@ export default function SsaDeployment({ onHome }: { onHome: () => void }) {
         </nav>
 
         <article className="max-w-3xl">
-          <section id="walkthrough" aria-labelledby="ssa-walk-h" className="scroll-mt-24 mb-10">
-            <h2 id="ssa-walk-h" className="text-2xl font-extrabold text-gray-900 mb-3">
-              Walkthrough: One Defect, End to End
+          <section id="brief" aria-labelledby="ssa-brief-h" className="scroll-mt-24 mb-10">
+            <h2 id="ssa-brief-h" className="text-2xl font-extrabold text-gray-900 mb-3">
+              The Brief (as received)
+            </h2>
+            <p className="rounded-xl border border-gray-200 bg-white p-5 text-gray-800 leading-relaxed italic">
+              &ldquo;We keep failing accessibility checks late in the release. We need more
+              auditors.&rdquo;
+            </p>
+            <p className="text-gray-700 leading-relaxed mt-3">
+              That brief was wrong, and saying so in week one was the highest-leverage thing I did
+              on this engagement. More auditors would have scaled the cost of the problem, not
+              removed it. The real defect rate was concentrated, repetitive, and structural.
+            </p>
+          </section>
+
+          <section id="problem" aria-labelledby="ssa-problem-h" className="scroll-mt-24 mb-10">
+            <h2 id="ssa-problem-h" className="text-2xl font-extrabold text-gray-900 mb-3">
+              Problem: what was actually broken
+            </h2>
+            <p className="text-gray-700 leading-relaxed mb-3">
+              The Disability Case Processing System is used by federal caseworkers across all 50
+              states — live, audited, Section 508-mandated, on a continuous release cadence.
+              Accessibility was validated manually, late, and repeatedly: many independent teams
+              re-checking the same reused components, defects surfacing after build, audit prep a
+              scramble.
+            </p>
+            <p className="text-gray-700 leading-relaxed">
+              Attribution analysis showed 65% of defects originated in eight shared components.
+              Every team was paying, separately, for the same eight mistakes. Constraints:
+              legacy systems, no tolerance for slowing releases, federal accessibility law that is
+              not negotiable, and delivery teams with no spare capacity to adopt a new tool.
+            </p>
+          </section>
+
+          <section id="build" aria-labelledby="ssa-build-h" className="scroll-mt-24 mb-10">
+            <h2 id="ssa-build-h" className="text-2xl font-extrabold text-gray-900 mb-3">
+              Build: what I shipped
             </h2>
             <p className="text-gray-700 leading-relaxed mb-5">
-              What the system actually does, step by step — the moment a check fires, the decision
-              a person makes, and what changes as a result.
+              An AI-assisted validation layer inside the build pipeline that attributes findings to
+              their source component, automates only the deterministic calls, and routes everything
+              else to an expert with the evidence attached. Here is one defect, end to end.
             </p>
             <ol className="list-none p-0 m-0 space-y-3">
               {WALKTHROUGH.map((w, i) => (
-                <li
-                  key={w.screen}
-                  className="rounded-xl border border-gray-200 bg-white p-5"
-                >
+                <li key={w.screen} className="rounded-xl border border-gray-200 bg-white p-5">
                   <p className="font-display text-xs font-extrabold text-[rgb(var(--c-accent-on-light))] mb-1 tabular-nums">
                     Step {i + 1} · {w.screen}
                   </p>
@@ -154,84 +218,59 @@ export default function SsaDeployment({ onHome }: { onHome: () => void }) {
             <p className="text-[13px] text-gray-700 mt-3 italic">
               Described generically — no proprietary screens, code, or federal system detail.
             </p>
-          </section>
 
-          <section id="context" aria-labelledby="ssa-context-h" className="scroll-mt-24 mb-10">
-            <h2 id="ssa-context-h" className="text-2xl font-extrabold text-gray-900 mb-3">
-              The Deployment Context
-            </h2>
-            <p className="text-gray-700 leading-relaxed">
-              The Disability Case Processing System is used by federal caseworkers across all 50
-              states — a live, audited, Section 508-mandated environment serving 50M+ citizens on
-              a continuous release cadence. Constraints: legacy systems, many independent delivery
-              teams, non-negotiable federal accessibility law, and no tolerance for slowing
-              releases.
-            </p>
-          </section>
-
-          <section id="problem" aria-labelledby="ssa-problem-h" className="scroll-mt-24 mb-10">
-            <h2 id="ssa-problem-h" className="text-2xl font-extrabold text-gray-900 mb-3">
-              The Problem
-            </h2>
-            <p className="text-gray-700 leading-relaxed">
-              Accessibility was validated manually, late, and repeatedly — every team re-checking
-              the same components, defects surfacing after build, audit prep a scramble. It
-              didn&rsquo;t scale and it didn&rsquo;t hold.
-            </p>
-          </section>
-
-          <section
-            id="integration"
-            aria-labelledby="ssa-integration-h"
-            className="scroll-mt-24 mb-10"
-          >
-            <h2 id="ssa-integration-h" className="text-2xl font-extrabold text-gray-900 mb-3">
-              AI + Workflow Integration (Human-in-the-Loop)
-            </h2>
-            <p className="text-gray-700 leading-relaxed">
-              I led the design and integration of an AI-assisted accessibility validation approach
-              embedded directly into the CI/CD pipeline — shifting accessibility from
-              after-the-fact human review to continuous, in-production checking. Human-in-the-loop
-              by design: automated checks handled high-volume deterministic conformance; expert
-              review concentrated on nuanced, context-dependent judgment. The system flagged and
-              prioritized; people decided.
-            </p>
-          </section>
-
-          <section
-            id="architecture"
-            aria-labelledby="ssa-arch-h"
-            className="scroll-mt-24 mb-10"
-          >
-            <h2 id="ssa-arch-h" className="text-2xl font-extrabold text-gray-900 mb-3">
-              System Architecture (High-Level)
-            </h2>
-            <ol className="list-none p-0 m-0 grid gap-3 sm:grid-cols-2">
-              {[
-                "Automated accessibility validation integrated into the build/release pipeline",
-                "A governed shared component library, so fixes propagated at the source rather than per-screen",
-                "Expert-in-the-loop review for context-dependent cases",
-                "Audit-ready documentation generated as a byproduct",
-              ].map((s, i) => (
-                <li
-                  key={s}
-                  className="rounded-xl border border-gray-200 bg-white p-4 text-sm text-gray-700 leading-relaxed"
-                >
-                  <span className="block font-display text-xs font-extrabold text-[rgb(var(--c-accent-on-light))] mb-1 tabular-nums">
-                    Layer {i + 1}
-                  </span>
-                  {s}
+            <h3 className="text-lg font-bold text-gray-900 mt-8 mb-3">What I personally owned</h3>
+            <ul className="list-none p-0 m-0 space-y-2">
+              {OWNED.map((o) => (
+                <li key={o} className="flex items-start gap-2.5 text-gray-700 leading-relaxed">
+                  <span
+                    aria-hidden="true"
+                    className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[rgb(var(--c-accent))]"
+                  />
+                  <span>{o}</span>
                 </li>
               ))}
-            </ol>
+            </ul>
+          </section>
+
+          <section id="system" aria-labelledby="ssa-system-h" className="scroll-mt-24 mb-10">
+            <h2 id="ssa-system-h" className="text-2xl font-extrabold text-gray-900 mb-3">
+              System: data, APIs, workflow
+            </h2>
+            <dl className="space-y-4">
+              {SYSTEM.map((s) => (
+                <div key={s.h} className="rounded-xl border border-gray-200 bg-white p-5">
+                  <dt className="font-bold text-gray-900 mb-1.5">{s.h}</dt>
+                  <dd className="text-sm text-gray-700 leading-relaxed m-0">{s.b}</dd>
+                </div>
+              ))}
+            </dl>
             <p className="text-[13px] text-gray-700 mt-3 italic">
               Conceptual only — no proprietary implementation, code, or federal system detail.
             </p>
           </section>
 
+          <section id="deploy" aria-labelledby="ssa-deploy-h" className="scroll-mt-24 mb-10">
+            <h2 id="ssa-deploy-h" className="text-2xl font-extrabold text-gray-900 mb-3">
+              Deploy: getting it into production
+            </h2>
+            <p className="text-gray-700 leading-relaxed mb-3">
+              Adoption was the hard part, not the model. The rule I held to: nobody adopts a new
+              tool. The capability had to appear inside the pipeline and the ticket queue teams
+              already lived in, or it would be ignored regardless of accuracy.
+            </p>
+            <p className="text-gray-700 leading-relaxed">
+              Rolled out on two pilot teams first, with the gate advisory rather than blocking
+              until the false-positive rate was defensible. Then made human review a required gate,
+              enabled attribution write-back to the component library, and expanded across the
+              program. First useful output landed in weeks; full pipeline integration followed one
+              release cycle later.
+            </p>
+          </section>
+
           <section id="evaluation" aria-labelledby="ssa-eval-h" className="scroll-mt-24 mb-10">
             <h2 id="ssa-eval-h" className="text-2xl font-extrabold text-gray-900 mb-3">
-              How It Was Measured
+              Evidence: how it was measured
             </h2>
             <dl className="space-y-4">
               {EVALUATION.map((e) => (
@@ -243,27 +282,63 @@ export default function SsaDeployment({ onHome }: { onHome: () => void }) {
             </dl>
           </section>
 
-          <section id="impact" aria-labelledby="ssa-impact-h" className="scroll-mt-24 mb-10">
+          <section id="outcome" aria-labelledby="ssa-impact-h" className="scroll-mt-24 mb-10">
             <h2 id="ssa-impact-h" className="text-2xl font-extrabold text-gray-900 mb-3">
-              Operational Impact
+              Outcome: business impact
             </h2>
-            <ul className="list-none p-0 m-0 space-y-2">
+            <dl className="grid gap-3 sm:grid-cols-2">
               {IMPACT.map((m) => (
-                <li key={m} className="flex items-start gap-2.5 text-gray-700 leading-relaxed">
-                  <span
-                    aria-hidden="true"
-                    className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[rgb(var(--c-accent))]"
-                  />
-                  <span>{m}</span>
-                </li>
+                <div
+                  key={m.l}
+                  className="rounded-xl border border-gray-200 bg-white p-5 flex flex-col-reverse"
+                >
+                  <dt className="text-sm text-gray-700 leading-snug mt-1">{m.l}</dt>
+                  <dd className="m-0 font-display text-2xl font-extrabold text-[rgb(var(--c-primary))] tabular-nums">
+                    {m.v}
+                  </dd>
+                </div>
               ))}
-            </ul>
+            </dl>
+            <p className="text-gray-700 leading-relaxed mt-4">
+              Beyond the numbers: 508 audit readiness became structural rather than episodic, and
+              the program stopped treating accessibility as a release-blocking surprise.
+            </p>
+          </section>
+
+          <section id="failure" aria-labelledby="ssa-fail-h" className="scroll-mt-24 mb-10">
+            <h2 id="ssa-fail-h" className="text-2xl font-extrabold text-gray-900 mb-3">
+              What broke, and what I changed
+            </h2>
+            <p className="text-gray-700 leading-relaxed">
+              The first pass over-trusted automation. Teams began treating a clean automated result
+              as a passed accessibility review, and nuanced failures — focus order, meaningful
+              sequence, error recovery — slipped through. Early rule tuning also produced enough
+              false positives that reviewers started dismissing flags in bulk, which is the point
+              at which a deployment is dead even if the dashboard looks healthy.
+            </p>
+            <p className="text-gray-700 leading-relaxed mt-3">
+              I narrowed automated scope to deterministic checks only, made human review an explicit
+              required gate, labelled every finding with its confidence and origin, and used
+              dismissal telemetry as the signal for which rules to rewrite. Trust recovered because
+              the system stopped claiming more than it could prove.
+            </p>
+          </section>
+
+          <section id="handoff" aria-labelledby="ssa-handoff-h" className="scroll-mt-24 mb-10">
+            <h2 id="ssa-handoff-h" className="text-2xl font-extrabold text-gray-900 mb-3">
+              Handoff &amp; scale
+            </h2>
+            <p className="text-gray-700 leading-relaxed">
+              A forward-deployed engagement that only works while you are in the room has failed.
+              Ownership transferred to the program&rsquo;s delivery and accessibility teams with
+              runbooks, rule-tuning criteria, component governance rules, and the evidence model
+              documented. The pattern was then reused on adjacent programs without me rebuilding it.
+            </p>
           </section>
 
           <p className="rounded-xl border border-[rgb(var(--c-primary)/0.25)] bg-[rgb(var(--c-tint-50))] p-5 text-gray-800 leading-relaxed">
-            Forward-deployed work — taking an AI-assisted capability from concept into live,
-            regulated, national-scale production, with the human oversight, governance, and
-            accessibility that made it trustworthy and adopted.
+            Ambiguous complaint → correct problem → working system inside their pipeline → measured
+            outcome → handed off. That is the loop I run on every deployment.
           </p>
 
           <p className="mt-8">
