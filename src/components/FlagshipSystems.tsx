@@ -213,6 +213,14 @@ export default function FlagshipSystems({ n = "05" }: { n?: string }) {
               <Block h="Impact" items={f.impact} />
             </div>
 
+            <div className="mb-4">
+              <SystemDiagram
+                title={f.diagram.title}
+                stages={f.diagram.stages}
+                loop={f.diagram.loop}
+              />
+            </div>
+
             <p className="mt-auto rounded-lg border border-gray-200 bg-[rgb(var(--c-tint-50))] p-4 text-[13px] font-semibold text-gray-900 leading-relaxed">
               <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[rgb(var(--c-accent-on-light))] block mb-1">
                 Insight

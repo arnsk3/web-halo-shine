@@ -1580,6 +1580,23 @@ function Home({
             </p>
           </FadeIn>
 
+          <FadeIn delay={0.19}>
+            <ul className="list-none p-0 mx-auto mb-5 sm:mb-7 grid gap-1.5 max-w-2xl text-left sm:grid-cols-3">
+              {[
+                "Built and deployed AI-driven systems across enterprise-scale environments",
+                "Reduced human error and improved decision workflows in complex systems",
+                "Embedded with engineering, product, operations, and compliance teams",
+              ].map((b) => (
+                <li
+                  key={b}
+                  className="rounded-lg border border-white/20 bg-white/10 px-3 py-2 text-[12px] sm:text-[13px] font-semibold text-white leading-snug"
+                >
+                  {b}
+                </li>
+              ))}
+            </ul>
+          </FadeIn>
+
           <FadeIn delay={0.2}>
             <div className="flex gap-2 sm:gap-3 justify-center flex-wrap mb-5 sm:mb-9">
               <button
