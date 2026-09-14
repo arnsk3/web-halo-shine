@@ -1543,36 +1543,39 @@ function Home({
           <FadeIn>
             <p className="inline-flex items-center gap-2 text-[rgb(var(--c-accent-on-dark))] text-[11px] sm:text-xs font-semibold tracking-[2.5px] uppercase mb-3 sm:mb-5 rounded-full border border-white/15 bg-white/5 backdrop-blur px-4 py-1.5">
               <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-[rgb(var(--c-accent-light))] animate-pulse" />
-              Forward-Deployed AI · Regulated Systems · Human Outcomes
+              Deployed in the field · Regulated AI · Shipped outcomes
             </p>
           </FadeIn>
           <FadeIn delay={0.1}>
             <h1 className="text-3xl sm:text-5xl font-extrabold leading-[1.08] mb-3 sm:mb-5 tracking-tight">
               Senthil Nagappan
               <span className="block mt-2 sm:mt-3 text-xl sm:text-3xl font-extrabold bg-gradient-to-r from-[rgb(var(--c-accent-light))] to-[rgb(var(--c-accent-on-dark))] bg-clip-text text-transparent">
-                Forward-Deployed AI Experience &amp; Human Systems Integration Leader
+                Forward Deployed AI &amp; Human Systems Engineer
               </span>
             </h1>
           </FadeIn>
           <FadeIn delay={0.15}>
             <p className="text-white text-sm sm:text-lg mb-2 sm:mb-4 max-w-2xl mx-auto leading-relaxed">
-              I embed with users, engineering, product, and risk teams to move regulated AI from
-              ambiguity to production — making the last mile safe, usable, accessible, and
-              accountable.
+              I go on site, find where the real workflow breaks, build the thing that fixes it, and
+              stay until it runs in production. Regulated environments — federal, clinical,
+              enterprise — where the AI has to be correct, auditable and actually used.
             </p>
           </FadeIn>
           <FadeIn delay={0.18}>
             <p className="mb-4 sm:mb-7 max-w-2xl mx-auto text-xs sm:text-sm text-white/90 leading-relaxed">
               <span className="font-semibold text-[rgb(var(--c-accent-on-dark))]">
-                Field immersion · Product framing · Production prototyping · Governance
+                Ambiguous problem → working prototype in weeks → integrated into their pipeline →
+                measured in production.
               </span>{" "}
-              — 7+ years in compliance, risk &amp; advisory delivery, leading a $130M federal
-              program portfolio and scaling a cross-functional team to 15+.{" "}
+              Shipped into 40+ monthly federal releases, cut $1.5M+ of annual rework, and stood up
+              the human-oversight layer that let clinical AI reach 1,200+ users. 18+ years, 7+ of
+              them client-facing under audit.{" "}
               <span className="font-semibold">
-                Open to Director-level roles · US remote · available now.
+                Open to Forward Deployed / Director-level roles · US remote · available now.
               </span>
             </p>
           </FadeIn>
+
           <FadeIn delay={0.2}>
             <div className="flex gap-2 sm:gap-3 justify-center flex-wrap mb-5 sm:mb-9">
               <button
