@@ -8118,7 +8118,7 @@ function Footer({
 }
 
 const PAGE_TITLES: Record<PageId, string> = {
-  home: "Senthil Nagappan — Forward-Deployed AI Leader",
+  home: "Senthil Nagappan — Forward Deployed AI & Human Systems Engineer",
   brand: "Brand Identity & Visual Systems — Senthil Nagappan",
   about: "About — Senthil Nagappan",
   approach: "Approach — Senthil Nagappan",
