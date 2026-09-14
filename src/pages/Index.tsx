@@ -20,6 +20,7 @@ import FdeSystems from "@/components/FdeSystems";
 import FdePractice from "@/components/FdePractice";
 import FlagshipSystems from "@/components/FlagshipSystems";
 import SystemsCapabilities from "@/components/SystemsCapabilities";
+import FieldNotes from "@/components/FieldNotes";
 import AIGovernanceCaseStudy from "@/pages/AIGovernanceCaseStudy";
 import CrosswalkEssay from "@/pages/CrosswalkEssay";
 import OversightTiersEssay from "@/pages/OversightTiersEssay";
@@ -1611,6 +1612,12 @@ function Home({
               >
                 Operating model <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
               </button>
+              <button
+                onClick={() => document.getElementById("cases")?.scrollIntoView({ behavior: "smooth" })}
+                className="group inline-flex items-center justify-center gap-2 min-h-[44px] bg-white/10 border border-white/40 text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-white/20 hover:-translate-y-0.5 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
+              >
+                Explore case studies <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
+              </button>
             </div>
           </FadeIn>
           <FadeIn delay={0.23}>
@@ -1975,6 +1982,9 @@ function Home({
 
       {/* 13 — Systems & engineering capabilities */}
       <SystemsCapabilities n="13" />
+
+      {/* 14 — Field notes: short operator entries */}
+      <FieldNotes n="14" />
 
       {/* Brief About — teaser placed after the numbered sequence so 01–09 run uninterrupted */}
       <section className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2rem,4vw,3.5rem)]" aria-labelledby="brief-about-heading">
