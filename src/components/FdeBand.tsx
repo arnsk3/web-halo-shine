@@ -8,10 +8,11 @@ const BULLETS = [
 export default function FdeBand() {
   return (
     <section
+      id="fde-experience"
       aria-labelledby="fde-band-heading"
-      className="bg-[rgb(var(--c-tint-100))] border-y border-[rgb(var(--c-border))]"
+      className="bg-[rgb(var(--c-tint-50))] border-y border-gray-200"
     >
-      <div className="max-w-[1600px] mx-auto px-6 py-8">
+      <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-8">
         <h2
           id="fde-band-heading"
           className="text-[11px] font-bold uppercase tracking-[2px] text-[rgb(var(--c-accent-on-light))] mb-4"
@@ -22,13 +23,13 @@ export default function FdeBand() {
           {BULLETS.map((b) => (
             <li
               key={b}
-              className="rounded-lg border border-[rgb(var(--c-border))] bg-[rgb(var(--c-surface))] px-4 py-3 text-[13px] font-medium leading-snug text-[rgb(var(--c-text))]"
+              className="rounded-lg border border-gray-200 bg-white px-4 py-3 text-[13px] font-medium leading-snug text-gray-900"
             >
               {b}
             </li>
           ))}
         </ul>
-        <p className="mt-4 text-[12.5px] leading-relaxed text-[rgb(var(--c-text-muted))] max-w-4xl">
+        <p className="mt-4 text-[12.5px] leading-relaxed text-gray-700 max-w-4xl">
           Client-facing system delivery across healthcare, federal, and enterprise AI platforms —
           solutions engineering, applied AI engineering, systems implementation, human-in-the-loop
           integration, and production deployment.
