@@ -18,6 +18,7 @@ import GovernanceEngagements from "@/components/GovernanceEngagements";
 import AIGovernanceSection from "@/components/AIGovernanceSection";
 import FdeSystems from "@/components/FdeSystems";
 import FdePractice from "@/components/FdePractice";
+import FdeBand from "@/components/FdeBand";
 import FlagshipSystems from "@/components/FlagshipSystems";
 import SystemsCapabilities from "@/components/SystemsCapabilities";
 import FieldNotes from "@/components/FieldNotes";
