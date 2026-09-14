@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import SectionIndex from "@/components/SectionIndex";
+import SystemDiagram, { type DiagramStage } from "@/components/SystemDiagram";
 
 /**
  * Flagship Forward Deployed Systems — three deployments told in
@@ -15,6 +16,7 @@ type Flagship = {
   deployment: string[];
   impact: string[];
   insight: string;
+  diagram: { title: string; stages: DiagramStage[]; loop: string };
   to?: string;
   cta?: string;
 };
@@ -50,6 +52,18 @@ const FLAGSHIPS: Flagship[] = [
       "Faster release confidence and standardized enforcement across modules.",
     ],
     insight: "Accessibility is a system reliability problem, not a UX issue.",
+    diagram: {
+      title: "Pre-merge compliance pipeline",
+      stages: [
+        { k: "Commit / PR", b: "40+ releases a month" },
+        { k: "SSA11y engine", b: "Llama-based WCAG detection" },
+        { k: "Risk scoring", b: "Severity, not violation count" },
+        { k: "HITL queue", b: "Ambiguous + high-risk only" },
+        { k: "Merge gate", b: "Blocks or annotates the PR" },
+        { k: "Governance dashboard", b: "Remediation velocity" },
+      ],
+      loop: "Confirmed false positives retrain the rule set; recurring failures route back to the shared component library.",
+    },
     to: "/ai-deployment-ssa",
     cta: "Read the full deployment",
   },
@@ -83,6 +97,17 @@ const FLAGSHIPS: Flagship[] = [
       "Human oversight layer that let clinical AI reach 1,200+ users.",
     ],
     insight: "Reducing cognitive load is a systems engineering problem.",
+    diagram: {
+      title: "AI + human decision loop",
+      stages: [
+        { k: "Workflow events", b: "Queue, EHR, ticketing APIs" },
+        { k: "Risk model", b: "Scoring + confidence threshold" },
+        { k: "Routing", b: "Act · recommend · alert tiers" },
+        { k: "Human review", b: "Explanation at point of use" },
+        { k: "Override capture", b: "Reason codes logged" },
+      ],
+      loop: "Dismissal and override rates feed threshold tuning; rules above the false-positive budget get retired.",
+    },
   },
   {
     tag: "Enterprise · Governance",
@@ -114,6 +139,17 @@ const FLAGSHIPS: Flagship[] = [
       "Standardized governance practice that survived team turnover.",
     ],
     insight: "AI governance must be embedded into systems, not added later.",
+    diagram: {
+      title: "Governance control plane",
+      stages: [
+        { k: "AI intake", b: "Use case, data, vendor" },
+        { k: "Risk classification", b: "EU AI Act tiering" },
+        { k: "Control binding", b: "NIST AI RMF · ISO 42001" },
+        { k: "Lifecycle gates", b: "In the existing SDLC" },
+        { k: "Evidence store", b: "Logs, lineage, approvals" },
+      ],
+      loop: "Override and drift telemetry re-opens risk classification when live behavior diverges from the approved use.",
+    },
     to: "/ai-governance",
     cta: "Read the governance case study",
   },
@@ -175,6 +211,14 @@ export default function FlagshipSystems({ n = "05" }: { n?: string }) {
               <Block h="What I built" items={f.built} />
               <Block h="Deployment" items={f.deployment} />
               <Block h="Impact" items={f.impact} />
+            </div>
+
+            <div className="mb-4">
+              <SystemDiagram
+                title={f.diagram.title}
+                stages={f.diagram.stages}
+                loop={f.diagram.loop}
+              />
             </div>
 
             <p className="mt-auto rounded-lg border border-gray-200 bg-[rgb(var(--c-tint-50))] p-4 text-[13px] font-semibold text-gray-900 leading-relaxed">
