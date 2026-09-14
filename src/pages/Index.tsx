@@ -16,6 +16,7 @@ import BrandIdentitySection from "@/components/BrandIdentitySection";
 import AISkillsMatrix from "@/components/AISkillsMatrix";
 import GovernanceEngagements from "@/components/GovernanceEngagements";
 import AIGovernanceSection from "@/components/AIGovernanceSection";
+import FdeSystems from "@/components/FdeSystems";
 import AIGovernanceCaseStudy from "@/pages/AIGovernanceCaseStudy";
 import CrosswalkEssay from "@/pages/CrosswalkEssay";
 import OversightTiersEssay from "@/pages/OversightTiersEssay";
