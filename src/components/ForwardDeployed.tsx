@@ -26,6 +26,8 @@ const IMPACT = [
   { v: "40+", u: "monthly releases", l: "Shipped into live CI/CD" },
   { v: "65%", u: "of defects → 8 components", l: "Fixed at the source" },
   { v: "$1.5M+", u: "saved", l: "~30% audit effort reduced" },
+  { v: "1,200+", u: "clinicians", l: "Supported on AI decision-support" },
+  { v: "7+", u: "years", l: "Compliance, risk & advisory delivery" },
   { v: "18+", u: "years", l: "Healthcare, federal, enterprise" },
 ];
 
@@ -42,16 +44,15 @@ export function ImpactStrip() {
         <dl className="flex flex-wrap gap-x-8 gap-y-5 justify-between">
           {IMPACT.map((s) => (
             <div key={s.l} className="min-w-[9rem] flex-1">
-              <dt className="sr-only">{s.l}</dt>
-              <dd>
+              <dd className="order-1">
                 <span className="block font-display text-2xl font-extrabold text-[rgb(var(--c-primary))] tabular-nums">
                   {s.v}{" "}
                   <span className="text-sm font-semibold text-gray-700">{s.u}</span>
                 </span>
-                <span className="block text-[13px] text-gray-700 mt-1 leading-snug">
-                  {s.l}
-                </span>
               </dd>
+              <dt className="block text-[13px] text-gray-700 mt-1 leading-snug">
+                {s.l}
+              </dt>
             </div>
           ))}
         </dl>
@@ -258,7 +259,7 @@ export function AIDeploymentSection() {
           interaction tested with assistive technology.
         </p>
         <p className="text-[13px] text-gray-700 mt-3">
-          Live app and source repository links are being finalised and will be linked here.
+          Happy to demo the running app and walk through the code in an interview.
         </p>
       </article>
 
