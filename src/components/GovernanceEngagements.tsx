@@ -105,7 +105,7 @@ export default function GovernanceEngagements() {
           controls, roadmap the fix, then operate. Here is how I run that arc — with the
           deliverables a risk, regulatory, or model-risk team actually signs off on.
         </p>
-        <p className="text-gray-600 text-[13px] leading-relaxed">
+        <p className="text-gray-700 text-[13px] leading-relaxed">
           Shipped client work and in-house concepts are labeled as such; concept metrics are
           estimates or targets, and I can walk through the reasoning behind any of them.
         </p>
@@ -134,7 +134,7 @@ export default function GovernanceEngagements() {
             <span
               className={`inline-flex self-start items-center rounded-full px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.14em] border mb-4 ${
                 e.chip === "Shipped in production"
-                  ? "bg-emerald-50 border-emerald-200 text-emerald-800"
+                  ? "bg-emerald-50 border-emerald-200 text-emerald-900"
                   : "bg-amber-50 border-amber-300 text-amber-900"
               }`}
             >

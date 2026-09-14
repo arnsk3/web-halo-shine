@@ -217,7 +217,7 @@ function BrandCard({ p }: { p: BrandProject }) {
           <h3 id={`brand-${p.id}-name`} className="font-bold text-gray-900 text-base leading-snug">
             {p.descriptor}
           </h3>
-          <span className="text-[11px] font-semibold text-gray-600 whitespace-nowrap">{p.year}</span>
+          <span className="text-[11px] font-semibold text-gray-700 whitespace-nowrap">{p.year}</span>
         </div>
         <p className="text-[rgb(var(--c-accent-on-light))] text-xs font-semibold uppercase tracking-wide mb-3">
           {p.sector}
@@ -230,7 +230,7 @@ function BrandCard({ p }: { p: BrandProject }) {
           {p.palette.map((c) => (
             <li key={c.name} className="flex-1">
               <span className={`block h-8 rounded-md border border-black/5 ${c.className}`} aria-hidden="true" />
-              <span className="mt-1 block text-[10px] text-gray-600 text-center">{c.name}</span>
+              <span className="mt-1 block text-[10px] text-gray-700 text-center">{c.name}</span>
             </li>
           ))}
         </ul>
@@ -276,8 +276,8 @@ function GuidelinesSpread() {
           <p className="text-[11px] font-bold uppercase tracking-wide text-gray-700 mb-3">Type system</p>
           <p className="text-3xl font-black text-[rgb(var(--c-primary))] leading-none">Aa</p>
           <p className="text-lg font-bold text-gray-800 mt-1">Display · Bold</p>
-          <p className="text-sm text-gray-600">Body · Regular 400</p>
-          <p className="text-xs text-gray-600 tracking-wide mt-1">CAPS · LETTERSPACED LABELS</p>
+          <p className="text-sm text-gray-700">Body · Regular 400</p>
+          <p className="text-xs text-gray-700 tracking-wide mt-1">CAPS · LETTERSPACED LABELS</p>
         </div>
         {/* Color tokens */}
         <div className="rounded-xl border border-gray-100 bg-[rgb(var(--c-tint-50))] p-4">
@@ -324,14 +324,14 @@ function RefreshShowcase() {
       <div className="grid gap-4 sm:grid-cols-2">
         {/* Before */}
         <div className="rounded-xl border border-gray-200 bg-gray-50 p-6 text-center">
-          <span className="inline-block text-[10px] font-bold uppercase tracking-widest text-gray-600 mb-4">Before</span>
+          <span className="inline-block text-[10px] font-bold uppercase tracking-widest text-gray-700 mb-4">Before</span>
           <div className="flex flex-col items-center gap-3">
             <svg viewBox="0 0 64 64" className="h-16 w-16" role="img" aria-label="Legacy mark, before refresh">
               <circle cx="32" cy="32" r="26" fill="none" stroke="#9ca3af" strokeWidth="8" />
               <path d="M14 40h36" stroke="#9ca3af" strokeWidth="6" />
             </svg>
-            <span className="text-2xl font-serif text-gray-600 tracking-wide">PULSE</span>
-            <span className="text-[11px] text-gray-600">Dated, low-contrast, portfolio fragmented</span>
+            <span className="text-2xl font-serif text-gray-700 tracking-wide">PULSE</span>
+            <span className="text-[11px] text-gray-700">Dated, low-contrast, portfolio fragmented</span>
           </div>
         </div>
         {/* After */}
@@ -340,7 +340,7 @@ function RefreshShowcase() {
           <div className="flex flex-col items-center gap-3">
             {MarkPulse}
             <span className="text-2xl font-bold tracking-tight text-[rgb(var(--c-primary))]">Pulse</span>
-            <span className="text-[11px] text-gray-600">Unified system, AAA contrast, motion-ready</span>
+            <span className="text-[11px] text-gray-700">Unified system, AAA contrast, motion-ready</span>
           </div>
         </div>
       </div>
@@ -368,7 +368,7 @@ function BrandImpact() {
         {stats.map((s) => (
           <div key={s.label} className="rounded-xl border border-gray-100 bg-white p-4">
             <dd className="text-3xl font-black text-[rgb(var(--c-primary))] leading-none mb-1.5 ml-0">{s.value}</dd>
-            <dt className="text-xs text-gray-600 leading-snug">{s.label}</dt>
+            <dt className="text-xs text-gray-700 leading-snug">{s.label}</dt>
           </div>
         ))}
       </dl>

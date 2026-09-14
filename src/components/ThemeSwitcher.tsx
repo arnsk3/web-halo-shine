@@ -72,7 +72,7 @@ export default function ThemeSwitcher() {
           aria-label="Color themes"
           className="absolute bottom-14 right-0 w-60 max-w-[80vw] rounded-2xl border border-gray-200 bg-white p-2 shadow-2xl"
         >
-          <p className="px-2 py-1.5 text-xs font-semibold uppercase tracking-wide text-gray-600">
+          <p className="px-2 py-1.5 text-xs font-semibold uppercase tracking-wide text-gray-700">
             Choose a theme
           </p>
           <ul className="list-none p-0 m-0 max-h-[60vh] overflow-y-auto">

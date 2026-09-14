@@ -1297,13 +1297,13 @@ function TradeOffs() {
                   <dd className="text-gray-800 leading-relaxed">{t.chose}</dd>
                 </div>
                 <div>
-                  <dt className="font-mono text-[10px] uppercase tracking-[0.18em] text-gray-600 font-bold mb-0.5">
+                  <dt className="font-mono text-[10px] uppercase tracking-[0.18em] text-gray-700 font-bold mb-0.5">
                     Cost
                   </dt>
                   <dd className="text-gray-700 leading-relaxed">{t.cost}</dd>
                 </div>
                 <div>
-                  <dt className="font-mono text-[10px] uppercase tracking-[0.18em] text-gray-600 font-bold mb-0.5">
+                  <dt className="font-mono text-[10px] uppercase tracking-[0.18em] text-gray-700 font-bold mb-0.5">
                     Why it held
                   </dt>
                   <dd className="text-gray-700 leading-relaxed">{t.why}</dd>
@@ -1471,7 +1471,7 @@ function Signals() {
               </blockquote>
               <figcaption className="mt-auto pt-4 border-t border-gray-100">
                 <p className="text-sm font-bold text-gray-900">{t.who}</p>
-                <p className="text-[12px] text-gray-600 mt-0.5">{t.context}</p>
+                <p className="text-[12px] text-gray-700 mt-0.5">{t.context}</p>
               </figcaption>
             </figure>
           ))}
@@ -1650,7 +1650,7 @@ function Home({
           <p className="text-gray-700 text-base mb-3 max-w-3xl">
             Design systems, accessibility, and AI products that drove adoption and trust at scale.
           </p>
-          <p className="text-gray-600 text-[13px] mb-6 max-w-2xl">
+          <p className="text-gray-700 text-[13px] mb-6 max-w-2xl">
             <span className="font-semibold text-gray-700">A note on metrics:</span> figures are team
             and program outcomes; my own contribution is described inside each case.
           </p>
@@ -1679,7 +1679,7 @@ function Home({
                   }`}
                 >
                   {f}
-                  <span className={`text-[10px] font-bold ${active ? "text-white/90" : "text-gray-600"}`}>
+                  <span className={`text-[10px] font-bold ${active ? "text-white/90" : "text-gray-700"}`}>
                     {count}
                   </span>
                 </button>
@@ -1689,7 +1689,7 @@ function Home({
         </FadeIn>
 
         <div className="mb-5 flex flex-wrap items-center gap-3 border-t border-gray-200 pt-5">
-          <span className="inline-flex items-center gap-2 rounded-full bg-emerald-50 border border-emerald-200 px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-emerald-800">
+          <span className="inline-flex items-center gap-2 rounded-full bg-emerald-50 border border-emerald-200 px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-emerald-900">
             Shipped in production
           </span>
           <p className="text-[13px] text-gray-700">
@@ -1723,7 +1723,7 @@ function Home({
                       <h3 className="font-bold text-gray-900 text-lg mb-1.5 leading-snug">
                         AI Concepts (Non-Deployed)
                       </h3>
-                      <p className="text-gray-600 text-[12px] mb-3 font-medium">
+                      <p className="text-gray-700 text-[12px] mb-3 font-medium">
                         Exploratory concepts — clearly distinguished from the deployed,
                         in-production work above.
                       </p>
@@ -1786,7 +1786,7 @@ function Home({
                   <h3 className="font-bold text-gray-900 text-lg mb-1.5 leading-snug">
                     {s.title}
                   </h3>
-                  <p className="text-gray-600 text-[12px] mb-3 font-medium">
+                  <p className="text-gray-700 text-[12px] mb-3 font-medium">
                     {s.role} · {s.org} · {s.timeline}
                   </p>
                   <p className="text-gray-700 text-sm mb-4 leading-relaxed">
@@ -1796,13 +1796,13 @@ function Home({
                     {s.metrics.map((m) => (
                       <span
                         key={m.label}
-                        className="text-xs font-semibold px-3 py-1.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-100"
+                        className="text-xs font-semibold px-3 py-1.5 rounded-full bg-emerald-50 text-emerald-900 border border-emerald-100"
                       >
                         {m.value} {m.label}
                       </span>
                     ))}
                   </div>
-                  <p className="text-[11px] text-gray-600 mb-4 leading-snug">
+                  <p className="text-[11px] text-gray-700 mb-4 leading-snug">
                     {isInHouse(s)
                       ? "Illustrative reference scenario · self-initiated concept, not a shipped product"
                       : `Program scope · my contribution: ${s.role}`}
@@ -1937,14 +1937,14 @@ function Home({
                     {a.tag}
                   </p>
                   {a.date && (
-                    <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-gray-600">
+                    <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-gray-700">
                       {a.date}
                     </p>
                   )}
                 </div>
                 <h3 className="font-display text-base font-bold text-gray-900 mb-2 leading-snug">{a.t}</h3>
                 <p className="text-[13px] text-gray-700 leading-relaxed">{a.d}</p>
-                <p className="mt-auto pt-4 text-[12px] text-gray-600">
+                <p className="mt-auto pt-4 text-[12px] text-gray-700">
                   {a.to ? (
                     <Link
                       to={a.to}
@@ -2130,11 +2130,11 @@ const SHOWCASE: Record<string, ShowcaseConfig> = {
           <>
             <WBar w="70%" h={10} c="bg-[rgb(var(--c-primary))]" />
             <div className="rounded bg-gray-900 p-2 font-mono text-[8px] leading-tight text-green-300" aria-hidden="true">
-              {'<button class="text-gray-600">'}<br />&nbsp;&nbsp;Submit<br />{'</button>'}
+              {'<button class="text-gray-700">'}<br />&nbsp;&nbsp;Submit<br />{'</button>'}
             </div>
             <div className="flex items-center gap-1.5">
               <span className="text-[9px] px-1.5 py-0.5 rounded bg-[#ffe2e2] text-[#8a1a1a] font-bold">2.1:1</span>
-              <span className="text-[9px] text-gray-600">requires 4.5:1</span>
+              <span className="text-[9px] text-gray-700">requires 4.5:1</span>
             </div>
             <WBar w="100%" h={6} />
             <WBar w="55%" h={6} />
@@ -2197,7 +2197,7 @@ const SHOWCASE: Record<string, ShowcaseConfig> = {
               <div className="h-2 rounded-full bg-gray-200 overflow-hidden">
                 <div className="h-full bg-gradient-to-r from-[rgb(var(--c-accent))] to-[rgb(var(--c-primary))]" style={{ width: "72%" }} />
               </div>
-              <div className="text-[8px] text-gray-600 mt-0.5">72% · Moderate</div>
+              <div className="text-[8px] text-gray-700 mt-0.5">72% · Moderate</div>
             </div>
             <div className="rounded bg-[#fff8e5] border border-[#ffe6a1] p-1.5 text-[9px] text-[#5a4400]" aria-hidden="true">
               ⚠ Verify against labs before acting
@@ -2509,7 +2509,7 @@ const SHOWCASE: Record<string, ShowcaseConfig> = {
             <div aria-hidden="true">
               <div className="text-[9px] text-gray-700 mb-1 font-medium">Calibrated confidence</div>
               <div className="h-2 rounded-full bg-gray-200 overflow-hidden"><div className="h-full bg-gradient-to-r from-[rgb(var(--c-accent))] to-[rgb(var(--c-primary))]" style={{ width: "61%" }} /></div>
-              <div className="text-[8px] text-gray-600 mt-0.5">61% · escalate if uncertain</div>
+              <div className="text-[8px] text-gray-700 mt-0.5">61% · escalate if uncertain</div>
             </div>
             <div className="rounded bg-[#fff8e5] border border-[#ffe6a1] p-1.5 text-[9px] text-[#5a4400]" aria-hidden="true">High-uncertainty case — flagged for review</div>
           </>
@@ -2551,7 +2551,7 @@ const SHOWCASE: Record<string, ShowcaseConfig> = {
               <APin n={2} className="-left-1 -top-1" />
               <div className="text-[8px] text-gray-700 mb-0.5 font-medium">Calibrated confidence</div>
               <div className="h-2 rounded-full bg-gray-200 overflow-hidden"><div className="h-full bg-gradient-to-r from-[rgb(var(--c-accent))] to-[rgb(var(--c-primary))]" style={{ width: "88%" }} /></div>
-              <div className="text-[8px] text-gray-600 mt-0.5">88% · well-calibrated for this case type</div>
+              <div className="text-[8px] text-gray-700 mt-0.5">88% · well-calibrated for this case type</div>
             </div>
             <div className="relative rounded bg-white border border-gray-200 p-1.5" aria-hidden="true">
               <APin n={3} className="-left-1 top-1" />
@@ -2588,7 +2588,7 @@ const SHOWCASE: Record<string, ShowcaseConfig> = {
               <APin n={2} className="-left-1 -top-1" />
               <div className="text-[8px] text-gray-700 mb-0.5 font-medium">Calibrated confidence</div>
               <div className="h-2 rounded-full bg-gray-200 overflow-hidden"><div className="h-full bg-[#d4a02a]" style={{ width: "47%" }} /></div>
-              <div className="text-[8px] text-gray-600 mt-0.5">47% · below escalation threshold</div>
+              <div className="text-[8px] text-gray-700 mt-0.5">47% · below escalation threshold</div>
             </div>
             <div className="relative rounded bg-white border border-gray-200 p-2 space-y-1" aria-hidden="true">
               <APin n={3} className="-left-1 top-1" />
@@ -2902,7 +2902,7 @@ function CaseStudyShowcase({ id }: { id: string }) {
             </div>
           ))}
         </div>
-        <p className="text-[11px] text-gray-600 mt-3 text-center">
+        <p className="text-[11px] text-gray-700 mt-3 text-center">
           NDA-safe stylized wireframes — structure and interaction shown, proprietary visuals omitted.
         </p>
       </figure>
@@ -2912,7 +2912,7 @@ function CaseStudyShowcase({ id }: { id: string }) {
           <figcaption id={`${screensId}-examples`} className="text-xs font-semibold tracking-wide uppercase text-gray-700 mb-1 text-center">
             {cfg.examplesTitle ?? "Detailed examples — annotated walkthroughs"}
           </figcaption>
-          <p className="text-[11px] text-gray-600 mb-5 text-center max-w-2xl mx-auto">
+          <p className="text-[11px] text-gray-700 mb-5 text-center max-w-2xl mx-auto">
             Representative end-to-end scenarios. Each annotated mockup shows the real interaction sequence — numbered callouts map to the design decisions on the right.
           </p>
           <div className="space-y-6">
@@ -2947,7 +2947,7 @@ function CaseStudyShowcase({ id }: { id: string }) {
               </article>
             ))}
           </div>
-          <p className="text-[11px] text-gray-600 mt-3 text-center">
+          <p className="text-[11px] text-gray-700 mt-3 text-center">
             NDA-safe representative mockups — interaction logic and content structure shown, proprietary client visuals omitted.
           </p>
         </figure>
@@ -3335,7 +3335,7 @@ function ResearchProcess({ id }: { id: string }) {
                 </span>
                 <div className="flex-1 min-w-0">
                   <div className="text-[11px] font-semibold text-gray-900 truncate">{p.label}</div>
-                  <div className="text-[10px] text-gray-600 leading-snug">{p.note}</div>
+                  <div className="text-[10px] text-gray-700 leading-snug">{p.note}</div>
                 </div>
               </li>
             ))}
@@ -3373,7 +3373,7 @@ function ResearchProcess({ id }: { id: string }) {
           </div>
         </div>
 
-        <p className="text-[11px] text-gray-600 mt-2 text-center">
+        <p className="text-[11px] text-gray-700 mt-2 text-center">
           NDA-safe research artifact — structure shown, proprietary protocols and participant data omitted.
         </p>
       </figure>
@@ -4373,7 +4373,7 @@ function GeFrameworkPersonas() {
           <h2 id="ge-personas-title" className="text-lg font-bold text-gray-900 mb-1">
             Detailed Personas by User Group
           </h2>
-          <p className="text-gray-600 text-xs mb-6">
+          <p className="text-gray-700 text-xs mb-6">
             The AI safety framework serves five distinct user groups across the clinical AI
             lifecycle. Each persona has its own goals, frustrations, and safety needs that shaped
             the governance model.
@@ -4408,7 +4408,7 @@ function GeFrameworkPersonas() {
                   </p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <h4 className="text-[11px] font-bold uppercase tracking-wide text-emerald-800 mb-1.5">
+                      <h4 className="text-[11px] font-bold uppercase tracking-wide text-emerald-900 mb-1.5">
                         Goals
                       </h4>
                       <ul className="list-disc pl-4 space-y-1 m-0">
@@ -4455,7 +4455,7 @@ function GeFrameworkPersonas() {
           <h2 id="ge-journey-title" className="text-lg font-bold text-gray-900 mb-1">
             User-Group Journey Maps
           </h2>
-          <p className="text-gray-600 text-xs mb-4">
+          <p className="text-gray-700 text-xs mb-4">
             Select a user group to expand its journey — the tasks they perform across the AI
             lifecycle and the safety needs each task must satisfy.
           </p>
@@ -4486,7 +4486,7 @@ function GeFrameworkPersonas() {
             <button
               type="button"
               onClick={() => setOpenJourneys([])}
-              className="text-[11px] font-semibold px-3 py-1.5 rounded-md border border-gray-200 bg-white text-gray-600 hover:bg-gray-50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
+              className="text-[11px] font-semibold px-3 py-1.5 rounded-md border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
             >
               Collapse all
             </button>
@@ -4546,14 +4546,14 @@ function GeFrameworkPersonas() {
                         </div>
                       </div>
                       <div>
-                        <span className="text-[10px] font-bold uppercase tracking-wide text-emerald-800">
+                        <span className="text-[10px] font-bold uppercase tracking-wide text-emerald-900">
                           Safety needs
                         </span>
                         <div className="flex flex-wrap gap-2 mt-2">
                           {j.needs.map((n) => (
                             <span
                               key={n}
-                              className="text-[11px] font-semibold px-2.5 py-1 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-100"
+                              className="text-[11px] font-semibold px-2.5 py-1 rounded-md bg-emerald-50 text-emerald-900 border border-emerald-100"
                             >
                               {n}
                             </span>
@@ -5029,7 +5029,7 @@ function WcagToolDetails() {
           >
             AI Fixes in Action
           </h2>
-          <p className="text-gray-600 text-xs mb-5">
+          <p className="text-gray-700 text-xs mb-5">
             Concrete examples of issues the tool flags, the AI suggestion it surfaces, and the
             ready-to-apply before/after fix.
           </p>
@@ -5097,7 +5097,7 @@ function WcagToolDetails() {
           >
             Who It Serves
           </h2>
-          <p className="text-gray-600 text-xs mb-5">
+          <p className="text-gray-700 text-xs mb-5">
             Designed as an inclusive tool — usable by Developers, Testers, SMEs, QA, and more.
           </p>
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 list-none p-0 m-0">
@@ -5115,7 +5115,7 @@ function WcagToolDetails() {
                 <div>
                   <h3 className="text-sm font-bold text-[rgb(var(--c-hero-dark))] mb-1">{p.role}</h3>
                   <p className="text-[12.5px] text-gray-700 leading-relaxed mb-2">{p.use}</p>
-                  <span className="inline-block text-[10px] font-semibold tracking-wide uppercase px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-100">
+                  <span className="inline-block text-[10px] font-semibold tracking-wide uppercase px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-900 border border-emerald-100">
                     {p.gain}
                   </span>
                 </div>
@@ -5131,7 +5131,7 @@ function WcagToolDetails() {
           <h2 id="wcag-personas-title" className="text-lg font-bold text-gray-900 mb-1">
             Detailed Personas by User Group
           </h2>
-          <p className="text-gray-600 text-xs mb-6">
+          <p className="text-gray-700 text-xs mb-6">
             Each persona represents a distinct user group with its own goals, frustrations, and
             needs that shaped the suite's design.
           </p>
@@ -5165,7 +5165,7 @@ function WcagToolDetails() {
                   </p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <h4 className="text-[11px] font-bold uppercase tracking-wide text-emerald-800 mb-1.5">
+                      <h4 className="text-[11px] font-bold uppercase tracking-wide text-emerald-900 mb-1.5">
                         Goals
                       </h4>
                       <ul className="list-disc pl-4 space-y-1 m-0">
@@ -5212,7 +5212,7 @@ function WcagToolDetails() {
           <h2 id="wcag-ia-title" className="text-lg font-bold text-gray-900 mb-1">
             Information Architecture
           </h2>
-          <p className="text-gray-600 text-xs mb-6">
+          <p className="text-gray-700 text-xs mb-6">
             A layered structure (L0–L4) lets every persona reach the same shared "Issue Detail"
             unit from their own workflow — then aggregate it into roadmaps and evidence.
           </p>
@@ -5235,7 +5235,7 @@ function WcagToolDetails() {
                       </span>
                     ))}
                   </div>
-                  <p className="text-[12px] text-gray-600 leading-relaxed">{lvl.note}</p>
+                  <p className="text-[12px] text-gray-700 leading-relaxed">{lvl.note}</p>
                 </div>
               </li>
             ))}
@@ -5249,7 +5249,7 @@ function WcagToolDetails() {
           <h2 id="wcag-userflow-title" className="text-lg font-bold text-gray-900 mb-1">
             User Flow
           </h2>
-          <p className="text-gray-600 text-xs mb-6">
+          <p className="text-gray-700 text-xs mb-6">
             The end-to-end path a contributor takes from a raw page to verified, exportable
             conformance — including the decision branch at each step.
           </p>
@@ -5284,7 +5284,7 @@ function WcagToolDetails() {
           <h2 id="wcag-cj-title" className="text-lg font-bold text-gray-900 mb-1">
             Customer Journey
           </h2>
-          <p className="text-gray-600 text-xs mb-6">
+          <p className="text-gray-700 text-xs mb-6">
             The emotional arc from an overwhelming audit to confident, auditable conformance — and
             the product opportunity that turns each phase positive.
           </p>
@@ -5305,7 +5305,7 @@ function WcagToolDetails() {
                     <span className="font-semibold text-[rgb(var(--c-primary))]">Action: </span>
                     {c.action}
                   </p>
-                  <p className="text-[12px] italic text-gray-600">{c.thought}</p>
+                  <p className="text-[12px] italic text-gray-700">{c.thought}</p>
                   <span className="inline-block text-[10px] font-bold uppercase tracking-wide px-2 py-0.5 rounded bg-[rgb(var(--c-tint-100))] text-[rgb(var(--c-primary))]">
                     {c.emotion}
                   </span>
@@ -5326,7 +5326,7 @@ function WcagToolDetails() {
           <h2 id="wcag-process-title" className="text-lg font-bold text-gray-900 mb-1">
             Process Flow
           </h2>
-          <p className="text-gray-600 text-xs mb-6">
+          <p className="text-gray-700 text-xs mb-6">
             How the engine transforms input into auditable output — a five-stage pipeline that loops
             on re-scan until AAA conformance is reached.
           </p>
@@ -5372,7 +5372,7 @@ function WcagToolDetails() {
           <h2 id="wcag-research-title" className="text-lg font-bold text-gray-900 mb-1">
             Research Studies & Approaches
           </h2>
-          <p className="text-gray-600 text-xs mb-6">
+          <p className="text-gray-700 text-xs mb-6">
             A mixed-methods program — qualitative depth plus quantitative validation — grounded
             the design decisions and measured impact.
           </p>
@@ -5433,7 +5433,7 @@ function WcagToolDetails() {
           <h2 id="wcag-journey-title" className="text-lg font-bold text-gray-900 mb-1">
             User-Group Journey Flow
           </h2>
-          <p className="text-gray-600 text-xs mb-6">
+          <p className="text-gray-700 text-xs mb-6">
             Select a user group to expand its journey — the tasks they perform in the suite and the
             WCAG needs those tasks satisfy.
           </p>
@@ -5450,7 +5450,7 @@ function WcagToolDetails() {
             <button
               type="button"
               onClick={() => setOpenJourneys([])}
-              className="text-[11px] font-semibold px-3 py-1.5 rounded-md border border-gray-200 bg-white text-gray-600 hover:bg-gray-50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
+              className="text-[11px] font-semibold px-3 py-1.5 rounded-md border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
             >
               Collapse all
             </button>
@@ -5515,14 +5515,14 @@ function WcagToolDetails() {
 
                       {/* WCAG needs */}
                       <div>
-                        <span className="text-[10px] font-bold uppercase tracking-wide text-emerald-800">
+                        <span className="text-[10px] font-bold uppercase tracking-wide text-emerald-900">
                           WCAG needs
                         </span>
                         <div className="flex flex-wrap gap-2 mt-2">
                           {j.needs.map((n) => (
                             <span
                               key={n}
-                              className="text-[11px] font-semibold px-2.5 py-1 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-100"
+                              className="text-[11px] font-semibold px-2.5 py-1 rounded-md bg-emerald-50 text-emerald-900 border border-emerald-100"
                             >
                               {n}
                             </span>
@@ -5538,7 +5538,7 @@ function WcagToolDetails() {
 
           {/* Sample study excerpts */}
           <h3 className="text-sm font-bold text-gray-900 mt-8 mb-1">Sample Study Excerpts</h3>
-          <p className="text-gray-600 text-xs mb-4">
+          <p className="text-gray-700 text-xs mb-4">
             Verbatim quotes from the research that validated each group's journey.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -5601,7 +5601,7 @@ function WcagToolDetails() {
               </li>
             ))}
           </ol>
-          <p className="text-[11px] text-gray-600 mt-3">
+          <p className="text-[11px] text-gray-700 mt-3">
             Self-contained and backend-light — runs anywhere. Every check maps back to its
             normative success criterion, so output doubles as auditable evidence.
           </p>
@@ -5766,7 +5766,7 @@ function WcagToolDetails() {
 
               {/* Accessibility of the assistant itself */}
               <div className="rounded-xl border border-emerald-100 bg-emerald-50 p-4">
-                <h3 className="text-[12px] font-bold text-emerald-800 mb-2">
+                <h3 className="text-[12px] font-bold text-emerald-900 mb-2">
                   The assistant is itself AAA-compliant
                 </h3>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5 list-none p-0 m-0">
@@ -6061,7 +6061,7 @@ function AIFramework({ id }: { id: string }) {
           <span>{cfg.loop}</span>
         </div>
 
-        <p className="text-[11px] text-gray-600 mt-2 text-center">
+        <p className="text-[11px] text-gray-700 mt-2 text-center">
           NDA-safe recreated artifact — structure shown, proprietary details omitted.
         </p>
       </figure>
@@ -6196,8 +6196,8 @@ function CaseStudy({
                 key={m.label}
                 className="text-center py-3 bg-emerald-50/60 rounded-lg border border-emerald-100"
               >
-                <div className="text-2xl font-extrabold text-emerald-800">{m.value}</div>
-                <div className="text-xs text-emerald-800 font-medium mt-0.5">
+                <div className="text-2xl font-extrabold text-emerald-900">{m.value}</div>
+                <div className="text-xs text-emerald-900 font-medium mt-0.5">
                   {m.label}
                 </div>
               </div>
@@ -6232,7 +6232,7 @@ function CaseStudy({
                 </span>
                 The Work — Visual Artifacts
               </h2>
-              <p className="text-gray-600 text-sm mb-5 pl-8">
+              <p className="text-gray-700 text-sm mb-5 pl-8">
                 UI screens, style guides, component systems, and before/afters.
               </p>
               <div className="grid gap-4 pl-8 [grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr))]">
@@ -6327,7 +6327,7 @@ function CaseStudy({
                   </ul>
                 </div>
               </div>
-              <p className="text-[11px] text-gray-600 mt-2 text-center">
+              <p className="text-[11px] text-gray-700 mt-2 text-center">
                 MIL-STD-1472H design criteria mapped from defense systems to consumer health products.
               </p>
             </figure>
@@ -6467,7 +6467,7 @@ function CaseStudy({
                 </span>
               </div>
 
-              <p className="text-[11px] text-gray-600 mt-2 text-center">
+              <p className="text-[11px] text-gray-700 mt-2 text-center">
                 NDA-safe recreated artifact — structure shown, proprietary details omitted.
               </p>
             </figure>
@@ -6574,7 +6574,7 @@ function CaseStudy({
                 </span>
               </div>
 
-              <p className="text-[11px] text-gray-600 mt-2 text-center">
+              <p className="text-[11px] text-gray-700 mt-2 text-center">
                 NDA-safe recreated artifact — structure shown, proprietary details omitted.
               </p>
             </figure>
@@ -6691,7 +6691,7 @@ function CaseStudy({
               <span className="text-gray-700 text-xs font-medium">
                 PROCESS DIAGRAM / FRAMEWORK VISUAL
               </span>
-              <span className="text-gray-600 text-[10px]">NDA-safe recreated artifact</span>
+              <span className="text-gray-700 text-[10px]">NDA-safe recreated artifact</span>
             </div>
           </FadeIn>
         )}
@@ -6978,7 +6978,7 @@ function About() {
       {/* Skills matrix */}
       <FadeIn delay={0.12}>
         <h2 className="text-xl font-extrabold text-gray-900 tracking-tight mb-1">Skills &amp; Capabilities</h2>
-        <p className="text-gray-600 text-sm mb-6">The full toolkit I bring across design, engineering, and governance.</p>
+        <p className="text-gray-700 text-sm mb-6">The full toolkit I bring across design, engineering, and governance.</p>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-12">
           {skillGroups.map((g) => (
             <div
@@ -7017,7 +7017,7 @@ function About() {
                 <h3 className="font-bold text-gray-900 text-sm">{t.role}</h3>
                 <span className="text-[11px] font-medium text-[rgb(var(--c-accent-dark))]">{t.period}</span>
               </div>
-              <p className="text-xs font-semibold text-gray-600 mb-1">{t.org}</p>
+              <p className="text-xs font-semibold text-gray-700 mb-1">{t.org}</p>
               <p className="text-[13px] text-gray-700 leading-relaxed">{t.desc}</p>
             </li>
           ))}
@@ -7155,7 +7155,7 @@ function Approach() {
       {/* Process stepper */}
       <FadeIn delay={0.05}>
         <h2 className="text-xl font-extrabold text-gray-900 tracking-tight mb-1">From field insight to deployed product</h2>
-        <p className="text-gray-600 text-sm mb-6">A repeatable, evidence-driven process I run end to end.</p>
+        <p className="text-gray-700 text-sm mb-6">A repeatable, evidence-driven process I run end to end.</p>
         <ol className="list-none p-0 m-0 mb-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           {process.map((p, i) => (
             <li key={p.step} className="rounded-xl border border-gray-200 bg-white p-5">
@@ -7770,7 +7770,7 @@ function Contact() {
   return (
     <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2rem,4vw,3.5rem)]">
       <FadeIn>
-        <div className="inline-flex items-center gap-2 mb-3 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-[11px] font-semibold text-emerald-800">
+        <div className="inline-flex items-center gap-2 mb-3 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-[11px] font-semibold text-emerald-900">
           <span aria-hidden="true" className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
           Available for new opportunities
         </div>
@@ -7876,7 +7876,7 @@ function Contact() {
           >
             <div
               aria-hidden="true"
-              className="w-12 h-12 mx-auto mb-4 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center text-2xl font-bold"
+              className="w-12 h-12 mx-auto mb-4 rounded-full bg-emerald-100 text-emerald-900 flex items-center justify-center text-2xl font-bold"
             >
               ✓
             </div>
@@ -8296,7 +8296,7 @@ function InHouseLab({
                     {s.metrics.slice(0, 3).map((m) => (
                       <span
                         key={m.label}
-                        className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-100"
+                        className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-900 border border-emerald-100"
                       >
                         {m.value} {m.label}
                       </span>
