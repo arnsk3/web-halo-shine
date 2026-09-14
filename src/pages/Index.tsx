@@ -381,7 +381,7 @@ const CASE_STUDIES: CaseStudyType[] = [
   {
     id: "ssa",
     tag: "Design System · Data-Driven · Visual Consistency at Scale",
-    title: "A Data-Driven Design System That Unified 50M+ User Experiences",
+    title: "Forward Deployed AI Accessibility Automation & Design System Engineering for a 50M+ User Federal Platform",
     subtitle:
       "Led the visual design system and data-driven design decisions across 15+ digital touchpoints — analyzing behavioral data to drive a system-wide redesign that improved engagement, unified the visual system, and saved $1.5M+ annually for 50M+ users.",
     hero: "from-[#1a1a2e] via-[#16213e] to-[#0f3460]",
