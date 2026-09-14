@@ -382,16 +382,16 @@ const CASE_STUDIES: CaseStudyType[] = [
   },
   {
     id: "ssa",
-    tag: "Design System · Data-Driven · Visual Consistency at Scale",
+    tag: "Federal Production · LLM in CI/CD · Systems Integration at Scale",
     title: "Forward Deployed AI Accessibility Automation & Design System Engineering for a 50M+ User Federal Platform",
     subtitle:
-      "Led the visual design system and data-driven design decisions across 15+ digital touchpoints — analyzing behavioral data to drive a system-wide redesign that improved engagement, unified the visual system, and saved $1.5M+ annually for 50M+ users.",
+      "Embedded with federal engineering, QA, and compliance teams to build SSA11y — an LLM-based detection service wired into the CI/CD pipeline as a pre-merge gate — plus a versioned component library consumed by 15+ modules across 40+ monthly releases. 30–40% fewer defects, $1.5M+ annual rework avoided, 50M+ users.",
     hero: "from-[#1a1a2e] via-[#16213e] to-[#0f3460]",
     image: caseSsa,
-    role: "Lead Visual & Design Systems Designer",
+    role: "Forward Deployed Engineer — AI systems, CI/CD integration, human-in-the-loop design",
     timeline: "2022 – 2025",
     org: "Leidos / Social Security Administration",
-    standards: ["Design System", "Style Guide", "Data-Driven Design", "Responsive", "WCAG 2.2 AA"],
+    standards: ["LLM (Llama 2)", "CI/CD pre-merge gate", "APIs & pipeline integration", "Versioned component package", "Human-in-the-loop review", "Section 508 / WCAG 2.2"],
     metrics: [
       { value: "50M+", label: "Users Unified" },
       { value: "30–40%", label: "Fewer UX Defects" },
