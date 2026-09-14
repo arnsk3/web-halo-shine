@@ -41,16 +41,18 @@ export default function FdePractice({ n = "01" }: { n?: string }) {
       aria-labelledby="practice-heading"
       className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2rem,4vw,3.5rem)]"
     >
-      <SectionIndex n={n} label="What I Do" />
+      <SectionIndex n={n} label="Forward Deployed Engineering Approach" />
       <h2
         id="practice-heading"
         className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2 tracking-tight"
       >
-        Forward Deployed Engineering Practice
+        Forward Deployed Engineering Approach
       </h2>
       <p className="text-gray-700 text-base mb-8 max-w-3xl">
-        Three pillars, one job: get an AI system running inside a real organization, under real
-        constraints, and prove it moved a number.
+        Embedded with customers and engineering teams: translate ambiguity into a working system,
+        prototype and integrate it into their environment, and reduce operational risk and
+        cognitive load once it is live. Three pillars, one job — get an AI system running inside a
+        real organization, under real constraints, and prove it moved a number.
       </p>
 
       <div className="grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(min(100%,20rem),1fr))]">

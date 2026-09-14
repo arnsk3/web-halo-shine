@@ -1590,9 +1590,10 @@ function Home({
           <FadeIn delay={0.19}>
             <ul className="list-none p-0 mx-auto mb-5 sm:mb-7 grid gap-1.5 max-w-2xl text-left sm:grid-cols-3">
               {[
-                "Built and deployed AI-driven systems across enterprise-scale environments",
-                "Reduced human error and improved decision workflows in complex systems",
-                "Embedded with engineering, product, operations, and compliance teams",
+                "Enterprise AI delivery at scale — federal and healthcare production systems",
+                "Human error reduction in mission-critical, safety-critical workflows",
+                "AI + systems integration leadership across engineering, product, and operations",
+                "Compliance-driven AI governance — NIST AI RMF, ISO/IEC 42001, WCAG 2.2 AAA",
               ].map((b) => (
                 <li
                   key={b}

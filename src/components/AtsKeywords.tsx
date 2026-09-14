@@ -6,13 +6,15 @@ import SectionIndex from "@/components/SectionIndex";
  */
 const GROUPS: { h: string; items: string[] }[] = [
   {
-    h: "Forward Deployed Engineering",
+    h: "Forward Deployed Engineering (FDE)",
     items: [
-      "Forward Deployed Engineering",
-      "Forward Deployed Engineer (FDE)",
-      "Solutions Engineering",
+      "Forward Deployed Engineering (FDE)",
+      "Forward Deployed Engineer",
+      "Solutions Engineering (AI / Data / Platforms)",
+      "Implementation Engineering",
       "Customer-facing engineering",
       "Field engineering",
+      "Enterprise AI deployment",
       "Production deployment",
       "Embedded delivery teams",
       "Stakeholder & executive communication",
@@ -23,6 +25,9 @@ const GROUPS: { h: string; items: string[] }[] = [
     items: [
       "Applied AI engineering",
       "AI systems engineering",
+      "AI Systems Implementation",
+      "Human-in-the-loop AI systems",
+      "Systems architecture for AI products",
       "LLM application design",
       "RAG pipelines",
       "AI copilots & assistants",
@@ -45,12 +50,13 @@ const GROUPS: { h: string; items: string[] }[] = [
     ],
   },
   {
-    h: "Human factors & safety-critical systems",
+    h: "Human Systems Integration & safety-critical systems",
     items: [
       "Human Systems Integration (HSI)",
       "Human factors engineering",
       "Cognitive workload analysis",
-      "Safety-critical UX",
+      "Safety-critical UX engineering",
+      "Accessibility Engineering (WCAG 2.2 / Section 508)",
       "Risk reduction systems",
       "Decision support systems",
       "IEC 62366 · MIL-STD-1472H",
@@ -60,7 +66,7 @@ const GROUPS: { h: string; items: string[] }[] = [
   {
     h: "AI governance & compliance",
     items: [
-      "NIST AI RMF",
+      "Model Risk Management (NIST AI RMF)",
       "ISO/IEC 42001",
       "EU AI Act readiness",
       "Explainable AI (XAI)",
@@ -90,12 +96,12 @@ export default function AtsKeywords({ n = "15" }: { n?: string }) {
       aria-labelledby="skills-keywords-heading"
       className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2rem,4vw,3.5rem)]"
     >
-      <SectionIndex n={n} label="Skills & Keywords" />
+      <SectionIndex n={n} label="Core Expertise" />
       <h2
         id="skills-keywords-heading"
         className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2 tracking-tight"
       >
-        Skills &amp; keywords
+        Core expertise
       </h2>
       <p className="text-gray-700 text-base mb-8 max-w-3xl">
         A complete, scannable index of the systems, frameworks, and practices behind the
