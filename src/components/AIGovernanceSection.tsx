@@ -25,32 +25,6 @@ const RMF_CARDS = [
   },
 ] as const;
 
-const CONTROLS = [
-  {
-    t: "Disclosure",
-    d: "The system states plainly that AI produced or influenced this output, at the moment of use — not buried in settings or terms.",
-  },
-  {
-    t: "Confidence & Uncertainty",
-    d: "Communicating model certainty in terms a user can act on, without false precision.",
-  },
-  {
-    t: "Explainability",
-    d: "Surfacing the specific basis for this result at the level of detail needed to accept or reject it.",
-  },
-  {
-    t: "Override & Correction",
-    d: "A path to disagree that is as fast as agreeing. If overriding costs more effort than accepting, the control fails under time pressure — exactly when it matters.",
-  },
-  {
-    t: "Escalation & Hand-off",
-    d: "Defined conditions where the system stops and routes to a person, with context preserved.",
-  },
-  {
-    t: "Accessible by Default",
-    d: "An oversight control a screen-reader user cannot operate is not a control. WCAG 2.2 AA conformance is a condition of control effectiveness, not a separate workstream.",
-  },
-] as const;
 
 export default function AIGovernanceSection() {
   return (
@@ -98,27 +72,18 @@ export default function AIGovernanceSection() {
         ))}
       </ul>
 
-      {/* Controls block */}
-      <div className="rounded-2xl border border-gray-200 bg-[rgb(var(--c-tint-50))] p-6 sm:p-7 mb-8">
-        <h3 className="font-display text-lg font-bold text-gray-900 mb-4">
-          Controls I Design
-        </h3>
-        <ul className="grid gap-x-8 gap-y-4 sm:grid-cols-2 list-none p-0 m-0">
-          {CONTROLS.map((c) => (
-            <li key={c.t} className="flex items-start gap-2.5">
-              <span
-                aria-hidden="true"
-                className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[rgb(var(--c-accent))]"
-              />
-              <p className="text-[13px] text-gray-700 leading-relaxed">
-                <strong className="text-gray-900">{c.t}</strong>
-                {" — "}
-                {c.d}
-              </p>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <p className="text-sm text-gray-700 leading-relaxed max-w-3xl mb-6">
+        The specific controls this produces — disclosure, confidence, explainability, override,
+        escalation, and accessible-by-default oversight — are described in{" "}
+        <a
+          href="#human-ai-design"
+          className="font-semibold text-[rgb(var(--c-primary))] underline hover:text-[rgb(var(--c-accent-on-light))] rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
+        >
+          How I Design AI in Real Systems
+        </a>
+        .
+      </p>
+
 
       <p className="text-sm">
         <Link
