@@ -18,6 +18,7 @@ import GovernanceEngagements from "@/components/GovernanceEngagements";
 import AIGovernanceSection from "@/components/AIGovernanceSection";
 import FdeSystems from "@/components/FdeSystems";
 import FdePractice from "@/components/FdePractice";
+import FdeBand from "@/components/FdeBand";
 import FlagshipSystems from "@/components/FlagshipSystems";
 import SystemsCapabilities from "@/components/SystemsCapabilities";
 import FieldNotes from "@/components/FieldNotes";
@@ -310,7 +311,7 @@ const CASE_STUDIES: CaseStudyType[] = [
   {
     id: "ge",
     tag: "Design System · Unified Visual Language · Accessible Experiences",
-    title: "Evolving a Design System to Power Consistent, Accessible Digital Experiences",
+    title: "Forward Deployed Human Factors & AI System Implementation for Enterprise Health Platforms",
     subtitle:
       "Led Human Factors and Human Systems Integration for GE HealthCare, then translated human-performance insights into a shared design system and accessible visual language that 10+ product teams adopted across digital platforms.",
     hero: "from-[rgb(var(--c-hero-dark))] via-[rgb(var(--c-primary))] to-[rgb(var(--c-accent))]",
@@ -350,6 +351,11 @@ const CASE_STUDIES: CaseStudyType[] = [
         content:
           "Sensitivity vs. Specificity: a screening algorithm flagged too many false positives. Engineering wanted lower sensitivity, clinical wanted it high. My framework: in clinical AI, the cost of missing something always exceeds the cost of extra investigation. Sensitivity stays, but the interface helps clinicians triage faster. Speed vs. Explainability: leadership wanted sub-second AI responses, but faster models sacrificed explainability. My decision: speed without trust is useless clinically. Implemented layered explainability — immediate recommendation with on-demand rationale. Automation vs. Autonomy: some stakeholders wanted fully automated workflows. I pushed back — in prenatal diagnostics, every automated decision must have a meaningful human checkpoint. This principle was codified into the enterprise standard.",
       },
+      {
+        heading: "System Integration & Deployment",
+        content:
+          "Shipped, not just specified. The component library and design tokens were published as a versioned package consumed directly by product engineering builds, so a token change propagated to 10+ teams without hand-editing UI. Human-in-the-loop behavior — confidence display, override capture, escalation states — was written as interaction contracts against the AI service APIs, then implemented with engineering in the product codebase. Deployment constraints were regulatory: FDA/IEC 62366 usability evidence, clinical sign-off gates, and change-control review before any AI-facing behavior reached a released device or platform. Oversight telemetry (override rate, alert dismissal, escalation) was instrumented so post-market monitoring had real signal instead of anecdotes.",
+      },
     ],
     outcomes: [
       "Evolved a shared design system adopted across 10+ product teams for a unified visual language",
@@ -376,7 +382,7 @@ const CASE_STUDIES: CaseStudyType[] = [
   {
     id: "ssa",
     tag: "Design System · Data-Driven · Visual Consistency at Scale",
-    title: "A Data-Driven Design System That Unified 50M+ User Experiences",
+    title: "Forward Deployed AI Accessibility Automation & Design System Engineering for a 50M+ User Federal Platform",
     subtitle:
       "Led the visual design system and data-driven design decisions across 15+ digital touchpoints — analyzing behavioral data to drive a system-wide redesign that improved engagement, unified the visual system, and saved $1.5M+ annually for 50M+ users.",
     hero: "from-[#1a1a2e] via-[#16213e] to-[#0f3460]",
@@ -421,6 +427,11 @@ const CASE_STUDIES: CaseStudyType[] = [
         content:
           "Phase 1 (Months 1–3): Built SSA11y prototype, designed and tested 8 core components with assistive technology users, created developer documentation. Phase 2 (Months 4–6): Deployed on 3 pilot modules, measured violation reduction and adoption, trained development teams. Phase 3 (Months 7–12): Expanded to all 15+ modules across 40+ monthly releases, completed component migration, SSA11y integrated as mandatory CI/CD gate. Phase 4 (Ongoing): Continuous compliance — every commit, every module, monthly automated reports.",
       },
+      {
+        heading: "System Integration & Deployment",
+        content:
+          "SSA11y runs as a mandatory CI/CD quality gate, not a report. It hooks the build pipeline, scans committed source rather than rendered pages, returns severity-ranked findings and suggested code fixes to the pull request, and blocks promotion to staging when a blocking violation is present. The LLM layer (Llama 2) is wrapped with deterministic rule checks so a model suggestion never becomes the sole basis for a pass/fail decision, and every finding carries a rule reference for audit. The component library shipped as a versioned package consumed by 15+ module teams across 40+ monthly releases; migration ran module by module behind feature flags to avoid a big-bang release. Constraints were federal: ATO-bound environments, Section 508 reporting obligations, government release cadence, and human review retained on every AI-suggested remediation.",
+      },
     ],
     outcomes: [
       "Used behavioral data to drive a system-wide redesign — improving engagement across 50M+ user experiences",
@@ -446,7 +457,7 @@ const CASE_STUDIES: CaseStudyType[] = [
   {
     id: "bestbuy",
     tag: "Consumer · Human Factors · Digital Brand Experience · Mobile-First",
-    title: "Driving Engagement for 1M+ Consumers Through Cohesive Digital Brand Experiences",
+    title: "Production Human Systems Engineering for a Consumer Health & Safety Platform (1M+ Users)",
     subtitle:
       "Led Human Factors and Human Systems Integration for Best Buy Health (Lively, Jitterbug), then applied those insights to the visual design, brand consistency, and mobile-first digital experience across 5 product lines and 1M+ consumers.",
     hero: "from-[#2d1b69] via-[#11998e] to-[#38ef7d]",
@@ -490,6 +501,11 @@ const CASE_STUDIES: CaseStudyType[] = [
         heading: "Enterprise Governance",
         content:
           "Beyond product fixes, I built organizational infrastructure: accessibility governance framework adopted across all 5 product lines, approved at executive level. Shifted accessibility from 'audit and fix' to 'design and verify.' Created design checklists mapped to WCAG 2.2 AA, Section 508, and MIL-STD-1472H. Integrated accessibility review into the design approval process. Trained product teams on inclusive design for aging populations.",
+      },
+      {
+        heading: "System Integration & Deployment",
+        content:
+          "The work shipped across three surfaces — native mobile apps, web, and the in-device (Jitterbug/Lively) firmware experience — so every interaction change had to hold against three different implementation stacks and release trains. I delivered the component system as shared specs and tokens implemented in each client, wrote the emergency-activation behavior as a state contract (press → hold → confirm, with multi-modal feedback) against the alerting and operator-connection services, and defined the escalation path to a live human operator including failure and degraded-network states. Deployment constraints were regulatory and operational: FDA/IEC 62366 usability evidence, MIL-STD-1472H control criteria, carrier and device certification cycles, and an accessibility review gate added to the release approval process across all five product lines.",
       },
     ],
     outcomes: [
@@ -1649,6 +1665,9 @@ function Home({
 
       {/* Impact strip — stats directly under the hero */}
       <ImpactStrip />
+
+      {/* Forward Deployed Engineering positioning band */}
+      <FdeBand />
 
       {/* 01 — What I do: FDE practice, pillars, operating model */}
       <FdePractice n="01" />
