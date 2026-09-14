@@ -21,6 +21,7 @@ import FdePractice from "@/components/FdePractice";
 import FlagshipSystems from "@/components/FlagshipSystems";
 import SystemsCapabilities from "@/components/SystemsCapabilities";
 import FieldNotes from "@/components/FieldNotes";
+import AtsKeywords from "@/components/AtsKeywords";
 import AIGovernanceCaseStudy from "@/pages/AIGovernanceCaseStudy";
 import CrosswalkEssay from "@/pages/CrosswalkEssay";
 import OversightTiersEssay from "@/pages/OversightTiersEssay";
@@ -1548,22 +1549,27 @@ function Home({
           <FadeIn>
             <p className="inline-flex items-center gap-2 text-[rgb(var(--c-accent-on-dark))] text-[11px] sm:text-xs font-semibold tracking-[2.5px] uppercase mb-3 sm:mb-5 rounded-full border border-white/15 bg-white/5 backdrop-blur px-4 py-1.5">
               <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-[rgb(var(--c-accent-light))] animate-pulse" />
-              Deployed in the field · Regulated AI · Shipped outcomes
+              Production AI deployment · Applied AI · Regulated environments
             </p>
           </FadeIn>
           <FadeIn delay={0.1}>
             <h1 className="text-3xl sm:text-5xl font-extrabold leading-[1.08] mb-3 sm:mb-5 tracking-tight">
               Senthil Nagappan
               <span className="block mt-2 sm:mt-3 text-xl sm:text-3xl font-extrabold bg-gradient-to-r from-[rgb(var(--c-accent-light))] to-[rgb(var(--c-accent-on-dark))] bg-clip-text text-transparent">
-                Forward Deployed AI &amp; Human Systems Engineer
+                Forward Deployed Engineer (FDE) — AI Systems &amp; Human Factors Leader
+              </span>
+              <span className="block mt-2 text-sm sm:text-base font-semibold text-white/90">
+                Production AI Deployment · Human Systems Integration (HSI) · Enterprise Systems
+                Integration
               </span>
             </h1>
           </FadeIn>
           <FadeIn delay={0.15}>
             <p className="text-white text-sm sm:text-lg mb-2 sm:mb-4 max-w-2xl mx-auto leading-relaxed">
-              I embed with teams to design, build, and deploy AI systems in complex, regulated
-              environments where human decisions, risk, and scale matter. I go on site, find where
-              the real workflow breaks, build the fix, and stay until it runs in production.
+              I embed with enterprise and federal teams to build, integrate, and deploy applied AI
+              systems in safety-critical, regulated environments. Customer-facing engineering from
+              ambiguous problem to production: I go on site, find where the real workflow breaks,
+              build the fix, wire it into their pipeline, and stay until it runs and is measured.
             </p>
           </FadeIn>
           <FadeIn delay={0.18}>
@@ -1985,6 +1991,9 @@ function Home({
 
       {/* 14 — Field notes: short operator entries */}
       <FieldNotes n="14" />
+
+      {/* 15 — Skills & keywords index */}
+      <AtsKeywords n="15" />
 
       {/* Brief About — teaser placed after the numbered sequence so 01–09 run uninterrupted */}
       <section className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2rem,4vw,3.5rem)]" aria-labelledby="brief-about-heading">
