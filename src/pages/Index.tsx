@@ -399,54 +399,49 @@ const CASE_STUDIES: CaseStudyType[] = [
     ],
     sections: [
       {
-        heading: "The Challenge",
+        heading: "Problem",
         content:
-          "Inconsistent visual experiences across 15+ digital touchpoints were hurting usability and engagement for 50M+ users. Every team styled the same patterns differently, the brand felt fragmented module to module, and there was no shared design system to keep the experience consistent, responsive, or efficient to maintain.",
+          "A federal platform serving 50M+ citizens shipped 40+ releases a month across 15+ interconnected modules, while Section 508 conformance was handled as a manual post-release audit by a small compliance team. Defects were found after they were live, remediation was reactive, and the audit-and-fix loop was burning roughly $1.5M a year. Behavioral data and audit findings across all modules showed 65% of issues traced to 8 shared UI components — data tables, navigation, form controls, modals, date pickers — each implemented differently by each team. The failure was architectural, not cosmetic.",
       },
       {
-        heading: "My Role",
+        heading: "Constraints",
         content:
-          "I led the visual design system and the data-driven design decisions behind it. I owned the component library, style guide, and visual-consistency standards — then used behavioral data to decide where to focus the redesign for the biggest engagement and efficiency gains.",
+          "ATO-bound environments: no external SaaS scanning, everything runs inside the accredited boundary. Federal release cadence and change control — I could not stop the 40+ monthly releases to migrate. No dedicated platform team; the work had to be absorbed by existing module teams with their own roadmaps. Legacy heterogeneity: 15+ codebases with divergent component implementations and inconsistent test coverage. Regulatory exposure meant a false negative was unacceptable, and a noisy false-positive rate would get the gate disabled within a sprint. Every AI-suggested remediation had to stay under human review for audit defensibility.",
       },
       {
-        heading: "The Data-Driven Insight",
+        heading: "System built",
         content:
-          "I analyzed behavioral data and audit findings across all 15+ modules and discovered that 65% of issues traced to just 8 shared UI components — data tables, navigation, form controls, modals, date pickers. Each team had implemented them differently. That insight drove the entire strategy: fix the system, not the symptoms, by rebuilding those 8 components once and propagating them everywhere.",
+          "SSA11y — an LLM-based (Llama 2) detection service that scans committed source at commit time rather than rendered pages post-deploy. Architecture: a pipeline hook publishes the diff to the detection API; a deterministic rule engine runs first and the model layer runs second to catch anti-patterns rules miss; findings are severity-ranked against a risk model rather than counted; results post back to the pull request with suggested code fixes and a rule reference for audit. Ambiguous and high-severity findings route to a human-in-the-loop review queue instead of auto-failing. A governance dashboard aggregates violations, remediation velocity, and risk hotspots from the findings store. Alongside it I rebuilt the 8 core components as a versioned package with ARIA roles, keyboard paths, and automated accessibility tests shipped in the package itself, so a fix propagated to every consumer rather than being re-implemented 15 times.",
       },
       {
-        heading: "The Strategic Decision",
+        heading: "Deployment",
         content:
-          "I presented two options to leadership. Option A: continue manual audits — perpetual whack-a-mole at ~$1.5M+ annually. Option B: fix the system, not the symptoms — rebuild the 8 core components with accessibility built in, build an AI tool to catch violations in CI/CD before production, and migrate all modules to the new library. Leadership approved Option B. I named the AI tool SSA11y — a portmanteau of SSA and a11y (the numeronym for accessibility).",
+          "Phase 1 (months 1–3): prototype the detection service, validate the 8 components with assistive-technology users, write developer docs. Phase 2 (months 4–6): deploy on 3 pilot modules — the highest defect density first — measure violation reduction and false-positive rate, train the dev teams. Phase 3 (months 7–12): expand to all 15+ modules across 40+ monthly releases behind feature flags, complete component migration, promote SSA11y from advisory to a mandatory pre-merge gate. Phase 4 (ongoing): continuous compliance — every commit, every module, monthly automated reporting. Confirmed false positives retrained the rule set; recurring failures were routed back to the shared component library so the source got fixed, not the symptom.",
       },
       {
-        heading: "What I Built",
+        heading: "Impact",
         content:
-          "SSA11y is an AI-driven accessibility testing platform built on Meta's Llama2. It integrates into the CI/CD pipeline as a quality gate, scanning every code commit for WCAG violations before code reaches staging. Unlike existing tools that scan rendered pages post-deployment, SSA11y scans code at commit time, recommends specific fixes ranked by severity, and uses AI pattern detection to identify anti-patterns that rule-based scanners miss. Simultaneously, I redesigned the 8 core UI components to USWDS alignment with embedded ARIA roles, full keyboard navigation, and screen reader compatibility — each with automated accessibility tests included.",
+          "30–40% reduction in usability and accessibility defects. $1.5M+ in annual rework avoided by replacing post-release audit with a pre-merge gate. Adopted across 40+ monthly releases and 15+ modules as the standard pipeline step and component library. Manual audit effort per release cut substantially; compliance moved from sampling to full coverage. 50+ designers and engineers onboarded onto the shared system, and the approach became the reference pattern for other federal programs.",
       },
       {
-        heading: "The Migration",
+        heading: "Failure mode and what I changed",
         content:
-          "Phase 1 (Months 1–3): Built SSA11y prototype, designed and tested 8 core components with assistive technology users, created developer documentation. Phase 2 (Months 4–6): Deployed on 3 pilot modules, measured violation reduction and adoption, trained development teams. Phase 3 (Months 7–12): Expanded to all 15+ modules across 40+ monthly releases, completed component migration, SSA11y integrated as mandatory CI/CD gate. Phase 4 (Ongoing): Continuous compliance — every commit, every module, monthly automated reports.",
-      },
-      {
-        heading: "System Integration & Deployment",
-        content:
-          "SSA11y runs as a mandatory CI/CD quality gate, not a report. It hooks the build pipeline, scans committed source rather than rendered pages, returns severity-ranked findings and suggested code fixes to the pull request, and blocks promotion to staging when a blocking violation is present. The LLM layer (Llama 2) is wrapped with deterministic rule checks so a model suggestion never becomes the sole basis for a pass/fail decision, and every finding carries a rule reference for audit. The component library shipped as a versioned package consumed by 15+ module teams across 40+ monthly releases; migration ran module by module behind feature flags to avoid a big-bang release. Constraints were federal: ATO-bound environments, Section 508 reporting obligations, government release cadence, and human review retained on every AI-suggested remediation.",
+          "The first gate configuration was too aggressive: it blocked merges on low-severity findings and teams started requesting exemptions within two sprints. I moved to severity-tiered enforcement — block on critical, annotate on the rest — and set a false-positive budget per rule, retiring any rule that exceeded it. Adoption recovered because the gate became credible rather than loud.",
       },
     ],
     outcomes: [
-      "Used behavioral data to drive a system-wide redesign — improving engagement across 50M+ user experiences",
-      "Unified 15+ digital touchpoints under one consistent design language",
-      "Reduced usability defects 30–40% and saved $1.5M+ annually",
-      "Adopted across 40+ monthly releases as the standard component library",
-      "Became the design and consistency standard across federal systems",
-      "50+ designers and engineers onboarded onto the shared design system",
+      "LLM detection service running as a mandatory pre-merge CI/CD gate across 15+ modules",
+      "Versioned component package consumed by 40+ monthly releases — one fix, all consumers",
+      "30–40% fewer usability and accessibility defects; $1.5M+ annual rework avoided",
+      "Human-in-the-loop review queue kept every AI suggestion audit-defensible",
+      "Governance dashboard gave compliance live remediation velocity instead of sampled audits",
+      "50+ designers and engineers onboarded; became the standard across federal systems",
     ],
     artifacts: [
-      { label: "Design system & component library", desc: "8 core components rebuilt with shared color, type, spacing, and interaction tokens — the visual foundation across every module." },
-      { label: "Style guide pages", desc: "Documented usage, states, and responsive behavior so every team applies the design language consistently." },
-      { label: "Before/after visual comparisons", desc: "Side-by-side redesigns of high-traffic components showing cleaner hierarchy and stronger engagement." },
-      { label: "Data-viz & dashboard screens", desc: "Behavioral-data dashboards that surfaced the 65%/8-component insight and guided design decisions." },
+      { label: "SSA11y detection service", desc: "Llama 2 model layer behind a deterministic rule engine, exposed as a pipeline-callable API with severity-ranked findings." },
+      { label: "CI/CD gate configuration", desc: "Pre-merge hook with severity-tiered enforcement, per-rule false-positive budgets, and PR-level annotations." },
+      { label: "Versioned component package", desc: "8 core components with ARIA roles, keyboard paths, and automated accessibility tests shipped in the package." },
+      { label: "Governance dashboard", desc: "Violations, remediation velocity, and risk hotspots aggregated from the findings store for compliance reporting." },
     ],
     hsi: [
       "Requirements analysis — traced accessibility requirements to system design decisions",
