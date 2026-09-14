@@ -333,6 +333,11 @@ const CASE_STUDIES: CaseStudyType[] = [
           "Multiple product teams needed a unified visual language across accessible experiences across digital platforms. Without a shared design system, each team built UI its own way — inconsistent components, drifting brand, and accessibility handled ad hoc — slowing delivery and weakening the experience for clinicians who depend on clarity under pressure. The deeper risk was human performance: clinicians under time pressure and cognitive load cannot afford ambiguous controls, unclear alerts, or inconsistent workflows.",
       },
       {
+        heading: "Constraints",
+        content:
+          "Regulated medical software: any change to AI-facing behavior required FDA/IEC 62366 usability evidence, clinical sign-off, and change-control review before it could reach a released device or platform. Ten-plus product teams on independent roadmaps, so adoption had to be opt-in-attractive rather than mandated. Model latency budgets competed with explainability depth. Legacy platform variation across device and web surfaces meant one component had to degrade predictably, not break, in older shells.",
+      },
+      {
         heading: "My Role",
         content:
           "As Human Factors Engineer and Human Systems Integration Lead I owned the human performance, safety, and usability risk of clinical workflows first, then applied those insights to evolve the design system and best practices. I led cognitive task analysis, use-error analysis, and human-in-the-loop decision modeling, and translated those findings into a shared component library, design tokens, high-fidelity Figma mockups, and accessible color/contrast systems. I partnered cross-functionally — presenting work and aligning engineering, clinical, and regulatory teams around one unified visual language and human-centered standard.",
@@ -382,16 +387,16 @@ const CASE_STUDIES: CaseStudyType[] = [
   },
   {
     id: "ssa",
-    tag: "Design System · Data-Driven · Visual Consistency at Scale",
+    tag: "Federal Production · LLM in CI/CD · Systems Integration at Scale",
     title: "Forward Deployed AI Accessibility Automation & Design System Engineering for a 50M+ User Federal Platform",
     subtitle:
-      "Led the visual design system and data-driven design decisions across 15+ digital touchpoints — analyzing behavioral data to drive a system-wide redesign that improved engagement, unified the visual system, and saved $1.5M+ annually for 50M+ users.",
+      "Embedded with federal engineering, QA, and compliance teams to build SSA11y — an LLM-based detection service wired into the CI/CD pipeline as a pre-merge gate — plus a versioned component library consumed by 15+ modules across 40+ monthly releases. 30–40% fewer defects, $1.5M+ annual rework avoided, 50M+ users.",
     hero: "from-[#1a1a2e] via-[#16213e] to-[#0f3460]",
     image: caseSsa,
-    role: "Lead Visual & Design Systems Designer",
+    role: "Forward Deployed Engineer — AI systems, CI/CD integration, human-in-the-loop design",
     timeline: "2022 – 2025",
     org: "Leidos / Social Security Administration",
-    standards: ["Design System", "Style Guide", "Data-Driven Design", "Responsive", "WCAG 2.2 AA"],
+    standards: ["LLM (Llama 2)", "CI/CD pre-merge gate", "APIs & pipeline integration", "Versioned component package", "Human-in-the-loop review", "Section 508 / WCAG 2.2"],
     metrics: [
       { value: "50M+", label: "Users Unified" },
       { value: "30–40%", label: "Fewer UX Defects" },
@@ -399,54 +404,49 @@ const CASE_STUDIES: CaseStudyType[] = [
     ],
     sections: [
       {
-        heading: "The Challenge",
+        heading: "Problem",
         content:
-          "Inconsistent visual experiences across 15+ digital touchpoints were hurting usability and engagement for 50M+ users. Every team styled the same patterns differently, the brand felt fragmented module to module, and there was no shared design system to keep the experience consistent, responsive, or efficient to maintain.",
+          "A federal platform serving 50M+ citizens shipped 40+ releases a month across 15+ interconnected modules, while Section 508 conformance was handled as a manual post-release audit by a small compliance team. Defects were found after they were live, remediation was reactive, and the audit-and-fix loop was burning roughly $1.5M a year. Behavioral data and audit findings across all modules showed 65% of issues traced to 8 shared UI components — data tables, navigation, form controls, modals, date pickers — each implemented differently by each team. The failure was architectural, not cosmetic.",
       },
       {
-        heading: "My Role",
+        heading: "Constraints",
         content:
-          "I led the visual design system and the data-driven design decisions behind it. I owned the component library, style guide, and visual-consistency standards — then used behavioral data to decide where to focus the redesign for the biggest engagement and efficiency gains.",
+          "ATO-bound environments: no external SaaS scanning, everything runs inside the accredited boundary. Federal release cadence and change control — I could not stop the 40+ monthly releases to migrate. No dedicated platform team; the work had to be absorbed by existing module teams with their own roadmaps. Legacy heterogeneity: 15+ codebases with divergent component implementations and inconsistent test coverage. Regulatory exposure meant a false negative was unacceptable, and a noisy false-positive rate would get the gate disabled within a sprint. Every AI-suggested remediation had to stay under human review for audit defensibility.",
       },
       {
-        heading: "The Data-Driven Insight",
+        heading: "System built",
         content:
-          "I analyzed behavioral data and audit findings across all 15+ modules and discovered that 65% of issues traced to just 8 shared UI components — data tables, navigation, form controls, modals, date pickers. Each team had implemented them differently. That insight drove the entire strategy: fix the system, not the symptoms, by rebuilding those 8 components once and propagating them everywhere.",
+          "SSA11y — an LLM-based (Llama 2) detection service that scans committed source at commit time rather than rendered pages post-deploy. Architecture: a pipeline hook publishes the diff to the detection API; a deterministic rule engine runs first and the model layer runs second to catch anti-patterns rules miss; findings are severity-ranked against a risk model rather than counted; results post back to the pull request with suggested code fixes and a rule reference for audit. Ambiguous and high-severity findings route to a human-in-the-loop review queue instead of auto-failing. A governance dashboard aggregates violations, remediation velocity, and risk hotspots from the findings store. Alongside it I rebuilt the 8 core components as a versioned package with ARIA roles, keyboard paths, and automated accessibility tests shipped in the package itself, so a fix propagated to every consumer rather than being re-implemented 15 times.",
       },
       {
-        heading: "The Strategic Decision",
+        heading: "Deployment",
         content:
-          "I presented two options to leadership. Option A: continue manual audits — perpetual whack-a-mole at ~$1.5M+ annually. Option B: fix the system, not the symptoms — rebuild the 8 core components with accessibility built in, build an AI tool to catch violations in CI/CD before production, and migrate all modules to the new library. Leadership approved Option B. I named the AI tool SSA11y — a portmanteau of SSA and a11y (the numeronym for accessibility).",
+          "Phase 1 (months 1–3): prototype the detection service, validate the 8 components with assistive-technology users, write developer docs. Phase 2 (months 4–6): deploy on 3 pilot modules — the highest defect density first — measure violation reduction and false-positive rate, train the dev teams. Phase 3 (months 7–12): expand to all 15+ modules across 40+ monthly releases behind feature flags, complete component migration, promote SSA11y from advisory to a mandatory pre-merge gate. Phase 4 (ongoing): continuous compliance — every commit, every module, monthly automated reporting. Confirmed false positives retrained the rule set; recurring failures were routed back to the shared component library so the source got fixed, not the symptom.",
       },
       {
-        heading: "What I Built",
+        heading: "Impact",
         content:
-          "SSA11y is an AI-driven accessibility testing platform built on Meta's Llama2. It integrates into the CI/CD pipeline as a quality gate, scanning every code commit for WCAG violations before code reaches staging. Unlike existing tools that scan rendered pages post-deployment, SSA11y scans code at commit time, recommends specific fixes ranked by severity, and uses AI pattern detection to identify anti-patterns that rule-based scanners miss. Simultaneously, I redesigned the 8 core UI components to USWDS alignment with embedded ARIA roles, full keyboard navigation, and screen reader compatibility — each with automated accessibility tests included.",
+          "30–40% reduction in usability and accessibility defects. $1.5M+ in annual rework avoided by replacing post-release audit with a pre-merge gate. Adopted across 40+ monthly releases and 15+ modules as the standard pipeline step and component library. Manual audit effort per release cut substantially; compliance moved from sampling to full coverage. 50+ designers and engineers onboarded onto the shared system, and the approach became the reference pattern for other federal programs.",
       },
       {
-        heading: "The Migration",
+        heading: "Failure mode and what I changed",
         content:
-          "Phase 1 (Months 1–3): Built SSA11y prototype, designed and tested 8 core components with assistive technology users, created developer documentation. Phase 2 (Months 4–6): Deployed on 3 pilot modules, measured violation reduction and adoption, trained development teams. Phase 3 (Months 7–12): Expanded to all 15+ modules across 40+ monthly releases, completed component migration, SSA11y integrated as mandatory CI/CD gate. Phase 4 (Ongoing): Continuous compliance — every commit, every module, monthly automated reports.",
-      },
-      {
-        heading: "System Integration & Deployment",
-        content:
-          "SSA11y runs as a mandatory CI/CD quality gate, not a report. It hooks the build pipeline, scans committed source rather than rendered pages, returns severity-ranked findings and suggested code fixes to the pull request, and blocks promotion to staging when a blocking violation is present. The LLM layer (Llama 2) is wrapped with deterministic rule checks so a model suggestion never becomes the sole basis for a pass/fail decision, and every finding carries a rule reference for audit. The component library shipped as a versioned package consumed by 15+ module teams across 40+ monthly releases; migration ran module by module behind feature flags to avoid a big-bang release. Constraints were federal: ATO-bound environments, Section 508 reporting obligations, government release cadence, and human review retained on every AI-suggested remediation.",
+          "The first gate configuration was too aggressive: it blocked merges on low-severity findings and teams started requesting exemptions within two sprints. I moved to severity-tiered enforcement — block on critical, annotate on the rest — and set a false-positive budget per rule, retiring any rule that exceeded it. Adoption recovered because the gate became credible rather than loud.",
       },
     ],
     outcomes: [
-      "Used behavioral data to drive a system-wide redesign — improving engagement across 50M+ user experiences",
-      "Unified 15+ digital touchpoints under one consistent design language",
-      "Reduced usability defects 30–40% and saved $1.5M+ annually",
-      "Adopted across 40+ monthly releases as the standard component library",
-      "Became the design and consistency standard across federal systems",
-      "50+ designers and engineers onboarded onto the shared design system",
+      "LLM detection service running as a mandatory pre-merge CI/CD gate across 15+ modules",
+      "Versioned component package consumed by 40+ monthly releases — one fix, all consumers",
+      "30–40% fewer usability and accessibility defects; $1.5M+ annual rework avoided",
+      "Human-in-the-loop review queue kept every AI suggestion audit-defensible",
+      "Governance dashboard gave compliance live remediation velocity instead of sampled audits",
+      "50+ designers and engineers onboarded; became the standard across federal systems",
     ],
     artifacts: [
-      { label: "Design system & component library", desc: "8 core components rebuilt with shared color, type, spacing, and interaction tokens — the visual foundation across every module." },
-      { label: "Style guide pages", desc: "Documented usage, states, and responsive behavior so every team applies the design language consistently." },
-      { label: "Before/after visual comparisons", desc: "Side-by-side redesigns of high-traffic components showing cleaner hierarchy and stronger engagement." },
-      { label: "Data-viz & dashboard screens", desc: "Behavioral-data dashboards that surfaced the 65%/8-component insight and guided design decisions." },
+      { label: "SSA11y detection service", desc: "Llama 2 model layer behind a deterministic rule engine, exposed as a pipeline-callable API with severity-ranked findings." },
+      { label: "CI/CD gate configuration", desc: "Pre-merge hook with severity-tiered enforcement, per-rule false-positive budgets, and PR-level annotations." },
+      { label: "Versioned component package", desc: "8 core components with ARIA roles, keyboard paths, and automated accessibility tests shipped in the package." },
+      { label: "Governance dashboard", desc: "Violations, remediation velocity, and risk hotspots aggregated from the findings store for compliance reporting." },
     ],
     hsi: [
       "Requirements analysis — traced accessibility requirements to system design decisions",
@@ -477,6 +477,11 @@ const CASE_STUDIES: CaseStudyType[] = [
         heading: "The Challenge",
         content:
           "Best Buy Health needed to engage 1M+ consumers across 5 product lines (Lively, Jitterbug) with a cohesive UI system spanning web, mobile, and in-device touchpoints. The user population was older adults with reduced dexterity, low vision, hearing loss, and high stress in medical emergencies — a classic Human Factors problem. Visual experiences were fragmented, critical user flows leaked engagement through drop-off, and there was no shared design system to keep the experience cohesive, safe, or conversion-ready at scale.",
+      },
+      {
+        heading: "Constraints",
+        content:
+          "Hardware in the field: device firmware release cycles are slow and irreversible once shipped, so anything device-side had to be right the first time. Emergency flows could not add a single blocking step — latency and failure behavior were safety issues, not UX issues. The user population had reduced dexterity, low vision, and hearing loss, so target sizes, contrast, and audio fallbacks were hard requirements rather than preferences. Five product lines shared partially overlapping backends, so the component and content system had to absorb API differences instead of forcing a backend rewrite.",
       },
       {
         heading: "My Role",
@@ -577,6 +582,16 @@ const CASE_STUDIES: CaseStudyType[] = [
          heading: "Modernization Impact",
          content:
            "Migrating TEDS to AWS GovCloud eliminated brittle legacy hardware, cut infrastructure and maintenance costs, and gave SAMHSA elastic capacity to handle annual state data submissions without over-provisioning. Automated, validated ETL pipelines replaced manual data handling — improving the accuracy and timeliness of national behavioral health reporting. Modernized, accessible data-visualization dashboards made TEDS insights available faster to researchers, state agencies, and the public, while compliant cloud governance reduced the audit burden and strengthened security posture across the portfolio.",
+       },
+       {
+         heading: "Constraints",
+         content:
+           "FedRAMP High boundary and federal ATO requirements governed every architectural choice — no unapproved services, no data leaving the accredited environment. Annual state submission windows created hard, immovable deadlines with large bursty load. Source data arrived in inconsistent state-by-state formats requiring validation before it could be trusted for national reporting. Section 508 conformance was a statutory obligation on every public-facing dashboard, and legacy hardware had to keep running during migration — cutover with no reporting outage.",
+       },
+       {
+         heading: "System integration & deployment",
+         content:
+           "TEDS datasets were migrated to AWS GovCloud with automated, validated ETL pipelines replacing manual data handling: ingestion, schema validation, lineage capture, and error quarantine per state submission. Public dashboards were rebuilt on the modernized data layer with accessibility conformance built into the component set rather than audited afterward. Migration ran in parallel with the legacy system until reporting parity was proven, then cut over. Section 508 policy and review gates were embedded into the delivery process so conformance stayed intact across releases and team turnover.",
        },
        {
          heading: "Seven Years of Leadership",
@@ -976,9 +991,10 @@ type PageId = "home" | "brand" | "about" | "approach" | "resume" | "contact" | "
 function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) {
   // Top-level sections follow the forward-deployed narrative order.
   const sectionLinks: { id: string; label: string }[] = [
-    { id: "ai-deployment", label: "Forward-Deployed" },
-    { id: "cases", label: "Work" },
-    { id: "governance-accessibility", label: "Governance" },
+    { id: "fde-experience", label: "FDE Experience" },
+    { id: "flagship-systems", label: "Systems" },
+    { id: "cases", label: "Deployments" },
+    { id: "failure-modes", label: "Failure Modes" },
   ];
   const tailLinks: { id: PageId; label: string }[] = [
     { id: "approach", label: "Approach" },
@@ -1573,20 +1589,20 @@ function Home({
             <h1 className="text-3xl sm:text-5xl font-extrabold leading-[1.08] mb-3 sm:mb-5 tracking-tight">
               Senthil Nagappan
               <span className="block mt-2 sm:mt-3 text-xl sm:text-3xl font-extrabold bg-gradient-to-r from-[rgb(var(--c-accent-light))] to-[rgb(var(--c-accent-on-dark))] bg-clip-text text-transparent">
-                Forward Deployed Engineer (FDE) — AI Systems &amp; Human Factors Leader
+                Forward Deployed AI &amp; Human Systems Engineer
               </span>
               <span className="block mt-2 text-sm sm:text-base font-semibold text-white/90">
-                Production AI Deployment · Human Systems Integration (HSI) · Enterprise Systems
-                Integration
+                Production AI Deployment · LLM &amp; RAG Pipelines · APIs &amp; CI/CD Integration ·
+                System Architecture · Human Systems Integration (HSI)
               </span>
             </h1>
           </FadeIn>
           <FadeIn delay={0.15}>
             <p className="text-white text-sm sm:text-lg mb-2 sm:mb-4 max-w-2xl mx-auto leading-relaxed">
-              I embed with enterprise and federal teams to build, integrate, and deploy applied AI
-              systems in safety-critical, regulated environments. Customer-facing engineering from
-              ambiguous problem to production: I go on site, find where the real workflow breaks,
-              build the fix, wire it into their pipeline, and stay until it runs and is measured.
+              I build and deploy AI-driven systems in regulated environments where decisions affect
+              millions of users. Embedded with customer engineering, product, and operations teams:
+              I find where the real workflow breaks, build the service, wire it into their APIs and
+              CI/CD, instrument it, and stay until it runs in production and is measured.
             </p>
           </FadeIn>
           <FadeIn delay={0.18}>
@@ -6956,7 +6972,7 @@ function About() {
               Senthil Nagappan
             </h1>
             <p className="text-[rgb(var(--c-accent-dark))] font-semibold text-sm mb-3">
-              Forward-Deployed AI Experience &amp; Human Systems Integration Leader
+              Forward Deployed AI &amp; Human Systems Engineer
             </p>
             <p className="text-gray-700 text-sm leading-relaxed mb-3">
               18+ years embedded with users, engineering, product, and client teams to deliver
@@ -7529,7 +7545,7 @@ function Resume() {
             <div>
               <h3 className="font-display text-lg font-bold text-gray-900 mb-1">Senthil Nagappan</h3>
               <p className="text-sm font-semibold text-[rgb(var(--c-accent-on-light))] mb-2">
-                Forward-Deployed AI Experience &amp; Human Systems Integration Leader
+                Forward Deployed AI &amp; Human Systems Engineer
               </p>
               <p className="text-[13px] text-gray-700">
                 <a
@@ -8104,10 +8120,10 @@ function Footer({
     );
   };
   const sectionItems: { id: string; label: string }[] = [
-    { id: "ai-deployment", label: "Forward-Deployed" },
-    { id: "human-ai-design", label: "Human-AI Design" },
-    { id: "governance-accessibility", label: "Governance & Accessibility" },
-    { id: "deployment-model", label: "Deployment Model" },
+    { id: "fde-experience", label: "FDE Experience" },
+    { id: "flagship-systems", label: "Systems" },
+    { id: "capabilities", label: "Capabilities" },
+    { id: "failure-modes", label: "Failure Modes" },
   ];
   const pageItems: { id: PageId; label: string }[] = [
     { id: "lab", label: "AI Concepts" },
@@ -8125,7 +8141,7 @@ function Footer({
         <div>
           <p className="font-bold text-white text-sm">Senthil Nagappan</p>
           <p className="text-white text-xs mt-1">
-             Forward-Deployed AI Experience &amp; Human Systems Integration Leader
+             Forward Deployed AI &amp; Human Systems Engineer
           </p>
           <ul className="flex flex-wrap gap-4 list-none p-0 m-0 mt-3">
             <li>
