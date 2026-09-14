@@ -8126,14 +8126,14 @@ const PAGE_TITLES: Record<PageId, string> = {
   contact: "Contact — Senthil Nagappan",
   case: "Case Study — Senthil Nagappan",
   lab: "AI Concepts (Non-Deployed) — Senthil Nagappan",
-  ssadeploy: "Forward-Deployed AI Accessibility at National Scale",
+  ssadeploy: "Shipping AI-Assisted Accessibility Into a Live Federal Pipeline",
   governance: "Designing the Last Mile of AI Governance",
   writing: "One control set, three frameworks — AI governance crosswalk",
   oversight: "Oversight tiers beat confidence scores — AI experience design",
 };
 
 const PAGE_DESCRIPTIONS: Record<PageId, string> = {
-  home: "Senthil Nagappan — Forward-Deployed AI Experience & Human Systems Integration Leader. Embedded with users and engineering to move regulated AI safely from ambiguity to production.",
+  home: "Senthil Nagappan — Forward Deployed AI & Human Systems Engineer. I embed with customers, find what's actually broken, build it, integrate it into their pipeline, and prove the outcome in regulated production.",
   brand: "Design systems & brand-consistent visual systems by Senthil Nagappan — shared components, design tokens, and on-brand UI that scale across consumer, healthcare, and enterprise products.",
 
   about: "About Senthil Nagappan — a forward-deployed AI experience and human systems leader with 18+ years across regulated environments.",
@@ -8141,7 +8141,7 @@ const PAGE_DESCRIPTIONS: Record<PageId, string> = {
   resume: "Read or download Senthil Nagappan's résumé — forward-deployed AI experience and human systems integration leadership.",
   contact: "Contact Senthil Nagappan for forward-deployed AI experience, governance, human systems, and accessibility leadership.",
   case: "Case study from Senthil Nagappan — AI safety, human systems integration, and accessibility work in regulated environments.",
-  ssadeploy: "How AI-assisted accessibility validation was deployed into a live, audited federal system used by caseworkers in all 50 states — human-in-the-loop by design, embedded in CI/CD, ~30% less manual audit effort.",
+  ssadeploy: "Flagship forward-deployed case study: an ambiguous federal complaint turned into an AI-assisted validation gate inside live CI/CD — component-level attribution, human oversight, $1.5M+ annual rework avoided.",
   lab: "In-house AI product concepts by Senthil Nagappan — TrustLens, Clarity, Sentinel, Lumen, and RevAssist: concise capsules of governance, clinical, agentic-safety, and revenue-cycle AI work.",
   governance: "Designing the Last Mile of AI Governance — how disclosure, explainability, oversight, and correction controls turn NIST AI RMF requirements into real product behavior.",
   oversight: "Why showing a clinician a raw confidence score is a design failure, and how recommend / act / alert oversight tiers map model risk to human authority — with the evidence each tier produces for EU AI Act Article 14 and NIST AI RMF MANAGE 2.3.",
