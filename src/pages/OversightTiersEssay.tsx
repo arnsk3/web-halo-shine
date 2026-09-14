@@ -328,7 +328,7 @@ export default function OversightTiersEssay({ onHome }: { onHome: () => void }) 
                     href={`#${s.id}`}
                     className="flex gap-2 text-[13px] text-gray-800 hover:text-[rgb(var(--c-primary))] underline-offset-4 hover:underline rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))]"
                   >
-                    <span aria-hidden="true" className="font-mono text-[11px] text-gray-500">
+                    <span aria-hidden="true" className="font-mono text-[11px] text-gray-700">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     {s.label}
