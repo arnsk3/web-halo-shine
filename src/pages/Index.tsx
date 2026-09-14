@@ -333,6 +333,11 @@ const CASE_STUDIES: CaseStudyType[] = [
           "Multiple product teams needed a unified visual language across accessible experiences across digital platforms. Without a shared design system, each team built UI its own way — inconsistent components, drifting brand, and accessibility handled ad hoc — slowing delivery and weakening the experience for clinicians who depend on clarity under pressure. The deeper risk was human performance: clinicians under time pressure and cognitive load cannot afford ambiguous controls, unclear alerts, or inconsistent workflows.",
       },
       {
+        heading: "Constraints",
+        content:
+          "Regulated medical software: any change to AI-facing behavior required FDA/IEC 62366 usability evidence, clinical sign-off, and change-control review before it could reach a released device or platform. Ten-plus product teams on independent roadmaps, so adoption had to be opt-in-attractive rather than mandated. Model latency budgets competed with explainability depth. Legacy platform variation across device and web surfaces meant one component had to degrade predictably, not break, in older shells.",
+      },
+      {
         heading: "My Role",
         content:
           "As Human Factors Engineer and Human Systems Integration Lead I owned the human performance, safety, and usability risk of clinical workflows first, then applied those insights to evolve the design system and best practices. I led cognitive task analysis, use-error analysis, and human-in-the-loop decision modeling, and translated those findings into a shared component library, design tokens, high-fidelity Figma mockups, and accessible color/contrast systems. I partnered cross-functionally — presenting work and aligning engineering, clinical, and regulatory teams around one unified visual language and human-centered standard.",
