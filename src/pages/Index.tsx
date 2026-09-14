@@ -310,7 +310,7 @@ const CASE_STUDIES: CaseStudyType[] = [
   {
     id: "ge",
     tag: "Design System · Unified Visual Language · Accessible Experiences",
-    title: "Evolving a Design System to Power Consistent, Accessible Digital Experiences",
+    title: "Forward Deployed Human Factors & AI System Implementation for Enterprise Health Platforms",
     subtitle:
       "Led Human Factors and Human Systems Integration for GE HealthCare, then translated human-performance insights into a shared design system and accessible visual language that 10+ product teams adopted across digital platforms.",
     hero: "from-[rgb(var(--c-hero-dark))] via-[rgb(var(--c-primary))] to-[rgb(var(--c-accent))]",
