@@ -4,12 +4,42 @@ const SECTIONS = [
   { id: "brief", label: "The Brief (as received)" },
   { id: "problem", label: "Problem: what was actually broken" },
   { id: "build", label: "Build: what I shipped" },
+  { id: "components", label: "System components" },
   { id: "system", label: "System: data, APIs, workflow" },
   { id: "deploy", label: "Deploy: getting it into production" },
   { id: "evaluation", label: "Evidence: how it was measured" },
   { id: "outcome", label: "Outcome: business impact" },
   { id: "failure", label: "What broke, and what I changed" },
   { id: "handoff", label: "Handoff & scale" },
+  { id: "insight", label: "Key engineering insight" },
+  { id: "fde", label: "Why this is forward deployed" },
+];
+
+const COMPONENTS = [
+  {
+    h: "AI accessibility engine (SSA11y, Llama-based)",
+    b: "Automated detection of WCAG failures, pattern recognition across UI components and workflows, and risk-ranking so the highest-impact conformance failures surface first instead of an undifferentiated defect list.",
+  },
+  {
+    h: "CI/CD integration layer",
+    b: "Checks embedded directly into the release pipelines the teams already ran, shifting validation from post-release audit to pre-merge enforcement. No new tool, no parallel process.",
+  },
+  {
+    h: "Human-in-the-loop review system",
+    b: "Escalation paths for ambiguous or high-risk findings, with the evidence attached to the decision. Structured review flows cut false positives and kept context-dependent judgment with a person.",
+  },
+  {
+    h: "Governance dashboard",
+    b: "Shared engineering and compliance visibility into violation volume, remediation velocity, recurrence by component, and risk hotspots — the operating picture that made accessibility a tracked system property.",
+  },
+];
+
+const FDE_PRINCIPLES = [
+  "Embedded directly in the operational teams — product, engineering, QA, and compliance — not across a contract boundary.",
+  "Solved an ambiguous, real-world system constraint rather than a specified feature request.",
+  "Built production-facing AI tooling wired into live release pipelines, not a prototype.",
+  "Closed the loop between users, engineers, and compliance systems.",
+  "Delivered measurable operational outcomes at enterprise scale.",
 ];
 
 const WALKTHROUGH = [
@@ -124,13 +154,14 @@ export default function SsaDeployment({ onHome }: { onHome: () => void }) {
             Flagship Forward-Deployed Case Study
           </p>
           <h1 className="font-display text-3xl sm:text-4xl font-extrabold leading-[1.15] mb-4 tracking-tight">
-            Shipping AI-Assisted Accessibility Into a Live Federal Pipeline
+            AI-Powered Accessibility &amp; Compliance System at Enterprise Scale
           </h1>
           <p className="text-white/90 text-base sm:text-lg leading-relaxed">
-            Embedded with federal delivery teams on a platform serving 50M+ citizens. Took an
-            AI-assisted validation capability from an ambiguous complaint to a required gate in
-            production CI/CD — with the oversight, telemetry, and audit trail that made it legal to
-            keep running.
+            Embedded with federal delivery teams on a platform serving 50M+ citizens across 15+
+            interconnected modules. Took an AI-assisted validation capability from an ambiguous
+            complaint to a required gate in production CI/CD — with the oversight, telemetry, and
+            audit trail that made it legal to keep running. The core challenge was not UI design;
+            it was system reliability under scale and regulatory constraint.
           </p>
         </div>
       </header>
@@ -233,6 +264,20 @@ export default function SsaDeployment({ onHome }: { onHome: () => void }) {
             </ul>
           </section>
 
+          <section id="components" aria-labelledby="ssa-components-h" className="scroll-mt-24 mb-10">
+            <h2 id="ssa-components-h" className="text-2xl font-extrabold text-gray-900 mb-3">
+              System components
+            </h2>
+            <dl className="space-y-4">
+              {COMPONENTS.map((c) => (
+                <div key={c.h} className="rounded-xl border border-gray-200 bg-white p-5">
+                  <dt className="font-bold text-gray-900 mb-1.5">{c.h}</dt>
+                  <dd className="text-sm text-gray-700 leading-relaxed m-0">{c.b}</dd>
+                </div>
+              ))}
+            </dl>
+          </section>
+
           <section id="system" aria-labelledby="ssa-system-h" className="scroll-mt-24 mb-10">
             <h2 id="ssa-system-h" className="text-2xl font-extrabold text-gray-900 mb-3">
               System: data, APIs, workflow
@@ -260,7 +305,10 @@ export default function SsaDeployment({ onHome }: { onHome: () => void }) {
               already lived in, or it would be ignored regardless of accuracy.
             </p>
             <p className="text-gray-700 leading-relaxed">
-              Rolled out on two pilot teams first, with the gate advisory rather than blocking
+              Deployment ran in phases: piloted in the modules with the highest defect density,
+              then integrated into CI/CD across multiple engineering teams, then scaled across the
+              enterprise release cadence of 40+ releases a month until it was simply part of the
+              standard engineering workflow. Rolled out on two pilot teams first, with the gate advisory rather than blocking
               until the false-positive rate was defensible. Then made human review a required gate,
               enabled attribution write-back to the component library, and expanded across the
               program. First useful output landed in weeks; full pipeline integration followed one
@@ -334,6 +382,39 @@ export default function SsaDeployment({ onHome }: { onHome: () => void }) {
               runbooks, rule-tuning criteria, component governance rules, and the evidence model
               documented. The pattern was then reused on adjacent programs without me rebuilding it.
             </p>
+          </section>
+
+          <section id="insight" aria-labelledby="ssa-insight-h" className="scroll-mt-24 mb-10">
+            <h2 id="ssa-insight-h" className="text-2xl font-extrabold text-gray-900 mb-3">
+              Key engineering insight
+            </h2>
+            <blockquote className="rounded-xl border-l-4 border-[rgb(var(--c-accent-on-light))] bg-white p-5 text-gray-900 text-lg font-semibold leading-relaxed m-0">
+              Accessibility is not a design problem — it is a system reliability problem.
+            </blockquote>
+            <p className="text-gray-700 leading-relaxed mt-3">
+              That reframing is what unlocked the rest: AI integrated into engineering pipelines,
+              automation of work that had been manual compliance labour, enforcement that scaled
+              across distributed teams, and less human error in a high-volume release cycle.
+              Accessibility stopped being a reactive QA activity and became a proactive,
+              system-level control embedded in the engineering workflow.
+            </p>
+          </section>
+
+          <section id="fde" aria-labelledby="ssa-fde-h" className="scroll-mt-24 mb-10">
+            <h2 id="ssa-fde-h" className="text-2xl font-extrabold text-gray-900 mb-3">
+              Why this is forward deployed engineering
+            </h2>
+            <ul className="list-none p-0 m-0 space-y-2">
+              {FDE_PRINCIPLES.map((f) => (
+                <li key={f} className="flex items-start gap-2.5 text-gray-700 leading-relaxed">
+                  <span
+                    aria-hidden="true"
+                    className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[rgb(var(--c-accent))]"
+                  />
+                  <span>{f}</span>
+                </li>
+              ))}
+            </ul>
           </section>
 
           <p className="rounded-xl border border-[rgb(var(--c-primary)/0.25)] bg-[rgb(var(--c-tint-50))] p-5 text-gray-800 leading-relaxed">
