@@ -17,6 +17,7 @@ import AISkillsMatrix from "@/components/AISkillsMatrix";
 import GovernanceEngagements from "@/components/GovernanceEngagements";
 import AIGovernanceSection from "@/components/AIGovernanceSection";
 import FdeSystems from "@/components/FdeSystems";
+import FdePractice from "@/components/FdePractice";
 import AIGovernanceCaseStudy from "@/pages/AIGovernanceCaseStudy";
 import CrosswalkEssay from "@/pages/CrosswalkEssay";
 import OversightTiersEssay from "@/pages/OversightTiersEssay";
@@ -1143,7 +1144,7 @@ function BrandTeaser({ onOpen }: { onOpen: () => void }) {
     >
       <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] pt-[clamp(2rem,4vw,3.5rem)] pb-[clamp(1rem,2vw,2rem)]">
         <FadeIn>
-          <SectionIndex n="09" label="Visual Systems" />
+          <SectionIndex n="10" label="Visual Systems" />
           <article className="group grid gap-8 md:grid-cols-[1.2fr_1fr] items-center rounded-2xl border border-gray-200 bg-[rgb(var(--c-tint-50))] overflow-hidden shadow-sm transition-all duration-300 hover:shadow-xl hover:border-[rgb(var(--c-primary)/0.3)]">
             <div className="p-8 sm:p-10">
               <p className="text-[rgb(var(--c-accent-on-light))] text-xs font-semibold tracking-[2px] uppercase mb-3">
@@ -1616,14 +1617,17 @@ function Home({
       {/* Impact strip — stats directly under the hero */}
       <ImpactStrip />
 
-      {/* 01 — Forward-deployed experience leads the page */}
+      {/* 01 — What I do: FDE practice, pillars, operating model */}
+      <FdePractice n="01" />
+
+      {/* 02 — Forward-deployed experience */}
       <AIDeploymentSection />
 
-      {/* 02 — The forward-deployment process itself */}
-      <ForwardDeploymentModel n="02" />
+      {/* 03 — The forward-deployment process itself */}
+      <ForwardDeploymentModel n="03" />
 
-      {/* 03 — System stack + ambiguity operating cadence */}
-      <FdeSystems n="03" />
+      {/* 04 — System stack + ambiguity operating cadence */}
+      <FdeSystems n="04" />
 
       {/* 04 — AI governance & responsible AI */}
       <AIGovernanceSection />
@@ -1631,12 +1635,13 @@ function Home({
       {/* Case Studies — work leads the page */}
       <section id="cases" className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2rem,4vw,3.5rem)]" aria-labelledby="cases-heading">
         <FadeIn>
-          <SectionIndex n="05" label="Selected Work" />
+          <SectionIndex n="06" label="Forward Deployed Systems" />
           <h2 id="cases-heading" className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2 tracking-tight">
-            Selected Work
+            Forward Deployed Systems
           </h2>
           <p className="text-gray-700 text-base mb-3 max-w-3xl">
-            Design systems, accessibility, and AI products that drove adoption and trust at scale.
+            Problem → build → deploy → outcome. Systems shipped into federal, clinical, and
+            enterprise environments, plus production-adjacent prototypes.
           </p>
           <p className="text-gray-700 text-[13px] mb-6 max-w-2xl">
             <span className="font-semibold text-gray-700">A note on metrics:</span> figures are team
@@ -1879,16 +1884,16 @@ function Home({
       >
         <FadeIn>
           <div className="mb-8 max-w-2xl">
-            <SectionIndex n="10" label="Writing" />
+            <SectionIndex n="11" label="Field Notes" />
             <h2
               id="writing-heading"
               className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-2"
             >
-              Notes on AI governance UX and human systems integration.
+              Field notes: AI + human systems.
             </h2>
             <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
-              Short essays on the problems I keep meeting in regulated AI work — written for design,
-              product, and risk leaders.
+              Practical notes from deploying AI into regulated environments — written for
+              engineering, product, and risk leaders, not for a design audience.
             </p>
           </div>
           <div className="grid gap-5 md:grid-cols-2">
