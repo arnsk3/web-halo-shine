@@ -584,6 +584,16 @@ const CASE_STUDIES: CaseStudyType[] = [
            "Migrating TEDS to AWS GovCloud eliminated brittle legacy hardware, cut infrastructure and maintenance costs, and gave SAMHSA elastic capacity to handle annual state data submissions without over-provisioning. Automated, validated ETL pipelines replaced manual data handling — improving the accuracy and timeliness of national behavioral health reporting. Modernized, accessible data-visualization dashboards made TEDS insights available faster to researchers, state agencies, and the public, while compliant cloud governance reduced the audit burden and strengthened security posture across the portfolio.",
        },
        {
+         heading: "Constraints",
+         content:
+           "FedRAMP High boundary and federal ATO requirements governed every architectural choice — no unapproved services, no data leaving the accredited environment. Annual state submission windows created hard, immovable deadlines with large bursty load. Source data arrived in inconsistent state-by-state formats requiring validation before it could be trusted for national reporting. Section 508 conformance was a statutory obligation on every public-facing dashboard, and legacy hardware had to keep running during migration — cutover with no reporting outage.",
+       },
+       {
+         heading: "System integration & deployment",
+         content:
+           "TEDS datasets were migrated to AWS GovCloud with automated, validated ETL pipelines replacing manual data handling: ingestion, schema validation, lineage capture, and error quarantine per state submission. Public dashboards were rebuilt on the modernized data layer with accessibility conformance built into the component set rather than audited afterward. Migration ran in parallel with the legacy system until reporting parity was proven, then cut over. Section 508 policy and review gates were embedded into the delivery process so conformance stayed intact across releases and team turnover.",
+       },
+       {
          heading: "Seven Years of Leadership",
          content:
            "Short engagements let you design solutions. Multi-year ownership teaches you whether those solutions survive: new leadership, changing requirements, team turnover, technology shifts. The governance frameworks I built in year 2 were still operating in year 7. The team I recruited in year 1 grew to 15+ by year 4. The Section 508 policy I defined became the organizational standard that outlasted my tenure. Seven years taught me that the real test of leadership isn't what you build — it's what still works after you leave.",
