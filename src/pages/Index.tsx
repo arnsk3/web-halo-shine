@@ -350,6 +350,11 @@ const CASE_STUDIES: CaseStudyType[] = [
         content:
           "Sensitivity vs. Specificity: a screening algorithm flagged too many false positives. Engineering wanted lower sensitivity, clinical wanted it high. My framework: in clinical AI, the cost of missing something always exceeds the cost of extra investigation. Sensitivity stays, but the interface helps clinicians triage faster. Speed vs. Explainability: leadership wanted sub-second AI responses, but faster models sacrificed explainability. My decision: speed without trust is useless clinically. Implemented layered explainability — immediate recommendation with on-demand rationale. Automation vs. Autonomy: some stakeholders wanted fully automated workflows. I pushed back — in prenatal diagnostics, every automated decision must have a meaningful human checkpoint. This principle was codified into the enterprise standard.",
       },
+      {
+        heading: "System Integration & Deployment",
+        content:
+          "Shipped, not just specified. The component library and design tokens were published as a versioned package consumed directly by product engineering builds, so a token change propagated to 10+ teams without hand-editing UI. Human-in-the-loop behavior — confidence display, override capture, escalation states — was written as interaction contracts against the AI service APIs, then implemented with engineering in the product codebase. Deployment constraints were regulatory: FDA/IEC 62366 usability evidence, clinical sign-off gates, and change-control review before any AI-facing behavior reached a released device or platform. Oversight telemetry (override rate, alert dismissal, escalation) was instrumented so post-market monitoring had real signal instead of anecdotes.",
+      },
     ],
     outcomes: [
       "Evolved a shared design system adopted across 10+ product teams for a unified visual language",
