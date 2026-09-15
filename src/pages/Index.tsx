@@ -125,6 +125,11 @@ const CASE_STUDIES: CaseStudyType[] = [
         content:
           "I architected and wrote the front end myself in React + TypeScript, structured as a library of reusable, composable components driven by a single semantic design-token layer. State is managed with React Context and predictable reducer patterns so scan results, filters, and the remediation roadmap stay in sync without prop-drilling. The build runs on Vite (Webpack/Babel-equivalent tooling) with code-splitting and lazy loading for performance, REST integration for live URL scans, and Git-based workflows with documented coding standards and component guidelines so the codebase scales cleanly as new criteria are added.",
       },
+      {
+        heading: "System Design & Deployment Layer",
+        content:
+          "Shipped in production as a public, self-serve tool. Architecture: a stateless scan API accepts a live URL or pasted HTML, a fetch/parse layer normalizes the DOM, a deterministic rule engine evaluates 28 WCAG 2.2 criteria, and an LLM-assisted suggestion layer generates the corrected markup for findings rules cannot auto-fix. Rules are versioned data, not code, so new criteria deploy without a rebuild. The front end is a Vite build with code-splitting, deployed as static assets behind a CDN; scans run client-callable with no backend lock-in. Every finding carries its normative rule reference so output doubles as Section 508 / WCAG-EM audit evidence.",
+      },
     ],
     outcomes: [
       "Standalone tool achieving WCAG 2.2 AAA conformance — both in what it checks and how it's built",
@@ -199,6 +204,11 @@ const CASE_STUDIES: CaseStudyType[] = [
         heading: "UI Architecture & React Engineering",
         content:
           "I architected and wrote the front end in React + TypeScript as a library of reusable, accessible data-visualization components — risk gauges, fairness charts, model cards, and audit timelines — driven by a single semantic design-token layer. Predictable state management keeps model status, filters, and oversight queues in sync across views, and the Vite build uses code-splitting and lazy loading so dense, data-heavy dashboards stay fast. Every chart is colorblind-safe and validated to WCAG 2.2 AA.",
+      },
+      {
+        heading: "System Design & Deployment Layer",
+        content:
+          "Built as a control plane over existing ML infrastructure rather than a replacement for it. Model metadata, evaluation runs, and inference telemetry are ingested through a registry API and event stream; a risk-classification service tiers each model and binds the required controls; an evidence store holds lineage, approvals, and override records as append-only records for audit. Approval gates are exposed as webhooks so the existing MLOps pipeline can block a promotion instead of a human remembering to. Deployment is embedded with the teams that own the models — governance runs inside their CI/CD and release process, and compliance packages export straight from the evidence store rather than being assembled by hand.",
       },
     ],
     outcomes: [
@@ -283,6 +293,11 @@ const CASE_STUDIES: CaseStudyType[] = [
         heading: "UI Architecture & React Engineering",
         content:
           "I built the prototype front end in React + TypeScript with a reusable, accessible component set — recommendation cards, confidence indicators, explainability drawers, and override-capture flows — on a single semantic design-token layer themed to AAA contrast targets. State management keeps recommendations, clinician actions, and audit events consistent, and the interface is fully keyboard-operable and screen-reader-first so it holds up in real clinical environments.",
+      },
+      {
+        heading: "System Design & Deployment Layer",
+        content:
+          "Designed to sit inside the clinical workflow, not beside it. Inference results arrive from the model service API with a confidence payload; a routing layer applies the oversight tier (recommend / act-with-confirm / alert) based on risk class and confidence threshold; explanation data is assembled from contributing-factor and source-record APIs at render time; override capture writes structured reason codes back to an audit event stream. Integration targets are the queue, EHR, and ticketing systems clinicians already use, behind SSO and role-scoped access. Oversight telemetry — override rate, dismissal rate, time-on-decision — ships with the feature so threshold tuning is data-driven after deployment, not guesswork.",
       },
     ],
     outcomes: [
@@ -680,6 +695,11 @@ const CASE_STUDIES: CaseStudyType[] = [
         content:
           "Built the front end in React + TypeScript as reusable visualization components — action timelines, tool-call inspectors, guardrail status panels, and adversarial-test result views — on a single semantic design-token layer. Streaming agent telemetry is handled with predictable state so dense, fast-moving logs stay readable, and every panel is keyboard-operable and WCAG 2.2 AA conformant.",
       },
+      {
+        heading: "System Design & Deployment Layer",
+        content:
+          "Sentinel deploys as a proxy layer in front of the agent runtime: every tool call is intercepted, classified against the four-tier guardrail policy, and either logged, routed for human confirmation, constrained, or blocked before it executes. Input filters run pre-inference against prompt-injection and jailbreak signatures; the action ledger is an append-only event stream keyed by run ID, giving full replay. The kill-switch is a control-plane API call that revokes the agent's tool credentials, so the safe state does not depend on the agent cooperating. Red-team scenarios run as a CI job against a staged agent build, and a failing scenario blocks promotion to production.",
+      },
     ],
     outcomes: [
       "Made autonomous agent behavior fully auditable — every action logged with intent and outcome",
@@ -756,6 +776,11 @@ const CASE_STUDIES: CaseStudyType[] = [
         heading: "Architecture & Approach",
         content:
           "Built in React + TypeScript with reusable components for citation chips, source-passage drawers, evidence-linking lines, and confidence indicators — all on a single semantic design-token layer. Streaming responses are reconciled with their citations in predictable state, and the entire experience is keyboard-operable and screen-reader-first to WCAG 2.2 AA.",
+      },
+      {
+        heading: "System Design & Deployment Layer",
+        content:
+          "Lumen is the trust layer over a standard RAG pipeline: document ingestion and chunking, embeddings into a vector store, hybrid retrieval with reranking, then generation with per-claim citation binding. Grounding is computed server-side — retrieval score, source agreement, and coverage of the answer span — and returned alongside the streamed tokens so the UI can down-weight an answer as it renders instead of after the fact. Below a coverage threshold the pipeline returns an explicit insufficient-evidence response rather than generating. Retrieval quality, citation click-through, and challenge events are instrumented, feeding chunking and reranker tuning after deployment.",
       },
     ],
     outcomes: [
@@ -834,6 +859,11 @@ const CASE_STUDIES: CaseStudyType[] = [
         heading: "Architecture & Approach",
         content:
           "I architected the front end in React + TypeScript as a token-driven component library — claim tables, the AI suggestion drawer, the confidence/source inspector, and the denial-triage queue are reusable primitives. State is managed with Context and reducer patterns so a claim's status, AI suggestions, and human overrides stay in sync across the coding, billing, and denial views. Every AI-assisted action is captured as auditable evidence, giving compliance a defensible trail and giving the design team a telemetry loop to improve suggestion quality over time.",
+      },
+      {
+        heading: "System Design & Deployment Layer",
+        content:
+          "Designed against the real revenue-cycle stack: clinical documentation in, X12 837 claims out, 835 remittances back. An extraction and coding service reads the chart and proposes ICD-10-CM / CPT / HCPCS codes with a pointer to the supporting passage; a denial-risk model scores the claim pre-submission against historical payer outcomes; a clustering job groups incoming 835 rejections by root cause for the triage queue. Every AI suggestion and human decision is written to an append-only audit trail with reason codes, satisfying HIPAA access control and appeal defensibility. Integration is API-first against the clearinghouse and practice-management systems, so the workspace layers onto the existing pipeline rather than replacing it.",
       },
     ],
     outcomes: [
