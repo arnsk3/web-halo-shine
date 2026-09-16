@@ -19,6 +19,9 @@ import AIGovernanceSection from "@/components/AIGovernanceSection";
 import FdeSystems from "@/components/FdeSystems";
 import FdePractice from "@/components/FdePractice";
 import FdeBand from "@/components/FdeBand";
+import ProductionSystems from "@/components/ProductionSystems";
+import SystemArchitecture from "@/components/SystemArchitecture";
+import WhatIBuilt from "@/components/WhatIBuilt";
 import FlagshipSystems from "@/components/FlagshipSystems";
 import SystemsCapabilities from "@/components/SystemsCapabilities";
 import FieldNotes from "@/components/FieldNotes";
@@ -1211,7 +1214,7 @@ function BrandTeaser({ onOpen }: { onOpen: () => void }) {
     >
       <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] pt-[clamp(2rem,4vw,3.5rem)] pb-[clamp(1rem,2vw,2rem)]">
         <FadeIn>
-          <SectionIndex n="11" label="Visual Systems" />
+          <SectionIndex n="14" label="Visual Systems" />
           <article className="group grid gap-8 md:grid-cols-[1.2fr_1fr] items-center rounded-2xl border border-gray-200 bg-[rgb(var(--c-tint-50))] overflow-hidden shadow-sm transition-all duration-300 hover:shadow-xl hover:border-[rgb(var(--c-primary)/0.3)]">
             <div className="p-8 sm:p-10">
               <p className="text-[rgb(var(--c-accent-on-light))] text-xs font-semibold tracking-[2px] uppercase mb-3">
@@ -1619,7 +1622,7 @@ function Home({
             <h1 className="text-3xl sm:text-5xl font-extrabold leading-[1.08] mb-3 sm:mb-5 tracking-tight">
               Senthil Nagappan
               <span className="block mt-2 sm:mt-3 text-xl sm:text-3xl font-extrabold bg-gradient-to-r from-[rgb(var(--c-accent-light))] to-[rgb(var(--c-accent-on-dark))] bg-clip-text text-transparent">
-                Forward Deployed AI &amp; Human Systems Engineer
+                Forward Deployed AI Systems Engineer &amp; Human Systems Leader
               </span>
               <span className="block mt-2 text-sm sm:text-base font-semibold text-white/90">
                 Production AI Deployment · LLM &amp; RAG Pipelines · APIs &amp; CI/CD Integration ·
@@ -1629,10 +1632,10 @@ function Home({
           </FadeIn>
           <FadeIn delay={0.15}>
             <p className="text-white text-sm sm:text-lg mb-2 sm:mb-4 max-w-2xl mx-auto leading-relaxed">
-              I build and deploy AI-driven systems in regulated environments where decisions affect
-              millions of users. Embedded with customer engineering, product, and operations teams:
-              I find where the real workflow breaks, build the service, wire it into their APIs and
-              CI/CD, instrument it, and stay until it runs in production and is measured.
+              I design, build, and deploy AI-powered systems in real-world environments — owning
+              delivery from concept to production. Embedded with customer engineering, product, and
+              operations teams: I find where the workflow breaks, build the service, wire it into
+              their APIs and CI/CD, instrument it, and own it until it is measured in production.
             </p>
           </FadeIn>
           <FadeIn delay={0.18}>
@@ -1653,10 +1656,9 @@ function Home({
           <FadeIn delay={0.19}>
             <ul className="list-none p-0 mx-auto mb-5 sm:mb-7 grid gap-1.5 max-w-2xl text-left sm:grid-cols-3">
               {[
-                "Enterprise AI delivery at scale — federal and healthcare production systems",
-                "Human error reduction in mission-critical, safety-critical workflows",
-                "AI + systems integration leadership across engineering, product, and operations",
-                "Compliance-driven AI governance — NIST AI RMF, ISO/IEC 42001, WCAG 2.2 AAA",
+                "Built and deployed AI systems integrated into production pipelines",
+                "Reduced human error and improved decision-making at scale",
+                "Delivered mission-critical systems across federal and healthcare domains",
               ].map((b) => (
                 <li
                   key={b}
@@ -1671,7 +1673,7 @@ function Home({
           <FadeIn delay={0.2}>
             <div className="flex gap-2 sm:gap-3 justify-center flex-wrap mb-5 sm:mb-9">
               <button
-                onClick={() => document.getElementById("flagship-systems")?.scrollIntoView({ behavior: "smooth" })}
+                onClick={() => document.getElementById("production-systems")?.scrollIntoView({ behavior: "smooth" })}
                 className="group inline-flex items-center justify-center gap-2 min-h-[44px] bg-white text-[rgb(var(--c-primary))] px-6 py-2.5 rounded-lg font-semibold text-sm shadow-lg shadow-black/10 hover:-translate-y-0.5 hover:shadow-xl hover:bg-[rgb(var(--c-accent-on-light))] hover:text-white transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
               >
                 View deployed systems <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
@@ -1716,20 +1718,29 @@ function Home({
       {/* Forward Deployed Engineering positioning band */}
       <FdeBand />
 
-      {/* 01 — What I do: FDE practice, pillars, operating model */}
-      <FdePractice n="01" />
+      {/* 01 — Flagship systems delivered in production */}
+      <ProductionSystems n="01" />
 
-      {/* 02 — Forward-deployed experience */}
+      {/* 02 — System architecture & delivery */}
+      <SystemArchitecture n="02" />
+
+      {/* 03 — What I built + technical execution */}
+      <WhatIBuilt n="03" />
+
+      {/* 04 — What I do: FDE practice, pillars, operating model */}
+      <FdePractice n="04" />
+
+      {/* 05 — Forward-deployed experience */}
       <AIDeploymentSection />
 
-      {/* 03 — The forward-deployment process itself */}
-      <ForwardDeploymentModel n="03" />
+      {/* 06 — The forward-deployment process itself */}
+      <ForwardDeploymentModel n="06" />
 
-      {/* 04 — System stack + ambiguity operating cadence */}
-      <FdeSystems n="04" />
+      {/* 07 — System stack + ambiguity operating cadence */}
+      <FdeSystems n="07" />
 
-      {/* 05 — Three flagship deployments */}
-      <FlagshipSystems n="05" />
+      {/* 08 — Three flagship deployments */}
+      <FlagshipSystems n="08" />
 
       {/* 06 — AI governance & responsible AI */}
       <AIGovernanceSection />
@@ -1737,7 +1748,7 @@ function Home({
       {/* Case Studies — work leads the page */}
       <section id="cases" className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2rem,4vw,3.5rem)]" aria-labelledby="cases-heading">
         <FadeIn>
-          <SectionIndex n="07" label="Forward Deployed Systems" />
+          <SectionIndex n="10" label="Forward Deployed Systems" />
           <h2 id="cases-heading" className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2 tracking-tight">
             Forward Deployed Systems
           </h2>
@@ -1987,7 +1998,7 @@ function Home({
       >
         <FadeIn>
           <div className="mb-8 max-w-2xl">
-            <SectionIndex n="12" label="Field Notes" />
+            <SectionIndex n="15" label="Field Notes" />
             <h2
               id="writing-heading"
               className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-2"
@@ -2054,16 +2065,16 @@ function Home({
 
 
       {/* 13 — Systems & engineering capabilities */}
-      <SystemsCapabilities n="13" />
+      <SystemsCapabilities n="16" />
 
       {/* 14 — Field notes: short operator entries */}
-      <FieldNotes n="14" />
+      <FieldNotes n="17" />
 
       {/* 15 — Systems thinking & failure modes */}
-      <FailureModes n="15" />
+      <FailureModes n="18" />
 
       {/* 16 — Skills & keywords index */}
-      <AtsKeywords n="16" />
+      <AtsKeywords n="19" />
 
       {/* Brief About — teaser placed after the numbered sequence so 01–09 run uninterrupted */}
       <section className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2rem,4vw,3.5rem)]" aria-labelledby="brief-about-heading">
