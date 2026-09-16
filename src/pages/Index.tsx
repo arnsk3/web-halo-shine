@@ -1619,7 +1619,7 @@ function Home({
             <h1 className="text-3xl sm:text-5xl font-extrabold leading-[1.08] mb-3 sm:mb-5 tracking-tight">
               Senthil Nagappan
               <span className="block mt-2 sm:mt-3 text-xl sm:text-3xl font-extrabold bg-gradient-to-r from-[rgb(var(--c-accent-light))] to-[rgb(var(--c-accent-on-dark))] bg-clip-text text-transparent">
-                Forward Deployed AI &amp; Human Systems Engineer
+                Forward Deployed AI Systems Engineer &amp; Human Systems Leader
               </span>
               <span className="block mt-2 text-sm sm:text-base font-semibold text-white/90">
                 Production AI Deployment · LLM &amp; RAG Pipelines · APIs &amp; CI/CD Integration ·
@@ -1629,10 +1629,10 @@ function Home({
           </FadeIn>
           <FadeIn delay={0.15}>
             <p className="text-white text-sm sm:text-lg mb-2 sm:mb-4 max-w-2xl mx-auto leading-relaxed">
-              I build and deploy AI-driven systems in regulated environments where decisions affect
-              millions of users. Embedded with customer engineering, product, and operations teams:
-              I find where the real workflow breaks, build the service, wire it into their APIs and
-              CI/CD, instrument it, and stay until it runs in production and is measured.
+              I design, build, and deploy AI-powered systems in real-world environments — owning
+              delivery from concept to production. Embedded with customer engineering, product, and
+              operations teams: I find where the workflow breaks, build the service, wire it into
+              their APIs and CI/CD, instrument it, and own it until it is measured in production.
             </p>
           </FadeIn>
           <FadeIn delay={0.18}>
@@ -1653,10 +1653,9 @@ function Home({
           <FadeIn delay={0.19}>
             <ul className="list-none p-0 mx-auto mb-5 sm:mb-7 grid gap-1.5 max-w-2xl text-left sm:grid-cols-3">
               {[
-                "Enterprise AI delivery at scale — federal and healthcare production systems",
-                "Human error reduction in mission-critical, safety-critical workflows",
-                "AI + systems integration leadership across engineering, product, and operations",
-                "Compliance-driven AI governance — NIST AI RMF, ISO/IEC 42001, WCAG 2.2 AAA",
+                "Built and deployed AI systems integrated into production pipelines",
+                "Reduced human error and improved decision-making at scale",
+                "Delivered mission-critical systems across federal and healthcare domains",
               ].map((b) => (
                 <li
                   key={b}
