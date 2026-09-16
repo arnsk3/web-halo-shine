@@ -1214,7 +1214,7 @@ function BrandTeaser({ onOpen }: { onOpen: () => void }) {
     >
       <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] pt-[clamp(2rem,4vw,3.5rem)] pb-[clamp(1rem,2vw,2rem)]">
         <FadeIn>
-          <SectionIndex n="11" label="Visual Systems" />
+          <SectionIndex n="14" label="Visual Systems" />
           <article className="group grid gap-8 md:grid-cols-[1.2fr_1fr] items-center rounded-2xl border border-gray-200 bg-[rgb(var(--c-tint-50))] overflow-hidden shadow-sm transition-all duration-300 hover:shadow-xl hover:border-[rgb(var(--c-primary)/0.3)]">
             <div className="p-8 sm:p-10">
               <p className="text-[rgb(var(--c-accent-on-light))] text-xs font-semibold tracking-[2px] uppercase mb-3">
@@ -1748,7 +1748,7 @@ function Home({
       {/* Case Studies — work leads the page */}
       <section id="cases" className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2rem,4vw,3.5rem)]" aria-labelledby="cases-heading">
         <FadeIn>
-          <SectionIndex n="07" label="Forward Deployed Systems" />
+          <SectionIndex n="10" label="Forward Deployed Systems" />
           <h2 id="cases-heading" className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2 tracking-tight">
             Forward Deployed Systems
           </h2>
@@ -1998,7 +1998,7 @@ function Home({
       >
         <FadeIn>
           <div className="mb-8 max-w-2xl">
-            <SectionIndex n="12" label="Field Notes" />
+            <SectionIndex n="15" label="Field Notes" />
             <h2
               id="writing-heading"
               className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-2"
@@ -2065,16 +2065,16 @@ function Home({
 
 
       {/* 13 — Systems & engineering capabilities */}
-      <SystemsCapabilities n="13" />
+      <SystemsCapabilities n="16" />
 
       {/* 14 — Field notes: short operator entries */}
-      <FieldNotes n="14" />
+      <FieldNotes n="17" />
 
       {/* 15 — Systems thinking & failure modes */}
-      <FailureModes n="15" />
+      <FailureModes n="18" />
 
       {/* 16 — Skills & keywords index */}
-      <AtsKeywords n="16" />
+      <AtsKeywords n="19" />
 
       {/* Brief About — teaser placed after the numbered sequence so 01–09 run uninterrupted */}
       <section className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2rem,4vw,3.5rem)]" aria-labelledby="brief-about-heading">
