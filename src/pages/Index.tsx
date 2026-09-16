@@ -1715,20 +1715,29 @@ function Home({
       {/* Forward Deployed Engineering positioning band */}
       <FdeBand />
 
-      {/* 01 — What I do: FDE practice, pillars, operating model */}
-      <FdePractice n="01" />
+      {/* 01 — Flagship systems delivered in production */}
+      <ProductionSystems n="01" />
 
-      {/* 02 — Forward-deployed experience */}
+      {/* 02 — System architecture & delivery */}
+      <SystemArchitecture n="02" />
+
+      {/* 03 — What I built + technical execution */}
+      <WhatIBuilt n="03" />
+
+      {/* 04 — What I do: FDE practice, pillars, operating model */}
+      <FdePractice n="04" />
+
+      {/* 05 — Forward-deployed experience */}
       <AIDeploymentSection />
 
-      {/* 03 — The forward-deployment process itself */}
-      <ForwardDeploymentModel n="03" />
+      {/* 06 — The forward-deployment process itself */}
+      <ForwardDeploymentModel n="06" />
 
-      {/* 04 — System stack + ambiguity operating cadence */}
-      <FdeSystems n="04" />
+      {/* 07 — System stack + ambiguity operating cadence */}
+      <FdeSystems n="07" />
 
-      {/* 05 — Three flagship deployments */}
-      <FlagshipSystems n="05" />
+      {/* 08 — Three flagship deployments */}
+      <FlagshipSystems n="08" />
 
       {/* 06 — AI governance & responsible AI */}
       <AIGovernanceSection />
