@@ -81,7 +81,7 @@ export default function ProductionSystems({ n = "01" }: { n?: string }) {
               <details className="portfolio-card-details"><summary>Build, deployment & impact</summary><dl>
                 <dt>Build</dt><dd>{system.build}</dd><dt>Deploy</dt><dd>{system.deploy}</dd><dt>Outcome</dt><dd><ul>{system.outcome.map(outcome => <li key={outcome}>{outcome}</li>)}</ul></dd>
               </dl></details>
-              <Button asChild variant="link" className="portfolio-text-link"><Link to={system.to ?? "/case/ge"}>Explore the {index === 0 ? "federal" : "healthcare"} case <ArrowUpRight aria-hidden="true" /></Link></Button>
+              <Button asChild variant="link" className="portfolio-text-link"><Link to={system.to ?? "/work/ge"}>Explore the {index === 0 ? "federal" : "healthcare"} case <ArrowUpRight aria-hidden="true" /></Link></Button>
             </div>
           </article>;
         })}
