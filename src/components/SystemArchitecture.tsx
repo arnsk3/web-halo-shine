@@ -61,15 +61,13 @@ export default function SystemArchitecture({ n = "02" }: { n?: string }) {
         id="architecture-heading"
         className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2 tracking-tight"
       >
-        System architecture &amp; delivery
+        From AI output to a trusted decision
       </h2>
       <p className="text-gray-700 text-base mb-8 max-w-3xl">
-        The reference architecture behind the deployments: how a request moves from a user
-        through the AI pipeline, what the human is allowed to override, and where it plugs into
-        the customer&rsquo;s pipeline.
+        Connect the data. Validate the result. Keep people in control.
       </p>
 
-      <div className="grid gap-5 mb-8 [grid-template-columns:repeat(auto-fit,minmax(min(100%,28rem),1fr))]">
+      <div className="mb-6">
         <SystemDiagram
           title="AI pipeline — LLM to validated output"
           stages={[
@@ -81,6 +79,9 @@ export default function SystemArchitecture({ n = "02" }: { n?: string }) {
           ]}
           loop="Golden-set regressions and confirmed false positives retune thresholds before the next release."
         />
+      </div>
+      <details className="portfolio-architecture-details"><summary>Explore integration, release gates & human oversight</summary>
+      <div className="grid gap-6 mt-6 md:grid-cols-2">
         <SystemDiagram
           title="Data flow — user to API to system to output"
           stages={[
@@ -144,6 +145,7 @@ export default function SystemArchitecture({ n = "02" }: { n?: string }) {
           </article>
         ))}
       </div>
+      </details>
     </section>
   );
 }
