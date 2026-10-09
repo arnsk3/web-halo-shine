@@ -20,6 +20,9 @@ import FdeSystems from "@/components/FdeSystems";
 import FdePractice from "@/components/FdePractice";
 import FdeBand from "@/components/FdeBand";
 import ProductionSystems from "@/components/ProductionSystems";
+import DeliveryDepth from "@/components/DeliveryDepth";
+import engineeringWorkspace from "@/assets/engineering-workspace.jpg";
+import { Button } from "@/components/ui/button";
 import SystemArchitecture from "@/components/SystemArchitecture";
 import WhatIBuilt from "@/components/WhatIBuilt";
 import FlagshipSystems from "@/components/FlagshipSystems";
@@ -1214,7 +1217,7 @@ function BrandTeaser({ onOpen }: { onOpen: () => void }) {
     >
       <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] pt-[clamp(2rem,4vw,3.5rem)] pb-[clamp(1rem,2vw,2rem)]">
         <FadeIn>
-          <SectionIndex n="14" label="Visual Systems" />
+          <SectionIndex n="06" label="Visual Systems" />
           <article className="group grid gap-8 md:grid-cols-[1.2fr_1fr] items-center rounded-2xl border border-gray-200 bg-[rgb(var(--c-tint-50))] overflow-hidden shadow-sm transition-all duration-300 hover:shadow-xl hover:border-[rgb(var(--c-primary)/0.3)]">
             <div className="p-8 sm:p-10">
               <p className="text-[rgb(var(--c-accent-on-light))] text-xs font-semibold tracking-[2px] uppercase mb-3">
@@ -1598,159 +1601,35 @@ function Home({
 
   return (
     <div>
-      {/* Hero */}
-      <header className="relative overflow-hidden bg-gradient-to-br from-[rgb(var(--c-hero-dark))] via-[rgb(var(--c-primary))] to-[rgb(var(--c-accent))] text-white">
-        <div
-          className="absolute inset-0 opacity-[0.04]"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
-            backgroundSize: "32px 32px",
-          }}
-        />
-        {/* Floating gradient orbs */}
-        <div aria-hidden="true" className="pointer-events-none absolute -top-24 -left-24 h-80 w-80 rounded-full bg-[rgb(var(--c-accent))] opacity-25 blur-3xl animate-float-slow" />
-        <div aria-hidden="true" className="pointer-events-none absolute -bottom-32 -right-16 h-96 w-96 rounded-full bg-[rgb(var(--c-accent-light))] opacity-20 blur-3xl animate-float-slower" />
-        <div className="max-w-3xl mx-auto px-6 py-8 sm:py-[clamp(3.5rem,8vw,5.5rem)] text-center relative">
-          <FadeIn>
-            <p className="inline-flex items-center gap-2 text-[rgb(var(--c-accent-on-dark))] text-[11px] sm:text-xs font-semibold tracking-[2.5px] uppercase mb-3 sm:mb-5 rounded-full border border-white/15 bg-white/5 backdrop-blur px-4 py-1.5">
-              <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-[rgb(var(--c-accent-light))] animate-pulse" />
-              Production AI deployment · Applied AI · Regulated environments
-            </p>
-          </FadeIn>
-          <FadeIn delay={0.1}>
-            <h1 className="text-3xl sm:text-5xl font-extrabold leading-[1.08] mb-3 sm:mb-5 tracking-tight">
-              Senthil Nagappan
-              <span className="block mt-2 sm:mt-3 text-xl sm:text-3xl font-extrabold bg-gradient-to-r from-[rgb(var(--c-accent-light))] to-[rgb(var(--c-accent-on-dark))] bg-clip-text text-transparent">
-                Forward Deployed AI Systems Engineer &amp; Human Systems Leader
-              </span>
-              <span className="block mt-2 text-sm sm:text-base font-semibold text-white/90">
-                Production AI Deployment · LLM &amp; RAG Pipelines · APIs &amp; CI/CD Integration ·
-                System Architecture · Human Systems Integration (HSI)
-              </span>
-            </h1>
-          </FadeIn>
-          <FadeIn delay={0.15}>
-            <p className="text-white text-sm sm:text-lg mb-2 sm:mb-4 max-w-2xl mx-auto leading-relaxed">
-              I design, build, and deploy AI-powered systems in real-world environments — owning
-              delivery from concept to production. Embedded with customer engineering, product, and
-              operations teams: I find where the workflow breaks, build the service, wire it into
-              their APIs and CI/CD, instrument it, and own it until it is measured in production.
-            </p>
-          </FadeIn>
-          <FadeIn delay={0.18}>
-            <p className="mb-4 sm:mb-7 max-w-2xl mx-auto text-xs sm:text-sm text-white/90 leading-relaxed">
-              <span className="font-semibold text-[rgb(var(--c-accent-on-dark))]">
-                Ambiguous problem → working prototype in weeks → integrated into their pipeline →
-                measured in production.
-              </span>{" "}
-              Shipped into 40+ monthly federal releases, cut $1.5M+ of annual rework, and stood up
-              the human-oversight layer that let clinical AI reach 1,200+ users. 18+ years, 7+ of
-              them client-facing under audit.{" "}
-              <span className="font-semibold">
-                Open to Forward Deployed / Director-level roles · US remote · available now.
-              </span>
-            </p>
-          </FadeIn>
-
-          <FadeIn delay={0.19}>
-            <ul className="list-none p-0 mx-auto mb-5 sm:mb-7 grid gap-1.5 max-w-2xl text-left sm:grid-cols-3">
-              {[
-                "Built and deployed AI systems integrated into production pipelines",
-                "Reduced human error and improved decision-making at scale",
-                "Delivered mission-critical systems across federal and healthcare domains",
-              ].map((b) => (
-                <li
-                  key={b}
-                  className="rounded-lg border border-white/20 bg-white/10 px-3 py-2 text-[12px] sm:text-[13px] font-semibold text-white leading-snug"
-                >
-                  {b}
-                </li>
-              ))}
-            </ul>
-          </FadeIn>
-
-          <FadeIn delay={0.2}>
-            <div className="flex gap-2 sm:gap-3 justify-center flex-wrap mb-5 sm:mb-9">
-              <button
-                onClick={() => document.getElementById("production-systems")?.scrollIntoView({ behavior: "smooth" })}
-                className="group inline-flex items-center justify-center gap-2 min-h-[44px] bg-white text-[rgb(var(--c-primary))] px-6 py-2.5 rounded-lg font-semibold text-sm shadow-lg shadow-black/10 hover:-translate-y-0.5 hover:shadow-xl hover:bg-[rgb(var(--c-accent-on-light))] hover:text-white transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
-              >
-                View deployed systems <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
-              </button>
-              <button
-                onClick={() => document.getElementById("practice")?.scrollIntoView({ behavior: "smooth" })}
-                className="group inline-flex items-center justify-center gap-2 min-h-[44px] bg-white/10 border border-white/40 text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-white/20 hover:-translate-y-0.5 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
-              >
-                Operating model <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
-              </button>
-              <button
-                onClick={() => document.getElementById("cases")?.scrollIntoView({ behavior: "smooth" })}
-                className="group inline-flex items-center justify-center gap-2 min-h-[44px] bg-white/10 border border-white/40 text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-white/20 hover:-translate-y-0.5 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
-              >
-                Explore case studies <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
-              </button>
-            </div>
-          </FadeIn>
-          <FadeIn delay={0.23}>
-            <div className="mb-5 sm:mb-8" aria-label="Forward-deployed operating model">
-              <p className="text-[11px] font-bold uppercase tracking-[2px] text-[rgb(var(--c-accent-on-dark))] mb-2">
-                Operating model
-              </p>
-              <ol className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 list-none p-0 m-0 text-[11px] sm:text-xs font-semibold text-white">
-                {["Embed", "Diagnose", "Build", "Integrate", "Measure"].map((step, index, steps) => (
-                  <li key={step} className="inline-flex items-center gap-2">
-                    <span className="inline-flex min-h-[30px] items-center rounded-md border border-white/30 bg-white/10 px-2.5 sm:px-3">{step}</span>
-                    {index < steps.length - 1 && <span aria-hidden="true" className="text-[rgb(var(--c-accent-on-dark))]">→</span>}
-                  </li>
-                ))}
-              </ol>
-            </div>
-          </FadeIn>
+      <header className="portfolio-hero">
+        <img src={engineeringWorkspace} alt="" width={1920} height={1024} fetchPriority="high" className="portfolio-hero-image" />
+        <div className="portfolio-hero-shade" aria-hidden="true" />
+        <div className="portfolio-container portfolio-hero-content">
+          <p className="portfolio-eyebrow">AI systems · Human performance · Responsible delivery</p>
+          <h1>Senthil Nagappan</h1>
+          <p className="portfolio-hero-role">Forward Deployed AI Systems Engineer<br className="hidden sm:block" /> &amp; Human Systems Leader</p>
+          <p className="portfolio-hero-intro">I turn complex problems into AI systems people can trust — embedded with teams from the first question to measurable results.</p>
+          <div className="portfolio-hero-actions">
+            <Button asChild size="lg" className="portfolio-hero-primary"><a href="#production-systems">See the work <span aria-hidden="true">→</span></a></Button>
+            <Button asChild size="lg" variant="outline" className="portfolio-hero-secondary"><a href="/Senthil_Nagappan_Resume.pdf" target="_blank" rel="noopener noreferrer">View résumé <span className="sr-only">(opens in a new tab)</span></a></Button>
+          </div>
+          <p className="portfolio-availability">18+ years · Federal &amp; healthcare · Open to FDE / Director-level roles</p>
         </div>
-
-
+        <span className="portfolio-image-credit">Illustrative engineering environment</span>
       </header>
 
       {/* Impact strip — stats directly under the hero */}
       <ImpactStrip />
 
-      {/* Forward Deployed Engineering positioning band */}
-      <FdeBand />
-
-      {/* 01 — Flagship systems delivered in production */}
       <ProductionSystems n="01" />
-
-      {/* 02 — System architecture & delivery */}
       <SystemArchitecture n="02" />
-
-      {/* 03 — What I built + technical execution */}
-      <WhatIBuilt n="03" />
-
-      {/* 04 — What I do: FDE practice, pillars, operating model */}
-      <FdePractice n="04" />
-
-      {/* 05 — Forward-deployed experience */}
-      <AIDeploymentSection />
-
-      {/* 06 — The forward-deployment process itself */}
-      <ForwardDeploymentModel n="06" />
-
-      {/* 07 — System stack + ambiguity operating cadence */}
-      <FdeSystems n="07" />
-
-      {/* 08 — Three flagship deployments */}
-      <FlagshipSystems n="08" />
-
-      {/* 06 — AI governance & responsible AI */}
-      <AIGovernanceSection />
 
       {/* Case Studies — work leads the page */}
       <section id="cases" className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2rem,4vw,3.5rem)]" aria-labelledby="cases-heading">
         <FadeIn>
-          <SectionIndex n="10" label="Forward Deployed Systems" />
+          <SectionIndex n="03" label="Selected Work" />
           <h2 id="cases-heading" className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2 tracking-tight">
-            Forward Deployed Systems
+            Real environments. Meaningful outcomes.
           </h2>
           <p className="text-gray-700 text-base mb-3 max-w-3xl">
             Problem → build → deploy → outcome. Systems shipped into federal, clinical, and
@@ -1804,26 +1683,15 @@ function Home({
             samples showing how I&apos;d approach problems teams face today.
           </p>
         </div>
-        <div className="grid gap-8 items-stretch [grid-template-columns:repeat(auto-fit,minmax(min(100%,30rem),1fr))]">
+        <div className="portfolio-work-grid">
 
           {renderItems.map((item, i) => {
             if (item.kind === "group") {
               return (
                 <FadeIn key="inhouse-group" delay={i * 0.08} className="h-full">
                   <article className="group h-full flex flex-col rounded-xl overflow-hidden bg-white border border-gray-200 transition-all duration-300 hover:border-[rgb(var(--c-primary)/0.3)] hover:shadow-xl hover:-translate-y-1">
-                    <div className="relative h-44 bg-gradient-to-br from-[rgb(var(--c-hero-dark))] via-[rgb(var(--c-primary))] to-[rgb(var(--c-accent))] flex items-end p-5 overflow-hidden">
-                      <div
-                        aria-hidden="true"
-                        className="absolute inset-0 opacity-[0.06]"
-                        style={{
-                          backgroundImage:
-                            "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
-                          backgroundSize: "22px 22px",
-                        }}
-                      />
-                      <span className="relative text-white text-[11px] font-semibold tracking-widest uppercase">
-                        AI Systems · Production-Adjacent
-                      </span>
+                    <div className="portfolio-lab-mosaic" aria-hidden="true">
+                      {[caseTrustlens, caseClinicalAi, caseSentinel].map((image) => <img key={image} src={image} alt="" loading="lazy" width={1024} height={640} />)}
                     </div>
                     <div className="flex-1 flex flex-col p-6">
                       <h3 className="font-bold text-gray-900 text-lg mb-1.5 leading-snug">
@@ -1916,10 +1784,8 @@ function Home({
                   </p>
 
                   {s.outcomes?.length > 0 && (
-                    <div className="mb-2 pt-4 border-t border-gray-100">
-                      <p className="text-[11px] font-bold uppercase tracking-wide text-gray-700 mb-2">
-                        Key outcomes
-                      </p>
+                    <details className="portfolio-card-details">
+                      <summary>Key outcomes</summary>
                       <ul className="list-none p-0 m-0 space-y-1.5">
                         {s.outcomes.slice(0, 3).map((o) => (
                           <li key={o} className="flex items-start gap-2 text-[13px] text-gray-700">
@@ -1931,7 +1797,7 @@ function Home({
                           </li>
                         ))}
                       </ul>
-                    </div>
+                    </details>
                   )}
 
                   <div className="mt-auto pt-4 flex flex-wrap gap-2">
@@ -1977,18 +1843,7 @@ function Home({
         )}
       </section>
 
-      {/* 05 — Human-AI systems design patterns */}
-      <HumanAISystemsSection />
-
-      {/* 06 — Governance & accessibility */}
-      <GovernanceAccessibilitySection />
-
-      {/* 07 — Domain Expertise */}
-      <ExpertiseSection />
-
-      {/* 08 — Brand Identity & Visual Systems teaser */}
-      <BrandTeaser onOpen={() => setPage("brand")} />
-
+      <ExpertiseSection n="04" />
 
       {/* Writing — thought leadership + discoverability */}
       <section
@@ -1998,7 +1853,7 @@ function Home({
       >
         <FadeIn>
           <div className="mb-8 max-w-2xl">
-            <SectionIndex n="15" label="Field Notes" />
+            <SectionIndex n="05" label="Perspectives" />
             <h2
               id="writing-heading"
               className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-2"
@@ -2064,17 +1919,13 @@ function Home({
       </section>
 
 
-      {/* 13 — Systems & engineering capabilities */}
-      <SystemsCapabilities n="16" />
-
-      {/* 14 — Field notes: short operator entries */}
-      <FieldNotes n="17" />
-
-      {/* 15 — Systems thinking & failure modes */}
-      <FailureModes n="18" />
-
-      {/* 16 — Skills & keywords index */}
-      <AtsKeywords n="19" />
+      <DeliveryDepth items={[
+        { title: "What I built & how it connects", description: "Services, integrations, and the technical execution behind the outcomes.", content: <><WhatIBuilt /><SystemsCapabilities /><AtsKeywords /></> },
+        { title: "Embedded delivery & leadership", description: "Working with customers, navigating constraints, and transferring ownership.", content: <><FdeBand /><FdePractice /><AIDeploymentSection /><ForwardDeploymentModel /><FdeSystems /></> },
+        { title: "Deployment evidence & lessons", description: "Detailed system stories, field notes, and failure-mode decisions.", content: <><FlagshipSystems /><FieldNotes /><FailureModes /></> },
+        { title: "Responsible AI & human oversight", description: "Explainability, accessibility, and governance in the workflow.", content: <><AIGovernanceSection /><HumanAISystemsSection /><GovernanceAccessibilitySection /></> },
+      ]} />
+      <BrandTeaser onOpen={() => setPage("brand")} />
 
       {/* Brief About — teaser placed after the numbered sequence so 01–09 run uninterrupted */}
       <section className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2rem,4vw,3.5rem)]" aria-labelledby="brief-about-heading">
