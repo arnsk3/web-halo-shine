@@ -15,42 +15,16 @@ export default function SystemDiagram({
   loop?: string;
 }) {
   return (
-    <figure className="m-0 rounded-lg border border-gray-200 bg-[rgb(var(--c-tint-50))] p-4">
-      <figcaption className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[rgb(var(--c-accent-on-light))] mb-3">
-        {title}
-      </figcaption>
-      <ol className="list-none p-0 m-0 flex flex-wrap items-stretch gap-2">
-        {stages.map((s, i) => (
-          <li key={s.k} className="flex items-stretch gap-2">
-            <div className="rounded-md border border-gray-300 bg-white px-3 py-2 max-w-[13rem]">
-              <p className="font-mono text-[9px] font-bold tabular-nums text-gray-600 mb-0.5">
-                {String(i + 1).padStart(2, "0")}
-              </p>
-              <p className="text-[12px] font-bold text-gray-900 leading-snug">{s.k}</p>
-              {s.b && <p className="text-[11px] text-gray-700 leading-snug mt-0.5">{s.b}</p>}
-            </div>
-            {i < stages.length - 1 && (
-              <span
-                aria-hidden="true"
-                className="self-center text-[rgb(var(--c-primary))] font-bold"
-              >
-                →
-              </span>
-            )}
-          </li>
-        ))}
+    <figure className="portfolio-diagram">
+      <figcaption>{title}</figcaption>
+      <ol>
+        {stages.map((stage, index) => <li key={stage.k}>
+          <span className="portfolio-stage-index">{String(index + 1).padStart(2, "0")}</span>
+          <strong>{stage.k}</strong>{stage.b && <p>{stage.b}</p>}
+          {index < stages.length - 1 && <span className="portfolio-stage-arrow" aria-hidden="true">→</span>}
+        </li>)}
       </ol>
-      {loop && (
-        <p className="mt-3 flex items-start gap-2 text-[11px] text-gray-700 leading-relaxed">
-          <span aria-hidden="true" className="font-mono font-bold text-[rgb(var(--c-primary))]">
-            ↺
-          </span>
-          <span>
-            <span className="font-semibold text-gray-900">Feedback loop: </span>
-            {loop}
-          </span>
-        </p>
-      )}
+      {loop && <p className="portfolio-diagram-loop"><span aria-hidden="true">↺</span><span><strong>Feedback loop: </strong>{loop}</span></p>}
     </figure>
   );
 }
