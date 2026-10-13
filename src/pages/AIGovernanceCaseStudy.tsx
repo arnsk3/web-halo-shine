@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import CaseStoryVisuals from "@/components/CaseStoryVisuals";
+import governanceImage from "@/assets/case-trustlens.jpg";
 
 const RMF_WORK = [
   {
@@ -259,6 +261,10 @@ export default function AIGovernanceCaseStudy({ onHome }: { onHome: () => void }
           </dl>
         </div>
       </header>
+
+      <div className="mx-auto w-full max-w-[1600px] px-[clamp(1.5rem,5vw,5rem)]">
+        <CaseStoryVisuals id="governance" role="AI Governance & Experience Design Lead · self-initiated framework synthesis" metrics={PROGRAM_SCOPE.map(([value, label]) => ({ value, label }))} image={governanceImage} />
+      </div>
 
       <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2.5rem,5vw,4.5rem)]">
         <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_17rem] lg:gap-12">

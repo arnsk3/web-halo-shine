@@ -21,6 +21,7 @@ import FdePractice from "@/components/FdePractice";
 import FdeBand from "@/components/FdeBand";
 import ProductionSystems from "@/components/ProductionSystems";
 import EvidenceDisclosure from "@/components/EvidenceDisclosure";
+import CaseStoryVisuals from "@/components/CaseStoryVisuals";
 import { Button } from "@/components/ui/button";
 import deploymentHero from "@/assets/deployment-accessibility.jpg";
 import SystemArchitecture from "@/components/SystemArchitecture";
@@ -2936,7 +2937,7 @@ function CaseStudyShowcase({ id }: { id: string }) {
           ))}
         </div>
         <p className="text-[11px] text-gray-700 mt-3 text-center">
-          NDA-safe stylized wireframes — structure and interaction shown, proprietary visuals omitted.
+          Illustrative wireframe reconstructions — not original client screens or verified research artifacts.
         </p>
       </figure>
 
@@ -2946,7 +2947,7 @@ function CaseStudyShowcase({ id }: { id: string }) {
             {cfg.examplesTitle ?? "Detailed examples — annotated walkthroughs"}
           </figcaption>
           <p className="text-[11px] text-gray-700 mb-5 text-center max-w-2xl mx-auto">
-            Representative end-to-end scenarios. Each annotated mockup shows the real interaction sequence — numbered callouts map to the design decisions on the right.
+            Illustrative scenarios reconstructed from the narrative. Numbered callouts explain design decisions; these are not recordings of observed users or live product sessions.
           </p>
           <div className="space-y-6">
             {cfg.examples.map((ex) => (
@@ -2972,7 +2973,7 @@ function CaseStudyShowcase({ id }: { id: string }) {
                     </ol>
                     <div className="mt-auto pt-3">
                       <div className="rounded-lg bg-[#eef7ee] border border-[#cce6d0] px-3 py-2 text-[12px] text-[#1f5a2e]">
-                        <span className="font-bold">Outcome:</span> {ex.outcome}
+                        <span className="font-bold">Intended scenario benefit:</span> {ex.outcome}
                       </div>
                     </div>
                   </div>
@@ -2981,7 +2982,7 @@ function CaseStudyShowcase({ id }: { id: string }) {
             ))}
           </div>
           <p className="text-[11px] text-gray-700 mt-3 text-center">
-            NDA-safe representative mockups — interaction logic and content structure shown, proprietary client visuals omitted.
+            Reconstructed examples, not production screenshots. Scenario benefits are illustrative, not measured participant results.
           </p>
         </figure>
       )}
@@ -6239,6 +6240,10 @@ function CaseStudy({
         </div>
       </div>
 
+      <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)]">
+        <p className="pt-5 text-sm leading-relaxed text-[rgb(var(--c-copy))]">{isInHouse(study) ? "In-house work: figures describe concept estimates, design targets, or stated feature coverage—not independently verified client outcomes. See the evidence view for limitations." : "Figures are reported team/program outcomes or delivery scale; they are not independent causal estimates of my contribution."}</p>
+        <CaseStoryVisuals id={study.id} role={study.role} metrics={study.metrics} image={study.image} />
+      </div>
       {/* Content */}
       <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-12">
         {study.sections.map((s, i) => (
@@ -6714,20 +6719,7 @@ function CaseStudy({
           </FadeIn>
         ) : AI_FRAMEWORKS[study.id] ? (
           <AIFramework id={study.id} />
-        ) : (
-          <FadeIn>
-            <div
-              role="img"
-              aria-label="Placeholder for an NDA-safe recreated process diagram or framework visual"
-              className="my-8 h-48 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl border-2 border-dashed border-gray-300 flex items-center justify-center flex-col gap-2"
-            >
-              <span className="text-gray-700 text-xs font-medium">
-                PROCESS DIAGRAM / FRAMEWORK VISUAL
-              </span>
-              <span className="text-gray-700 text-[10px]">NDA-safe recreated artifact</span>
-            </div>
-          </FadeIn>
-        )}
+        ) : null}
 
         {/* Wireframes + Workflow + Sample Screens — per case study */}
         <CaseStudyShowcase id={study.id} />
