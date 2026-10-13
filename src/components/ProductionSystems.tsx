@@ -1,5 +1,3 @@
-import { GitPullRequest, ScanSearch, ShieldCheck, CheckCircle2, HeartPulse, Brain, UserCheck, ArrowUpRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import SectionIndex from "@/components/SectionIndex";
 import { Link } from "react-router-dom";
 
@@ -54,39 +52,77 @@ const SYSTEMS: System[] = [
   },
 ];
 
-const VISUALS = [
-  { metric: "200+", label: "recurring defects eliminated", icons: [GitPullRequest, ScanSearch, ShieldCheck, CheckCircle2], steps: ["Release", "Detect", "Review", "Ship"] },
-  { metric: "30–40%", label: "fewer user & decision errors", icons: [HeartPulse, Brain, UserCheck, CheckCircle2], steps: ["Context", "Prioritize", "Human review", "Decision"] },
-];
+function Row({ h, children }: { h: string; children: React.ReactNode }) {
+  return (
+    <div className="grid gap-1 sm:grid-cols-[6.5rem_1fr] sm:gap-4">
+      <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[rgb(var(--c-accent-on-light))] sm:pt-1">
+        {h}
+      </p>
+      <div className="text-[13px] leading-relaxed text-gray-700">{children}</div>
+    </div>
+  );
+}
 
 export default function ProductionSystems({ n = "01" }: { n?: string }) {
   return (
-    <section id="production-systems" aria-labelledby="production-systems-heading" className="portfolio-container portfolio-section">
+    <section
+      id="production-systems"
+      aria-labelledby="production-systems-heading"
+      className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2rem,4vw,3.5rem)]"
+    >
       <SectionIndex n={n} label="Systems in Production" />
-      <div className="portfolio-section-heading"><div><h2 id="production-systems-heading">Complex problems. Systems that work.</h2><p>Federal and healthcare delivery, from the problem to the outcome.</p></div></div>
-      <div className="portfolio-production-grid">
-        {SYSTEMS.map((system, index) => {
-          const visual = VISUALS[index];
-          if (!visual) return null;
-          return <article key={system.title} className="portfolio-production-card">
-            <div className="portfolio-system-visual">
-              <p className="portfolio-eyebrow">{system.tag}</p>
-              <ol className="portfolio-system-flow" aria-label={`${system.title} workflow`}>
-                {visual.icons.map((Icon, i) => <li key={visual.steps[i]}><span><Icon aria-hidden="true" /></span><p>{visual.steps[i]}</p></li>)}
-              </ol>
-              <div className="portfolio-result"><strong>{visual.metric}</strong><span>{visual.label}</span></div>
-              <p className="portfolio-visual-caption">Simplified workflow · program outcome</p>
+      <h2
+        id="production-systems-heading"
+        className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2 tracking-tight"
+      >
+        Flagship systems delivered in production
+      </h2>
+      <p className="text-gray-700 text-base mb-8 max-w-3xl">
+        Problem → build → deploy → outcome. Figures are team and program outcomes; my own
+        scope is stated inside each case.
+      </p>
+
+      <div className="grid gap-5 [grid-template-columns:repeat(auto-fit,minmax(min(100%,30rem),1fr))]">
+        {SYSTEMS.map((s) => (
+          <article key={s.title} className="rounded-xl border border-gray-200 bg-white p-6 flex flex-col">
+            <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-gray-700 mb-2">
+              {s.tag}
+            </p>
+            <h3 className="text-lg font-bold text-gray-900 mb-4 leading-snug">{s.title}</h3>
+            <div className="grid gap-3">
+              <Row h="Problem">{s.problem}</Row>
+              <Row h="Build">{s.build}</Row>
+              <Row h="Deploy">{s.deploy}</Row>
+              <Row h="Outcome">
+                <ul className="list-none p-0 m-0 grid gap-1.5">
+                  {s.outcome.map((o) => (
+                    <li key={o} className="flex gap-2 font-semibold text-gray-900">
+                      <span aria-hidden="true" className="text-[rgb(var(--c-primary))]">
+                        ·
+                      </span>
+                      <span>{o}</span>
+                    </li>
+                  ))}
+                </ul>
+              </Row>
             </div>
-            <div className="portfolio-system-body"><h3>{system.title}</h3><p>{system.problem}</p>
-              <details className="portfolio-card-details"><summary>Build, deployment & impact</summary><dl>
-                <dt>Build</dt><dd>{system.build}</dd><dt>Deploy</dt><dd>{system.deploy}</dd><dt>Outcome</dt><dd><ul>{system.outcome.map(outcome => <li key={outcome}>{outcome}</li>)}</ul></dd>
-              </dl></details>
-              <Button asChild variant="link" className="portfolio-text-link"><Link to={system.to ?? "/work/ge"}>Explore the {index === 0 ? "federal" : "healthcare"} case <ArrowUpRight aria-hidden="true" /></Link></Button>
-            </div>
-          </article>;
-        })}
+            {s.to && (
+              <p className="mt-auto pt-4 text-sm">
+                <Link
+                  to={s.to}
+                  className="group inline-flex items-center gap-1.5 min-h-[44px] font-semibold text-[rgb(var(--c-primary))] hover:text-[rgb(var(--c-accent-on-light))] transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
+                >
+                  {s.cta}
+                  <span className="sr-only"> — {s.title}</span>
+                  <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">
+                    →
+                  </span>
+                </Link>
+              </p>
+            )}
+          </article>
+        ))}
       </div>
-      <p className="portfolio-footnote">Figures reflect team and program outcomes. Individual scope is described in each case study.</p>
     </section>
   );
 }
