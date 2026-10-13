@@ -20,6 +20,9 @@ import FdeSystems from "@/components/FdeSystems";
 import FdePractice from "@/components/FdePractice";
 import FdeBand from "@/components/FdeBand";
 import ProductionSystems from "@/components/ProductionSystems";
+import EvidenceDisclosure from "@/components/EvidenceDisclosure";
+import { Button } from "@/components/ui/button";
+import deploymentHero from "@/assets/deployment-accessibility.jpg";
 import SystemArchitecture from "@/components/SystemArchitecture";
 import WhatIBuilt from "@/components/WhatIBuilt";
 import FlagshipSystems from "@/components/FlagshipSystems";
@@ -1599,124 +1602,36 @@ function Home({
   return (
     <div>
       {/* Hero */}
-      <header className="relative overflow-hidden bg-gradient-to-br from-[rgb(var(--c-hero-dark))] via-[rgb(var(--c-primary))] to-[rgb(var(--c-accent))] text-white">
-        <div
-          className="absolute inset-0 opacity-[0.04]"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
-            backgroundSize: "32px 32px",
-          }}
-        />
-        {/* Floating gradient orbs */}
-        <div aria-hidden="true" className="pointer-events-none absolute -top-24 -left-24 h-80 w-80 rounded-full bg-[rgb(var(--c-accent))] opacity-25 blur-3xl animate-float-slow" />
-        <div aria-hidden="true" className="pointer-events-none absolute -bottom-32 -right-16 h-96 w-96 rounded-full bg-[rgb(var(--c-accent-light))] opacity-20 blur-3xl animate-float-slower" />
-        <div className="max-w-3xl mx-auto px-6 py-8 sm:py-[clamp(3.5rem,8vw,5.5rem)] text-center relative">
+      <header className="relative isolate overflow-hidden bg-[rgb(var(--c-hero-dark))] text-[rgb(var(--c-paper))]">
+        <img src={deploymentHero} alt="" width={1536} height={1024} fetchPriority="high" className="absolute inset-0 -z-20 h-full w-full object-cover object-center" />
+        <div aria-hidden="true" className="portfolio-hero-veil absolute inset-0 -z-10" />
+        <div className="mx-auto w-full max-w-[1600px] px-[clamp(1.5rem,5vw,5rem)] py-12 sm:py-16">
           <FadeIn>
-            <p className="inline-flex items-center gap-2 text-[rgb(var(--c-accent-on-dark))] text-[11px] sm:text-xs font-semibold tracking-[2.5px] uppercase mb-3 sm:mb-5 rounded-full border border-white/15 bg-white/5 backdrop-blur px-4 py-1.5">
-              <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-[rgb(var(--c-accent-light))] animate-pulse" />
-              Production AI deployment · Applied AI · Regulated environments
-            </p>
-          </FadeIn>
-          <FadeIn delay={0.1}>
-            <h1 className="text-3xl sm:text-5xl font-extrabold leading-[1.08] mb-3 sm:mb-5 tracking-tight">
-              Senthil Nagappan
-              <span className="block mt-2 sm:mt-3 text-xl sm:text-3xl font-extrabold bg-gradient-to-r from-[rgb(var(--c-accent-light))] to-[rgb(var(--c-accent-on-dark))] bg-clip-text text-transparent">
-                Forward Deployed AI Systems Engineer &amp; Human Systems Leader
-              </span>
-              <span className="block mt-2 text-sm sm:text-base font-semibold text-white/90">
-                Production AI Deployment · LLM &amp; RAG Pipelines · APIs &amp; CI/CD Integration ·
-                System Architecture · Human Systems Integration (HSI)
-              </span>
-            </h1>
-          </FadeIn>
-          <FadeIn delay={0.15}>
-            <p className="text-white text-sm sm:text-lg mb-2 sm:mb-4 max-w-2xl mx-auto leading-relaxed">
-              I design, build, and deploy AI-powered systems in real-world environments — owning
-              delivery from concept to production. Embedded with customer engineering, product, and
-              operations teams: I find where the workflow breaks, build the service, wire it into
-              their APIs and CI/CD, instrument it, and own it until it is measured in production.
-            </p>
-          </FadeIn>
-          <FadeIn delay={0.18}>
-            <p className="mb-4 sm:mb-7 max-w-2xl mx-auto text-xs sm:text-sm text-white/90 leading-relaxed">
-              <span className="font-semibold text-[rgb(var(--c-accent-on-dark))]">
-                Ambiguous problem → working prototype in weeks → integrated into their pipeline →
-                measured in production.
-              </span>{" "}
-              Shipped into 40+ monthly federal releases, cut $1.5M+ of annual rework, and stood up
-              the human-oversight layer that let clinical AI reach 1,200+ users. 18+ years, 7+ of
-              them client-facing under audit.{" "}
-              <span className="font-semibold">
-                Open to Forward Deployed / Director-level roles · US remote · available now.
-              </span>
-            </p>
-          </FadeIn>
-
-          <FadeIn delay={0.19}>
-            <ul className="list-none p-0 mx-auto mb-5 sm:mb-7 grid gap-1.5 max-w-2xl text-left sm:grid-cols-3">
-              {[
-                "Built and deployed AI systems integrated into production pipelines",
-                "Reduced human error and improved decision-making at scale",
-                "Delivered mission-critical systems across federal and healthcare domains",
-              ].map((b) => (
-                <li
-                  key={b}
-                  className="rounded-lg border border-white/20 bg-white/10 px-3 py-2 text-[12px] sm:text-[13px] font-semibold text-white leading-snug"
-                >
-                  {b}
-                </li>
-              ))}
-            </ul>
-          </FadeIn>
-
-          <FadeIn delay={0.2}>
-            <div className="flex gap-2 sm:gap-3 justify-center flex-wrap mb-5 sm:mb-9">
-              <button
-                onClick={() => document.getElementById("production-systems")?.scrollIntoView({ behavior: "smooth" })}
-                className="group inline-flex items-center justify-center gap-2 min-h-[44px] bg-white text-[rgb(var(--c-primary))] px-6 py-2.5 rounded-lg font-semibold text-sm shadow-lg shadow-black/10 hover:-translate-y-0.5 hover:shadow-xl hover:bg-[rgb(var(--c-accent-on-light))] hover:text-white transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
-              >
-                View deployed systems <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
-              </button>
-              <button
-                onClick={() => document.getElementById("practice")?.scrollIntoView({ behavior: "smooth" })}
-                className="group inline-flex items-center justify-center gap-2 min-h-[44px] bg-white/10 border border-white/40 text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-white/20 hover:-translate-y-0.5 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
-              >
-                Operating model <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
-              </button>
-              <button
-                onClick={() => document.getElementById("cases")?.scrollIntoView({ behavior: "smooth" })}
-                className="group inline-flex items-center justify-center gap-2 min-h-[44px] bg-white/10 border border-white/40 text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-white/20 hover:-translate-y-0.5 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
-              >
-                Explore case studies <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
-              </button>
+            <p className="mb-5 text-xs font-semibold uppercase tracking-widest text-[rgb(var(--c-accent-on-dark))]">AI systems · Human performance · Production delivery</p>
+            <h1 className="max-w-3xl font-display text-4xl font-bold leading-tight sm:text-5xl">Senthil Nagappan</h1>
+            <p className="mt-4 max-w-2xl font-display text-2xl font-semibold leading-snug sm:text-3xl">Forward Deployed AI Systems Engineer &amp; Human Systems Leader</p>
+            <p className="mt-6 max-w-xl text-base leading-relaxed sm:text-lg">I turn complex, real-world problems into AI systems people can trust — built with customer teams, integrated into their workflows, and measured in production.</p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Button asChild size="lg" className="bg-[rgb(var(--c-paper))] text-[rgb(var(--c-primary))] hover:bg-[rgb(var(--c-tint-100))]"><a href="#production-systems">View deployed systems <span aria-hidden="true">→</span></a></Button>
+              <Button asChild size="lg" variant="outline" className="border-[rgb(var(--c-accent-on-dark))] bg-transparent text-[rgb(var(--c-paper))] hover:bg-[rgb(var(--c-primary))] hover:text-[rgb(var(--c-paper))]"><Link to="/resume">View résumé <span aria-hidden="true">↗</span></Link></Button>
             </div>
-          </FadeIn>
-          <FadeIn delay={0.23}>
-            <div className="mb-5 sm:mb-8" aria-label="Forward-deployed operating model">
-              <p className="text-[11px] font-bold uppercase tracking-[2px] text-[rgb(var(--c-accent-on-dark))] mb-2">
-                Operating model
-              </p>
-              <ol className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 list-none p-0 m-0 text-[11px] sm:text-xs font-semibold text-white">
-                {["Embed", "Diagnose", "Build", "Integrate", "Measure"].map((step, index, steps) => (
-                  <li key={step} className="inline-flex items-center gap-2">
-                    <span className="inline-flex min-h-[30px] items-center rounded-md border border-white/30 bg-white/10 px-2.5 sm:px-3">{step}</span>
-                    {index < steps.length - 1 && <span aria-hidden="true" className="text-[rgb(var(--c-accent-on-dark))]">→</span>}
-                  </li>
-                ))}
-              </ol>
-            </div>
+            <p className="mt-6 text-sm text-[rgb(var(--c-accent-on-dark))]">18+ years · Federal &amp; healthcare · Open to FDE / Director-level roles</p>
+            <details className="evidence-disclosure mt-5 max-w-2xl">
+              <summary className="flex min-h-11 cursor-pointer items-center gap-2 text-sm font-semibold text-[rgb(var(--c-paper))]">Delivery background <span aria-hidden="true">+</span></summary>
+              <div className="pt-3 text-sm leading-relaxed">
+                <p>Production AI deployment · LLM &amp; RAG pipelines · APIs &amp; CI/CD integration · System architecture · Human Systems Integration (HSI).</p>
+                <p className="mt-3">Embedded with customer engineering, product, and operations teams: I find where the workflow breaks, build the service, wire it into their APIs and CI/CD, instrument it, and own it until it is measured in production.</p>
+                <p className="mt-3">Ambiguous problem → working prototype in weeks → integrated into their pipeline → measured in production. Shipped into 40+ monthly federal releases, cut $1.5M+ of annual rework, and stood up the human-oversight layer that let clinical AI reach 1,200+ users. 7+ years client-facing under audit. US remote · available now.</p>
+                <ul className="mt-3 list-disc pl-5"><li>Built and deployed AI systems integrated into production pipelines.</li><li>Reduced human error and improved decision-making at scale.</li><li>Delivered mission-critical systems across federal and healthcare domains.</li></ul>
+                <p className="mt-3">Embed → Diagnose → Build → Integrate → Measure.</p>
+              </div>
+            </details>
           </FadeIn>
         </div>
-
-
       </header>
 
       {/* Impact strip — stats directly under the hero */}
       <ImpactStrip />
-
-      {/* Forward Deployed Engineering positioning band */}
-      <FdeBand />
 
       {/* 01 — Flagship systems delivered in production */}
       <ProductionSystems n="01" />
@@ -1730,6 +1645,9 @@ function Home({
       {/* 04 — What I do: FDE practice, pillars, operating model */}
       <FdePractice n="04" />
 
+      <EvidenceDisclosure title="Inside the deployments" description="Field context, integration constraints, delivery cadence, and deeper flagship evidence.">
+      <FdeBand />
+
       {/* 05 — Forward-deployed experience */}
       <AIDeploymentSection />
 
@@ -1741,6 +1659,7 @@ function Home({
 
       {/* 08 — Three flagship deployments */}
       <FlagshipSystems n="08" />
+      </EvidenceDisclosure>
 
       {/* 06 — AI governance & responsible AI */}
       <AIGovernanceSection />
@@ -2074,7 +1993,9 @@ function Home({
       <FailureModes n="18" />
 
       {/* 16 — Skills & keywords index */}
-      <AtsKeywords n="19" />
+      <EvidenceDisclosure title="Complete skills index" description="AI engineering, enterprise integration, human factors, and governance capabilities.">
+        <AtsKeywords n="19" />
+      </EvidenceDisclosure>
 
       {/* Brief About — teaser placed after the numbered sequence so 01–09 run uninterrupted */}
       <section className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2rem,4vw,3.5rem)]" aria-labelledby="brief-about-heading">

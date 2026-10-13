@@ -1,4 +1,5 @@
 import SectionIndex from "@/components/SectionIndex";
+import { Cpu, GitBranch, Users, ShieldCheck } from "lucide-react";
 
 const GROUPS = [
   {
@@ -63,8 +64,11 @@ export default function SystemsCapabilities({ n = "12" }: { n?: string }) {
       </p>
 
       <div className="grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr))]">
-        {GROUPS.map((g) => (
+        {GROUPS.map((g, i) => {
+          const Icon = [Cpu, GitBranch, Users, ShieldCheck][i] ?? Cpu;
+          return (
           <article key={g.h} className="rounded-xl border border-gray-200 bg-white p-5">
+            <Icon aria-hidden="true" className="mb-5 size-8 text-[rgb(var(--c-primary))]" />
             <h3 className="text-base font-bold text-gray-900 mb-3">{g.h}</h3>
             <ul className="list-none p-0 m-0 grid gap-1.5">
               {g.items.map((i) => (
@@ -77,7 +81,7 @@ export default function SystemsCapabilities({ n = "12" }: { n?: string }) {
               ))}
             </ul>
           </article>
-        ))}
+        );})}
       </div>
 
       <p className="mt-8 max-w-3xl rounded-xl border border-gray-200 bg-[rgb(var(--c-tint-50))] p-5 text-sm font-semibold text-gray-900 leading-relaxed">
