@@ -1,4 +1,5 @@
 import SectionIndex from "@/components/SectionIndex";
+import { Accessibility, Workflow, ShieldCheck, ScanEye, ChevronDown, Code2, ArrowRight } from "lucide-react";
 
 /**
  * "What I built" + technical execution. Builder evidence stated as
@@ -101,15 +102,20 @@ export default function WhatIBuilt({ n = "03" }: { n?: string }) {
         What I built
       </h2>
       <p className="text-gray-700 text-base mb-8 max-w-3xl">
-        Built, integrated, deployed — stated plainly for each system, followed by the technical
-        layer I execute at.
+        Four systems, from the service to the people using it.
       </p>
 
       <div className="grid gap-4 mb-10 [grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr))]">
-        {BUILDS.map((b) => (
-          <article key={b.title} className="rounded-xl border border-gray-200 bg-white p-5">
+        {BUILDS.map((b, i) => {
+          const Icon = [Accessibility, Workflow, ShieldCheck, ScanEye][i] ?? Code2;
+          return (
+          <article key={b.title} className="rounded-lg border border-[rgb(var(--c-line))] bg-[rgb(var(--c-paper))] p-6">
+            <div className="mb-5 flex items-center justify-between text-[rgb(var(--c-primary))]"><Icon aria-hidden="true" className="size-9" /><span className="font-mono text-xs">0{i + 1}</span></div>
             <h3 className="text-base font-bold text-gray-900 mb-3 leading-snug">{b.title}</h3>
-            <dl className="grid gap-2 m-0">
+            <p className="text-sm leading-relaxed text-[rgb(var(--c-copy))]">{b.deployed}</p>
+            <div aria-hidden="true" className="my-5 flex items-center justify-between border-y border-[rgb(var(--c-line))] py-3 text-xs font-semibold text-[rgb(var(--c-primary))]"><span>Build</span><ArrowRight className="size-4" /><span>Integrate</span><ArrowRight className="size-4" /><span>Deploy</span></div>
+            <details className="evidence-disclosure"><summary className="flex min-h-11 cursor-pointer items-center justify-between gap-3 text-sm font-semibold text-[rgb(var(--c-primary))]">Build & integration details<ChevronDown aria-hidden="true" className="disclosure-chevron size-4 transition-transform" /></summary>
+            <dl className="grid gap-3 m-0 pt-3">
               {(
                 [
                   ["Built", b.built],
@@ -125,11 +131,13 @@ export default function WhatIBuilt({ n = "03" }: { n?: string }) {
                 </div>
               ))}
             </dl>
+            </details>
           </article>
-        ))}
+        );})}
       </div>
 
-      <h3 className="text-2xl font-extrabold text-gray-900 mb-2 tracking-tight">
+      <details className="evidence-disclosure border-t border-[rgb(var(--c-line))]"><summary className="flex min-h-14 cursor-pointer items-center justify-between text-sm font-semibold text-[rgb(var(--c-primary))]">Technical execution: APIs, AI pipelines & delivery<ChevronDown aria-hidden="true" className="disclosure-chevron size-4 transition-transform" /></summary>
+      <h3 className="text-2xl font-extrabold text-gray-900 mb-2 mt-4 tracking-tight">
         Technical execution
       </h3>
       <p className="text-gray-700 text-base mb-6 max-w-3xl">
@@ -153,6 +161,7 @@ export default function WhatIBuilt({ n = "03" }: { n?: string }) {
           </article>
         ))}
       </div>
+      </details>
     </section>
   );
 }

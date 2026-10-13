@@ -1,4 +1,5 @@
 import SectionIndex from "@/components/SectionIndex";
+import { Users, Cpu, ShieldCheck, ChevronDown } from "lucide-react";
 
 const PILLARS = [
   {
@@ -56,8 +57,11 @@ export default function FdePractice({ n = "01" }: { n?: string }) {
       </p>
 
       <div className="grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(min(100%,20rem),1fr))]">
-        {PILLARS.map((p) => (
+        {PILLARS.map((p, i) => {
+          const Icon = [Users, Cpu, ShieldCheck][i] ?? Users;
+          return (
           <article key={p.k} className="rounded-xl border border-gray-200 bg-white p-5 flex flex-col">
+            <Icon aria-hidden="true" className="mb-5 size-9 text-[rgb(var(--c-primary))]" />
             <h3 className="text-lg font-bold text-gray-900 mb-2">{p.k}</h3>
             <p className="text-sm text-gray-700 leading-relaxed mb-3">{p.b}</p>
             <ul className="list-none p-0 m-0 mt-auto flex flex-wrap gap-1.5">
@@ -71,10 +75,11 @@ export default function FdePractice({ n = "01" }: { n?: string }) {
               ))}
             </ul>
           </article>
-        ))}
+        );})}
       </div>
 
-      <div className="mt-10 grid gap-6 lg:grid-cols-[1.4fr_1fr]">
+      <details className="evidence-disclosure mt-6 border-t border-[rgb(var(--c-line))]"><summary className="flex min-h-14 cursor-pointer items-center justify-between text-sm font-semibold text-[rgb(var(--c-primary))]">Operating model & delivery principles<ChevronDown aria-hidden="true" className="disclosure-chevron size-4 transition-transform" /></summary>
+      <div className="mt-5 grid gap-6 lg:grid-cols-[1.4fr_1fr]">
         <div>
           <h3 className="text-xl font-extrabold text-gray-900 mb-3 tracking-tight">
             Operating model
@@ -107,6 +112,7 @@ export default function FdePractice({ n = "01" }: { n?: string }) {
           </ul>
         </div>
       </div>
+      </details>
     </section>
   );
 }

@@ -1,5 +1,7 @@
 import SectionIndex from "@/components/SectionIndex";
 import SystemDiagram from "@/components/SystemDiagram";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Cpu, Workflow, GitBranch, UserCheck, ChevronDown } from "lucide-react";
 
 /**
  * System Architecture & Delivery — how the systems above are actually wired:
@@ -64,12 +66,14 @@ export default function SystemArchitecture({ n = "02" }: { n?: string }) {
         System architecture &amp; delivery
       </h2>
       <p className="text-gray-700 text-base mb-8 max-w-3xl">
-        The reference architecture behind the deployments: how a request moves from a user
-        through the AI pipeline, what the human is allowed to override, and where it plugs into
-        the customer&rsquo;s pipeline.
+        How the system works — from the first request to a validated result, with people in control.
       </p>
 
-      <div className="grid gap-5 mb-8 [grid-template-columns:repeat(auto-fit,minmax(min(100%,28rem),1fr))]">
+      <Tabs defaultValue="pipeline" className="mb-8">
+        <TabsList aria-label="System architecture views" className="mb-5 grid h-auto w-full grid-cols-2 gap-1 bg-[rgb(var(--c-tint-100))] p-1 lg:grid-cols-4">
+          {[{ key: "pipeline", label: "AI pipeline", icon: Cpu }, { key: "data", label: "Data flow", icon: Workflow }, { key: "delivery", label: "Release checks", icon: GitBranch }, { key: "human", label: "Human oversight", icon: UserCheck }].map(({ key, label, icon: Icon }) => <TabsTrigger key={key} value={key} className="min-h-12 gap-2 whitespace-normal text-[rgb(var(--c-primary))] data-[state=active]:text-[rgb(var(--c-primary))]"><Icon aria-hidden="true" className="size-4 shrink-0" />{label}</TabsTrigger>)}
+        </TabsList>
+        <TabsContent value="pipeline">
         <SystemDiagram
           title="AI pipeline — LLM to validated output"
           stages={[
@@ -81,6 +85,7 @@ export default function SystemArchitecture({ n = "02" }: { n?: string }) {
           ]}
           loop="Golden-set regressions and confirmed false positives retune thresholds before the next release."
         />
+        </TabsContent><TabsContent value="data">
         <SystemDiagram
           title="Data flow — user to API to system to output"
           stages={[
@@ -92,6 +97,7 @@ export default function SystemArchitecture({ n = "02" }: { n?: string }) {
           ]}
           loop="Every output writes lineage and override telemetry, so the audit trail is a byproduct of use rather than a separate exercise."
         />
+        </TabsContent><TabsContent value="delivery">
         <SystemDiagram
           title="CI/CD integration"
           stages={[
@@ -103,6 +109,7 @@ export default function SystemArchitecture({ n = "02" }: { n?: string }) {
           ]}
           loop="Recurring failures route back to the design system so the same defect cannot re-enter the pipeline."
         />
+        </TabsContent><TabsContent value="human">
         <SystemDiagram
           title="Human-in-the-loop workflow"
           stages={[
@@ -114,9 +121,11 @@ export default function SystemArchitecture({ n = "02" }: { n?: string }) {
           ]}
           loop="Override and dismissal rates are the primary tuning signal; rules over the false-positive budget get retired."
         />
-      </div>
+        </TabsContent>
+      </Tabs>
 
-      <div className="grid gap-4 mb-8 [grid-template-columns:repeat(auto-fit,minmax(min(100%,18rem),1fr))]">
+      <details className="evidence-disclosure border-t border-[rgb(var(--c-line))]"><summary className="flex min-h-14 cursor-pointer items-center justify-between text-sm font-semibold text-[rgb(var(--c-primary))]">Decision rules & integration evidence<ChevronDown aria-hidden="true" className="disclosure-chevron size-4 transition-transform" /></summary>
+      <div className="grid gap-4 mb-8 pt-4 [grid-template-columns:repeat(auto-fit,minmax(min(100%,18rem),1fr))]">
         <article className="rounded-xl border border-gray-200 bg-[rgb(var(--c-tint-50))] p-5">
           <h3 className="text-base font-bold text-gray-900 mb-3">Decision-support logic</h3>
           <dl className="grid gap-3 m-0">
@@ -144,6 +153,7 @@ export default function SystemArchitecture({ n = "02" }: { n?: string }) {
           </article>
         ))}
       </div>
+      </details>
     </section>
   );
 }
