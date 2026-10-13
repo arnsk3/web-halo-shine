@@ -136,7 +136,8 @@ export default function WhatIBuilt({ n = "03" }: { n?: string }) {
         );})}
       </div>
 
-      <h3 className="text-2xl font-extrabold text-gray-900 mb-2 tracking-tight">
+      <details className="evidence-disclosure border-t border-[rgb(var(--c-line))]"><summary className="flex min-h-14 cursor-pointer items-center justify-between text-sm font-semibold text-[rgb(var(--c-primary))]">Technical execution: APIs, AI pipelines & delivery<ChevronDown aria-hidden="true" className="disclosure-chevron size-4 transition-transform" /></summary>
+      <h3 className="text-2xl font-extrabold text-gray-900 mb-2 mt-4 tracking-tight">
         Technical execution
       </h3>
       <p className="text-gray-700 text-base mb-6 max-w-3xl">
@@ -160,6 +161,7 @@ export default function WhatIBuilt({ n = "03" }: { n?: string }) {
           </article>
         ))}
       </div>
+      </details>
     </section>
   );
 }

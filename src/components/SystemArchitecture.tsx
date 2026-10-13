@@ -1,7 +1,7 @@
 import SectionIndex from "@/components/SectionIndex";
 import SystemDiagram from "@/components/SystemDiagram";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Cpu, Workflow, GitBranch, UserCheck } from "lucide-react";
+import { Cpu, Workflow, GitBranch, UserCheck, ChevronDown } from "lucide-react";
 
 /**
  * System Architecture & Delivery — how the systems above are actually wired:
@@ -124,7 +124,8 @@ export default function SystemArchitecture({ n = "02" }: { n?: string }) {
         </TabsContent>
       </Tabs>
 
-      <div className="grid gap-4 mb-8 [grid-template-columns:repeat(auto-fit,minmax(min(100%,18rem),1fr))]">
+      <details className="evidence-disclosure border-t border-[rgb(var(--c-line))]"><summary className="flex min-h-14 cursor-pointer items-center justify-between text-sm font-semibold text-[rgb(var(--c-primary))]">Decision rules & integration evidence<ChevronDown aria-hidden="true" className="disclosure-chevron size-4 transition-transform" /></summary>
+      <div className="grid gap-4 mb-8 pt-4 [grid-template-columns:repeat(auto-fit,minmax(min(100%,18rem),1fr))]">
         <article className="rounded-xl border border-gray-200 bg-[rgb(var(--c-tint-50))] p-5">
           <h3 className="text-base font-bold text-gray-900 mb-3">Decision-support logic</h3>
           <dl className="grid gap-3 m-0">
@@ -152,6 +153,7 @@ export default function SystemArchitecture({ n = "02" }: { n?: string }) {
           </article>
         ))}
       </div>
+      </details>
     </section>
   );
 }

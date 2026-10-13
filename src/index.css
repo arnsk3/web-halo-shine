@@ -101,6 +101,7 @@ All colors MUST be HSL.
 
 @layer components {
   .portfolio-hero-veil { background: var(--hero-veil); }
+  section[id] { scroll-margin-top: 8rem; }
   .evidence-disclosure > summary { list-style: none; }
   .evidence-disclosure > summary::-webkit-details-marker { display: none; }
   .evidence-disclosure[open] > summary .disclosure-chevron { transform: rotate(180deg); }
