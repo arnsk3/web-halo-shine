@@ -8,6 +8,11 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
+    --c-paper: 255 255 255;
+    --c-ink: 20 30 38;
+    --c-copy: 55 65 74;
+    --c-line: 217 226 226;
+    --hero-veil: linear-gradient(90deg, rgb(var(--c-hero-dark) / 0.97), rgb(var(--c-hero-dark) / 0.88) 55%, rgb(var(--c-hero-dark) / 0.7));
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
 
@@ -92,6 +97,13 @@ All colors MUST be HSL.
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
+}
+
+@layer components {
+  .portfolio-hero-veil { background: var(--hero-veil); }
+  .evidence-disclosure > summary { list-style: none; }
+  .evidence-disclosure > summary::-webkit-details-marker { display: none; }
+  .evidence-disclosure[open] > summary .disclosure-chevron { transform: rotate(180deg); }
 }
 
 /* =========================================================

@@ -1,5 +1,8 @@
 import SectionIndex from "@/components/SectionIndex";
 import { Link } from "react-router-dom";
+import { ArrowUpRight, ChevronDown, Accessibility, HeartPulse } from "lucide-react";
+import accessibilityImage from "@/assets/deployment-accessibility.jpg";
+import clinicalImage from "@/assets/deployment-clinical.jpg";
 
 /**
  * Flagship Systems Delivered in Production — Problem → Build → Deploy → Outcome.
@@ -15,11 +18,19 @@ type System = {
   outcome: string[];
   to?: string;
   cta?: string;
+  image: string;
+  metric: string;
+  metricLabel: string;
+  summary: string;
 };
 
 const SYSTEMS: System[] = [
   {
     tag: "Federal · Production",
+    image: accessibilityImage,
+    metric: "~30%",
+    metricLabel: "efficiency gain in release validation",
+    summary: "Accessibility checks built into the release workflow — with people reviewing ambiguous findings and fixes shared across teams.",
     title: "AI Accessibility Automation System",
     problem:
       "Manual Section 508 audits could not keep pace with 40+ releases a month, leaving open compliance and litigation risk on a platform serving millions of citizens.",
@@ -37,6 +48,10 @@ const SYSTEMS: System[] = [
   },
   {
     tag: "Clinical / Enterprise · Production",
+    image: clinicalImage,
+    metric: "30–40%",
+    metricLabel: "reduction in user and decision errors",
+    summary: "Decision support in the workflow people already use — with explanations, clear oversight, and the ability to override.",
     title: "Enterprise Decision Support System",
     problem:
       "Operators carried high cognitive load across multi-system workflows: alert fatigue, context switching, and decision errors concentrated under time pressure with real downstream harm.",
@@ -58,7 +73,7 @@ function Row({ h, children }: { h: string; children: React.ReactNode }) {
       <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[rgb(var(--c-accent-on-light))] sm:pt-1">
         {h}
       </p>
-      <div className="text-[13px] leading-relaxed text-gray-700">{children}</div>
+      <div className="text-sm leading-relaxed text-[rgb(var(--c-copy))]">{children}</div>
     </div>
   );
 }
@@ -73,23 +88,35 @@ export default function ProductionSystems({ n = "01" }: { n?: string }) {
       <SectionIndex n={n} label="Systems in Production" />
       <h2
         id="production-systems-heading"
-        className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2 tracking-tight"
+        className="text-3xl md:text-4xl font-extrabold text-[rgb(var(--c-ink))] mb-2"
       >
         Flagship systems delivered in production
       </h2>
-      <p className="text-gray-700 text-base mb-8 max-w-3xl">
-        Problem → build → deploy → outcome. Figures are team and program outcomes; my own
-        scope is stated inside each case.
+      <p className="text-[rgb(var(--c-copy))] text-base mb-8 max-w-3xl">
+        Real environments. Working systems. Measurable outcomes. Figures reflect team and program results; my scope is stated inside each case.
       </p>
 
       <div className="grid gap-5 [grid-template-columns:repeat(auto-fit,minmax(min(100%,30rem),1fr))]">
-        {SYSTEMS.map((s) => (
-          <article key={s.title} className="rounded-xl border border-gray-200 bg-white p-6 flex flex-col">
-            <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-gray-700 mb-2">
+        {SYSTEMS.map((s, index) => (
+          <article key={s.title} className="overflow-hidden rounded-lg border border-[rgb(var(--c-line))] bg-[rgb(var(--c-paper))] flex flex-col">
+            <figure className="relative m-0">
+              <img src={s.image} alt={index === 0 ? "Illustration of an accessible workstation with a tactile display" : "Illustration of a clinician reviewing decision-support information"} width={1536} height={1024} loading="lazy" className="aspect-[2/1] w-full object-cover" />
+              <figcaption className="absolute bottom-0 right-0 bg-[rgb(var(--c-paper))] px-3 py-1.5 text-xs text-[rgb(var(--c-copy))]">Illustrative environment · not a project screenshot</figcaption>
+            </figure>
+            <div className="flex flex-1 flex-col p-6">
+            <p className="flex items-center gap-2 font-mono text-xs font-bold uppercase text-[rgb(var(--c-primary))] mb-3">
+              {index === 0 ? <Accessibility aria-hidden="true" className="size-4" /> : <HeartPulse aria-hidden="true" className="size-4" />}
               {s.tag}
             </p>
-            <h3 className="text-lg font-bold text-gray-900 mb-4 leading-snug">{s.title}</h3>
-            <div className="grid gap-3">
+            <h3 className="text-xl font-bold text-[rgb(var(--c-ink))] mb-3 leading-snug">{s.title}</h3>
+            <p className="text-sm leading-relaxed text-[rgb(var(--c-copy))]">{s.summary}</p>
+            <div className="my-5 flex flex-wrap items-center gap-x-4 gap-y-2 border-y border-[rgb(var(--c-line))] py-4">
+              <span className="font-display text-4xl font-bold text-[rgb(var(--c-primary))]">{s.metric}</span>
+              <span className="max-w-48 text-sm text-[rgb(var(--c-copy))]">{s.metricLabel}</span>
+            </div>
+            <details className="evidence-disclosure">
+              <summary className="flex min-h-11 cursor-pointer items-center justify-between gap-3 text-sm font-semibold text-[rgb(var(--c-primary))]">Problem, build, deployment & outcomes<ChevronDown aria-hidden="true" className="disclosure-chevron size-4 shrink-0 transition-transform" /></summary>
+            <div className="grid gap-4 pt-4">
               <Row h="Problem">{s.problem}</Row>
               <Row h="Build">{s.build}</Row>
               <Row h="Deploy">{s.deploy}</Row>
@@ -106,6 +133,7 @@ export default function ProductionSystems({ n = "01" }: { n?: string }) {
                 </ul>
               </Row>
             </div>
+            </details>
             {s.to && (
               <p className="mt-auto pt-4 text-sm">
                 <Link
@@ -115,11 +143,12 @@ export default function ProductionSystems({ n = "01" }: { n?: string }) {
                   {s.cta}
                   <span className="sr-only"> — {s.title}</span>
                   <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">
-                    →
+                    <ArrowUpRight className="size-4" />
                   </span>
                 </Link>
               </p>
             )}
+            </div>
           </article>
         ))}
       </div>
