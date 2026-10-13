@@ -1,0 +1,23 @@
+export type CaseArtifact = {
+  title: string;
+  subtitle: string;
+  kind: "release" | "decision" | "convergence" | "provenance" | "boundary" | "controls";
+  labels: [string, string, string];
+  center: string;
+  output: string;
+  detail: string;
+};
+
+export const CASE_ARTIFACTS: Record<string, CaseArtifact> = {
+  ssa: { title: "Fix once. Protect every release.", subtitle: "Federal accessibility · prevention at the source", kind: "release", labels: ["Component defect", "Uncertain finding", "Recurring pattern"], center: "Expert review + release gate", output: "Shared component correction", detail: "The same source correction can propagate to dependent screens; ambiguous findings remain with reviewers." },
+  wcagtool: { title: "From a finding to a usable fix.", subtitle: "Accessibility tooling · actionable remediation", kind: "release", labels: ["Rule reference", "Affected markup", "Suggested correction"], center: "Practitioner verification", output: "Prioritized remediation", detail: "Rule-linked suggestions support remediation, but do not replace manual accessibility assessment." },
+  ge: { title: "Different products. One interaction language.", subtitle: "Clinical systems · consistency under pressure", kind: "convergence", labels: ["Product interactions", "Clinical constraints", "Engineering requirements"], center: "Shared interaction contracts", output: "Consistent clinical experience", detail: "Common components connect product teams without removing clinical sign-off or change control." },
+  bestbuy: { title: "Make the next safe action unmistakable.", subtitle: "Consumer health · human performance", kind: "decision", labels: ["Recognize the need", "Choose a clear action", "Recover with feedback"], center: "Accessible task flow", output: "Human-factors validation", detail: "Critical tasks account for vision, dexterity, and working-memory constraints—not visual polish alone." },
+  samhsa: { title: "Keep reporting intact while the system changes.", subtitle: "Federal data · migration with continuity", kind: "convergence", labels: ["State submissions", "Legacy reporting", "Replacement reporting"], center: "Validation + reporting parity", output: "Controlled cutover", detail: "Parallel reporting protects continuity until parity is established within federal delivery constraints." },
+  trustlens: { title: "A launch decision with a traceable owner.", subtitle: "TrustLens · governance concept", kind: "controls", labels: ["Risk classification", "Control evidence", "Accountable owner"], center: "Review + exception decision", output: "Linked approval record", detail: "The proposed model links evidence and ownership rather than reducing accountability to a score." },
+  governance: { title: "Turn obligations into operating controls.", subtitle: "AI governance · framework synthesis", kind: "controls", labels: ["Obligation → control", "Owner → test", "Exception → evidence"], center: "Govern · Map · Measure · Manage", output: "Continuous reassessment", detail: "Reference mappings connect policy to product behavior; they do not imply certification or legal advice." },
+  clinicalai: { title: "AI recommends. The clinician decides.", subtitle: "ClinicalAI · appropriate-reliance concept", kind: "decision", labels: ["Recommendation", "Rationale + uncertainty", "Supporting evidence"], center: "Clinician review", output: "Confirm · override · escalate", detail: "The decision remains with the clinician. This proposed workflow is not evidence of clinical safety or efficacy." },
+  sentinel: { title: "An agent action stays inside an explicit boundary.", subtitle: "Sentinel · agent-safety concept", kind: "boundary", labels: ["Intent", "Permissions", "Guardrail checks"], center: "Human escalation boundary", output: "Trace + containment", detail: "The proposed boundary makes exceptions reviewable; it is not a claim of tested jailbreak resistance." },
+  lumen: { title: "Every answer needs a path back to its source.", subtitle: "Lumen · knowledge-provenance concept", kind: "provenance", labels: ["Source passage", "Answer support", "Source inspection"], center: "Grounded answer", output: "Verify · correct · withhold", detail: "A citation supports inspection, not automatic trust. Relevance and answer support still require review." },
+  revcycle: { title: "Keep every financial action accountable.", subtitle: "RevAssist · revenue-cycle concept", kind: "provenance", labels: ["Clinical documentation", "Suggested code", "Denial-risk context"], center: "Source-linked claim review", output: "Accept · modify · reject", detail: "Proposed coding and claim actions remain attributable to a human reviewer; benefits are estimates." },
+};

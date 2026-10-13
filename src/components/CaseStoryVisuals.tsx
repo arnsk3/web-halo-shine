@@ -1,6 +1,7 @@
 import { ArrowDown, ArrowRight, Check, CircleDot, FileCheck2, GitBranch, ShieldCheck, Users, X } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { CASE_STORIES } from "@/lib/case-story";
+import CaseArtifactVisual from "@/components/CaseArtifactVisual";
 
 type Props = { id: string; role: string; metrics: readonly { value: string; label: string }[]; image?: string };
 
@@ -15,6 +16,7 @@ export default function CaseStoryVisuals({ id, role, metrics, image }: Props) {
         <h2 id={`story-${id}`} className="font-display text-3xl font-bold">From the problem to the proof</h2>
         <p className="mt-3 max-w-3xl text-sm leading-relaxed text-[rgb(var(--c-copy))]">Reconstructed diagrams based on this case narrative—not original client screenshots, research records, or live system telemetry.</p>
       </div>
+      <CaseArtifactVisual id={id} />
       <Tabs defaultValue="context">
         <TabsList aria-label="Visual case story" className="mb-6 grid h-auto w-full grid-cols-2 gap-1 bg-[rgb(var(--c-tint-100))] p-1 lg:grid-cols-4">
           {stages.map(stage => <TabsTrigger key={stage.key} value={stage.key} className="min-h-12 whitespace-normal px-2 text-[rgb(var(--c-primary))] data-[state=active]:text-[rgb(var(--c-primary))]">{stage.label}</TabsTrigger>)}
@@ -42,7 +44,7 @@ export default function CaseStoryVisuals({ id, role, metrics, image }: Props) {
           </div>
         </TabsContent>
         <TabsContent value="decision">
-          <h3 className="mb-6 max-w-3xl text-2xl font-bold">{story.decision}</h3>
+          <div className="mb-6 flex items-start gap-4"><GitBranch aria-hidden="true" className="size-10 shrink-0 text-[rgb(var(--c-primary))]"/><h3 className="max-w-3xl text-2xl font-bold">{story.decision}</h3></div>
           <div className="grid gap-5 md:grid-cols-2">
             {[{ title: "Path not chosen", text: story.rejected, icon: X }, { title: "Design decision", text: story.chosen, icon: Check }].map(({ title, text, icon: Icon }) => <article key={title} className="rounded-lg border border-[rgb(var(--c-line))] bg-[rgb(var(--c-tint-50))] p-6"><Icon aria-hidden="true" className="mb-5 size-8 text-[rgb(var(--c-primary))]" /><h4 className="mb-3 text-lg font-bold">{title}</h4><p className="text-base leading-relaxed text-[rgb(var(--c-copy))]">{text}</p></article>)}
           </div>

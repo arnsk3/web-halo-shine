@@ -1,5 +1,8 @@
 # Roadmap
 
+- [x] Add distinctive case-specific visual artifacts and a visible story overview to every case.
+- [x] Verify the new visual stories and artifact views on desktop and mobile.
+
 - [x] Add evidence-grounded visual storytelling to every case study, including the SSA deployment and governance case.
 - [x] Verify story views, case links, ethical labels, and page fit on desktop and mobile.
 
