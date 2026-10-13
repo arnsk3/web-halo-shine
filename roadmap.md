@@ -1,5 +1,8 @@
 # Roadmap
 
+- [ ] Add evidence-grounded visual storytelling to every case study, including the SSA deployment and governance case.
+- [ ] Verify story views, case links, ethical labels, and page fit on desktop and mobile.
+
 - [x] Make production work, architecture, and build evidence visually scannable while preserving the detailed content.
 - [x] Check hiring-manager reading flow and expanded details on desktop and mobile.
 
