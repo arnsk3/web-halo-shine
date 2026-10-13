@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import CaseStoryVisuals from "@/components/CaseStoryVisuals";
+import accessibilityImage from "@/assets/deployment-accessibility.jpg";
 
 const SECTIONS = [
   { id: "brief", label: "The Brief (as received)" },
@@ -165,6 +167,10 @@ export default function SsaDeployment({ onHome }: { onHome: () => void }) {
           </p>
         </div>
       </header>
+
+      <div className="mx-auto w-full max-w-[1600px] px-[clamp(1.5rem,5vw,5rem)]">
+        <CaseStoryVisuals id="ssa" role="Framed the field problem, defined human-review boundaries, designed triage, paired with engineering on integration, and led handoff." metrics={IMPACT.map(item => ({ value: item.v, label: item.l }))} image={accessibilityImage} />
+      </div>
 
       <div className="max-w-6xl mx-auto px-6 py-12 grid gap-10 lg:grid-cols-[16rem_minmax(0,1fr)]">
         <nav aria-label="On this page" className="lg:sticky lg:top-24 lg:self-start">
