@@ -212,13 +212,18 @@ export default function EnterpriseHome() {
       <header className="relative isolate overflow-hidden bg-[rgb(var(--c-hero-dark))] text-[rgb(var(--c-paper))]">
         <NodeMotif className="text-[rgb(var(--c-accent-on-dark))]" />
         <div className={`${WRAP} relative py-14 sm:py-20`}>
-          <p className="mb-4 font-mono text-xs font-semibold uppercase tracking-widest text-[rgb(var(--c-accent-on-dark))]">Senthil Nagappan · Forward-Deployed AI Product Engineer</p>
-          <h1 className="max-w-4xl font-display text-4xl font-bold leading-tight sm:text-5xl">Forward-Deployed AI Product Engineer — turning enterprise AI strategy into human-centered systems people can use and trust.</h1>
-          <p className="mt-6 max-w-3xl text-base leading-relaxed sm:text-lg">I combine hands-on AI development with 18+ years in accessibility, Human Factors, and regulated enterprise systems — so AI gets adopted, evaluated, and audited in high-consequence environments.</p>
-          <div className="mt-8 flex flex-wrap items-center gap-3">
-            <a href="#ssa-case" className="inline-flex min-h-11 items-center rounded-md bg-[rgb(var(--c-paper))] px-6 font-semibold text-[rgb(var(--c-primary))] hover:bg-[rgb(var(--c-tint-100))]">See my implementation work</a>
-            <a href="mailto:arnsk3@gmail.com" className="inline-flex min-h-11 items-center gap-2 rounded-md border border-[rgb(var(--c-accent-on-dark))] px-6 font-semibold hover:bg-[rgb(var(--c-primary))]"><Mail aria-hidden="true" className="h-4 w-4" />Email me</a>
-            <a href="/Senthil_Nagappan_Resume.pdf" download className="inline-flex min-h-11 items-center gap-1.5 px-2 text-sm font-semibold underline underline-offset-4"><Download aria-hidden="true" className="h-4 w-4" />Download résumé (PDF)</a>
+          <div className="grid items-center gap-10 lg:grid-cols-[3fr_2fr]">
+            <div>
+              <p className="mb-4 font-mono text-xs font-semibold uppercase tracking-widest text-[rgb(var(--c-accent-on-dark))]">Senthil Nagappan · Forward-Deployed AI Product Engineer</p>
+              <h1 className="max-w-4xl font-display text-4xl font-bold leading-tight sm:text-5xl">Forward-Deployed AI Product Engineer — turning enterprise AI strategy into human-centered systems people can use and trust.</h1>
+              <p className="mt-6 max-w-3xl text-base leading-relaxed sm:text-lg">I combine hands-on AI development with 18+ years in accessibility, Human Factors, and regulated enterprise systems — so AI gets adopted, evaluated, and audited in high-consequence environments.</p>
+              <div className="mt-8 flex flex-wrap items-center gap-3">
+                <a href="#ssa-case" className="inline-flex min-h-11 items-center rounded-md bg-[rgb(var(--c-paper))] px-6 font-semibold text-[rgb(var(--c-primary))] hover:bg-[rgb(var(--c-tint-100))]">See my implementation work</a>
+                <a href="mailto:arnsk3@gmail.com" className="inline-flex min-h-11 items-center gap-2 rounded-md border border-[rgb(var(--c-accent-on-dark))] px-6 font-semibold hover:bg-[rgb(var(--c-primary))]"><Mail aria-hidden="true" className="h-4 w-4" />Email me</a>
+                <a href="/Senthil_Nagappan_Resume.pdf" download className="inline-flex min-h-11 items-center gap-1.5 px-2 text-sm font-semibold underline underline-offset-4"><Download aria-hidden="true" className="h-4 w-4" />Download résumé (PDF)</a>
+              </div>
+            </div>
+            <img src={imgHero} alt="Illustration of a human profile formed from a network of connected data nodes — AI systems built around people" width={1344} height={768} className="w-full rounded-2xl border border-[rgb(var(--c-accent-on-dark)/0.3)] object-cover shadow-2xl" />
           </div>
           <Pipeline />
         </div>
@@ -232,6 +237,7 @@ export default function EnterpriseHome() {
           <ul className="mt-6 grid list-none gap-6 p-0 md:grid-cols-3">
             {PROOF.map((p) => (
               <li key={p.label} className="rounded-2xl border border-[rgb(var(--c-accent-on-dark)/0.4)] p-6">
+                <p.Icon aria-hidden="true" className="mb-3 h-7 w-7 text-[rgb(var(--c-accent-on-dark))]" />
                 <p className="font-display text-4xl font-bold">{p.value}</p>
                 <p className="mt-1 font-semibold">{p.label}</p>
                 <p className="mt-3 text-sm text-[rgb(var(--c-accent-on-dark))]">{p.qual}</p>
@@ -302,6 +308,7 @@ export default function EnterpriseHome() {
           <div className="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
             {CAPS2.map((c) => (
               <div key={c.title} className="rounded-xl border border-[rgb(var(--c-line))] bg-[rgb(var(--c-paper))] p-5">
+                <c.Icon aria-hidden="true" className="mb-2 h-6 w-6 text-[rgb(var(--c-accent-on-light))]" />
                 <h3 className="font-display font-bold text-[rgb(var(--c-ink))]">{c.title}</h3>
                 <ul className="mt-2 list-disc pl-5 text-sm text-[rgb(var(--c-copy))]">{c.items.map((i) => <li key={i}>{i}</li>)}</ul>
                 <p className="mt-3 text-xs text-[rgb(var(--c-ink))]"><strong>Shown in:</strong> {c.proof}</p>
