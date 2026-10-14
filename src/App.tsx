@@ -22,6 +22,7 @@ const App = () => (
           <Route path="/writing/ai-control-crosswalk" element={<Index />} />
           <Route path="/writing/oversight-tiers" element={<Index />} />
           <Route path="/lab" element={<Index />} />
+          <Route path="/lab/lumen" element={<Index />} />
           <Route path="/brand" element={<Index />} />
           <Route path="/about" element={<Index />} />
           <Route path="/approach" element={<Index />} />

@@ -34,6 +34,7 @@ import FailureModes from "@/components/FailureModes";
 import AIGovernanceCaseStudy from "@/pages/AIGovernanceCaseStudy";
 import CrosswalkEssay from "@/pages/CrosswalkEssay";
 import OversightTiersEssay from "@/pages/OversightTiersEssay";
+import LumenCaseStudy from "@/pages/LumenCaseStudy";
 import SsaDeployment from "@/pages/SsaDeployment";
 import {
   ImpactStrip,
@@ -175,7 +176,7 @@ function FadeIn({ children, delay = 0, className = "" }: FadeInProps) {
   );
 }
 
-type PageId = "home" | "brand" | "about" | "approach" | "resume" | "contact" | "case" | "lab" | "governance" | "writing" | "oversight" | "ssadeploy";
+type PageId = "home" | "brand" | "about" | "approach" | "resume" | "contact" | "case" | "lab" | "governance" | "writing" | "oversight" | "ssadeploy" | "lumen";
 
 function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) {
   // Top-level sections follow the forward-deployed narrative order.
@@ -7253,6 +7254,7 @@ const PAGE_TITLES: Record<PageId, string> = {
   governance: "Designing the Last Mile of AI Governance",
   writing: "One control set, three frameworks — AI governance crosswalk",
   oversight: "Oversight tiers beat confidence scores — AI experience design",
+  lumen: "Lumen — Human-Centered Enterprise Knowledge Assistant (In Build)",
 };
 
 const PAGE_DESCRIPTIONS: Record<PageId, string> = {
@@ -7268,6 +7270,7 @@ const PAGE_DESCRIPTIONS: Record<PageId, string> = {
   lab: "In-house AI product concepts by Senthil Nagappan — TrustLens, Clarity, Sentinel, Lumen, and RevAssist: concise capsules of governance, clinical, agentic-safety, and revenue-cycle AI work.",
   governance: "Designing the Last Mile of AI Governance — how disclosure, explainability, oversight, and correction controls turn NIST AI RMF requirements into real product behavior.",
   oversight: "Why showing a clinician a raw confidence score is a design failure, and how recommend / act / alert oversight tiers map model risk to human authority — with the evidence each tier produces for EU AI Act Article 14 and NIST AI RMF MANAGE 2.3.",
+  lumen: "Lumen is a self-directed RAG knowledge assistant in build: ingestion, vector retrieval, cited LLM answers, insufficient-evidence handling, an evaluation harness and an accessible UI. Not client work.",
   writing: "Mapping one internal AI control library to ISO/IEC 42001, the NIST AI Risk Management Framework, and the EU AI Act — so one piece of evidence answers several obligations.",
 };
 
@@ -7442,6 +7445,7 @@ const PAGE_PATHS: Record<Exclude<PageId, "case">, string> = {
   governance: "/ai-governance",
   writing: "/writing/ai-control-crosswalk",
   oversight: "/writing/oversight-tiers",
+  lumen: "/lab/lumen",
 };
 
 const Index = () => {
@@ -7613,6 +7617,7 @@ const Index = () => {
         {page === "ssadeploy" && <SsaDeployment onHome={() => navigate("home")} />}
         {page === "writing" && <CrosswalkEssay onHome={() => navigate("home")} />}
         {page === "oversight" && <OversightTiersEssay onHome={() => navigate("home")} />}
+        {page === "lumen" && <LumenCaseStudy />}
       </main>
       <Footer setPage={navigate} currentPage={page} />
       <ThemeSwitcher />
