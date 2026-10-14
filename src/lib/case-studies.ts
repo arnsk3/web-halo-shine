@@ -373,7 +373,7 @@ export const CASE_STUDIES: CaseStudyType[] = [
     metrics: [
       { value: "50M+", label: "Users Unified" },
       { value: "30–40%", label: "Fewer UX Defects" },
-      { value: "$1.5M+", label: "Annual Savings" },
+      { value: "$1.5M+", label: "Est. annual savings · program outcome" },
     ],
     sections: [
       {
@@ -399,7 +399,7 @@ export const CASE_STUDIES: CaseStudyType[] = [
       {
         heading: "Impact",
         content:
-          "30–40% reduction in usability and accessibility defects. $1.5M+ in annual rework avoided by replacing post-release audit with a pre-merge gate. Adopted across 40+ monthly releases and 15+ modules as the standard pipeline step and component library. Manual audit effort per release cut substantially; compliance moved from sampling to full coverage. 50+ designers and engineers onboarded onto the shared system, and the approach became the reference pattern for other federal programs.",
+          "30–40% reduction in usability and accessibility defects. An estimated $1.5M+ in annual rework avoided (program outcome) by replacing post-release audit with a pre-merge gate. Adopted across 40+ monthly releases and 15+ modules as the standard pipeline step and component library. Manual audit effort per release cut substantially; compliance moved from sampling to full coverage. 50+ designers and engineers onboarded onto the shared system, and the approach became the reference pattern for other federal programs.",
       },
       {
         heading: "Failure mode and what I changed",
@@ -410,7 +410,7 @@ export const CASE_STUDIES: CaseStudyType[] = [
     outcomes: [
       "LLM detection service running as a mandatory pre-merge CI/CD gate across 15+ modules",
       "Versioned component package consumed by 40+ monthly releases — one fix, all consumers",
-      "30–40% fewer usability and accessibility defects; $1.5M+ annual rework avoided",
+      "30–40% fewer usability and accessibility defects; estimated $1.5M+ annual rework avoided (program outcome)",
       "Human-in-the-loop review queue kept every AI suggestion audit-defensible",
       "Governance dashboard gave compliance live remediation velocity instead of sampled audits",
       "50+ designers and engineers onboarded; became the standard across federal systems",
@@ -591,7 +591,7 @@ export const CASE_STUDIES: CaseStudyType[] = [
         { label: "Content & labeling style guide", desc: "Consistent navigation, voice, and labeling standards applied org-wide." },
       ],
      hsi: [
-      "Portfolio management at scale — $130M across 6+ platforms with full budget and delivery accountability",
+      "Portfolio management at scale — $130M across 6+ platforms with portfolio oversight and delivery leadership",
       "HSI lifecycle integration — UCD and accessibility embedded as standard engineering practice",
       "Stakeholder management — aligned 50+ stakeholders through structured governance",
       "Section 508 enterprise governance — defined and enforced as organizational policy",
