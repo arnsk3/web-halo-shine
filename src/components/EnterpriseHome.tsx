@@ -63,7 +63,7 @@ function Loop() {
   return (
     <section id="the-loop" aria-labelledby="loop-heading" className="bg-[rgb(var(--c-tint-50))] py-14">
       <div className={WRAP}>
-        <SectionIndex n="06" label="Capabilities · The Loop" />
+        <SectionIndex n="05" label="Capabilities · The Loop" />
         <h2 id="loop-heading" className="font-display text-3xl font-bold text-[rgb(var(--c-ink))]">How I deliver</h2>
         <div role="tablist" aria-label="Delivery stages" className="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-0">
           {LOOP.map(({ id, label, Icon }, i) => {
@@ -312,7 +312,7 @@ export default function EnterpriseHome() {
       <section id="accessibility-statement" aria-labelledby="a11y-heading" className="bg-[rgb(var(--c-paper))] py-14">
         <div className={`${WRAP} grid gap-8 lg:grid-cols-2`}>
           <div>
-            <SectionIndex n="05" label="Accessibility statement" />
+            <SectionIndex n="06" label="Accessibility statement" />
             <h2 id="a11y-heading" className="font-display text-3xl font-bold text-[rgb(var(--c-ink))]">This site is part of my evidence</h2>
             <p className="mt-4 text-[rgb(var(--c-copy))]">I design and build this site to <strong>WCAG 2.2 Level AA</strong>. Scope tested: the homepage, case-study pages, essays, dialogs, and the interactive delivery-loop diagram — with automated axe-core checks, keyboard-only navigation, and screen-reader passes at desktop and 390px mobile widths.</p>
             <ul className="mt-4 grid list-none gap-2 p-0 text-sm text-[rgb(var(--c-ink))] sm:grid-cols-2">
