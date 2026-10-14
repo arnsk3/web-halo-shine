@@ -180,10 +180,8 @@ type PageId = "home" | "brand" | "about" | "approach" | "resume" | "contact" | "
 function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) {
   // Top-level sections follow the forward-deployed narrative order.
   const sectionLinks: { id: string; label: string }[] = [
-    { id: "top", label: "Home" },
-    { id: "the-loop", label: "The Loop" },
-    { id: "projects", label: "Projects" },
-    { id: "experience", label: "Experience" },
+    { id: "ssa-case", label: "Work" },
+    { id: "the-loop", label: "FDE Approach" },
   ];
   const tailLinks: { id: PageId; label: string }[] = [
     { id: "about", label: "About" },
