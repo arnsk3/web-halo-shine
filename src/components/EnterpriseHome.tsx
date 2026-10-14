@@ -128,6 +128,14 @@ const PROOF = [
 
 const LAB = PROJECTS;
 
+const HF = [
+  { label: "User & task analysis", Icon: Users },
+  { label: "AI evaluation & reliability", Icon: Gauge },
+  { label: "Accessible interaction design", Icon: Accessibility },
+  { label: "Human oversight", Icon: Eye },
+  { label: "Risk-based controls", Icon: Scale },
+];
+
 const CAPS2 = [
   { title: "AI application development", items: ["Python", "TypeScript", "LLM APIs", "RAG"], proof: "Lumen (in build), visual-assistance app (deployed, self-directed)" },
   { title: "Enterprise integration", items: ["REST APIs", "Data modeling", "Auth", "Pipelines"], proof: "SSA CI/CD validation integration" },
