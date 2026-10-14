@@ -18,12 +18,12 @@ const LAB_IMG: Record<string, string> = { Lumen: imgLumen, TrustLens: imgTrust, 
 const WRAP = "mx-auto w-full max-w-[1600px] px-[clamp(1.5rem,5vw,5rem)]";
 
 const LOOP = [
-  { id: "discover", label: "Discover", Icon: Search, text: "Customer & regulated-domain workflow discovery, problem framing, measurable success criteria." },
-  { id: "build", label: "Build", Icon: Hammer, text: "LLM app development, RAG / enterprise knowledge, React/TypeScript front-end, API integration." },
-  { id: "integrate", label: "Integrate", Icon: Plug, text: "Connect AI to enterprise data, APIs, and existing workflows." },
-  { id: "evaluate", label: "Evaluate", Icon: Gauge, text: "Groundedness, task success, failure modes — plus usability and accessibility as AI evaluation." },
-  { id: "deploy", label: "Deploy", Icon: Rocket, text: "Human-in-the-loop oversight, auditability, security; NIST AI RMF / Section 508 / FISMA as implemented controls." },
-  { id: "iterate", label: "Iterate", Icon: RefreshCw, text: "Evaluation- and feedback-driven improvement, regression tests, versioned evaluations." },
+  { id: "discover", label: "Discover", Icon: Search, text: "Customer & regulated-domain workflow discovery, problem framing, measurable success criteria.", evidence: "SSA and Best Buy Health — workflow and use-risk analysis (client work)." },
+  { id: "build", label: "Build", Icon: Hammer, text: "LLM app development, RAG / enterprise knowledge, React/TypeScript front-end, API integration.", evidence: "Lumen and the visual-assistance app (Lab only)." },
+  { id: "integrate", label: "Integrate", Icon: Plug, text: "Connect AI to enterprise data, APIs, and existing workflows.", evidence: "SSA — accessibility validation integrated into CI/CD (client work). Enterprise data/API integration: Lab only." },
+  { id: "evaluate", label: "Evaluate", Icon: Gauge, text: "Groundedness, task success, failure modes — plus usability and accessibility as AI evaluation.", evidence: "Best Buy Health usability and HF validation, SSA accessibility checks (client work); groundedness evaluation in Lumen (Lab only)." },
+  { id: "deploy", label: "Deploy", Icon: Rocket, text: "Human-in-the-loop oversight, auditability, security; NIST AI RMF / Section 508 / FISMA as implemented controls.", evidence: "SSA release gate with human review (client work)." },
+  { id: "iterate", label: "Iterate", Icon: RefreshCw, text: "Evaluation- and feedback-driven improvement, regression tests, versioned evaluations.", evidence: "Best Buy Health drop-off monitoring (client work); versioned evaluations in Lumen (Lab only)." },
 ];
 
 /** Subtle node-and-connection motif. Decorative only. */
@@ -66,8 +66,9 @@ function Loop() {
   return (
     <section id="the-loop" aria-labelledby="loop-heading" className="bg-[rgb(var(--c-tint-50))] py-14">
       <div className={WRAP}>
-        <SectionIndex n="05" label="Capabilities · The Loop" />
-        <h2 id="loop-heading" className="font-display text-3xl font-bold text-[rgb(var(--c-ink))]">How I deliver</h2>
+        <SectionIndex n="05" label="FDE Approach" />
+        <h2 id="loop-heading" className="font-display text-3xl font-bold text-[rgb(var(--c-ink))]">How I work across the FDE lifecycle</h2>
+        <p className="mt-2 max-w-3xl text-[rgb(var(--c-copy))]">Each stage shows where it is evidenced. Stages marked “Lab only” are an approach I demonstrate in self-directed work, not an established client achievement.</p>
         <div role="tablist" aria-label="Delivery stages" className="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-0">
           {LOOP.map(({ id, label, Icon }, i) => {
             const on = active === i;
@@ -94,8 +95,9 @@ function Loop() {
         <div id="loop-panel" role="tabpanel" aria-labelledby={`loop-tab-${LOOP[active].id}`} className="mt-5 rounded-xl border border-[rgb(var(--c-line))] bg-[rgb(var(--c-tint-50))] p-6">
           <p className="font-display text-xl font-semibold text-[rgb(var(--c-ink))]">{LOOP[active].label}</p>
           <p className="mt-2 max-w-3xl text-[rgb(var(--c-copy))]">{LOOP[active].text}</p>
+          <p className="mt-3 text-sm text-[rgb(var(--c-ink))]"><strong>Evidence:</strong> {LOOP[active].evidence}</p>
         </div>
-        <p className="mt-4 text-sm italic text-[rgb(var(--c-copy))]">My Human Factors and accessibility expertise is visible at every stage — not bolted on at the end.</p>
+        <p className="mt-4 text-sm italic text-[rgb(var(--c-copy))]">Human Factors and accessibility are applied at every stage — not bolted on at the end.</p>
       </div>
     </section>
   );
@@ -104,7 +106,7 @@ function Loop() {
 type Flow = { label: string; Icon: typeof FileText }[];
 const PROJECTS: { name: string; status: string; problem: string; built: string; tags: string[]; flow: Flow; caption: string }[] = [
   {
-    name: "Lumen — Human-Centered Enterprise Knowledge Assistant", status: "In Build — self-directed",
+    name: "Lumen — Human-Centered Enterprise Knowledge Assistant", status: "Prototype · in build · self-directed",
     problem: "Employees can't tell whether an AI answer is actually supported by evidence.",
     built: "Building a RAG assistant over an enterprise document corpus — Python ingestion/retrieval, LLM generation with source citations and explicit “insufficient evidence” handling, a retrieval + groundedness evaluation harness, and a keyboard/screen-reader-accessible interface.",
     tags: ["RAG", "Python", "LLM API", "Evaluation", "Accessibility"],
@@ -112,7 +114,7 @@ const PROJECTS: { name: string; status: string; problem: string; built: string; 
     flow: [{ label: "Documents", Icon: FileText }, { label: "Chunk & embed", Icon: Layers }, { label: "Vector retrieval", Icon: Database }, { label: "LLM", Icon: Bot }, { label: "Grounding & eval", Icon: Gauge }, { label: "Accessible UI", Icon: Accessibility }, { label: "Answer + citations + limits", Icon: CheckCircle2 }],
   },
   {
-    name: "TrustLens — AI Evaluation & Human Oversight", status: "Concept — self-directed",
+    name: "TrustLens — AI Evaluation & Human Oversight", status: "Self-directed concept · self-directed",
     problem: "Teams can't tell when an AI recommendation needs a human.",
     built: "A review interface showing AI recommendations alongside supporting evidence, with approve / reject / escalate, an audit trail, and a repeatable evaluation suite.",
     tags: ["Human Oversight", "Evaluation", "Auditability", "NIST AI RMF"],
@@ -120,10 +122,10 @@ const PROJECTS: { name: string; status: string; problem: string; built: string; 
     flow: [{ label: "AI output", Icon: Bot }, { label: "Evidence check", Icon: Search }, { label: "Human review", Icon: Users }, { label: "Audit log", Icon: FileText }],
   },
   {
-    name: "Accessible AI Assistant — Visual-Assistance App", status: "Deployed — self-directed",
+    name: "Accessible AI Assistant — Visual-Assistance App", status: "Prototype · personally deployed · self-directed",
     problem: "Blind and low-vision users need real-time help understanding their surroundings.",
     built: "An end-to-end LLM app (React/TypeScript, serverless proxy to an LLM vision API) with real-time scene description, OCR, and product identification.",
-    tags: ["LLM", "Accessibility", "React/TypeScript", "Deployed"],
+    tags: ["LLM", "Accessibility", "React/TypeScript"],
     caption: "Visual-assistance data flow: phone camera, serverless proxy, LLM vision API, spoken description.",
     flow: [{ label: "Phone camera", Icon: MonitorSmartphone }, { label: "Serverless proxy", Icon: Plug }, { label: "LLM vision API", Icon: Bot }, { label: "Spoken description", Icon: Accessibility }],
   },
@@ -215,12 +217,12 @@ export default function EnterpriseHome() {
           <div className="grid items-center gap-10 lg:grid-cols-[3fr_2fr]">
             <div>
               <p className="mb-4 font-mono text-xs font-semibold uppercase tracking-widest text-[rgb(var(--c-accent-on-dark))]">Senthil Nagappan · Forward-Deployed AI Product Engineer</p>
-              <h1 className="max-w-4xl font-display text-4xl font-bold leading-tight sm:text-5xl">Forward-Deployed AI Product Engineer — turning enterprise AI strategy into human-centered systems people can use and trust.</h1>
-              <p className="mt-6 max-w-3xl text-base leading-relaxed sm:text-lg">I combine hands-on AI development with 18+ years in accessibility, Human Factors, and regulated enterprise systems — so AI gets adopted, evaluated, and audited in high-consequence environments.</p>
+              <h1 className="max-w-4xl font-display text-4xl font-bold leading-tight sm:text-5xl">Forward-Deployed AI Product Engineer for complex, regulated workflows</h1>
+              <p className="mt-6 max-w-3xl text-base leading-relaxed sm:text-lg">I work with enterprise teams to turn operational problems into AI systems that fit real workflows. I bring experience in enterprise UX, accessibility, and Human Factors to discovery, prototyping, integration, evaluation, and deployment—so solutions are usable and operationally ready, not just technically plausible.</p>
               <div className="mt-8 flex flex-wrap items-center gap-3">
-                <a href="#ssa-case" className="inline-flex min-h-11 items-center rounded-md bg-[rgb(var(--c-paper))] px-6 font-semibold text-[rgb(var(--c-primary))] hover:bg-[rgb(var(--c-tint-100))]">See my implementation work</a>
-                <a href="mailto:arnsk3@gmail.com" className="inline-flex min-h-11 items-center gap-2 rounded-md border border-[rgb(var(--c-accent-on-dark))] px-6 font-semibold hover:bg-[rgb(var(--c-primary))]"><Mail aria-hidden="true" className="h-4 w-4" />Email me</a>
-                <a href="/Senthil_Nagappan_Resume.pdf" download className="inline-flex min-h-11 items-center gap-1.5 px-2 text-sm font-semibold underline underline-offset-4"><Download aria-hidden="true" className="h-4 w-4" />Download résumé (PDF)</a>
+                <a href="#ssa-case" className="inline-flex min-h-11 items-center rounded-md bg-[rgb(var(--c-paper))] px-6 font-semibold text-[rgb(var(--c-primary))] hover:bg-[rgb(var(--c-tint-100))]">View my work</a>
+                <a href="/Senthil_Nagappan_Resume.pdf" download className="inline-flex min-h-11 items-center gap-2 rounded-md border border-[rgb(var(--c-accent-on-dark))] px-6 font-semibold hover:bg-[rgb(var(--c-primary))]"><Download aria-hidden="true" className="h-4 w-4" />Download résumé (PDF)</a>
+                <a href="#hire-cta" className="inline-flex min-h-11 items-center gap-2 px-2 font-semibold underline underline-offset-4"><Mail aria-hidden="true" className="h-4 w-4" />Contact me</a>
               </div>
             </div>
             <img src={imgHero} alt="Illustration of a human profile formed from a network of connected data nodes — AI systems built around people" width={1344} height={768} className="w-full rounded-2xl border border-[rgb(var(--c-accent-on-dark)/0.3)] object-cover shadow-2xl" />
@@ -271,7 +273,7 @@ export default function EnterpriseHome() {
           <Divider label="AI Product Lab — Concepts & Builds" />
           <SectionIndex n="04" label="AI Product Lab" />
           <h2 id="projects-heading" className="font-display text-3xl font-bold text-[rgb(var(--c-ink))]">Self-directed AI builds, led by Lumen</h2>
-          <p className="mt-2 max-w-3xl text-[rgb(var(--c-copy))]">These are my own projects — not client deployments. Each shows what I personally built and its current status.</p>
+          <p className="mt-2 max-w-3xl text-[rgb(var(--c-copy))]">These are my own projects — not client work and not production deployments, with no customers or adoption claimed. Each shows what I personally built, what it demonstrates, and its current status.</p>
           <ul className="mt-8 grid list-none gap-6 p-0 lg:grid-cols-3">
             {LAB.map((p) => (
               <li key={p.name} className="flex flex-col rounded-2xl border-2 border-dashed border-[rgb(var(--c-primary)/0.4)] bg-[rgb(var(--c-paper))] p-6">
@@ -324,20 +326,22 @@ export default function EnterpriseHome() {
           <div>
             <SectionIndex n="06" label="Accessibility statement" />
             <h2 id="a11y-heading" className="font-display text-3xl font-bold text-[rgb(var(--c-ink))]">This site is part of my evidence</h2>
-            <p className="mt-4 text-[rgb(var(--c-copy))]">I design and build this site to <strong>WCAG 2.2 Level AA</strong>. Scope tested: the homepage, case-study pages, essays, dialogs, and the interactive delivery-loop diagram — with automated axe-core checks, keyboard-only navigation, and screen-reader passes at desktop and 390px mobile widths.</p>
+            <p className="mt-4 text-[rgb(var(--c-copy))]">I build this site targeting <strong>WCAG 2.2 Level AA</strong>. Checked so far: automated axe-core scans and keyboard-only navigation on the homepage, case-study pages, essays and dialogs, at desktop and 390px mobile widths. This is not a formal conformance assessment, and full assistive-technology testing is still in progress.</p>
             <ul className="mt-4 grid list-none gap-2 p-0 text-sm text-[rgb(var(--c-ink))] sm:grid-cols-2">
-              {["Semantic landmarks & heading order", "Visible focus states", "Keyboard-operable loop diagram", "Contrast checked", "Alt text on every diagram", "Reflow with no horizontal scroll"].map((x) => <li key={x} className="flex items-center gap-2"><CheckCircle2 aria-hidden="true" className="h-4 w-4 text-[rgb(var(--c-accent-on-light))]" />{x}</li>)}
+              {["Semantic landmarks & heading order", "Visible focus states", "Keyboard-operable loop diagram", "Contrast checked", "Text alternatives for diagrams", "Reflow with no horizontal scroll"].map((x) => <li key={x} className="flex items-center gap-2"><CheckCircle2 aria-hidden="true" className="h-4 w-4 text-[rgb(var(--c-accent-on-light))]" />{x}</li>)}
             </ul>
           </div>
           <div className="rounded-2xl bg-[rgb(var(--c-tint-50))] p-6">
             <img src={imgA11y} alt="Accessibility testing workstation with assistive technology" loading="lazy" className="mb-5 aspect-[16/9] w-full rounded-xl object-cover" />
-            <h3 className="font-display text-xl font-bold text-[rgb(var(--c-ink))]">Credentials</h3>
+            <h3 className="font-display text-xl font-bold text-[rgb(var(--c-ink))]">Credentials held</h3>
             <ul className="mt-3 list-none space-y-2 p-0 text-[rgb(var(--c-copy))]">
               <li><ShieldCheck aria-hidden="true" className="mr-2 inline h-4 w-4" />CPACC + WAS (CPWA)</li>
               <li><ShieldCheck aria-hidden="true" className="mr-2 inline h-4 w-4" />CUA — Certified Usability Analyst</li>
               <li><ShieldCheck aria-hidden="true" className="mr-2 inline h-4 w-4" />CSM — Certified ScrumMaster</li>
-              <li><ShieldCheck aria-hidden="true" className="mr-2 inline h-4 w-4" />AIGP — in progress</li>
+              <li><ShieldCheck aria-hidden="true" className="mr-2 inline h-4 w-4" />AIGP — in progress (not yet held)</li>
             </ul>
+            <h3 className="mt-5 font-display text-lg font-bold text-[rgb(var(--c-ink))]">Standards applied in client work</h3>
+            <p className="mt-2 text-sm text-[rgb(var(--c-copy))]">WCAG / Section 508 (SSA), FDA 510(k) human-factors expectations and IEC 62366 (Best Buy Health). Working knowledge: NIST AI RMF, ISO/IEC 42001, EU AI Act.</p>
           </div>
         </div>
       </section>
@@ -362,7 +366,7 @@ export default function EnterpriseHome() {
           </div>
           <div>
             <h3 className="font-display text-xl font-bold text-[rgb(var(--c-ink))]">Why Human Factors matters in enterprise AI</h3>
-            <blockquote className="mt-3 border-l-4 border-[rgb(var(--c-primary))] pl-4 text-[rgb(var(--c-ink))]">In enterprise AI, adoption failure — not model failure — is what most often kills projects. I own the layer that prevents it.</blockquote>
+            <blockquote className="mt-3 border-l-4 border-[rgb(var(--c-primary))] pl-4 text-[rgb(var(--c-ink))]">In enterprise AI, adoption failure — not model failure — is what most often kills projects. Human Factors work is how I help prevent it.</blockquote>
             <ul className="mt-5 grid list-none grid-cols-2 gap-3 p-0 sm:grid-cols-3">
               {HF.map(({ label, Icon }) => <li key={label} className="flex items-center gap-2 rounded-lg bg-[rgb(var(--c-paper))] p-3 text-sm font-semibold text-[rgb(var(--c-ink))]"><Icon aria-hidden="true" className="h-5 w-5 shrink-0 text-[rgb(var(--c-accent-on-light))]" />{label}</li>)}
             </ul>
@@ -382,8 +386,9 @@ export default function EnterpriseHome() {
         <div className={`${WRAP} relative`}>
           <SectionIndex n="08" label="Contact" tone="dark" />
           <h2 id="cta-heading" className="font-display text-3xl font-bold">Hiring for an FDE or AI systems role?</h2>
+          <p className="mt-3 max-w-3xl">I'm pursuing Forward-Deployed AI, AI Systems, and customer-facing enterprise AI roles in regulated or operationally complex domains.</p>
           <div className="mt-6 flex flex-wrap gap-3">
-            <a href="#ssa-case" className="inline-flex min-h-11 items-center rounded-md bg-[rgb(var(--c-paper))] px-6 font-semibold text-[rgb(var(--c-primary))]">See my implementation work</a>
+            <a href="#ssa-case" className="inline-flex min-h-11 items-center rounded-md bg-[rgb(var(--c-paper))] px-6 font-semibold text-[rgb(var(--c-primary))]">Read the SSA accessibility-automation case study</a>
             <a href="mailto:arnsk3@gmail.com?subject=Customer-facing%20AI%20deployment%20challenge" className="inline-flex min-h-11 items-center gap-2 rounded-md border border-[rgb(var(--c-accent-on-dark))] px-6 font-semibold"><Mail aria-hidden="true" className="h-4 w-4" />Contact me about a customer-facing AI deployment challenge</a>
             <a href="/Senthil_Nagappan_Resume.pdf" download className="inline-flex min-h-11 items-center gap-2 px-2 font-semibold underline underline-offset-4"><Download aria-hidden="true" className="h-4 w-4" />Download résumé (PDF)</a>
             <a href="https://www.linkedin.com/in/senthil-nagappan" target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center gap-2 px-2 font-semibold underline underline-offset-4"><Linkedin aria-hidden="true" className="h-4 w-4" />LinkedIn profile<span className="sr-only"> (opens in new tab)</span></a>
