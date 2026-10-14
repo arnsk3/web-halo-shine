@@ -296,7 +296,7 @@ export default function EnterpriseHome() {
           </div>
           <ul className="flex list-none flex-col gap-3 p-0">
             <li><a href="mailto:arnsk3@gmail.com" className="flex min-h-11 items-center gap-2 rounded-lg bg-[rgb(var(--c-primary))] px-4 font-semibold text-[rgb(var(--c-paper))]"><Mail aria-hidden="true" className="h-4 w-4" />arnsk3@gmail.com</a></li>
-            <li><a href="https://www.linkedin.com/in/senthilnagappan" target="_blank" rel="noreferrer" className="flex min-h-11 items-center gap-2 rounded-lg border border-[rgb(var(--c-primary))] px-4 font-semibold text-[rgb(var(--c-accent-on-light))]"><Linkedin aria-hidden="true" className="h-4 w-4" />LinkedIn <span className="sr-only">(opens in new tab)</span></a></li>
+            <li><a href="https://www.linkedin.com/in/senthil-nagappan" target="_blank" rel="noreferrer" className="flex min-h-11 items-center gap-2 rounded-lg border border-[rgb(var(--c-primary))] px-4 font-semibold text-[rgb(var(--c-accent-on-light))]"><Linkedin aria-hidden="true" className="h-4 w-4" />LinkedIn <span className="sr-only">(opens in new tab)</span></a></li>
             <li><a href="/Senthil_Nagappan_Resume.pdf" download className="flex min-h-11 items-center gap-2 rounded-lg border border-[rgb(var(--c-primary))] px-4 font-semibold text-[rgb(var(--c-accent-on-light))]"><Download aria-hidden="true" className="h-4 w-4" />Download résumé</a></li>
           </ul>
         </div>

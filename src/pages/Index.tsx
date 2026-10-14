@@ -24,7 +24,6 @@ import ProductionSystems from "@/components/ProductionSystems";
 import EvidenceDisclosure from "@/components/EvidenceDisclosure";
 import CaseStoryVisuals from "@/components/CaseStoryVisuals";
 import { Button } from "@/components/ui/button";
-import deploymentHero from "@/assets/deployment-accessibility.jpg";
 import SystemArchitecture from "@/components/SystemArchitecture";
 import WhatIBuilt from "@/components/WhatIBuilt";
 import FlagshipSystems from "@/components/FlagshipSystems";
