@@ -3644,7 +3644,7 @@ function GeFrameworkPersonas() {
                         <div className="flex flex-wrap gap-2 mt-2">
                           {j.tasks.map((t, i) => (
                             <span key={t} className="inline-flex items-center gap-1.5">
-                              <span className="text-[11px] font-medium px-2.5 py-1 rounded-md bg-[rgb(var(--c-info-bg))] text-[rgb(var(--c-info))] border border-[rgb(var(--c-info-line))]">
+                              <span className="text-[11px] font-medium px-2.5 py-1 rounded-md max-w-full break-words bg-[rgb(var(--c-info-bg))] text-[rgb(var(--c-info))] border border-[rgb(var(--c-info-line))]">
                                 {t}
                               </span>
                               {i < j.tasks.length - 1 && (
@@ -4340,7 +4340,7 @@ function WcagToolDetails() {
                     {lvl.nodes.map((n) => (
                       <span
                         key={n}
-                        className="text-[11px] font-medium px-2.5 py-1 rounded-md bg-[rgb(var(--c-tint-50))] border border-[rgb(var(--c-line))] text-[rgb(var(--c-copy))]"
+                        className="text-[11px] font-medium px-2.5 py-1 rounded-md max-w-full break-words bg-[rgb(var(--c-tint-50))] border border-[rgb(var(--c-line))] text-[rgb(var(--c-copy))]"
                       >
                         {n}
                       </span>
@@ -4611,7 +4611,7 @@ function WcagToolDetails() {
                         <div className="flex flex-wrap gap-2 mt-2">
                           {j.tasks.map((t, i) => (
                             <span key={t} className="inline-flex items-center gap-1.5">
-                              <span className="text-[11px] font-medium px-2.5 py-1 rounded-md bg-[rgb(var(--c-info-bg))] text-[rgb(var(--c-info))] border border-[rgb(var(--c-info-line))]">
+                              <span className="text-[11px] font-medium px-2.5 py-1 rounded-md max-w-full break-words bg-[rgb(var(--c-info-bg))] text-[rgb(var(--c-info))] border border-[rgb(var(--c-info-line))]">
                                 {t}
                               </span>
                               {i < j.tasks.length - 1 && (
