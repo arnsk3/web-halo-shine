@@ -133,7 +133,7 @@ const OWNED = [
 
 export default function SsaDeployment({ onHome }: { onHome: () => void }) {
   return (
-    <div className="bg-[#fafbfc]">
+    <div className="bg-[rgb(var(--c-tint-50))]">
       <header className="relative overflow-hidden bg-gradient-to-br from-[rgb(var(--c-hero-dark))] via-[rgb(var(--c-primary))] to-[rgb(var(--c-accent))] text-[rgb(var(--c-paper))]">
         <div className="max-w-3xl mx-auto px-6 py-16 sm:py-20 relative">
           <nav aria-label="Breadcrumb" className="mb-5">
