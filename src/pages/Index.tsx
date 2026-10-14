@@ -6769,7 +6769,8 @@ function Resume() {
           <iframe
             src="/Senthil_Nagappan_Resume.pdf#view=FitH"
             title="Senthil Nagappan resume PDF preview"
-            className="w-full focus:outline focus:outline-[3px] focus:outline-offset-2 focus:outline-[rgb(var(--c-primary))]"
+            className="w-full"
+            tabIndex={-1}
             style={{ height: "700px" }}
           />
         </div>
