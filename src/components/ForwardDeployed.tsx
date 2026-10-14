@@ -493,7 +493,7 @@ const GOV_BLOCKS = [
     icon: Accessibility,
     t: "Accessibility at scale",
     d: "WCAG 2.2 AA and Section 508 embedded into design systems and CI/CD by default, so conformance is structural rather than a late audit.",
-    chips: ["IAAP CPACC", "IAAP WAS (CPWA)", "Section 508"],
+    chips: ["IAAP CPACC", "IAAP WAS", "Section 508"],
   },
   {
     icon: ShieldCheck,

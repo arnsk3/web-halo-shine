@@ -648,18 +648,16 @@ function Signals() {
             Verifiable signals.
           </h2>
           <p className="text-[rgb(var(--c-copy))] text-sm sm:text-base leading-relaxed">
-            Credentials and standards you can check, plus paraphrased reflections from program
-            partners. Named references available on request.
+            Standards and frameworks by how they were used, plus paraphrased reflections from program
+            partners (anonymized, not direct quotes). Credentials are listed once, under Certifications.
           </p>
         </div>
         <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 list-none p-0 m-0 mb-10">
           {[
-            { t: "AIGP · IAPP", d: "Artificial Intelligence Governance Professional — in progress; AI governance, privacy & risk" },
-            { t: "CPACC", d: "IAAP Certified Professional in Accessibility Core Competencies" },
-            { t: "WCAG 2.2 AAA", d: "Conformance practice across federal and healthcare surfaces" },
-            { t: "NIST AI RMF · EU AI Act", d: "Governance frameworks applied to model-risk UX" },
-            { t: "ISO/IEC 42001", d: "AI management-systems standard applied to program design" },
-            { t: "IEC 62366 · MIL-STD-1472H", d: "Usability engineering and human-factors standards" },
+                        { t: "WCAG 2.2 · Section 508", d: "Applied in client work (SSA). AAA criteria used as design targets, not formally assessed results" },
+            { t: "NIST AI RMF · EU AI Act", d: "Working knowledge — governance frameworks" },
+            { t: "ISO/IEC 42001", d: "Working knowledge — AI management-systems standard" },
+            { t: "IEC 62366 · MIL-STD-1472H", d: "Applied in client work — usability engineering and human-factors standards" },
           ].map((c) => (
             <li key={c.t} className="rounded-xl border border-[rgb(var(--c-line))] bg-[rgb(var(--c-paper))] p-5">
               <p className="font-display text-sm font-bold text-[rgb(var(--c-ink))] mb-1">{c.t}</p>
@@ -5983,7 +5981,7 @@ function About() {
   ];
 
   const timeline = [
-    { role: "AI + Human Systems Integration Lead", org: "GE HealthCare", period: "2025 – Present", desc: "Forward-deployed with engineering: built the enterprise AI safety framework and evolved the design system for clinical decision-support across 10+ product teams." },
+    { role: "AI + Human Systems Integration Lead", org: "GE HealthCare", period: "2025 – Present", desc: "Forward-deployed with engineering: led Human Factors and defined an AI safety review framework with engineering, and contributed to the design system for clinical decision-support across 10+ product teams (adoption figure awaiting confirmation)." },
     { role: "Sr. UX & Accessibility Lead", org: "Leidos / Social Security Administration", period: "2022 – 2025", desc: "Led a data-driven design system unifying 50M+ user experiences and built SSA11y, saving $1.5M+ annually." },
     { role: "Inclusive Design & Accessibility Lead", org: "Best Buy Health", period: "2021 – 2022", desc: "Owned visual design and mobile-first brand experience for 1M+ consumers across 5 product lines." },
     { role: "Sr. UX & Accessibility Program Manager", org: "Eagle Technologies / HHS / SAMHSA", period: "2014 – 2021", desc: "Directed a $130M behavioral health portfolio, recruited and grew a cross-functional team to 15+, and mentored designers through seven years of change while leading the AWS GovCloud migration of national TEDS datasets." },
@@ -6049,8 +6047,8 @@ function About() {
         <div className="prose prose-sm max-w-none mb-12 md:columns-2 xl:columns-3 md:gap-10 [&>p]:break-inside-avoid">
           <p className="text-[rgb(var(--c-copy))] leading-[1.9] mb-4">
             I'm a forward-deployed design and human-systems leader: I work inside the delivery
-            team, from field research and product framing through production code, release
-            governance, and continuous validation. I make complex, regulated AI experiences
+            team, from field research and product framing through prototype code (my own projects),
+            release-gate definition with engineering, and continuous validation. I make complex, regulated AI experiences
             clear, accountable, and accessible to everyone.
           </p>
           <p className="text-[rgb(var(--c-copy))] leading-[1.9] mb-4">
@@ -6156,7 +6154,8 @@ function About() {
               "WAS (IAAP)",
               "CUA (HFI)",
               "CSM (Scrum Alliance)",
-              "DAU HSI — In Progress",
+              "In progress: AIGP (IAPP)",
+              "In progress: DAU HSI coursework",
             ].map((c) => (
               <span
                 key={c}
@@ -6167,7 +6166,7 @@ function About() {
             ))}
           </div>
           <p className="text-xs text-[rgb(var(--c-copy))]">
-            Recognized Practitioner: W3C WAI · IAAP · HFES
+            Held: CPACC, WAS, CUA, CSM. In progress items are not yet held.
           </p>
           <p className="text-xs text-[rgb(var(--c-copy))] mt-1">
             Affiliations: IAAP · HFES · UXPA · W3C WAI (Volunteer)
@@ -6728,7 +6727,8 @@ function Resume() {
                 <ul className="list-disc pl-5 space-y-1.5 text-[13px] text-[rgb(var(--c-ink))] leading-relaxed">
                   <li>B.E., Electronics &amp; Communication Engineering (HCI / human-factors focus), Madurai Kamaraj University, 1999</li>
                   <li>AIGP — AI Governance Professional (IAPP) — in progress</li>
-                  <li>IAAP CPACC + WAS (CPWA)</li>
+                  <li>CPACC — Certified Professional in Accessibility Core Competencies (IAAP)</li>
+                  <li>WAS — Web Accessibility Specialist (IAAP)</li>
                   <li>CUA — Certified Usability Analyst (HFI)</li>
                   <li>CSM — Certified ScrumMaster</li>
                   <li>Salesforce Certified UX Designer — in progress</li>
@@ -6740,7 +6740,7 @@ function Resume() {
                 </h3>
                 <ul className="list-disc pl-5 space-y-1.5 text-[13px] text-[rgb(var(--c-ink))] leading-relaxed">
                   <li>NIST AI RMF · EU AI Act · ISO/IEC 42001 · SR 11-7</li>
-                  <li>WCAG 2.2 AA/AAA · Section 508 · ADA</li>
+                  <li>WCAG 2.2 AA · Section 508 · ADA (applied in client work)</li>
                   <li>FDA HFE / IEC 62366 · ISO 14971</li>
                   <li>MIL-STD-1472H · MBSE / SysML · DoDI 5000.95</li>
                 </ul>

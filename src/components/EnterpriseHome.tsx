@@ -133,8 +133,8 @@ const PROJECTS: { name: string; status: string; problem: string; built: string; 
 ];
 
 const PROOF = [
-  { value: "50M+", label: "users on the SSA platform", Icon: Users, qual: "Program outcome · platform scope: 50M+ users across 50 states. My role: product owner for AI-assisted accessibility validation." },
-  { value: "65% → 8", label: "of defects traced to 8 reused components", Icon: Layers, qual: "My direct contribution: traced defect clustering to 8 reused components, which drove ~30% manual-audit reduction (program outcome) and $1.5M+ estimated annual savings (program outcome)." },
+  { value: "50M+", label: "users on the SSA platform", Icon: Users, qual: "Platform scope (program outcome): 50M+ users across 50 states; not direct users of one feature. My role: product owner for AI-assisted accessibility validation." },
+  { value: "65%", label: "of defects traced to 8 reused components", Icon: Layers, qual: "My direct contribution: traced defect clustering to the 8 reused components. Program outcomes: approximately 30% fewer manual audits and more than $1.5M in estimated annual savings." },
   { value: "1M+", label: "patients using connected devices", Icon: MonitorSmartphone, qual: "Program scope at Best Buy Health. 30–40% drop-off reduction is a team outcome; my contribution was Human Factors validation and companion-experience design." },
 ];
 
@@ -329,7 +329,7 @@ export default function EnterpriseHome() {
           <div>
             <SectionIndex n="06" label="Accessibility statement" />
             <h2 id="a11y-heading" className="font-display text-3xl font-bold text-[rgb(var(--c-ink))]">This site is part of my evidence</h2>
-            <p className="mt-4 text-[rgb(var(--c-copy))]">I build this site targeting <strong>WCAG 2.2 Level AA</strong>. Checked so far: automated axe-core scans and keyboard-only navigation on the homepage, case-study pages, essays and dialogs, at desktop and 390px mobile widths. This is not a formal conformance assessment, and full assistive-technology testing is still in progress.</p>
+            <p className="mt-4 text-[rgb(var(--c-copy))]">I build this site targeting <strong>WCAG 2.2 Level AA</strong>. Checks completed: automated axe-core scans on all 18 pages at desktop and 320px widths; keyboard-only navigation, 200% text zoom with increased spacing, and reduced-motion settings on the homepage, About, case studies and dialogs. This is not a formal conformance assessment. Testing with real screen readers (NVDA, JAWS, VoiceOver) has not been done yet.</p>
             <ul className="mt-4 grid list-none gap-2 p-0 text-sm text-[rgb(var(--c-ink))] sm:grid-cols-2">
               {["Semantic landmarks & heading order", "Visible focus states", "Keyboard-operable loop diagram", "Contrast checked", "Text alternatives for diagrams", "Reflow with no horizontal scroll"].map((x) => <li key={x} className="flex items-center gap-2"><CheckCircle2 aria-hidden="true" className="h-4 w-4 text-[rgb(var(--c-accent-on-light))]" />{x}</li>)}
             </ul>
@@ -338,11 +338,13 @@ export default function EnterpriseHome() {
             <img src={imgA11y} alt="Accessibility testing workstation with assistive technology" loading="lazy" className="mb-5 aspect-[16/9] w-full rounded-xl object-cover" />
             <h3 className="font-display text-xl font-bold text-[rgb(var(--c-ink))]">Credentials held</h3>
             <ul className="mt-3 list-none space-y-2 p-0 text-[rgb(var(--c-copy))]">
-              <li><ShieldCheck aria-hidden="true" className="mr-2 inline h-4 w-4" />CPACC + WAS (CPWA)</li>
-              <li><ShieldCheck aria-hidden="true" className="mr-2 inline h-4 w-4" />CUA — Certified Usability Analyst</li>
-              <li><ShieldCheck aria-hidden="true" className="mr-2 inline h-4 w-4" />CSM — Certified ScrumMaster</li>
-              <li><ShieldCheck aria-hidden="true" className="mr-2 inline h-4 w-4" />AIGP — in progress (not yet held)</li>
+              <li><ShieldCheck aria-hidden="true" className="mr-2 inline h-4 w-4" />CPACC — Certified Professional in Accessibility Core Competencies (IAAP)</li>
+              <li><ShieldCheck aria-hidden="true" className="mr-2 inline h-4 w-4" />WAS — Web Accessibility Specialist (IAAP)</li>
+              <li><ShieldCheck aria-hidden="true" className="mr-2 inline h-4 w-4" />CUA — Certified Usability Analyst (HFI)</li>
+              <li><ShieldCheck aria-hidden="true" className="mr-2 inline h-4 w-4" />CSM — Certified ScrumMaster (Scrum Alliance)</li>
             </ul>
+            <h3 className="mt-5 font-display text-lg font-bold text-[rgb(var(--c-ink))]">In progress (not yet held)</h3>
+            <p className="mt-2 text-sm text-[rgb(var(--c-copy))]">AIGP — Artificial Intelligence Governance Professional (IAPP) · DAU Human Systems Integration coursework</p>
             <h3 className="mt-5 font-display text-lg font-bold text-[rgb(var(--c-ink))]">Standards applied in client work</h3>
             <p className="mt-2 text-sm text-[rgb(var(--c-copy))]">WCAG / Section 508 (SSA), FDA 510(k) human-factors expectations and IEC 62366 (Best Buy Health). Working knowledge: NIST AI RMF, ISO/IEC 42001, EU AI Act.</p>
           </div>

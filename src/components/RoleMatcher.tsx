@@ -37,7 +37,7 @@ export default function RoleMatcher() {
       <div className="mx-auto w-full max-w-[1600px] px-[clamp(1.5rem,5vw,5rem)]">
         <p className="mb-2 flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-widest text-[rgb(var(--c-accent-on-light))]"><Sparkles aria-hidden="true" className="h-4 w-4" />AI-powered · for hiring managers</p>
         <h2 id="matcher-heading" className="font-display text-3xl font-bold text-[rgb(var(--c-ink))]">Find the work most relevant to your role</h2>
-        <p className="mt-2 max-w-3xl text-[rgb(var(--c-copy))]">Describe the role or workflow you're hiring for. AI picks the closest case studies from this portfolio and quotes the supporting evidence. It only uses what's published here.</p>
+        <p className="mt-2 max-w-3xl text-[rgb(var(--c-copy))]">Describe the role or workflow you're hiring for. AI picks the closest case studies from this portfolio and quotes the supporting evidence. Your text is sent to an AI model through Lovable AI to generate results and is not saved by this site; the model is instructed to use only the case studies published here.</p>
         <form onSubmit={submit} className="mt-6 grid gap-3 lg:grid-cols-[1fr_auto] lg:items-end">
           <div>
             <label htmlFor="matcher-need" className="mb-1 block font-semibold text-[rgb(var(--c-ink))]">Role or workflow</label>

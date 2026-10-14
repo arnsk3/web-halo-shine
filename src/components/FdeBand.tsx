@@ -2,7 +2,7 @@ const BULLETS = [
   "Embedded with federal and healthcare engineering teams to deliver production AI systems under audit",
   "Translated Human Factors and HSI analysis into deployable system behavior, workflows, and API contracts",
   "Built AI-assisted decision systems integrated into live operational environments and CI/CD pipelines",
-  "Worked across design, engineering, and governance to ship regulated AI — NIST AI RMF, ISO/IEC 42001, WCAG 2.2 AAA",
+  "Worked across design, engineering, and governance to ship regulated AI — NIST AI RMF, ISO/IEC 42001, WCAG 2.2 AA",
 ];
 
 export default function FdeBand() {
