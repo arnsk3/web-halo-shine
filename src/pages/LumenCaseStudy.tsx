@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Accessibility, Activity, ArrowDown, Bot, CheckCircle2, Code2, Database, ExternalLink, FileText, Gauge, Layers, Search, Sparkles } from "lucide-react";
+import imgLumenHero from "@/assets/lumen-hero.jpg";
 import { LUMEN_EVAL, LUMEN_FAILURES, LUMEN_LINKS, lumenStatus } from "@/lib/lumen";
 
 const WRAP = "mx-auto w-full max-w-[1600px] px-[clamp(1.5rem,5vw,5rem)]";
@@ -45,6 +46,7 @@ export default function LumenCaseStudy() {
         <ul aria-label="Technologies" className="mt-5 flex list-none flex-wrap gap-2 p-0">{TAGS.map((t) => <li key={t} className="rounded-md bg-[rgb(var(--c-tint-100))] px-2 py-1 text-xs font-semibold text-[rgb(var(--c-accent-on-light))]">{t}</li>)}</ul>
         <div className="mt-6 flex flex-wrap gap-3"><LinkButton href={LUMEN_LINKS.demo} label="Live demo" Icon={ExternalLink} /><LinkButton href={LUMEN_LINKS.repo} label="View code (GitHub)" Icon={Code2} /></div>
 
+        <figure className="m-0 mt-10"><img src={imgLumenHero} alt="Illustration: stacks of documents broken into connected nodes that converge into one answer, with threads linking back to source pages" width={1536} height={864} className="aspect-[16/7] w-full rounded-2xl object-cover" /><figcaption className="mt-2 text-xs text-[rgb(var(--c-copy))]">Concept illustration · not a product screenshot</figcaption></figure>
         <div className="mt-12 grid gap-10 lg:grid-cols-2">
           <section aria-labelledby="l-problem">
             <h2 id="l-problem" className={H2}>Problem</h2>
