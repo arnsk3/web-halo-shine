@@ -15,11 +15,11 @@ const PIPELINE = [
   { label: "Answer + Citations + Limitations", Icon: CheckCircle2 },
 ];
 const BUILT = [
-  "Python ingestion, chunking and embeddings for an enterprise document set.",
-  "Vector retrieval that returns the passages each answer relies on.",
-  "LLM generation with source citations, and an explicit “insufficient evidence” response when the documents don't support an answer.",
-  "An evaluation harness for retrieval hit-rate and answer groundedness.",
-  "A keyboard- and screen-reader-accessible interface.",
+  "I built Python ingestion, chunking and embeddings for an enterprise document set.",
+  "I built vector retrieval that returns the passages each answer relies on.",
+  "I built LLM generation with source citations, and an explicit “insufficient evidence” response when the documents don't support an answer.",
+  "I built an evaluation harness for retrieval hit-rate and answer groundedness.",
+  "I built a keyboard- and screen-reader-accessible interface.",
 ];
 const TAGS = ["RAG", "Python", "LLM API", "Evaluation", "Accessibility"];
 const H2 = "font-display text-2xl font-bold text-[rgb(var(--c-ink))]";
@@ -51,7 +51,7 @@ export default function LumenCaseStudy() {
             <p className="mt-3 text-[rgb(var(--c-copy))]">Employees can't tell whether an AI answer is actually supported by evidence. In regulated settings, that uncertainty blocks adoption.</p>
             <h2 id="l-built" className={`${H2} mt-10`}>What I personally built</h2>
             <p className="mt-2 text-sm text-[rgb(var(--c-copy))]">Scope in build; not yet confirmed complete.</p>
-            <ul className="mt-3 list-disc space-y-2 pl-5 text-[rgb(var(--c-copy))]">{BUILT.map((b) => <li key={b}>I built {b.charAt(0).toLowerCase() + b.slice(1)}</li>)}</ul>
+            <ul className="mt-3 list-disc space-y-2 pl-5 text-[rgb(var(--c-copy))]">{BUILT.map((b) => <li key={b}>{b}</li>)}</ul>
           </section>
           <section aria-labelledby="l-arch">
             <h2 id="l-arch" className={H2}>Architecture</h2>
