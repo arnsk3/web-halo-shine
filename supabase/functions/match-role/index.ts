@@ -125,7 +125,7 @@ Deno.serve(async (req) => {
     .slice(0, 4)
     .map((m) => {
       const c = CASES.find((x) => x.id === m.id)!;
-      return { ...m, title: c.title, url: c.url.replace("https://web-halo-shine.lovable.app", ""), inHouseLab: !!c.inHouseLab, category: c.category };
+      return { ...m, title: c.title, url: c.url.replace("https://www.senthilnagappan.com", ""), inHouseLab: !!c.inHouseLab, category: c.category };
     });
   return json({ summary: parsed.summary, matches }, 200, rh);
 });

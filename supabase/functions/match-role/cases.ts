@@ -1,5 +1,5 @@
 export type Case = { id: string; title: string; category: string; role: string; summary: string; outcomes: string[]; url: string; inHouseLab?: boolean };
-const BASE = "https://web-halo-shine.lovable.app";
+const BASE = "https://www.senthilnagappan.com";
 export const CASES: Case[] = [
   {
     id: "ssa",

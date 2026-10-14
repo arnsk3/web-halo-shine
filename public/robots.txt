@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://web-halo-shine.lovable.app/sitemap.xml
+Sitemap: https://www.senthilnagappan.com/sitemap.xml
