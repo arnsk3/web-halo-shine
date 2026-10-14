@@ -1,6 +1,6 @@
 import { defineTool } from "@lovable.dev/mcp-js";
 
-const BASE = "https://web-halo-shine.lovable.app";
+const BASE = "https://www.senthilnagappan.com";
 
 export default defineTool({
   name: "get_resume",

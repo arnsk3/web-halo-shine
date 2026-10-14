@@ -7,7 +7,7 @@ import { defineMcp } from "npm:@lovable.dev/mcp-js@0.23.0";
 
 // src/lib/mcp/tools/get-about.ts
 import { defineTool } from "npm:@lovable.dev/mcp-js@0.23.0";
-var BASE = "https://web-halo-shine.lovable.app";
+var BASE = "https://www.senthilnagappan.com";
 var get_about_default = defineTool({
   name: "get_about",
   title: "Get about / positioning",
@@ -46,7 +46,7 @@ var get_about_default = defineTool({
 // src/lib/mcp/tools/get-case-studies.ts
 import { defineTool as defineTool2 } from "npm:@lovable.dev/mcp-js@0.23.0";
 import { z } from "npm:zod@^3.25.76";
-var BASE2 = "https://web-halo-shine.lovable.app";
+var BASE2 = "https://www.senthilnagappan.com";
 var CASES = [
   {
     id: "ssa",
@@ -217,7 +217,7 @@ var get_case_studies_default = defineTool2({
 
 // src/lib/mcp/tools/get-contact-info.ts
 import { defineTool as defineTool3 } from "npm:@lovable.dev/mcp-js@0.23.0";
-var BASE3 = "https://web-halo-shine.lovable.app";
+var BASE3 = "https://www.senthilnagappan.com";
 var get_contact_info_default = defineTool3({
   name: "get_contact_info",
   title: "Get contact info",
@@ -242,7 +242,7 @@ var get_contact_info_default = defineTool3({
 
 // src/lib/mcp/tools/get-resume.ts
 import { defineTool as defineTool4 } from "npm:@lovable.dev/mcp-js@0.23.0";
-var BASE4 = "https://web-halo-shine.lovable.app";
+var BASE4 = "https://www.senthilnagappan.com";
 var get_resume_default = defineTool4({
   name: "get_resume",
   title: "Get r\xE9sum\xE9",

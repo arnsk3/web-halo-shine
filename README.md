@@ -4,7 +4,7 @@ A brand-forward single-page portfolio for **Senthil Kumar Nagappan**, showcasing
 brand identity systems, logos, and brand guidelines alongside design-systems,
 accessibility, and AI-governance work.
 
-Live: https://web-halo-shine.lovable.app · Custom domain: www.senthilnagappan.com
+Live: https://www.senthilnagappan.com · Custom domain: www.senthilnagappan.com
 
 ## Highlights
 

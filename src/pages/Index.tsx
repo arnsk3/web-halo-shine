@@ -7428,7 +7428,7 @@ function InHouseLab({
 
 
 
-const SITE_URL = "https://web-halo-shine.lovable.app";
+const SITE_URL = "https://www.senthilnagappan.com";
 
 const PAGE_PATHS: Record<Exclude<PageId, "case">, string> = {
   home: "/",
