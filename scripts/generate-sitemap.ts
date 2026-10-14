@@ -34,6 +34,7 @@ const entries: SitemapEntry[] = [
   { path: "/approach", changefreq: "monthly", priority: "0.6" },
   { path: "/writing/ai-control-crosswalk", changefreq: "monthly", priority: "0.7" },
   { path: "/writing/oversight-tiers", changefreq: "monthly", priority: "0.7" },
+  { path: "/lab/lumen", changefreq: "monthly", priority: "0.7" },
   { path: "/resume", changefreq: "monthly", priority: "0.8" },
   { path: "/contact", changefreq: "yearly", priority: "0.6" },
   ...CASE_IDS.map((id) => ({
