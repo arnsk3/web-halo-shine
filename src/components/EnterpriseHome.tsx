@@ -11,6 +11,7 @@ import imgBbh from "@/assets/case-bestbuy.jpg";
 import imgLumen from "@/assets/case-lumen.jpg";
 import imgTrust from "@/assets/case-trustlens.jpg";
 import imgVision from "@/assets/deployment-accessibility.jpg";
+import imgWriting from "@/assets/writing-rag.jpg";
 import imgHero from "@/assets/hero-systems.jpg";
 import imgA11y from "@/assets/deployment-accessibility.jpg";
 import imgLeader from "@/assets/team-session.jpg";
@@ -314,12 +315,12 @@ export default function EnterpriseHome() {
       <section id="technical-writing" aria-labelledby="tw-heading" className="bg-[rgb(var(--c-paper))] py-14">
         <div className={WRAP}>
           <h2 id="tw-heading" className="font-display text-3xl font-bold text-[rgb(var(--c-ink))]">Technical Writing / Field Notes</h2>
-          <article className="mt-6 max-w-3xl rounded-2xl border border-[rgb(var(--c-line))] bg-[rgb(var(--c-tint-50))] p-6">
+          <article className="mt-6 grid overflow-hidden rounded-2xl border border-[rgb(var(--c-line))] bg-[rgb(var(--c-tint-50))] md:grid-cols-2"><img src={imgWriting} alt="An employee frowning at an AI answer on a laptop, with printed source documents beside her" loading="lazy" width={1536} height={864} className="h-full w-full object-cover" /><div className="p-6">
             <p className="font-mono text-xs font-semibold uppercase text-[rgb(var(--c-primary))]">Featured teardown</p>
             <h3 className="mt-2 font-display text-xl font-bold text-[rgb(var(--c-ink))]">Why enterprise RAG fails adoption even when retrieval works — a Human Factors view</h3>
             <p className="mt-3 text-[rgb(var(--c-copy))]">Retrieval benchmarks can look strong while employees still refuse to rely on the answers. This piece looks at the trust, workload and evidence-display problems behind that gap, and what to design for instead.</p>
             <span aria-disabled="true" className="mt-4 inline-flex min-h-11 cursor-not-allowed items-center rounded-md border border-dashed border-[rgb(var(--c-line))] px-5 font-semibold text-[rgb(var(--c-copy))]">Read · coming soon</span>
-          </article>
+          </div></article>
         </div>
       </section>
 
