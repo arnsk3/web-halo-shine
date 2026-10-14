@@ -358,7 +358,7 @@ export default function EnterpriseHome() {
             <a href="/Senthil_Nagappan_Resume.pdf" download className="inline-flex min-h-11 items-center gap-2 px-2 font-semibold underline underline-offset-4"><Download aria-hidden="true" className="h-4 w-4" />Download résumé (PDF)</a>
             <a href="https://www.linkedin.com/in/senthil-nagappan" target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center gap-2 px-2 font-semibold underline underline-offset-4"><Linkedin aria-hidden="true" className="h-4 w-4" />LinkedIn profile<span className="sr-only"> (opens in new tab)</span></a>
           </div>
-          <p className="mt-6 text-sm text-[rgb(var(--c-accent-on-dark))]">Email: arnsk3@gmail.com · Dallas–Fort Worth, open to remote and on-site client work.</p>
+          <p className="mt-6 text-sm text-[rgb(var(--c-accent-on-dark))]">Email: arnsk3@gmail.com · Open to remote and on-site client work.</p>
         </div>
       </section>
 
