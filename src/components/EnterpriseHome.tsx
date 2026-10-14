@@ -219,7 +219,8 @@ export default function EnterpriseHome() {
             <div>
               <p className="mb-4 font-mono text-xs font-semibold uppercase tracking-widest text-[rgb(var(--c-accent-on-dark))]">Senthil Nagappan · Forward-Deployed AI Product Engineer</p>
               <h1 className="max-w-4xl font-display text-4xl font-bold leading-tight sm:text-5xl">Forward-Deployed AI Product Engineer for complex, regulated workflows</h1>
-              <p className="mt-6 max-w-3xl text-base leading-relaxed sm:text-lg">I work with enterprise teams to turn operational problems into AI systems that fit real workflows. I bring experience in enterprise UX, accessibility, and Human Factors to discovery, prototyping, integration, evaluation, and deployment—so solutions are usable and operationally ready, not just technically plausible.</p>
+              <p className="mt-6 max-w-3xl text-lg font-bold sm:text-xl">I make enterprise AI adoptable in regulated, high-consequence environments.</p>
+              <p className="mt-3 max-w-3xl text-base leading-relaxed sm:text-lg">I work with enterprise teams to turn operational problems into AI systems that fit real workflows. I bring experience in enterprise UX, accessibility, and Human Factors to discovery, prototyping, integration, evaluation, and deployment—so solutions are usable and operationally ready, not just technically plausible.</p>
               <div className="mt-8 flex flex-wrap items-center gap-3">
                 <a href="#ssa-case" className="inline-flex min-h-11 items-center rounded-md bg-[rgb(var(--c-paper))] px-6 font-semibold text-[rgb(var(--c-primary))] hover:bg-[rgb(var(--c-tint-100))]">View my work</a>
                 <a href="/Senthil_Nagappan_Resume.pdf" download className="inline-flex min-h-11 items-center gap-2 rounded-md border border-[rgb(var(--c-accent-on-dark))] px-6 font-semibold hover:bg-[rgb(var(--c-primary))]"><Download aria-hidden="true" className="h-4 w-4" />Download résumé (PDF)</a>
@@ -248,6 +249,10 @@ export default function EnterpriseHome() {
             ))}
           </ul>
         </div>
+      </section>
+
+      <section aria-label="Regulated-domain experience" className="bg-[rgb(var(--c-hero-dark))] py-8 text-[rgb(var(--c-paper))]">
+        <p className={`${WRAP} font-display text-xl font-bold leading-snug sm:text-2xl`}>18+ years deploying in FDA 510(k), Section 508, and FISMA environments — I make enterprise AI adoptable where reliability, accessibility, and auditability are non-negotiable.</p>
       </section>
 
       <RoleMatcher />
@@ -299,9 +304,22 @@ export default function EnterpriseHome() {
                 <ul aria-label="Tools" className="mt-auto flex list-none flex-wrap gap-2 p-0 pt-4">
                   {p.tags.map((t) => <li key={t} className="rounded-md bg-[rgb(var(--c-tint-100))] px-2 py-1 text-xs font-semibold text-[rgb(var(--c-accent-on-light))]">{t}</li>)}
                 </ul>
+                {p.name.startsWith("Lumen") && <Link to="/lab/lumen" className="mt-4 inline-flex min-h-11 items-center font-semibold text-[rgb(var(--c-accent-on-light))] underline underline-offset-4">Read the Lumen case study</Link>}
               </li>
             ))}
           </ul>
+        </div>
+      </section>
+
+      <section id="technical-writing" aria-labelledby="tw-heading" className="bg-[rgb(var(--c-paper))] py-14">
+        <div className={WRAP}>
+          <h2 id="tw-heading" className="font-display text-3xl font-bold text-[rgb(var(--c-ink))]">Technical Writing / Field Notes</h2>
+          <article className="mt-6 max-w-3xl rounded-2xl border border-[rgb(var(--c-line))] bg-[rgb(var(--c-tint-50))] p-6">
+            <p className="font-mono text-xs font-semibold uppercase text-[rgb(var(--c-primary))]">Featured teardown</p>
+            <h3 className="mt-2 font-display text-xl font-bold text-[rgb(var(--c-ink))]">Why enterprise RAG fails adoption even when retrieval works — a Human Factors view</h3>
+            <p className="mt-3 text-[rgb(var(--c-copy))]">Retrieval benchmarks can look strong while employees still refuse to rely on the answers. This piece looks at the trust, workload and evidence-display problems behind that gap, and what to design for instead.</p>
+            <span aria-disabled="true" className="mt-4 inline-flex min-h-11 cursor-not-allowed items-center rounded-md border border-dashed border-[rgb(var(--c-line))] px-5 font-semibold text-[rgb(var(--c-copy))]">Read · coming soon</span>
+          </article>
         </div>
       </section>
 
