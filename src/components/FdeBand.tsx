@@ -10,7 +10,7 @@ export default function FdeBand() {
     <section
       id="fde-experience"
       aria-labelledby="fde-band-heading"
-      className="bg-[rgb(var(--c-tint-50))] border-y border-gray-200"
+      className="bg-[rgb(var(--c-tint-50))] border-y border-[rgb(var(--c-line))]"
     >
       <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-8">
         <h2
@@ -23,13 +23,13 @@ export default function FdeBand() {
           {BULLETS.map((b) => (
             <li
               key={b}
-              className="rounded-lg border border-gray-200 bg-white px-4 py-3 text-[13px] font-medium leading-snug text-gray-900"
+              className="rounded-lg border border-[rgb(var(--c-line))] bg-[rgb(var(--c-paper))] px-4 py-3 text-[13px] font-medium leading-snug text-[rgb(var(--c-ink))]"
             >
               {b}
             </li>
           ))}
         </ul>
-        <p className="mt-4 text-[12.5px] leading-relaxed text-gray-700 max-w-4xl">
+        <p className="mt-4 text-[12.5px] leading-relaxed text-[rgb(var(--c-copy))] max-w-4xl">
           Client-facing system delivery across healthcare, federal, and enterprise AI platforms —
           solutions engineering, applied AI engineering, systems implementation, human-in-the-loop
           integration, and production deployment.

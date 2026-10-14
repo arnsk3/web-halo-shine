@@ -133,32 +133,32 @@ const OWNED = [
 
 export default function SsaDeployment({ onHome }: { onHome: () => void }) {
   return (
-    <div className="bg-[#fafbfc]">
-      <header className="relative overflow-hidden bg-gradient-to-br from-[rgb(var(--c-hero-dark))] via-[rgb(var(--c-primary))] to-[rgb(var(--c-accent))] text-white">
+    <div className="bg-[rgb(var(--c-tint-50))]">
+      <header className="relative overflow-hidden bg-gradient-to-br from-[rgb(var(--c-hero-dark))] via-[rgb(var(--c-primary))] to-[rgb(var(--c-accent))] text-[rgb(var(--c-paper))]">
         <div className="max-w-3xl mx-auto px-6 py-16 sm:py-20 relative">
           <nav aria-label="Breadcrumb" className="mb-5">
-            <ol className="flex flex-wrap items-center gap-2 list-none p-0 m-0 text-xs text-white/85">
+            <ol className="flex flex-wrap items-center gap-2 list-none p-0 m-0 text-xs text-[rgb(var(--c-paper)/0.85)]">
               <li>
                 <button
                   onClick={onHome}
-                  className="inline-flex items-center min-h-[44px] font-semibold hover:text-white underline underline-offset-4 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
+                  className="inline-flex items-center min-h-[44px] font-semibold hover:text-[rgb(var(--c-paper))] underline underline-offset-4 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
                 >
                   Home
                 </button>
               </li>
               <li aria-hidden="true">/</li>
-              <li aria-current="page" className="font-semibold text-white">
+              <li aria-current="page" className="font-semibold text-[rgb(var(--c-paper))]">
                 AI Deployment — SSA
               </li>
             </ol>
           </nav>
-          <p className="inline-flex items-center gap-2 text-[rgb(var(--c-accent-on-dark))] text-xs font-semibold tracking-[3px] uppercase mb-5 rounded-full border border-white/15 bg-white/5 backdrop-blur px-4 py-1.5">
+          <p className="inline-flex items-center gap-2 text-[rgb(var(--c-accent-on-dark))] text-xs font-semibold tracking-[3px] uppercase mb-5 rounded-full border border-[rgb(var(--c-paper)/0.15)] bg-[rgb(var(--c-paper)/0.05)] backdrop-blur px-4 py-1.5">
             Flagship Forward-Deployed Case Study
           </p>
           <h1 className="font-display text-3xl sm:text-4xl font-extrabold leading-[1.15] mb-4 tracking-tight">
             AI-Powered Accessibility &amp; Compliance System at Enterprise Scale
           </h1>
-          <p className="text-white/90 text-base sm:text-lg leading-relaxed">
+          <p className="text-[rgb(var(--c-paper)/0.9)] text-base sm:text-lg leading-relaxed">
             Embedded with federal delivery teams on a platform serving 50M+ citizens across 15+
             interconnected modules. Took an AI-assisted validation capability from an ambiguous
             complaint to a required gate in production CI/CD — with the oversight, telemetry, and
@@ -174,7 +174,7 @@ export default function SsaDeployment({ onHome }: { onHome: () => void }) {
 
       <div className="max-w-6xl mx-auto px-6 py-12 grid gap-10 lg:grid-cols-[16rem_minmax(0,1fr)]">
         <nav aria-label="On this page" className="lg:sticky lg:top-24 lg:self-start">
-          <h2 className="text-[11px] font-bold uppercase tracking-[2px] text-gray-700 mb-3">
+          <h2 className="text-[11px] font-bold uppercase tracking-[2px] text-[rgb(var(--c-copy))] mb-3">
             On this page
           </h2>
           <ul className="list-none p-0 m-0 space-y-1">
@@ -182,7 +182,7 @@ export default function SsaDeployment({ onHome }: { onHome: () => void }) {
               <li key={s.id}>
                 <a
                   href={`#${s.id}`}
-                  className="inline-flex items-center min-h-[44px] text-sm text-gray-700 hover:text-[rgb(var(--c-primary))] underline-offset-4 hover:underline rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
+                  className="inline-flex items-center min-h-[44px] text-sm text-[rgb(var(--c-copy))] hover:text-[rgb(var(--c-primary))] underline-offset-4 hover:underline rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
                 >
                   {s.label}
                 </a>
@@ -193,14 +193,14 @@ export default function SsaDeployment({ onHome }: { onHome: () => void }) {
 
         <article className="max-w-3xl">
           <section id="brief" aria-labelledby="ssa-brief-h" className="scroll-mt-24 mb-10">
-            <h2 id="ssa-brief-h" className="text-2xl font-extrabold text-gray-900 mb-3">
+            <h2 id="ssa-brief-h" className="text-2xl font-extrabold text-[rgb(var(--c-ink))] mb-3">
               The Brief (as received)
             </h2>
-            <p className="rounded-xl border border-gray-200 bg-white p-5 text-gray-800 leading-relaxed italic">
+            <p className="rounded-xl border border-[rgb(var(--c-line))] bg-[rgb(var(--c-paper))] p-5 text-[rgb(var(--c-ink))] leading-relaxed italic">
               &ldquo;We keep failing accessibility checks late in the release. We need more
               auditors.&rdquo;
             </p>
-            <p className="text-gray-700 leading-relaxed mt-3">
+            <p className="text-[rgb(var(--c-copy))] leading-relaxed mt-3">
               That brief was wrong, and saying so in week one was the highest-leverage thing I did
               on this engagement. More auditors would have scaled the cost of the problem, not
               removed it. The real defect rate was concentrated, repetitive, and structural.
@@ -208,17 +208,17 @@ export default function SsaDeployment({ onHome }: { onHome: () => void }) {
           </section>
 
           <section id="problem" aria-labelledby="ssa-problem-h" className="scroll-mt-24 mb-10">
-            <h2 id="ssa-problem-h" className="text-2xl font-extrabold text-gray-900 mb-3">
+            <h2 id="ssa-problem-h" className="text-2xl font-extrabold text-[rgb(var(--c-ink))] mb-3">
               Problem: what was actually broken
             </h2>
-            <p className="text-gray-700 leading-relaxed mb-3">
+            <p className="text-[rgb(var(--c-copy))] leading-relaxed mb-3">
               The Disability Case Processing System is used by federal caseworkers across all 50
               states — live, audited, Section 508-mandated, on a continuous release cadence.
               Accessibility was validated manually, late, and repeatedly: many independent teams
               re-checking the same reused components, defects surfacing after build, audit prep a
               scramble.
             </p>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-[rgb(var(--c-copy))] leading-relaxed">
               Attribution analysis showed 65% of defects originated in eight shared components.
               Every team was paying, separately, for the same eight mistakes. Constraints:
               legacy systems, no tolerance for slowing releases, federal accessibility law that is
@@ -227,39 +227,39 @@ export default function SsaDeployment({ onHome }: { onHome: () => void }) {
           </section>
 
           <section id="build" aria-labelledby="ssa-build-h" className="scroll-mt-24 mb-10">
-            <h2 id="ssa-build-h" className="text-2xl font-extrabold text-gray-900 mb-3">
+            <h2 id="ssa-build-h" className="text-2xl font-extrabold text-[rgb(var(--c-ink))] mb-3">
               Build: what I shipped
             </h2>
-            <p className="text-gray-700 leading-relaxed mb-5">
+            <p className="text-[rgb(var(--c-copy))] leading-relaxed mb-5">
               An AI-assisted validation layer inside the build pipeline that attributes findings to
               their source component, automates only the deterministic calls, and routes everything
               else to an expert with the evidence attached. Here is one defect, end to end.
             </p>
             <ol className="list-none p-0 m-0 space-y-3">
               {WALKTHROUGH.map((w, i) => (
-                <li key={w.screen} className="rounded-xl border border-gray-200 bg-white p-5">
+                <li key={w.screen} className="rounded-xl border border-[rgb(var(--c-line))] bg-[rgb(var(--c-paper))] p-5">
                   <p className="font-display text-xs font-extrabold text-[rgb(var(--c-accent-on-light))] mb-1 tabular-nums">
                     Step {i + 1} · {w.screen}
                   </p>
-                  <p className="text-sm text-gray-700 leading-relaxed mb-2">
-                    <span className="font-semibold text-gray-900">Decision: </span>
+                  <p className="text-sm text-[rgb(var(--c-copy))] leading-relaxed mb-2">
+                    <span className="font-semibold text-[rgb(var(--c-ink))]">Decision: </span>
                     {w.decision}
                   </p>
-                  <p className="text-sm text-gray-800 leading-relaxed">
-                    <span className="font-semibold text-gray-900">Outcome: </span>
+                  <p className="text-sm text-[rgb(var(--c-ink))] leading-relaxed">
+                    <span className="font-semibold text-[rgb(var(--c-ink))]">Outcome: </span>
                     {w.outcome}
                   </p>
                 </li>
               ))}
             </ol>
-            <p className="text-[13px] text-gray-700 mt-3 italic">
+            <p className="text-[13px] text-[rgb(var(--c-copy))] mt-3 italic">
               Described generically — no proprietary screens, code, or federal system detail.
             </p>
 
-            <h3 className="text-lg font-bold text-gray-900 mt-8 mb-3">What I personally owned</h3>
+            <h3 className="text-lg font-bold text-[rgb(var(--c-ink))] mt-8 mb-3">What I personally owned</h3>
             <ul className="list-none p-0 m-0 space-y-2">
               {OWNED.map((o) => (
-                <li key={o} className="flex items-start gap-2.5 text-gray-700 leading-relaxed">
+                <li key={o} className="flex items-start gap-2.5 text-[rgb(var(--c-copy))] leading-relaxed">
                   <span
                     aria-hidden="true"
                     className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[rgb(var(--c-accent))]"
@@ -271,46 +271,46 @@ export default function SsaDeployment({ onHome }: { onHome: () => void }) {
           </section>
 
           <section id="components" aria-labelledby="ssa-components-h" className="scroll-mt-24 mb-10">
-            <h2 id="ssa-components-h" className="text-2xl font-extrabold text-gray-900 mb-3">
+            <h2 id="ssa-components-h" className="text-2xl font-extrabold text-[rgb(var(--c-ink))] mb-3">
               System components
             </h2>
             <dl className="space-y-4">
               {COMPONENTS.map((c) => (
-                <div key={c.h} className="rounded-xl border border-gray-200 bg-white p-5">
-                  <dt className="font-bold text-gray-900 mb-1.5">{c.h}</dt>
-                  <dd className="text-sm text-gray-700 leading-relaxed m-0">{c.b}</dd>
+                <div key={c.h} className="rounded-xl border border-[rgb(var(--c-line))] bg-[rgb(var(--c-paper))] p-5">
+                  <dt className="font-bold text-[rgb(var(--c-ink))] mb-1.5">{c.h}</dt>
+                  <dd className="text-sm text-[rgb(var(--c-copy))] leading-relaxed m-0">{c.b}</dd>
                 </div>
               ))}
             </dl>
           </section>
 
           <section id="system" aria-labelledby="ssa-system-h" className="scroll-mt-24 mb-10">
-            <h2 id="ssa-system-h" className="text-2xl font-extrabold text-gray-900 mb-3">
+            <h2 id="ssa-system-h" className="text-2xl font-extrabold text-[rgb(var(--c-ink))] mb-3">
               System: data, APIs, workflow
             </h2>
             <dl className="space-y-4">
               {SYSTEM.map((s) => (
-                <div key={s.h} className="rounded-xl border border-gray-200 bg-white p-5">
-                  <dt className="font-bold text-gray-900 mb-1.5">{s.h}</dt>
-                  <dd className="text-sm text-gray-700 leading-relaxed m-0">{s.b}</dd>
+                <div key={s.h} className="rounded-xl border border-[rgb(var(--c-line))] bg-[rgb(var(--c-paper))] p-5">
+                  <dt className="font-bold text-[rgb(var(--c-ink))] mb-1.5">{s.h}</dt>
+                  <dd className="text-sm text-[rgb(var(--c-copy))] leading-relaxed m-0">{s.b}</dd>
                 </div>
               ))}
             </dl>
-            <p className="text-[13px] text-gray-700 mt-3 italic">
+            <p className="text-[13px] text-[rgb(var(--c-copy))] mt-3 italic">
               Conceptual only — no proprietary implementation, code, or federal system detail.
             </p>
           </section>
 
           <section id="deploy" aria-labelledby="ssa-deploy-h" className="scroll-mt-24 mb-10">
-            <h2 id="ssa-deploy-h" className="text-2xl font-extrabold text-gray-900 mb-3">
+            <h2 id="ssa-deploy-h" className="text-2xl font-extrabold text-[rgb(var(--c-ink))] mb-3">
               Deploy: getting it into production
             </h2>
-            <p className="text-gray-700 leading-relaxed mb-3">
+            <p className="text-[rgb(var(--c-copy))] leading-relaxed mb-3">
               Adoption was the hard part, not the model. The rule I held to: nobody adopts a new
               tool. The capability had to appear inside the pipeline and the ticket queue teams
               already lived in, or it would be ignored regardless of accuracy.
             </p>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-[rgb(var(--c-copy))] leading-relaxed">
               Deployment ran in phases: piloted in the modules with the highest defect density,
               then integrated into CI/CD across multiple engineering teams, then scaled across the
               enterprise release cadence of 40+ releases a month until it was simply part of the
@@ -323,54 +323,54 @@ export default function SsaDeployment({ onHome }: { onHome: () => void }) {
           </section>
 
           <section id="evaluation" aria-labelledby="ssa-eval-h" className="scroll-mt-24 mb-10">
-            <h2 id="ssa-eval-h" className="text-2xl font-extrabold text-gray-900 mb-3">
+            <h2 id="ssa-eval-h" className="text-2xl font-extrabold text-[rgb(var(--c-ink))] mb-3">
               Evidence: how it was measured
             </h2>
             <dl className="space-y-4">
               {EVALUATION.map((e) => (
-                <div key={e.h} className="rounded-xl border border-gray-200 bg-white p-5">
-                  <dt className="font-bold text-gray-900 mb-1.5">{e.h}</dt>
-                  <dd className="text-sm text-gray-700 leading-relaxed m-0">{e.b}</dd>
+                <div key={e.h} className="rounded-xl border border-[rgb(var(--c-line))] bg-[rgb(var(--c-paper))] p-5">
+                  <dt className="font-bold text-[rgb(var(--c-ink))] mb-1.5">{e.h}</dt>
+                  <dd className="text-sm text-[rgb(var(--c-copy))] leading-relaxed m-0">{e.b}</dd>
                 </div>
               ))}
             </dl>
           </section>
 
           <section id="outcome" aria-labelledby="ssa-impact-h" className="scroll-mt-24 mb-10">
-            <h2 id="ssa-impact-h" className="text-2xl font-extrabold text-gray-900 mb-3">
+            <h2 id="ssa-impact-h" className="text-2xl font-extrabold text-[rgb(var(--c-ink))] mb-3">
               Outcome: business impact
             </h2>
             <dl className="grid gap-3 sm:grid-cols-2">
               {IMPACT.map((m) => (
                 <div
                   key={m.l}
-                  className="rounded-xl border border-gray-200 bg-white p-5 flex flex-col-reverse"
+                  className="rounded-xl border border-[rgb(var(--c-line))] bg-[rgb(var(--c-paper))] p-5 flex flex-col-reverse"
                 >
-                  <dt className="text-sm text-gray-700 leading-snug mt-1">{m.l}</dt>
+                  <dt className="text-sm text-[rgb(var(--c-copy))] leading-snug mt-1">{m.l}</dt>
                   <dd className="m-0 font-display text-2xl font-extrabold text-[rgb(var(--c-primary))] tabular-nums">
                     {m.v}
                   </dd>
                 </div>
               ))}
             </dl>
-            <p className="text-gray-700 leading-relaxed mt-4">
+            <p className="text-[rgb(var(--c-copy))] leading-relaxed mt-4">
               Beyond the numbers: 508 audit readiness became structural rather than episodic, and
               the program stopped treating accessibility as a release-blocking surprise.
             </p>
           </section>
 
           <section id="failure" aria-labelledby="ssa-fail-h" className="scroll-mt-24 mb-10">
-            <h2 id="ssa-fail-h" className="text-2xl font-extrabold text-gray-900 mb-3">
+            <h2 id="ssa-fail-h" className="text-2xl font-extrabold text-[rgb(var(--c-ink))] mb-3">
               What broke, and what I changed
             </h2>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-[rgb(var(--c-copy))] leading-relaxed">
               The first pass over-trusted automation. Teams began treating a clean automated result
               as a passed accessibility review, and nuanced failures — focus order, meaningful
               sequence, error recovery — slipped through. Early rule tuning also produced enough
               false positives that reviewers started dismissing flags in bulk, which is the point
               at which a deployment is dead even if the dashboard looks healthy.
             </p>
-            <p className="text-gray-700 leading-relaxed mt-3">
+            <p className="text-[rgb(var(--c-copy))] leading-relaxed mt-3">
               I narrowed automated scope to deterministic checks only, made human review an explicit
               required gate, labelled every finding with its confidence and origin, and used
               dismissal telemetry as the signal for which rules to rewrite. Trust recovered because
@@ -379,10 +379,10 @@ export default function SsaDeployment({ onHome }: { onHome: () => void }) {
           </section>
 
           <section id="handoff" aria-labelledby="ssa-handoff-h" className="scroll-mt-24 mb-10">
-            <h2 id="ssa-handoff-h" className="text-2xl font-extrabold text-gray-900 mb-3">
+            <h2 id="ssa-handoff-h" className="text-2xl font-extrabold text-[rgb(var(--c-ink))] mb-3">
               Handoff &amp; scale
             </h2>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-[rgb(var(--c-copy))] leading-relaxed">
               A forward-deployed engagement that only works while you are in the room has failed.
               Ownership transferred to the program&rsquo;s delivery and accessibility teams with
               runbooks, rule-tuning criteria, component governance rules, and the evidence model
@@ -391,13 +391,13 @@ export default function SsaDeployment({ onHome }: { onHome: () => void }) {
           </section>
 
           <section id="insight" aria-labelledby="ssa-insight-h" className="scroll-mt-24 mb-10">
-            <h2 id="ssa-insight-h" className="text-2xl font-extrabold text-gray-900 mb-3">
+            <h2 id="ssa-insight-h" className="text-2xl font-extrabold text-[rgb(var(--c-ink))] mb-3">
               Key engineering insight
             </h2>
-            <blockquote className="rounded-xl border-l-4 border-[rgb(var(--c-accent-on-light))] bg-white p-5 text-gray-900 text-lg font-semibold leading-relaxed m-0">
+            <blockquote className="rounded-xl border-l-4 border-[rgb(var(--c-accent-on-light))] bg-[rgb(var(--c-paper))] p-5 text-[rgb(var(--c-ink))] text-lg font-semibold leading-relaxed m-0">
               Accessibility is not a design problem — it is a system reliability problem.
             </blockquote>
-            <p className="text-gray-700 leading-relaxed mt-3">
+            <p className="text-[rgb(var(--c-copy))] leading-relaxed mt-3">
               That reframing is what unlocked the rest: AI integrated into engineering pipelines,
               automation of work that had been manual compliance labour, enforcement that scaled
               across distributed teams, and less human error in a high-volume release cycle.
@@ -407,12 +407,12 @@ export default function SsaDeployment({ onHome }: { onHome: () => void }) {
           </section>
 
           <section id="fde" aria-labelledby="ssa-fde-h" className="scroll-mt-24 mb-10">
-            <h2 id="ssa-fde-h" className="text-2xl font-extrabold text-gray-900 mb-3">
+            <h2 id="ssa-fde-h" className="text-2xl font-extrabold text-[rgb(var(--c-ink))] mb-3">
               Why this is forward deployed engineering
             </h2>
             <ul className="list-none p-0 m-0 space-y-2">
               {FDE_PRINCIPLES.map((f) => (
-                <li key={f} className="flex items-start gap-2.5 text-gray-700 leading-relaxed">
+                <li key={f} className="flex items-start gap-2.5 text-[rgb(var(--c-copy))] leading-relaxed">
                   <span
                     aria-hidden="true"
                     className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[rgb(var(--c-accent))]"
@@ -423,7 +423,7 @@ export default function SsaDeployment({ onHome }: { onHome: () => void }) {
             </ul>
           </section>
 
-          <p className="rounded-xl border border-[rgb(var(--c-primary)/0.25)] bg-[rgb(var(--c-tint-50))] p-5 text-gray-800 leading-relaxed">
+          <p className="rounded-xl border border-[rgb(var(--c-primary)/0.25)] bg-[rgb(var(--c-tint-50))] p-5 text-[rgb(var(--c-ink))] leading-relaxed">
             Ambiguous complaint → correct problem → working system inside their pipeline → measured
             outcome → handed off. That is the loop I run on every deployment.
           </p>
@@ -431,7 +431,7 @@ export default function SsaDeployment({ onHome }: { onHome: () => void }) {
           <p className="mt-8">
             <Link
               to="/"
-              className="inline-flex items-center gap-1.5 min-h-[44px] px-4 py-2 rounded-lg text-sm font-semibold bg-[rgb(var(--c-primary))] text-white hover:bg-[rgb(var(--c-accent-dark))] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
+              className="inline-flex items-center gap-1.5 min-h-[44px] px-4 py-2 rounded-lg text-sm font-semibold bg-[rgb(var(--c-primary))] text-[rgb(var(--c-paper))] hover:bg-[rgb(var(--c-accent-dark))] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
             >
               <span aria-hidden="true">←</span> Back to all forward-deployed work
             </Link>

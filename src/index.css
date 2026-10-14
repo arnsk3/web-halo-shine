@@ -12,6 +12,11 @@ All colors MUST be HSL.
     --c-ink: 20 30 38;
     --c-copy: 55 65 74;
     --c-line: 217 226 226;
+    /* Status tokens (theme-independent, AAA on their -bg pairs) */
+    --c-success: 21 87 36; --c-success-bg: 238 247 238; --c-success-line: 204 230 208;
+    --c-danger: 138 26 26; --c-danger-bg: 255 226 226; --c-danger-line: 245 181 181; --c-danger-mark: 214 69 69;
+    --c-warn: 90 68 0; --c-warn-bg: 255 246 229; --c-warn-line: 255 220 150;
+    --c-info: 126 34 206; --c-info-bg: 243 232 253; --c-info-line: 233 213 255;
     --hero-veil: linear-gradient(90deg, rgb(var(--c-hero-dark) / 0.97), rgb(var(--c-hero-dark) / 0.88) 55%, rgb(var(--c-hero-dark) / 0.7));
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;

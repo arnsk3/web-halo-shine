@@ -91,21 +91,21 @@ export default function GovernanceEngagements() {
   return (
     <section
       aria-labelledby="governance-heading"
-      className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2.5rem,4vw,3.5rem)] border-t border-gray-100"
+      className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2.5rem,4vw,3.5rem)] border-t border-[rgb(var(--c-tint-100))]"
     >
       <div className="mb-8 max-w-3xl">
         <h2
           id="governance-heading"
-          className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-2"
+          className="font-display text-2xl sm:text-3xl font-extrabold text-[rgb(var(--c-ink))] tracking-tight mb-2"
         >
           Governance engagements, not just artifacts.
         </h2>
-        <p className="text-gray-700 text-sm sm:text-base leading-relaxed mb-2">
+        <p className="text-[rgb(var(--c-copy))] text-sm sm:text-base leading-relaxed mb-2">
           AI governance work is bought as an engagement: assess, find the gaps, design the
           controls, roadmap the fix, then operate. Here is how I run that arc — with the
           deliverables a risk, regulatory, or model-risk team actually signs off on.
         </p>
-        <p className="text-gray-700 text-[13px] leading-relaxed">
+        <p className="text-[rgb(var(--c-copy))] text-[13px] leading-relaxed">
           Shipped client work and in-house concepts are labeled as such; concept metrics are
           estimates or targets, and I can walk through the reasoning behind any of them.
         </p>
@@ -114,12 +114,12 @@ export default function GovernanceEngagements() {
       {/* Engagement arc */}
       <ol className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5 list-none p-0 m-0 mb-10" aria-label="Engagement arc">
         {ARC.map((s) => (
-          <li key={s.k} className="rounded-xl border border-gray-200 bg-white p-4">
+          <li key={s.k} className="rounded-xl border border-[rgb(var(--c-line))] bg-[rgb(var(--c-paper))] p-4">
             <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[rgb(var(--c-accent-on-light))] mb-1">
               {s.k}
             </p>
-            <p className="font-display text-sm font-bold text-gray-900 mb-1">{s.t}</p>
-            <p className="text-[12px] text-gray-700 leading-relaxed">{s.d}</p>
+            <p className="font-display text-sm font-bold text-[rgb(var(--c-ink))] mb-1">{s.t}</p>
+            <p className="text-[12px] text-[rgb(var(--c-copy))] leading-relaxed">{s.d}</p>
           </li>
         ))}
       </ol>
@@ -129,38 +129,38 @@ export default function GovernanceEngagements() {
         {ENGAGEMENTS.map((e) => (
           <article
             key={e.title}
-            className="flex flex-col rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow"
+            className="flex flex-col rounded-2xl border border-[rgb(var(--c-line))] bg-[rgb(var(--c-paper))] p-6 shadow-sm hover:shadow-md transition-shadow"
           >
             <span
               className={`inline-flex self-start items-center rounded-full px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.14em] border mb-4 ${
                 e.chip === "Shipped in production"
-                  ? "bg-emerald-50 border-emerald-200 text-emerald-900"
+                  ? "bg-[rgb(var(--c-tint-50))] border-[rgb(var(--c-tint-200))] text-[rgb(var(--c-accent-on-light))]"
                   : "bg-amber-50 border-amber-300 text-amber-900"
               }`}
             >
               {e.chip}
             </span>
-            <h3 className="font-display text-base font-bold text-gray-900 leading-snug mb-2">
+            <h3 className="font-display text-base font-bold text-[rgb(var(--c-ink))] leading-snug mb-2">
               {e.title}
             </h3>
-            <p className="text-[13px] text-gray-700 leading-relaxed mb-4">{e.context}</p>
+            <p className="text-[13px] text-[rgb(var(--c-copy))] leading-relaxed mb-4">{e.context}</p>
             <p className="text-[11px] font-bold uppercase tracking-wide text-[rgb(var(--c-accent-dark))] mb-2">
               Key deliverables
             </p>
-            <ul className="list-disc pl-4 space-y-1.5 text-[13px] text-gray-700 leading-relaxed mb-5">
+            <ul className="list-disc pl-4 space-y-1.5 text-[13px] text-[rgb(var(--c-copy))] leading-relaxed mb-5">
               {e.deliverables.map((d) => (
                 <li key={d}>{d}</li>
               ))}
             </ul>
-            <dl className="mt-auto grid grid-cols-3 gap-px rounded-lg overflow-hidden border border-gray-200 bg-gray-200">
+            <dl className="mt-auto grid grid-cols-3 gap-px rounded-lg overflow-hidden border border-[rgb(var(--c-line))] bg-[rgb(var(--c-line))]">
               {e.metrics.map((m) => (
-                <div key={m.l} className="bg-gray-50 px-2 py-3">
+                <div key={m.l} className="bg-[rgb(var(--c-tint-50))] px-2 py-3">
                   <dt className="sr-only">{m.l}</dt>
                   <dd>
                     <span className="block font-display text-sm sm:text-base font-extrabold text-[rgb(var(--c-primary))] tabular-nums">
                       {m.v}
                     </span>
-                    <span className="block text-[10px] text-gray-700 mt-0.5 leading-snug">{m.l}</span>
+                    <span className="block text-[10px] text-[rgb(var(--c-copy))] mt-0.5 leading-snug">{m.l}</span>
                   </dd>
                 </div>
               ))}
@@ -178,11 +178,11 @@ export default function GovernanceEngagements() {
       </div>
 
       {/* Cross-functional coordination */}
-      <div className="rounded-2xl border border-gray-200 bg-[rgb(var(--c-tint-50))] p-6 sm:p-7 mb-8">
-        <h3 className="font-display text-lg font-bold text-gray-900 mb-1">
+      <div className="rounded-2xl border border-[rgb(var(--c-line))] bg-[rgb(var(--c-tint-50))] p-6 sm:p-7 mb-8">
+        <h3 className="font-display text-lg font-bold text-[rgb(var(--c-ink))] mb-1">
           How I coordinate across functions
         </h3>
-        <p className="text-[13px] text-gray-700 leading-relaxed mb-5 max-w-3xl">
+        <p className="text-[13px] text-[rgb(var(--c-copy))] leading-relaxed mb-5 max-w-3xl">
           Governance fails in the seams between teams. I chair the working cadence, keep a single
           decision log, and translate between each function&apos;s vocabulary — so a control
           designed by risk actually ships in engineering&apos;s sprint and stands up to legal&apos;s
@@ -190,15 +190,15 @@ export default function GovernanceEngagements() {
         </p>
         <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 list-none p-0 m-0">
           {FUNCTIONS.map((x) => (
-            <li key={x.f} className="rounded-xl border border-gray-200 bg-white p-4">
-              <p className="font-display text-sm font-bold text-gray-900 mb-0.5">{x.f}</p>
-              <p className="text-[12px] text-gray-700 leading-relaxed">{x.d}</p>
+            <li key={x.f} className="rounded-xl border border-[rgb(var(--c-line))] bg-[rgb(var(--c-paper))] p-4">
+              <p className="font-display text-sm font-bold text-[rgb(var(--c-ink))] mb-0.5">{x.f}</p>
+              <p className="text-[12px] text-[rgb(var(--c-copy))] leading-relaxed">{x.d}</p>
             </li>
           ))}
         </ul>
       </div>
 
-      <p className="text-sm text-gray-700">
+      <p className="text-sm text-[rgb(var(--c-copy))]">
         <a
           href="/Senthil_Nagappan_Governance_Brief.pdf"
           target="_blank"

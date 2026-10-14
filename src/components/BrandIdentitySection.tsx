@@ -109,8 +109,8 @@ const PROJECTS: BrandProject[] = [
     palette: [
       { name: "Deep", className: "bg-[rgb(var(--c-primary))]" },
       { name: "Accent", className: "bg-[rgb(var(--c-accent))]" },
-      { name: "Slate", className: "bg-gray-700" },
-      { name: "Paper", className: "bg-gray-100" },
+      { name: "Slate", className: "bg-[rgb(var(--c-copy))]" },
+      { name: "Paper", className: "bg-[rgb(var(--c-tint-100))]" },
     ],
     logo: MarkVertex,
     wordmarkFont: "font-black tracking-tight uppercase",
@@ -128,7 +128,7 @@ const PROJECTS: BrandProject[] = [
       { name: "Core", className: "bg-[rgb(var(--c-primary))]" },
       { name: "Signal", className: "bg-[rgb(var(--c-accent))]" },
       { name: "Light", className: "bg-[rgb(var(--c-accent-light))]" },
-      { name: "Neutral", className: "bg-gray-200" },
+      { name: "Neutral", className: "bg-[rgb(var(--c-line))]" },
     ],
     logo: MarkPulse,
     wordmarkFont: "font-bold tracking-tight",
@@ -193,10 +193,10 @@ function BrandCard({ p }: { p: BrandProject }) {
   return (
     <article
       aria-labelledby={`brand-${p.id}-name`}
-      className="flex h-full flex-col rounded-2xl border border-gray-200 bg-white overflow-hidden shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-[rgb(var(--c-primary)/0.3)]"
+      className="flex h-full flex-col rounded-2xl border border-[rgb(var(--c-line))] bg-[rgb(var(--c-paper))] overflow-hidden shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-[rgb(var(--c-primary)/0.3)]"
     >
       {/* Logo lockup canvas */}
-      <div className="relative flex items-center gap-4 bg-[rgb(var(--c-tint-50))] border-b border-gray-100 px-6 py-8">
+      <div className="relative flex items-center gap-4 bg-[rgb(var(--c-tint-50))] border-b border-[rgb(var(--c-tint-100))] px-6 py-8">
         <div
           aria-hidden="true"
           className="absolute inset-0 opacity-[0.5]"
@@ -214,29 +214,29 @@ function BrandCard({ p }: { p: BrandProject }) {
 
       <div className="flex flex-1 flex-col p-6">
         <div className="flex items-center justify-between gap-3 mb-1">
-          <h3 id={`brand-${p.id}-name`} className="font-bold text-gray-900 text-base leading-snug">
+          <h3 id={`brand-${p.id}-name`} className="font-bold text-[rgb(var(--c-ink))] text-base leading-snug">
             {p.descriptor}
           </h3>
-          <span className="text-[11px] font-semibold text-gray-700 whitespace-nowrap">{p.year}</span>
+          <span className="text-[11px] font-semibold text-[rgb(var(--c-copy))] whitespace-nowrap">{p.year}</span>
         </div>
         <p className="text-[rgb(var(--c-accent-on-light))] text-xs font-semibold uppercase tracking-wide mb-3">
           {p.sector}
         </p>
-        <p className="text-gray-700 text-sm leading-relaxed mb-4">{p.concept}</p>
+        <p className="text-[rgb(var(--c-copy))] text-sm leading-relaxed mb-4">{p.concept}</p>
 
         {/* Palette */}
-        <p className="text-[11px] font-bold uppercase tracking-wide text-gray-700 mb-2">Brand palette</p>
+        <p className="text-[11px] font-bold uppercase tracking-wide text-[rgb(var(--c-copy))] mb-2">Brand palette</p>
         <ul className="flex gap-2 mb-4 list-none p-0 m-0">
           {p.palette.map((c) => (
             <li key={c.name} className="flex-1">
-              <span className={`block h-8 rounded-md border border-black/5 ${c.className}`} aria-hidden="true" />
-              <span className="mt-1 block text-[10px] text-gray-700 text-center">{c.name}</span>
+              <span className={`block h-8 rounded-md border border-[rgb(var(--c-ink)/0.05)] ${c.className}`} aria-hidden="true" />
+              <span className="mt-1 block text-[10px] text-[rgb(var(--c-copy))] text-center">{c.name}</span>
             </li>
           ))}
         </ul>
 
         {/* Deliverables */}
-        <p className="text-[11px] font-bold uppercase tracking-wide text-gray-700 mb-2">Deliverables</p>
+        <p className="text-[11px] font-bold uppercase tracking-wide text-[rgb(var(--c-copy))] mb-2">Deliverables</p>
         <ul className="flex flex-wrap gap-1.5 list-none p-0 m-0 mt-auto">
           {p.deliverables.map((d) => (
             <li
@@ -255,33 +255,33 @@ function BrandCard({ p }: { p: BrandProject }) {
 /* --- Brand guideline mini-spread --- */
 function GuidelinesSpread() {
   return (
-    <div className="rounded-2xl border border-gray-200 bg-white p-6 sm:p-8">
+    <div className="rounded-2xl border border-[rgb(var(--c-line))] bg-[rgb(var(--c-paper))] p-6 sm:p-8">
       <p className="text-[rgb(var(--c-accent-on-light))] text-xs font-semibold tracking-[2px] uppercase mb-2">
         Anatomy of a brand system
       </p>
-      <h3 className="text-xl font-bold text-gray-900 mb-6">
+      <h3 className="text-xl font-bold text-[rgb(var(--c-ink))] mb-6">
         Every identity ships as an enforceable guideline — not just a logo file
       </h3>
       <div className="grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr))]">
         {/* Logo construction */}
-        <div className="rounded-xl border border-gray-100 bg-[rgb(var(--c-tint-50))] p-4">
-          <p className="text-[11px] font-bold uppercase tracking-wide text-gray-700 mb-3">Logo construction & clearspace</p>
-          <div className="relative flex items-center justify-center h-28 rounded-lg bg-white border border-dashed border-[rgb(var(--c-primary)/0.3)]">
+        <div className="rounded-xl border border-[rgb(var(--c-tint-100))] bg-[rgb(var(--c-tint-50))] p-4">
+          <p className="text-[11px] font-bold uppercase tracking-wide text-[rgb(var(--c-copy))] mb-3">Logo construction & clearspace</p>
+          <div className="relative flex items-center justify-center h-28 rounded-lg bg-[rgb(var(--c-paper))] border border-dashed border-[rgb(var(--c-primary)/0.3)]">
             <span aria-hidden="true" className="absolute inset-3 border border-dashed border-[rgb(var(--c-accent)/0.35)] rounded" />
             {MarkMeridian}
           </div>
         </div>
         {/* Type system */}
-        <div className="rounded-xl border border-gray-100 bg-[rgb(var(--c-tint-50))] p-4">
-          <p className="text-[11px] font-bold uppercase tracking-wide text-gray-700 mb-3">Type system</p>
+        <div className="rounded-xl border border-[rgb(var(--c-tint-100))] bg-[rgb(var(--c-tint-50))] p-4">
+          <p className="text-[11px] font-bold uppercase tracking-wide text-[rgb(var(--c-copy))] mb-3">Type system</p>
           <p className="text-3xl font-black text-[rgb(var(--c-primary))] leading-none">Aa</p>
-          <p className="text-lg font-bold text-gray-800 mt-1">Display · Bold</p>
-          <p className="text-sm text-gray-700">Body · Regular 400</p>
-          <p className="text-xs text-gray-700 tracking-wide mt-1">CAPS · LETTERSPACED LABELS</p>
+          <p className="text-lg font-bold text-[rgb(var(--c-ink))] mt-1">Display · Bold</p>
+          <p className="text-sm text-[rgb(var(--c-copy))]">Body · Regular 400</p>
+          <p className="text-xs text-[rgb(var(--c-copy))] tracking-wide mt-1">CAPS · LETTERSPACED LABELS</p>
         </div>
         {/* Color tokens */}
-        <div className="rounded-xl border border-gray-100 bg-[rgb(var(--c-tint-50))] p-4">
-          <p className="text-[11px] font-bold uppercase tracking-wide text-gray-700 mb-3">Color tokens (AAA-checked)</p>
+        <div className="rounded-xl border border-[rgb(var(--c-tint-100))] bg-[rgb(var(--c-tint-50))] p-4">
+          <p className="text-[11px] font-bold uppercase tracking-wide text-[rgb(var(--c-copy))] mb-3">Color tokens (AAA-checked)</p>
           <div className="space-y-1.5">
             {[
               { c: "bg-[rgb(var(--c-primary))]", t: "Primary / 49 46 129" },
@@ -289,19 +289,19 @@ function GuidelinesSpread() {
               { c: "bg-[rgb(var(--c-accent-light))]", t: "Light / 99 102 241" },
             ].map((r) => (
               <div key={r.t} className="flex items-center gap-2">
-                <span className={`h-6 w-6 rounded ${r.c} border border-black/5`} aria-hidden="true" />
-                <span className="text-[11px] font-mono text-gray-700">{r.t}</span>
+                <span className={`h-6 w-6 rounded ${r.c} border border-[rgb(var(--c-ink)/0.05)]`} aria-hidden="true" />
+                <span className="text-[11px] font-mono text-[rgb(var(--c-copy))]">{r.t}</span>
               </div>
             ))}
           </div>
         </div>
         {/* Applications */}
-        <div className="rounded-xl border border-gray-100 bg-[rgb(var(--c-tint-50))] p-4">
-          <p className="text-[11px] font-bold uppercase tracking-wide text-gray-700 mb-3">Applications</p>
+        <div className="rounded-xl border border-[rgb(var(--c-tint-100))] bg-[rgb(var(--c-tint-50))] p-4">
+          <p className="text-[11px] font-bold uppercase tracking-wide text-[rgb(var(--c-copy))] mb-3">Applications</p>
           <div className="grid grid-cols-3 gap-2">
             {["Card", "App", "Social", "Pack", "Sign", "Web"].map((a) => (
               <div key={a} className="aspect-square rounded-md bg-gradient-to-br from-[rgb(var(--c-primary))] to-[rgb(var(--c-accent))] flex items-center justify-center">
-                <span className="text-[9px] font-semibold text-white">{a}</span>
+                <span className="text-[9px] font-semibold text-[rgb(var(--c-paper))]">{a}</span>
               </div>
             ))}
           </div>
@@ -314,24 +314,24 @@ function GuidelinesSpread() {
 /* --- Brand refresh before/after --- */
 function RefreshShowcase() {
   return (
-    <div className="rounded-2xl border border-gray-200 bg-white p-6 sm:p-8">
+    <div className="rounded-2xl border border-[rgb(var(--c-line))] bg-[rgb(var(--c-paper))] p-6 sm:p-8">
       <p className="text-[rgb(var(--c-accent-on-light))] text-xs font-semibold tracking-[2px] uppercase mb-2">
         Brand refresh
       </p>
-      <h3 className="text-xl font-bold text-gray-900 mb-6">
+      <h3 className="text-xl font-bold text-[rgb(var(--c-ink))] mb-6">
         Modernizing a legacy mark without losing equity
       </h3>
       <div className="grid gap-4 sm:grid-cols-2">
         {/* Before */}
-        <div className="rounded-xl border border-gray-200 bg-gray-50 p-6 text-center">
-          <span className="inline-block text-[10px] font-bold uppercase tracking-widest text-gray-700 mb-4">Before</span>
+        <div className="rounded-xl border border-[rgb(var(--c-line))] bg-[rgb(var(--c-tint-50))] p-6 text-center">
+          <span className="inline-block text-[10px] font-bold uppercase tracking-widest text-[rgb(var(--c-copy))] mb-4">Before</span>
           <div className="flex flex-col items-center gap-3">
             <svg viewBox="0 0 64 64" className="h-16 w-16" role="img" aria-label="Legacy mark, before refresh">
               <circle cx="32" cy="32" r="26" fill="none" stroke="#9ca3af" strokeWidth="8" />
               <path d="M14 40h36" stroke="#9ca3af" strokeWidth="6" />
             </svg>
-            <span className="text-2xl font-serif text-gray-700 tracking-wide">PULSE</span>
-            <span className="text-[11px] text-gray-700">Dated, low-contrast, portfolio fragmented</span>
+            <span className="text-2xl font-serif text-[rgb(var(--c-copy))] tracking-wide">PULSE</span>
+            <span className="text-[11px] text-[rgb(var(--c-copy))]">Dated, low-contrast, portfolio fragmented</span>
           </div>
         </div>
         {/* After */}
@@ -340,7 +340,7 @@ function RefreshShowcase() {
           <div className="flex flex-col items-center gap-3">
             {MarkPulse}
             <span className="text-2xl font-bold tracking-tight text-[rgb(var(--c-primary))]">Pulse</span>
-            <span className="text-[11px] text-gray-700">Unified system, AAA contrast, motion-ready</span>
+            <span className="text-[11px] text-[rgb(var(--c-copy))]">Unified system, AAA contrast, motion-ready</span>
           </div>
         </div>
       </div>
@@ -357,18 +357,18 @@ function BrandImpact() {
     { value: "100%", label: "Token-driven, themeable" },
   ];
   return (
-    <div className="rounded-2xl border border-gray-200 bg-[rgb(var(--c-tint-50))] p-6 sm:p-8">
+    <div className="rounded-2xl border border-[rgb(var(--c-line))] bg-[rgb(var(--c-tint-50))] p-6 sm:p-8">
       <p className="text-[rgb(var(--c-accent-on-light))] text-xs font-semibold tracking-[2px] uppercase mb-2">
         Impact by the numbers
       </p>
-      <h3 className="text-xl font-bold text-gray-900 mb-6">
+      <h3 className="text-xl font-bold text-[rgb(var(--c-ink))] mb-6">
         Brand work that scales from mark to product
       </h3>
       <dl className="grid grid-cols-2 gap-4">
         {stats.map((s) => (
-          <div key={s.label} className="rounded-xl border border-gray-100 bg-white p-4">
+          <div key={s.label} className="rounded-xl border border-[rgb(var(--c-tint-100))] bg-[rgb(var(--c-paper))] p-4">
             <dd className="text-3xl font-black text-[rgb(var(--c-primary))] leading-none mb-1.5 ml-0">{s.value}</dd>
-            <dt className="text-xs text-gray-700 leading-snug">{s.label}</dt>
+            <dt className="text-xs text-[rgb(var(--c-copy))] leading-snug">{s.label}</dt>
           </div>
         ))}
       </dl>
@@ -385,11 +385,11 @@ function BrandProcess() {
     { n: "04", t: "System & guidelines", d: "Enforceable guidelines, design tokens, and component theming so the brand stays consistent as teams scale it." },
   ];
   return (
-    <div className="rounded-2xl border border-gray-200 bg-white p-6 sm:p-8">
+    <div className="rounded-2xl border border-[rgb(var(--c-line))] bg-[rgb(var(--c-paper))] p-6 sm:p-8">
       <p className="text-[rgb(var(--c-accent-on-light))] text-xs font-semibold tracking-[2px] uppercase mb-2">
         Engagement process
       </p>
-      <h3 className="text-xl font-bold text-gray-900 mb-6">
+      <h3 className="text-xl font-bold text-[rgb(var(--c-ink))] mb-6">
         From blank page to an enforceable brand system
       </h3>
       <ol className="space-y-4 list-none p-0 m-0">
@@ -397,8 +397,8 @@ function BrandProcess() {
           <li key={s.n} className="flex gap-4">
             <span className="shrink-0 font-black text-lg text-[rgb(var(--c-primary)/0.75)] tabular-nums">{s.n}</span>
             <div>
-              <p className="font-bold text-gray-900 text-sm mb-0.5">{s.t}</p>
-              <p className="text-gray-700 text-sm leading-relaxed">{s.d}</p>
+              <p className="font-bold text-[rgb(var(--c-ink))] text-sm mb-0.5">{s.t}</p>
+              <p className="text-[rgb(var(--c-copy))] text-sm leading-relaxed">{s.d}</p>
             </div>
           </li>
         ))}
@@ -420,17 +420,17 @@ function BrandPrinciples() {
       <p className="text-[rgb(var(--c-accent-on-light))] text-xs font-semibold tracking-[2px] uppercase mb-3">
         Principles
       </p>
-      <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">
+      <h3 className="text-xl sm:text-2xl font-bold text-[rgb(var(--c-ink))] mb-6">
         How I approach every brand engagement
       </h3>
       <div className="grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr))]">
         {principles.map((p, i) => (
-          <div key={p.t} className="rounded-2xl border border-gray-200 bg-[rgb(var(--c-tint-50))] p-6">
-            <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-[rgb(var(--c-primary))] text-white text-sm font-bold mb-3">
+          <div key={p.t} className="rounded-2xl border border-[rgb(var(--c-line))] bg-[rgb(var(--c-tint-50))] p-6">
+            <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-[rgb(var(--c-primary))] text-[rgb(var(--c-paper))] text-sm font-bold mb-3">
               {i + 1}
             </span>
-            <p className="font-bold text-gray-900 text-base mb-1.5">{p.t}</p>
-            <p className="text-gray-700 text-sm leading-relaxed">{p.d}</p>
+            <p className="font-bold text-[rgb(var(--c-ink))] text-base mb-1.5">{p.t}</p>
+            <p className="text-[rgb(var(--c-copy))] text-sm leading-relaxed">{p.d}</p>
           </div>
         ))}
       </div>
@@ -443,7 +443,7 @@ export default function BrandIdentitySection() {
     <section
       id="brand"
       aria-labelledby="brand-heading"
-      className="bg-white border-b border-gray-100"
+      className="bg-[rgb(var(--c-paper))] border-b border-[rgb(var(--c-tint-100))]"
     >
       <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2rem,4vw,3.5rem)]">
         <p className="text-[rgb(var(--c-accent-on-light))] text-xs font-semibold tracking-[2px] uppercase mb-3">
@@ -451,11 +451,11 @@ export default function BrandIdentitySection() {
         </p>
         <h2
           id="brand-heading"
-          className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 mb-3 tracking-tight"
+          className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[rgb(var(--c-ink))] mb-3 tracking-tight"
         >
           Design systems &amp; brand-consistent visual systems that scale
         </h2>
-        <p className="text-gray-700 text-sm sm:text-base mb-10 max-w-3xl leading-relaxed">
+        <p className="text-[rgb(var(--c-copy))] text-sm sm:text-base mb-10 max-w-3xl leading-relaxed">
           I build the systems that keep a brand consistent at scale — shared components, design
           tokens, and on-brand UI carried from design intent through to production code. Below
           are representative visual systems, a refresh, and the guideline anatomy I ship with

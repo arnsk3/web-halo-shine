@@ -380,12 +380,6 @@ export default function EnterpriseHome() {
         </div>
       </section>
 
-      <div className="bg-[rgb(var(--c-paper))] pt-12">
-        <div className={WRAP}>
-          <p className="font-mono text-xs font-bold uppercase tracking-widest text-[rgb(var(--c-accent-on-light))]">Deeper evidence</p>
-          <p className="mt-1 text-[rgb(var(--c-copy))]">Full deployment detail, architecture, and case studies follow below.</p>
-        </div>
-      </div>
     </>
   );
 }

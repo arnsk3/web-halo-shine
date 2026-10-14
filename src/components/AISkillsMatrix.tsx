@@ -156,7 +156,7 @@ function LevelDots({ level }: { level: number }) {
           className={`h-1.5 w-3.5 rounded-full ${
             n <= level
               ? "bg-[rgb(var(--c-accent-light))]"
-              : "bg-white/40"
+              : "bg-[rgb(var(--c-paper)/0.4)]"
           }`}
         />
       ))}
@@ -173,11 +173,11 @@ export default function AISkillsMatrix() {
     <section
       id="ai-skills"
       aria-labelledby="ai-skills-heading"
-      className="bg-[rgb(var(--c-hero-dark))] text-white relative overflow-hidden"
+      className="bg-[rgb(var(--c-hero-dark))] text-[rgb(var(--c-paper))] relative overflow-hidden"
     >
       <div aria-hidden="true" className="pointer-events-none absolute -top-24 -right-24 h-80 w-80 rounded-full bg-[rgb(var(--c-accent))] opacity-20 blur-3xl animate-float-slow" />
       <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2rem,4vw,3.5rem)] relative">
-        <p className="inline-flex items-center gap-2 text-[rgb(var(--c-accent-on-dark))] text-xs font-semibold tracking-[2px] uppercase mb-3 rounded-full border border-white/15 bg-white/5 backdrop-blur px-3 py-1.5">
+        <p className="inline-flex items-center gap-2 text-[rgb(var(--c-accent-on-dark))] text-xs font-semibold tracking-[2px] uppercase mb-3 rounded-full border border-[rgb(var(--c-paper)/0.15)] bg-[rgb(var(--c-paper)/0.05)] backdrop-blur px-3 py-1.5">
           <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-[rgb(var(--c-accent-light))] animate-pulse" />
           Forward-deployed AI capabilities
         </p>
@@ -187,12 +187,12 @@ export default function AISkillsMatrix() {
         >
           AI Skills Matrix
         </h2>
-        <p className="text-white text-sm sm:text-base mb-3 max-w-2xl leading-relaxed">
+        <p className="text-[rgb(var(--c-paper))] text-sm sm:text-base mb-3 max-w-2xl leading-relaxed">
           A transparent view of where I operate across the AI lifecycle — from interaction
           design and governance to engineering and evaluation. Levels reflect depth of
           hands-on delivery in regulated, safety-critical environments.
         </p>
-        <div className="flex flex-wrap gap-x-4 gap-y-1 mb-6 text-[11px] text-white">
+        <div className="flex flex-wrap gap-x-4 gap-y-1 mb-6 text-[11px] text-[rgb(var(--c-paper))]">
           {LEVEL_LABEL.slice(1).map((l, i) => (
             <span key={l} className="inline-flex items-center gap-1.5">
               <LevelDots level={i + 1} /> {l}
@@ -211,10 +211,10 @@ export default function AISkillsMatrix() {
                 aria-selected={selected}
                 aria-controls={`panel-${grp.id}`}
                 onClick={() => setActive(grp.id)}
-                className={`inline-flex items-center min-h-[44px] rounded-full px-4 py-2 text-sm font-semibold transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-hero-dark))] ${
+                className={`inline-flex items-center min-h-[44px] rounded-full px-4 py-2 text-sm font-semibold transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-paper))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-hero-dark))] ${
                   selected
-                    ? "bg-white text-[rgb(var(--c-hero-dark))]"
-                    : "border border-white/25 text-white hover:bg-white/10"
+                    ? "bg-[rgb(var(--c-paper))] text-[rgb(var(--c-hero-dark))]"
+                    : "border border-[rgb(var(--c-paper)/0.25)] text-[rgb(var(--c-paper))] hover:bg-[rgb(var(--c-paper)/0.1)]"
                 }`}
               >
                 {grp.short}
@@ -228,9 +228,9 @@ export default function AISkillsMatrix() {
           tabIndex={0}
           id={`panel-${g.id}`}
           aria-labelledby={`tab-${g.id}`}
-          className="rounded-2xl border border-white/12 bg-white/[0.04] backdrop-blur p-5 sm:p-6"
+          className="rounded-2xl border border-[rgb(var(--c-paper)/0.12)] bg-[rgb(var(--c-paper))]/[0.04] backdrop-blur p-5 sm:p-6"
         >
-          <p className="text-white text-[13px] sm:text-sm mb-4 leading-relaxed max-w-2xl">{g.blurb}</p>
+          <p className="text-[rgb(var(--c-paper))] text-[13px] sm:text-sm mb-4 leading-relaxed max-w-2xl">{g.blurb}</p>
           <div className="mb-5">
             <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[rgb(var(--c-accent-on-dark))] font-bold mb-2">
               Where it shows up
@@ -239,7 +239,7 @@ export default function AISkillsMatrix() {
               {g.evidence.map((e) => (
                 <li
                   key={e}
-                  className="text-[11px] font-medium px-2.5 py-1 rounded-full border border-white/20 bg-white/[0.07] text-white"
+                  className="text-[11px] font-medium px-2.5 py-1 rounded-full border border-[rgb(var(--c-paper)/0.2)] bg-[rgb(var(--c-paper))]/[0.07] text-[rgb(var(--c-paper))]"
                 >
                   {e}
                 </li>
@@ -250,7 +250,7 @@ export default function AISkillsMatrix() {
             {g.skills.map((s) => (
               <li key={s.name}>
                 <div className="flex items-center justify-between gap-3">
-                  <span className="text-sm font-semibold text-white leading-snug">{s.name}</span>
+                  <span className="text-sm font-semibold text-[rgb(var(--c-paper))] leading-snug">{s.name}</span>
                   <span className="shrink-0 inline-flex items-center gap-2">
                     <LevelDots level={s.level} />
                     <span className="text-[11px] font-semibold text-[rgb(var(--c-accent-on-dark))] w-16 text-right">
@@ -258,7 +258,7 @@ export default function AISkillsMatrix() {
                     </span>
                   </span>
                 </div>
-                <p className="text-white/90 text-[12px] mt-0.5 leading-relaxed">{s.note}</p>
+                <p className="text-[rgb(var(--c-paper)/0.9)] text-[12px] mt-0.5 leading-relaxed">{s.note}</p>
               </li>
             ))}
           </ul>

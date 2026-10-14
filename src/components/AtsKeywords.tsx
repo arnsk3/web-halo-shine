@@ -106,24 +106,24 @@ export default function AtsKeywords({ n = "15" }: { n?: string }) {
       <SectionIndex n={n} label="Core Expertise" />
       <h2
         id="skills-keywords-heading"
-        className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2 tracking-tight"
+        className="text-3xl md:text-4xl font-extrabold text-[rgb(var(--c-ink))] mb-2 tracking-tight"
       >
         Core expertise
       </h2>
-      <p className="text-gray-700 text-base mb-8 max-w-3xl">
+      <p className="text-[rgb(var(--c-copy))] text-base mb-8 max-w-3xl">
         A complete, scannable index of the systems, frameworks, and practices behind the
         deployments above — for recruiters, hiring managers, and automated screening alike.
       </p>
 
       <div className="grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(min(100%,18rem),1fr))]">
         {GROUPS.map((g) => (
-          <article key={g.h} className="rounded-xl border border-gray-200 bg-white p-5">
-            <h3 className="text-base font-bold text-gray-900 mb-3">{g.h}</h3>
+          <article key={g.h} className="rounded-xl border border-[rgb(var(--c-line))] bg-[rgb(var(--c-paper))] p-5">
+            <h3 className="text-base font-bold text-[rgb(var(--c-ink))] mb-3">{g.h}</h3>
             <ul className="list-none p-0 m-0 flex flex-wrap gap-1.5">
               {g.items.map((i) => (
                 <li
                   key={i}
-                  className="rounded-full border border-gray-200 bg-[rgb(var(--c-tint-50))] px-2.5 py-1 text-[11px] font-semibold text-gray-800"
+                  className="rounded-full border border-[rgb(var(--c-line))] bg-[rgb(var(--c-tint-50))] px-2.5 py-1 text-[11px] font-semibold text-[rgb(var(--c-ink))]"
                 >
                   {i}
                 </li>

@@ -61,11 +61,11 @@ export default function FdeSystems({ n = "02" }: { n?: string }) {
       <SectionIndex n={n} label="Systems I Build" />
       <h2
         id="systems-heading"
-        className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2 tracking-tight"
+        className="text-3xl md:text-4xl font-extrabold text-[rgb(var(--c-ink))] mb-2 tracking-tight"
       >
         Systems I Build
       </h2>
-      <p className="text-gray-700 text-base mb-8 max-w-3xl">
+      <p className="text-[rgb(var(--c-copy))] text-base mb-8 max-w-3xl">
         A deployment is five layers, not a screen. Here is the stack I work across and what I own
         at each level.
       </p>
@@ -74,18 +74,18 @@ export default function FdeSystems({ n = "02" }: { n?: string }) {
         {LAYERS.map((l, i) => (
           <li
             key={l.h}
-            className="rounded-xl border border-gray-200 bg-white p-5 flex flex-col"
+            className="rounded-xl border border-[rgb(var(--c-line))] bg-[rgb(var(--c-paper))] p-5 flex flex-col"
           >
             <p className="font-display text-xs font-extrabold text-[rgb(var(--c-accent-on-light))] mb-1 tabular-nums">
               Layer {i + 1}
             </p>
-            <h3 className="text-lg font-bold text-gray-900 mb-2">{l.h}</h3>
-            <p className="text-sm text-gray-700 leading-relaxed mb-3">{l.b}</p>
+            <h3 className="text-lg font-bold text-[rgb(var(--c-ink))] mb-2">{l.h}</h3>
+            <p className="text-sm text-[rgb(var(--c-copy))] leading-relaxed mb-3">{l.b}</p>
             <ul className="list-none p-0 m-0 mt-auto flex flex-wrap gap-1.5">
               {l.items.map((it) => (
                 <li
                   key={it}
-                  className="rounded-full border border-gray-200 bg-[rgb(var(--c-tint-50))] px-2.5 py-1 text-[11px] font-semibold text-gray-800"
+                  className="rounded-full border border-[rgb(var(--c-line))] bg-[rgb(var(--c-tint-50))] px-2.5 py-1 text-[11px] font-semibold text-[rgb(var(--c-ink))]"
                 >
                   {it}
                 </li>
@@ -96,20 +96,20 @@ export default function FdeSystems({ n = "02" }: { n?: string }) {
       </ol>
 
       <div className="mt-10">
-        <h3 className="text-2xl font-extrabold text-gray-900 mb-2 tracking-tight">
+        <h3 className="text-2xl font-extrabold text-[rgb(var(--c-ink))] mb-2 tracking-tight">
           Operating in ambiguity: what my first eight weeks look like
         </h3>
-        <p className="text-gray-700 text-base mb-6 max-w-3xl">
+        <p className="text-[rgb(var(--c-copy))] text-base mb-6 max-w-3xl">
           Clients rarely hand over a spec. They hand over a complaint. This is how I turn one into
           a shipped capability.
         </p>
         <ol className="list-none p-0 m-0 grid gap-3 [grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr))]">
           {WEEKS.map((w) => (
-            <li key={w.t} className="rounded-xl border border-gray-200 bg-white p-5">
+            <li key={w.t} className="rounded-xl border border-[rgb(var(--c-line))] bg-[rgb(var(--c-paper))] p-5">
               <p className="font-display text-sm font-extrabold text-[rgb(var(--c-primary))] mb-1.5">
                 {w.t}
               </p>
-              <p className="text-sm text-gray-700 leading-relaxed">{w.b}</p>
+              <p className="text-sm text-[rgb(var(--c-copy))] leading-relaxed">{w.b}</p>
             </li>
           ))}
         </ol>

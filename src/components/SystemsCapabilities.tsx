@@ -54,11 +54,11 @@ export default function SystemsCapabilities({ n = "12" }: { n?: string }) {
       <SectionIndex n={n} label="Systems & Capabilities" />
       <h2
         id="capabilities-heading"
-        className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2 tracking-tight"
+        className="text-3xl md:text-4xl font-extrabold text-[rgb(var(--c-ink))] mb-2 tracking-tight"
       >
         Systems &amp; engineering capabilities
       </h2>
-      <p className="text-gray-700 text-base mb-8 max-w-3xl">
+      <p className="text-[rgb(var(--c-copy))] text-base mb-8 max-w-3xl">
         What I work with directly when a deployment has to survive contact with a real
         organization.
       </p>
@@ -67,12 +67,12 @@ export default function SystemsCapabilities({ n = "12" }: { n?: string }) {
         {GROUPS.map((g, i) => {
           const Icon = [Cpu, GitBranch, Users, ShieldCheck][i] ?? Cpu;
           return (
-          <article key={g.h} className="rounded-xl border border-gray-200 bg-white p-5">
+          <article key={g.h} className="rounded-xl border border-[rgb(var(--c-line))] bg-[rgb(var(--c-paper))] p-5">
             <Icon aria-hidden="true" className="mb-5 size-8 text-[rgb(var(--c-primary))]" />
-            <h3 className="text-base font-bold text-gray-900 mb-3">{g.h}</h3>
+            <h3 className="text-base font-bold text-[rgb(var(--c-ink))] mb-3">{g.h}</h3>
             <ul className="list-none p-0 m-0 grid gap-1.5">
               {g.items.map((i) => (
-                <li key={i} className="text-[13px] text-gray-700 leading-relaxed flex gap-2">
+                <li key={i} className="text-[13px] text-[rgb(var(--c-copy))] leading-relaxed flex gap-2">
                   <span aria-hidden="true" className="text-[rgb(var(--c-accent-on-light))] font-bold">
                     →
                   </span>
@@ -84,7 +84,7 @@ export default function SystemsCapabilities({ n = "12" }: { n?: string }) {
         );})}
       </div>
 
-      <p className="mt-8 max-w-3xl rounded-xl border border-gray-200 bg-[rgb(var(--c-tint-50))] p-5 text-sm font-semibold text-gray-900 leading-relaxed">
+      <p className="mt-8 max-w-3xl rounded-xl border border-[rgb(var(--c-line))] bg-[rgb(var(--c-tint-50))] p-5 text-sm font-semibold text-[rgb(var(--c-ink))] leading-relaxed">
         I am a Forward Deployed AI &amp; Human Systems Engineer focused on building and deploying
         systems that operate reliably in complex, regulated, real-world environments.
       </p>
