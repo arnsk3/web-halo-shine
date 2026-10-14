@@ -257,7 +257,7 @@ export default function EnterpriseHome() {
       {/* 3. SSA */}
       <CaseBlock id="ssa-case" n="02" label="Implementation case study" org="SSA / Leidos" title="Federal accessibility automation in CI/CD"
         problem="Accessibility defects on a federal platform were found late, by manual audit, and kept recurring."
-        built="As product owner, I embedded AI-assisted accessibility validation into the CI/CD pipeline with human-in-the-loop review, and traced defect clustering to 8 reused components."
+        built="As product owner, I led the introduction of AI-assisted accessibility validation as a CI/CD release gate — defining the human-in-the-loop review workflow and gate criteria with engineering, who integrated it — and personally traced defect clustering to 8 reused components."
         outcome="65% of defects traced to 8 components; ~30% manual-audit reduction; $1.5M+ estimated annual savings."
         qual="Defect tracing is my direct contribution; audit reduction and savings are program outcomes on a platform serving 50M+ users. Shown at authorized disclosure level."
         img={imgSsa} flow={["Code commit", "Automated accessibility checks", "AI-assisted triage", "Human review (approve / fix)", "Component-level remediation", "Release gate"]} />
