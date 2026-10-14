@@ -326,7 +326,7 @@ export default function AIGovernanceCaseStudy({ onHome }: { onHome: () => void }
             <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[rgb(var(--c-accent-on-light))] mb-2">05 · Framework crosswalk</p>
             <h2 id="aigc-crosswalk" className="font-display text-2xl font-extrabold text-[rgb(var(--c-ink))] mb-3">One control set, three regimes.</h2>
             <p className="text-[rgb(var(--c-copy))] leading-relaxed mb-6">ISO/IEC 42001, the NIST AI RMF, and the EU AI Act overlap heavily. Rather than running three parallel compliance efforts, I map a single control library to all three so one piece of evidence satisfies multiple reviewers. This is the artifact that shortens audits.</p>
-            <div className="overflow-x-auto rounded-lg border border-[rgb(var(--c-line))]">
+            <div tabIndex={0} role="region" aria-label="Table, scrolls horizontally" className="overflow-x-auto rounded-lg border border-[rgb(var(--c-line))]">
               <table className="w-full min-w-[720px] border-collapse text-left text-sm">
                 <caption className="sr-only">Crosswalk of internal AI controls to ISO/IEC 42001, NIST AI RMF, and EU AI Act requirements</caption>
                 <thead>

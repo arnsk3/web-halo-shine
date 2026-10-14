@@ -153,7 +153,7 @@ export default function CrosswalkEssay({ onHome }: { onHome: () => void }) {
                 Four representative rows from the library, each expressed as behaviour first and
                 clause second. The full twelve-control version is available as a one-page PDF.
               </p>
-              <div className="overflow-x-auto rounded-lg border border-[rgb(var(--c-line))]">
+              <div tabIndex={0} role="region" aria-label="Control crosswalk table, scrolls horizontally" className="overflow-x-auto rounded-lg border border-[rgb(var(--c-line))]">
                 <table className="w-full min-w-[44rem] border-collapse text-left text-[13px]">
                   <caption className="sr-only">
                     Four AI controls mapped to ISO/IEC 42001, NIST AI RMF, and the EU AI Act

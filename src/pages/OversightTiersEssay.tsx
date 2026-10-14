@@ -127,7 +127,7 @@ export default function OversightTiersEssay({ onHome }: { onHome: () => void }) 
                 product decision made before any UI exists, and it determines the interface, the
                 telemetry, and the control evidence.
               </p>
-              <div className="overflow-x-auto rounded-xl border border-[rgb(var(--c-line))]">
+              <div tabIndex={0} role="region" aria-label="Oversight tiers table, scrolls horizontally" className="overflow-x-auto rounded-xl border border-[rgb(var(--c-line))]">
                 <table className="w-full text-left text-[13px]">
                   <caption className="sr-only">
                     Oversight tiers: authority held by the human, when to use each tier, interface

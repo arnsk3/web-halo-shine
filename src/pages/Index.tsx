@@ -3644,7 +3644,7 @@ function GeFrameworkPersonas() {
                         <div className="flex flex-wrap gap-2 mt-2">
                           {j.tasks.map((t, i) => (
                             <span key={t} className="inline-flex items-center gap-1.5">
-                              <span className="text-[11px] font-medium px-2.5 py-1 rounded-md bg-[rgb(var(--c-info-bg))] text-[rgb(var(--c-info))] border border-[rgb(var(--c-info-line))]">
+                              <span className="text-[11px] font-medium px-2.5 py-1 rounded-md max-w-full break-words bg-[rgb(var(--c-info-bg))] text-[rgb(var(--c-info))] border border-[rgb(var(--c-info-line))]">
                                 {t}
                               </span>
                               {i < j.tasks.length - 1 && (
@@ -4340,7 +4340,7 @@ function WcagToolDetails() {
                     {lvl.nodes.map((n) => (
                       <span
                         key={n}
-                        className="text-[11px] font-medium px-2.5 py-1 rounded-md bg-[rgb(var(--c-tint-50))] border border-[rgb(var(--c-line))] text-[rgb(var(--c-copy))]"
+                        className="text-[11px] font-medium px-2.5 py-1 rounded-md max-w-full break-words bg-[rgb(var(--c-tint-50))] border border-[rgb(var(--c-line))] text-[rgb(var(--c-copy))]"
                       >
                         {n}
                       </span>
@@ -4611,7 +4611,7 @@ function WcagToolDetails() {
                         <div className="flex flex-wrap gap-2 mt-2">
                           {j.tasks.map((t, i) => (
                             <span key={t} className="inline-flex items-center gap-1.5">
-                              <span className="text-[11px] font-medium px-2.5 py-1 rounded-md bg-[rgb(var(--c-info-bg))] text-[rgb(var(--c-info))] border border-[rgb(var(--c-info-line))]">
+                              <span className="text-[11px] font-medium px-2.5 py-1 rounded-md max-w-full break-words bg-[rgb(var(--c-info-bg))] text-[rgb(var(--c-info))] border border-[rgb(var(--c-info-line))]">
                                 {t}
                               </span>
                               {i < j.tasks.length - 1 && (
@@ -4844,7 +4844,7 @@ function WcagToolDetails() {
                         </span>
                         {m.text}
                         {"code" in m && m.code && (
-                          <pre className="mt-2 bg-[rgb(var(--c-ink))] text-[rgb(var(--c-tint-100))] rounded-lg p-3 text-[11px] overflow-x-auto">
+                          <pre tabIndex={0} aria-label="Code example" className="mt-2 bg-[rgb(var(--c-ink))] text-[rgb(var(--c-tint-100))] rounded-lg p-3 text-[11px] overflow-x-auto">
                             <code>{m.code}</code>
                           </pre>
                         )}
@@ -5012,7 +5012,7 @@ function DeepResearchDossier({ id }: { id: string }) {
           <h4 className="text-sm font-bold text-[rgb(var(--c-primary))] mb-3 uppercase tracking-wide">
             Reporting & Decisions by Audience
           </h4>
-          <div className="overflow-x-auto">
+          <div tabIndex={0} role="region" aria-label="Reporting and decisions table, scrolls horizontally" className="overflow-x-auto">
             <table className="w-full text-left text-sm border-collapse" aria-label="Reporting and decisions by audience">
               <thead>
                 <tr className="bg-[rgb(var(--c-primary))] text-[rgb(var(--c-paper))]">
