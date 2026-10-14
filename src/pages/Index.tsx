@@ -4844,7 +4844,7 @@ function WcagToolDetails() {
                         </span>
                         {m.text}
                         {"code" in m && m.code && (
-                          <pre className="mt-2 bg-[rgb(var(--c-ink))] text-[rgb(var(--c-tint-100))] rounded-lg p-3 text-[11px] overflow-x-auto">
+                          <pre tabIndex={0} aria-label="Code example" className="mt-2 bg-[rgb(var(--c-ink))] text-[rgb(var(--c-tint-100))] rounded-lg p-3 text-[11px] overflow-x-auto">
                             <code>{m.code}</code>
                           </pre>
                         )}
@@ -5012,7 +5012,7 @@ function DeepResearchDossier({ id }: { id: string }) {
           <h4 className="text-sm font-bold text-[rgb(var(--c-primary))] mb-3 uppercase tracking-wide">
             Reporting & Decisions by Audience
           </h4>
-          <div className="overflow-x-auto">
+          <div tabIndex={0} role="region" aria-label="Reporting and decisions table, scrolls horizontally" className="overflow-x-auto">
             <table className="w-full text-left text-sm border-collapse" aria-label="Reporting and decisions by audience">
               <thead>
                 <tr className="bg-[rgb(var(--c-primary))] text-[rgb(var(--c-paper))]">
