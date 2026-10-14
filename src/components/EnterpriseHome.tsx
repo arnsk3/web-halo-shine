@@ -330,6 +330,7 @@ export default function EnterpriseHome() {
             </ul>
           </div>
           <div className="rounded-2xl bg-[rgb(var(--c-tint-50))] p-6">
+            <img src={imgA11y} alt="Accessibility testing workstation with assistive technology" loading="lazy" className="mb-5 aspect-[16/9] w-full rounded-xl object-cover" />
             <h3 className="font-display text-xl font-bold text-[rgb(var(--c-ink))]">Credentials</h3>
             <ul className="mt-3 list-none space-y-2 p-0 text-[rgb(var(--c-copy))]">
               <li><ShieldCheck aria-hidden="true" className="mr-2 inline h-4 w-4" />CPACC + WAS (CPWA)</li>
@@ -347,6 +348,7 @@ export default function EnterpriseHome() {
           <div>
             <SectionIndex n="07" label="Leadership & secondary work" />
             <h2 id="exp-heading" className="font-display text-3xl font-bold text-[rgb(var(--c-ink))]">Supporting experience</h2>
+            <img src={imgLeader} alt="Leading a cross-functional enterprise team session" loading="lazy" className="mt-6 aspect-[16/9] w-full rounded-2xl object-cover" />
             <ol className="mt-8 list-none border-l-2 border-[rgb(var(--c-primary)/0.3)] p-0 pl-6">
               {TIMELINE2.map((t) => (
                 <li key={t.org} className="relative pb-6">
