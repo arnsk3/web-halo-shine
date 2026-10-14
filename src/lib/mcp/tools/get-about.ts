@@ -19,7 +19,7 @@ export default defineTool({
         "AI experience design (human–AI interaction, explainability, HITL)",
         "AI governance & model-risk UX (NIST AI RMF, EU AI Act, ISO 42001)",
         "Design systems at scale (50M+ users in program scope)",
-        "Accessibility governance (WCAG 2.2 AAA, Section 508, CPACC)",
+        "Accessibility governance (WCAG 2.2 AA, Section 508, CPACC)",
       ],
       leadership_pillars: [
         "Player-coach leadership",

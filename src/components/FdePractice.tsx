@@ -15,7 +15,7 @@ const PILLARS = [
   {
     k: "Human Factors & Safety-Critical Systems",
     b: "Regulated work fails on human performance, not model accuracy. I design the oversight layer — disclosure, explanation, override, escalation — that lets a clinical or federal org actually put the model in front of people.",
-    items: ["IEC 62366 & MIL-STD-1472H practice", "Cognitive load & alert-fatigue control", "Human oversight and override design", "WCAG 2.2 AAA accessibility governance"],
+    items: ["IEC 62366 & MIL-STD-1472H practice", "Cognitive load & alert-fatigue control", "Human oversight and override design", "WCAG 2.2 accessibility governance"],
   },
 ];
 

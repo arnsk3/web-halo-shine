@@ -23,7 +23,7 @@ var get_about_default = defineTool({
         "AI experience design (human\u2013AI interaction, explainability, HITL)",
         "AI governance & model-risk UX (NIST AI RMF, EU AI Act, ISO 42001)",
         "Design systems at scale (50M+ users in program scope)",
-        "Accessibility governance (WCAG 2.2 AAA, Section 508, CPACC)"
+        "Accessibility governance (WCAG 2.2 AA, Section 508, CPACC)"
       ],
       leadership_pillars: [
         "Player-coach leadership",
@@ -257,8 +257,10 @@ var get_resume_default = defineTool4({
       portfolio_url: BASE4,
       credentials: [
         "AIGP \u2014 in progress (IAPP)",
-        "CPACC",
-        "WCAG 2.2 AAA",
+        "CPACC (IAAP)",
+        "WAS (IAAP)",
+        "CUA (HFI)",
+        "CSM (Scrum Alliance)",
         "NIST AI RMF",
         "FDA / IEC 62366",
         "DoDI 5000.95"

@@ -18,8 +18,10 @@ export default defineTool({
       portfolio_url: BASE,
       credentials: [
         "AIGP — in progress (IAPP)",
-        "CPACC",
-        "WCAG 2.2 AAA",
+        "CPACC (IAAP)",
+        "WAS (IAAP)",
+        "CUA (HFI)",
+        "CSM (Scrum Alliance)",
         "NIST AI RMF",
         "FDA / IEC 62366",
         "DoDI 5000.95",
