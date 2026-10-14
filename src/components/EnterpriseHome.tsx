@@ -12,7 +12,7 @@ import imgTrust from "@/assets/case-trustlens.jpg";
 import imgVision from "@/assets/deployment-accessibility.jpg";
 import imgHero from "@/assets/hero-systems.jpg";
 import imgA11y from "@/assets/deployment-accessibility.jpg";
-import imgLeader from "@/assets/persona-leadership.jpg";
+import imgLeader from "@/assets/team-session.jpg";
 const LAB_IMG: Record<string, string> = { Lumen: imgLumen, TrustLens: imgTrust, Accessible: imgVision };
 
 const WRAP = "mx-auto w-full max-w-[1600px] px-[clamp(1.5rem,5vw,5rem)]";
