@@ -45,25 +45,25 @@ const MAPPED = [
 export default function CrosswalkEssay({ onHome }: { onHome: () => void }) {
   return (
     <article>
-      <header className="relative overflow-hidden bg-gradient-to-br from-[rgb(var(--c-hero-dark))] via-[rgb(var(--c-primary))] to-[rgb(var(--c-accent))] text-white">
+      <header className="relative overflow-hidden bg-gradient-to-br from-[rgb(var(--c-hero-dark))] via-[rgb(var(--c-primary))] to-[rgb(var(--c-accent))] text-[rgb(var(--c-paper))]">
         <div className="relative w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2.5rem,5vw,4rem)]">
           <nav aria-label="Breadcrumb" className="mb-5">
-            <ol className="flex flex-wrap items-center gap-2 text-sm text-white/85 list-none p-0 m-0">
+            <ol className="flex flex-wrap items-center gap-2 text-sm text-[rgb(var(--c-paper)/0.85)] list-none p-0 m-0">
               <li>
                 <button
                   onClick={onHome}
-                  className="inline-flex items-center min-h-[44px] rounded px-1 underline underline-offset-4 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))]"
+                  className="inline-flex items-center min-h-[44px] rounded px-1 underline underline-offset-4 hover:text-[rgb(var(--c-paper))] focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))]"
                 >
                   Home
                 </button>
               </li>
               <li aria-hidden="true">/</li>
               <li>
-                <span className="text-white/85">Writing</span>
+                <span className="text-[rgb(var(--c-paper)/0.85)]">Writing</span>
               </li>
               <li aria-hidden="true">/</li>
               <li>
-                <span aria-current="page" className="font-medium text-white">
+                <span aria-current="page" className="font-medium text-[rgb(var(--c-paper))]">
                   One control set, three frameworks
                 </span>
               </li>
@@ -75,12 +75,12 @@ export default function CrosswalkEssay({ onHome }: { onHome: () => void }) {
           <h1 className="max-w-4xl font-display text-3xl sm:text-5xl font-extrabold leading-tight mb-5">
             One control set, three frameworks
           </h1>
-          <p className="max-w-3xl text-white/90 text-base sm:text-lg leading-relaxed mb-6">
+          <p className="max-w-3xl text-[rgb(var(--c-paper)/0.9)] text-base sm:text-lg leading-relaxed mb-6">
             How to map a single internal AI control library to ISO/IEC 42001, the NIST AI Risk
             Management Framework, and the EU AI Act — so one piece of evidence answers several
             obligations instead of three teams producing three versions of the truth.
           </p>
-          <p className="text-sm text-white/80">
+          <p className="text-sm text-[rgb(var(--c-paper)/0.8)]">
             Senthil Nagappan · Published August 2026 · Approx. 9 minute read
           </p>
         </div>
@@ -88,9 +88,9 @@ export default function CrosswalkEssay({ onHome }: { onHome: () => void }) {
 
       <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2.5rem,5vw,4rem)]">
         <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_16rem] lg:gap-12">
-          <div className="max-w-3xl space-y-12 text-gray-800 text-[15px] leading-[1.75]">
+          <div className="max-w-3xl space-y-12 text-[rgb(var(--c-ink))] text-[15px] leading-[1.75]">
             <section aria-labelledby="why">
-              <h2 id="why" className="font-display text-2xl font-extrabold text-gray-900 mb-4">
+              <h2 id="why" className="font-display text-2xl font-extrabold text-[rgb(var(--c-ink))] mb-4">
                 Why one control set
               </h2>
               <p className="mb-4">
@@ -111,7 +111,7 @@ export default function CrosswalkEssay({ onHome }: { onHome: () => void }) {
             </section>
 
             <section aria-labelledby="shape">
-              <h2 id="shape" className="font-display text-2xl font-extrabold text-gray-900 mb-4">
+              <h2 id="shape" className="font-display text-2xl font-extrabold text-[rgb(var(--c-ink))] mb-4">
                 The shape of a control
               </h2>
               <p className="mb-4">
@@ -125,16 +125,16 @@ export default function CrosswalkEssay({ onHome }: { onHome: () => void }) {
                   ["Test", "A pass/fail criterion that runs in the same gate as functional QA — including accessibility of the oversight path, because an override a screen-reader user cannot reach is not an override."],
                   ["Retained evidence", "The artifact the control produces as a byproduct of working correctly: an override log, an evaluation report, a signed model card."],
                 ].map(([t, d], i) => (
-                  <li key={t} className="flex gap-4 rounded-lg border border-gray-200 bg-white p-4">
+                  <li key={t} className="flex gap-4 rounded-lg border border-[rgb(var(--c-line))] bg-[rgb(var(--c-paper))] p-4">
                     <span
                       aria-hidden="true"
-                      className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-[rgb(var(--c-primary))] text-white text-sm font-bold"
+                      className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-[rgb(var(--c-primary))] text-[rgb(var(--c-paper))] text-sm font-bold"
                     >
                       {i + 1}
                     </span>
                     <span>
-                      <strong className="block text-gray-900">{t}</strong>
-                      <span className="text-[14px] text-gray-800">{d}</span>
+                      <strong className="block text-[rgb(var(--c-ink))]">{t}</strong>
+                      <span className="text-[14px] text-[rgb(var(--c-ink))]">{d}</span>
                     </span>
                   </li>
                 ))}
@@ -146,14 +146,14 @@ export default function CrosswalkEssay({ onHome }: { onHome: () => void }) {
             </section>
 
             <section aria-labelledby="map">
-              <h2 id="map" className="font-display text-2xl font-extrabold text-gray-900 mb-4">
+              <h2 id="map" className="font-display text-2xl font-extrabold text-[rgb(var(--c-ink))] mb-4">
                 Mapping once, evidencing everywhere
               </h2>
               <p className="mb-5">
                 Four representative rows from the library, each expressed as behaviour first and
                 clause second. The full twelve-control version is available as a one-page PDF.
               </p>
-              <div className="overflow-x-auto rounded-lg border border-gray-200">
+              <div className="overflow-x-auto rounded-lg border border-[rgb(var(--c-line))]">
                 <table className="w-full min-w-[44rem] border-collapse text-left text-[13px]">
                   <caption className="sr-only">
                     Four AI controls mapped to ISO/IEC 42001, NIST AI RMF, and the EU AI Act
@@ -164,7 +164,7 @@ export default function CrosswalkEssay({ onHome }: { onHome: () => void }) {
                         <th
                           key={h}
                           scope="col"
-                          className="border-b border-gray-200 px-4 py-3 font-bold text-gray-900"
+                          className="border-b border-[rgb(var(--c-line))] px-4 py-3 font-bold text-[rgb(var(--c-ink))]"
                         >
                           {h}
                         </th>
@@ -173,14 +173,14 @@ export default function CrosswalkEssay({ onHome }: { onHome: () => void }) {
                   </thead>
                   <tbody>
                     {MAPPED.map((r) => (
-                      <tr key={r.control} className="odd:bg-white even:bg-[rgb(var(--c-tint-50))]/60">
-                        <th scope="row" className="border-b border-gray-200 px-4 py-3 text-left font-bold text-gray-900 align-top">
+                      <tr key={r.control} className="odd:bg-[rgb(var(--c-paper))] even:bg-[rgb(var(--c-tint-50))]/60">
+                        <th scope="row" className="border-b border-[rgb(var(--c-line))] px-4 py-3 text-left font-bold text-[rgb(var(--c-ink))] align-top">
                           {r.control}
                         </th>
-                        <td className="border-b border-gray-200 px-4 py-3 text-gray-800 align-top">{r.behaviour}</td>
-                        <td className="border-b border-gray-200 px-4 py-3 text-gray-800 align-top">{r.iso}</td>
-                        <td className="border-b border-gray-200 px-4 py-3 text-gray-800 align-top">{r.nist}</td>
-                        <td className="border-b border-gray-200 px-4 py-3 text-gray-800 align-top">{r.eu}</td>
+                        <td className="border-b border-[rgb(var(--c-line))] px-4 py-3 text-[rgb(var(--c-ink))] align-top">{r.behaviour}</td>
+                        <td className="border-b border-[rgb(var(--c-line))] px-4 py-3 text-[rgb(var(--c-ink))] align-top">{r.iso}</td>
+                        <td className="border-b border-[rgb(var(--c-line))] px-4 py-3 text-[rgb(var(--c-ink))] align-top">{r.nist}</td>
+                        <td className="border-b border-[rgb(var(--c-line))] px-4 py-3 text-[rgb(var(--c-ink))] align-top">{r.eu}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -194,7 +194,7 @@ export default function CrosswalkEssay({ onHome }: { onHome: () => void }) {
             </section>
 
             <section aria-labelledby="traps">
-              <h2 id="traps" className="font-display text-2xl font-extrabold text-gray-900 mb-4">
+              <h2 id="traps" className="font-display text-2xl font-extrabold text-[rgb(var(--c-ink))] mb-4">
                 Four traps in crosswalk work
               </h2>
               <ul className="space-y-4 list-none p-0 m-0">
@@ -205,15 +205,15 @@ export default function CrosswalkEssay({ onHome }: { onHome: () => void }) {
                   ["Letting the map go stale", "Regulation dates. Every crosswalk needs a review cadence and a visible \"last reviewed\" date, or it quietly becomes misinformation."],
                 ].map(([t, d]) => (
                   <li key={t} className="border-l-2 border-[rgb(var(--c-accent))] bg-[rgb(var(--c-tint-50))] px-5 py-4">
-                    <strong className="block text-gray-900 mb-1">{t}</strong>
-                    <span className="text-[14px] text-gray-800">{d}</span>
+                    <strong className="block text-[rgb(var(--c-ink))] mb-1">{t}</strong>
+                    <span className="text-[14px] text-[rgb(var(--c-ink))]">{d}</span>
                   </li>
                 ))}
               </ul>
             </section>
 
             <section aria-labelledby="operate">
-              <h2 id="operate" className="font-display text-2xl font-extrabold text-gray-900 mb-4">
+              <h2 id="operate" className="font-display text-2xl font-extrabold text-[rgb(var(--c-ink))] mb-4">
                 Operating it after launch
               </h2>
               <p className="mb-4">
@@ -232,7 +232,7 @@ export default function CrosswalkEssay({ onHome }: { onHome: () => void }) {
             </section>
 
             <section aria-labelledby="start">
-              <h2 id="start" className="font-display text-2xl font-extrabold text-gray-900 mb-4">
+              <h2 id="start" className="font-display text-2xl font-extrabold text-[rgb(var(--c-ink))] mb-4">
                 Where to start on Monday
               </h2>
               <ol className="space-y-2 list-decimal pl-5 marker:font-bold marker:text-[rgb(var(--c-accent-on-light))]">
@@ -242,21 +242,21 @@ export default function CrosswalkEssay({ onHome }: { onHome: () => void }) {
                 <li>Map those controls outward to the frameworks that apply to you.</li>
                 <li>Wire the evidence into the release gate, then review the map quarterly.</li>
               </ol>
-              <div className="mt-8 rounded-xl bg-[rgb(var(--c-primary))] p-6 text-white">
+              <div className="mt-8 rounded-xl bg-[rgb(var(--c-primary))] p-6 text-[rgb(var(--c-paper))]">
                 <h3 className="font-display text-lg font-bold mb-2">Take the control library with you</h3>
-                <p className="text-white/90 text-sm mb-5 max-w-xl">
+                <p className="text-[rgb(var(--c-paper)/0.9)] text-sm mb-5 max-w-xl">
                   The full twelve-control library and its ISO/IEC 42001, NIST AI RMF, and EU AI Act
                   mapping, as a one-page PDF.
                 </p>
                 <a
                   href="/Senthil_Nagappan_AI_Control_Library.pdf"
-                  className="inline-flex min-h-[44px] items-center rounded-lg bg-white px-5 py-3 text-sm font-bold text-[rgb(var(--c-primary))] hover:bg-[rgb(var(--c-tint-50))] focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
+                  className="inline-flex min-h-[44px] items-center rounded-lg bg-[rgb(var(--c-paper))] px-5 py-3 text-sm font-bold text-[rgb(var(--c-primary))] hover:bg-[rgb(var(--c-tint-50))] focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
                   download
                 >
                   Download the AI control library (PDF)
                 </a>
               </div>
-              <p className="mt-6 text-sm text-gray-700">
+              <p className="mt-6 text-sm text-[rgb(var(--c-copy))]">
                 Last reviewed: August 2026. This essay is a synthesis of patterns from regulated
                 delivery work; it is not legal advice and does not describe a single client
                 engagement.
@@ -274,12 +274,12 @@ export default function CrosswalkEssay({ onHome }: { onHome: () => void }) {
             >
               On this page
             </h2>
-            <ol className="space-y-1 list-none p-0 m-0 border-l border-gray-200">
+            <ol className="space-y-1 list-none p-0 m-0 border-l border-[rgb(var(--c-line))]">
               {SECTIONS.map((s) => (
                 <li key={s.id}>
                   <a
                     href={`#${s.id}`}
-                    className="flex min-h-[44px] items-center border-l-2 border-transparent -ml-px pl-4 text-[13px] font-medium text-gray-800 hover:border-[rgb(var(--c-primary))] hover:text-[rgb(var(--c-primary))] focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] rounded-r"
+                    className="flex min-h-[44px] items-center border-l-2 border-transparent -ml-px pl-4 text-[13px] font-medium text-[rgb(var(--c-ink))] hover:border-[rgb(var(--c-primary))] hover:text-[rgb(var(--c-primary))] focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] rounded-r"
                   >
                     {s.label}
                   </a>

@@ -123,7 +123,7 @@ export default function ProductionSystems({ n = "01" }: { n?: string }) {
               <Row h="Outcome">
                 <ul className="list-none p-0 m-0 grid gap-1.5">
                   {s.outcome.map((o) => (
-                    <li key={o} className="flex gap-2 font-semibold text-gray-900">
+                    <li key={o} className="flex gap-2 font-semibold text-[rgb(var(--c-ink))]">
                       <span aria-hidden="true" className="text-[rgb(var(--c-primary))]">
                         ·
                       </span>

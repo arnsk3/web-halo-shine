@@ -37,11 +37,11 @@ export default function AIGovernanceSection() {
         <SectionIndex n="09" label="AI Governance" />
         <h2
           id="ai-governance-heading"
-          className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-3"
+          className="font-display text-2xl sm:text-3xl font-extrabold text-[rgb(var(--c-ink))] tracking-tight mb-3"
         >
           AI Governance &amp; Responsible AI
         </h2>
-        <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
+        <p className="text-[rgb(var(--c-copy))] text-sm sm:text-base leading-relaxed">
           Most AI governance programs stop at the policy document. I work on the last mile —
           designing the disclosure, explainability, oversight, and correction controls that
           determine whether a governance requirement becomes real behavior or a checkbox nobody
@@ -51,7 +51,7 @@ export default function AIGovernanceSection() {
       </div>
 
       {/* NIST AI RMF–mapped risk work */}
-      <h3 className="font-display text-lg font-bold text-gray-900 mb-4">
+      <h3 className="font-display text-lg font-bold text-[rgb(var(--c-ink))] mb-4">
         How I Structure AI Risk Work
       </h3>
       <ul
@@ -61,18 +61,18 @@ export default function AIGovernanceSection() {
         {RMF_CARDS.map((c) => (
           <li
             key={c.k}
-            className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm hover:shadow-md transition-shadow"
+            className="rounded-2xl border border-[rgb(var(--c-line))] bg-[rgb(var(--c-paper))] p-5 shadow-sm hover:shadow-md transition-shadow"
           >
             <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[rgb(var(--c-accent-on-light))] mb-1">
               NIST AI RMF
             </p>
-            <h4 className="font-display text-base font-bold text-gray-900 mb-2">{c.k}</h4>
-            <p className="text-[13px] text-gray-700 leading-relaxed">{c.d}</p>
+            <h4 className="font-display text-base font-bold text-[rgb(var(--c-ink))] mb-2">{c.k}</h4>
+            <p className="text-[13px] text-[rgb(var(--c-copy))] leading-relaxed">{c.d}</p>
           </li>
         ))}
       </ul>
 
-      <p className="text-sm text-gray-700 leading-relaxed max-w-3xl mb-6">
+      <p className="text-sm text-[rgb(var(--c-copy))] leading-relaxed max-w-3xl mb-6">
         The specific controls this produces — disclosure, confidence, explainability, override,
         escalation, and accessible-by-default oversight — are described in{" "}
         <a

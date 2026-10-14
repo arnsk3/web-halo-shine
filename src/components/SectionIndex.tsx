@@ -21,10 +21,10 @@ export default function SectionIndex({
       >
         {n}
       </span>
-      <span className={`h-px w-8 ${isDark ? "bg-white/30" : "bg-[rgb(var(--c-primary)/0.3)]"}`} />
+      <span className={`h-px w-8 ${isDark ? "bg-[rgb(var(--c-paper)/0.3)]" : "bg-[rgb(var(--c-primary)/0.3)]"}`} />
       <span
         className={`font-mono text-[11px] font-semibold uppercase tracking-[0.22em] ${
-          isDark ? "text-white/80" : "text-gray-700"
+          isDark ? "text-[rgb(var(--c-paper)/0.8)]" : "text-[rgb(var(--c-copy))]"
         }`}
       >
         {label}

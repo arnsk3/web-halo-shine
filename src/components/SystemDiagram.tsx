@@ -46,7 +46,7 @@ export default function SystemDiagram({
             ↺
           </span>
           <span>
-            <span className="font-semibold text-gray-900">Feedback loop: </span>
+            <span className="font-semibold text-[rgb(var(--c-ink))]">Feedback loop: </span>
             {loop}
           </span>
         </p>

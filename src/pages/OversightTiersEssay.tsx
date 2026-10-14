@@ -34,25 +34,25 @@ const TIERS = [
 export default function OversightTiersEssay({ onHome }: { onHome: () => void }) {
   return (
     <article>
-      <header className="relative overflow-hidden bg-gradient-to-br from-[rgb(var(--c-hero-dark))] via-[rgb(var(--c-primary))] to-[rgb(var(--c-accent))] text-white">
+      <header className="relative overflow-hidden bg-gradient-to-br from-[rgb(var(--c-hero-dark))] via-[rgb(var(--c-primary))] to-[rgb(var(--c-accent))] text-[rgb(var(--c-paper))]">
         <div className="relative w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2.5rem,5vw,4rem)]">
           <nav aria-label="Breadcrumb" className="mb-5">
-            <ol className="flex flex-wrap items-center gap-2 text-sm text-white/85 list-none p-0 m-0">
+            <ol className="flex flex-wrap items-center gap-2 text-sm text-[rgb(var(--c-paper)/0.85)] list-none p-0 m-0">
               <li>
                 <button
                   onClick={onHome}
-                  className="inline-flex items-center min-h-[44px] rounded px-1 underline underline-offset-4 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))]"
+                  className="inline-flex items-center min-h-[44px] rounded px-1 underline underline-offset-4 hover:text-[rgb(var(--c-paper))] focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))]"
                 >
                   Home
                 </button>
               </li>
               <li aria-hidden="true">/</li>
               <li>
-                <span className="text-white/85">Writing</span>
+                <span className="text-[rgb(var(--c-paper)/0.85)]">Writing</span>
               </li>
               <li aria-hidden="true">/</li>
               <li>
-                <span aria-current="page" className="font-medium text-white">
+                <span aria-current="page" className="font-medium text-[rgb(var(--c-paper))]">
                   Oversight tiers beat confidence scores
                 </span>
               </li>
@@ -64,12 +64,12 @@ export default function OversightTiersEssay({ onHome }: { onHome: () => void }) 
           <h1 className="max-w-4xl font-display text-3xl sm:text-5xl font-extrabold leading-tight mb-5">
             Oversight tiers beat confidence scores
           </h1>
-          <p className="max-w-3xl text-white/90 text-base sm:text-lg leading-relaxed mb-6">
+          <p className="max-w-3xl text-[rgb(var(--c-paper)/0.9)] text-base sm:text-lg leading-relaxed mb-6">
             Exposing a raw probability to a clinician is a design failure. Recommend, act, and alert
             tiers map model risk to human authority — and produce the oversight evidence an auditor
             actually asks for.
           </p>
-          <p className="text-sm text-white/80">
+          <p className="text-sm text-[rgb(var(--c-paper)/0.8)]">
             Senthil Nagappan · Published August 2026 · Approx. 8 minute read
           </p>
         </div>
@@ -81,11 +81,11 @@ export default function OversightTiersEssay({ onHome }: { onHome: () => void }) 
             <section aria-labelledby="problem-h" className="mb-12">
               <h2
                 id="problem"
-                className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-4 scroll-mt-24"
+                className="font-display text-2xl sm:text-3xl font-extrabold text-[rgb(var(--c-ink))] tracking-tight mb-4 scroll-mt-24"
               >
                 <span id="problem-h">The confidence-score problem</span>
               </h2>
-              <div className="space-y-4 text-[15px] leading-relaxed text-gray-800">
+              <div className="space-y-4 text-[15px] leading-relaxed text-[rgb(var(--c-ink))]">
                 <p>
                   A model returns 0.87. The interface prints "87% confidence" and considers the
                   transparency obligation discharged. It has not been. The number tells a clinician
@@ -118,16 +118,16 @@ export default function OversightTiersEssay({ onHome }: { onHome: () => void }) 
             <section aria-labelledby="tiers-h" className="mb-12">
               <h2
                 id="tiers"
-                className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-4 scroll-mt-24"
+                className="font-display text-2xl sm:text-3xl font-extrabold text-[rgb(var(--c-ink))] tracking-tight mb-4 scroll-mt-24"
               >
                 <span id="tiers-h">Three tiers of authority</span>
               </h2>
-              <p className="text-[15px] leading-relaxed text-gray-800 mb-6">
+              <p className="text-[15px] leading-relaxed text-[rgb(var(--c-ink))] mb-6">
                 Every AI-assisted interaction I design falls into one of three tiers. The tier is a
                 product decision made before any UI exists, and it determines the interface, the
                 telemetry, and the control evidence.
               </p>
-              <div className="overflow-x-auto rounded-xl border border-gray-200">
+              <div className="overflow-x-auto rounded-xl border border-[rgb(var(--c-line))]">
                 <table className="w-full text-left text-[13px]">
                   <caption className="sr-only">
                     Oversight tiers: authority held by the human, when to use each tier, interface
@@ -135,21 +135,21 @@ export default function OversightTiersEssay({ onHome }: { onHome: () => void }) 
                   </caption>
                   <thead className="bg-[rgb(var(--c-tint-100))]">
                     <tr>
-                      <th scope="col" className="px-4 py-3 font-bold text-gray-900">Tier</th>
-                      <th scope="col" className="px-4 py-3 font-bold text-gray-900">Authority</th>
-                      <th scope="col" className="px-4 py-3 font-bold text-gray-900">When it applies</th>
-                      <th scope="col" className="px-4 py-3 font-bold text-gray-900">Interface requirement</th>
+                      <th scope="col" className="px-4 py-3 font-bold text-[rgb(var(--c-ink))]">Tier</th>
+                      <th scope="col" className="px-4 py-3 font-bold text-[rgb(var(--c-ink))]">Authority</th>
+                      <th scope="col" className="px-4 py-3 font-bold text-[rgb(var(--c-ink))]">When it applies</th>
+                      <th scope="col" className="px-4 py-3 font-bold text-[rgb(var(--c-ink))]">Interface requirement</th>
                     </tr>
                   </thead>
                   <tbody>
                     {TIERS.map((t) => (
-                      <tr key={t.tier} className="border-t border-gray-200 align-top">
+                      <tr key={t.tier} className="border-t border-[rgb(var(--c-line))] align-top">
                         <th scope="row" className="px-4 py-3 font-bold text-[rgb(var(--c-accent-on-light))] whitespace-nowrap">
                           {t.tier}
                         </th>
-                        <td className="px-4 py-3 text-gray-800">{t.authority}</td>
-                        <td className="px-4 py-3 text-gray-800">{t.when}</td>
-                        <td className="px-4 py-3 text-gray-800">{t.ui}</td>
+                        <td className="px-4 py-3 text-[rgb(var(--c-ink))]">{t.authority}</td>
+                        <td className="px-4 py-3 text-[rgb(var(--c-ink))]">{t.when}</td>
+                        <td className="px-4 py-3 text-[rgb(var(--c-ink))]">{t.ui}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -160,11 +160,11 @@ export default function OversightTiersEssay({ onHome }: { onHome: () => void }) 
             <section aria-labelledby="assign-h" className="mb-12">
               <h2
                 id="assign"
-                className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-4 scroll-mt-24"
+                className="font-display text-2xl sm:text-3xl font-extrabold text-[rgb(var(--c-ink))] tracking-tight mb-4 scroll-mt-24"
               >
                 <span id="assign-h">Assigning a tier</span>
               </h2>
-              <div className="space-y-4 text-[15px] leading-relaxed text-gray-800">
+              <div className="space-y-4 text-[15px] leading-relaxed text-[rgb(var(--c-ink))]">
                 <p>
                   Tier assignment is a risk conversation, not a UX one, and it belongs in the same
                   review that classifies the use case. Four questions decide it:
@@ -205,22 +205,22 @@ export default function OversightTiersEssay({ onHome }: { onHome: () => void }) 
             <section aria-labelledby="ui-h" className="mb-12">
               <h2
                 id="ui"
-                className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-4 scroll-mt-24"
+                className="font-display text-2xl sm:text-3xl font-extrabold text-[rgb(var(--c-ink))] tracking-tight mb-4 scroll-mt-24"
               >
                 <span id="ui-h">What each tier looks like</span>
               </h2>
               <div className="grid gap-4 sm:grid-cols-3">
                 {TIERS.map((t) => (
-                  <div key={t.tier} className="rounded-xl border border-gray-200 bg-white p-5">
-                    <h3 className="font-display text-base font-bold text-gray-900 mb-2">{t.tier}</h3>
-                    <p className="text-[13px] text-gray-800 leading-relaxed mb-3">{t.ui}</p>
-                    <p className="text-[12px] text-gray-700 leading-relaxed">
-                      <span className="font-semibold text-gray-900">Instrumented:</span> {t.evidence}
+                  <div key={t.tier} className="rounded-xl border border-[rgb(var(--c-line))] bg-[rgb(var(--c-paper))] p-5">
+                    <h3 className="font-display text-base font-bold text-[rgb(var(--c-ink))] mb-2">{t.tier}</h3>
+                    <p className="text-[13px] text-[rgb(var(--c-ink))] leading-relaxed mb-3">{t.ui}</p>
+                    <p className="text-[12px] text-[rgb(var(--c-copy))] leading-relaxed">
+                      <span className="font-semibold text-[rgb(var(--c-ink))]">Instrumented:</span> {t.evidence}
                     </p>
                   </div>
                 ))}
               </div>
-              <div className="space-y-4 text-[15px] leading-relaxed text-gray-800 mt-6">
+              <div className="space-y-4 text-[15px] leading-relaxed text-[rgb(var(--c-ink))] mt-6">
                 <p>
                   Three rules cut across all three tiers. Disagreement must be as cheap as agreement —
                   if accepting is one click and overriding is a modal with a mandatory free-text
@@ -243,11 +243,11 @@ export default function OversightTiersEssay({ onHome }: { onHome: () => void }) 
             <section aria-labelledby="evidence-h" className="mb-12">
               <h2
                 id="evidence"
-                className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-4 scroll-mt-24"
+                className="font-display text-2xl sm:text-3xl font-extrabold text-[rgb(var(--c-ink))] tracking-tight mb-4 scroll-mt-24"
               >
                 <span id="evidence-h">Evidence the tiers produce</span>
               </h2>
-              <div className="space-y-4 text-[15px] leading-relaxed text-gray-800">
+              <div className="space-y-4 text-[15px] leading-relaxed text-[rgb(var(--c-ink))]">
                 <p>
                   The reason this framing survives contact with governance is that each tier emits its
                   own oversight evidence as a by-product of normal use. Override rate and override
@@ -274,11 +274,11 @@ export default function OversightTiersEssay({ onHome }: { onHome: () => void }) 
             <section aria-labelledby="start-h" className="mb-4">
               <h2
                 id="start"
-                className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-4 scroll-mt-24"
+                className="font-display text-2xl sm:text-3xl font-extrabold text-[rgb(var(--c-ink))] tracking-tight mb-4 scroll-mt-24"
               >
                 <span id="start-h">Where to start</span>
               </h2>
-              <div className="space-y-4 text-[15px] leading-relaxed text-gray-800">
+              <div className="space-y-4 text-[15px] leading-relaxed text-[rgb(var(--c-ink))]">
                 <p>
                   Take your inventory of AI-assisted surfaces and label each one Recommend, Act, or
                   Alert. Do it in an afternoon, roughly, with product and risk in the same room. Two
@@ -292,7 +292,7 @@ export default function OversightTiersEssay({ onHome }: { onHome: () => void }) 
                   with evidence attached — and it took no new platform, no new tooling, and no
                   confidence score.
                 </p>
-                <p className="text-[13px] text-gray-700">
+                <p className="text-[13px] text-[rgb(var(--c-copy))]">
                   Related:{" "}
                   <a
                     href="/writing/ai-control-crosswalk"
@@ -316,7 +316,7 @@ export default function OversightTiersEssay({ onHome }: { onHome: () => void }) 
 
           <nav
             aria-label="On this page"
-            className="hidden lg:block sticky top-24 self-start h-max rounded-xl border border-gray-200 bg-white p-5"
+            className="hidden lg:block sticky top-24 self-start h-max rounded-xl border border-[rgb(var(--c-line))] bg-[rgb(var(--c-paper))] p-5"
           >
             <h2 className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[rgb(var(--c-accent-on-light))] mb-3">
               On this page
@@ -326,9 +326,9 @@ export default function OversightTiersEssay({ onHome }: { onHome: () => void }) 
                 <li key={s.id}>
                   <a
                     href={`#${s.id}`}
-                    className="flex gap-2 text-[13px] text-gray-800 hover:text-[rgb(var(--c-primary))] underline-offset-4 hover:underline rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))]"
+                    className="flex gap-2 text-[13px] text-[rgb(var(--c-ink))] hover:text-[rgb(var(--c-primary))] underline-offset-4 hover:underline rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))]"
                   >
-                    <span aria-hidden="true" className="font-mono text-[11px] text-gray-700">
+                    <span aria-hidden="true" className="font-mono text-[11px] text-[rgb(var(--c-copy))]">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     {s.label}

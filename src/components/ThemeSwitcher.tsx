@@ -70,9 +70,9 @@ export default function ThemeSwitcher() {
         <div
           role="menu"
           aria-label="Color themes"
-          className="absolute bottom-14 right-0 w-60 max-w-[80vw] rounded-2xl border border-gray-200 bg-white p-2 shadow-2xl"
+          className="absolute bottom-14 right-0 w-60 max-w-[80vw] rounded-2xl border border-[rgb(var(--c-line))] bg-[rgb(var(--c-paper))] p-2 shadow-2xl"
         >
-          <p className="px-2 py-1.5 text-xs font-semibold uppercase tracking-wide text-gray-700">
+          <p className="px-2 py-1.5 text-xs font-semibold uppercase tracking-wide text-[rgb(var(--c-copy))]">
             Choose a theme
           </p>
           <ul className="list-none p-0 m-0 max-h-[60vh] overflow-y-auto">
@@ -85,13 +85,13 @@ export default function ThemeSwitcher() {
                   onClick={() => select(t.id)}
                   className={`flex w-full items-center gap-3 rounded-xl px-2.5 py-2 text-left text-sm transition-colors min-h-[44px] ${
                     active === t.id
-                      ? "bg-gray-100 font-semibold text-gray-900"
-                      : "text-gray-700 hover:bg-gray-50"
+                      ? "bg-[rgb(var(--c-tint-100))] font-semibold text-[rgb(var(--c-ink))]"
+                      : "text-[rgb(var(--c-copy))] hover:bg-[rgb(var(--c-tint-50))]"
                   }`}
                 >
                   <span
                     aria-hidden="true"
-                    className="flex h-6 w-6 shrink-0 overflow-hidden rounded-full ring-1 ring-black/10"
+                    className="flex h-6 w-6 shrink-0 overflow-hidden rounded-full ring-1 ring-[rgb(var(--c-ink)/0.1)]"
                   >
                     <span className="h-full w-1/2" style={{ background: t.swatch[0] }} />
                     <span className="h-full w-1/2" style={{ background: t.swatch[1] }} />
@@ -114,7 +114,7 @@ export default function ThemeSwitcher() {
         aria-haspopup="menu"
         aria-expanded={open}
         aria-label="Change color theme"
-        className="flex h-12 w-12 items-center justify-center rounded-full bg-[rgb(var(--c-primary))] text-white shadow-xl ring-1 ring-black/10 transition-transform hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent))] focus-visible:ring-offset-2"
+        className="flex h-12 w-12 items-center justify-center rounded-full bg-[rgb(var(--c-primary))] text-[rgb(var(--c-paper))] shadow-xl ring-1 ring-[rgb(var(--c-ink)/0.1)] transition-transform hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent))] focus-visible:ring-offset-2"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

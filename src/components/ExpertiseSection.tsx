@@ -206,7 +206,7 @@ const DOMAINS: Domain[] = [
 
 function DomainModalBody({ domain }: { domain: Domain }) {
   return (
-    <DialogContent className="max-w-xl p-0 gap-0 overflow-hidden border border-[rgb(var(--c-primary)/0.2)] bg-white">
+    <DialogContent className="max-w-xl p-0 gap-0 overflow-hidden border border-[rgb(var(--c-primary)/0.2)] bg-[rgb(var(--c-paper))]">
       <div className="flex items-start gap-3 p-5 border-b border-[rgb(var(--c-primary)/0.1)] bg-[rgb(var(--c-tint-50))]">
         <span
           aria-hidden="true"
@@ -215,25 +215,25 @@ function DomainModalBody({ domain }: { domain: Domain }) {
           <span className="h-5 w-5 block">{domain.icon}</span>
         </span>
         <DialogHeader className="text-left space-y-1">
-          <DialogTitle className="text-lg font-bold text-gray-900 tracking-tight leading-snug">
+          <DialogTitle className="text-lg font-bold text-[rgb(var(--c-ink))] tracking-tight leading-snug">
             {domain.title}
           </DialogTitle>
-          <DialogDescription className="text-sm text-gray-700 leading-snug">
+          <DialogDescription className="text-sm text-[rgb(var(--c-copy))] leading-snug">
             {domain.tagline}
           </DialogDescription>
         </DialogHeader>
       </div>
 
       <div className="p-5 space-y-4">
-        <p className="text-sm text-gray-700 leading-snug">{domain.summary}</p>
+        <p className="text-sm text-[rgb(var(--c-copy))] leading-snug">{domain.summary}</p>
 
         <div>
-          <p className="text-[11px] font-bold uppercase tracking-wide text-gray-700 mb-1.5">
+          <p className="text-[11px] font-bold uppercase tracking-wide text-[rgb(var(--c-copy))] mb-1.5">
             What I bring
           </p>
           <ul className="list-none p-0 m-0 space-y-1">
             {domain.capabilities.map((c) => (
-              <li key={c} className="flex items-start gap-2 text-sm text-gray-700">
+              <li key={c} className="flex items-start gap-2 text-sm text-[rgb(var(--c-copy))]">
                 <span
                   aria-hidden="true"
                   className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[rgb(var(--c-accent))]"
@@ -245,7 +245,7 @@ function DomainModalBody({ domain }: { domain: Domain }) {
         </div>
 
         <div>
-          <p className="text-[11px] font-bold uppercase tracking-wide text-gray-700 mb-1.5">
+          <p className="text-[11px] font-bold uppercase tracking-wide text-[rgb(var(--c-copy))] mb-1.5">
             Live examples & impact
           </p>
           <ul className="list-none p-0 m-0 space-y-2">
@@ -254,8 +254,8 @@ function DomainModalBody({ domain }: { domain: Domain }) {
                 key={ex.title}
                 className="rounded-md border-l-2 border-[rgb(var(--c-accent))] bg-[rgb(var(--c-tint-50))] pl-3 py-1.5 pr-3"
               >
-                <p className="font-semibold text-gray-900 text-sm leading-snug">{ex.title}</p>
-                <p className="text-gray-700 text-[13px] mt-0.5 leading-snug">{ex.detail}</p>
+                <p className="font-semibold text-[rgb(var(--c-ink))] text-sm leading-snug">{ex.title}</p>
+                <p className="text-[rgb(var(--c-copy))] text-[13px] mt-0.5 leading-snug">{ex.detail}</p>
               </li>
             ))}
           </ul>
@@ -270,7 +270,7 @@ function DomainModalBody({ domain }: { domain: Domain }) {
               <div className="text-sm font-extrabold text-[rgb(var(--c-accent-on-light))] leading-tight">
                 {m.value}
               </div>
-              <div className="text-[11px] text-gray-700 mt-0 leading-tight">{m.label}</div>
+              <div className="text-[11px] text-[rgb(var(--c-copy))] mt-0 leading-tight">{m.label}</div>
             </div>
           ))}
         </div>
@@ -283,7 +283,7 @@ function ExpertiseCard({ d, isLast, trigger }: { d: Domain; isLast: boolean; tri
   return (
     <article
       aria-labelledby={`${d.id}-title`}
-      className={`flex h-full flex-col rounded-xl border bg-white border-[rgb(var(--c-primary)/0.3)] shadow-md ${isLast ? "md:col-span-2 lg:col-span-1" : ""}`}
+      className={`flex h-full flex-col rounded-xl border bg-[rgb(var(--c-paper))] border-[rgb(var(--c-primary)/0.3)] shadow-md ${isLast ? "md:col-span-2 lg:col-span-1" : ""}`}
     >
       <div className="flex w-full items-start gap-3 p-4 text-left">
         <span
@@ -293,10 +293,10 @@ function ExpertiseCard({ d, isLast, trigger }: { d: Domain; isLast: boolean; tri
           <span className="h-5 w-5 block">{d.icon}</span>
         </span>
         <div className="flex-1">
-          <h3 id={`${d.id}-title`} className="font-bold text-gray-900 text-base leading-snug m-0">
+          <h3 id={`${d.id}-title`} className="font-bold text-[rgb(var(--c-ink))] text-base leading-snug m-0">
             {d.title}
           </h3>
-          <p className="text-gray-700 text-sm mt-0.5 leading-snug">{d.tagline}</p>
+          <p className="text-[rgb(var(--c-copy))] text-sm mt-0.5 leading-snug">{d.tagline}</p>
         </div>
       </div>
 
@@ -310,7 +310,7 @@ function ExpertiseCard({ d, isLast, trigger }: { d: Domain; isLast: boolean; tri
               <div className="text-sm font-extrabold text-[rgb(var(--c-accent-on-light))] leading-tight">
                 {m.value}
               </div>
-              <div className="text-[11px] text-gray-700 mt-0 leading-tight">{m.label}</div>
+              <div className="text-[11px] text-[rgb(var(--c-copy))] mt-0 leading-tight">{m.label}</div>
             </div>
           ))}
         </div>
@@ -356,11 +356,11 @@ export default function ExpertiseSection() {
         <SectionIndex n="13" label="Domain Expertise" />
         <h2
           id="expertise-heading"
-          className="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-2 tracking-tight"
+          className="text-2xl sm:text-3xl font-extrabold text-[rgb(var(--c-ink))] mb-2 tracking-tight"
         >
           Forward-deployed expertise for safe, compliant, human-centered AI
         </h2>
-        <p className="text-gray-700 text-sm sm:text-base mb-6 max-w-2xl leading-snug">
+        <p className="text-[rgb(var(--c-copy))] text-sm sm:text-base mb-6 max-w-2xl leading-snug">
           These five disciplines are the toolkit I bring inside delivery teams — from the research
           that frames the problem, to the design and code that ships, to the governance that
           keeps it safe and compliant. Click any discipline for capabilities and live impact.

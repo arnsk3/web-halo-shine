@@ -191,11 +191,11 @@ const OUTCOMES = [
 
 function DefGrid({ items }: { items: readonly (readonly [string, string])[] }) {
   return (
-    <dl className="grid gap-px overflow-hidden rounded-lg border border-gray-200 bg-gray-200 sm:grid-cols-2">
+    <dl className="grid gap-px overflow-hidden rounded-lg border border-[rgb(var(--c-line))] bg-[rgb(var(--c-line))] sm:grid-cols-2">
       {items.map(([term, description]) => (
-        <div key={term} className="bg-white p-5">
-          <dt className="font-bold text-gray-900 mb-1">{term}</dt>
-          <dd className="text-sm text-gray-700 leading-relaxed">{description}</dd>
+        <div key={term} className="bg-[rgb(var(--c-paper))] p-5">
+          <dt className="font-bold text-[rgb(var(--c-ink))] mb-1">{term}</dt>
+          <dd className="text-sm text-[rgb(var(--c-copy))] leading-relaxed">{description}</dd>
         </div>
       ))}
     </dl>
@@ -223,7 +223,7 @@ const TOC = [
 export default function AIGovernanceCaseStudy({ onHome }: { onHome: () => void }) {
   return (
     <div>
-      <header className="relative overflow-hidden bg-gradient-to-br from-[rgb(var(--c-hero-dark))] via-[rgb(var(--c-primary))] to-[rgb(var(--c-accent))] text-white">
+      <header className="relative overflow-hidden bg-gradient-to-br from-[rgb(var(--c-hero-dark))] via-[rgb(var(--c-primary))] to-[rgb(var(--c-accent))] text-[rgb(var(--c-paper))]">
         <div
           aria-hidden="true"
           className="absolute inset-0 opacity-[0.04]"
@@ -234,14 +234,14 @@ export default function AIGovernanceCaseStudy({ onHome }: { onHome: () => void }
         />
         <div className="relative w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2.5rem,5vw,4.5rem)]">
           <nav aria-label="Breadcrumb" className="mb-5">
-            <ol className="flex flex-wrap items-center gap-2 text-sm text-white/85">
+            <ol className="flex flex-wrap items-center gap-2 text-sm text-[rgb(var(--c-paper)/0.85)]">
               <li>
-                <button onClick={onHome} className="inline-flex items-center min-h-[44px] rounded px-1 underline underline-offset-4 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))]">
+                <button onClick={onHome} className="inline-flex items-center min-h-[44px] rounded px-1 underline underline-offset-4 hover:text-[rgb(var(--c-paper))] focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))]">
                   Home
                 </button>
               </li>
               <li aria-hidden="true">/</li>
-              <li><span aria-current="page" className="font-medium text-white">AI Governance case study</span></li>
+              <li><span aria-current="page" className="font-medium text-[rgb(var(--c-paper))]">AI Governance case study</span></li>
             </ol>
           </nav>
           <p className="text-[rgb(var(--c-accent-on-dark))] text-xs font-semibold tracking-[2px] uppercase mb-3">
@@ -250,14 +250,14 @@ export default function AIGovernanceCaseStudy({ onHome }: { onHome: () => void }
           <h1 className="max-w-4xl text-3xl sm:text-5xl font-extrabold leading-tight mb-5">
             Designing the Last Mile of AI Governance
           </h1>
-          <p className="max-w-3xl text-white/90 text-base sm:text-lg leading-relaxed mb-8">
+          <p className="max-w-3xl text-[rgb(var(--c-paper)/0.9)] text-base sm:text-lg leading-relaxed mb-8">
             A practical operating model that translates NIST AI RMF obligations into product controls,
             review gates, evaluation criteria, and evidence teams can use throughout the AI lifecycle.
           </p>
           <dl className="grid max-w-4xl gap-5 sm:grid-cols-3 text-sm">
-            <div><dt className="text-white/80">Role</dt><dd className="font-semibold mt-1">AI Governance &amp; Experience Design Lead</dd></div>
-            <div><dt className="text-white/80">Format</dt><dd className="font-semibold mt-1">Self-initiated framework synthesis</dd></div>
-            <div><dt className="text-white/80">Frameworks</dt><dd className="font-semibold mt-1">NIST AI RMF · ISO/IEC 42001 · WCAG 2.2</dd></div>
+            <div><dt className="text-[rgb(var(--c-paper)/0.8)]">Role</dt><dd className="font-semibold mt-1">AI Governance &amp; Experience Design Lead</dd></div>
+            <div><dt className="text-[rgb(var(--c-paper)/0.8)]">Format</dt><dd className="font-semibold mt-1">Self-initiated framework synthesis</dd></div>
+            <div><dt className="text-[rgb(var(--c-paper)/0.8)]">Frameworks</dt><dd className="font-semibold mt-1">NIST AI RMF · ISO/IEC 42001 · WCAG 2.2</dd></div>
           </dl>
         </div>
       </header>
@@ -271,8 +271,8 @@ export default function AIGovernanceCaseStudy({ onHome }: { onHome: () => void }
         <div className="max-w-4xl space-y-14">
           <section aria-labelledby="aigc-problem">
             <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[rgb(var(--c-accent-on-light))] mb-2">01 · Problem</p>
-            <h2 id="aigc-problem" className="font-display text-2xl font-extrabold text-gray-900 mb-4">Policy was not reaching the point of decision.</h2>
-            <div className="space-y-4 text-gray-700 leading-relaxed">
+            <h2 id="aigc-problem" className="font-display text-2xl font-extrabold text-[rgb(var(--c-ink))] mb-4">Policy was not reaching the point of decision.</h2>
+            <div className="space-y-4 text-[rgb(var(--c-copy))] leading-relaxed">
               <p>Governance programs often produce policies, inventories, and review boards while leaving the product team to interpret what those requirements mean inside a workflow. The gap appears at the exact moment risk becomes real: when a person receives, approves, corrects, or acts on an AI output.</p>
               <p>The design challenge was to create a repeatable bridge between enterprise obligations and delivery behavior—without turning every release into a bespoke compliance exercise or reducing oversight to a checkbox.</p>
             </div>
@@ -280,29 +280,29 @@ export default function AIGovernanceCaseStudy({ onHome }: { onHome: () => void }
 
           <section aria-labelledby="aigc-context">
             <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[rgb(var(--c-accent-on-light))] mb-2">02 · Context</p>
-            <h2 id="aigc-context" className="font-display text-2xl font-extrabold text-gray-900 mb-4">Grounded in regulated delivery, presented as an honest synthesis.</h2>
-            <p className="text-gray-700 leading-relaxed mb-5">This in-house case study synthesizes patterns from federal accessibility governance, safety-critical healthcare human factors, financial-services risk work, and the TrustLens product concept. It does not represent a single client engagement. Client-sensitive details are intentionally excluded; the operating decisions, artifacts, and control logic are recreated to show how I would lead the work.</p>
+            <h2 id="aigc-context" className="font-display text-2xl font-extrabold text-[rgb(var(--c-ink))] mb-4">Grounded in regulated delivery, presented as an honest synthesis.</h2>
+            <p className="text-[rgb(var(--c-copy))] leading-relaxed mb-5">This in-house case study synthesizes patterns from federal accessibility governance, safety-critical healthcare human factors, financial-services risk work, and the TrustLens product concept. It does not represent a single client engagement. Client-sensitive details are intentionally excluded; the operating decisions, artifacts, and control logic are recreated to show how I would lead the work.</p>
             <ul className="grid gap-3 sm:grid-cols-2 list-none p-0 m-0">
               {["18+ years in regulated product environments", "7+ years leading compliance, risk, and advisory programs", "$130M federal program portfolio leadership", "Cross-functional teams scaled to 15+"].map((item) => (
-                <li key={item} className="border-l-2 border-[rgb(var(--c-accent))] bg-[rgb(var(--c-tint-50))] px-4 py-3 text-sm font-semibold text-gray-800">{item}</li>
+                <li key={item} className="border-l-2 border-[rgb(var(--c-accent))] bg-[rgb(var(--c-tint-50))] px-4 py-3 text-sm font-semibold text-[rgb(var(--c-ink))]">{item}</li>
               ))}
             </ul>
           </section>
 
           <section aria-labelledby="aigc-approach">
             <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[rgb(var(--c-accent-on-light))] mb-2">03 · Approach</p>
-            <h2 id="aigc-approach" className="font-display text-2xl font-extrabold text-gray-900 mb-6">NIST AI RMF as a delivery loop</h2>
+            <h2 id="aigc-approach" className="font-display text-2xl font-extrabold text-[rgb(var(--c-ink))] mb-6">NIST AI RMF as a delivery loop</h2>
             <ol className="grid gap-4 list-none p-0 m-0">
               {RMF_WORK.map((item, index) => (
-                <li key={item.name} className="rounded-lg border border-gray-200 bg-white p-5 sm:p-6">
+                <li key={item.name} className="rounded-lg border border-[rgb(var(--c-line))] bg-[rgb(var(--c-paper))] p-5 sm:p-6">
                   <div className="flex items-start gap-4">
-                    <span aria-hidden="true" className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-[rgb(var(--c-primary))] text-white text-sm font-bold">{index + 1}</span>
+                    <span aria-hidden="true" className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-[rgb(var(--c-primary))] text-[rgb(var(--c-paper))] text-sm font-bold">{index + 1}</span>
                     <div>
-                      <h3 className="font-display text-lg font-bold text-gray-900">{item.name}</h3>
+                      <h3 className="font-display text-lg font-bold text-[rgb(var(--c-ink))]">{item.name}</h3>
                       <p className="text-sm font-semibold text-[rgb(var(--c-accent-on-light))] mt-1 mb-2">{item.question}</p>
-                      <p className="text-sm text-gray-700 leading-relaxed mb-3">{item.detail}</p>
+                      <p className="text-sm text-[rgb(var(--c-copy))] leading-relaxed mb-3">{item.detail}</p>
                       <ul className="flex flex-wrap gap-2 list-none p-0 m-0" aria-label={`${item.name} artifacts`}>
-                        {item.evidence.map((evidence) => <li key={evidence} className="rounded-full border border-gray-200 bg-[rgb(var(--c-tint-50))] px-3 py-1 text-[11px] font-semibold text-gray-700">{evidence}</li>)}
+                        {item.evidence.map((evidence) => <li key={evidence} className="rounded-full border border-[rgb(var(--c-line))] bg-[rgb(var(--c-tint-50))] px-3 py-1 text-[11px] font-semibold text-[rgb(var(--c-copy))]">{evidence}</li>)}
                       </ul>
                     </div>
                   </div>
@@ -313,24 +313,24 @@ export default function AIGovernanceCaseStudy({ onHome }: { onHome: () => void }
 
           <section aria-labelledby="aigc-controls">
             <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[rgb(var(--c-accent-on-light))] mb-2">04 · Control design</p>
-            <h2 id="aigc-controls" className="font-display text-2xl font-extrabold text-gray-900 mb-3">Controls become interface behavior.</h2>
-            <p className="text-gray-700 leading-relaxed mb-6">Each control is specified as a user-visible behavior, an accountable owner, a test, and retained evidence. That structure makes control effectiveness reviewable by design, engineering, risk, and audit.</p>
-            <dl className="grid gap-px overflow-hidden rounded-lg border border-gray-200 bg-gray-200 sm:grid-cols-2">
+            <h2 id="aigc-controls" className="font-display text-2xl font-extrabold text-[rgb(var(--c-ink))] mb-3">Controls become interface behavior.</h2>
+            <p className="text-[rgb(var(--c-copy))] leading-relaxed mb-6">Each control is specified as a user-visible behavior, an accountable owner, a test, and retained evidence. That structure makes control effectiveness reviewable by design, engineering, risk, and audit.</p>
+            <dl className="grid gap-px overflow-hidden rounded-lg border border-[rgb(var(--c-line))] bg-[rgb(var(--c-line))] sm:grid-cols-2">
               {CONTROLS.map(([term, description]) => (
-                <div key={term} className="bg-white p-5"><dt className="font-bold text-gray-900 mb-1">{term}</dt><dd className="text-sm text-gray-700 leading-relaxed">{description}</dd></div>
+                <div key={term} className="bg-[rgb(var(--c-paper))] p-5"><dt className="font-bold text-[rgb(var(--c-ink))] mb-1">{term}</dt><dd className="text-sm text-[rgb(var(--c-copy))] leading-relaxed">{description}</dd></div>
               ))}
             </dl>
           </section>
 
           <section aria-labelledby="aigc-crosswalk">
             <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[rgb(var(--c-accent-on-light))] mb-2">05 · Framework crosswalk</p>
-            <h2 id="aigc-crosswalk" className="font-display text-2xl font-extrabold text-gray-900 mb-3">One control set, three regimes.</h2>
-            <p className="text-gray-700 leading-relaxed mb-6">ISO/IEC 42001, the NIST AI RMF, and the EU AI Act overlap heavily. Rather than running three parallel compliance efforts, I map a single control library to all three so one piece of evidence satisfies multiple reviewers. This is the artifact that shortens audits.</p>
-            <div className="overflow-x-auto rounded-lg border border-gray-200">
+            <h2 id="aigc-crosswalk" className="font-display text-2xl font-extrabold text-[rgb(var(--c-ink))] mb-3">One control set, three regimes.</h2>
+            <p className="text-[rgb(var(--c-copy))] leading-relaxed mb-6">ISO/IEC 42001, the NIST AI RMF, and the EU AI Act overlap heavily. Rather than running three parallel compliance efforts, I map a single control library to all three so one piece of evidence satisfies multiple reviewers. This is the artifact that shortens audits.</p>
+            <div className="overflow-x-auto rounded-lg border border-[rgb(var(--c-line))]">
               <table className="w-full min-w-[720px] border-collapse text-left text-sm">
                 <caption className="sr-only">Crosswalk of internal AI controls to ISO/IEC 42001, NIST AI RMF, and EU AI Act requirements</caption>
                 <thead>
-                  <tr className="bg-[rgb(var(--c-primary))] text-white">
+                  <tr className="bg-[rgb(var(--c-primary))] text-[rgb(var(--c-paper))]">
                     <th scope="col" className="px-4 py-3 font-semibold">Control</th>
                     <th scope="col" className="px-4 py-3 font-semibold">ISO/IEC 42001</th>
                     <th scope="col" className="px-4 py-3 font-semibold">NIST AI RMF</th>
@@ -339,11 +339,11 @@ export default function AIGovernanceCaseStudy({ onHome }: { onHome: () => void }
                 </thead>
                 <tbody>
                   {CROSSWALK.map((row, i) => (
-                    <tr key={row.control} className={i % 2 ? "bg-[rgb(var(--c-tint-50))]" : "bg-white"}>
-                      <th scope="row" className="px-4 py-3 align-top font-semibold text-gray-900">{row.control}</th>
-                      <td className="px-4 py-3 align-top text-gray-700">{row.iso}</td>
-                      <td className="px-4 py-3 align-top text-gray-700">{row.nist}</td>
-                      <td className="px-4 py-3 align-top text-gray-700">{row.eu}</td>
+                    <tr key={row.control} className={i % 2 ? "bg-[rgb(var(--c-tint-50))]" : "bg-[rgb(var(--c-paper))]"}>
+                      <th scope="row" className="px-4 py-3 align-top font-semibold text-[rgb(var(--c-ink))]">{row.control}</th>
+                      <td className="px-4 py-3 align-top text-[rgb(var(--c-copy))]">{row.iso}</td>
+                      <td className="px-4 py-3 align-top text-[rgb(var(--c-copy))]">{row.nist}</td>
+                      <td className="px-4 py-3 align-top text-[rgb(var(--c-copy))]">{row.eu}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -353,16 +353,16 @@ export default function AIGovernanceCaseStudy({ onHome }: { onHome: () => void }
 
           <section aria-labelledby="aigc-euaia">
             <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[rgb(var(--c-accent-on-light))] mb-2">06 · EU AI Act readiness</p>
-            <h2 id="aigc-euaia" className="font-display text-2xl font-extrabold text-gray-900 mb-3">Classification first, obligations second.</h2>
-            <p className="text-gray-700 leading-relaxed mb-6">Every use case is triaged into a risk class at intake, because the class determines the entire downstream obligation set. High-risk application dates land across 2026–27, so classification decisions made now determine whether a product ships or stalls.</p>
+            <h2 id="aigc-euaia" className="font-display text-2xl font-extrabold text-[rgb(var(--c-ink))] mb-3">Classification first, obligations second.</h2>
+            <p className="text-[rgb(var(--c-copy))] leading-relaxed mb-6">Every use case is triaged into a risk class at intake, because the class determines the entire downstream obligation set. High-risk application dates land across 2026–27, so classification decisions made now determine whether a product ships or stalls.</p>
             <DefGrid items={EU_TIERS} />
             <div className="mt-6 grid gap-4 sm:grid-cols-2">
               {EU_DUTIES.map((d) => (
-                <div key={d.role} className="rounded-lg border border-gray-200 bg-white p-5">
-                  <h3 className="font-display text-lg font-bold text-gray-900 mb-3">{d.role}</h3>
+                <div key={d.role} className="rounded-lg border border-[rgb(var(--c-line))] bg-[rgb(var(--c-paper))] p-5">
+                  <h3 className="font-display text-lg font-bold text-[rgb(var(--c-ink))] mb-3">{d.role}</h3>
                   <ul className="space-y-2 list-none p-0 m-0">
                     {d.items.map((i) => (
-                      <li key={i} className="flex gap-2 text-sm text-gray-700 leading-relaxed"><span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[rgb(var(--c-accent))]" />{i}</li>
+                      <li key={i} className="flex gap-2 text-sm text-[rgb(var(--c-copy))] leading-relaxed"><span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[rgb(var(--c-accent))]" />{i}</li>
                     ))}
                   </ul>
                 </div>
@@ -372,94 +372,94 @@ export default function AIGovernanceCaseStudy({ onHome }: { onHome: () => void }
 
           <section aria-labelledby="aigc-registry">
             <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[rgb(var(--c-accent-on-light))] mb-2">07 · Inventory &amp; registry</p>
-            <h2 id="aigc-registry" className="font-display text-2xl font-extrabold text-gray-900 mb-3">You cannot govern what you have not inventoried.</h2>
-            <p className="text-gray-700 leading-relaxed mb-6">The registry is the backbone of the program: intake creates the record, classification sets the obligations, and every later artifact links back to it. It is also what turns board reporting from anecdote into portfolio data.</p>
+            <h2 id="aigc-registry" className="font-display text-2xl font-extrabold text-[rgb(var(--c-ink))] mb-3">You cannot govern what you have not inventoried.</h2>
+            <p className="text-[rgb(var(--c-copy))] leading-relaxed mb-6">The registry is the backbone of the program: intake creates the record, classification sets the obligations, and every later artifact links back to it. It is also what turns board reporting from anecdote into portfolio data.</p>
             <DefGrid items={REGISTRY_FIELDS} />
           </section>
 
           <section aria-labelledby="aigc-thirdparty">
             <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[rgb(var(--c-accent-on-light))] mb-2">08 · Third-party &amp; shadow AI</p>
-            <h2 id="aigc-thirdparty" className="font-display text-2xl font-extrabold text-gray-900 mb-3">Most AI risk now arrives through procurement.</h2>
-            <p className="text-gray-700 leading-relaxed mb-6">Organizations rarely train their own models. Risk enters through vendors, embedded AI features, and tools staff adopt without approval. Governing the supply chain and the unsanctioned edge is where run-state programs succeed or quietly fail.</p>
+            <h2 id="aigc-thirdparty" className="font-display text-2xl font-extrabold text-[rgb(var(--c-ink))] mb-3">Most AI risk now arrives through procurement.</h2>
+            <p className="text-[rgb(var(--c-copy))] leading-relaxed mb-6">Organizations rarely train their own models. Risk enters through vendors, embedded AI features, and tools staff adopt without approval. Governing the supply chain and the unsanctioned edge is where run-state programs succeed or quietly fail.</p>
             <DefGrid items={THIRD_PARTY} />
           </section>
 
           <section aria-labelledby="aigc-literacy">
             <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[rgb(var(--c-accent-on-light))] mb-2">09 · AI literacy &amp; enablement</p>
-            <h2 id="aigc-literacy" className="font-display text-2xl font-extrabold text-gray-900 mb-3">Controls only hold if people understand them.</h2>
-            <p className="text-gray-700 leading-relaxed mb-6">EU AI Act Article 4 makes AI literacy an explicit duty, and every governance program I have seen stall did so from a change-management failure rather than a technical one. Training is layered by decision authority, not delivered as one generic course.</p>
+            <h2 id="aigc-literacy" className="font-display text-2xl font-extrabold text-[rgb(var(--c-ink))] mb-3">Controls only hold if people understand them.</h2>
+            <p className="text-[rgb(var(--c-copy))] leading-relaxed mb-6">EU AI Act Article 4 makes AI literacy an explicit duty, and every governance program I have seen stall did so from a change-management failure rather than a technical one. Training is layered by decision authority, not delivered as one generic course.</p>
             <DefGrid items={LITERACY} />
           </section>
 
           <section aria-labelledby="aigc-incident">
             <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[rgb(var(--c-accent-on-light))] mb-2">10 · Incidents &amp; post-market monitoring</p>
-            <h2 id="aigc-incident" className="font-display text-2xl font-extrabold text-gray-900 mb-3">Launch is the start of the obligation, not the end.</h2>
-            <p className="text-gray-700 leading-relaxed mb-6">Post-market monitoring and serious-incident reporting are explicit regulatory duties. The workflow has to be defined before the first incident, with named owners, thresholds, and clocks that a regulator can inspect.</p>
+            <h2 id="aigc-incident" className="font-display text-2xl font-extrabold text-[rgb(var(--c-ink))] mb-3">Launch is the start of the obligation, not the end.</h2>
+            <p className="text-[rgb(var(--c-copy))] leading-relaxed mb-6">Post-market monitoring and serious-incident reporting are explicit regulatory duties. The workflow has to be defined before the first incident, with named owners, thresholds, and clocks that a regulator can inspect.</p>
             <DefGrid items={INCIDENT} />
           </section>
 
           <section aria-labelledby="aigc-state">
             <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[rgb(var(--c-accent-on-light))] mb-2">11 · U.S. state patchwork</p>
-            <h2 id="aigc-state" className="font-display text-2xl font-extrabold text-gray-900 mb-3">Federal posture is not the whole map.</h2>
-            <p className="text-gray-700 leading-relaxed mb-6">Alongside the 2025–26 federal framework and OMB M-25-21/22 for agency use, state law drives concrete product requirements. Multi-state deployers need the strictest-common-denominator control set rather than fifty variants.</p>
+            <h2 id="aigc-state" className="font-display text-2xl font-extrabold text-[rgb(var(--c-ink))] mb-3">Federal posture is not the whole map.</h2>
+            <p className="text-[rgb(var(--c-copy))] leading-relaxed mb-6">Alongside the 2025–26 federal framework and OMB M-25-21/22 for agency use, state law drives concrete product requirements. Multi-state deployers need the strictest-common-denominator control set rather than fifty variants.</p>
             <DefGrid items={STATE_LAWS} />
           </section>
 
           <section aria-labelledby="aigc-agentic">
             <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[rgb(var(--c-accent-on-light))] mb-2">12 · Agentic AI governance</p>
-            <h2 id="aigc-agentic" className="font-display text-2xl font-extrabold text-gray-900 mb-3">Autonomy is the new risk variable.</h2>
-            <p className="text-gray-700 leading-relaxed mb-6">When a system can take action rather than recommend one, the governing question shifts from "is the output correct?" to "what is this system permitted to do, and who can stop it?" These controls are prototyped in the Sentinel concept.</p>
+            <h2 id="aigc-agentic" className="font-display text-2xl font-extrabold text-[rgb(var(--c-ink))] mb-3">Autonomy is the new risk variable.</h2>
+            <p className="text-[rgb(var(--c-copy))] leading-relaxed mb-6">When a system can take action rather than recommend one, the governing question shifts from "is the output correct?" to "what is this system permitted to do, and who can stop it?" These controls are prototyped in the Sentinel concept.</p>
             <DefGrid items={AGENTIC} />
           </section>
 
           <section aria-labelledby="aigc-tooling">
             <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[rgb(var(--c-accent-on-light))] mb-2">13 · Tooling</p>
-            <h2 id="aigc-tooling" className="font-display text-2xl font-extrabold text-gray-900 mb-3">Platform-literate, platform-agnostic.</h2>
-            <p className="text-gray-700 leading-relaxed mb-6">Tooling should encode the operating model, not define it. I design the control set first, then evaluate which platform can carry the registry, assessments, evidence, and reporting with the least manual overhead.</p>
+            <h2 id="aigc-tooling" className="font-display text-2xl font-extrabold text-[rgb(var(--c-ink))] mb-3">Platform-literate, platform-agnostic.</h2>
+            <p className="text-[rgb(var(--c-copy))] leading-relaxed mb-6">Tooling should encode the operating model, not define it. I design the control set first, then evaluate which platform can carry the registry, assessments, evidence, and reporting with the least manual overhead.</p>
             <DefGrid items={TOOLING} />
           </section>
 
           <section aria-labelledby="aigc-scope">
             <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[rgb(var(--c-accent-on-light))] mb-2">14 · Program scope</p>
-            <h2 id="aigc-scope" className="font-display text-2xl font-extrabold text-gray-900 mb-4">Reference framework, by the numbers.</h2>
+            <h2 id="aigc-scope" className="font-display text-2xl font-extrabold text-[rgb(var(--c-ink))] mb-4">Reference framework, by the numbers.</h2>
             <dl className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {PROGRAM_SCOPE.map(([n, label]) => (
-                <div key={label} className="rounded-lg border border-gray-200 bg-[rgb(var(--c-tint-50))] p-5">
+                <div key={label} className="rounded-lg border border-[rgb(var(--c-line))] bg-[rgb(var(--c-tint-50))] p-5">
                   <dt className="sr-only">{label}</dt>
                   <dd>
                     <span className="block font-display text-3xl font-extrabold text-[rgb(var(--c-accent-on-light))]">{n}</span>
-                    <span className="mt-1 block text-sm text-gray-700 leading-snug">{label}</span>
+                    <span className="mt-1 block text-sm text-[rgb(var(--c-copy))] leading-snug">{label}</span>
                   </dd>
                 </div>
               ))}
             </dl>
-            <p className="mt-4 text-sm text-gray-600">These describe the size of the reference framework itself, not client outcomes.</p>
+            <p className="mt-4 text-sm text-[rgb(var(--c-copy))]">These describe the size of the reference framework itself, not client outcomes.</p>
           </section>
 
           <section aria-labelledby="aigc-outcome">
             <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[rgb(var(--c-accent-on-light))] mb-2">15 · Outcome</p>
 
-            <h2 id="aigc-outcome" className="font-display text-2xl font-extrabold text-gray-900 mb-4">A governance system teams can operate.</h2>
+            <h2 id="aigc-outcome" className="font-display text-2xl font-extrabold text-[rgb(var(--c-ink))] mb-4">A governance system teams can operate.</h2>
             <ul className="space-y-3 list-none p-0 m-0">
-              {OUTCOMES.map((outcome) => <li key={outcome} className="flex gap-3 text-gray-700 leading-relaxed"><span aria-hidden="true" className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[rgb(var(--c-accent))]" />{outcome}</li>)}
+              {OUTCOMES.map((outcome) => <li key={outcome} className="flex gap-3 text-[rgb(var(--c-copy))] leading-relaxed"><span aria-hidden="true" className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[rgb(var(--c-accent))]" />{outcome}</li>)}
             </ul>
-            <p className="mt-5 text-sm text-gray-600">Because this is a framework synthesis rather than a single production engagement, no invented performance metrics are presented. Target measures would be established during discovery and validated in operation.</p>
+            <p className="mt-5 text-sm text-[rgb(var(--c-copy))]">Because this is a framework synthesis rather than a single production engagement, no invented performance metrics are presented. Target measures would be established during discovery and validated in operation.</p>
           </section>
 
-          <section aria-labelledby="aigc-demonstrates" className="rounded-lg bg-[rgb(var(--c-primary))] p-6 sm:p-8 text-white">
+          <section aria-labelledby="aigc-demonstrates" className="rounded-lg bg-[rgb(var(--c-primary))] p-6 sm:p-8 text-[rgb(var(--c-paper))]">
             <h2 id="aigc-demonstrates" className="font-display text-2xl font-extrabold mb-3">What this demonstrates</h2>
-            <p className="text-white/90 leading-relaxed mb-5">The work connects governance strategy, human factors, experience design, technical delivery, and assurance. It shows how I lead across executives, product, engineering, legal, privacy, security, model risk, and audit while keeping the control usable at the point of work.</p>
+            <p className="text-[rgb(var(--c-paper)/0.9)] leading-relaxed mb-5">The work connects governance strategy, human factors, experience design, technical delivery, and assurance. It shows how I lead across executives, product, engineering, legal, privacy, security, model risk, and audit while keeping the control usable at the point of work.</p>
             <div className="flex flex-wrap gap-3">
-              <Link to="/work/trustlens" className="inline-flex min-h-[44px] items-center rounded-md bg-white px-4 py-2 text-sm font-semibold text-[rgb(var(--c-primary))] focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))]">See TrustLens product detail →</Link>
-              <button onClick={onHome} className="inline-flex min-h-[44px] items-center rounded-md border border-white/50 px-4 py-2 text-sm font-semibold text-white hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))]">Back to AI Governance</button>
+              <Link to="/work/trustlens" className="inline-flex min-h-[44px] items-center rounded-md bg-[rgb(var(--c-paper))] px-4 py-2 text-sm font-semibold text-[rgb(var(--c-primary))] focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))]">See TrustLens product detail →</Link>
+              <button onClick={onHome} className="inline-flex min-h-[44px] items-center rounded-md border border-[rgb(var(--c-paper)/0.5)] px-4 py-2 text-sm font-semibold text-[rgb(var(--c-paper))] hover:bg-[rgb(var(--c-paper)/0.1)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))]">Back to AI Governance</button>
             </div>
           </section>
 
-          <section aria-labelledby="aigc-artifact" className="rounded-lg border border-gray-200 bg-[rgb(var(--c-tint-50))] p-6 sm:p-8">
-            <h2 id="aigc-artifact" className="font-display text-xl font-extrabold text-gray-900 mb-2">
+          <section aria-labelledby="aigc-artifact" className="rounded-lg border border-[rgb(var(--c-line))] bg-[rgb(var(--c-tint-50))] p-6 sm:p-8">
+            <h2 id="aigc-artifact" className="font-display text-xl font-extrabold text-[rgb(var(--c-ink))] mb-2">
               Take the control library with you
             </h2>
-            <p className="text-gray-700 leading-relaxed mb-5 max-w-2xl">
+            <p className="text-[rgb(var(--c-copy))] leading-relaxed mb-5 max-w-2xl">
               The twelve-control library and its ISO/IEC 42001, NIST AI RMF, and EU AI Act mapping,
               as a one-page PDF you can bring into a review.
             </p>
@@ -467,18 +467,18 @@ export default function AIGovernanceCaseStudy({ onHome }: { onHome: () => void }
               <a
                 href="/Senthil_Nagappan_AI_Control_Library.pdf"
                 download
-                className="inline-flex min-h-[44px] items-center rounded-md bg-[rgb(var(--c-primary))] px-4 py-2 text-sm font-semibold text-white hover:bg-[rgb(var(--c-accent-dark))] focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
+                className="inline-flex min-h-[44px] items-center rounded-md bg-[rgb(var(--c-primary))] px-4 py-2 text-sm font-semibold text-[rgb(var(--c-paper))] hover:bg-[rgb(var(--c-accent-dark))] focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
               >
                 Download the AI control library (PDF)
               </a>
               <Link
                 to="/writing/ai-control-crosswalk"
-                className="inline-flex min-h-[44px] items-center rounded-md border border-[rgb(var(--c-primary)/0.4)] px-4 py-2 text-sm font-semibold text-[rgb(var(--c-primary))] hover:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
+                className="inline-flex min-h-[44px] items-center rounded-md border border-[rgb(var(--c-primary)/0.4)] px-4 py-2 text-sm font-semibold text-[rgb(var(--c-primary))] hover:bg-[rgb(var(--c-paper))] focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
               >
                 Read the crosswalk essay
               </Link>
             </div>
-            <p className="mt-5 text-sm text-gray-700">
+            <p className="mt-5 text-sm text-[rgb(var(--c-copy))]">
               Last reviewed: August 2026. Regulatory references are maintained on a quarterly review
               cadence; this page is a framework synthesis and is not legal advice.
             </p>
@@ -492,12 +492,12 @@ export default function AIGovernanceCaseStudy({ onHome }: { onHome: () => void }
           >
             On this page
           </h2>
-          <ol className="space-y-1 list-none p-0 m-0 border-l border-gray-200">
+          <ol className="space-y-1 list-none p-0 m-0 border-l border-[rgb(var(--c-line))]">
             {TOC.map((t) => (
               <li key={t.id}>
                 <a
                   href={`#${t.id}`}
-                  className="flex min-h-[44px] items-center border-l-2 border-transparent -ml-px pl-4 text-[13px] font-medium text-gray-800 hover:border-[rgb(var(--c-primary))] hover:text-[rgb(var(--c-primary))] rounded-r focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))]"
+                  className="flex min-h-[44px] items-center border-l-2 border-transparent -ml-px pl-4 text-[13px] font-medium text-[rgb(var(--c-ink))] hover:border-[rgb(var(--c-primary))] hover:text-[rgb(var(--c-primary))] rounded-r focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))]"
                 >
                   {t.label}
                 </a>

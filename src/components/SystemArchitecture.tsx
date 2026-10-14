@@ -61,11 +61,11 @@ export default function SystemArchitecture({ n = "02" }: { n?: string }) {
       <SectionIndex n={n} label="System Architecture & Delivery" />
       <h2
         id="architecture-heading"
-        className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2 tracking-tight"
+        className="text-3xl md:text-4xl font-extrabold text-[rgb(var(--c-ink))] mb-2 tracking-tight"
       >
         System architecture &amp; delivery
       </h2>
-      <p className="text-gray-700 text-base mb-8 max-w-3xl">
+      <p className="text-[rgb(var(--c-copy))] text-base mb-8 max-w-3xl">
         How the system works — from the first request to a validated result, with people in control.
       </p>
 
@@ -126,23 +126,23 @@ export default function SystemArchitecture({ n = "02" }: { n?: string }) {
 
       <details className="evidence-disclosure border-t border-[rgb(var(--c-line))]"><summary className="flex min-h-14 cursor-pointer items-center justify-between text-sm font-semibold text-[rgb(var(--c-primary))]">Decision rules & integration evidence<ChevronDown aria-hidden="true" className="disclosure-chevron size-4 transition-transform" /></summary>
       <div className="grid gap-4 mb-8 pt-4 [grid-template-columns:repeat(auto-fit,minmax(min(100%,18rem),1fr))]">
-        <article className="rounded-xl border border-gray-200 bg-[rgb(var(--c-tint-50))] p-5">
-          <h3 className="text-base font-bold text-gray-900 mb-3">Decision-support logic</h3>
+        <article className="rounded-xl border border-[rgb(var(--c-line))] bg-[rgb(var(--c-tint-50))] p-5">
+          <h3 className="text-base font-bold text-[rgb(var(--c-ink))] mb-3">Decision-support logic</h3>
           <dl className="grid gap-3 m-0">
             {DECISION_TIERS.map((t) => (
               <div key={t.k}>
-                <dt className="text-[13px] font-bold text-gray-900">{t.k}</dt>
-                <dd className="m-0 text-[13px] leading-relaxed text-gray-700">{t.b}</dd>
+                <dt className="text-[13px] font-bold text-[rgb(var(--c-ink))]">{t.k}</dt>
+                <dd className="m-0 text-[13px] leading-relaxed text-[rgb(var(--c-copy))]">{t.b}</dd>
               </div>
             ))}
           </dl>
         </article>
         {DELIVERY.map((d) => (
-          <article key={d.h} className="rounded-xl border border-gray-200 bg-white p-5">
-            <h3 className="text-base font-bold text-gray-900 mb-3">{d.h}</h3>
+          <article key={d.h} className="rounded-xl border border-[rgb(var(--c-line))] bg-[rgb(var(--c-paper))] p-5">
+            <h3 className="text-base font-bold text-[rgb(var(--c-ink))] mb-3">{d.h}</h3>
             <ul className="list-none p-0 m-0 grid gap-1.5">
               {d.items.map((i) => (
-                <li key={i} className="text-[13px] text-gray-700 leading-relaxed flex gap-2">
+                <li key={i} className="text-[13px] text-[rgb(var(--c-copy))] leading-relaxed flex gap-2">
                   <span aria-hidden="true" className="text-[rgb(var(--c-accent-on-light))] font-bold">
                     →
                   </span>

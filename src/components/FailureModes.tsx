@@ -60,11 +60,11 @@ export default function FailureModes({ n = "15" }: { n?: string }) {
       <SectionIndex n={n} label="Systems Thinking & Failure Modes" />
       <h2
         id="failure-modes-heading"
-        className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2 tracking-tight"
+        className="text-3xl md:text-4xl font-extrabold text-[rgb(var(--c-ink))] mb-2 tracking-tight"
       >
         Systems thinking &amp; failure modes
       </h2>
-      <p className="text-gray-700 text-base mb-8 max-w-3xl">
+      <p className="text-[rgb(var(--c-copy))] text-base mb-8 max-w-3xl">
         Every system I deploy is designed against how it will fail, not only how it should work.
         Layer, failure mode, detection signal, and containment — written before launch, wired into
         telemetry, and owned after handoff.
@@ -72,26 +72,26 @@ export default function FailureModes({ n = "15" }: { n?: string }) {
 
       <div className="grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(min(100%,20rem),1fr))]">
         {MODES.map((m) => (
-          <article key={m.layer} className="rounded-xl border border-gray-200 bg-white p-5">
-            <h3 className="text-base font-bold text-gray-900 mb-3 leading-snug">{m.layer}</h3>
+          <article key={m.layer} className="rounded-xl border border-[rgb(var(--c-line))] bg-[rgb(var(--c-paper))] p-5">
+            <h3 className="text-base font-bold text-[rgb(var(--c-ink))] mb-3 leading-snug">{m.layer}</h3>
             <dl className="grid gap-2.5 m-0">
               <div>
                 <dt className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[rgb(var(--c-accent-on-light))]">
                   Failure mode
                 </dt>
-                <dd className="m-0 text-[13px] text-gray-700 leading-relaxed">{m.failure}</dd>
+                <dd className="m-0 text-[13px] text-[rgb(var(--c-copy))] leading-relaxed">{m.failure}</dd>
               </div>
               <div>
                 <dt className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[rgb(var(--c-accent-on-light))]">
                   Detection
                 </dt>
-                <dd className="m-0 text-[13px] text-gray-700 leading-relaxed">{m.detect}</dd>
+                <dd className="m-0 text-[13px] text-[rgb(var(--c-copy))] leading-relaxed">{m.detect}</dd>
               </div>
               <div>
                 <dt className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[rgb(var(--c-accent-on-light))]">
                   Containment
                 </dt>
-                <dd className="m-0 text-[13px] text-gray-700 leading-relaxed">{m.contain}</dd>
+                <dd className="m-0 text-[13px] text-[rgb(var(--c-copy))] leading-relaxed">{m.contain}</dd>
               </div>
             </dl>
           </article>

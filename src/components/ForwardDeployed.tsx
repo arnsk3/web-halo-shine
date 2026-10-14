@@ -35,7 +35,7 @@ export function ImpactStrip() {
   return (
     <section
       aria-labelledby="impact-strip-heading"
-      className="border-y border-gray-200 bg-white"
+      className="border-y border-[rgb(var(--c-line))] bg-[rgb(var(--c-paper))]"
     >
       <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-6">
         <h2 id="impact-strip-heading" className="sr-only">
@@ -44,13 +44,13 @@ export function ImpactStrip() {
         <dl className="grid gap-x-6 gap-y-5 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7">
           {IMPACT.map((s) => (
             <div key={s.l} className="min-w-[9rem] flex-1 flex flex-col-reverse">
-              <dt className="block text-[13px] text-gray-700 mt-1 leading-snug">
+              <dt className="block text-[13px] text-[rgb(var(--c-copy))] mt-1 leading-snug">
                 {s.l}
               </dt>
               <dd className="m-0">
                 <span className="block font-display text-2xl font-extrabold text-[rgb(var(--c-primary))] tabular-nums">
                   {s.v}{" "}
-                  <span className="text-sm font-semibold text-gray-700">{s.u}</span>
+                  <span className="text-sm font-semibold text-[rgb(var(--c-copy))]">{s.u}</span>
                 </span>
               </dd>
             </div>
@@ -164,18 +164,18 @@ export function AIDeploymentSection() {
       <SectionIndex n="05" label="Forward-Deployed Experience" />
       <h2
         id="ai-deployment-heading"
-        className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 tracking-tight"
+        className="text-3xl md:text-4xl font-extrabold text-[rgb(var(--c-ink))] mb-4 tracking-tight"
       >
         Forward-Deployed Experience
       </h2>
-      <p className="text-gray-700 text-base leading-relaxed max-w-3xl mb-5">
+      <p className="text-[rgb(var(--c-copy))] text-base leading-relaxed max-w-3xl mb-5">
         I own the full arc of a deployment: discover the real problem on site, prototype against
         the client&rsquo;s own data and systems, integrate through their auth and legacy services,
         ship inside their release train, prove it with evals and telemetry, then harden and hand it
         to their team. Success is the workflow changing — not the pull request merging.
       </p>
-      <p className="text-gray-700 text-base leading-relaxed max-w-3xl mb-8">
-        <span className="font-semibold text-gray-900">What I add to a standard FDE profile: </span>
+      <p className="text-[rgb(var(--c-copy))] text-base leading-relaxed max-w-3xl mb-8">
+        <span className="font-semibold text-[rgb(var(--c-ink))]">What I add to a standard FDE profile: </span>
         the deployments that stall in healthcare, federal, and other regulated environments rarely
         stall on the model. They stall on oversight evidence, use-related risk, accessibility
         obligations, and the security and audit review nobody scoped. I carry those constraints as
@@ -186,49 +186,49 @@ export function AIDeploymentSection() {
       <ul className="grid gap-6 list-none p-0 m-0 [grid-template-columns:repeat(auto-fit,minmax(min(100%,20rem),1fr))]">
         {DEPLOYMENTS.map((d) => (
           <li key={d.id} className="h-full">
-            <article className="h-full flex flex-col rounded-xl bg-white border border-gray-200 p-6 transition-all duration-300 hover:border-[rgb(var(--c-primary)/0.35)] hover:shadow-lg">
+            <article className="h-full flex flex-col rounded-xl bg-[rgb(var(--c-paper))] border border-[rgb(var(--c-line))] p-6 transition-all duration-300 hover:border-[rgb(var(--c-primary)/0.35)] hover:shadow-lg">
               {d.flagship && (
                 <p className="inline-flex self-start items-center gap-1.5 text-[11px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full bg-[rgb(var(--c-tint-100))] text-[rgb(var(--c-accent-on-light))] border border-[rgb(var(--c-primary)/0.25)] mb-3">
                   Flagship deployment
                 </p>
               )}
-              <h3 className="font-bold text-gray-900 text-lg leading-snug mb-1.5">
+              <h3 className="font-bold text-[rgb(var(--c-ink))] text-lg leading-snug mb-1.5">
                 {d.title}
               </h3>
-              <p className="text-[12px] font-medium text-gray-700 mb-3">{d.role}</p>
-              <p className="text-sm text-gray-700 leading-relaxed mb-3">
-                <span className="font-semibold text-gray-900">Field context: </span>
+              <p className="text-[12px] font-medium text-[rgb(var(--c-copy))] mb-3">{d.role}</p>
+              <p className="text-sm text-[rgb(var(--c-copy))] leading-relaxed mb-3">
+                <span className="font-semibold text-[rgb(var(--c-ink))]">Field context: </span>
                 {d.context}
               </p>
-              <p className="text-sm text-gray-700 leading-relaxed mb-3">
-                <span className="font-semibold text-gray-900">Embedded contribution: </span>
+              <p className="text-sm text-[rgb(var(--c-copy))] leading-relaxed mb-3">
+                <span className="font-semibold text-[rgb(var(--c-ink))]">Embedded contribution: </span>
                 {d.contribution}
               </p>
-              <p className="text-sm text-gray-700 leading-relaxed mb-3">
-                <span className="font-semibold text-gray-900">Integration reality: </span>
+              <p className="text-sm text-[rgb(var(--c-copy))] leading-relaxed mb-3">
+                <span className="font-semibold text-[rgb(var(--c-ink))]">Integration reality: </span>
                 {d.constraints}
               </p>
-              <p className="text-sm text-gray-700 leading-relaxed mb-3">
-                <span className="font-semibold text-gray-900">Cognitive load &amp; alert fatigue: </span>
+              <p className="text-sm text-[rgb(var(--c-copy))] leading-relaxed mb-3">
+                <span className="font-semibold text-[rgb(var(--c-ink))]">Cognitive load &amp; alert fatigue: </span>
                 {d.load}
               </p>
-              <p className="text-sm text-gray-700 leading-relaxed mb-3">
-                <span className="font-semibold text-gray-900">Time to first value: </span>
+              <p className="text-sm text-[rgb(var(--c-copy))] leading-relaxed mb-3">
+                <span className="font-semibold text-[rgb(var(--c-ink))]">Time to first value: </span>
                 {d.ttv}
               </p>
-              <p className="text-sm text-gray-700 leading-relaxed mb-3">
-                <span className="font-semibold text-gray-900">Outcome: </span>
+              <p className="text-sm text-[rgb(var(--c-copy))] leading-relaxed mb-3">
+                <span className="font-semibold text-[rgb(var(--c-ink))]">Outcome: </span>
                 {d.outcome}
               </p>
-              <p className="text-sm text-gray-700 leading-relaxed">
-                <span className="font-semibold text-gray-900">Hand-off: </span>
+              <p className="text-sm text-[rgb(var(--c-copy))] leading-relaxed">
+                <span className="font-semibold text-[rgb(var(--c-ink))]">Hand-off: </span>
                 {d.handoff}
               </p>
 
               <p className="mt-auto pt-5">
                 <Link
                   to={d.to}
-                  className="inline-flex items-center gap-1.5 min-h-[44px] px-4 py-2 rounded-lg text-xs font-semibold bg-[rgb(var(--c-primary))] text-white hover:bg-[rgb(var(--c-accent-dark))] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
+                  className="inline-flex items-center gap-1.5 min-h-[44px] px-4 py-2 rounded-lg text-xs font-semibold bg-[rgb(var(--c-primary))] text-[rgb(var(--c-paper))] hover:bg-[rgb(var(--c-accent-dark))] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
                 >
                   Read the {d.title} deployment
                   <span aria-hidden="true">→</span>
@@ -241,34 +241,34 @@ export function AIDeploymentSection() {
 
       {/* Deployed / built personal project — deliberately not a concept */}
       <article className="mt-8 rounded-xl border border-[rgb(var(--c-primary)/0.25)] bg-[rgb(var(--c-tint-50))] p-6">
-        <p className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full bg-[rgb(var(--c-primary))] text-white mb-3">
+        <p className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full bg-[rgb(var(--c-primary))] text-[rgb(var(--c-paper))] mb-3">
           Deployed / Built
         </p>
-        <h3 className="font-bold text-gray-900 text-lg mb-2">
+        <h3 className="font-bold text-[rgb(var(--c-ink))] text-lg mb-2">
           AI visual-assistance PWA
         </h3>
-        <p className="text-sm text-gray-700 leading-relaxed max-w-3xl">
+        <p className="text-sm text-[rgb(var(--c-copy))] leading-relaxed max-w-3xl">
           A working, shipped progressive web app that uses AI to describe surroundings and
           on-screen content for blind and low-vision users — designed, built, and released
           end-to-end. Personal project — built end-to-end, no client IP.
         </p>
-        <p className="text-sm text-gray-700 leading-relaxed max-w-3xl mt-3">
-          <span className="font-semibold text-gray-900">Built with: </span>
+        <p className="text-sm text-[rgb(var(--c-copy))] leading-relaxed max-w-3xl mt-3">
+          <span className="font-semibold text-[rgb(var(--c-ink))]">Built with: </span>
           multimodal vision model API, streaming responses, offline-capable PWA shell, on-device
           camera capture, latency and cost budgeting per request, and screen-reader-first
           interaction tested with assistive technology.
         </p>
-        <p className="text-[13px] text-gray-700 mt-3">
+        <p className="text-[13px] text-[rgb(var(--c-copy))] mt-3">
           Happy to demo the running app and walk through the code in an interview.
         </p>
       </article>
 
       {/* Evals & measurement */}
-      <div className="mt-8 rounded-2xl border border-gray-200 bg-white p-6 sm:p-8">
-        <h3 className="font-display text-xl font-extrabold text-gray-900 mb-2">
+      <div className="mt-8 rounded-2xl border border-[rgb(var(--c-line))] bg-[rgb(var(--c-paper))] p-6 sm:p-8">
+        <h3 className="font-display text-xl font-extrabold text-[rgb(var(--c-ink))] mb-2">
           How I prove a deployment actually worked
         </h3>
-        <p className="text-sm text-gray-700 leading-relaxed max-w-3xl mb-5">
+        <p className="text-sm text-[rgb(var(--c-copy))] leading-relaxed max-w-3xl mb-5">
           Most enterprise AI pilots never show measurable impact. I define what &ldquo;working&rdquo;
           means before build starts, and instrument it so the answer survives a procurement or
           audit conversation.
@@ -293,9 +293,9 @@ export function AIDeploymentSection() {
             },
           ].map((e) => (
             <li key={e.t} className="h-full">
-              <article className="h-full rounded-xl border border-gray-200 bg-[rgb(var(--c-tint-50))] p-5">
-                <h4 className="font-bold text-gray-900 text-[15px] mb-1.5">{e.t}</h4>
-                <p className="text-sm text-gray-700 leading-relaxed">{e.d}</p>
+              <article className="h-full rounded-xl border border-[rgb(var(--c-line))] bg-[rgb(var(--c-tint-50))] p-5">
+                <h4 className="font-bold text-[rgb(var(--c-ink))] text-[15px] mb-1.5">{e.t}</h4>
+                <p className="text-sm text-[rgb(var(--c-copy))] leading-relaxed">{e.d}</p>
               </article>
             </li>
           ))}
@@ -304,10 +304,10 @@ export function AIDeploymentSection() {
 
       {/* Situational accessibility */}
       <div className="mt-8 rounded-2xl border border-[rgb(var(--c-primary)/0.25)] bg-[rgb(var(--c-tint-50))] p-6 sm:p-8">
-        <h3 className="font-display text-xl font-extrabold text-gray-900 mb-2">
+        <h3 className="font-display text-xl font-extrabold text-[rgb(var(--c-ink))] mb-2">
           Situational accessibility — designing for the environment, not the lab
         </h3>
-        <p className="text-sm text-gray-700 leading-relaxed max-w-3xl mb-5">
+        <p className="text-sm text-[rgb(var(--c-copy))] leading-relaxed max-w-3xl mb-5">
           Conformance is the floor. The deployments I work on fail in conditions no audit
           simulates: gloved hands, glare, noise, one-handed use, exhaustion at hour eleven, and a
           network that drops mid-task. I treat those conditions as engineering requirements, which
@@ -333,9 +333,9 @@ export function AIDeploymentSection() {
             },
           ].map((s) => (
             <li key={s.t} className="h-full">
-              <article className="h-full rounded-xl border border-gray-200 bg-white p-5">
-                <h4 className="font-bold text-gray-900 text-[15px] mb-1.5">{s.t}</h4>
-                <p className="text-sm text-gray-700 leading-relaxed">{s.d}</p>
+              <article className="h-full rounded-xl border border-[rgb(var(--c-line))] bg-[rgb(var(--c-paper))] p-5">
+                <h4 className="font-bold text-[rgb(var(--c-ink))] text-[15px] mb-1.5">{s.t}</h4>
+                <p className="text-sm text-[rgb(var(--c-copy))] leading-relaxed">{s.d}</p>
               </article>
             </li>
           ))}
@@ -343,11 +343,11 @@ export function AIDeploymentSection() {
       </div>
 
       {/* Explainability & drift pipeline */}
-      <div className="mt-8 rounded-2xl border border-gray-200 bg-white p-6 sm:p-8">
-        <h3 className="font-display text-xl font-extrabold text-gray-900 mb-2">
+      <div className="mt-8 rounded-2xl border border-[rgb(var(--c-line))] bg-[rgb(var(--c-paper))] p-6 sm:p-8">
+        <h3 className="font-display text-xl font-extrabold text-[rgb(var(--c-ink))] mb-2">
           One deployment, end to end: explainability and drift as a shipped pipeline
         </h3>
-        <p className="text-sm text-gray-700 leading-relaxed max-w-3xl mb-5">
+        <p className="text-sm text-[rgb(var(--c-copy))] leading-relaxed max-w-3xl mb-5">
           The SSA accessibility-validation work is the clearest example of the full loop — a
           model-assisted system whose explanations, oversight, and degradation signals were built
           into the release path rather than reported around it.
@@ -376,15 +376,15 @@ export function AIDeploymentSection() {
             },
           ].map((s) => (
             <li key={s.t} className="h-full">
-              <article className="h-full rounded-xl border border-gray-200 bg-[rgb(var(--c-tint-50))] p-5">
-                <h4 className="font-bold text-gray-900 text-[15px] mb-1.5">{s.t}</h4>
-                <p className="text-sm text-gray-700 leading-relaxed">{s.d}</p>
+              <article className="h-full rounded-xl border border-[rgb(var(--c-line))] bg-[rgb(var(--c-tint-50))] p-5">
+                <h4 className="font-bold text-[rgb(var(--c-ink))] text-[15px] mb-1.5">{s.t}</h4>
+                <p className="text-sm text-[rgb(var(--c-copy))] leading-relaxed">{s.d}</p>
               </article>
             </li>
           ))}
         </ol>
-        <p className="text-sm text-gray-700 leading-relaxed max-w-3xl mt-5">
-          <span className="font-semibold text-gray-900">Why it matters: </span>
+        <p className="text-sm text-[rgb(var(--c-copy))] leading-relaxed max-w-3xl mt-5">
+          <span className="font-semibold text-[rgb(var(--c-ink))]">Why it matters: </span>
           this is the same shape a bias-and-drift monitoring program takes in finance or clinical
           AI — lineage, explanation, override capture, monitoring, and remediation at the source.
           I have shipped it inside a federal release train, not drawn it on a slide.
@@ -392,18 +392,18 @@ export function AIDeploymentSection() {
       </div>
 
       {/* What did not work */}
-      <div className="mt-8 rounded-2xl border border-gray-200 bg-white p-6 sm:p-8">
-        <h3 className="font-display text-xl font-extrabold text-gray-900 mb-2">
+      <div className="mt-8 rounded-2xl border border-[rgb(var(--c-line))] bg-[rgb(var(--c-paper))] p-6 sm:p-8">
+        <h3 className="font-display text-xl font-extrabold text-[rgb(var(--c-ink))] mb-2">
           A deployment that stalled — and what changed after
         </h3>
-        <p className="text-sm text-gray-700 leading-relaxed max-w-3xl mb-3">
+        <p className="text-sm text-[rgb(var(--c-copy))] leading-relaxed max-w-3xl mb-3">
           On an early automated-validation effort, the tooling was technically correct and almost
           nobody used it. The checks ran outside the delivery pipeline, so results arrived as a
           report after the work was already merged, and teams treated it as someone else&rsquo;s
           backlog. Adoption stayed near zero for two release cycles.
         </p>
-        <p className="text-sm text-gray-700 leading-relaxed max-w-3xl">
-          <span className="font-semibold text-gray-900">What I changed: </span>
+        <p className="text-sm text-[rgb(var(--c-copy))] leading-relaxed max-w-3xl">
+          <span className="font-semibold text-[rgb(var(--c-ink))]">What I changed: </span>
           I stopped shipping findings and started shipping gates — the same checks moved into CI,
           failures surfaced in the pull request with the fix location, and the recurring issues
           were fixed once in shared components rather than reported many times. That single
@@ -456,11 +456,11 @@ export function HumanAISystemsSection() {
       <SectionIndex n="11" label="Human-AI Design" />
       <h2
         id="human-ai-heading"
-        className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 tracking-tight"
+        className="text-3xl md:text-4xl font-extrabold text-[rgb(var(--c-ink))] mb-4 tracking-tight"
       >
         How I Design AI in Real Systems
       </h2>
-      <p className="text-gray-700 text-base leading-relaxed max-w-3xl mb-8">
+      <p className="text-[rgb(var(--c-copy))] text-base leading-relaxed max-w-3xl mb-8">
         The patterns that let people supervise a model rather than defer to it.
       </p>
       <ul className="grid gap-5 list-none p-0 m-0 [grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr))]">
@@ -468,15 +468,15 @@ export function HumanAISystemsSection() {
           const Icon = p.icon;
           return (
             <li key={p.t} className="h-full">
-              <article className="h-full rounded-xl bg-white border border-gray-200 p-5 transition-all duration-300 hover:border-[rgb(var(--c-primary)/0.35)] hover:shadow-md">
+              <article className="h-full rounded-xl bg-[rgb(var(--c-paper))] border border-[rgb(var(--c-line))] p-5 transition-all duration-300 hover:border-[rgb(var(--c-primary)/0.35)] hover:shadow-md">
                 <span
                   aria-hidden="true"
                   className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-[rgb(var(--c-tint-100))] text-[rgb(var(--c-accent-on-light))] mb-3"
                 >
                   <Icon className="h-4.5 w-4.5" size={18} />
                 </span>
-                <h3 className="font-bold text-gray-900 text-[15px] mb-1.5">{p.t}</h3>
-                <p className="text-sm text-gray-700 leading-relaxed">{p.d}</p>
+                <h3 className="font-bold text-[rgb(var(--c-ink))] text-[15px] mb-1.5">{p.t}</h3>
+                <p className="text-sm text-[rgb(var(--c-copy))] leading-relaxed">{p.d}</p>
               </article>
             </li>
           );
@@ -519,11 +519,11 @@ export function GovernanceAccessibilitySection() {
       <SectionIndex n="12" label="Governance & Accessibility" />
       <h2
         id="gov-access-heading"
-        className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 tracking-tight"
+        className="text-3xl md:text-4xl font-extrabold text-[rgb(var(--c-ink))] mb-4 tracking-tight"
       >
         Accessible <span className="text-[rgb(var(--c-accent-on-light))]">and</span> governable
       </h2>
-      <p className="text-gray-700 text-base leading-relaxed max-w-3xl mb-8">
+      <p className="text-[rgb(var(--c-copy))] text-base leading-relaxed max-w-3xl mb-8">
         I make AI both accessible and governable — the two things most AI deployments treat as
         afterthoughts.
       </p>
@@ -532,15 +532,15 @@ export function GovernanceAccessibilitySection() {
           const Icon = b.icon;
           return (
             <li key={b.t} className="h-full">
-              <article className="h-full flex flex-col rounded-xl bg-white border border-gray-200 p-6">
+              <article className="h-full flex flex-col rounded-xl bg-[rgb(var(--c-paper))] border border-[rgb(var(--c-line))] p-6">
                 <span
                   aria-hidden="true"
                   className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-[rgb(var(--c-tint-100))] text-[rgb(var(--c-accent-on-light))] mb-3"
                 >
                   <Icon size={18} />
                 </span>
-                <h3 className="font-bold text-gray-900 text-lg mb-2">{b.t}</h3>
-                <p className="text-sm text-gray-700 leading-relaxed mb-4">{b.d}</p>
+                <h3 className="font-bold text-[rgb(var(--c-ink))] text-lg mb-2">{b.t}</h3>
+                <p className="text-sm text-[rgb(var(--c-copy))] leading-relaxed mb-4">{b.d}</p>
                 <ul className="mt-auto flex flex-wrap gap-1.5 list-none p-0 m-0">
                   {b.chips.map((c) => (
                     <li
@@ -620,33 +620,33 @@ export function ForwardDeploymentModel({ n }: { n?: string } = {}) {
       )}
       <h2
         id="deployment-model-heading"
-        className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 tracking-tight"
+        className="text-3xl md:text-4xl font-extrabold text-[rgb(var(--c-ink))] mb-4 tracking-tight"
       >
         Forward deployment, applied as a process
       </h2>
-      <p className="text-gray-700 text-base leading-relaxed max-w-3xl mb-8">
+      <p className="text-[rgb(var(--c-copy))] text-base leading-relaxed max-w-3xl mb-8">
         The same five-step method runs through every engagement on this site — governance,
         accessibility, clinical safety, and design systems all go through it.
       </p>
       <ol className="grid gap-5 list-none p-0 m-0 [grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr))]">
         {STEPS.map((s, i) => (
           <li key={s.t} className="h-full">
-            <article className="h-full rounded-xl bg-white border border-gray-200 p-5 border-t-4 border-t-[rgb(var(--c-primary))]">
+            <article className="h-full rounded-xl bg-[rgb(var(--c-paper))] border border-[rgb(var(--c-line))] p-5 border-t-4 border-t-[rgb(var(--c-primary))]">
               <p className="font-display text-sm font-extrabold text-[rgb(var(--c-accent-on-light))] tabular-nums mb-2">
                 Step {i + 1}
               </p>
-              <h3 className="font-bold text-gray-900 text-[15px] mb-1.5">{s.t}</h3>
-              <p className="text-sm text-gray-700 leading-relaxed">{s.d}</p>
+              <h3 className="font-bold text-[rgb(var(--c-ink))] text-[15px] mb-1.5">{s.t}</h3>
+              <p className="text-sm text-[rgb(var(--c-copy))] leading-relaxed">{s.d}</p>
             </article>
           </li>
         ))}
       </ol>
 
       <div className="mt-8 rounded-2xl border border-[rgb(var(--c-primary)/0.25)] bg-[rgb(var(--c-tint-50))] p-6 sm:p-8">
-        <h3 className="font-display text-xl font-extrabold text-gray-900 mb-1.5">
+        <h3 className="font-display text-xl font-extrabold text-[rgb(var(--c-ink))] mb-1.5">
           How I actually work with engineering — one week, embedded
         </h3>
-        <p className="text-sm text-gray-700 leading-relaxed mb-5 max-w-3xl">
+        <p className="text-sm text-[rgb(var(--c-copy))] leading-relaxed mb-5 max-w-3xl">
           A representative week on a regulated delivery program. I sit inside the delivery
           rhythm rather than reviewing it from outside — and I partner with engineering,
           I don&rsquo;t replace it.
@@ -654,16 +654,16 @@ export function ForwardDeploymentModel({ n }: { n?: string } = {}) {
         <ol className="grid gap-4 list-none p-0 m-0 [grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr))]">
           {WEEK.map((w) => (
             <li key={w.d} className="h-full">
-              <article className="h-full rounded-xl bg-white border border-gray-200 p-4">
+              <article className="h-full rounded-xl bg-[rgb(var(--c-paper))] border border-[rgb(var(--c-line))] p-4">
                 <p className="font-display text-[11px] font-extrabold uppercase tracking-[1.5px] text-[rgb(var(--c-accent-on-light))] mb-1.5">
                   {w.d}
                 </p>
-                <p className="text-sm text-gray-700 leading-relaxed">{w.b}</p>
+                <p className="text-sm text-[rgb(var(--c-copy))] leading-relaxed">{w.b}</p>
               </article>
             </li>
           ))}
         </ol>
-        <p className="text-[13px] text-gray-800 leading-relaxed mt-5 max-w-3xl">
+        <p className="text-[13px] text-[rgb(var(--c-ink))] leading-relaxed mt-5 max-w-3xl">
           <span className="font-semibold">What engineering gets from me:</span> decisions made
           in their sprint, not after it — oversight and accessibility requirements written as
           acceptance criteria, prototypes they can build against, and a named person who owns
@@ -684,32 +684,32 @@ const TRANSCRIPT = [
 export function IntroClip() {
   return (
     <section id="intro" className={SECTION} aria-labelledby="intro-heading">
-      <div className="rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 grid gap-6 lg:grid-cols-[minmax(0,1fr)_22rem] items-start">
+      <div className="rounded-2xl border border-[rgb(var(--c-line))] bg-[rgb(var(--c-paper))] p-6 sm:p-8 grid gap-6 lg:grid-cols-[minmax(0,1fr)_22rem] items-start">
         <div>
           <p className="text-[11px] font-bold uppercase tracking-[2px] text-[rgb(var(--c-accent-on-light))] mb-2">
             In my own words
           </p>
           <h2
             id="intro-heading"
-            className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-3 tracking-tight"
+            className="text-2xl md:text-3xl font-extrabold text-[rgb(var(--c-ink))] mb-3 tracking-tight"
           >
             Sixty seconds on what I do
           </h2>
           {TRANSCRIPT.map((t) => (
-            <p key={t.slice(0, 24)} className="text-gray-700 leading-relaxed mb-3">
+            <p key={t.slice(0, 24)} className="text-[rgb(var(--c-copy))] leading-relaxed mb-3">
               {t}
             </p>
           ))}
         </div>
 
         <div className="rounded-xl border border-[rgb(var(--c-primary)/0.25)] bg-[rgb(var(--c-tint-50))] p-5">
-          <p className="text-sm font-bold text-gray-900 mb-1.5">Prefer a conversation?</p>
-          <p className="text-sm text-gray-700 leading-relaxed mb-3">
+          <p className="text-sm font-bold text-[rgb(var(--c-ink))] mb-1.5">Prefer a conversation?</p>
+          <p className="text-sm text-[rgb(var(--c-copy))] leading-relaxed mb-3">
             Happy to walk through any of this live.
           </p>
           <a
             href="mailto:arnsk3@gmail.com"
-            className="inline-flex items-center min-h-[44px] px-4 py-2 rounded-lg text-sm font-semibold bg-[rgb(var(--c-primary))] text-white hover:bg-[rgb(var(--c-accent-dark))] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
+            className="inline-flex items-center min-h-[44px] px-4 py-2 rounded-lg text-sm font-semibold bg-[rgb(var(--c-primary))] text-[rgb(var(--c-paper))] hover:bg-[rgb(var(--c-accent-dark))] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-primary))] focus-visible:ring-offset-2"
           >
             Get in touch
           </a>
