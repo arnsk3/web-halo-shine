@@ -5,6 +5,7 @@ import {
   FileText, Layers, Database, Bot, CheckCircle2, MonitorSmartphone, Mail, Linkedin, Download,
 } from "lucide-react";
 import SectionIndex from "./SectionIndex";
+import RoleMatcher from "./RoleMatcher";
 import imgSsa from "@/assets/case-ssa.jpg";
 import imgBbh from "@/assets/case-bestbuy.jpg";
 import imgLumen from "@/assets/case-lumen.jpg";
@@ -248,6 +249,8 @@ export default function EnterpriseHome() {
           </ul>
         </div>
       </section>
+
+      <RoleMatcher />
 
       <div className={`${WRAP} bg-[rgb(var(--c-paper))] pt-10`}><Divider label="Shipped Client Work" /></div>
 
