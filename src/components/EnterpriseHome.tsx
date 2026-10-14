@@ -5,6 +5,12 @@ import {
   FileText, Layers, Database, Bot, CheckCircle2, MonitorSmartphone, Mail, Linkedin, Download,
 } from "lucide-react";
 import SectionIndex from "./SectionIndex";
+import imgSsa from "@/assets/case-ssa.jpg";
+import imgBbh from "@/assets/case-bestbuy.jpg";
+import imgLumen from "@/assets/case-lumen.jpg";
+import imgTrust from "@/assets/case-trustlens.jpg";
+import imgVision from "@/assets/deployment-accessibility.jpg";
+const LAB_IMG: Record<string, string> = { Lumen: imgLumen, TrustLens: imgTrust, Accessible: imgVision };
 
 const WRAP = "mx-auto w-full max-w-[1600px] px-[clamp(1.5rem,5vw,5rem)]";
 
@@ -57,7 +63,7 @@ function Loop() {
   return (
     <section id="the-loop" aria-labelledby="loop-heading" className="bg-[rgb(var(--c-tint-50))] py-14">
       <div className={WRAP}>
-        <SectionIndex n="06" label="Capabilities · The Loop" />
+        <SectionIndex n="05" label="Capabilities · The Loop" />
         <h2 id="loop-heading" className="font-display text-3xl font-bold text-[rgb(var(--c-ink))]">How I deliver</h2>
         <div role="tablist" aria-label="Delivery stages" className="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-0">
           {LOOP.map(({ id, label, Icon }, i) => {
@@ -157,7 +163,7 @@ function Divider({ label }: { label: string }) {
   );
 }
 
-function CaseBlock({ id, n, label, org, title, problem, built, outcome, qual, flow }: { id: string; n: string; label: string; org: string; title: string; problem: string; built: string; outcome: string; qual: string; flow: string[] }) {
+function CaseBlock({ id, n, label, org, title, problem, built, outcome, qual, flow, img }: { img: string; id: string; n: string; label: string; org: string; title: string; problem: string; built: string; outcome: string; qual: string; flow: string[] }) {
   return (
     <section id={id} aria-labelledby={`${id}-h`} className="bg-[rgb(var(--c-paper))] py-14">
       <div className={`${WRAP} grid gap-8 lg:grid-cols-[3fr_2fr]`}>
@@ -171,7 +177,9 @@ function CaseBlock({ id, n, label, org, title, problem, built, outcome, qual, fl
             <div><dt className="font-semibold text-[rgb(var(--c-ink))]">Outcome</dt><dd className="m-0">{outcome} <span className="block text-sm italic">{qual}</span></dd></div>
           </dl>
         </div>
-        <figure className="m-0 self-start rounded-2xl border border-[rgb(var(--c-line))] bg-[rgb(var(--c-tint-50))] p-6">
+        <div className="grid gap-4 self-start">
+        <img src={img} alt="" loading="lazy" className="aspect-[16/9] w-full rounded-2xl object-cover" />
+        <figure className="m-0 rounded-2xl border border-[rgb(var(--c-line))] bg-[rgb(var(--c-tint-50))] p-6">
           <figcaption className="mb-4 font-mono text-xs font-bold uppercase tracking-wider text-[rgb(var(--c-accent-on-light))]">How it worked</figcaption>
           <ol className="m-0 list-none p-0">
             {flow.map((f, i) => (
@@ -182,6 +190,7 @@ function CaseBlock({ id, n, label, org, title, problem, built, outcome, qual, fl
             ))}
           </ol>
         </figure>
+        </div>
       </div>
     </section>
   );
@@ -237,7 +246,7 @@ export default function EnterpriseHome() {
         built="As product owner, I embedded AI-assisted accessibility validation into the CI/CD pipeline with human-in-the-loop review, and traced defect clustering to 8 reused components."
         outcome="65% of defects traced to 8 components; ~30% manual-audit reduction; $1.5M+ estimated annual savings."
         qual="Defect tracing is my direct contribution; audit reduction and savings are program outcomes on a platform serving 50M+ users. Shown at authorized disclosure level."
-        flow={["Code commit", "Automated accessibility checks", "AI-assisted triage", "Human review (approve / fix)", "Component-level remediation", "Release gate"]} />
+        img={imgSsa} flow={["Code commit", "Automated accessibility checks", "AI-assisted triage", "Human review (approve / fix)", "Component-level remediation", "Release gate"]} />
 
       {/* 4. Best Buy Health */}
       <CaseBlock id="bbh-case" n="03" label="Regulated-domain · Human Factors" org="Best Buy Health" title="Connected-device Human Factors validation"
@@ -245,7 +254,7 @@ export default function EnterpriseHome() {
         built="I led Human Factors validation and designed the companion experiences — task analysis, use-related risk assessment, and usability testing."
         outcome="30–40% drop-off reduction across experiences used by 1M+ patients."
         qual="Team outcome; drop-off measured on device-setup flows. My contribution was HF validation and experience design."
-        flow={["Task & use-risk analysis", "Companion experience design", "Formative usability testing", "510(k) HF validation", "Drop-off monitoring"]} />
+        img={imgBbh} flow={["Task & use-risk analysis", "Companion experience design", "Formative usability testing", "510(k) HF validation", "Drop-off monitoring"]} />
 
       {/* 5. Lab */}
       <section id="projects" aria-labelledby="projects-heading" className="bg-[rgb(var(--c-tint-50))] py-14">
@@ -257,6 +266,7 @@ export default function EnterpriseHome() {
           <ul className="mt-8 grid list-none gap-6 p-0 lg:grid-cols-3">
             {LAB.map((p) => (
               <li key={p.name} className="flex flex-col rounded-2xl border-2 border-dashed border-[rgb(var(--c-primary)/0.4)] bg-[rgb(var(--c-paper))] p-6">
+                <img src={LAB_IMG[p.name.split(" ")[0]]} alt="" loading="lazy" className="-mx-6 -mt-6 mb-4 aspect-[16/9] w-[calc(100%+3rem)] max-w-none rounded-t-2xl object-cover" />
                 <Badge tone="lab">{p.status}</Badge>
                 <h3 className="mt-3 font-display text-xl font-bold text-[rgb(var(--c-ink))]">{p.name}</h3>
                 <figure className="mt-4 rounded-xl bg-[rgb(var(--c-tint-100))] p-4">
@@ -302,7 +312,7 @@ export default function EnterpriseHome() {
       <section id="accessibility-statement" aria-labelledby="a11y-heading" className="bg-[rgb(var(--c-paper))] py-14">
         <div className={`${WRAP} grid gap-8 lg:grid-cols-2`}>
           <div>
-            <SectionIndex n="05" label="Accessibility statement" />
+            <SectionIndex n="06" label="Accessibility statement" />
             <h2 id="a11y-heading" className="font-display text-3xl font-bold text-[rgb(var(--c-ink))]">This site is part of my evidence</h2>
             <p className="mt-4 text-[rgb(var(--c-copy))]">I design and build this site to <strong>WCAG 2.2 Level AA</strong>. Scope tested: the homepage, case-study pages, essays, dialogs, and the interactive delivery-loop diagram — with automated axe-core checks, keyboard-only navigation, and screen-reader passes at desktop and 390px mobile widths.</p>
             <ul className="mt-4 grid list-none gap-2 p-0 text-sm text-[rgb(var(--c-ink))] sm:grid-cols-2">
