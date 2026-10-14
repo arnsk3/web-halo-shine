@@ -1,3 +1,4 @@
+import EnterpriseHome from "@/components/EnterpriseHome";
 import { useState, useEffect, useRef, ReactNode } from "react";
 import { Link, Navigate, useLocation, useNavigate as useRouterNavigate } from "react-router-dom";
 import personaDeveloper from "@/assets/persona-developer.jpg";
@@ -23,7 +24,6 @@ import ProductionSystems from "@/components/ProductionSystems";
 import EvidenceDisclosure from "@/components/EvidenceDisclosure";
 import CaseStoryVisuals from "@/components/CaseStoryVisuals";
 import { Button } from "@/components/ui/button";
-import deploymentHero from "@/assets/deployment-accessibility.jpg";
 import SystemArchitecture from "@/components/SystemArchitecture";
 import WhatIBuilt from "@/components/WhatIBuilt";
 import FlagshipSystems from "@/components/FlagshipSystems";
@@ -1602,37 +1602,7 @@ function Home({
 
   return (
     <div>
-      {/* Hero */}
-      <header className="relative isolate overflow-hidden bg-[rgb(var(--c-hero-dark))] text-[rgb(var(--c-paper))]">
-        <img src={deploymentHero} alt="" width={1536} height={1024} fetchPriority="high" className="absolute inset-0 -z-20 h-full w-full object-cover object-center" />
-        <div aria-hidden="true" className="portfolio-hero-veil absolute inset-0 -z-10" />
-        <div className="mx-auto w-full max-w-[1600px] px-[clamp(1.5rem,5vw,5rem)] py-12 sm:py-16">
-          <FadeIn>
-            <p className="mb-5 text-xs font-semibold uppercase tracking-widest text-[rgb(var(--c-accent-on-dark))]">AI systems · Human performance · Production delivery</p>
-            <h1 className="max-w-3xl font-display text-4xl font-bold leading-tight sm:text-5xl">Senthil Nagappan</h1>
-            <p className="mt-4 max-w-2xl font-display text-2xl font-semibold leading-snug sm:text-3xl">Forward Deployed AI Systems Engineer &amp; Human Systems Leader</p>
-            <p className="mt-6 max-w-xl text-base leading-relaxed sm:text-lg">I turn complex, real-world problems into AI systems people can trust — built with customer teams, integrated into their workflows, and measured in production.</p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Button asChild size="lg" className="bg-[rgb(var(--c-paper))] text-[rgb(var(--c-primary))] hover:bg-[rgb(var(--c-tint-100))]"><a href="#production-systems">View deployed systems <span aria-hidden="true">→</span></a></Button>
-              <Button asChild size="lg" variant="outline" className="border-[rgb(var(--c-accent-on-dark))] bg-transparent text-[rgb(var(--c-paper))] hover:bg-[rgb(var(--c-primary))] hover:text-[rgb(var(--c-paper))]"><Link to="/resume">View résumé <span aria-hidden="true">↗</span></Link></Button>
-            </div>
-            <p className="mt-6 text-sm text-[rgb(var(--c-accent-on-dark))]">18+ years · Federal &amp; healthcare · Open to FDE / Director-level roles</p>
-            <details className="evidence-disclosure mt-5 max-w-2xl">
-              <summary className="flex min-h-11 cursor-pointer items-center gap-2 text-sm font-semibold text-[rgb(var(--c-paper))]">Delivery background <span aria-hidden="true">+</span></summary>
-              <div className="pt-3 text-sm leading-relaxed">
-                <p>Production AI deployment · LLM &amp; RAG pipelines · APIs &amp; CI/CD integration · System architecture · Human Systems Integration (HSI).</p>
-                <p className="mt-3">Embedded with customer engineering, product, and operations teams: I find where the workflow breaks, build the service, wire it into their APIs and CI/CD, instrument it, and own it until it is measured in production.</p>
-                <p className="mt-3">Ambiguous problem → working prototype in weeks → integrated into their pipeline → measured in production. Shipped into 40+ monthly federal releases, cut $1.5M+ of annual rework, and stood up the human-oversight layer that let clinical AI reach 1,200+ users. 7+ years client-facing under audit. US remote · available now.</p>
-                <ul className="mt-3 list-disc pl-5"><li>Built and deployed AI systems integrated into production pipelines.</li><li>Reduced human error and improved decision-making at scale.</li><li>Delivered mission-critical systems across federal and healthcare domains.</li></ul>
-                <p className="mt-3">Embed → Diagnose → Build → Integrate → Measure.</p>
-              </div>
-            </details>
-          </FadeIn>
-        </div>
-      </header>
-
-      {/* Impact strip — stats directly under the hero */}
-      <ImpactStrip />
+      <EnterpriseHome />
 
       {/* 01 — Flagship systems delivered in production */}
       <ProductionSystems n="01" />
