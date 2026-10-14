@@ -10,6 +10,9 @@ import imgBbh from "@/assets/case-bestbuy.jpg";
 import imgLumen from "@/assets/case-lumen.jpg";
 import imgTrust from "@/assets/case-trustlens.jpg";
 import imgVision from "@/assets/deployment-accessibility.jpg";
+import imgHero from "@/assets/hero-systems.jpg";
+import imgA11y from "@/assets/deployment-accessibility.jpg";
+import imgLeader from "@/assets/persona-leadership.jpg";
 const LAB_IMG: Record<string, string> = { Lumen: imgLumen, TrustLens: imgTrust, Accessible: imgVision };
 
 const WRAP = "mx-auto w-full max-w-[1600px] px-[clamp(1.5rem,5vw,5rem)]";
@@ -127,9 +130,9 @@ const PROJECTS: { name: string; status: string; problem: string; built: string; 
 ];
 
 const PROOF = [
-  { value: "50M+", label: "users on the SSA platform", qual: "Program outcome · platform scope: 50M+ users across 50 states. My role: product owner for AI-assisted accessibility validation." },
-  { value: "65% → 8", label: "of defects traced to 8 reused components", qual: "My direct contribution: traced defect clustering to 8 reused components, which drove ~30% manual-audit reduction (program outcome) and $1.5M+ estimated annual savings (program outcome)." },
-  { value: "1M+", label: "patients using connected devices", qual: "Program scope at Best Buy Health. 30–40% drop-off reduction is a team outcome; my contribution was Human Factors validation and companion-experience design." },
+  { value: "50M+", label: "users on the SSA platform", Icon: Users, qual: "Program outcome · platform scope: 50M+ users across 50 states. My role: product owner for AI-assisted accessibility validation." },
+  { value: "65% → 8", label: "of defects traced to 8 reused components", Icon: Layers, qual: "My direct contribution: traced defect clustering to 8 reused components, which drove ~30% manual-audit reduction (program outcome) and $1.5M+ estimated annual savings (program outcome)." },
+  { value: "1M+", label: "patients using connected devices", Icon: MonitorSmartphone, qual: "Program scope at Best Buy Health. 30–40% drop-off reduction is a team outcome; my contribution was Human Factors validation and companion-experience design." },
 ];
 
 const LAB = PROJECTS;
@@ -143,10 +146,10 @@ const HF = [
 ];
 
 const CAPS2 = [
-  { title: "AI application development", items: ["Python", "TypeScript", "LLM APIs", "RAG"], proof: "Lumen (in build), visual-assistance app (deployed, self-directed)" },
-  { title: "Enterprise integration", items: ["REST APIs", "Data modeling", "Auth", "Pipelines"], proof: "SSA CI/CD validation integration" },
-  { title: "AI evaluation", items: ["Groundedness", "Task success", "Regression testing"], proof: "Lumen evaluation harness, TrustLens evaluation suite (concept)" },
-  { title: "Human-centered engineering", items: ["WCAG", "Assistive tech", "Human Factors", "Usability testing", "Risk assessment"], proof: "Best Buy Health 510(k) HF validation, SSA Section 508" },
+  { title: "AI application development", Icon: Bot, items: ["Python", "TypeScript", "LLM APIs", "RAG"], proof: "Lumen (in build), visual-assistance app (deployed, self-directed)" },
+  { title: "Enterprise integration", Icon: Plug, items: ["REST APIs", "Data modeling", "Auth", "Pipelines"], proof: "SSA CI/CD validation integration" },
+  { title: "AI evaluation", Icon: Gauge, items: ["Groundedness", "Task success", "Regression testing"], proof: "Lumen evaluation harness, TrustLens evaluation suite (concept)" },
+  { title: "Human-centered engineering", Icon: Accessibility, items: ["WCAG", "Assistive tech", "Human Factors", "Usability testing", "Risk assessment"], proof: "Best Buy Health 510(k) HF validation, SSA Section 508" },
 ];
 
 function Badge({ children, tone = "client" }: { children: React.ReactNode; tone?: "client" | "lab" }) {
