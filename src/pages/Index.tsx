@@ -1754,7 +1754,7 @@ const SHOWCASE: Record<string, ShowcaseConfig> = {
             </div>
             <div className="flex gap-1.5 mt-auto" aria-hidden="true">
               <div className="flex-1 rounded bg-[rgb(var(--c-success))] text-[rgb(var(--c-paper))] text-[9px] font-bold text-center py-1.5">Approve</div>
-              <div className="flex-1 rounded bg-[rgb(var(--c-danger-mark))] text-[rgb(var(--c-paper))] text-[9px] font-bold text-center py-1.5">Block</div>
+              <div className="flex-1 rounded bg-[rgb(var(--c-danger))] text-[rgb(var(--c-paper))] text-[9px] font-bold text-center py-1.5">Block</div>
             </div>
           </>
         ),
@@ -1831,7 +1831,7 @@ const SHOWCASE: Record<string, ShowcaseConfig> = {
             <div className="relative flex gap-1.5" aria-hidden="true">
               <APin n={3} className="-left-1 -top-2" />
               <div className="flex-1 rounded bg-[rgb(var(--c-success))] text-[rgb(var(--c-paper))] text-[9px] font-bold text-center py-1.5">Approve</div>
-              <div className="flex-1 rounded bg-[rgb(var(--c-danger-mark))] text-[rgb(var(--c-paper))] text-[9px] font-bold text-center py-1.5">Block</div>
+              <div className="flex-1 rounded bg-[rgb(var(--c-danger))] text-[rgb(var(--c-paper))] text-[9px] font-bold text-center py-1.5">Block</div>
               <div className="flex-1 rounded border border-[rgb(var(--c-line))] text-[rgb(var(--c-copy))] text-[9px] font-bold text-center py-1.5">Edit scope</div>
             </div>
             <div className="relative rounded bg-[rgb(var(--c-tint-50))] border border-[rgb(var(--c-line))] px-2 py-1" aria-hidden="true">
