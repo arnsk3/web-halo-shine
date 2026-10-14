@@ -48,7 +48,7 @@ const DOMAINS: Domain[] = [
       {
         title: "WCAG AI Remediation Suite",
         detail:
-          "An AAA-compliant engine that turns raw violations into prioritized, AI-suggested fixes with before/after examples — detection converted into guided remediation.",
+          "A self-directed engine that turns raw violations into prioritized, AI-suggested fixes with before/after examples — detection converted into guided remediation.",
       },
     ],
     icon: (

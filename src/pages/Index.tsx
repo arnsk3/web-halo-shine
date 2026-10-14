@@ -5913,7 +5913,7 @@ function About() {
   const stats = [
     { value: "18+", label: "Years of experience" },
     { value: "50M+", label: "Users impacted" },
-    { value: "$130M", label: "Federal portfolio directed (SAMHSA behavioral-health programs)" },
+    { value: "$130M", label: "Federal portfolio value · portfolio leadership, not a budget I controlled alone (SAMHSA)" },
     { value: "WCAG 2.2 AA", label: "Accessibility target for this site · not formally assessed" },
   ];
 
@@ -5946,7 +5946,7 @@ function About() {
     {
       title: "Accessibility",
       icon: Accessibility,
-      skills: ["WCAG 2.2 A/AA/AAA", "Section 508", "ARIA & semantics", "Screen-reader testing", "CI/CD a11y automation", "WCAG-EM audits", "Inclusive design"],
+      skills: ["WCAG 2.2 (A–AAA criteria knowledge)", "Section 508", "ARIA & semantics", "Screen-reader testing", "CI/CD a11y automation", "WCAG-EM audits", "Inclusive design"],
     },
     {
       title: "UX Research & Strategy",
@@ -5984,7 +5984,7 @@ function About() {
     { role: "AI + Human Systems Integration Lead", org: "GE HealthCare", period: "2025 – Present", desc: "Forward-deployed with engineering: led Human Factors and defined an AI safety review framework with engineering, and contributed to the design system for clinical decision-support across 10+ product teams (adoption figure awaiting confirmation)." },
     { role: "Sr. UX & Accessibility Lead", org: "Leidos / Social Security Administration", period: "2022 – 2025", desc: "Led a data-driven design system unifying 50M+ user experiences and built SSA11y, saving $1.5M+ annually." },
     { role: "Inclusive Design & Accessibility Lead", org: "Best Buy Health", period: "2021 – 2022", desc: "Owned visual design and mobile-first brand experience for 1M+ consumers across 5 product lines." },
-    { role: "Sr. UX & Accessibility Program Manager", org: "Eagle Technologies / HHS / SAMHSA", period: "2014 – 2021", desc: "Directed a $130M behavioral health portfolio, recruited and grew a cross-functional team to 15+, and mentored designers through seven years of change while leading the AWS GovCloud migration of national TEDS datasets." },
+    { role: "Sr. UX & Accessibility Program Manager", org: "Eagle Technologies / HHS / SAMHSA", period: "2014 – 2021", desc: "Provided portfolio oversight and delivery leadership for a $130M (portfolio value) behavioral health portfolio, recruited and grew a cross-functional team to 15+, and mentored designers through seven years of change while leading the AWS GovCloud migration of national TEDS datasets." },
   ];
 
   return (
@@ -6035,7 +6035,7 @@ function About() {
         <div className="rounded-xl border-l-4 border-[rgb(var(--c-primary))] bg-[rgb(var(--c-tint-50))] px-5 py-4 mb-12">
           <p className="text-sm text-[rgb(var(--c-ink))] leading-relaxed">
             <strong className="text-[rgb(var(--c-ink))]">7+ years in compliance, risk management, and advisory roles</strong>{" "}
-            with client-facing delivery and team leadership — directing a $130M federal program
+            with client-facing delivery and team leadership — leading delivery across a $130M (portfolio value) federal program
             portfolio, running Section 508 / WCAG governance as organizational policy, delivering
             financial-services model-risk work at JPMorgan Chase and Morgan Stanley, and scaling a
             cross-functional team to 15+.
