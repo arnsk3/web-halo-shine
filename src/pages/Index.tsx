@@ -1028,23 +1028,20 @@ type PageId = "home" | "brand" | "about" | "approach" | "resume" | "contact" | "
 function Nav({ page, setPage }: { page: PageId; setPage: (p: PageId) => void }) {
   // Top-level sections follow the forward-deployed narrative order.
   const sectionLinks: { id: string; label: string }[] = [
-    { id: "fde-experience", label: "FDE Experience" },
-    { id: "flagship-systems", label: "Systems" },
-    { id: "cases", label: "Deployments" },
-    { id: "failure-modes", label: "Failure Modes" },
+    { id: "top", label: "Home" },
+    { id: "the-loop", label: "The Loop" },
+    { id: "projects", label: "Projects" },
+    { id: "experience", label: "Experience" },
   ];
   const tailLinks: { id: PageId; label: string }[] = [
-    { id: "approach", label: "Approach" },
-    { id: "lab", label: "AI Concepts" },
     { id: "about", label: "About" },
-    { id: "resume", label: "Résumé" },
     { id: "contact", label: "Contact" },
   ];
   const goSection = (id: string) => {
     setPage("home");
     requestAnimationFrame(() =>
       requestAnimationFrame(() =>
-        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })
+        id === "top" ? window.scrollTo({ top: 0, behavior: "smooth" }) : document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })
       )
     );
   };
@@ -1604,6 +1601,8 @@ function Home({
     <div>
       <EnterpriseHome />
 
+      <EvidenceDisclosure title="Deeper evidence: full deployments, case studies and skills" description="Architecture, delivery detail, every case study, failure modes, field notes and the complete skills index — open when you want the depth.">
+
       {/* 01 — Flagship systems delivered in production */}
       <ProductionSystems n="01" />
 
@@ -2000,49 +1999,7 @@ function Home({
         </FadeIn>
       </section>
 
-      {/* Closing CTA band */}
-      <section
-        aria-labelledby="closing-cta-heading"
-        className="relative overflow-hidden bg-gradient-to-br from-[rgb(var(--c-hero-dark))] via-[rgb(var(--c-primary))] to-[rgb(var(--c-accent))] text-white"
-      >
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 opacity-[0.05]"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
-            backgroundSize: "28px 28px",
-          }}
-        />
-        <div className="max-w-3xl mx-auto px-6 py-16 text-center relative">
-          <FadeIn>
-            <h2 id="closing-cta-heading" className="font-display text-3xl sm:text-4xl font-extrabold leading-tight mb-4 tracking-tight">
-              Let&apos;s build safe, human-centered AI together.
-            </h2>
-            <p className="text-white/85 text-base max-w-xl mx-auto mb-8 leading-relaxed">
-              Open to director-level and principal AI experience design, human systems integration,
-              and accessibility leadership roles. Let&apos;s talk about your team&apos;s hardest problems.
-            </p>
-            <div className="flex gap-3 justify-center flex-wrap">
-              <button
-                onClick={() => setPage("contact")}
-                className="group inline-flex items-center justify-center gap-2 min-h-[44px] bg-white text-[rgb(var(--c-primary))] px-6 py-2.5 rounded-lg font-semibold text-sm shadow-lg shadow-black/10 hover:-translate-y-0.5 hover:shadow-xl hover:bg-[rgb(var(--c-accent-on-light))] hover:text-white transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
-              >
-                Get in touch <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
-              </button>
-              <a
-                href="/Senthil_Nagappan_Resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center justify-center gap-2 min-h-[44px] bg-white/10 border border-white/40 text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-white/20 hover:-translate-y-0.5 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--c-accent-light))] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--c-primary))]"
-              >
-                Download résumé (PDF)
-                <span aria-hidden="true" className="transition-transform group-hover:translate-y-0.5">↓</span>
-              </a>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
+      </EvidenceDisclosure>
     </div>
   );
 }
@@ -6896,7 +6853,7 @@ function About() {
               Senthil Nagappan
             </h1>
             <p className="text-[rgb(var(--c-accent-dark))] font-semibold text-sm mb-3">
-              Forward Deployed AI &amp; Human Systems Engineer
+              Forward-Deployed AI Product Engineer
             </p>
             <p className="text-gray-700 text-sm leading-relaxed mb-3">
               18+ years embedded with users, engineering, product, and client teams to deliver
@@ -7469,7 +7426,7 @@ function Resume() {
             <div>
               <h3 className="font-display text-lg font-bold text-gray-900 mb-1">Senthil Nagappan</h3>
               <p className="text-sm font-semibold text-[rgb(var(--c-accent-on-light))] mb-2">
-                Forward Deployed AI &amp; Human Systems Engineer
+                Forward-Deployed AI Product Engineer
               </p>
               <p className="text-[13px] text-gray-700">
                 <a
@@ -7773,8 +7730,8 @@ function Contact() {
           Get in Touch
         </h1>
         <p className="text-gray-700 text-base leading-relaxed mb-8 max-w-2xl">
-           Open to Director / Principal roles in Forward-Deployed AI Experience, AI Governance &amp;
-           Responsible AI, and Human Systems Integration — full-time, contract, or advisory. I
+           Open to Forward-Deployed AI Product Engineer and AI systems roles — with AI governance
+           and Human Factors as my edge — full-time, contract, or advisory. I
            embed with users, engineering, product, and risk teams, shipping inside the release
            cadence rather than reviewing from the outside.
         </p>
@@ -7789,7 +7746,7 @@ function Contact() {
             </h2>
             <ul className="list-none p-0 m-0 space-y-2">
               {[
-                "Director / Principal, Forward-Deployed AI Experience",
+                "Forward-Deployed AI Product Engineer",
                 "AI Governance & Responsible AI lead or consulting manager",
                 "Human Systems Integration / human factors leadership",
                 "Head of Accessibility or design-systems leadership in regulated delivery",
@@ -8044,12 +8001,13 @@ function Footer({
     );
   };
   const sectionItems: { id: string; label: string }[] = [
-    { id: "fde-experience", label: "FDE Experience" },
-    { id: "flagship-systems", label: "Systems" },
-    { id: "capabilities", label: "Capabilities" },
+    { id: "the-loop", label: "The Loop" },
+    { id: "projects", label: "Projects" },
+    { id: "experience", label: "Experience" },
     { id: "failure-modes", label: "Failure Modes" },
   ];
   const pageItems: { id: PageId; label: string }[] = [
+    { id: "approach", label: "Approach" },
     { id: "lab", label: "AI Concepts" },
     { id: "about", label: "About" },
     { id: "resume", label: "Résumé" },
@@ -8065,7 +8023,7 @@ function Footer({
         <div>
           <p className="font-bold text-white text-sm">Senthil Nagappan</p>
           <p className="text-white text-xs mt-1">
-             Forward Deployed AI &amp; Human Systems Engineer
+             Forward-Deployed AI Product Engineer
           </p>
           <ul className="flex flex-wrap gap-4 list-none p-0 m-0 mt-3">
             <li>
@@ -8132,13 +8090,13 @@ function Footer({
 }
 
 const PAGE_TITLES: Record<PageId, string> = {
-  home: "Senthil Nagappan — Forward Deployed AI & Human Systems Engineer",
+  home: "Senthil Nagappan — Forward-Deployed AI Product Engineer | Human-Centered AI, Accessibility, Human Factors",
   brand: "Brand Identity & Visual Systems — Senthil Nagappan",
   about: "About — Senthil Nagappan",
   approach: "Approach — Senthil Nagappan",
   resume: "Resume — Senthil Nagappan",
   contact: "Contact — Senthil Nagappan",
-  case: "Case Study — Senthil Nagappan",
+  case: "Case Study — Senthil Nagappan, Forward-Deployed AI Product Engineer",
   lab: "AI Concepts (Non-Deployed) — Senthil Nagappan",
   ssadeploy: "AI-Powered Accessibility & Compliance System at Enterprise Scale (SSA)",
   governance: "Designing the Last Mile of AI Governance",
@@ -8147,7 +8105,7 @@ const PAGE_TITLES: Record<PageId, string> = {
 };
 
 const PAGE_DESCRIPTIONS: Record<PageId, string> = {
-  home: "Senthil Nagappan — Forward Deployed AI & Human Systems Engineer. I embed with customers, find what's actually broken, build it, integrate it into their pipeline, and prove the outcome in regulated production.",
+  home: "Senthil Nagappan — Forward-Deployed AI Product Engineer. I embed with customers, find what's actually broken, build it, integrate it into their pipeline, and prove the outcome in regulated production.",
   brand: "Design systems & brand-consistent visual systems by Senthil Nagappan — shared components, design tokens, and on-brand UI that scale across consumer, healthcare, and enterprise products.",
 
   about: "About Senthil Nagappan — a forward-deployed AI experience and human systems leader with 18+ years across regulated environments.",
