@@ -36,9 +36,9 @@ export const CASE_STUDIES: CaseStudyType[] = [
   {
     id: "wcagtool",
     tag: "In-House Product · WCAG 2.2 AAA · Accessibility",
-    title: "WCAG AI Remediation Suite — AAA-Compliant Engine with AI Suggestions, Visual Cues & Fixes",
+    title: "WCAG AI Remediation Suite — Engine Checking A–AAA Criteria, with AI Suggestions, Visual Cues & Fixes",
     subtitle:
-      "Designed and built a standalone, AAA-compliant accessibility remediation tool that scans any URL or pasted HTML against 28 WCAG 2.2 criteria and returns visual code fixes, before/after examples, and a prioritized roadmap.",
+      "Designed and built a standalone (self-directed) accessibility remediation tool that scans any URL or pasted HTML against 28 WCAG 2.2 criteria and returns visual code fixes, before/after examples, and a prioritized roadmap.",
     hero: "from-[rgb(var(--c-hero-mid))] via-[rgb(var(--c-primary))] to-[rgb(var(--c-accent))]",
     image: caseWcagtool,
     role: "Product Owner · Accessibility Architect · Builder",
@@ -49,7 +49,7 @@ export const CASE_STUDIES: CaseStudyType[] = [
     liveLabel: "Launch the live tool",
     metrics: [
       { value: "28", label: "WCAG Criteria" },
-      { value: "AAA", label: "Compliance Level" },
+      { value: "AAA", label: "Design target (not assessed)" },
       { value: "3", label: "Conformance Tiers" },
     ],
     sections: [
@@ -90,7 +90,7 @@ export const CASE_STUDIES: CaseStudyType[] = [
       },
     ],
     outcomes: [
-      "Standalone tool achieving WCAG 2.2 AAA conformance — both in what it checks and how it's built",
+      "Standalone tool designed to AAA contrast and keyboard targets — not formally assessed for conformance",
       "28 success criteria covered across A, AA, and AAA in a single pass",
       "Reusable React + TypeScript component architecture on a single token layer — scalable and themeable",
       "Context-based state management keeps scans, filters, and roadmap in sync without prop-drilling",

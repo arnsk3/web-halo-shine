@@ -24,7 +24,7 @@ export const CASES: Case[] = [
       "Consolidated fragmented federal experiences into one unified visual system and accessible component library serving 50M+ users.",
     outcomes: [
       "Unified visual language across multiple SSA product lines",
-      "AAA-oriented accessible components adopted org-wide",
+      "Accessible components designed to AAA contrast targets (not formally assessed)",
       "30–40% fewer UI defects reported downstream",
     ],
     url: `${BASE}/work/ssa`,
@@ -109,7 +109,7 @@ export const CASES: Case[] = [
     category: "Accessibility · AI",
     role: "Product designer (self-initiated concept)",
     summary:
-      "AAA-compliant remediation engine that pairs static analysis with AI suggestions, visual cues, and one-click fixes for accessibility issues.",
+      "Self-directed remediation engine, checking A–AAA criteria, that pairs static analysis with AI suggestions, visual cues, and one-click fixes for accessibility issues.",
     outcomes: [
       "Portfolio-level accessibility dashboard",
       "AI suggestions grounded in WCAG success criteria",
