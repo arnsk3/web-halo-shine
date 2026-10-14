@@ -7723,7 +7723,7 @@ function Contact() {
     <div className="w-full max-w-[1600px] mx-auto px-[clamp(1.5rem,5vw,5rem)] py-[clamp(2rem,4vw,3.5rem)]">
       <FadeIn>
         <div className="inline-flex items-center gap-2 mb-3 rounded-full border border-[rgb(var(--c-tint-200))] bg-[rgb(var(--c-tint-50))] px-3 py-1 text-[11px] font-semibold text-[rgb(var(--c-accent-on-light))]">
-          <span aria-hidden="true" className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+          <span aria-hidden="true" className="h-2 w-2 rounded-full bg-[rgb(var(--c-success))] animate-pulse" />
           Available for new opportunities
         </div>
         <h1 className="text-3xl font-extrabold text-[rgb(var(--c-ink))] tracking-tight mb-2">
@@ -7792,7 +7792,7 @@ function Contact() {
             "Open to remote, hybrid (DMV / DFW), or relocation for the right team",
           ].map((x) => (
             <li key={x} className="flex items-start gap-2 text-[13px] text-[rgb(var(--c-copy))]">
-              <span aria-hidden="true" className="mt-0.5 text-emerald-600 font-bold">✓</span>
+              <span aria-hidden="true" className="mt-0.5 text-[rgb(var(--c-success))] font-bold">✓</span>
               <span className="leading-relaxed">{x}</span>
             </li>
           ))}
@@ -7862,7 +7862,7 @@ function Contact() {
                 ref={errorSummaryRef}
                 role="alert"
                 tabIndex={-1}
-                className="rounded-lg border border-red-400 bg-red-50 px-3 py-2 text-sm text-red-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-700"
+                className="rounded-lg border border-[rgb(var(--c-danger-line))] bg-[rgb(var(--c-danger-bg))] px-3 py-2 text-sm text-[rgb(var(--c-danger))] focus:outline-none focus-visible:ring-2 focus-visible:ring-red-700"
               >
                 {error}
               </div>
