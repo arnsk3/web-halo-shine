@@ -5915,8 +5915,8 @@ function About() {
   const stats = [
     { value: "18+", label: "Years of experience" },
     { value: "50M+", label: "Users impacted" },
-    { value: "$130M", label: "Programs led" },
-    { value: "AAA", label: "Accessibility built to" },
+    { value: "$130M", label: "Federal portfolio directed (SAMHSA behavioral-health programs)" },
+    { value: "WCAG 2.2 AA", label: "Accessibility target for this site · not formally assessed" },
   ];
 
   const skillGroups = [
@@ -6520,8 +6520,8 @@ function Resume() {
         <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
           {[
             { v: "18+ yrs", l: "Leading human-centered design across healthcare, federal, and regulated environments" },
-            { v: "$1.5M+", l: "Annual savings from SSA11y — AI-driven continuous accessibility validation" },
-            { v: "50M+", l: "Citizens served by SSA11y accessibility platform and design system" },
+            { v: "$1.5M+", l: "Estimated annual savings · SSA program outcome from AI-assisted accessibility validation" },
+            { v: "50M+", l: "Platform scope · citizens served by the SSA platform my team's design system supported" },
             { v: "Player-coach", l: "Lead the vision and design the hardest flows while mentoring and growing designers" },
           ].map((h) => (
             <div key={h.l} className="rounded-xl border border-[rgb(var(--c-line))] bg-[rgb(var(--c-paper))] p-5">
@@ -6654,7 +6654,7 @@ function Resume() {
                     bullets: [
                       "Worked forward-deployed inside federal program delivery, connecting caseworker needs, engineering constraints, accessibility policy, and monthly releases.",
                       "Built and governed an enterprise design system across 15+ modules serving 50M+ citizens.",
-                      "Traced 65% of interaction issues to 8 reused components; fixing them at the source saved an estimated $1.5M+ annually.",
+                      "Traced 65% of interaction issues to 8 reused components; fixing them at the source contributed to an estimated $1.5M+ in annual program savings (program outcome).",
                       "Drove WCAG 2.2 AA / Section 508 conformance across 40+ monthly releases, with automated accessibility gates in CI/CD (SSA11y).",
                       "Advised program leadership on accessibility policy, remediation prioritisation, and audit evidence across a $130M program portfolio.",
                       "Scaled and mentored a cross-functional design and accessibility team to 15+.",

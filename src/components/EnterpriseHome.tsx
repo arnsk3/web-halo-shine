@@ -109,7 +109,7 @@ const PROJECTS: { name: string; status: string; problem: string; built: string; 
   {
     name: "Lumen — Human-Centered Enterprise Knowledge Assistant", status: "Prototype · in build · self-directed",
     problem: "Employees can't tell whether an AI answer is actually supported by evidence.",
-    built: "Building a RAG assistant over an enterprise document corpus — Python ingestion/retrieval, LLM generation with source citations and explicit “insufficient evidence” handling, a retrieval + groundedness evaluation harness, and a keyboard/screen-reader-accessible interface.",
+    built: "In build — planned scope, not yet confirmed complete: a RAG assistant over an enterprise document corpus — Python ingestion/retrieval, LLM generation with source citations and explicit “insufficient evidence” handling, a retrieval + groundedness evaluation harness, and a keyboard/screen-reader-accessible interface.",
     tags: ["RAG", "Python", "LLM API", "Evaluation", "Accessibility"],
     caption: "Lumen pipeline: documents, chunking and embeddings, vector retrieval, LLM, grounding and evaluation, accessible UI, answer with citations and limitations.",
     flow: [{ label: "Documents", Icon: FileText }, { label: "Chunk & embed", Icon: Layers }, { label: "Vector retrieval", Icon: Database }, { label: "LLM", Icon: Bot }, { label: "Grounding & eval", Icon: Gauge }, { label: "Accessible UI", Icon: Accessibility }, { label: "Answer + citations + limits", Icon: CheckCircle2 }],
@@ -123,9 +123,9 @@ const PROJECTS: { name: string; status: string; problem: string; built: string; 
     flow: [{ label: "AI output", Icon: Bot }, { label: "Evidence check", Icon: Search }, { label: "Human review", Icon: Users }, { label: "Audit log", Icon: FileText }],
   },
   {
-    name: "Accessible AI Assistant — Visual-Assistance App", status: "Prototype · personally deployed · self-directed",
+    name: "Accessible AI Assistant — Visual-Assistance App", status: "Prototype · self-hosted by me as a public web app · self-directed",
     problem: "Blind and low-vision users need real-time help understanding their surroundings.",
-    built: "An end-to-end LLM app (React/TypeScript, serverless proxy to an LLM vision API) with real-time scene description, OCR, and product identification.",
+    built: "An end-to-end LLM app (React/TypeScript, serverless proxy to an LLM vision API) with real-time scene description, OCR, and product identification. “Deployed” means I host it as a public web app myself; there are no documented users, clinical use, or customers.",
     tags: ["LLM", "Accessibility", "React/TypeScript"],
     caption: "Visual-assistance data flow: phone camera, serverless proxy, LLM vision API, spoken description.",
     flow: [{ label: "Phone camera", Icon: MonitorSmartphone }, { label: "Serverless proxy", Icon: Plug }, { label: "LLM vision API", Icon: Bot }, { label: "Spoken description", Icon: Accessibility }],
@@ -149,7 +149,7 @@ const HF = [
 ];
 
 const CAPS2 = [
-  { title: "AI application development", Icon: Bot, items: ["Python", "TypeScript", "LLM APIs", "RAG"], proof: "Lumen (in build), visual-assistance app (deployed, self-directed)" },
+  { title: "AI application development", Icon: Bot, items: ["Python", "TypeScript", "LLM APIs", "RAG"], proof: "Lumen (in build), visual-assistance app (self-hosted prototype, self-directed)" },
   { title: "Enterprise integration", Icon: Plug, items: ["REST APIs", "Data modeling", "Auth", "Pipelines"], proof: "SSA CI/CD validation integration" },
   { title: "AI evaluation", Icon: Gauge, items: ["Groundedness", "Task success", "Regression testing"], proof: "Lumen evaluation harness, TrustLens evaluation suite (concept)" },
   { title: "Human-centered engineering", Icon: Accessibility, items: ["WCAG", "Assistive tech", "Human Factors", "Usability testing", "Risk assessment"], proof: "Best Buy Health 510(k) HF validation, SSA Section 508" },
@@ -257,7 +257,7 @@ export default function EnterpriseHome() {
       {/* 3. SSA */}
       <CaseBlock id="ssa-case" n="02" label="Implementation case study" org="SSA / Leidos" title="Federal accessibility automation in CI/CD"
         problem="Accessibility defects on a federal platform were found late, by manual audit, and kept recurring."
-        built="As product owner, I embedded AI-assisted accessibility validation into the CI/CD pipeline with human-in-the-loop review, and traced defect clustering to 8 reused components."
+        built="As product owner, I led the introduction of AI-assisted accessibility validation as a CI/CD release gate — defining the human-in-the-loop review workflow and gate criteria with engineering, who integrated it — and personally traced defect clustering to 8 reused components."
         outcome="65% of defects traced to 8 components; ~30% manual-audit reduction; $1.5M+ estimated annual savings."
         qual="Defect tracing is my direct contribution; audit reduction and savings are program outcomes on a platform serving 50M+ users. Shown at authorized disclosure level."
         img={imgSsa} flow={["Code commit", "Automated accessibility checks", "AI-assisted triage", "Human review (approve / fix)", "Component-level remediation", "Release gate"]} />
